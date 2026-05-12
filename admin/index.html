@@ -1317,6 +1317,20 @@ a{color:inherit;text-decoration:none}
 tr.row--draft{background:var(--row-draft-bg)}
 tr.row--draft td:first-child{box-shadow:inset 3px 0 0 var(--row-draft-edge)}
 
+/* Müşteri düzenledi → yeniden onay bekliyor (amber pill) */
+.re-onay-badge{
+  display:inline-block;font-size:10px;font-weight:600;letter-spacing:.04em;
+  padding:3px 8px;border-radius:999px;
+  background:#FFB84D;color:#5A3A0A;border:1px solid #C77A17;
+  margin-left:6px;vertical-align:middle;text-transform:uppercase;
+  cursor:help;
+}
+:root[data-theme="dark"] .re-onay-badge{background:#E89A1F;color:#1A0F00;border-color:#FFD27A}
+tr.row--re-onay{background:rgba(255,184,77,.10)}
+tr.row--re-onay td:first-child{box-shadow:inset 3px 0 0 #C77A17}
+@keyframes reOnayPulse{ 0%,100%{box-shadow:0 0 0 0 rgba(199,122,23,.45)} 50%{box-shadow:0 0 0 4px rgba(199,122,23,0)} }
+.re-onay-badge{animation:reOnayPulse 2.2s ease-in-out infinite}
+
 /* ─── ACCombobox (reusable autocomplete) ────────────── */
 .ac-combobox{position:relative;width:100%}
 .ac-combobox__input{width:100%}
@@ -2260,7 +2274,7 @@ tr.row--draft td:first-child{box-shadow:inset 3px 0 0 var(--row-draft-edge)}
 <!-- BOTL_INLINE_DATA_START — catalog_sync_data tarafından yenilenir, elle düzenleme -->
 <script>window.__BOTL_DATA__ = {
   "schema_version": 5,
-  "exported_at": "2026-05-12T23:13:25.530128+00:00",
+  "exported_at": "2026-05-12T23:51:47.450475+00:00",
   "counter": 46,
   "products": [
     {
@@ -4110,7 +4124,7 @@ tr.row--draft td:first-child{box-shadow:inset 3px 0 0 var(--row-draft-edge)}
       "isim": "Adam Johnson",
       "segment": "VIP",
       "kullanici_adi": "admin",
-      "sifre_hash": "d6a32e7ba9b76ac45940c51c1da0c1b2820362eea4fc7d83d76656d0a07729d3"
+      "sifre_hash": "be24876b915460e2fdf087acea3de9475adb215c3faf0df44c02642ca895c7ed"
     }
   ],
   "suppliers": [
@@ -4192,8 +4206,9 @@ tr.row--draft td:first-child{box-shadow:inset 3px 0 0 var(--row-draft-edge)}
       }
     }
   }
-};</script>
+}; window.__FRIDA_DATA__ = window.__BOTL_DATA__;</script>
 <!-- BOTL_INLINE_DATA_END -->
+
 
 <script src="data-inline.js" onerror="window.__BOTL_INLINE_MISSING__=true;"></script>
 
@@ -5232,18 +5247,21 @@ function approveOrder(orderId){
     }
   });
   const eskiDurum = o.durum;
+  const wasReOnay = !!o.re_onay_bekliyor;
   o.durum = 'ONAYLANDI';
   o.onaylama = new Date().toISOString();
   o.onay_ts = o.onaylama;
+  if(wasReOnay) o.re_onay_bekliyor = false;
   _bumpOrderVersion(o);
   _orderAuditPush(o, 'admin', 'durum', eskiDurum, 'ONAYLANDI');
+  if(wasReOnay) _orderAuditPush(o, 'admin', 're_onay_bekliyor', true, false);
   syncSiteOrderBack(o);
   save(); saveOrders();
   logActivity('ORDER_APPROVE', 'order', orderId,
-    `${orderId} onaylandı · ${fmt(o.toplam_eur)} · ${o.musteri?.ad_soyad||'müşteri yok'}`,
-    { items: o.items, toplam: o.toplam_eur });
+    `${orderId}${wasReOnay?' yeniden':''} onaylandı · ${fmt(o.toplam_eur)} · ${o.musteri?.ad_soyad||'müşteri yok'}`,
+    { items: o.items, toplam: o.toplam_eur, re_onay_bekliyor_idi: wasReOnay });
   renderAll();
-  toast(`${orderId} onaylandı · ${o.items.length} kalem rezerve edildi`);
+  toast(`${orderId}${wasReOnay?' yeniden':''} onaylandı · ${o.items.length} kalem rezerve edildi`);
 }
 
 function rejectOrder(orderId){
@@ -6059,13 +6077,17 @@ function renderOrdersTable(){
     const musteriAdi = c.ad_soyad || c.isim || o.musteri_adi || '—';
     const musteriMeta = [c.telefon, c.sehir||o.musteri_ulke, c.ulke||o.musteri_ulke].filter(Boolean).join(' · ');
     const toplamEur = Number(o.toplam_eur ?? o.tutar_dahil_eur ?? 0);
-    const draftCls = o._draft ? 'row--draft' : '';
+    const reOnay = !!o.re_onay_bekliyor && o.durum === 'BEKLIYOR';
+    const draftCls = (o._draft ? 'row--draft ' : '') + (reOnay ? 'row--re-onay' : '');
     const badge = o._draft
       ? ' <span class="draft-badge">taslak</span>'
       : (o._source === 'mcp' ? ' <span class="draft-badge draft-badge--live">MCP</span>' : '');
+    const reOnayBadge = reOnay
+      ? ' <span class="re-onay-badge" title="Müşteri düzenleme yaptı, sipariş yeniden onayınız bekleniyor.">Müşteri değiştirdi · yeniden onayla</span>'
+      : '';
     return `
       <tr data-id="${o.order_id}" class="${draftCls}">
-        <td><span class="table__sku">${o.order_id}</span>${badge}</td>
+        <td><span class="table__sku">${o.order_id}</span>${badge}${reOnayBadge}</td>
         <td>${fmtDate(o.olusturma)}</td>
         <td>
           <div class="order-row__customer">${musteriAdi}</div>
@@ -6161,7 +6183,8 @@ function openOrderModal(id){
     if(o.teslim_ts) tsBits.push(`Teslim: ${fmtDate(o.teslim_ts)}`);
     if(o.iptal_ts) tsBits.push(`İptal: ${fmtDate(o.iptal_ts)}`);
     title.textContent = `Sipariş ${o.order_id}`;
-    idBadge.textContent = `${tsBits.join(' · ')} · v${o.version || 1}`;
+    const reOnayNote = (o.re_onay_bekliyor && o.durum === 'BEKLIYOR') ? ' · MÜŞTERİ DEĞİŞTİRDİ' : '';
+    idBadge.textContent = `${tsBits.join(' · ')} · v${o.version || 1}${reOnayNote}`;
     statusBadge.textContent = DURUM_LABELS[o.durum] || o.durum;
     statusBadge.className = `order-status-badge order-status-badge--${o.durum}`;
     statusBadge.hidden = false;
@@ -8114,11 +8137,13 @@ async function init(){
   safeStep('storage-listener', () => {
     let lastPendingCount = 0;
     let lastTotalCount = 0;
+    let lastReOnayCount = 0;
     try {
       const initial = JSON.parse(localStorage.getItem('botl_pending_orders') || '[]');
       if(Array.isArray(initial)){
         lastTotalCount = initial.length;
         lastPendingCount = initial.filter(o => (o.durum||'BEKLIYOR') === 'BEKLIYOR').length;
+        lastReOnayCount = initial.filter(o => o.re_onay_bekliyor && (o.durum||'BEKLIYOR') === 'BEKLIYOR').length;
       }
     } catch {}
     const origTitle = document.title;
@@ -8164,18 +8189,25 @@ async function init(){
           if(Array.isArray(arr)){
             const newTotal = arr.length;
             const newPending = arr.filter(o => (o.durum||'BEKLIYOR') === 'BEKLIYOR').length;
+            const newReOnay = arr.filter(o => o.re_onay_bekliyor && (o.durum||'BEKLIYOR') === 'BEKLIYOR').length;
             // Yeni sipariş eklendi (toplam arttı)
             if(newTotal > lastTotalCount){
               const delta = newTotal - lastTotalCount;
               toast(`Yeni sipariş geldi — ${delta} adet · toplam ${newPending} BEKLEMEDE`);
               if(document.hidden){ flashTitle('• YENİ'); }
+            } else if(newReOnay > lastReOnayCount){
+              // Müşteri ONAYLI siparişi değiştirdi → admin yeniden onaylamalı
+              const delta = newReOnay - lastReOnayCount;
+              toast(`Müşteri ${delta} siparişi değiştirdi — yeniden onayınız bekleniyor`, true);
+              if(document.hidden){ flashTitle('• RE-ONAY'); }
             } else if(newPending > lastPendingCount){
-              // Müşteri tarafı qty update → BEKLIYOR'a geri düştü
+              // Yeni BEKLIYOR (örn. müşteri BEKLEMEDE'de qty değiştirdi)
               toast(`Sipariş güncellendi — ${newPending} BEKLEMEDE`);
               if(document.hidden){ flashTitle('• GÜNC'); }
             }
             lastTotalCount = newTotal;
             lastPendingCount = newPending;
+            lastReOnayCount = newReOnay;
           }
         } catch {}
         try { if(state.view === 'orders') renderOrdersTable(); } catch {}

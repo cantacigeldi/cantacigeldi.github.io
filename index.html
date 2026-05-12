@@ -744,6 +744,120 @@ a{color:inherit;text-decoration:none}
 .iade-modal__btn--primary:hover{opacity:.88}
 .iade-modal__btn:hover:not(.iade-modal__btn--primary){background:var(--bg-alt)}
 
+/* Siparişe ürün ekle modal — katalog grid'i reuse */
+.add-item-modal{
+  position:fixed;inset:0;z-index:1100;
+  display:flex;align-items:center;justify-content:center;
+  padding:16px;
+}
+.add-item-modal[hidden]{display:none}
+.add-item-modal__backdrop{position:absolute;inset:0;background:var(--backdrop)}
+.add-item-modal__panel{
+  position:relative;z-index:1;
+  background:var(--surface);
+  width:100%;max-width:960px;max-height:92vh;
+  display:flex;flex-direction:column;
+  box-shadow:var(--shadow-modal);
+}
+.add-item-modal__head{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:18px 22px 6px;
+}
+.add-item-modal__title{
+  font-family:var(--serif);font-size:22px;font-weight:500;
+  margin:0;
+}
+.add-item-modal__close{
+  width:34px;height:34px;
+  display:flex;align-items:center;justify-content:center;
+  background:transparent;color:var(--text-muted);
+  border:1px solid var(--border-strong);
+  font-size:22px;line-height:1;cursor:pointer;
+  transition:background .15s,color .15s,border-color .15s;
+}
+.add-item-modal__close:hover{background:var(--bg-alt);color:var(--text)}
+.add-item-modal__sub{
+  padding:0 22px;margin:0 0 10px;
+  font-size:12px;color:var(--text-muted);
+}
+.add-item-modal__search{padding:0 22px 12px}
+.add-item-modal__search input{
+  width:100%;padding:11px 14px;
+  background:var(--surface);
+  border:1px solid var(--border-strong);
+  color:var(--text);font-family:inherit;font-size:13px;
+}
+.add-item-modal__search input:focus{outline:2px solid var(--accent);outline-offset:-2px}
+.add-item-modal__body{
+  flex:1;overflow:auto;
+  padding:6px 22px 16px;
+}
+.add-item-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fill, minmax(180px, 1fr));
+  gap:12px;
+}
+.add-item-empty{
+  padding:30px 0;text-align:center;color:var(--text-muted);font-size:13px;
+}
+.add-item-card{
+  display:flex;flex-direction:column;
+  background:var(--surface);
+  border:1px solid var(--border);
+  text-align:left;padding:0;cursor:pointer;
+  transition:border-color .15s, transform .15s, box-shadow .15s;
+  position:relative;
+}
+.add-item-card:hover:not(:disabled){border-color:var(--accent);transform:translateY(-1px);box-shadow:0 6px 18px rgba(0,0,0,.08)}
+.add-item-card--disabled,.add-item-card:disabled{opacity:.45;cursor:not-allowed;filter:grayscale(.6)}
+.add-item-card__media{
+  width:100%;aspect-ratio:1/1;
+  background:var(--bg-alt);
+  overflow:hidden;display:flex;align-items:center;justify-content:center;
+}
+.add-item-card__media img{width:100%;height:100%;object-fit:cover}
+.add-item-card__body{padding:10px 12px 12px;display:flex;flex-direction:column;gap:3px}
+.add-item-card__brand{font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--text-muted)}
+.add-item-card__name{font-size:13px;color:var(--text);font-weight:500;line-height:1.3}
+.add-item-card__meta{font-size:11px;color:var(--text-muted)}
+.add-item-card__price{font-size:13px;color:var(--text);font-weight:500;margin-top:4px}
+.add-item-card__badge{
+  display:inline-block;align-self:flex-start;
+  font-size:10px;letter-spacing:.04em;
+  padding:3px 8px;margin-top:4px;
+  border-radius:999px;
+}
+.add-item-card__badge--ok{background:rgba(143,190,146,.18);color:#2A6A2D}
+.add-item-card__badge--oos{background:var(--bg-alt);color:var(--text-muted)}
+.add-item-card__badge--dup{background:rgba(232,200,104,.22);color:#7A5F12}
+.add-item-modal__foot{
+  display:flex;justify-content:flex-end;gap:10px;
+  padding:12px 22px 18px;
+  border-top:1px solid var(--border);
+}
+.add-item-modal__foot .btn-modal{
+  padding:10px 18px;
+  font-size:12px;letter-spacing:.06em;text-transform:uppercase;
+  border:1px solid var(--border-strong);background:transparent;color:var(--text);
+  cursor:pointer;transition:background .15s;
+}
+.add-item-modal__foot .btn-modal:hover{background:var(--bg-alt)}
+@media (max-width:640px){
+  .add-item-modal{padding:0}
+  .add-item-modal__panel{max-height:100vh;height:100vh}
+  .add-item-grid{grid-template-columns:repeat(2, 1fr);gap:10px}
+}
+
+/* "+ Ürün ekle" CTA (acct-order__btn--add) */
+.acct-order__btn--add{
+  background:transparent;
+  border:1px dashed var(--accent);
+  color:var(--accent);
+  display:inline-flex;align-items:center;gap:6px;
+}
+.acct-order__btn--add:hover{background:rgba(190,150,80,.08);border-style:solid}
+.acct-order__btn-plus{font-weight:600;font-size:14px;line-height:1}
+
 /* ─── Layout ───────────────────────────────────────── */
 .layout{
   max-width:1600px;margin:0 auto;
@@ -2684,6 +2798,28 @@ input,select,textarea{font-size:16px}
   </div>
 </main>
 
+<!-- ─── Siparişe ürün ekle modalı (katalog grid'i reuse) ─── -->
+<div class="add-item-modal" id="add-item-modal" hidden role="dialog" aria-modal="true" aria-labelledby="add-item-modal-title">
+  <div class="add-item-modal__backdrop" data-add-item-close></div>
+  <div class="add-item-modal__panel">
+    <div class="add-item-modal__head">
+      <h2 class="add-item-modal__title" id="add-item-modal-title">Siparişe ürün ekle</h2>
+      <button class="add-item-modal__close" type="button" data-add-item-close aria-label="Kapat">×</button>
+    </div>
+    <div class="add-item-modal__sub">Siparişinize eklemek istediğiniz ürünü seçin. Eklenince sipariş yeniden onay bekleyecek.</div>
+    <div class="add-item-modal__search">
+      <input id="add-item-search" type="search" placeholder="Marka, model, renk, varyasyon ara..." autocomplete="off" inputmode="search">
+    </div>
+    <div class="add-item-modal__body">
+      <div class="add-item-grid" id="add-item-grid"></div>
+      <div class="add-item-empty" id="add-item-empty" hidden>Aramanıza uygun ürün bulunamadı.</div>
+    </div>
+    <div class="add-item-modal__foot">
+      <button class="btn-modal" type="button" data-add-item-close>Vazgeç</button>
+    </div>
+  </div>
+</div>
+
 <!-- ─── İade modalı (sebep/kondisyon formu) ─── -->
 <div class="iade-modal" id="iade-modal" hidden role="dialog" aria-modal="true" aria-labelledby="iade-modal-title">
   <div class="iade-modal__backdrop" data-iade-close></div>
@@ -2744,7 +2880,7 @@ input,select,textarea{font-size:16px}
 <!-- BOTL_INLINE_DATA_START — catalog_sync_data tarafından yenilenir, elle düzenleme -->
 <script>window.__BOTL_DATA__ = {
   "schema_version": 5,
-  "exported_at": "2026-05-12T23:13:25.530128+00:00",
+  "exported_at": "2026-05-12T23:51:47.450475+00:00",
   "counter": 46,
   "products": [
     {
@@ -4594,7 +4730,7 @@ input,select,textarea{font-size:16px}
       "isim": "Adam Johnson",
       "segment": "VIP",
       "kullanici_adi": "admin",
-      "sifre_hash": "d6a32e7ba9b76ac45940c51c1da0c1b2820362eea4fc7d83d76656d0a07729d3"
+      "sifre_hash": "be24876b915460e2fdf087acea3de9475adb215c3faf0df44c02642ca895c7ed"
     }
   ],
   "suppliers": [
@@ -4676,8 +4812,9 @@ input,select,textarea{font-size:16px}
       }
     }
   }
-};</script>
+}; window.__FRIDA_DATA__ = window.__BOTL_DATA__;</script>
 <!-- BOTL_INLINE_DATA_END -->
+
 
 <script src="data-inline.js" onerror="window.__BOTL_INLINE_MISSING__=true;"></script>
 
@@ -5340,9 +5477,10 @@ if(typeof window !== 'undefined'){
 // ─── Auth + Session (Faz 1 — client-side, localStorage) ───────────
 const SESSION_KEY = 'botl_session';
 const ORDERS_KEY = 'botl_pending_orders';
-// FIX (2026-05): backend (botl_mcp/tools/customers.py _AUTH_SALT) ile aynı
-// kalmak zorunda. Mevcut müşteri hash'leri bu salt ile üretildi — değiştirme.
-const AUTH_SALT = 'frida_v1_';
+// SABIT (2026-05): backend (botl_mcp/tools/customers.py _AUTH_SALT) +
+// admin gate (admin/index.html AUTH_SALT_ADMIN) ile aynı. Tüm müşteri
+// hash'leri 'botl_v1_' salt ile üretiliyor — değiştirme.
+const AUTH_SALT = 'botl_v1_';
 
 async function hashPassword(plain){
   const buf = new TextEncoder().encode(AUTH_SALT + plain);
@@ -6485,6 +6623,20 @@ function init(){
   });
   _safeStep('iade-form-submit', () => _bindEl('#iade-form', 'submit', submitIade));
 
+  // Siparişe ürün ekle modal bindings
+  _safeStep('add-item-modal-close', () => {
+    $$('[data-add-item-close]').forEach(el => el.addEventListener('click', closeAddItemModal));
+  });
+  _safeStep('add-item-search-bind', () => {
+    const s = $('#add-item-search');
+    if(s) s.addEventListener('input', () => { if(_addItemContext) renderAddItemModal(); });
+  });
+  _safeStep('add-item-esc-key', () => {
+    document.addEventListener('keydown', (e) => {
+      if(e.key === 'Escape' && _addItemContext) closeAddItemModal();
+    });
+  });
+
   // Auth bindings
   _safeStep('initAuthBindings', () => initAuthBindings());
   _safeStep('refreshAuthUI', () => refreshAuthUI());
@@ -7124,6 +7276,13 @@ function renderAccountOrders(){
         e.stopPropagation();
         const oid = el.getAttribute('data-order-edit-addr');
         editOrderAddressNote(oid);
+      });
+    });
+    list.querySelectorAll('[data-order-add-item]').forEach(el => {
+      el.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const oid = el.getAttribute('data-order-add-item');
+        openAddItemModal(oid);
       });
     });
     list.querySelectorAll('[data-qty-delta]').forEach(el => {

@@ -1,6 +1,6 @@
 {
   "schema_version": 5,
-  "exported_at": "2026-05-12T23:13:25.530128+00:00",
+  "exported_at": "2026-05-12T23:51:47.450475+00:00",
   "counter": 46,
   "products": [
     {
@@ -1850,7 +1850,7 @@
       "isim": "Adam Johnson",
       "segment": "VIP",
       "kullanici_adi": "admin",
-      "sifre_hash": "d6a32e7ba9b76ac45940c51c1da0c1b2820362eea4fc7d83d76656d0a07729d3"
+      "sifre_hash": "be24876b915460e2fdf087acea3de9475adb215c3faf0df44c02642ca895c7ed"
     }
   ],
   "suppliers": [
