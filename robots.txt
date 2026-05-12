@@ -1,0 +1,5 @@
+User-agent: *
+Disallow: /
+
+# Bags of the Loom — özel katalog, indekslenmesini istemiyoruz.
+# Sadece doğrudan link paylaşımıyla erişilebilir.
