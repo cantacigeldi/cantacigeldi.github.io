@@ -2426,6 +2426,7 @@ input,select,textarea{font-size:16px}
     </header>
     <div class="account-modal__tabs" role="tablist">
       <button class="account-modal__tab active" data-acct-tab="profile" role="tab" aria-selected="true">Bilgilerim</button>
+      <button class="account-modal__tab" data-acct-tab="password" role="tab" aria-selected="false">Parola</button>
       <button class="account-modal__tab" data-acct-tab="orders" role="tab" aria-selected="false">Siparişlerim <span id="acct-orders-count"></span></button>
     </div>
     <div class="account-modal__body">
@@ -2435,12 +2436,12 @@ input,select,textarea{font-size:16px}
           <div class="acct-form__row">
             <div class="acct-form__field">
               <label class="acct-form__label" for="acct-isim">İsim</label>
-              <input class="acct-form__input" id="acct-isim" name="isim" type="text" readonly>
-              <span class="acct-form__hint">Bu bilgiyi değiştirmek için yöneticinizle iletişim kurun.</span>
+              <input class="acct-form__input" id="acct-isim" name="isim" type="text" required>
             </div>
             <div class="acct-form__field">
               <label class="acct-form__label" for="acct-kullanici">Kullanıcı Adı</label>
-              <input class="acct-form__input" id="acct-kullanici" name="kullanici_adi" type="text" readonly>
+              <input class="acct-form__input" id="acct-kullanici" name="kullanici_adi" type="text" required pattern="[a-z0-9._-]{3,30}" title="3-30 karakter, küçük harf/rakam/._-">
+              <span class="acct-form__hint">Sadece küçük harf, rakam, nokta, alt çizgi, tire.</span>
             </div>
           </div>
           <div class="acct-form__row">
@@ -2475,6 +2476,31 @@ input,select,textarea{font-size:16px}
             <button type="button" class="acct-form__btn acct-form__btn--secondary" id="acct-reset">Sıfırla</button>
             <button type="submit" class="acct-form__btn acct-form__btn--primary">Kaydet</button>
           </div>
+        </form>
+      </section>
+      <!-- PAROLA -->
+      <section class="account-modal__section" data-acct-section="password">
+        <form class="acct-form" id="acct-password-form" autocomplete="off">
+          <div class="acct-form__field">
+            <label class="acct-form__label" for="acct-eski-sifre">Mevcut Parola</label>
+            <input class="acct-form__input" id="acct-eski-sifre" name="eski_sifre" type="password" required autocomplete="current-password">
+          </div>
+          <div class="acct-form__field">
+            <label class="acct-form__label" for="acct-yeni-sifre">Yeni Parola</label>
+            <input class="acct-form__input" id="acct-yeni-sifre" name="yeni_sifre" type="password" required minlength="6" autocomplete="new-password">
+            <span class="acct-form__hint">En az 6 karakter.</span>
+          </div>
+          <div class="acct-form__field">
+            <label class="acct-form__label" for="acct-yeni-sifre-2">Yeni Parola (Tekrar)</label>
+            <input class="acct-form__input" id="acct-yeni-sifre-2" name="yeni_sifre_2" type="password" required minlength="6" autocomplete="new-password">
+          </div>
+          <div class="acct-form__actions">
+            <button type="submit" class="acct-form__btn acct-form__btn--primary">Parolayı Güncelle</button>
+          </div>
+          <p class="acct-form__hint" style="margin-top:12px;font-size:11px">
+            Güvenlik: parolan SHA-256 ile hashlenir, plaintext olarak hiçbir yerde saklanmaz.
+            Tüm değişiklikler yöneticinin audit log'una yazılır.
+          </p>
         </form>
       </section>
       <!-- SİPARİŞLERİM -->
@@ -2718,32 +2744,45 @@ input,select,textarea{font-size:16px}
 <!-- BOTL_INLINE_DATA_START — catalog_sync_data tarafından yenilenir, elle düzenleme -->
 <script>window.__BOTL_DATA__ = {
   "schema_version": 5,
-  "exported_at": "2026-05-12T22:55:54.534432+00:00",
+  "exported_at": "2026-05-12T23:13:25.530128+00:00",
   "counter": 46,
   "products": [
     {
       "variation_id": "FR-00001-MARRON_FONCE-NANO-GOLD",
       "sku": "FR-00001",
+      "no": 1,
       "slug": "lv-speedy-nano-classic-dark-brown",
       "cover": "assets/products/lv-speedy-nano-classic-dark-brown.jpg",
       "isim_resmi": "",
       "isim_bilinen": "LV Speedy Nano",
       "marka": "Louis Vuitton",
-      "kategori": "",
-      "kategori_ust": "",
-      "kategori_alt": "",
+      "kategori": "MINI",
+      "kategori_ust": "CANTA",
+      "kategori_alt": "MINI",
+      "ana_renk": "Koyu Kahve",
+      "ana_renk_hex": "#3d2817",
+      "ikincil_renk": "Bal Bej",
+      "ikincil_renk_hex": "#c9a76e",
+      "ana_malzeme": "Kanvas",
+      "desen": "Monogram",
+      "donanim_rengi": "Altın",
+      "stil": "Mini",
+      "sapli_sapsiz": "Saplı",
       "renk": "MARRON_FONCE",
-      "renk_hex": "#9c9794",
+      "renk_hex": "#3d2817",
       "boyut": "NANO",
       "donanim": "GOLD",
-      "deri_tipi": "",
-      "sezon": "",
+      "deri_tipi": "Kanvas",
+      "sezon": "SS26",
       "fiyat_eur": 1950.0,
+      "ek_ucret_eur": 0.0,
+      "maliyet_eur": 0.0,
       "total_stok": 1,
       "occupied_stok": 0,
       "available_stok": 1,
       "stok": 1,
       "kondisyon": "BNIB",
+      "kondisyon_label": "Sıfır",
       "aciklama": "",
       "tedarikci_id": null,
       "olusturma": "2026-05-13"
@@ -2751,26 +2790,39 @@ input,select,textarea{font-size:16px}
     {
       "variation_id": "FR-00001-MARRON_CLAIR-NANO-GOLD",
       "sku": "FR-00001",
+      "no": 2,
       "slug": "lv-speedy-nano-classic-light-brown",
       "cover": "assets/products/lv-speedy-nano-classic-light-brown.jpg",
       "isim_resmi": "",
       "isim_bilinen": "LV Speedy Nano",
       "marka": "Louis Vuitton",
-      "kategori": "",
-      "kategori_ust": "",
-      "kategori_alt": "",
+      "kategori": "MINI",
+      "kategori_ust": "CANTA",
+      "kategori_alt": "MINI",
+      "ana_renk": "Açık Kahve",
+      "ana_renk_hex": "#7b5a3a",
+      "ikincil_renk": "Krem",
+      "ikincil_renk_hex": "#e8d4b0",
+      "ana_malzeme": "Kanvas",
+      "desen": "Monogram",
+      "donanim_rengi": "Altın",
+      "stil": "Mini",
+      "sapli_sapsiz": "Saplı",
       "renk": "MARRON_CLAIR",
-      "renk_hex": "#9c9794",
+      "renk_hex": "#7b5a3a",
       "boyut": "NANO",
       "donanim": "GOLD",
-      "deri_tipi": "",
-      "sezon": "",
+      "deri_tipi": "Kanvas",
+      "sezon": "SS26",
       "fiyat_eur": 1950.0,
+      "ek_ucret_eur": 0.0,
+      "maliyet_eur": 0.0,
       "total_stok": 1,
       "occupied_stok": 0,
       "available_stok": 1,
       "stok": 1,
       "kondisyon": "BNIB",
+      "kondisyon_label": "Sıfır",
       "aciklama": "",
       "tedarikci_id": null,
       "olusturma": "2026-05-13"
@@ -2778,26 +2830,39 @@ input,select,textarea{font-size:16px}
     {
       "variation_id": "FR-00001-DENIM_DARK-NANO-GOLD",
       "sku": "FR-00001",
+      "no": 3,
       "slug": "lv-speedy-nano-classic-jeans-dark",
       "cover": "assets/products/lv-speedy-nano-classic-jeans-dark.jpg",
       "isim_resmi": "",
       "isim_bilinen": "LV Speedy Nano",
       "marka": "Louis Vuitton",
-      "kategori": "",
-      "kategori_ust": "",
-      "kategori_alt": "",
+      "kategori": "MINI",
+      "kategori_ust": "CANTA",
+      "kategori_alt": "MINI",
+      "ana_renk": "Mavi",
+      "ana_renk_hex": "#2d3e58",
+      "ikincil_renk": "Krem",
+      "ikincil_renk_hex": "#e8d4b0",
+      "ana_malzeme": "Denim",
+      "desen": "Monogram",
+      "donanim_rengi": "Altın",
+      "stil": "Mini",
+      "sapli_sapsiz": "Saplı",
       "renk": "DENIM_DARK",
-      "renk_hex": "#9c9794",
+      "renk_hex": "#2d3e58",
       "boyut": "NANO",
       "donanim": "GOLD",
-      "deri_tipi": "",
-      "sezon": "",
+      "deri_tipi": "Denim",
+      "sezon": "SS26",
       "fiyat_eur": 2200.0,
+      "ek_ucret_eur": 250.0,
+      "maliyet_eur": 0.0,
       "total_stok": 1,
       "occupied_stok": 0,
       "available_stok": 1,
       "stok": 1,
       "kondisyon": "BNIB",
+      "kondisyon_label": "Sıfır",
       "aciklama": "",
       "tedarikci_id": null,
       "olusturma": "2026-05-13"
@@ -2805,26 +2870,39 @@ input,select,textarea{font-size:16px}
     {
       "variation_id": "FR-00001-DENIM_LIGHT-NANO-GOLD",
       "sku": "FR-00001",
+      "no": 4,
       "slug": "lv-speedy-nano-classic-jeans-light",
       "cover": "assets/products/lv-speedy-nano-classic-jeans-light.jpg",
       "isim_resmi": "",
       "isim_bilinen": "LV Speedy Nano",
       "marka": "Louis Vuitton",
-      "kategori": "",
-      "kategori_ust": "",
-      "kategori_alt": "",
+      "kategori": "MINI",
+      "kategori_ust": "CANTA",
+      "kategori_alt": "MINI",
+      "ana_renk": "Açık Mavi",
+      "ana_renk_hex": "#7a96b8",
+      "ikincil_renk": "Krem",
+      "ikincil_renk_hex": "#e8d4b0",
+      "ana_malzeme": "Denim",
+      "desen": "Monogram",
+      "donanim_rengi": "Altın",
+      "stil": "Mini",
+      "sapli_sapsiz": "Saplı",
       "renk": "DENIM_LIGHT",
-      "renk_hex": "#9c9794",
+      "renk_hex": "#7a96b8",
       "boyut": "NANO",
       "donanim": "GOLD",
-      "deri_tipi": "",
-      "sezon": "",
+      "deri_tipi": "Denim",
+      "sezon": "SS26",
       "fiyat_eur": 2200.0,
+      "ek_ucret_eur": 250.0,
+      "maliyet_eur": 0.0,
       "total_stok": 1,
       "occupied_stok": 0,
       "available_stok": 1,
       "stok": 1,
       "kondisyon": "BNIB",
+      "kondisyon_label": "Sıfır",
       "aciklama": "",
       "tedarikci_id": null,
       "olusturma": "2026-05-13"
@@ -2832,26 +2910,39 @@ input,select,textarea{font-size:16px}
     {
       "variation_id": "FR-00001-DAMIER_NOIR-NANO-SILVER",
       "sku": "FR-00001",
+      "no": 5,
       "slug": "lv-speedy-nano-checkered-black",
       "cover": "assets/products/lv-speedy-nano-checkered-black.jpg",
       "isim_resmi": "",
       "isim_bilinen": "LV Speedy Nano",
       "marka": "Louis Vuitton",
-      "kategori": "",
-      "kategori_ust": "",
-      "kategori_alt": "",
+      "kategori": "MINI",
+      "kategori_ust": "CANTA",
+      "kategori_alt": "MINI",
+      "ana_renk": "Siyah",
+      "ana_renk_hex": "#1a1a1a",
+      "ikincil_renk": "Gri",
+      "ikincil_renk_hex": "#4a4a4a",
+      "ana_malzeme": "Kanvas",
+      "desen": "Damier",
+      "donanim_rengi": "Gümüş",
+      "stil": "Mini",
+      "sapli_sapsiz": "Saplı",
       "renk": "DAMIER_NOIR",
-      "renk_hex": "#9c9794",
+      "renk_hex": "#1a1a1a",
       "boyut": "NANO",
       "donanim": "SILVER",
-      "deri_tipi": "",
-      "sezon": "",
+      "deri_tipi": "Kanvas",
+      "sezon": "SS26",
       "fiyat_eur": 2000.0,
+      "ek_ucret_eur": 50.0,
+      "maliyet_eur": 0.0,
       "total_stok": 1,
       "occupied_stok": 0,
       "available_stok": 1,
       "stok": 1,
       "kondisyon": "BNIB",
+      "kondisyon_label": "Sıfır",
       "aciklama": "",
       "tedarikci_id": null,
       "olusturma": "2026-05-13"
@@ -2859,26 +2950,39 @@ input,select,textarea{font-size:16px}
     {
       "variation_id": "FR-00001-DAMIER_AZUR-NANO-GOLD",
       "sku": "FR-00001",
+      "no": 6,
       "slug": "lv-speedy-nano-checkered-beige",
       "cover": "assets/products/lv-speedy-nano-checkered-beige.jpg",
       "isim_resmi": "",
       "isim_bilinen": "LV Speedy Nano",
       "marka": "Louis Vuitton",
-      "kategori": "",
-      "kategori_ust": "",
-      "kategori_alt": "",
+      "kategori": "MINI",
+      "kategori_ust": "CANTA",
+      "kategori_alt": "MINI",
+      "ana_renk": "Krem",
+      "ana_renk_hex": "#e8d4b0",
+      "ikincil_renk": "Beyaz",
+      "ikincil_renk_hex": "#f0e0c8",
+      "ana_malzeme": "Kanvas",
+      "desen": "Damier",
+      "donanim_rengi": "Altın",
+      "stil": "Mini",
+      "sapli_sapsiz": "Saplı",
       "renk": "DAMIER_AZUR",
-      "renk_hex": "#9c9794",
+      "renk_hex": "#e8d4b0",
       "boyut": "NANO",
       "donanim": "GOLD",
-      "deri_tipi": "",
-      "sezon": "",
+      "deri_tipi": "Kanvas",
+      "sezon": "SS26",
       "fiyat_eur": 2000.0,
+      "ek_ucret_eur": 50.0,
+      "maliyet_eur": 0.0,
       "total_stok": 1,
       "occupied_stok": 0,
       "available_stok": 1,
       "stok": 1,
       "kondisyon": "BNIB",
+      "kondisyon_label": "Sıfır",
       "aciklama": "",
       "tedarikci_id": null,
       "olusturma": "2026-05-13"
@@ -2886,26 +2990,39 @@ input,select,textarea{font-size:16px}
     {
       "variation_id": "FR-00001-DENIM_NOIR-NANO-GOLD",
       "sku": "FR-00001",
+      "no": 7,
       "slug": "lv-speedy-nano-classic-jeans-black",
       "cover": "assets/products/lv-speedy-nano-classic-jeans-black.jpg",
       "isim_resmi": "",
       "isim_bilinen": "LV Speedy Nano",
       "marka": "Louis Vuitton",
-      "kategori": "",
-      "kategori_ust": "",
-      "kategori_alt": "",
+      "kategori": "MINI",
+      "kategori_ust": "CANTA",
+      "kategori_alt": "MINI",
+      "ana_renk": "Siyah",
+      "ana_renk_hex": "#1a1a1a",
+      "ikincil_renk": "Krem",
+      "ikincil_renk_hex": "#e8d4b0",
+      "ana_malzeme": "Denim",
+      "desen": "Monogram",
+      "donanim_rengi": "Altın",
+      "stil": "Mini",
+      "sapli_sapsiz": "Saplı",
       "renk": "DENIM_NOIR",
-      "renk_hex": "#9c9794",
+      "renk_hex": "#1a1a1a",
       "boyut": "NANO",
       "donanim": "GOLD",
-      "deri_tipi": "",
-      "sezon": "",
+      "deri_tipi": "Denim",
+      "sezon": "SS26",
       "fiyat_eur": 2200.0,
+      "ek_ucret_eur": 250.0,
+      "maliyet_eur": 0.0,
       "total_stok": 1,
       "occupied_stok": 0,
       "available_stok": 1,
       "stok": 1,
       "kondisyon": "BNIB",
+      "kondisyon_label": "Sıfır",
       "aciklama": "",
       "tedarikci_id": null,
       "olusturma": "2026-05-13"
@@ -2913,26 +3030,39 @@ input,select,textarea{font-size:16px}
     {
       "variation_id": "FR-00001-BLANC-NANO-GOLD",
       "sku": "FR-00001",
+      "no": 8,
       "slug": "lv-speedy-nano-classic-white",
       "cover": "assets/products/lv-speedy-nano-classic-white.jpg",
       "isim_resmi": "",
       "isim_bilinen": "LV Speedy Nano",
       "marka": "Louis Vuitton",
-      "kategori": "",
-      "kategori_ust": "",
-      "kategori_alt": "",
+      "kategori": "MINI",
+      "kategori_ust": "CANTA",
+      "kategori_alt": "MINI",
+      "ana_renk": "Beyaz",
+      "ana_renk_hex": "#f8f5f0",
+      "ikincil_renk": "Krem",
+      "ikincil_renk_hex": "#e8d4b0",
+      "ana_malzeme": "Kanvas",
+      "desen": "Monogram",
+      "donanim_rengi": "Altın",
+      "stil": "Mini",
+      "sapli_sapsiz": "Saplı",
       "renk": "BLANC",
-      "renk_hex": "#f5f1ea",
+      "renk_hex": "#f8f5f0",
       "boyut": "NANO",
       "donanim": "GOLD",
-      "deri_tipi": "",
-      "sezon": "",
+      "deri_tipi": "Kanvas",
+      "sezon": "SS26",
       "fiyat_eur": 2100.0,
+      "ek_ucret_eur": 150.0,
+      "maliyet_eur": 0.0,
       "total_stok": 1,
       "occupied_stok": 0,
       "available_stok": 1,
       "stok": 1,
       "kondisyon": "BNIB",
+      "kondisyon_label": "Sıfır",
       "aciklama": "",
       "tedarikci_id": null,
       "olusturma": "2026-05-13"
@@ -2940,26 +3070,39 @@ input,select,textarea{font-size:16px}
     {
       "variation_id": "FR-00001-NOIR_PRINTED-NANO-GOLD",
       "sku": "FR-00001",
+      "no": 9,
       "slug": "lv-speedy-nano-classic-printed-black",
       "cover": "assets/products/lv-speedy-nano-classic-printed-black.jpg",
       "isim_resmi": "",
       "isim_bilinen": "LV Speedy Nano",
       "marka": "Louis Vuitton",
-      "kategori": "",
-      "kategori_ust": "",
-      "kategori_alt": "",
+      "kategori": "MINI",
+      "kategori_ust": "CANTA",
+      "kategori_alt": "MINI",
+      "ana_renk": "Siyah",
+      "ana_renk_hex": "#1a1a1a",
+      "ikincil_renk": "Renkli",
+      "ikincil_renk_hex": "#d4a050",
+      "ana_malzeme": "Kanvas",
+      "desen": "Baskılı",
+      "donanim_rengi": "Altın",
+      "stil": "Mini",
+      "sapli_sapsiz": "Saplı",
       "renk": "NOIR_PRINTED",
-      "renk_hex": "#9c9794",
+      "renk_hex": "#1a1a1a",
       "boyut": "NANO",
       "donanim": "GOLD",
-      "deri_tipi": "",
-      "sezon": "",
+      "deri_tipi": "Kanvas",
+      "sezon": "SS26",
       "fiyat_eur": 2250.0,
+      "ek_ucret_eur": 300.0,
+      "maliyet_eur": 0.0,
       "total_stok": 1,
       "occupied_stok": 0,
       "available_stok": 1,
       "stok": 1,
       "kondisyon": "BNIB",
+      "kondisyon_label": "Sıfır",
       "aciklama": "",
       "tedarikci_id": null,
       "olusturma": "2026-05-13"
@@ -2967,26 +3110,39 @@ input,select,textarea{font-size:16px}
     {
       "variation_id": "FR-00002-MARRON_FONCE-STANDART-GOLD",
       "sku": "FR-00002",
+      "no": 10,
       "slug": "gucci-ophidia-kayik-dark-brown",
       "cover": "assets/products/gucci-ophidia-kayik-dark-brown.jpg",
       "isim_resmi": "",
       "isim_bilinen": "Gucci Ophidia",
       "marka": "Gucci",
-      "kategori": "",
-      "kategori_ust": "",
-      "kategori_alt": "",
+      "kategori": "SHOULDER",
+      "kategori_ust": "CANTA",
+      "kategori_alt": "SHOULDER",
+      "ana_renk": "Koyu Kahve",
+      "ana_renk_hex": "#3d2817",
+      "ikincil_renk": "Kahve",
+      "ikincil_renk_hex": "#5c3a1e",
+      "ana_malzeme": "Kanvas",
+      "desen": "Monogram",
+      "donanim_rengi": "Altın",
+      "stil": "Omuz",
+      "sapli_sapsiz": "Saplı",
       "renk": "MARRON_FONCE",
-      "renk_hex": "#9c9794",
+      "renk_hex": "#3d2817",
       "boyut": "STANDART",
       "donanim": "GOLD",
-      "deri_tipi": "",
-      "sezon": "",
+      "deri_tipi": "Kanvas",
+      "sezon": "SS26",
       "fiyat_eur": 1100.0,
+      "ek_ucret_eur": 0.0,
+      "maliyet_eur": 0.0,
       "total_stok": 1,
       "occupied_stok": 0,
       "available_stok": 1,
       "stok": 1,
       "kondisyon": "BNIB",
+      "kondisyon_label": "Sıfır",
       "aciklama": "",
       "tedarikci_id": null,
       "olusturma": "2026-05-13"
@@ -2994,26 +3150,39 @@ input,select,textarea{font-size:16px}
     {
       "variation_id": "FR-00002-SNUFF_TABA-STANDART-GOLD",
       "sku": "FR-00002",
+      "no": 11,
       "slug": "gucci-ophidia-kayik-snuff-taba",
       "cover": "assets/products/gucci-ophidia-kayik-snuff-taba.jpg",
       "isim_resmi": "",
       "isim_bilinen": "Gucci Ophidia",
       "marka": "Gucci",
-      "kategori": "",
-      "kategori_ust": "",
-      "kategori_alt": "",
+      "kategori": "SHOULDER",
+      "kategori_ust": "CANTA",
+      "kategori_alt": "SHOULDER",
+      "ana_renk": "Taba",
+      "ana_renk_hex": "#b08560",
+      "ikincil_renk": "Bal Bej",
+      "ikincil_renk_hex": "#c9a76e",
+      "ana_malzeme": "Kanvas",
+      "desen": "Monogram",
+      "donanim_rengi": "Altın",
+      "stil": "Omuz",
+      "sapli_sapsiz": "Saplı",
       "renk": "SNUFF_TABA",
-      "renk_hex": "#9c9794",
+      "renk_hex": "#b08560",
       "boyut": "STANDART",
       "donanim": "GOLD",
-      "deri_tipi": "",
-      "sezon": "",
+      "deri_tipi": "Kanvas",
+      "sezon": "SS26",
       "fiyat_eur": 1100.0,
+      "ek_ucret_eur": 0.0,
+      "maliyet_eur": 0.0,
       "total_stok": 1,
       "occupied_stok": 0,
       "available_stok": 1,
       "stok": 1,
       "kondisyon": "BNIB",
+      "kondisyon_label": "Sıfır",
       "aciklama": "",
       "tedarikci_id": null,
       "olusturma": "2026-05-13"
@@ -3021,26 +3190,39 @@ input,select,textarea{font-size:16px}
     {
       "variation_id": "FR-00002-BEIGE_NOIR-STANDART-GOLD",
       "sku": "FR-00002",
+      "no": 12,
       "slug": "gucci-ophidia-kayik-beige-black",
       "cover": "assets/products/gucci-ophidia-kayik-beige-black.jpg",
       "isim_resmi": "",
       "isim_bilinen": "Gucci Ophidia",
       "marka": "Gucci",
-      "kategori": "",
-      "kategori_ust": "",
-      "kategori_alt": "",
+      "kategori": "SHOULDER",
+      "kategori_ust": "CANTA",
+      "kategori_alt": "SHOULDER",
+      "ana_renk": "Bej",
+      "ana_renk_hex": "#d4b890",
+      "ikincil_renk": "Siyah",
+      "ikincil_renk_hex": "#1a1a1a",
+      "ana_malzeme": "Kanvas",
+      "desen": "Monogram",
+      "donanim_rengi": "Altın",
+      "stil": "Omuz",
+      "sapli_sapsiz": "Saplı",
       "renk": "BEIGE_NOIR",
-      "renk_hex": "#9c9794",
+      "renk_hex": "#d4b890",
       "boyut": "STANDART",
       "donanim": "GOLD",
-      "deri_tipi": "",
-      "sezon": "",
+      "deri_tipi": "Kanvas",
+      "sezon": "SS26",
       "fiyat_eur": 1150.0,
+      "ek_ucret_eur": 50.0,
+      "maliyet_eur": 0.0,
       "total_stok": 1,
       "occupied_stok": 0,
       "available_stok": 1,
       "stok": 1,
       "kondisyon": "BNIB",
+      "kondisyon_label": "Sıfır",
       "aciklama": "",
       "tedarikci_id": null,
       "olusturma": "2026-05-13"
@@ -3048,26 +3230,39 @@ input,select,textarea{font-size:16px}
     {
       "variation_id": "FR-00002-VIZON_CLAIR-STANDART-GOLD",
       "sku": "FR-00002",
+      "no": 13,
       "slug": "gucci-ophidia-kayik-light-mink-vizon",
       "cover": "assets/products/gucci-ophidia-kayik-light-mink-vizon.jpg",
       "isim_resmi": "",
       "isim_bilinen": "Gucci Ophidia",
       "marka": "Gucci",
-      "kategori": "",
-      "kategori_ust": "",
-      "kategori_alt": "",
+      "kategori": "SHOULDER",
+      "kategori_ust": "CANTA",
+      "kategori_alt": "SHOULDER",
+      "ana_renk": "Vizon",
+      "ana_renk_hex": "#6e5239",
+      "ikincil_renk": "Krem",
+      "ikincil_renk_hex": "#e8d4b0",
+      "ana_malzeme": "Kanvas",
+      "desen": "Monogram",
+      "donanim_rengi": "Altın",
+      "stil": "Omuz",
+      "sapli_sapsiz": "Saplı",
       "renk": "VIZON_CLAIR",
-      "renk_hex": "#9c9794",
+      "renk_hex": "#6e5239",
       "boyut": "STANDART",
       "donanim": "GOLD",
-      "deri_tipi": "",
-      "sezon": "",
+      "deri_tipi": "Kanvas",
+      "sezon": "SS26",
       "fiyat_eur": 1200.0,
+      "ek_ucret_eur": 100.0,
+      "maliyet_eur": 0.0,
       "total_stok": 1,
       "occupied_stok": 0,
       "available_stok": 1,
       "stok": 1,
       "kondisyon": "BNIB",
+      "kondisyon_label": "Sıfır",
       "aciklama": "",
       "tedarikci_id": null,
       "olusturma": "2026-05-13"
@@ -3075,26 +3270,39 @@ input,select,textarea{font-size:16px}
     {
       "variation_id": "FR-00002-ROSE_CLAIR-STANDART-GOLD",
       "sku": "FR-00002",
+      "no": 14,
       "slug": "gucci-ophidia-kayik-light-rose-pembe",
       "cover": "assets/products/gucci-ophidia-kayik-light-rose-pembe.jpg",
       "isim_resmi": "",
       "isim_bilinen": "Gucci Ophidia",
       "marka": "Gucci",
-      "kategori": "",
-      "kategori_ust": "",
-      "kategori_alt": "",
+      "kategori": "SHOULDER",
+      "kategori_ust": "CANTA",
+      "kategori_alt": "SHOULDER",
+      "ana_renk": "Pembe",
+      "ana_renk_hex": "#e8c8c0",
+      "ikincil_renk": "Krem",
+      "ikincil_renk_hex": "#f0e0d0",
+      "ana_malzeme": "Deri",
+      "desen": "Kapitone",
+      "donanim_rengi": "Altın",
+      "stil": "Omuz",
+      "sapli_sapsiz": "Saplı",
       "renk": "ROSE_CLAIR",
-      "renk_hex": "#9c9794",
+      "renk_hex": "#e8c8c0",
       "boyut": "STANDART",
       "donanim": "GOLD",
-      "deri_tipi": "",
-      "sezon": "",
+      "deri_tipi": "Deri",
+      "sezon": "SS26",
       "fiyat_eur": 1200.0,
+      "ek_ucret_eur": 100.0,
+      "maliyet_eur": 0.0,
       "total_stok": 1,
       "occupied_stok": 0,
       "available_stok": 1,
       "stok": 1,
       "kondisyon": "BNIB",
+      "kondisyon_label": "Sıfır",
       "aciklama": "",
       "tedarikci_id": null,
       "olusturma": "2026-05-13"
@@ -3102,26 +3310,39 @@ input,select,textarea{font-size:16px}
     {
       "variation_id": "FR-00002-NOIR_PRINTED-STANDART-GOLD",
       "sku": "FR-00002",
+      "no": 15,
       "slug": "gucci-ophidia-kayik-printed-black",
       "cover": "assets/products/gucci-ophidia-kayik-printed-black.jpg",
       "isim_resmi": "",
       "isim_bilinen": "Gucci Ophidia",
       "marka": "Gucci",
-      "kategori": "",
-      "kategori_ust": "",
-      "kategori_alt": "",
+      "kategori": "SHOULDER",
+      "kategori_ust": "CANTA",
+      "kategori_alt": "SHOULDER",
+      "ana_renk": "Siyah",
+      "ana_renk_hex": "#1a1a1a",
+      "ikincil_renk": "Siyah",
+      "ikincil_renk_hex": "#1a1a1a",
+      "ana_malzeme": "Deri",
+      "desen": "Kapitone",
+      "donanim_rengi": "Altın",
+      "stil": "Omuz",
+      "sapli_sapsiz": "Saplı",
       "renk": "NOIR_PRINTED",
-      "renk_hex": "#9c9794",
+      "renk_hex": "#1a1a1a",
       "boyut": "STANDART",
       "donanim": "GOLD",
-      "deri_tipi": "",
-      "sezon": "",
+      "deri_tipi": "Deri",
+      "sezon": "SS26",
       "fiyat_eur": 1300.0,
+      "ek_ucret_eur": 200.0,
+      "maliyet_eur": 0.0,
       "total_stok": 1,
       "occupied_stok": 0,
       "available_stok": 1,
       "stok": 1,
       "kondisyon": "BNIB",
+      "kondisyon_label": "Sıfır",
       "aciklama": "",
       "tedarikci_id": null,
       "olusturma": "2026-05-13"
@@ -3129,26 +3350,39 @@ input,select,textarea{font-size:16px}
     {
       "variation_id": "FR-00002-BLANC-STANDART-GOLD",
       "sku": "FR-00002",
+      "no": 16,
       "slug": "gucci-ophidia-kayik-white",
       "cover": "assets/products/gucci-ophidia-kayik-white.jpg",
       "isim_resmi": "",
       "isim_bilinen": "Gucci Ophidia",
       "marka": "Gucci",
-      "kategori": "",
-      "kategori_ust": "",
-      "kategori_alt": "",
+      "kategori": "SHOULDER",
+      "kategori_ust": "CANTA",
+      "kategori_alt": "SHOULDER",
+      "ana_renk": "Beyaz",
+      "ana_renk_hex": "#f8f5f0",
+      "ikincil_renk": "Beyaz",
+      "ikincil_renk_hex": "#f0ede5",
+      "ana_malzeme": "Deri",
+      "desen": "Kapitone",
+      "donanim_rengi": "Altın",
+      "stil": "Omuz",
+      "sapli_sapsiz": "Saplı",
       "renk": "BLANC",
-      "renk_hex": "#f5f1ea",
+      "renk_hex": "#f8f5f0",
       "boyut": "STANDART",
       "donanim": "GOLD",
-      "deri_tipi": "",
-      "sezon": "",
+      "deri_tipi": "Deri",
+      "sezon": "SS26",
       "fiyat_eur": 1250.0,
+      "ek_ucret_eur": 150.0,
+      "maliyet_eur": 0.0,
       "total_stok": 1,
       "occupied_stok": 0,
       "available_stok": 1,
       "stok": 1,
       "kondisyon": "BNIB",
+      "kondisyon_label": "Sıfır",
       "aciklama": "",
       "tedarikci_id": null,
       "olusturma": "2026-05-13"
@@ -3156,26 +3390,39 @@ input,select,textarea{font-size:16px}
     {
       "variation_id": "FR-00003-MARRON_FONCE_FULL-PM-PALLADIUM",
       "sku": "FR-00003",
+      "no": 17,
       "slug": "hermes-straw-hasir-full-dark-brown-deri-sap",
       "cover": "assets/products/hermes-straw-hasir-full-dark-brown-deri-sap.jpg",
       "isim_resmi": "",
       "isim_bilinen": "Hermès Picotin",
       "marka": "Hermès",
-      "kategori": "",
-      "kategori_ust": "",
-      "kategori_alt": "",
+      "kategori": "TOTE",
+      "kategori_ust": "CANTA",
+      "kategori_alt": "TOTE",
+      "ana_renk": "Koyu Kahve",
+      "ana_renk_hex": "#3d2817",
+      "ikincil_renk": "Doğal",
+      "ikincil_renk_hex": "#d4b890",
+      "ana_malzeme": "Hasır",
+      "desen": "Düz",
+      "donanim_rengi": "Gümüş",
+      "stil": "Tote",
+      "sapli_sapsiz": "Saplı",
       "renk": "MARRON_FONCE_FULL",
-      "renk_hex": "#9c9794",
+      "renk_hex": "#3d2817",
       "boyut": "PM",
       "donanim": "PALLADIUM",
-      "deri_tipi": "",
-      "sezon": "",
+      "deri_tipi": "Hasır",
+      "sezon": "SS26",
       "fiyat_eur": 7400.0,
+      "ek_ucret_eur": 200.0,
+      "maliyet_eur": 0.0,
       "total_stok": 1,
       "occupied_stok": 0,
       "available_stok": 1,
       "stok": 1,
       "kondisyon": "BNIB",
+      "kondisyon_label": "Sıfır",
       "aciklama": "",
       "tedarikci_id": null,
       "olusturma": "2026-05-13"
@@ -3183,26 +3430,39 @@ input,select,textarea{font-size:16px}
     {
       "variation_id": "FR-00003-NATUREL_NOIR-PM-PALLADIUM",
       "sku": "FR-00003",
+      "no": 18,
       "slug": "hermes-straw-hasir-bej-black-deri-sap",
       "cover": "assets/products/hermes-straw-hasir-bej-black-deri-sap.jpg",
       "isim_resmi": "",
       "isim_bilinen": "Hermès Picotin",
       "marka": "Hermès",
-      "kategori": "",
-      "kategori_ust": "",
-      "kategori_alt": "",
+      "kategori": "TOTE",
+      "kategori_ust": "CANTA",
+      "kategori_alt": "TOTE",
+      "ana_renk": "Doğal",
+      "ana_renk_hex": "#d4b890",
+      "ikincil_renk": "Siyah",
+      "ikincil_renk_hex": "#1a1a1a",
+      "ana_malzeme": "Hasır",
+      "desen": "Düz",
+      "donanim_rengi": "Gümüş",
+      "stil": "Tote",
+      "sapli_sapsiz": "Saplı",
       "renk": "NATUREL_NOIR",
-      "renk_hex": "#9c9794",
+      "renk_hex": "#d4b890",
       "boyut": "PM",
       "donanim": "PALLADIUM",
-      "deri_tipi": "",
-      "sezon": "",
+      "deri_tipi": "Hasır",
+      "sezon": "SS26",
       "fiyat_eur": 7800.0,
+      "ek_ucret_eur": 600.0,
+      "maliyet_eur": 0.0,
       "total_stok": 1,
       "occupied_stok": 0,
       "available_stok": 1,
       "stok": 1,
       "kondisyon": "BNIB",
+      "kondisyon_label": "Sıfır",
       "aciklama": "",
       "tedarikci_id": null,
       "olusturma": "2026-05-13"
@@ -3210,26 +3470,39 @@ input,select,textarea{font-size:16px}
     {
       "variation_id": "FR-00003-NOIR-PM-PALLADIUM",
       "sku": "FR-00003",
+      "no": 19,
       "slug": "hermes-straw-hasir-full-black-deri-sap",
       "cover": "assets/products/hermes-straw-hasir-full-black-deri-sap.jpg",
       "isim_resmi": "",
       "isim_bilinen": "Hermès Picotin",
       "marka": "Hermès",
-      "kategori": "",
-      "kategori_ust": "",
-      "kategori_alt": "",
+      "kategori": "TOTE",
+      "kategori_ust": "CANTA",
+      "kategori_alt": "TOTE",
+      "ana_renk": "Siyah",
+      "ana_renk_hex": "#1a1a1a",
+      "ikincil_renk": "Siyah",
+      "ikincil_renk_hex": "#1a1a1a",
+      "ana_malzeme": "Hasır",
+      "desen": "Düz",
+      "donanim_rengi": "Gümüş",
+      "stil": "Tote",
+      "sapli_sapsiz": "Saplı",
       "renk": "NOIR",
       "renk_hex": "#1a1a1a",
       "boyut": "PM",
       "donanim": "PALLADIUM",
-      "deri_tipi": "",
-      "sezon": "",
+      "deri_tipi": "Hasır",
+      "sezon": "SS26",
       "fiyat_eur": 7600.0,
+      "ek_ucret_eur": 400.0,
+      "maliyet_eur": 0.0,
       "total_stok": 1,
       "occupied_stok": 0,
       "available_stok": 1,
       "stok": 1,
       "kondisyon": "BNIB",
+      "kondisyon_label": "Sıfır",
       "aciklama": "",
       "tedarikci_id": null,
       "olusturma": "2026-05-13"
@@ -3237,26 +3510,39 @@ input,select,textarea{font-size:16px}
     {
       "variation_id": "FR-00003-SNUFF_TABA-PM-PALLADIUM",
       "sku": "FR-00003",
+      "no": 20,
       "slug": "hermes-straw-hasir-snuff-taba-deri-sap",
       "cover": "assets/products/hermes-straw-hasir-snuff-taba-deri-sap.jpg",
       "isim_resmi": "",
       "isim_bilinen": "Hermès Picotin",
       "marka": "Hermès",
-      "kategori": "",
-      "kategori_ust": "",
-      "kategori_alt": "",
+      "kategori": "TOTE",
+      "kategori_ust": "CANTA",
+      "kategori_alt": "TOTE",
+      "ana_renk": "Taba",
+      "ana_renk_hex": "#b08560",
+      "ikincil_renk": "Doğal",
+      "ikincil_renk_hex": "#d4b890",
+      "ana_malzeme": "Hasır",
+      "desen": "Düz",
+      "donanim_rengi": "Gümüş",
+      "stil": "Tote",
+      "sapli_sapsiz": "Saplı",
       "renk": "SNUFF_TABA",
-      "renk_hex": "#9c9794",
+      "renk_hex": "#b08560",
       "boyut": "PM",
       "donanim": "PALLADIUM",
-      "deri_tipi": "",
-      "sezon": "",
+      "deri_tipi": "Hasır",
+      "sezon": "SS26",
       "fiyat_eur": 7300.0,
+      "ek_ucret_eur": 100.0,
+      "maliyet_eur": 0.0,
       "total_stok": 1,
       "occupied_stok": 0,
       "available_stok": 1,
       "stok": 1,
       "kondisyon": "BNIB",
+      "kondisyon_label": "Sıfır",
       "aciklama": "",
       "tedarikci_id": null,
       "olusturma": "2026-05-13"
@@ -3264,26 +3550,39 @@ input,select,textarea{font-size:16px}
     {
       "variation_id": "FR-00003-MARRON_FONCE-PM-PALLADIUM",
       "sku": "FR-00003",
+      "no": 21,
       "slug": "hermes-straw-hasir-dark-brown-deri-sap",
       "cover": "assets/products/hermes-straw-hasir-dark-brown-deri-sap.jpg",
       "isim_resmi": "",
       "isim_bilinen": "Hermès Picotin",
       "marka": "Hermès",
-      "kategori": "",
-      "kategori_ust": "",
-      "kategori_alt": "",
+      "kategori": "TOTE",
+      "kategori_ust": "CANTA",
+      "kategori_alt": "TOTE",
+      "ana_renk": "Koyu Kahve",
+      "ana_renk_hex": "#5c3a1e",
+      "ikincil_renk": "Doğal",
+      "ikincil_renk_hex": "#d4b890",
+      "ana_malzeme": "Hasır",
+      "desen": "Düz",
+      "donanim_rengi": "Gümüş",
+      "stil": "Tote",
+      "sapli_sapsiz": "Saplı",
       "renk": "MARRON_FONCE",
-      "renk_hex": "#9c9794",
+      "renk_hex": "#5c3a1e",
       "boyut": "PM",
       "donanim": "PALLADIUM",
-      "deri_tipi": "",
-      "sezon": "",
+      "deri_tipi": "Hasır",
+      "sezon": "SS26",
       "fiyat_eur": 7200.0,
+      "ek_ucret_eur": 0.0,
+      "maliyet_eur": 0.0,
       "total_stok": 1,
       "occupied_stok": 0,
       "available_stok": 1,
       "stok": 1,
       "kondisyon": "BNIB",
+      "kondisyon_label": "Sıfır",
       "aciklama": "",
       "tedarikci_id": null,
       "olusturma": "2026-05-13"
@@ -3291,26 +3590,39 @@ input,select,textarea{font-size:16px}
     {
       "variation_id": "FR-00004-NOIR-STANDART-GOLD",
       "sku": "FR-00004",
+      "no": 22,
       "slug": "ysl-deri-siyah-sap-kemerli-hasir",
       "cover": "assets/products/ysl-deri-siyah-sap-kemerli-hasir.jpg",
       "isim_resmi": "",
       "isim_bilinen": "YSL Kemerli Hasır",
       "marka": "Yves Saint Laurent",
-      "kategori": "",
-      "kategori_ust": "",
-      "kategori_alt": "",
+      "kategori": "TOTE",
+      "kategori_ust": "CANTA",
+      "kategori_alt": "TOTE",
+      "ana_renk": "Doğal",
+      "ana_renk_hex": "#d4b890",
+      "ikincil_renk": "Siyah",
+      "ikincil_renk_hex": "#1a1a1a",
+      "ana_malzeme": "Hasır",
+      "desen": "Düz",
+      "donanim_rengi": "Altın",
+      "stil": "Tote",
+      "sapli_sapsiz": "Saplı",
       "renk": "NOIR",
-      "renk_hex": "#1a1a1a",
+      "renk_hex": "#d4b890",
       "boyut": "STANDART",
       "donanim": "GOLD",
-      "deri_tipi": "",
-      "sezon": "",
+      "deri_tipi": "Hasır",
+      "sezon": "SS26",
       "fiyat_eur": 1650.0,
+      "ek_ucret_eur": 0.0,
+      "maliyet_eur": 0.0,
       "total_stok": 1,
       "occupied_stok": 0,
       "available_stok": 1,
       "stok": 1,
       "kondisyon": "BNIB",
+      "kondisyon_label": "Sıfır",
       "aciklama": "",
       "tedarikci_id": null,
       "olusturma": "2026-05-13"
@@ -3318,26 +3630,39 @@ input,select,textarea{font-size:16px}
     {
       "variation_id": "FR-00004-MARRON_CLAIR-STANDART-GOLD",
       "sku": "FR-00004",
+      "no": 23,
       "slug": "ysl-deri-acik-kahve-sap-kemerli-hasir",
       "cover": "assets/products/ysl-deri-acik-kahve-sap-kemerli-hasir.jpg",
       "isim_resmi": "",
       "isim_bilinen": "YSL Kemerli Hasır",
       "marka": "Yves Saint Laurent",
-      "kategori": "",
-      "kategori_ust": "",
-      "kategori_alt": "",
+      "kategori": "TOTE",
+      "kategori_ust": "CANTA",
+      "kategori_alt": "TOTE",
+      "ana_renk": "Doğal",
+      "ana_renk_hex": "#d4b890",
+      "ikincil_renk": "Açık Kahve",
+      "ikincil_renk_hex": "#b08560",
+      "ana_malzeme": "Hasır",
+      "desen": "Düz",
+      "donanim_rengi": "Altın",
+      "stil": "Tote",
+      "sapli_sapsiz": "Saplı",
       "renk": "MARRON_CLAIR",
-      "renk_hex": "#9c9794",
+      "renk_hex": "#d4b890",
       "boyut": "STANDART",
       "donanim": "GOLD",
-      "deri_tipi": "",
-      "sezon": "",
+      "deri_tipi": "Hasır",
+      "sezon": "SS26",
       "fiyat_eur": 1650.0,
+      "ek_ucret_eur": 0.0,
+      "maliyet_eur": 0.0,
       "total_stok": 1,
       "occupied_stok": 0,
       "available_stok": 1,
       "stok": 1,
       "kondisyon": "BNIB",
+      "kondisyon_label": "Sıfır",
       "aciklama": "",
       "tedarikci_id": null,
       "olusturma": "2026-05-13"
@@ -3345,26 +3670,39 @@ input,select,textarea{font-size:16px}
     {
       "variation_id": "FR-00004-MARRON_FONCE-STANDART-GOLD",
       "sku": "FR-00004",
+      "no": 24,
       "slug": "ysl-deri-koyu-kahve-sap-kemerli-hasir",
       "cover": "assets/products/ysl-deri-koyu-kahve-sap-kemerli-hasir.jpg",
       "isim_resmi": "",
       "isim_bilinen": "YSL Kemerli Hasır",
       "marka": "Yves Saint Laurent",
-      "kategori": "",
-      "kategori_ust": "",
-      "kategori_alt": "",
+      "kategori": "TOTE",
+      "kategori_ust": "CANTA",
+      "kategori_alt": "TOTE",
+      "ana_renk": "Doğal",
+      "ana_renk_hex": "#d4b890",
+      "ikincil_renk": "Koyu Kahve",
+      "ikincil_renk_hex": "#3d2817",
+      "ana_malzeme": "Hasır",
+      "desen": "Düz",
+      "donanim_rengi": "Altın",
+      "stil": "Tote",
+      "sapli_sapsiz": "Saplı",
       "renk": "MARRON_FONCE",
-      "renk_hex": "#9c9794",
+      "renk_hex": "#d4b890",
       "boyut": "STANDART",
       "donanim": "GOLD",
-      "deri_tipi": "",
-      "sezon": "",
+      "deri_tipi": "Hasır",
+      "sezon": "SS26",
       "fiyat_eur": 1650.0,
+      "ek_ucret_eur": 0.0,
+      "maliyet_eur": 0.0,
       "total_stok": 1,
       "occupied_stok": 0,
       "available_stok": 1,
       "stok": 1,
       "kondisyon": "BNIB",
+      "kondisyon_label": "Sıfır",
       "aciklama": "",
       "tedarikci_id": null,
       "olusturma": "2026-05-13"
@@ -3372,26 +3710,39 @@ input,select,textarea{font-size:16px}
     {
       "variation_id": "FR-00005-BLEU_NUIT-STANDART-GOLD",
       "sku": "FR-00005",
+      "no": 25,
       "slug": "ysl-orme-lacivert",
       "cover": "assets/products/ysl-orme-lacivert.jpg",
       "isim_resmi": "",
       "isim_bilinen": "YSL Örme Tote",
       "marka": "Yves Saint Laurent",
-      "kategori": "",
-      "kategori_ust": "",
-      "kategori_alt": "",
+      "kategori": "TOTE",
+      "kategori_ust": "CANTA",
+      "kategori_alt": "TOTE",
+      "ana_renk": "Lacivert",
+      "ana_renk_hex": "#1a2a4a",
+      "ikincil_renk": "Lacivert",
+      "ikincil_renk_hex": "#1a2a4a",
+      "ana_malzeme": "Örme",
+      "desen": "Düz",
+      "donanim_rengi": "Altın",
+      "stil": "Tote",
+      "sapli_sapsiz": "Saplı",
       "renk": "BLEU_NUIT",
-      "renk_hex": "#1a2238",
+      "renk_hex": "#1a2a4a",
       "boyut": "STANDART",
       "donanim": "GOLD",
-      "deri_tipi": "",
-      "sezon": "",
+      "deri_tipi": "Örme",
+      "sezon": "SS26",
       "fiyat_eur": 1450.0,
+      "ek_ucret_eur": 0.0,
+      "maliyet_eur": 0.0,
       "total_stok": 1,
       "occupied_stok": 0,
       "available_stok": 1,
       "stok": 1,
       "kondisyon": "BNIB",
+      "kondisyon_label": "Sıfır",
       "aciklama": "",
       "tedarikci_id": null,
       "olusturma": "2026-05-13"
@@ -3399,26 +3750,39 @@ input,select,textarea{font-size:16px}
     {
       "variation_id": "FR-00005-BEIGE_CLAIR-STANDART-GOLD",
       "sku": "FR-00005",
+      "no": 26,
       "slug": "ysl-orme-bej",
       "cover": "assets/products/ysl-orme-bej.jpg",
       "isim_resmi": "",
       "isim_bilinen": "YSL Örme Tote",
       "marka": "Yves Saint Laurent",
-      "kategori": "",
-      "kategori_ust": "",
-      "kategori_alt": "",
+      "kategori": "TOTE",
+      "kategori_ust": "CANTA",
+      "kategori_alt": "TOTE",
+      "ana_renk": "Bej",
+      "ana_renk_hex": "#d4b890",
+      "ikincil_renk": "Krem",
+      "ikincil_renk_hex": "#e8d4b0",
+      "ana_malzeme": "Örme",
+      "desen": "Düz",
+      "donanim_rengi": "Altın",
+      "stil": "Tote",
+      "sapli_sapsiz": "Saplı",
       "renk": "BEIGE_CLAIR",
-      "renk_hex": "#d8c3a3",
+      "renk_hex": "#d4b890",
       "boyut": "STANDART",
       "donanim": "GOLD",
-      "deri_tipi": "",
-      "sezon": "",
+      "deri_tipi": "Örme",
+      "sezon": "SS26",
       "fiyat_eur": 1450.0,
+      "ek_ucret_eur": 0.0,
+      "maliyet_eur": 0.0,
       "total_stok": 1,
       "occupied_stok": 0,
       "available_stok": 1,
       "stok": 1,
       "kondisyon": "BNIB",
+      "kondisyon_label": "Sıfır",
       "aciklama": "",
       "tedarikci_id": null,
       "olusturma": "2026-05-13"
@@ -3426,26 +3790,39 @@ input,select,textarea{font-size:16px}
     {
       "variation_id": "FR-00005-TABA_CLAIR-STANDART-GOLD",
       "sku": "FR-00005",
+      "no": 27,
       "slug": "ysl-orme-taba-acik-kahve",
       "cover": "assets/products/ysl-orme-taba-acik-kahve.jpg",
       "isim_resmi": "",
       "isim_bilinen": "YSL Örme Tote",
       "marka": "Yves Saint Laurent",
-      "kategori": "",
-      "kategori_ust": "",
-      "kategori_alt": "",
+      "kategori": "TOTE",
+      "kategori_ust": "CANTA",
+      "kategori_alt": "TOTE",
+      "ana_renk": "Taba",
+      "ana_renk_hex": "#b08560",
+      "ikincil_renk": "Bal Bej",
+      "ikincil_renk_hex": "#c9a76e",
+      "ana_malzeme": "Örme",
+      "desen": "Düz",
+      "donanim_rengi": "Altın",
+      "stil": "Tote",
+      "sapli_sapsiz": "Saplı",
       "renk": "TABA_CLAIR",
-      "renk_hex": "#9c9794",
+      "renk_hex": "#b08560",
       "boyut": "STANDART",
       "donanim": "GOLD",
-      "deri_tipi": "",
-      "sezon": "",
+      "deri_tipi": "Örme",
+      "sezon": "SS26",
       "fiyat_eur": 1450.0,
+      "ek_ucret_eur": 0.0,
+      "maliyet_eur": 0.0,
       "total_stok": 1,
       "occupied_stok": 0,
       "available_stok": 1,
       "stok": 1,
       "kondisyon": "BNIB",
+      "kondisyon_label": "Sıfır",
       "aciklama": "",
       "tedarikci_id": null,
       "olusturma": "2026-05-13"
@@ -3453,26 +3830,39 @@ input,select,textarea{font-size:16px}
     {
       "variation_id": "FR-00006-TABA-STANDART-GOLD",
       "sku": "FR-00006",
+      "no": 28,
       "slug": "miumiu-orme-taba-logo",
       "cover": "assets/products/miumiu-orme-taba-logo.jpg",
       "isim_resmi": "",
       "isim_bilinen": "Miu Miu Woven",
       "marka": "Miu Miu",
-      "kategori": "",
-      "kategori_ust": "",
-      "kategori_alt": "",
+      "kategori": "SHOULDER",
+      "kategori_ust": "CANTA",
+      "kategori_alt": "SHOULDER",
+      "ana_renk": "Taba",
+      "ana_renk_hex": "#b08560",
+      "ikincil_renk": "Bal Bej",
+      "ikincil_renk_hex": "#c9a76e",
+      "ana_malzeme": "Hasır",
+      "desen": "Düz",
+      "donanim_rengi": "Altın",
+      "stil": "Omuz",
+      "sapli_sapsiz": "Saplı",
       "renk": "TABA",
-      "renk_hex": "#9c9794",
+      "renk_hex": "#b08560",
       "boyut": "STANDART",
       "donanim": "GOLD",
-      "deri_tipi": "",
-      "sezon": "",
+      "deri_tipi": "Hasır",
+      "sezon": "SS26",
       "fiyat_eur": 1350.0,
+      "ek_ucret_eur": 0.0,
+      "maliyet_eur": 0.0,
       "total_stok": 1,
       "occupied_stok": 0,
       "available_stok": 1,
       "stok": 1,
       "kondisyon": "BNIB",
+      "kondisyon_label": "Sıfır",
       "aciklama": "",
       "tedarikci_id": null,
       "olusturma": "2026-05-13"
@@ -3480,26 +3870,39 @@ input,select,textarea{font-size:16px}
     {
       "variation_id": "FR-00006-MARRON_FONCE-STANDART-GOLD",
       "sku": "FR-00006",
+      "no": 29,
       "slug": "miumiu-orme-koyu-kahve-logo",
       "cover": "assets/products/miumiu-orme-koyu-kahve-logo.jpg",
       "isim_resmi": "",
       "isim_bilinen": "Miu Miu Woven",
       "marka": "Miu Miu",
-      "kategori": "",
-      "kategori_ust": "",
-      "kategori_alt": "",
+      "kategori": "SHOULDER",
+      "kategori_ust": "CANTA",
+      "kategori_alt": "SHOULDER",
+      "ana_renk": "Koyu Kahve",
+      "ana_renk_hex": "#3d2817",
+      "ikincil_renk": "Koyu Kahve",
+      "ikincil_renk_hex": "#3d2817",
+      "ana_malzeme": "Hasır",
+      "desen": "Düz",
+      "donanim_rengi": "Altın",
+      "stil": "Omuz",
+      "sapli_sapsiz": "Saplı",
       "renk": "MARRON_FONCE",
-      "renk_hex": "#9c9794",
+      "renk_hex": "#3d2817",
       "boyut": "STANDART",
       "donanim": "GOLD",
-      "deri_tipi": "",
-      "sezon": "",
+      "deri_tipi": "Hasır",
+      "sezon": "SS26",
       "fiyat_eur": 1350.0,
+      "ek_ucret_eur": 0.0,
+      "maliyet_eur": 0.0,
       "total_stok": 1,
       "occupied_stok": 0,
       "available_stok": 1,
       "stok": 1,
       "kondisyon": "BNIB",
+      "kondisyon_label": "Sıfır",
       "aciklama": "",
       "tedarikci_id": null,
       "olusturma": "2026-05-13"
@@ -3507,26 +3910,39 @@ input,select,textarea{font-size:16px}
     {
       "variation_id": "FR-00006-NOIR-STANDART-GOLD",
       "sku": "FR-00006",
+      "no": 30,
       "slug": "miumiu-orme-siyah-logo",
       "cover": "assets/products/miumiu-orme-siyah-logo.jpg",
       "isim_resmi": "",
       "isim_bilinen": "Miu Miu Woven",
       "marka": "Miu Miu",
-      "kategori": "",
-      "kategori_ust": "",
-      "kategori_alt": "",
+      "kategori": "SHOULDER",
+      "kategori_ust": "CANTA",
+      "kategori_alt": "SHOULDER",
+      "ana_renk": "Siyah",
+      "ana_renk_hex": "#1a1a1a",
+      "ikincil_renk": "Siyah",
+      "ikincil_renk_hex": "#1a1a1a",
+      "ana_malzeme": "Hasır",
+      "desen": "Düz",
+      "donanim_rengi": "Altın",
+      "stil": "Omuz",
+      "sapli_sapsiz": "Saplı",
       "renk": "NOIR",
       "renk_hex": "#1a1a1a",
       "boyut": "STANDART",
       "donanim": "GOLD",
-      "deri_tipi": "",
-      "sezon": "",
+      "deri_tipi": "Hasır",
+      "sezon": "SS26",
       "fiyat_eur": 1350.0,
+      "ek_ucret_eur": 0.0,
+      "maliyet_eur": 0.0,
       "total_stok": 1,
       "occupied_stok": 0,
       "available_stok": 1,
       "stok": 1,
       "kondisyon": "BNIB",
+      "kondisyon_label": "Sıfır",
       "aciklama": "",
       "tedarikci_id": null,
       "olusturma": "2026-05-13"
@@ -3534,26 +3950,39 @@ input,select,textarea{font-size:16px}
     {
       "variation_id": "FR-00006-BLANC-STANDART-GOLD",
       "sku": "FR-00006",
+      "no": 31,
       "slug": "miumiu-orme-beyaz-logo",
       "cover": "assets/products/miumiu-orme-beyaz-logo.jpg",
       "isim_resmi": "",
       "isim_bilinen": "Miu Miu Woven",
       "marka": "Miu Miu",
-      "kategori": "",
-      "kategori_ust": "",
-      "kategori_alt": "",
+      "kategori": "SHOULDER",
+      "kategori_ust": "CANTA",
+      "kategori_alt": "SHOULDER",
+      "ana_renk": "Beyaz",
+      "ana_renk_hex": "#f8f5f0",
+      "ikincil_renk": "Beyaz",
+      "ikincil_renk_hex": "#f8f5f0",
+      "ana_malzeme": "Hasır",
+      "desen": "Düz",
+      "donanim_rengi": "Altın",
+      "stil": "Omuz",
+      "sapli_sapsiz": "Saplı",
       "renk": "BLANC",
-      "renk_hex": "#f5f1ea",
+      "renk_hex": "#f8f5f0",
       "boyut": "STANDART",
       "donanim": "GOLD",
-      "deri_tipi": "",
-      "sezon": "",
+      "deri_tipi": "Hasır",
+      "sezon": "SS26",
       "fiyat_eur": 1350.0,
+      "ek_ucret_eur": 0.0,
+      "maliyet_eur": 0.0,
       "total_stok": 1,
       "occupied_stok": 0,
       "available_stok": 1,
       "stok": 1,
       "kondisyon": "BNIB",
+      "kondisyon_label": "Sıfır",
       "aciklama": "",
       "tedarikci_id": null,
       "olusturma": "2026-05-13"
@@ -3561,26 +3990,39 @@ input,select,textarea{font-size:16px}
     {
       "variation_id": "FR-00007-NOIR_FUME-MINI-GOLD",
       "sku": "FR-00007",
+      "no": 32,
       "slug": "ysl-kucuk-orme-siyah-sap-fume-govde",
       "cover": "assets/products/ysl-kucuk-orme-siyah-sap-fume-govde.jpg",
       "isim_resmi": "",
       "isim_bilinen": "YSL Küçük Örme",
       "marka": "Yves Saint Laurent",
-      "kategori": "",
-      "kategori_ust": "",
-      "kategori_alt": "",
+      "kategori": "CROSSBODY",
+      "kategori_ust": "CANTA",
+      "kategori_alt": "CROSSBODY",
+      "ana_renk": "Füme",
+      "ana_renk_hex": "#4a4a4a",
+      "ikincil_renk": "Siyah",
+      "ikincil_renk_hex": "#1a1a1a",
+      "ana_malzeme": "Örme",
+      "desen": "Düz",
+      "donanim_rengi": "Altın",
+      "stil": "Çapraz",
+      "sapli_sapsiz": "Saplı",
       "renk": "NOIR_FUME",
-      "renk_hex": "#9c9794",
+      "renk_hex": "#4a4a4a",
       "boyut": "MINI",
       "donanim": "GOLD",
-      "deri_tipi": "",
-      "sezon": "",
+      "deri_tipi": "Örme",
+      "sezon": "SS26",
       "fiyat_eur": 1300.0,
+      "ek_ucret_eur": 50.0,
+      "maliyet_eur": 0.0,
       "total_stok": 1,
       "occupied_stok": 0,
       "available_stok": 1,
       "stok": 1,
       "kondisyon": "BNIB",
+      "kondisyon_label": "Sıfır",
       "aciklama": "",
       "tedarikci_id": null,
       "olusturma": "2026-05-13"
@@ -3588,26 +4030,39 @@ input,select,textarea{font-size:16px}
     {
       "variation_id": "FR-00007-GRIS_BLANC-MINI-GOLD",
       "sku": "FR-00007",
+      "no": 33,
       "slug": "ysl-kucuk-orme-gri-sap-beyaz-govde",
       "cover": "assets/products/ysl-kucuk-orme-gri-sap-beyaz-govde.jpg",
       "isim_resmi": "",
       "isim_bilinen": "YSL Küçük Örme",
       "marka": "Yves Saint Laurent",
-      "kategori": "",
-      "kategori_ust": "",
-      "kategori_alt": "",
+      "kategori": "CROSSBODY",
+      "kategori_ust": "CANTA",
+      "kategori_alt": "CROSSBODY",
+      "ana_renk": "Beyaz",
+      "ana_renk_hex": "#f8f5f0",
+      "ikincil_renk": "Gri",
+      "ikincil_renk_hex": "#8a8a8a",
+      "ana_malzeme": "Örme",
+      "desen": "Düz",
+      "donanim_rengi": "Altın",
+      "stil": "Çapraz",
+      "sapli_sapsiz": "Saplı",
       "renk": "GRIS_BLANC",
-      "renk_hex": "#9c9794",
+      "renk_hex": "#f8f5f0",
       "boyut": "MINI",
       "donanim": "GOLD",
-      "deri_tipi": "",
-      "sezon": "",
+      "deri_tipi": "Örme",
+      "sezon": "SS26",
       "fiyat_eur": 1300.0,
+      "ek_ucret_eur": 50.0,
+      "maliyet_eur": 0.0,
       "total_stok": 1,
       "occupied_stok": 0,
       "available_stok": 1,
       "stok": 1,
       "kondisyon": "BNIB",
+      "kondisyon_label": "Sıfır",
       "aciklama": "",
       "tedarikci_id": null,
       "olusturma": "2026-05-13"
@@ -3615,26 +4070,39 @@ input,select,textarea{font-size:16px}
     {
       "variation_id": "FR-00007-VIZON_TABA-MINI-GOLD",
       "sku": "FR-00007",
+      "no": 34,
       "slug": "ysl-kucuk-orme-vizon-sap-taba-govde",
       "cover": "assets/products/ysl-kucuk-orme-vizon-sap-taba-govde.jpg",
       "isim_resmi": "",
       "isim_bilinen": "YSL Küçük Örme",
       "marka": "Yves Saint Laurent",
-      "kategori": "",
-      "kategori_ust": "",
-      "kategori_alt": "",
+      "kategori": "CROSSBODY",
+      "kategori_ust": "CANTA",
+      "kategori_alt": "CROSSBODY",
+      "ana_renk": "Taba",
+      "ana_renk_hex": "#b08560",
+      "ikincil_renk": "Vizon",
+      "ikincil_renk_hex": "#6e5239",
+      "ana_malzeme": "Örme",
+      "desen": "Düz",
+      "donanim_rengi": "Altın",
+      "stil": "Çapraz",
+      "sapli_sapsiz": "Saplı",
       "renk": "VIZON_TABA",
-      "renk_hex": "#9c9794",
+      "renk_hex": "#b08560",
       "boyut": "MINI",
       "donanim": "GOLD",
-      "deri_tipi": "",
-      "sezon": "",
+      "deri_tipi": "Örme",
+      "sezon": "SS26",
       "fiyat_eur": 1250.0,
+      "ek_ucret_eur": 0.0,
+      "maliyet_eur": 0.0,
       "total_stok": 1,
       "occupied_stok": 0,
       "available_stok": 1,
       "stok": 1,
       "kondisyon": "BNIB",
+      "kondisyon_label": "Sıfır",
       "aciklama": "",
       "tedarikci_id": null,
       "olusturma": "2026-05-13"
@@ -3642,26 +4110,39 @@ input,select,textarea{font-size:16px}
     {
       "variation_id": "FR-00007-TABA_BEIGE-MINI-GOLD",
       "sku": "FR-00007",
+      "no": 35,
       "slug": "ysl-kucuk-orme-taba-sap-bej-govde",
       "cover": "assets/products/ysl-kucuk-orme-taba-sap-bej-govde.jpg",
       "isim_resmi": "",
       "isim_bilinen": "YSL Küçük Örme",
       "marka": "Yves Saint Laurent",
-      "kategori": "",
-      "kategori_ust": "",
-      "kategori_alt": "",
+      "kategori": "CROSSBODY",
+      "kategori_ust": "CANTA",
+      "kategori_alt": "CROSSBODY",
+      "ana_renk": "Bej",
+      "ana_renk_hex": "#d4b890",
+      "ikincil_renk": "Taba",
+      "ikincil_renk_hex": "#b08560",
+      "ana_malzeme": "Örme",
+      "desen": "Düz",
+      "donanim_rengi": "Altın",
+      "stil": "Çapraz",
+      "sapli_sapsiz": "Saplı",
       "renk": "TABA_BEIGE",
-      "renk_hex": "#9c9794",
+      "renk_hex": "#d4b890",
       "boyut": "MINI",
       "donanim": "GOLD",
-      "deri_tipi": "",
-      "sezon": "",
+      "deri_tipi": "Örme",
+      "sezon": "SS26",
       "fiyat_eur": 1250.0,
+      "ek_ucret_eur": 0.0,
+      "maliyet_eur": 0.0,
       "total_stok": 1,
       "occupied_stok": 0,
       "available_stok": 1,
       "stok": 1,
       "kondisyon": "BNIB",
+      "kondisyon_label": "Sıfır",
       "aciklama": "",
       "tedarikci_id": null,
       "olusturma": "2026-05-13"
@@ -3669,26 +4150,39 @@ input,select,textarea{font-size:16px}
     {
       "variation_id": "FR-00007-NOIR_NATUREL-MINI-GOLD",
       "sku": "FR-00007",
+      "no": 36,
       "slug": "ysl-kucuk-orme-siyah-sap-hasir-govde",
       "cover": "assets/products/ysl-kucuk-orme-siyah-sap-hasir-govde.jpg",
       "isim_resmi": "",
       "isim_bilinen": "YSL Küçük Örme",
       "marka": "Yves Saint Laurent",
-      "kategori": "",
-      "kategori_ust": "",
-      "kategori_alt": "",
+      "kategori": "CROSSBODY",
+      "kategori_ust": "CANTA",
+      "kategori_alt": "CROSSBODY",
+      "ana_renk": "Doğal",
+      "ana_renk_hex": "#d4b890",
+      "ikincil_renk": "Siyah",
+      "ikincil_renk_hex": "#1a1a1a",
+      "ana_malzeme": "Hasır",
+      "desen": "Düz",
+      "donanim_rengi": "Altın",
+      "stil": "Çapraz",
+      "sapli_sapsiz": "Saplı",
       "renk": "NOIR_NATUREL",
-      "renk_hex": "#9c9794",
+      "renk_hex": "#d4b890",
       "boyut": "MINI",
       "donanim": "GOLD",
-      "deri_tipi": "",
-      "sezon": "",
+      "deri_tipi": "Hasır",
+      "sezon": "SS26",
       "fiyat_eur": 1250.0,
+      "ek_ucret_eur": 0.0,
+      "maliyet_eur": 0.0,
       "total_stok": 1,
       "occupied_stok": 0,
       "available_stok": 1,
       "stok": 1,
       "kondisyon": "BNIB",
+      "kondisyon_label": "Sıfır",
       "aciklama": "",
       "tedarikci_id": null,
       "olusturma": "2026-05-13"
@@ -3696,26 +4190,39 @@ input,select,textarea{font-size:16px}
     {
       "variation_id": "FR-00007-BORDEAUX-MINI-GOLD",
       "sku": "FR-00007",
+      "no": 37,
       "slug": "ysl-kucuk-orme-sap-full-bordo",
       "cover": "assets/products/ysl-kucuk-orme-sap-full-bordo.jpg",
       "isim_resmi": "",
       "isim_bilinen": "YSL Küçük Örme",
       "marka": "Yves Saint Laurent",
-      "kategori": "",
-      "kategori_ust": "",
-      "kategori_alt": "",
+      "kategori": "CROSSBODY",
+      "kategori_ust": "CANTA",
+      "kategori_alt": "CROSSBODY",
+      "ana_renk": "Bordo",
+      "ana_renk_hex": "#7b1f23",
+      "ikincil_renk": "Bordo",
+      "ikincil_renk_hex": "#7b1f23",
+      "ana_malzeme": "Örme",
+      "desen": "Düz",
+      "donanim_rengi": "Altın",
+      "stil": "Çapraz",
+      "sapli_sapsiz": "Saplı",
       "renk": "BORDEAUX",
-      "renk_hex": "#4a1c20",
+      "renk_hex": "#7b1f23",
       "boyut": "MINI",
       "donanim": "GOLD",
-      "deri_tipi": "",
-      "sezon": "",
+      "deri_tipi": "Örme",
+      "sezon": "SS26",
       "fiyat_eur": 1450.0,
+      "ek_ucret_eur": 200.0,
+      "maliyet_eur": 0.0,
       "total_stok": 1,
       "occupied_stok": 0,
       "available_stok": 1,
       "stok": 1,
       "kondisyon": "BNIB",
+      "kondisyon_label": "Sıfır",
       "aciklama": "",
       "tedarikci_id": null,
       "olusturma": "2026-05-13"
@@ -3723,26 +4230,39 @@ input,select,textarea{font-size:16px}
     {
       "variation_id": "FR-00007-MARRON_FONCE-MINI-GOLD",
       "sku": "FR-00007",
+      "no": 39,
       "slug": "ysl-kucuk-orme-koyu-kahve-sap",
       "cover": "assets/products/ysl-kucuk-orme-koyu-kahve-sap.jpg",
       "isim_resmi": "",
       "isim_bilinen": "YSL Küçük Örme",
       "marka": "Yves Saint Laurent",
-      "kategori": "",
-      "kategori_ust": "",
-      "kategori_alt": "",
+      "kategori": "CROSSBODY",
+      "kategori_ust": "CANTA",
+      "kategori_alt": "CROSSBODY",
+      "ana_renk": "Bej",
+      "ana_renk_hex": "#d4b890",
+      "ikincil_renk": "Koyu Kahve",
+      "ikincil_renk_hex": "#3d2817",
+      "ana_malzeme": "Örme",
+      "desen": "Düz",
+      "donanim_rengi": "Altın",
+      "stil": "Çapraz",
+      "sapli_sapsiz": "Saplı",
       "renk": "MARRON_FONCE",
-      "renk_hex": "#9c9794",
+      "renk_hex": "#d4b890",
       "boyut": "MINI",
       "donanim": "GOLD",
-      "deri_tipi": "",
-      "sezon": "",
+      "deri_tipi": "Örme",
+      "sezon": "SS26",
       "fiyat_eur": 1250.0,
+      "ek_ucret_eur": 0.0,
+      "maliyet_eur": 0.0,
       "total_stok": 1,
       "occupied_stok": 0,
       "available_stok": 1,
       "stok": 1,
       "kondisyon": "BNIB",
+      "kondisyon_label": "Sıfır",
       "aciklama": "",
       "tedarikci_id": null,
       "olusturma": "2026-05-13"
@@ -3750,26 +4270,39 @@ input,select,textarea{font-size:16px}
     {
       "variation_id": "FR-00007-MARRON_CREME-MINI-GOLD",
       "sku": "FR-00007",
+      "no": 41,
       "slug": "ysl-kucuk-orme-koyu-kahve-krem-govde",
       "cover": "assets/products/ysl-kucuk-orme-koyu-kahve-krem-govde.jpg",
       "isim_resmi": "",
       "isim_bilinen": "YSL Küçük Örme",
       "marka": "Yves Saint Laurent",
-      "kategori": "",
-      "kategori_ust": "",
-      "kategori_alt": "",
+      "kategori": "CROSSBODY",
+      "kategori_ust": "CANTA",
+      "kategori_alt": "CROSSBODY",
+      "ana_renk": "Krem",
+      "ana_renk_hex": "#f0e0c8",
+      "ikincil_renk": "Koyu Kahve",
+      "ikincil_renk_hex": "#3d2817",
+      "ana_malzeme": "Örme",
+      "desen": "Düz",
+      "donanim_rengi": "Altın",
+      "stil": "Çapraz",
+      "sapli_sapsiz": "Saplı",
       "renk": "MARRON_CREME",
-      "renk_hex": "#9c9794",
+      "renk_hex": "#f0e0c8",
       "boyut": "MINI",
       "donanim": "GOLD",
-      "deri_tipi": "",
-      "sezon": "",
+      "deri_tipi": "Örme",
+      "sezon": "SS26",
       "fiyat_eur": 1250.0,
+      "ek_ucret_eur": 0.0,
+      "maliyet_eur": 0.0,
       "total_stok": 1,
       "occupied_stok": 0,
       "available_stok": 1,
       "stok": 1,
       "kondisyon": "BNIB",
+      "kondisyon_label": "Sıfır",
       "aciklama": "",
       "tedarikci_id": null,
       "olusturma": "2026-05-13"
@@ -3777,26 +4310,39 @@ input,select,textarea{font-size:16px}
     {
       "variation_id": "FR-00008-NOIR-STANDART-SILVER",
       "sku": "FR-00008",
+      "no": 38,
       "slug": "prada-siyah-deri-kapak-capraz-hasir",
       "cover": "assets/products/prada-siyah-deri-kapak-capraz-hasir.jpg",
       "isim_resmi": "",
       "isim_bilinen": "Prada Üçgen Hasır",
       "marka": "Prada",
-      "kategori": "",
-      "kategori_ust": "",
-      "kategori_alt": "",
+      "kategori": "CROSSBODY",
+      "kategori_ust": "CANTA",
+      "kategori_alt": "CROSSBODY",
+      "ana_renk": "Doğal",
+      "ana_renk_hex": "#d4b890",
+      "ikincil_renk": "Siyah",
+      "ikincil_renk_hex": "#1a1a1a",
+      "ana_malzeme": "Hasır",
+      "desen": "Düz",
+      "donanim_rengi": "Gümüş",
+      "stil": "Çapraz",
+      "sapli_sapsiz": "Saplı",
       "renk": "NOIR",
-      "renk_hex": "#1a1a1a",
+      "renk_hex": "#d4b890",
       "boyut": "STANDART",
       "donanim": "SILVER",
-      "deri_tipi": "",
-      "sezon": "",
+      "deri_tipi": "Hasır",
+      "sezon": "SS26",
       "fiyat_eur": 1450.0,
+      "ek_ucret_eur": 0.0,
+      "maliyet_eur": 0.0,
       "total_stok": 1,
       "occupied_stok": 0,
       "available_stok": 1,
       "stok": 1,
       "kondisyon": "BNIB",
+      "kondisyon_label": "Sıfır",
       "aciklama": "",
       "tedarikci_id": null,
       "olusturma": "2026-05-13"
@@ -3804,26 +4350,39 @@ input,select,textarea{font-size:16px}
     {
       "variation_id": "FR-00008-MARRON_FONCE-STANDART-SILVER",
       "sku": "FR-00008",
+      "no": 40,
       "slug": "prada-koyu-kahve-deri-kapak-capraz-hasir",
       "cover": "assets/products/prada-koyu-kahve-deri-kapak-capraz-hasir.jpg",
       "isim_resmi": "",
       "isim_bilinen": "Prada Üçgen Hasır",
       "marka": "Prada",
-      "kategori": "",
-      "kategori_ust": "",
-      "kategori_alt": "",
+      "kategori": "CROSSBODY",
+      "kategori_ust": "CANTA",
+      "kategori_alt": "CROSSBODY",
+      "ana_renk": "Doğal",
+      "ana_renk_hex": "#d4b890",
+      "ikincil_renk": "Koyu Kahve",
+      "ikincil_renk_hex": "#3d2817",
+      "ana_malzeme": "Hasır",
+      "desen": "Düz",
+      "donanim_rengi": "Gümüş",
+      "stil": "Çapraz",
+      "sapli_sapsiz": "Saplı",
       "renk": "MARRON_FONCE",
-      "renk_hex": "#9c9794",
+      "renk_hex": "#d4b890",
       "boyut": "STANDART",
       "donanim": "SILVER",
-      "deri_tipi": "",
-      "sezon": "",
+      "deri_tipi": "Hasır",
+      "sezon": "SS26",
       "fiyat_eur": 1450.0,
+      "ek_ucret_eur": 0.0,
+      "maliyet_eur": 0.0,
       "total_stok": 1,
       "occupied_stok": 0,
       "available_stok": 1,
       "stok": 1,
       "kondisyon": "BNIB",
+      "kondisyon_label": "Sıfır",
       "aciklama": "",
       "tedarikci_id": null,
       "olusturma": "2026-05-13"
@@ -3831,26 +4390,39 @@ input,select,textarea{font-size:16px}
     {
       "variation_id": "FR-00008-TABA-STANDART-SILVER",
       "sku": "FR-00008",
+      "no": 42,
       "slug": "prada-taba-deri-kapak-capraz-hasir",
       "cover": "assets/products/prada-taba-deri-kapak-capraz-hasir.jpg",
       "isim_resmi": "",
       "isim_bilinen": "Prada Üçgen Hasır",
       "marka": "Prada",
-      "kategori": "",
-      "kategori_ust": "",
-      "kategori_alt": "",
+      "kategori": "CROSSBODY",
+      "kategori_ust": "CANTA",
+      "kategori_alt": "CROSSBODY",
+      "ana_renk": "Doğal",
+      "ana_renk_hex": "#d4b890",
+      "ikincil_renk": "Taba",
+      "ikincil_renk_hex": "#b08560",
+      "ana_malzeme": "Hasır",
+      "desen": "Düz",
+      "donanim_rengi": "Gümüş",
+      "stil": "Çapraz",
+      "sapli_sapsiz": "Saplı",
       "renk": "TABA",
-      "renk_hex": "#9c9794",
+      "renk_hex": "#d4b890",
       "boyut": "STANDART",
       "donanim": "SILVER",
-      "deri_tipi": "",
-      "sezon": "",
+      "deri_tipi": "Hasır",
+      "sezon": "SS26",
       "fiyat_eur": 1450.0,
+      "ek_ucret_eur": 0.0,
+      "maliyet_eur": 0.0,
       "total_stok": 1,
       "occupied_stok": 0,
       "available_stok": 1,
       "stok": 1,
       "kondisyon": "BNIB",
+      "kondisyon_label": "Sıfır",
       "aciklama": "",
       "tedarikci_id": null,
       "olusturma": "2026-05-13"
@@ -3858,26 +4430,39 @@ input,select,textarea{font-size:16px}
     {
       "variation_id": "FR-00009-NOIR-MINI-SILVER",
       "sku": "FR-00009",
+      "no": 43,
       "slug": "armani-erkek-deri-siyah-kucuk",
       "cover": "assets/products/armani-erkek-deri-siyah-kucuk.jpg",
       "isim_resmi": "",
       "isim_bilinen": "Armani Erkek",
       "marka": "Giorgio Armani",
-      "kategori": "",
-      "kategori_ust": "",
-      "kategori_alt": "",
+      "kategori": "MENS_BRIEFCASE",
+      "kategori_ust": "CANTA",
+      "kategori_alt": "MENS_BRIEFCASE",
+      "ana_renk": "Siyah",
+      "ana_renk_hex": "#1a1a1a",
+      "ikincil_renk": "Siyah",
+      "ikincil_renk_hex": "#1a1a1a",
+      "ana_malzeme": "Deri",
+      "desen": "Düz",
+      "donanim_rengi": "Gümüş",
+      "stil": "Portföy",
+      "sapli_sapsiz": "Saplı",
       "renk": "NOIR",
       "renk_hex": "#1a1a1a",
       "boyut": "MINI",
       "donanim": "SILVER",
-      "deri_tipi": "",
-      "sezon": "",
+      "deri_tipi": "Deri",
+      "sezon": "SS26",
       "fiyat_eur": 650.0,
+      "ek_ucret_eur": 0.0,
+      "maliyet_eur": 0.0,
       "total_stok": 1,
       "occupied_stok": 0,
       "available_stok": 1,
       "stok": 1,
       "kondisyon": "BNIB",
+      "kondisyon_label": "Sıfır",
       "aciklama": "",
       "tedarikci_id": null,
       "olusturma": "2026-05-13"
@@ -3885,26 +4470,39 @@ input,select,textarea{font-size:16px}
     {
       "variation_id": "FR-00009-NOIR-MAXI-SILVER",
       "sku": "FR-00009",
+      "no": 44,
       "slug": "armani-erkek-deri-siyah-buyuk",
       "cover": "assets/products/armani-erkek-deri-siyah-buyuk.jpg",
       "isim_resmi": "",
       "isim_bilinen": "Armani Erkek",
       "marka": "Giorgio Armani",
-      "kategori": "",
-      "kategori_ust": "",
-      "kategori_alt": "",
+      "kategori": "MENS_BRIEFCASE",
+      "kategori_ust": "CANTA",
+      "kategori_alt": "MENS_BRIEFCASE",
+      "ana_renk": "Siyah",
+      "ana_renk_hex": "#1a1a1a",
+      "ikincil_renk": "Siyah",
+      "ikincil_renk_hex": "#1a1a1a",
+      "ana_malzeme": "Deri",
+      "desen": "Düz",
+      "donanim_rengi": "Gümüş",
+      "stil": "Portföy",
+      "sapli_sapsiz": "Saplı",
       "renk": "NOIR",
       "renk_hex": "#1a1a1a",
       "boyut": "MAXI",
       "donanim": "SILVER",
-      "deri_tipi": "",
-      "sezon": "",
+      "deri_tipi": "Deri",
+      "sezon": "SS26",
       "fiyat_eur": 800.0,
+      "ek_ucret_eur": 150.0,
+      "maliyet_eur": 0.0,
       "total_stok": 1,
       "occupied_stok": 0,
       "available_stok": 1,
       "stok": 1,
       "kondisyon": "BNIB",
+      "kondisyon_label": "Sıfır",
       "aciklama": "",
       "tedarikci_id": null,
       "olusturma": "2026-05-13"
@@ -3912,26 +4510,39 @@ input,select,textarea{font-size:16px}
     {
       "variation_id": "FR-00010-NOIR-MINI-SILVER",
       "sku": "FR-00010",
+      "no": 45,
       "slug": "hugo-boss-erkek-deri-siyah-kucuk",
       "cover": "assets/products/hugo-boss-erkek-deri-siyah-kucuk.jpg",
       "isim_resmi": "",
       "isim_bilinen": "Hugo Boss Erkek",
       "marka": "Hugo Boss",
-      "kategori": "",
-      "kategori_ust": "",
-      "kategori_alt": "",
+      "kategori": "MENS_BRIEFCASE",
+      "kategori_ust": "CANTA",
+      "kategori_alt": "MENS_BRIEFCASE",
+      "ana_renk": "Siyah",
+      "ana_renk_hex": "#1a1a1a",
+      "ikincil_renk": "Siyah",
+      "ikincil_renk_hex": "#1a1a1a",
+      "ana_malzeme": "Deri",
+      "desen": "Düz",
+      "donanim_rengi": "Gümüş",
+      "stil": "Portföy",
+      "sapli_sapsiz": "Saplı",
       "renk": "NOIR",
       "renk_hex": "#1a1a1a",
       "boyut": "MINI",
       "donanim": "SILVER",
-      "deri_tipi": "",
-      "sezon": "",
+      "deri_tipi": "Deri",
+      "sezon": "SS26",
       "fiyat_eur": 550.0,
+      "ek_ucret_eur": 0.0,
+      "maliyet_eur": 0.0,
       "total_stok": 1,
       "occupied_stok": 0,
       "available_stok": 1,
       "stok": 1,
       "kondisyon": "BNIB",
+      "kondisyon_label": "Sıfır",
       "aciklama": "",
       "tedarikci_id": null,
       "olusturma": "2026-05-13"
@@ -3939,26 +4550,39 @@ input,select,textarea{font-size:16px}
     {
       "variation_id": "FR-00010-NOIR-MAXI-SILVER",
       "sku": "FR-00010",
+      "no": 46,
       "slug": "hugo-boss-erkek-deri-siyah-buyuk",
       "cover": "assets/products/hugo-boss-erkek-deri-siyah-buyuk.jpg",
       "isim_resmi": "",
       "isim_bilinen": "Hugo Boss Erkek",
       "marka": "Hugo Boss",
-      "kategori": "",
-      "kategori_ust": "",
-      "kategori_alt": "",
+      "kategori": "MENS_BRIEFCASE",
+      "kategori_ust": "CANTA",
+      "kategori_alt": "MENS_BRIEFCASE",
+      "ana_renk": "Siyah",
+      "ana_renk_hex": "#1a1a1a",
+      "ikincil_renk": "Siyah",
+      "ikincil_renk_hex": "#1a1a1a",
+      "ana_malzeme": "Deri",
+      "desen": "Düz",
+      "donanim_rengi": "Gümüş",
+      "stil": "Portföy",
+      "sapli_sapsiz": "Saplı",
       "renk": "NOIR",
       "renk_hex": "#1a1a1a",
       "boyut": "MAXI",
       "donanim": "SILVER",
-      "deri_tipi": "",
-      "sezon": "",
+      "deri_tipi": "Deri",
+      "sezon": "SS26",
       "fiyat_eur": 700.0,
+      "ek_ucret_eur": 150.0,
+      "maliyet_eur": 0.0,
       "total_stok": 1,
       "occupied_stok": 0,
       "available_stok": 1,
       "stok": 1,
       "kondisyon": "BNIB",
+      "kondisyon_label": "Sıfır",
       "aciklama": "",
       "tedarikci_id": null,
       "olusturma": "2026-05-13"
@@ -3970,7 +4594,7 @@ input,select,textarea{font-size:16px}
       "isim": "Adam Johnson",
       "segment": "VIP",
       "kullanici_adi": "admin",
-      "sifre_hash": "75bf49d8856ca5d423c4d8bde959778dcc1883dddd71f10a69c189c23cc703d0"
+      "sifre_hash": "d6a32e7ba9b76ac45940c51c1da0c1b2820362eea4fc7d83d76656d0a07729d3"
     }
   ],
   "suppliers": [
@@ -4716,7 +5340,9 @@ if(typeof window !== 'undefined'){
 // ─── Auth + Session (Faz 1 — client-side, localStorage) ───────────
 const SESSION_KEY = 'botl_session';
 const ORDERS_KEY = 'botl_pending_orders';
-const AUTH_SALT = 'botl_v1_';  // SABIT — backend ile aynı salt (botl_mcp/tools/customers.py _AUTH_SALT ile eşleşmek zorunda)
+// FIX (2026-05): backend (botl_mcp/tools/customers.py _AUTH_SALT) ile aynı
+// kalmak zorunda. Mevcut müşteri hash'leri bu salt ile üretildi — değiştirme.
+const AUTH_SALT = 'frida_v1_';
 
 async function hashPassword(plain){
   const buf = new TextEncoder().encode(AUTH_SALT + plain);
@@ -4740,11 +5366,73 @@ function getSession(){
 }
 
 function setSession(s){ localStorage.setItem(SESSION_KEY, JSON.stringify(s)); }
-function clearSession(){ localStorage.removeItem(SESSION_KEY); }
+function clearSession(){
+  localStorage.removeItem(SESSION_KEY);
+  // Backend session cookie de temizle
+  try { window.BotlCustomerAPI?.logout?.(); } catch {}
+}
+
+// ─── BOTL Customer API client ─────────────────────────
+// Backend (localhost:8090 veya prod CF Workers) reachable ise profil
+// CRUD + parola değiştir oraya gider; offline ise client-side fallback.
+window.BotlCustomerAPI = (function(){
+  const isLocal = location.hostname === 'localhost' || location.hostname === '127.0.0.1' || location.protocol === 'file:';
+  const API_BASE = isLocal ? '' : 'http://localhost:8090';  // prod için CF Workers'a değiştirilir
+
+  async function call(method, path, body){
+    try {
+      const opts = { method, credentials: 'include', headers: {} };
+      if(body !== undefined){
+        opts.headers['Content-Type'] = 'application/json';
+        opts.body = JSON.stringify(body);
+      }
+      const r = await fetch(API_BASE + path, opts);
+      const data = await r.json().catch(()=>({}));
+      return { ok: r.ok, status: r.status, ...data };
+    } catch(e){
+      return { ok: false, error: 'network', detail: String(e) };
+    }
+  }
+
+  async function ping(){
+    try { const r = await fetch(API_BASE + '/api/health'); return r.ok; }
+    catch { return false; }
+  }
+
+  return {
+    ping,
+    login:  (kullanici_adi, sifre) => call('POST', '/api/customer/login', { kullanici_adi, sifre }),
+    logout: () => call('POST', '/api/customer/logout'),
+    me:     () => call('GET',  '/api/customer/me'),
+    patchMe:(payload) => call('PATCH', '/api/customer/me', payload),
+    changePassword: (eski_sifre, yeni_sifre) =>
+      call('POST', '/api/customer/me/change-password', { eski_sifre, yeni_sifre }),
+  };
+})();
 
 async function tryLogin(username, password){
   const u = (username || '').trim().toLowerCase();
   if(!u || !password) return { ok:false, error:'Kullanıcı adı ve parola gerekli' };
+
+  // 1) Backend dene (varsa)
+  const backendOk = await window.BotlCustomerAPI.ping();
+  if(backendOk){
+    const r = await window.BotlCustomerAPI.login(u, password);
+    if(r.ok){
+      setSession({
+        customer_id: r.customer_id,
+        kullanici_adi: r.kullanici_adi,
+        isim: r.isim || r.kullanici_adi,
+        expires_at: Date.now() + 1000*60*60*24*7,
+        backend: true,
+      });
+      return { ok:true, customer:{ customer_id:r.customer_id, kullanici_adi:r.kullanici_adi, isim:r.isim } };
+    }
+    if(r.status === 401) return { ok:false, error:'Kullanıcı adı veya şifre hatalı' };
+    // Diğer hatalar → client-side fallback
+  }
+
+  // 2) Client-side fallback (offline / inline data)
   const customers = (window.__BOTL_DATA__ && window.__BOTL_DATA__.customers) || [];
   const c = customers.find(x => (x.kullanici_adi || '').toLowerCase() === u);
   if(!c || !c.sifre_hash) return { ok:false, error:'Kullanıcı adı veya şifre hatalı' };
@@ -4754,7 +5442,8 @@ async function tryLogin(username, password){
     customer_id: c.customer_id || c.id,
     kullanici_adi: c.kullanici_adi,
     isim: c.isim || c.ad_soyad || c.kullanici_adi,
-    expires_at: Date.now() + 1000*60*60*24*7,  // 7 gün
+    expires_at: Date.now() + 1000*60*60*24*7,
+    backend: false,
   });
   return { ok:true, customer:c };
 }
@@ -4915,6 +5604,7 @@ function updateOrder(orderId, mutatorFn, opts){
   const before = JSON.parse(JSON.stringify(all[idx]));
   mutatorFn(all[idx]);
   // Reset to BEKLIYOR (müşteri değişikliği → admin yeniden değerlendirsin)
+  // + re_onay_bekliyor flag (admin badge "Müşteri değiştirdi — yeniden onayla").
   if(reset_to_bekliyor && kim === 'musteri' &&
      all[idx].durum !== 'IPTAL_EDILDI' && all[idx].durum !== 'TESLIM_EDILDI'){
     if(all[idx].durum !== 'BEKLIYOR'){
@@ -4925,6 +5615,8 @@ function updateOrder(orderId, mutatorFn, opts){
       all[idx].durum = 'BEKLIYOR';
       all[idx].onay_ts = null;
     }
+    // Müşteri BEKLEMEDE'de de değişiklik yaparsa admin "tekrar bakılmalı" bilsin
+    all[idx].re_onay_bekliyor = true;
   }
   // Diff log — sadece basit primer alanlar (items diff item-bazlı)
   const fields = ['toplam_eur','ara_toplam_eur','musteri_notu','kargo_adresi','tracking_no','tracking_url','patron_notu'];
@@ -5980,24 +6672,33 @@ function switchAccountTab(tabName){
 }
 
 // Hem modal hem page versiyonu doldurulur — id prefix'leri: acct- (modal), acctp- (page)
-function renderAccountProfile(){
+async function renderAccountProfile(){
   const s = getSession(); if(!s) return;
-  const draft = (getProfileDraft() && getProfileDraft().customer_id === s.customer_id) ? getProfileDraft() : null;
   const customers = (window.__BOTL_DATA__ && window.__BOTL_DATA__.customers) || [];
-  const c = customers.find(x => x.customer_id === s.customer_id) || {};
+  let c = customers.find(x => x.customer_id === s.customer_id) || {};
+
+  // Backend reachable + session backend ise gerçek profil verilerini çek
+  if(s.backend && await window.BotlCustomerAPI.ping()){
+    const remote = await window.BotlCustomerAPI.me();
+    if(remote && remote.ok !== false && remote.customer_id){
+      c = { ...c, ...remote };
+    }
+  }
+
+  const draft = (getProfileDraft() && getProfileDraft().customer_id === s.customer_id) ? getProfileDraft() : null;
   const v = (key, fallback) => (draft && draft[key] !== undefined ? draft[key] : (fallback || ''));
   const setBoth = (suffix, val) => {
     const a = $('#acct-' + suffix); if(a) a.value = val || '';
     const b = $('#acctp-' + suffix); if(b) b.value = val || '';
   };
-  setBoth('isim',      c.isim || s.isim || '');
-  setBoth('kullanici', s.kullanici_adi || c.kullanici_adi || '');
-  setBoth('email',     v('email', s.email));
-  setBoth('telefon',   v('telefon', ''));
-  setBoth('adres',     v('adres', ''));
-  setBoth('posta',     v('posta_kodu', ''));
-  setBoth('sehir',     v('sehir', ''));
-  setBoth('ulke',      v('ulke', ''));
+  setBoth('isim',      v('isim', c.isim || s.isim || ''));
+  setBoth('kullanici', v('kullanici_adi', s.kullanici_adi || c.kullanici_adi || ''));
+  setBoth('email',     v('email', c.email || s.email || ''));
+  setBoth('telefon',   v('telefon', c.telefon || ''));
+  setBoth('adres',     v('adres', c.adres || ''));
+  setBoth('posta',     v('posta_kodu', c.posta_kodu || ''));
+  setBoth('sehir',     v('sehir', c.sehir || ''));
+  setBoth('ulke',      v('ulke', c.ulke || ''));
   // Page header CID
   const pageCid = $('#page-account-cid');
   if(pageCid) pageCid.textContent = (s.customer_id || '') + (s.kullanici_adi ? (' · @' + s.kullanici_adi) : '');
@@ -6006,32 +6707,99 @@ function renderAccountProfile(){
 function _pickFormValues(prefix){
   const get = (id) => { const el = $('#' + prefix + id); return el ? (el.value || '').trim() : ''; };
   return {
-    email:      get('email'),
-    telefon:    get('telefon'),
-    adres:      get('adres'),
-    posta_kodu: get('posta'),
-    sehir:      get('sehir'),
-    ulke:       get('ulke').toUpperCase(),
+    isim:          get('isim'),
+    kullanici_adi: get('kullanici').toLowerCase(),
+    email:         get('email'),
+    telefon:       get('telefon'),
+    adres:         get('adres'),
+    posta_kodu:    get('posta'),
+    sehir:         get('sehir'),
+    ulke:          get('ulke').toUpperCase(),
   };
 }
 
-function saveAccountProfile(e){
+// Parola değiştir — backend API çağrısı.
+async function saveAccountPassword(e){
+  if(e) e.preventDefault();
+  const s = getSession(); if(!s) { toast('Önce giriş yapın', true); return; }
+  const eski = $('#acct-eski-sifre').value || '';
+  const yeni = $('#acct-yeni-sifre').value || '';
+  const yeni2 = $('#acct-yeni-sifre-2').value || '';
+  if(yeni.length < 6){ toast('Yeni parola en az 6 karakter olmalı', true); return; }
+  if(yeni !== yeni2){ toast('Yeni parolalar eşleşmiyor', true); return; }
+
+  const backendOk = await window.BotlCustomerAPI.ping();
+  if(!backendOk){
+    toast('Sunucuya ulaşılamıyor — parola değişikliği için backend gerekli', true);
+    return;
+  }
+  // Önce login yenile (session backend değilse)
+  if(!s.backend){
+    const lr = await window.BotlCustomerAPI.login(s.kullanici_adi, eski);
+    if(!lr.ok){ toast('Mevcut parola yanlış', true); return; }
+    setSession({ ...s, backend: true });
+  }
+  const r = await window.BotlCustomerAPI.changePassword(eski, yeni);
+  if(r.ok){
+    toast('Parola güncellendi. Tekrar giriş yapmanız gerekebilir.');
+    $('#acct-eski-sifre').value = '';
+    $('#acct-yeni-sifre').value = '';
+    $('#acct-yeni-sifre-2').value = '';
+  } else if(r.status === 401){
+    toast('Mevcut parola yanlış', true);
+  } else {
+    toast('Parola güncellenemedi: ' + (r.error || r.status), true);
+  }
+}
+
+async function saveAccountProfile(e){
   if(e) e.preventDefault();
   const s = getSession(); if(!s) return;
-  // Hangi form gönderdiyse onun prefix'inden değerleri al; tanımsızsa modal varsayılan.
+  // Hangi form gönderdiyse onun prefix'inden değerleri al
   const isPage = e && e.target && e.target.id === 'acct-form-page';
   const vals = _pickFormValues(isPage ? 'acctp-' : 'acct-');
+
+  // Backend reachable + session backend ise direkt PATCH
+  const backendOk = await window.BotlCustomerAPI.ping();
+  if(backendOk){
+    const r = await window.BotlCustomerAPI.patchMe(vals);
+    if(r.ok){
+      // Session güncel tut
+      const sess = getSession();
+      if(sess){
+        sess.isim = vals.isim;
+        sess.kullanici_adi = vals.kullanici_adi;
+        sess.email = vals.email;
+        setSession(sess);
+      }
+      clearProfileDraft();  // backend kabul etti, draft gerek yok
+      refreshAuthUI();
+      renderAccountProfile();
+      toast('Bilgileriniz güncellendi.');
+      return;
+    } else if(r.status === 401){
+      toast('Oturum süresi doldu — tekrar giriş yapın', true);
+      return;
+    } else if(r.status === 409){
+      toast('Bu kullanıcı adı başkası tarafından kullanılıyor', true);
+      return;
+    }
+    // Diğer hatalar → draft fallback
+  }
+
+  // Fallback: localStorage draft (backend kapalı / network yok)
   const draft = Object.assign({ customer_id: s.customer_id, _updated_at: new Date().toISOString() }, vals);
   saveProfileDraft(draft);
   const sess = getSession();
   if(sess){
-    sess.email = draft.email;
+    sess.isim = vals.isim;
+    sess.kullanici_adi = vals.kullanici_adi;
+    sess.email = vals.email;
     setSession(sess);
   }
   refreshAuthUI();
-  // Her iki formu da güncel sırada tut
   renderAccountProfile();
-  toast('Bilgileriniz güncellendi — admin onayından sonra kalıcı olur.');
+  toast('Çevrimdışı — değişiklik taslakta. Sunucu açıldığında uygulanır.');
 }
 
 function resetAccountProfile(){
@@ -6194,7 +6962,10 @@ const ORDER_DURUM_LABEL = {
   'IPTAL_EDILDI': 'İPTAL EDİLDİ',
   'REDDEDILDI': 'REDDEDİLDİ',
 };
-const ORDER_EDITABLE_STATES = ['BEKLIYOR']; // sadece BEKLEMEDE'de müşteri qty/items değiştirebilir
+// Müşteri BEKLEMEDE + ONAYLANDI durumlarında qty/items düzenleyebilir.
+// ONAYLANDI'da değişiklik yapılırsa order otomatik BEKLEMEDE'ye düşer ve
+// admin yeniden onaylar (re_onay_bekliyor flag + guncelleme_gecmisi audit).
+const ORDER_EDITABLE_STATES = ['BEKLIYOR','ONAYLANDI'];
 const ORDER_CANCELLABLE_STATES = ['BEKLIYOR','ONAYLANDI']; // müşteri buradan iptal isteyebilir
 const ORDER_CLOSED_STATES = ['TESLIM_EDILDI','IPTAL_EDILDI','REDDEDILDI'];
 
@@ -6278,6 +7049,7 @@ function renderAccountOrders(){
     }).join('');
     const baseActions = [];
     if(editable){
+      baseActions.push(`<button class="acct-order__btn acct-order__btn--add" data-order-add-item="${oid}" type="button"><span class="acct-order__btn-plus">+</span> Ürün ekle</button>`);
       baseActions.push(`<button class="acct-order__btn acct-order__btn--edit-addr" data-order-edit-addr="${oid}">Adres / Not Güncelle</button>`);
     }
     if(cancellable){
@@ -6638,13 +7410,145 @@ function removeOrderItem(orderId, itemIdx){
     cancelOrder(orderId);
     return;
   }
+  const removedVid = o.items[itemIdx] && o.items[itemIdx].variation_id;
   updateOrder(orderId, (ord) => {
     ord.items.splice(itemIdx, 1);
     ord.ara_toplam_eur = ord.items.reduce((s,i) => s + (Number(i.satir_toplam_eur) || _orderItemFiyat(i) * _orderItemQty(i)), 0);
     ord.toplam_eur = ord.ara_toplam_eur + (Number(ord.kargo_eur)||0) - (Number(ord.indirim_eur)||0);
+    ord.guncelleme_gecmisi.push({
+      ts: new Date().toISOString(), kim:'musteri', alan:'items_silindi',
+      eski: removedVid, yeni: null,
+    });
   }, { kim:'musteri', reset_to_bekliyor:true });
   renderAccountOrders();
   toast('Ürün siparişten çıkarıldı · sipariş yeniden onay bekliyor');
+}
+
+// Müşteri tarafı: order'a yeni ürün ekle — katalog grid'inden seçim.
+// Stoktan available olan varyasyonlar listede aktif, available<1 disabled gri.
+// Eklendiğinde order BEKLEMEDE'ye force düşer + admin re-onay bekliyor.
+let _addItemContext = null;
+function openAddItemModal(orderId){
+  const all = getPendingOrders();
+  const o = all.find(x => (x.id || x.order_id) === orderId);
+  if(!o){ toast('Sipariş bulunamadı', true); return; }
+  if(!ORDER_EDITABLE_STATES.includes(o.durum)){
+    toast('Bu sipariş düzenlenemez.', true);
+    return;
+  }
+  const products = (window.__BOTL_DATA__ && window.__BOTL_DATA__.products) || (window.PRODUCTS || []);
+  const existingVids = new Set((o.items || []).map(it => it.variation_id));
+  const candidates = products.map(p => {
+    const avail = (typeof availableOf === 'function') ? availableOf(p) : (Number(p.stok || 0) - Number(p.occupied || 0));
+    return { p, available: Math.max(0, avail), already: existingVids.has(p.variation_id) };
+  });
+  _addItemContext = { orderId, candidates };
+  const searchEl = $('#add-item-search');
+  if(searchEl) searchEl.value = '';
+  renderAddItemModal();
+  const modal = $('#add-item-modal');
+  if(modal){ modal.hidden = false; document.body.style.overflow = 'hidden'; }
+}
+function closeAddItemModal(){
+  const modal = $('#add-item-modal');
+  if(modal) modal.hidden = true;
+  document.body.style.overflow = '';
+  _addItemContext = null;
+}
+function renderAddItemModal(){
+  if(!_addItemContext) return;
+  const grid = $('#add-item-grid');
+  const empty = $('#add-item-empty');
+  if(!grid) return;
+  const searchEl = $('#add-item-search');
+  const q = ((searchEl && searchEl.value) || '').toLowerCase().trim();
+  const list = _addItemContext.candidates.filter(c => {
+    if(!q) return true;
+    const p = c.p;
+    const hay = `${p.marka||''} ${p.isim_bilinen||''} ${p.isim_resmi||''} ${p.variation_id||''} ${p.renk||''} ${p.boyut||''}`.toLowerCase();
+    return hay.includes(q);
+  });
+  if(!list.length){
+    grid.innerHTML = '';
+    if(empty) empty.hidden = false;
+    return;
+  }
+  if(empty) empty.hidden = true;
+  const escFn = (typeof esc === 'function') ? esc : (s => String(s||''));
+  grid.innerHTML = list.map(c => {
+    const p = c.p;
+    const name = p.isim_bilinen || p.isim_resmi || p.variation_id;
+    const meta = [p.renk, p.boyut, p.donanim].filter(Boolean).join(' · ');
+    const fiyat = Number(p.fiyat_eur || 0);
+    const cover = p.cover || '';
+    const oos = c.available < 1;
+    const dup = c.already;
+    const disabled = oos || dup;
+    const badge = dup ? '<span class="add-item-card__badge add-item-card__badge--dup">Zaten siparişte</span>'
+                      : oos ? '<span class="add-item-card__badge add-item-card__badge--oos">Stokta yok</span>'
+                            : `<span class="add-item-card__badge add-item-card__badge--ok">${c.available} adet stok</span>`;
+    return `
+      <button class="add-item-card ${disabled?'add-item-card--disabled':''}" type="button"
+              data-add-vid="${escFn(p.variation_id)}" ${disabled?'disabled aria-disabled="true"':''}
+              title="${disabled ? (dup?'Bu ürün zaten siparişinizde':'Stokta yok') : 'Siparişe ekle'}">
+        <div class="add-item-card__media">${cover?`<img src="${escFn(cover)}" alt="" onerror="this.style.display='none'">`:''}</div>
+        <div class="add-item-card__body">
+          <div class="add-item-card__brand">${escFn(p.marka || '')}</div>
+          <div class="add-item-card__name">${escFn(name)}</div>
+          <div class="add-item-card__meta">${escFn(meta)}</div>
+          <div class="add-item-card__price">${fiyat.toLocaleString('tr-TR')} EUR</div>
+          ${badge}
+        </div>
+      </button>`;
+  }).join('');
+  grid.querySelectorAll('[data-add-vid]').forEach(el => {
+    el.addEventListener('click', (e) => {
+      e.stopPropagation();
+      if(el.disabled) return;
+      const vid = el.getAttribute('data-add-vid');
+      if(!vid) return;
+      confirmAddItem(vid);
+    });
+  });
+}
+function confirmAddItem(variationId){
+  if(!_addItemContext) return;
+  const { orderId } = _addItemContext;
+  const products = (window.__BOTL_DATA__ && window.__BOTL_DATA__.products) || (window.PRODUCTS || []);
+  const p = products.find(x => x.variation_id === variationId);
+  if(!p){ toast('Ürün bulunamadı', true); return; }
+  const avail = (typeof availableOf === 'function') ? availableOf(p) : (Number(p.stok || 0) - Number(p.occupied || 0));
+  if(avail < 1){ toast('Stokta yeterli adet yok', true); return; }
+  const fiyat = Number(p.fiyat_eur || 0);
+  const newItem = {
+    variation_id: p.variation_id,
+    sku: p.sku || null,
+    isim_snapshot: p.isim_bilinen || p.isim_resmi || p.variation_id,
+    marka: p.marka || '',
+    model: p.isim_bilinen || p.isim_resmi || '',
+    renk: p.renk || '',
+    boyut: p.boyut || '',
+    donanim: p.donanim || '',
+    qty: 1,
+    miktar: 1,
+    birim_fiyat_eur: fiyat,
+    fiyat_eur: fiyat,
+    satir_toplam_eur: fiyat,
+    durum_item: 'BEKLIYOR',
+  };
+  updateOrder(orderId, (ord) => {
+    if(!Array.isArray(ord.items)) ord.items = [];
+    ord.items.push(newItem);
+    ord.ara_toplam_eur = ord.items.reduce((s,i) => s + (Number(i.satir_toplam_eur) || _orderItemFiyat(i) * _orderItemQty(i)), 0);
+    ord.toplam_eur = ord.ara_toplam_eur + (Number(ord.kargo_eur)||0) - (Number(ord.indirim_eur)||0);
+    ord.guncelleme_gecmisi.push({
+      ts: new Date().toISOString(), kim:'musteri', alan:'items_eklendi',
+      eski: null, yeni: newItem.variation_id,
+    });
+  }, { kim:'musteri', reset_to_bekliyor:true });
+  closeAddItemModal();
+  renderAccountOrders();
+  toast(`${newItem.isim_snapshot} siparişe eklendi · sipariş yeniden onay bekliyor`);
 }
 
 function reorderOrder(orderId){
@@ -6803,6 +7707,9 @@ function initAuthBindings(){
   if(acctForm) acctForm.addEventListener('submit', saveAccountProfile);
   const acctReset = $('#acct-reset');
   if(acctReset) acctReset.addEventListener('click', resetAccountProfile);
+  // Parola değiştir formu
+  const acctPwForm = $('#acct-password-form');
+  if(acctPwForm) acctPwForm.addEventListener('submit', saveAccountPassword);
   // Page form (yeni)
   const acctFormPage = $('#acct-form-page');
   if(acctFormPage) acctFormPage.addEventListener('submit', saveAccountProfile);
@@ -6832,6 +7739,30 @@ function initAuthBindings(){
       if(r === 'account' || r === 'orders') navigateTo('catalog');
     }
   });
+}
+
+// ─── Cross-tab storage sync (PAKET E / siparis-akisi v2) ──────────────────
+// Admin sekmesi orderın durumunu değiştirdiğinde (ONAYLA/HAZIRLANIYOR/KARGODA/
+// TESLIM_EDILDI/REDDEDILDI/IPTAL_EDILDI) müşteri sekmesinde anında refresh:
+//   - sepet badge (siparişe çıkmış olsa bile dead-ID purge tetikler)
+//   - "Siparişlerim" sayfası (acct-orders-list, user-menu-orders-count)
+//   - profil draft banner (rezerv için)
+// Aynı şekilde, müşteri qty update yapınca admin storage listener'ı toast atar.
+// localStorage 'storage' event SADECE başka sekmeden firing eder (self-write sessiz).
+function _botlOrdersStorageHandler(e){
+  if(!e || (e.key !== 'botl_pending_orders' && e.key !== 'botl_session')) return;
+  try {
+    // Customer route 'orders' ise sayfa içeriğini yenile
+    if(typeof renderAccountOrders === 'function') renderAccountOrders();
+  } catch(err){ console.warn('renderAccountOrders/storage', err); }
+  try {
+    // Cart badge — bazı edge case'lerde sipariş tamamlandığı için sepetten düşmüş olabilir
+    if(typeof renderCartBadge === 'function') renderCartBadge();
+  } catch(err){ console.warn('renderCartBadge/storage', err); }
+}
+if(!window.__BOTL_CAT_STORAGE_BOUND__){
+  window.__BOTL_CAT_STORAGE_BOUND__ = true;
+  window.addEventListener('storage', _botlOrdersStorageHandler);
 }
 
 document.addEventListener('DOMContentLoaded', async () => {
