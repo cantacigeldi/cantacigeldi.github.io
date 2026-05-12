@@ -352,6 +352,90 @@ a{color:inherit;text-decoration:none}
 .banner--draft{background:rgba(200,155,60,.08);border-bottom-color:var(--accent-soft)}
 .btn--small{padding:6px 12px;font-size:11px;letter-spacing:.04em}
 
+/* ─── Admin Gate (parola kapısı) ────────────────────── */
+.admin-gate{
+  position:fixed;inset:0;z-index:99999;
+  display:flex;align-items:center;justify-content:center;
+  background:rgba(15,14,11,.92);backdrop-filter:blur(8px);
+  -webkit-backdrop-filter:blur(8px);
+  font-family:var(--sans);
+}
+.admin-gate[hidden]{display:none!important}
+.admin-gate__card{
+  background:var(--surface);color:var(--text);
+  border:1px solid var(--border);
+  padding:36px 40px;max-width:420px;width:92vw;
+  box-shadow:0 30px 60px rgba(0,0,0,.5);
+}
+.admin-gate__title{
+  font-family:var(--serif);font-size:24px;font-weight:500;
+  margin:0 0 8px;letter-spacing:.02em;
+}
+.admin-gate__sub{
+  font-size:12px;color:var(--text-muted,#777);
+  margin:0 0 24px;line-height:1.5;
+}
+.admin-gate__label{
+  display:block;font-size:11px;letter-spacing:.08em;
+  text-transform:uppercase;margin:0 0 6px;color:var(--text-muted,#777);
+}
+.admin-gate__input{
+  width:100%;padding:11px 14px;font-size:14px;
+  background:var(--surface-2);color:var(--text);
+  border:1px solid var(--border);
+  font-family:var(--sans);box-sizing:border-box;
+}
+.admin-gate__input:focus{outline:1px solid var(--accent-soft);border-color:var(--accent-soft)}
+.admin-gate__btn{
+  width:100%;margin-top:18px;padding:12px 18px;
+  background:#1A1A1A;color:#FAF8F5;border:none;
+  font-size:13px;letter-spacing:.08em;text-transform:uppercase;
+  cursor:pointer;font-family:var(--sans);
+}
+.admin-gate__btn:hover{background:#000}
+.admin-gate__err{
+  margin-top:14px;padding:9px 12px;font-size:12px;
+  background:var(--banner-err-bg);color:var(--banner-err-fg);
+  border:1px solid var(--banner-err-border);
+}
+
+/* ─── GitHub Push Modal ─────────────────────────────── */
+.gh-modal{
+  position:fixed;inset:0;z-index:9000;
+  display:flex;align-items:center;justify-content:center;
+  background:rgba(15,14,11,.78);backdrop-filter:blur(6px);
+  -webkit-backdrop-filter:blur(6px);
+}
+.gh-modal[hidden]{display:none!important}
+.gh-modal__panel{
+  background:var(--surface);color:var(--text);
+  border:1px solid var(--border);
+  padding:28px 32px;max-width:520px;width:92vw;
+  box-shadow:0 24px 48px rgba(0,0,0,.45);
+}
+.gh-modal__title{
+  font-family:var(--serif);font-size:20px;font-weight:500;
+  margin:0 0 6px;letter-spacing:.02em;
+}
+.gh-modal__sub{font-size:12px;color:var(--text-muted,#777);margin:0 0 18px;line-height:1.5}
+.gh-modal__label{display:block;font-size:11px;letter-spacing:.08em;text-transform:uppercase;margin:14px 0 6px;color:var(--text-muted,#777)}
+.gh-modal__input{
+  width:100%;padding:10px 12px;font-size:13px;
+  background:var(--surface-2);color:var(--text);border:1px solid var(--border);
+  font-family:ui-monospace,Menlo,Consolas,monospace;box-sizing:border-box;
+}
+.gh-modal__row{display:flex;gap:10px;margin-top:18px;justify-content:flex-end}
+.gh-modal__row .btn{min-width:80px}
+.gh-modal__log{
+  margin-top:14px;padding:10px 12px;font-size:11px;
+  background:var(--surface-2);border:1px solid var(--border);
+  font-family:ui-monospace,Menlo,Consolas,monospace;
+  white-space:pre-wrap;max-height:200px;overflow-y:auto;
+}
+.gh-modal__log[hidden]{display:none}
+.btn--ghost{background:transparent;color:var(--text);border:1px solid var(--border)}
+.btn--ghost:hover{background:var(--surface-2)}
+
 /* Drafts table inside modal */
 .drafts-list{display:flex;flex-direction:column;gap:8px;max-height:60vh;overflow-y:auto}
 .draft-card{
@@ -1288,6 +1372,38 @@ tr.row--draft td:first-child{box-shadow:inset 3px 0 0 var(--row-draft-edge)}
 </head>
 <body>
 
+<!-- ── Admin Gate (parola kapısı) ─────────────────────── -->
+<div class="admin-gate" id="admin-gate">
+  <div class="admin-gate__card">
+    <h1 class="admin-gate__title">Yönetim Paneli</h1>
+    <p class="admin-gate__sub">Bu panel sadece yetkili kişiler içindir. Parola tarayıcıda 24 saat saklanır.</p>
+    <form id="admin-gate-form">
+      <label class="admin-gate__label" for="admin-gate-password">Parola</label>
+      <input class="admin-gate__input" id="admin-gate-password" name="password" type="password" autocomplete="current-password" required autofocus>
+      <button class="admin-gate__btn" type="submit">Aç</button>
+    </form>
+    <div class="admin-gate__err" id="admin-gate-err" hidden role="alert" aria-live="polite">Parola hatalı</div>
+  </div>
+</div>
+
+<!-- ── GitHub Push Modal ──────────────────────────────── -->
+<div class="gh-modal" id="gh-modal" hidden>
+  <div class="gh-modal__panel">
+    <h2 class="gh-modal__title">Canlıya Gönder</h2>
+    <p class="gh-modal__sub">Taslak değişiklikler doğrudan GitHub'a commit'lenir, GitHub Pages 30-90 saniye içinde yayınlar.</p>
+    <label class="gh-modal__label" for="gh-pat-input">GitHub Personal Access Token <span id="gh-pat-status" style="text-transform:none;letter-spacing:0">—</span></label>
+    <input class="gh-modal__input" id="gh-pat-input" type="password" placeholder="ghp_… veya github_pat_…" autocomplete="off" spellcheck="false">
+    <label class="gh-modal__label" for="gh-commit-msg">Commit Mesajı</label>
+    <input class="gh-modal__input" id="gh-commit-msg" type="text" value="admin: data.json güncelle" maxlength="120">
+    <div class="gh-modal__log" id="gh-modal-log" hidden></div>
+    <div class="gh-modal__row">
+      <button class="btn btn--ghost" id="gh-modal-cancel" type="button">İptal</button>
+      <button class="btn btn--ghost" id="gh-clear-pat" type="button" title="Bu tarayıcıdaki kayıtlı token'i sil" hidden>Token Sil</button>
+      <button class="btn btn--primary" id="gh-modal-push" type="button">Gönder</button>
+    </div>
+  </div>
+</div>
+
 <header class="hdr">
   <div class="hdr__wrap">
     <a class="hdr__logo" href="../" aria-label="Bags of the Loom Katalog">
@@ -1307,6 +1423,7 @@ tr.row--draft td:first-child{box-shadow:inset 3px 0 0 var(--row-draft-edge)}
       </svg>
     </button>
     <button class="btn btn--primary" id="btn-new">+ Yeni Ürün</button>
+    <button class="btn" id="btn-publish-gh" title="data.json'u GitHub'a commit'le, canlıya yansıt">Canlıya Gönder ↑</button>
     <button class="btn" id="btn-export">Dışa Aktar</button>
     <button class="btn" id="btn-import">İçe Aktar</button>
     <a class="btn" href="../index.html" target="_blank" rel="noopener">Önizleme ↗</a>
@@ -3693,11 +3810,11 @@ function updateDataSourceBanner(){
       text.innerHTML = `MCP verisi yüklendi (${sourceLabel}, schema v${v}, ${exp}) — ` +
         `<strong>${drafts.total} taslak değişiklik</strong> ` +
         `(${drafts.products} ürün, ${drafts.customers} müşteri, ${drafts.suppliers} tedarikçi, ${drafts.orders} sipariş)`;
-      hint.textContent = 'Taslak commit için: ASS\'e (asistan) "X\'i kaydet" diye söyleyin';
+      hint.textContent = '“Canlıya Gönder” ile doğrudan yayınla — veya ASS\'e söyle, aynı sonucu o da alır.';
     } else {
       banner.classList.add('source-banner--live');
       text.innerHTML = `MCP verisi yüklendi (${sourceLabel}, schema v${v}, ${exp}) — taslak yok, canlı veri görüntüleniyor`;
-      hint.textContent = 'Düzenlemeleriniz taslak olarak kalır; commit için ASS\'e söyleyin';
+      hint.textContent = 'Düzenlemelerin canlıya yansır. ASS\'e söyleyerek de aynı sonucu alabilirsin — hangisi kolayına gelirse.';
     }
   } else {
     banner.classList.add('source-banner--error');
@@ -7051,6 +7168,364 @@ async function init(){
 
 document.addEventListener('DOMContentLoaded', () => {
   init().catch(e => console.error('init() top-level catch:', e));
+});
+</script>
+
+<!-- ── Admin Gate + GitHub Push (yetki katmanı) ────────── -->
+<script>
+/*
+  Admin tarafı yetki + canlıya yayın.
+
+  Mimari:
+  - Admin Gate: client-side parola kapısı. Hash gömülü (SHA-256(SALT+parola)).
+    SALT bilerek müşteri tarafından FARKLI (botl_admin_v1_) — çakışma riski yok.
+    Session 24 saat, ardından yeniden parola sorulur.
+  - GitHub Push: kullanıcı kendi PAT'ini girer (1 kere), localStorage'da saklanır.
+    "Canlıya Gönder" butonu data.json'u GitHub Contents API ile commit'ler.
+    SHA conflict varsa retry (3x), 409 dışında hata raporlanır.
+
+  Güvenlik notları:
+  - Bu client-side gate; teknik bilgisi olan biri JS'i bypass edebilir.
+    Ama GH Pages public bir host, admin'i ayrı subdomain'e taşımak istemiyoruz.
+    Gerçek güvenlik: PAT'in fine-grained scope'u (tek repo) + commit audit'i.
+  - Hash kontrolü constant-time değil ama SHA-256 brute force pratik değil.
+*/
+
+const ADMIN_AUTH_SALT = 'botl_admin_v1_';
+const ADMIN_AUTH_HASH = 'b49133de30152340e158cd4fedef7dc8a6ae70c0f7a63e4b2c2e13c664ccdd7a';
+const ADMIN_SESSION_KEY = 'botl_admin_session';
+const ADMIN_SESSION_TTL_MS = 24 * 60 * 60 * 1000; // 24 saat
+const GH_PAT_KEY = 'botl_admin_gh_pat';
+const GH_REPO_OWNER = 'cantacigeldi';
+const GH_REPO_NAME = 'cantacigeldi.github.io';
+const GH_DATA_PATH = 'data.json';
+const GH_BRANCH = 'main';
+
+async function adminHashPassword(plain){
+  const buf = new TextEncoder().encode(ADMIN_AUTH_SALT + plain);
+  const hashBuf = await crypto.subtle.digest('SHA-256', buf);
+  return Array.from(new Uint8Array(hashBuf))
+    .map(b => b.toString(16).padStart(2, '0')).join('');
+}
+
+function adminSessionValid(){
+  try{
+    const raw = localStorage.getItem(ADMIN_SESSION_KEY);
+    if(!raw) return false;
+    const d = JSON.parse(raw);
+    if(!d || !d.expiresAt) return false;
+    return Date.now() < Number(d.expiresAt);
+  }catch(e){ return false; }
+}
+
+function adminSetSession(){
+  localStorage.setItem(ADMIN_SESSION_KEY, JSON.stringify({
+    expiresAt: Date.now() + ADMIN_SESSION_TTL_MS,
+    grantedAt: new Date().toISOString(),
+  }));
+}
+
+function adminGateShow(){
+  const gate = document.getElementById('admin-gate');
+  if(!gate) return;
+  gate.hidden = false;
+  document.body.style.overflow = 'hidden';
+  const pwd = document.getElementById('admin-gate-password');
+  if(pwd) setTimeout(()=>pwd.focus(), 50);
+}
+
+function adminGateHide(){
+  const gate = document.getElementById('admin-gate');
+  if(!gate) return;
+  gate.hidden = true;
+  document.body.style.overflow = '';
+}
+
+function adminGateInit(){
+  if(adminSessionValid()){
+    adminGateHide();
+    return;
+  }
+  adminGateShow();
+  const form = document.getElementById('admin-gate-form');
+  const err  = document.getElementById('admin-gate-err');
+  if(!form) return;
+  form.addEventListener('submit', async (ev) => {
+    ev.preventDefault();
+    err.hidden = true;
+    const pwd = document.getElementById('admin-gate-password').value || '';
+    const h = await adminHashPassword(pwd);
+    if(h === ADMIN_AUTH_HASH){
+      adminSetSession();
+      adminGateHide();
+    } else {
+      err.textContent = 'Parola hatalı';
+      err.hidden = false;
+      document.getElementById('admin-gate-password').select();
+    }
+  });
+}
+
+// ─── GitHub Push (Contents API üzerinden commit) ─────
+function ghGetPat(){
+  try { return localStorage.getItem(GH_PAT_KEY) || ''; } catch(e){ return ''; }
+}
+function ghSetPat(token){
+  try { localStorage.setItem(GH_PAT_KEY, token); } catch(e){}
+}
+function ghClearPat(){
+  try { localStorage.removeItem(GH_PAT_KEY); } catch(e){}
+}
+
+function ghLog(msg, isErr){
+  const log = document.getElementById('gh-modal-log');
+  if(!log) return;
+  log.hidden = false;
+  const ts = new Date().toLocaleTimeString('tr-TR');
+  const prefix = isErr ? '✗' : '·';
+  log.textContent += `[${ts}] ${prefix} ${msg}\n`;
+  log.scrollTop = log.scrollHeight;
+}
+
+function ghLogClear(){
+  const log = document.getElementById('gh-modal-log');
+  if(log){ log.textContent = ''; log.hidden = true; }
+}
+
+// Tarayıcı uyumlu base64 (UTF-8 güvenli)
+function utf8ToBase64(str){
+  // TextEncoder → byte → btoa
+  const bytes = new TextEncoder().encode(str);
+  let bin = '';
+  for(let i = 0; i < bytes.length; i++) bin += String.fromCharCode(bytes[i]);
+  return btoa(bin);
+}
+
+async function ghGetCurrentSha(token){
+  const url = `https://api.github.com/repos/${GH_REPO_OWNER}/${GH_REPO_NAME}/contents/${GH_DATA_PATH}?ref=${GH_BRANCH}`;
+  const r = await fetch(url, {
+    headers: {
+      'Authorization': `Bearer ${token}`,
+      'Accept': 'application/vnd.github+json',
+      'X-GitHub-Api-Version': '2022-11-28',
+    },
+  });
+  if(r.status === 404) return null; // dosya yok, yeni commit
+  if(!r.ok){
+    const txt = await r.text();
+    throw new Error(`GET contents başarısız (${r.status}): ${txt.slice(0, 200)}`);
+  }
+  const j = await r.json();
+  return j.sha;
+}
+
+async function ghPutDataJson(token, content, sha, commitMsg){
+  const url = `https://api.github.com/repos/${GH_REPO_OWNER}/${GH_REPO_NAME}/contents/${GH_DATA_PATH}`;
+  const body = {
+    message: commitMsg,
+    content: utf8ToBase64(content),
+    branch: GH_BRANCH,
+  };
+  if(sha) body.sha = sha;
+  const r = await fetch(url, {
+    method: 'PUT',
+    headers: {
+      'Authorization': `Bearer ${token}`,
+      'Accept': 'application/vnd.github+json',
+      'Content-Type': 'application/json',
+      'X-GitHub-Api-Version': '2022-11-28',
+    },
+    body: JSON.stringify(body),
+  });
+  if(!r.ok){
+    const txt = await r.text();
+    const err = new Error(`PUT contents başarısız (${r.status}): ${txt.slice(0, 300)}`);
+    err.status = r.status;
+    throw err;
+  }
+  return r.json();
+}
+
+function ghBuildDataJsonFromState(){
+  // catalog_sync_data ile aynı schema. Tüm taslakları "kalıcı" yapıyoruz.
+  // Sadece ürünler değil: müşteri, tedarikçi, sipariş, alım — hepsi data.json'a iner.
+  const base = (dataJsonCache && dataJsonCache.loaded)
+    ? JSON.parse(JSON.stringify(dataJsonCache._raw || {}))
+    : {};
+
+  // _draft / _source işaretlerini temizle, kalıcı veri haline getir
+  const cleanProducts = (Array.isArray(state.products) ? state.products : []).map(p => {
+    const c = {...p};
+    delete c._draft; delete c._source;
+    return c;
+  });
+  base.products = cleanProducts;
+  if(Array.isArray(state.customers))      base.customers       = state.customers;
+  if(Array.isArray(state.suppliers))      base.suppliers       = state.suppliers;
+  if(Array.isArray(state.orders))         base.orders          = state.orders;
+  if(Array.isArray(state.supplierOrders)) base.supplier_orders = state.supplierOrders;
+  if(Array.isArray(state.returns))        base.returns         = state.returns;
+
+  base.exported_at = new Date().toISOString();
+  base.exported_by = 'admin-panel';
+  base.counters = base.counters || {};
+  if(state.counter)              base.counters.sku_counter      = Number(state.counter);
+  if(state.customerCounter)      base.counters.customer_counter = Number(state.customerCounter);
+  if(state.supplierCounter)      base.counters.supplier_counter = Number(state.supplierCounter);
+  if(state.supplierOrderCounter) base.counters.supplier_order_counter = Number(state.supplierOrderCounter);
+
+  return JSON.stringify(base, null, 2);
+}
+
+function ghModalOpen(){
+  const modal = document.getElementById('gh-modal');
+  if(!modal) return;
+  modal.hidden = false;
+  ghLogClear();
+
+  const patInput = document.getElementById('gh-pat-input');
+  const patStatus = document.getElementById('gh-pat-status');
+  const clearBtn = document.getElementById('gh-clear-pat');
+  const saved = ghGetPat();
+  if(saved){
+    patInput.value = '';
+    patInput.placeholder = '(kayıtlı — boş bırakırsan kayıtlı token kullanılır)';
+    patStatus.textContent = '— bu tarayıcıda kayıtlı';
+    patStatus.style.color = 'var(--banner-live-fg)';
+    clearBtn.hidden = false;
+  } else {
+    patInput.placeholder = 'ghp_… veya github_pat_…';
+    patStatus.textContent = '— kayıtlı değil';
+    patStatus.style.color = 'var(--banner-err-fg)';
+    clearBtn.hidden = true;
+  }
+
+  // Commit mesajı default'u: kaç değişiklik var
+  const msgInput = document.getElementById('gh-commit-msg');
+  if(msgInput && typeof countDrafts === 'function'){
+    const d = countDrafts();
+    msgInput.value = d.total > 0
+      ? `admin: ${d.total} taslak değişiklik canlıya gönderildi`
+      : `admin: data.json güncelle`;
+  }
+}
+
+function ghModalClose(){
+  const modal = document.getElementById('gh-modal');
+  if(modal) modal.hidden = true;
+}
+
+async function ghDoPush(){
+  const btn = document.getElementById('gh-modal-push');
+  const cancelBtn = document.getElementById('gh-modal-cancel');
+  const patInput = document.getElementById('gh-pat-input');
+  const msgInput = document.getElementById('gh-commit-msg');
+  if(!btn || !patInput) return;
+
+  // Token al
+  let token = (patInput.value || '').trim();
+  if(!token) token = ghGetPat();
+  if(!token){
+    ghLog('Token girilmedi ve kayıtlı token yok', true);
+    return;
+  }
+  // Sadece form'dan yeni girdiyse + kayıtlı yoksa kaydet
+  if((patInput.value || '').trim() && !ghGetPat()){
+    ghSetPat(token);
+    ghLog('Token bu tarayıcıya kaydedildi');
+  } else if((patInput.value || '').trim()){
+    // Üzerine yazma — yeniden kaydet
+    ghSetPat(token);
+    ghLog('Token güncellendi');
+  }
+
+  const commitMsg = (msgInput.value || 'admin: data.json güncelle').trim();
+  btn.disabled = true; btn.textContent = 'Gönderiliyor…';
+  cancelBtn.disabled = true;
+
+  try{
+    ghLog('data.json hazırlanıyor…');
+    const content = ghBuildDataJsonFromState();
+    ghLog(`Boyut: ${(new Blob([content]).size / 1024).toFixed(1)} KB`);
+
+    let sha = null;
+    try{
+      sha = await ghGetCurrentSha(token);
+      ghLog(sha ? `Mevcut SHA: ${sha.slice(0,7)}…` : 'data.json yok (ilk commit)');
+    }catch(e){
+      // 401/403 → token sorunu, bilgilendir
+      if(e.message.includes('401') || e.message.includes('403')){
+        ghLog('Token geçersiz veya yetkisiz. PAT scope: "Contents: Read and write" olmalı', true);
+        throw e;
+      }
+      throw e;
+    }
+
+    let attempt = 0;
+    while(attempt < 3){
+      attempt++;
+      try{
+        const result = await ghPutDataJson(token, content, sha, commitMsg);
+        ghLog(`Commit: ${result.commit.sha.slice(0,7)}`);
+        ghLog(`URL: ${result.commit.html_url}`);
+        ghLog('Başarılı — GitHub Pages 30-90 saniye içinde yayınlar', false);
+
+        // Taslakları temizle (artık canlıda)
+        try{ localStorage.removeItem(STORAGE_KEY); }catch(e){}
+        if(typeof updateDataSourceBanner === 'function') updateDataSourceBanner();
+        if(typeof toast === 'function') toast('Canlıya gönderildi. Pages 30-90 sn içinde rebuild.', false);
+
+        btn.textContent = 'Gönderildi ✓';
+        setTimeout(()=>{ ghModalClose(); btn.disabled = false; cancelBtn.disabled = false; btn.textContent = 'Gönder'; }, 1800);
+        return;
+      }catch(e){
+        if(e.status === 409 && attempt < 3){
+          ghLog(`SHA conflict — yeniden okuyup denenecek (${attempt}/3)`);
+          sha = await ghGetCurrentSha(token);
+          continue;
+        }
+        throw e;
+      }
+    }
+  }catch(e){
+    ghLog(`HATA: ${e.message}`, true);
+    if(typeof toast === 'function') toast('Push hatası: ' + e.message, true);
+    btn.disabled = false; cancelBtn.disabled = false; btn.textContent = 'Tekrar Dene';
+  }
+}
+
+function ghBindings(){
+  const openBtn = document.getElementById('btn-publish-gh');
+  if(openBtn) openBtn.addEventListener('click', ghModalOpen);
+  const cancelBtn = document.getElementById('gh-modal-cancel');
+  if(cancelBtn) cancelBtn.addEventListener('click', ghModalClose);
+  const pushBtn = document.getElementById('gh-modal-push');
+  if(pushBtn) pushBtn.addEventListener('click', ghDoPush);
+  const clearBtn = document.getElementById('gh-clear-pat');
+  if(clearBtn) clearBtn.addEventListener('click', () => {
+    ghClearPat();
+    const patInput = document.getElementById('gh-pat-input');
+    const patStatus = document.getElementById('gh-pat-status');
+    if(patInput){ patInput.value=''; patInput.placeholder='ghp_… veya github_pat_…'; }
+    if(patStatus){ patStatus.textContent='— kayıtlı değil'; patStatus.style.color='var(--banner-err-fg)'; }
+    clearBtn.hidden = true;
+    ghLog('Token bu tarayıcıdan silindi');
+  });
+  // Modal dışı tıklama
+  const modal = document.getElementById('gh-modal');
+  if(modal) modal.addEventListener('click', (e)=>{ if(e.target === modal) ghModalClose(); });
+  // ESC ile kapat
+  document.addEventListener('keydown', (e)=>{
+    if(e.key === 'Escape'){
+      const m = document.getElementById('gh-modal');
+      if(m && !m.hidden) ghModalClose();
+    }
+  });
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  adminGateInit();
+  ghBindings();
 });
 </script>
 

@@ -580,20 +580,9 @@ a{color:inherit;text-decoration:none}
   font-size:20px;font-weight:500;
   font-variant-numeric:tabular-nums;
 }
-/* cart__wa — WhatsApp checkout kaldırıldı, eski class artık DOM'da yok. CSS de purge. */
-.cart__pay{
-  width:100%;
-  padding:12px;
-  background:var(--bg-alt);
-  border:1px solid var(--border);
-  color:var(--text-faint);
-  font-size:11px;letter-spacing:.1em;text-transform:uppercase;
-  cursor:not-allowed;margin-bottom:8px;
-  display:flex;align-items:center;justify-content:center;gap:8px;
-}
-.cart__pay-soon{
-  font-size:9px;letter-spacing:.12em;color:var(--accent);
-}
+/* cart__wa + cart__pay/pay-soon — WhatsApp + "Kart ile Öde YAKINDA" CTA tamamen kaldırıldı.
+   Sipariş akışı v2 (nyoworks-aligned): tek primer aksiyon cart__order — full-width premium.
+   Eski class'lara dair CSS purge edildi. */
 .cart__dl-all{
   width:100%;padding:10px;
   background:transparent;
@@ -1959,6 +1948,82 @@ body.auth-gate-active > footer{display:none!important}
   font-size:11px;color:var(--text-muted);font-style:italic;
   margin-top:8px;
 }
+/* Sipariş v2 — nyoworks-aligned ek sınıflar */
+.acct-order__oid{
+  font-family:'Menlo','Monaco',monospace;
+  font-size:10px;color:var(--text-muted);
+  letter-spacing:0;
+  padding:2px 6px;background:var(--bg-alt);
+  border:1px solid var(--border);
+}
+.acct-order__subhead{
+  display:flex;justify-content:flex-end;
+  padding:4px 0;
+  font-size:10px;color:var(--text-faint);
+}
+.acct-order__last-update{
+  font-style:italic;letter-spacing:.02em;
+}
+.acct-order__item-line{
+  font-size:11px;color:var(--text-muted);
+  margin-top:2px;
+  font-variant-numeric:tabular-nums;
+}
+.acct-order__item-line strong{color:var(--text);font-weight:500}
+.acct-order__qty-stepper{
+  display:inline-flex;align-items:center;gap:0;
+  border:1px solid var(--border-strong);
+  height:34px;flex:0 0 auto;
+}
+.acct-order__qty-btn{
+  width:32px;height:32px;
+  background:transparent;border:0;
+  font-size:16px;line-height:1;color:var(--text);
+  cursor:pointer;font-family:inherit;
+  transition:background .15s;
+}
+.acct-order__qty-btn:hover:not(:disabled){background:var(--bg-alt)}
+.acct-order__qty-btn:disabled{color:var(--text-faint);cursor:not-allowed;opacity:.5}
+.acct-order__qty-val{
+  width:46px;height:32px;
+  border:0;border-left:1px solid var(--border);border-right:1px solid var(--border);
+  background:transparent;color:var(--text);
+  font-family:inherit;font-size:13px;
+  text-align:center;
+  font-variant-numeric:tabular-nums;
+  appearance:textfield;-moz-appearance:textfield;
+}
+.acct-order__qty-val::-webkit-outer-spin-button,
+.acct-order__qty-val::-webkit-inner-spin-button{-webkit-appearance:none;margin:0}
+.acct-order__qty-val:focus{outline:1px solid var(--accent);outline-offset:1px}
+.acct-order__qty-static{
+  font-size:12px;color:var(--text-muted);
+  padding:0 10px;
+  font-variant-numeric:tabular-nums;
+}
+.acct-order__tracking{
+  font-size:12px;color:var(--text);
+  padding:8px 10px;margin-bottom:8px;
+  background:var(--bg-alt);
+  border-left:2px solid var(--accent);
+}
+.acct-order__tracking a{color:var(--accent);text-decoration:underline}
+.acct-order__btn--edit-addr{color:var(--text);border-color:var(--border-strong)}
+.acct-order__btn--edit-addr:hover{background:var(--bg-alt)}
+/* Yeni status badge varyantları (v2 schema) */
+.acct-order__status--BEKLIYOR{color:var(--status-bekliyor, #9C7A1A);border-color:var(--status-bekliyor-border, #E8C868);background:rgba(232,200,104,.12)}
+.acct-order__status--ONAYLANDI{color:var(--status-onaylandi, #2A6A2D);border-color:var(--status-onaylandi-border, #8FBE92);background:rgba(143,190,146,.12)}
+.acct-order__status--HAZIRLANIYOR{color:#5A4A8A;border-color:#9E91C8;background:rgba(158,145,200,.12)}
+.acct-order__status--KARGODA{color:#1A5E7A;border-color:#7AB5C8;background:rgba(122,181,200,.14)}
+.acct-order__status--IPTAL_EDILDI{color:var(--text-muted);border-color:var(--border-strong);background:var(--bg-alt)}
+.acct-order__status--REDDEDILDI{color:var(--status-iptal, #B71C1C);border-color:rgba(183,28,28,.4);background:rgba(183,28,28,.08)}
+
+@media (max-width:640px){
+  .acct-order__item{flex-wrap:wrap}
+  .acct-order__qty-stepper{height:38px;order:5;margin-top:6px}
+  .acct-order__qty-btn{width:38px;height:38px}
+  .acct-order__qty-val{height:38px;width:50px}
+}
 
 .auth-modal__close{
   position:absolute;top:10px;right:10px;
@@ -1968,24 +2033,38 @@ body.auth-gate-active > footer{display:none!important}
   cursor:pointer;
 }
 
-/* Cart checkout (formerly WA) */
+/* Cart checkout — Sipariş akışı v2: tek primer CTA, full-width premium */
 .cart__order{
-  display:flex;align-items:center;justify-content:center;gap:8px;
-  padding:13px 18px;
+  width:100%;
+  display:flex;align-items:center;justify-content:center;gap:10px;
+  padding:18px 24px;
   background:var(--text);
   color:var(--on-text);
   border:1px solid var(--text);
-  font-size:12px;letter-spacing:.08em;text-transform:uppercase;
+  font-size:13px;letter-spacing:.12em;text-transform:uppercase;
   font-family:inherit;
   cursor:pointer;
-  font-weight:500;
-  transition:opacity .15s;
+  font-weight:600;
+  transition:transform .18s cubic-bezier(.2,.7,.3,1), box-shadow .18s, background .15s, color .15s, border-color .15s, opacity .15s;
+  position:relative;
+  overflow:hidden;
 }
-.cart__order:hover{opacity:.88}
+.cart__order::before{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(120deg, transparent 30%, rgba(255,255,255,.14) 50%, transparent 70%);
+  transform:translateX(-100%);
+  transition:transform .55s ease;
+  pointer-events:none;
+}
+.cart__order:hover{transform:translateY(-1px);box-shadow:0 8px 22px rgba(0,0,0,.18)}
+.cart__order:hover::before{transform:translateX(100%)}
+.cart__order:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+.cart__order:active{transform:translateY(0)}
 .cart__order:disabled{
   background:var(--text-faint);border-color:var(--text-faint);
-  cursor:not-allowed;opacity:.6;
+  cursor:not-allowed;opacity:.55;transform:none;box-shadow:none;
 }
+.cart__order:disabled::before{display:none}
 .cart__order-hint{
   font-size:11px;color:var(--text-muted);text-align:center;
   margin-top:6px;letter-spacing:.02em;
@@ -2458,10 +2537,7 @@ input,select,textarea{font-size:16px}
         <strong class="cart__total-value" id="cart-total">€0</strong>
       </div>
       <button class="cart__order" id="cart-order" type="button" hidden>
-        <span id="cart-order-label">Siparişi Oluştur</span>
-      </button>
-      <button class="cart__pay" disabled title="Stripe entegrasyonu yakında">
-        Kart ile Öde <span class="cart__pay-soon">YAKINDA</span>
+        <span id="cart-order-label">SİPARİŞİ OLUŞTUR</span>
       </button>
       <p class="cart__order-hint" id="cart-order-hint"></p>
     </footer>
@@ -4716,17 +4792,195 @@ async function tryLogin(username, password){
   return { ok:true, customer:c };
 }
 
+// ─── Sipariş akışı v2 — nyoworks-aligned ─────────────────────────────
+// Schema v2 (2026-05-13):
+//   id              : ORD-{base36-ts}-{4rand}  (nyoworks generateOrderNo birebir)
+//   schema_version  : 2
+//   version         : integer (her UPDATE'te +1, concurrent edit guard)
+//   musteri_id, musteri_iletisim:{isim,email,telefon,kullanici_adi}
+//   durum           : BEKLIYOR | ONAYLANDI | HAZIRLANIYOR | KARGODA | TESLIM_EDILDI |
+//                     IPTAL_EDILDI | REDDEDILDI
+//   items[].variation_id, sku_master, marka, model, qty, birim_fiyat_eur,
+//          satir_toplam_eur, durum_item (BEKLIYOR default)
+//   ara_toplam_eur, kargo_eur, indirim_eur, toplam_eur, para_birimi='EUR'
+//   kargo_adresi:{adres,sehir,posta_kodu,ulke}
+//   musteri_notu, patron_notu, tracking_no, tracking_url
+//   olusturma_ts, guncelleme_ts, onay_ts, kargo_ts, teslim_ts, iptal_ts
+//   guncelleme_gecmisi:[{ts,kim,alan,eski,yeni}]
+//
+// ID generator — nyoworks/packages/api/src/routers/ecommerce/orders.ts:71 birebir port.
+function generateOrderNo(){
+  const timestamp = Date.now().toString(36).toUpperCase();
+  const random = Math.random().toString(36).substring(2, 6).toUpperCase().padEnd(4, '0');
+  return `ORD-${timestamp}-${random}`;
+}
+
+// Schema migration v1 → v2 (eski sipariş kayıtlarını v2 şemasına yükselt).
+// Yeni alanları default + eski alanları korumayı amaçlar — okuma yolu hala
+// hem v1 hem v2 yapısını kabul eder (defensive).
+function _migrateOrderShape(o){
+  if(!o || typeof o !== 'object') return null;
+  if(o.schema_version === 2) return o;
+  const items = Array.isArray(o.items) ? o.items.map(it => {
+    const qty = Number(it.qty ?? it.miktar) || 1;
+    const fiyat = Number(it.birim_fiyat_eur ?? it.fiyat_eur) || 0;
+    return {
+      variation_id: it.variation_id || '',
+      sku_master: it.sku_master || it.sku || null,
+      marka: it.marka || null,
+      model: it.model || it.isim || null,
+      renk: it.renk || null,
+      boyut: it.boyut || null,
+      donanim: it.donanim || null,
+      qty,
+      birim_fiyat_eur: fiyat,
+      satir_toplam_eur: Number(it.satir_toplam_eur) || (fiyat * qty),
+      durum_item: it.durum_item || 'BEKLIYOR',
+    };
+  }) : [];
+  // Eski durum mapping: YENI/ONAYLI → BEKLIYOR/ONAYLANDI vb.
+  const eskiDurum = (o.durum || o.status || 'YENI').toUpperCase();
+  const durumMap = {
+    'YENI': 'BEKLIYOR',
+    'BEKLIYOR': 'BEKLIYOR',
+    'ONAYLI': 'ONAYLANDI',
+    'ONAYLANDI': 'ONAYLANDI',
+    'HAZIRLANIYOR': 'HAZIRLANIYOR',
+    'KARGODA': 'KARGODA',
+    'KARGOLANDI': 'KARGODA',
+    'TESLIM': 'TESLIM_EDILDI',
+    'TESLIM_EDILDI': 'TESLIM_EDILDI',
+    'TAMAMLANDI': 'TESLIM_EDILDI',
+    'IPTAL': 'IPTAL_EDILDI',
+    'IPTAL_EDILDI': 'IPTAL_EDILDI',
+    'REDDEDILDI': 'REDDEDILDI',
+  };
+  const durum = durumMap[eskiDurum] || 'BEKLIYOR';
+  const ara = items.reduce((s,i) => s + i.satir_toplam_eur, 0);
+  const olusturma_ts = o.olusturma_ts || o.tarih || o.ts || new Date().toISOString();
+  return {
+    id: o.id || o.order_id || generateOrderNo(),
+    schema_version: 2,
+    version: Number(o.version) || 1,
+    musteri_id: o.musteri_id || o.customer_id || null,
+    musteri_iletisim: o.musteri_iletisim || {
+      isim: o.isim || '',
+      email: o.email || '',
+      telefon: o.telefon || '',
+      kullanici_adi: o.kullanici_adi || '',
+    },
+    durum,
+    items,
+    ara_toplam_eur: Number(o.ara_toplam_eur) || ara,
+    kargo_eur: Number(o.kargo_eur) || 0,
+    indirim_eur: Number(o.indirim_eur) || 0,
+    toplam_eur: Number(o.toplam_eur) || ara,
+    para_birimi: o.para_birimi || 'EUR',
+    kargo_adresi: o.kargo_adresi || { adres:'', sehir:'', posta_kodu:'', ulke:'' },
+    musteri_notu: o.musteri_notu || '',
+    patron_notu: o.patron_notu || '',
+    tracking_no: o.tracking_no || null,
+    tracking_url: o.tracking_url || null,
+    olusturma_ts,
+    guncelleme_ts: o.guncelleme_ts || olusturma_ts,
+    onay_ts: o.onay_ts || (durum === 'ONAYLANDI' || durum === 'HAZIRLANIYOR' || durum === 'KARGODA' || durum === 'TESLIM_EDILDI' ? olusturma_ts : null),
+    kargo_ts: o.kargo_ts || (durum === 'KARGODA' || durum === 'TESLIM_EDILDI' ? olusturma_ts : null),
+    teslim_ts: o.teslim_ts || (durum === 'TESLIM_EDILDI' ? olusturma_ts : null),
+    iptal_ts: o.iptal_ts || (durum === 'IPTAL_EDILDI' || durum === 'REDDEDILDI' ? olusturma_ts : null),
+    guncelleme_gecmisi: Array.isArray(o.guncelleme_gecmisi) ? o.guncelleme_gecmisi : [
+      { ts: olusturma_ts, kim:'sistem', alan:'durum', eski:null, yeni:durum }
+    ],
+    // Geri uyumluluk (eski admin bridge için):
+    tarih: o.tarih || olusturma_ts,
+    customer_id: o.musteri_id || o.customer_id || null,
+    kullanici_adi: o.kullanici_adi || (o.musteri_iletisim && o.musteri_iletisim.kullanici_adi) || '',
+    isim: o.isim || (o.musteri_iletisim && o.musteri_iletisim.isim) || '',
+  };
+}
+
 function getPendingOrders(){
-  try { return JSON.parse(localStorage.getItem(ORDERS_KEY) || '[]'); }
+  let raw;
+  try { raw = localStorage.getItem(ORDERS_KEY); }
   catch { return []; }
+  if(!raw) return [];
+  let data;
+  try { data = JSON.parse(raw); }
+  catch {
+    try { localStorage.removeItem(ORDERS_KEY); } catch {}
+    return [];
+  }
+  if(!Array.isArray(data)){
+    try { localStorage.removeItem(ORDERS_KEY); } catch {}
+    return [];
+  }
+  // Migration: hepsini v2'ye yükselt
+  let mutated = false;
+  const migrated = data.map(o => {
+    const v2 = _migrateOrderShape(o);
+    if(!v2) { mutated = true; return null; }
+    if(v2 !== o || v2.schema_version === 2 && o.schema_version !== 2) mutated = true;
+    return v2;
+  }).filter(Boolean);
+  if(mutated){
+    try { localStorage.setItem(ORDERS_KEY, JSON.stringify(migrated)); } catch {}
+  }
+  return migrated;
 }
 function savePendingOrders(arr){
-  localStorage.setItem(ORDERS_KEY, JSON.stringify(arr));
+  try { localStorage.setItem(ORDERS_KEY, JSON.stringify(arr)); }
+  catch(e){ console.error('[orders] save failed', e); }
 }
 function pushPendingOrder(order){
   const arr = getPendingOrders();
   arr.push(order);
   savePendingOrders(arr);
+}
+
+// Order güncelleme — version++ + guncelleme_gecmisi append + guncelleme_ts.
+// Müşteri tarafı update → durum BEKLIYOR'a force düşer (admin yeniden onaylar).
+function updateOrder(orderId, mutatorFn, opts){
+  opts = opts || {};
+  const kim = opts.kim || 'musteri';
+  const reset_to_bekliyor = opts.reset_to_bekliyor !== false; // default true
+  const all = getPendingOrders();
+  const idx = all.findIndex(o => (o.id || o.order_id) === orderId);
+  if(idx < 0) return null;
+  const before = JSON.parse(JSON.stringify(all[idx]));
+  mutatorFn(all[idx]);
+  // Reset to BEKLIYOR (müşteri değişikliği → admin yeniden değerlendirsin)
+  if(reset_to_bekliyor && kim === 'musteri' &&
+     all[idx].durum !== 'IPTAL_EDILDI' && all[idx].durum !== 'TESLIM_EDILDI'){
+    if(all[idx].durum !== 'BEKLIYOR'){
+      all[idx].guncelleme_gecmisi.push({
+        ts: new Date().toISOString(), kim, alan:'durum',
+        eski: all[idx].durum, yeni:'BEKLIYOR'
+      });
+      all[idx].durum = 'BEKLIYOR';
+      all[idx].onay_ts = null;
+    }
+  }
+  // Diff log — sadece basit primer alanlar (items diff item-bazlı)
+  const fields = ['toplam_eur','ara_toplam_eur','musteri_notu','kargo_adresi','tracking_no','tracking_url','patron_notu'];
+  fields.forEach(f => {
+    const a = JSON.stringify(before[f]);
+    const b = JSON.stringify(all[idx][f]);
+    if(a !== b){
+      all[idx].guncelleme_gecmisi.push({
+        ts: new Date().toISOString(), kim, alan:f, eski:before[f], yeni:all[idx][f]
+      });
+    }
+  });
+  // items count değişti mi?
+  if(JSON.stringify(before.items) !== JSON.stringify(all[idx].items)){
+    all[idx].guncelleme_gecmisi.push({
+      ts: new Date().toISOString(), kim, alan:'items',
+      eski:`${before.items.length} kalem`, yeni:`${all[idx].items.length} kalem`
+    });
+  }
+  all[idx].version = (Number(all[idx].version) || 1) + 1;
+  all[idx].guncelleme_ts = new Date().toISOString();
+  savePendingOrders(all);
+  return all[idx];
 }
 
 // ─── İade talepleri (Faz 1 — localStorage; admin IAD'a kanal) ─────
@@ -5113,26 +5367,64 @@ function closeCart(){
 // admin panel aynı origin'de okur.
 
 function buildOrderObject(items, session, totalEur){
-  return {
-    id: 'ORD-' + Date.now(),
-    customer_id: session.customer_id,
-    kullanici_adi: session.kullanici_adi,
-    isim: session.isim,
-    items: items.map(p => ({
+  const now = new Date().toISOString();
+  const oid = generateOrderNo();
+  const itemsV2 = items.map(p => {
+    const qty = Number(p._qty) || 1;
+    const fiyat = Number(p.fiyat_eur) || 0;
+    const model = (p.isim_bilinen || p.isim_resmi || '').split(',')[0].trim();
+    return {
       variation_id: p.variation_id,
-      sku: p.sku || null,
+      sku_master: p.sku || null,
       marka: p.marka || null,
-      isim: (p.isim_bilinen || p.isim_resmi || '').split(',')[0].trim(),
+      model,
       renk: p.renk || null,
       boyut: p.boyut || null,
       donanim: p.donanim || null,
-      fiyat_eur: Number(p.fiyat_eur) || 0,
-      miktar: p._qty || 1,
-    })),
-    toplam_eur: totalEur,
+      qty,
+      birim_fiyat_eur: fiyat,
+      satir_toplam_eur: fiyat * qty,
+      durum_item: 'BEKLIYOR',
+    };
+  });
+  const ara = itemsV2.reduce((s,i) => s + i.satir_toplam_eur, 0);
+  return {
+    id: oid,
+    schema_version: 2,
+    version: 1,
+    musteri_id: session.customer_id,
+    musteri_iletisim: {
+      isim: session.isim || '',
+      email: session.email || '',
+      telefon: session.telefon || '',
+      kullanici_adi: session.kullanici_adi || '',
+    },
+    durum: 'BEKLIYOR',
+    items: itemsV2,
+    ara_toplam_eur: ara,
+    kargo_eur: 0,
+    indirim_eur: 0,
+    toplam_eur: Number(totalEur) || ara,
     para_birimi: 'EUR',
-    tarih: new Date().toISOString(),
-    durum: 'YENI',
+    kargo_adresi: { adres:'', sehir:'', posta_kodu:'', ulke:'' },
+    musteri_notu: '',
+    patron_notu: '',
+    tracking_no: null,
+    tracking_url: null,
+    olusturma_ts: now,
+    guncelleme_ts: now,
+    onay_ts: null,
+    kargo_ts: null,
+    teslim_ts: null,
+    iptal_ts: null,
+    guncelleme_gecmisi: [
+      { ts: now, kim:'musteri', alan:'durum', eski:null, yeni:'BEKLIYOR' },
+    ],
+    // Geri uyumluluk (admin bridge için):
+    tarih: now,
+    customer_id: session.customer_id,
+    kullanici_adi: session.kullanici_adi,
+    isim: session.isim,
     _local: true,
   };
 }
@@ -5925,12 +6217,32 @@ function findProductByVariation(vid){
   return products.find(p => p.variation_id === vid) || null;
 }
 
+// Sipariş v2 — durum label/etiket sözlüğü
+const ORDER_DURUM_LABEL = {
+  'BEKLIYOR': 'BEKLEMEDE',
+  'ONAYLANDI': 'ONAYLANDI',
+  'HAZIRLANIYOR': 'HAZIRLANIYOR',
+  'KARGODA': 'KARGODA',
+  'TESLIM_EDILDI': 'TESLİM EDİLDİ',
+  'IPTAL_EDILDI': 'İPTAL EDİLDİ',
+  'REDDEDILDI': 'REDDEDİLDİ',
+};
+const ORDER_EDITABLE_STATES = ['BEKLIYOR']; // sadece BEKLEMEDE'de müşteri qty/items değiştirebilir
+const ORDER_CANCELLABLE_STATES = ['BEKLIYOR','ONAYLANDI']; // müşteri buradan iptal isteyebilir
+const ORDER_CLOSED_STATES = ['TESLIM_EDILDI','IPTAL_EDILDI','REDDEDILDI'];
+
+function _orderItemQty(it){ return Number(it.qty ?? it.miktar) || 1; }
+function _orderItemFiyat(it){ return Number(it.birim_fiyat_eur ?? it.fiyat_eur) || 0; }
+function _orderItemName(it, p){
+  return it.model || it.isim || (p && (p.isim_bilinen || p.isim_resmi)) || it.variation_id || '—';
+}
+
 function renderAccountOrders(){
   const s = getSession(); if(!s) return;
   const all = getPendingOrders();
-  const my = all.filter(o => o.customer_id === s.customer_id);
-  // En yeni üstte
-  my.sort((a,b) => (b.ts || '').localeCompare(a.ts || ''));
+  const my = all.filter(o => (o.musteri_id || o.customer_id) === s.customer_id);
+  // En yeni üstte (olusturma_ts > tarih > ts fallback)
+  my.sort((a,b) => ((b.olusturma_ts || b.tarih || b.ts || '') + '').localeCompare((a.olusturma_ts || a.tarih || a.ts || '') + ''));
   const targets = [$('#acct-orders-list'), $('#acct-orders-list-page')].filter(Boolean);
   if(!targets.length) return;
   const countEl = $('#acct-orders-count');
@@ -5938,7 +6250,6 @@ function renderAccountOrders(){
   const cntTxt = my.length ? `${my.length} sipariş` : '';
   if(countEl) countEl.textContent = my.length ? ` (${my.length})` : '';
   if(pageCountEl) pageCountEl.textContent = cntTxt;
-  // Dropdown menü sayacı (avatar menü > Siparişlerim badge)
   const menuCountEl = $('#user-menu-orders-count');
   if(menuCountEl) menuCountEl.textContent = my.length ? String(my.length) : '';
   if(!my.length){
@@ -5947,30 +6258,39 @@ function renderAccountOrders(){
     });
     return;
   }
-  // En yeni en üstte — `tarih` alanı string ISO ya da `ts` de olabilir
-  my.sort((a,b) => ((b.tarih || b.ts || '') + '').localeCompare((a.tarih || a.ts || '') + ''));
   const html = my.map(o => {
     const items = Array.isArray(o.items) ? o.items : [];
-    const getQty = (it) => Number(it.miktar ?? it.qty ?? 1);
-    const qty = items.reduce((s,i) => s + getQty(i), 0);
-    const total = Number(o.toplam_eur) || items.reduce((s,i) => s + (Number(i.fiyat_eur) || 0) * getQty(i), 0);
-    const status = (o.durum || o.status || 'YENI').toUpperCase().replace(/\s+/g,'_');
-    const tarihIso = o.tarih || o.ts || '';
+    const qty = items.reduce((s,i) => s + _orderItemQty(i), 0);
+    const total = Number(o.toplam_eur) || items.reduce((s,i) => s + _orderItemFiyat(i) * _orderItemQty(i), 0);
+    const rawStatus = (o.durum || o.status || 'BEKLIYOR').toUpperCase().replace(/\s+/g,'_');
+    const status = ['BEKLIYOR','ONAYLANDI','HAZIRLANIYOR','KARGODA','TESLIM_EDILDI','IPTAL_EDILDI','REDDEDILDI'].includes(rawStatus) ? rawStatus : 'BEKLIYOR';
+    const tarihIso = o.olusturma_ts || o.tarih || o.ts || '';
     const tarihStr = tarihIso ? new Date(tarihIso).toLocaleString('tr-TR', { dateStyle:'medium', timeStyle:'short' }) : '';
+    const guncelIso = o.guncelleme_ts || '';
+    const guncelStr = guncelIso && guncelIso !== tarihIso ? new Date(guncelIso).toLocaleString('tr-TR', { dateStyle:'short', timeStyle:'short' }) : '';
     const oid = o.id || o.order_id;
-    const editable = status === 'YENI';
+    const editable = ORDER_EDITABLE_STATES.includes(status);
+    const cancellable = ORDER_CANCELLABLE_STATES.includes(status);
+    const closed = ORDER_CLOSED_STATES.includes(status);
     const itemRows = items.map((it, idx) => {
       const p = findProductByVariation(it.variation_id) || it;
-      const name = it.isim || p.isim_bilinen || p.isim_resmi || it.variation_id || '—';
-      const fiyat = Number(it.fiyat_eur || p.fiyat_eur || 0);
-      const adet = getQty(it);
+      const name = _orderItemName(it, p);
+      const fiyat = _orderItemFiyat(it) || Number(p.fiyat_eur || 0);
+      const adet = _orderItemQty(it);
+      const availMax = (typeof availableOf === 'function' && p && p.variation_id) ? Math.max(adet, availableOf(p)) : adet;
       const cover = p.cover || '';
+      const lineTotal = fiyat * adet;
+      const stepperHtml = editable
+        ? `<div class="acct-order__qty-stepper" role="group" aria-label="Adet seç">
+             <button class="acct-order__qty-btn" type="button" data-order-id="${oid}" data-item-idx="${idx}" data-qty-delta="-1" aria-label="Adet azalt" ${adet<=1?'disabled aria-disabled="true"':''}>−</button>
+             <input class="acct-order__qty-val" type="number" inputmode="numeric" pattern="[0-9]*" min="1" max="${availMax}" step="1" value="${adet}" role="spinbutton" aria-valuemin="1" aria-valuemax="${availMax}" aria-valuenow="${adet}" aria-label="Adet" data-order-id="${oid}" data-item-idx="${idx}" data-qty-input autocomplete="off">
+             <button class="acct-order__qty-btn" type="button" data-order-id="${oid}" data-item-idx="${idx}" data-qty-delta="+1" aria-label="Adet artır" ${adet>=availMax?'disabled aria-disabled="true"':''}>+</button>
+           </div>`
+        : `<div class="acct-order__qty-static">${adet} adet</div>`;
       const removeBtn = editable
         ? `<button class="acct-order__item-remove" data-order-id="${oid}" data-item-idx="${idx}" aria-label="Ürünü çıkar" title="Ürünü çıkar">×</button>`
         : '';
-      // İade Et butonu: sadece kapanmamış sipariş kalemleri (YENI hariç de gösterilebilir
-      // ama YENI sipariş zaten iptal edilebildiği için iadeyi YENI olmayanlara açıyoruz)
-      const canRefund = !editable && status !== 'IPTAL';
+      const canRefund = !editable && status !== 'IPTAL_EDILDI' && status !== 'REDDEDILDI';
       const iadeBtn = canRefund
         ? (hasReturnFor(oid, it.variation_id)
             ? `<button class="iade-modal-trigger" disabled title="Bu kalem için iade talebi açık">İade Talebi Açık</button>`
@@ -5978,43 +6298,60 @@ function renderAccountOrders(){
         : '';
       return `
         <div class="acct-order__item">
-          ${cover ? `<img class="acct-order__item-img" src="${cover}" alt="">` : '<div class="acct-order__item-img"></div>'}
+          ${cover ? `<img class="acct-order__item-img" src="${cover}" alt="" onerror="this.style.display='none'">` : '<div class="acct-order__item-img"></div>'}
           <div class="acct-order__item-info">
             <div class="acct-order__item-name">${name}</div>
-            <div class="acct-order__item-meta">${adet} adet · ${fiyat.toLocaleString('tr-TR')} EUR</div>
+            <div class="acct-order__item-meta">${[it.renk, it.boyut, it.donanim].filter(Boolean).join(' · ') || '—'}</div>
+            <div class="acct-order__item-line">${fiyat.toLocaleString('tr-TR')} EUR × ${adet} = <strong>${lineTotal.toLocaleString('tr-TR')} EUR</strong></div>
           </div>
+          ${stepperHtml}
           ${iadeBtn}
           ${removeBtn}
         </div>`;
     }).join('');
-    const actions = editable
-      ? `<div class="acct-order__actions">
-           <button class="acct-order__btn acct-order__btn--cancel" data-order-cancel="${oid}">Siparişi İptal Et</button>
-         </div>`
-      : (status === 'TESLIM_EDILDI' || status === 'IPTAL')
-        ? `<div class="acct-order__actions">
-             <button class="acct-order__btn acct-order__btn--reorder" data-order-reorder="${oid}">Yeniden Sipariş</button>
-           </div>
-           <div class="acct-order__locked-hint">Bu sipariş kapalı durumda — yeniden sipariş ile aynı ürünleri sepete koyabilirsiniz.</div>`
-        : `<div class="acct-order__locked-hint">Durumu için danışmanınızla iletişime geçin.</div>`;
+    const baseActions = [];
+    if(editable){
+      baseActions.push(`<button class="acct-order__btn acct-order__btn--edit-addr" data-order-edit-addr="${oid}">Adres / Not Güncelle</button>`);
+    }
+    if(cancellable){
+      baseActions.push(`<button class="acct-order__btn acct-order__btn--cancel" data-order-cancel="${oid}">${status === 'BEKLIYOR' ? 'Siparişi İptal Et' : 'İptal Talebi Aç'}</button>`);
+    }
+    if(closed){
+      baseActions.push(`<button class="acct-order__btn acct-order__btn--reorder" data-order-reorder="${oid}">Yeniden Sipariş</button>`);
+    }
+    const actions = baseActions.length
+      ? `<div class="acct-order__actions">${baseActions.join('')}</div>`
+      : '';
+    const lockedHint = !editable && !cancellable && status !== 'TESLIM_EDILDI'
+      ? `<div class="acct-order__locked-hint">Bu siparişte değişiklik için danışmanınızla iletişime geçin.</div>`
+      : (status === 'TESLIM_EDILDI'
+          ? `<div class="acct-order__locked-hint">Sipariş teslim edildi. Sorununuz varsa kalem bazında iade açabilirsiniz.</div>`
+          : '');
+    const trackingHtml = (status === 'KARGODA' || status === 'TESLIM_EDILDI') && o.tracking_no
+      ? `<div class="acct-order__tracking">Kargo: <strong>${o.tracking_no}</strong>${o.tracking_url ? ` · <a href="${o.tracking_url}" target="_blank" rel="noopener">Takip</a>` : ''}</div>`
+      : '';
+    const guncelChip = guncelStr ? `<span class="acct-order__last-update" title="Son güncelleme">Güncellendi: ${guncelStr}</span>` : '';
     return `
       <div class="acct-order" data-order-card="${oid}">
         <div class="acct-order__head" data-order-toggle="${oid}">
           <span class="acct-order__date">${tarihStr}</span>
+          <span class="acct-order__oid" title="Sipariş No">${oid}</span>
           <span class="acct-order__qty">${qty} ürün</span>
           <span class="acct-order__total">${total.toLocaleString('tr-TR')} EUR</span>
-          <span class="acct-order__status acct-order__status--${status}">${status.replace('_',' ')}</span>
+          <span class="acct-order__status acct-order__status--${status}">${ORDER_DURUM_LABEL[status] || status}</span>
         </div>
+        ${guncelChip ? `<div class="acct-order__subhead">${guncelChip}</div>` : ''}
         <div class="acct-order__detail">
+          ${trackingHtml}
           ${itemRows}
           ${actions}
+          ${lockedHint}
         </div>
       </div>`;
   }).join('');
 
   targets.forEach(list => {
     list.innerHTML = html;
-    // Bind eylemler — her hedef için ayrı listener
     list.querySelectorAll('[data-order-toggle]').forEach(el => {
       el.addEventListener('click', () => {
         const card = el.closest('.acct-order');
@@ -6028,7 +6365,7 @@ function renderAccountOrders(){
         cancelOrder(oid);
       });
     });
-    list.querySelectorAll('[data-item-idx]').forEach(el => {
+    list.querySelectorAll('.acct-order__item-remove').forEach(el => {
       el.addEventListener('click', (e) => {
         e.stopPropagation();
         const oid = el.getAttribute('data-order-id');
@@ -6043,7 +6380,34 @@ function renderAccountOrders(){
         reorderOrder(oid);
       });
     });
-    // İade Et butonu — sipariş kartı içinden de açılabilir
+    list.querySelectorAll('[data-order-edit-addr]').forEach(el => {
+      el.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const oid = el.getAttribute('data-order-edit-addr');
+        editOrderAddressNote(oid);
+      });
+    });
+    list.querySelectorAll('[data-qty-delta]').forEach(el => {
+      el.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const oid = el.getAttribute('data-order-id');
+        const idx = parseInt(el.getAttribute('data-item-idx'), 10);
+        const delta = parseInt(el.getAttribute('data-qty-delta'), 10);
+        updateOrderItemQty(oid, idx, delta, 'delta');
+      });
+    });
+    list.querySelectorAll('[data-qty-input]').forEach(el => {
+      el.addEventListener('change', (e) => {
+        e.stopPropagation();
+        const oid = el.getAttribute('data-order-id');
+        const idx = parseInt(el.getAttribute('data-item-idx'), 10);
+        const val = parseInt(el.value, 10);
+        if(Number.isFinite(val)) updateOrderItemQty(oid, idx, val, 'set');
+      });
+      el.addEventListener('keydown', (e) => {
+        if(e.key === 'Enter'){ e.preventDefault(); el.blur(); }
+      });
+    });
     list.querySelectorAll('[data-iade-open]').forEach(el => {
       el.addEventListener('click', (e) => {
         e.stopPropagation();
@@ -6053,6 +6417,66 @@ function renderAccountOrders(){
       });
     });
   });
+}
+
+// Müşteri tarafı qty update — version++, guncelleme_gecmisi append,
+// durum BEKLIYOR'a düşer (ONAYLANDI'dan müşteri qty değiştirirse).
+function updateOrderItemQty(orderId, itemIdx, value, mode){
+  const all = getPendingOrders();
+  const o = all.find(x => (x.id || x.order_id) === orderId);
+  if(!o) return;
+  if(!ORDER_EDITABLE_STATES.includes(o.durum) && o.durum !== 'ONAYLANDI'){
+    toast('Bu sipariş düzenlenemez.', true);
+    return;
+  }
+  const it = (o.items || [])[itemIdx];
+  if(!it) return;
+  const oldQty = _orderItemQty(it);
+  const p = findProductByVariation(it.variation_id);
+  const availMax = (p && typeof availableOf === 'function') ? Math.max(oldQty, availableOf(p)) : 99;
+  let newQty;
+  if(mode === 'delta') newQty = oldQty + value;
+  else newQty = value;
+  newQty = Math.max(1, Math.min(availMax, Math.floor(Number(newQty) || 1)));
+  if(newQty === oldQty){ renderAccountOrders(); return; }
+  updateOrder(orderId, (ord) => {
+    ord.items[itemIdx].qty = newQty;
+    const fiyat = _orderItemFiyat(ord.items[itemIdx]);
+    ord.items[itemIdx].satir_toplam_eur = fiyat * newQty;
+    ord.items[itemIdx].durum_item = 'BEKLIYOR';
+    ord.ara_toplam_eur = ord.items.reduce((s,i) => s + (Number(i.satir_toplam_eur) || _orderItemFiyat(i) * _orderItemQty(i)), 0);
+    ord.toplam_eur = ord.ara_toplam_eur + (Number(ord.kargo_eur)||0) - (Number(ord.indirim_eur)||0);
+  }, { kim:'musteri', reset_to_bekliyor:true });
+  renderAccountOrders();
+  toast(`Adet ${oldQty}→${newQty} güncellendi · sipariş yeniden onay bekliyor`);
+}
+
+function editOrderAddressNote(orderId){
+  const all = getPendingOrders();
+  const o = all.find(x => (x.id || x.order_id) === orderId);
+  if(!o) return;
+  const adr = o.kargo_adresi || {};
+  const adres = prompt('Kargo adresi (sokak, no, daire):', adr.adres || '');
+  if(adres === null) return;
+  const sehir = prompt('Şehir:', adr.sehir || '');
+  if(sehir === null) return;
+  const posta = prompt('Posta kodu:', adr.posta_kodu || '');
+  if(posta === null) return;
+  const ulke = prompt('Ülke:', adr.ulke || 'Türkiye');
+  if(ulke === null) return;
+  const not = prompt('Müşteri notu (opsiyonel):', o.musteri_notu || '');
+  if(not === null) return;
+  updateOrder(orderId, (ord) => {
+    ord.kargo_adresi = {
+      adres: (adres || '').trim(),
+      sehir: (sehir || '').trim(),
+      posta_kodu: (posta || '').trim(),
+      ulke: (ulke || '').trim(),
+    };
+    ord.musteri_notu = (not || '').trim();
+  }, { kim:'musteri', reset_to_bekliyor:true });
+  renderAccountOrders();
+  toast('Adres ve not güncellendi · sipariş yeniden onay bekliyor');
 }
 
 // ─── İadeler tablosu (Excel-like — her sipariş kalemi ayrı satır) ─────
@@ -6210,41 +6634,50 @@ function submitIade(e){
 }
 
 function cancelOrder(orderId){
-  if(!confirm('Siparişinizi iptal etmek istediğinize emin misiniz?')) return;
   const all = getPendingOrders();
-  const idx = all.findIndex(o => (o.id || o.order_id) === orderId);
-  if(idx < 0) return;
-  all[idx].durum = 'IPTAL';
-  all[idx].cancelled_at = new Date().toISOString();
-  savePendingOrders(all);
+  const o = all.find(x => (x.id || x.order_id) === orderId);
+  if(!o) return;
+  if(!ORDER_CANCELLABLE_STATES.includes(o.durum)){
+    toast('Bu sipariş artık iptal edilemez.', true);
+    return;
+  }
+  const wasOnaylandi = o.durum === 'ONAYLANDI';
+  const msg = wasOnaylandi
+    ? 'Sipariş ONAYLANDI durumunda. İptal talebi açtığında admin değerlendirip stoğu serbest bırakacak. Onaylıyor musunuz?'
+    : 'Siparişinizi iptal etmek istediğinize emin misiniz?';
+  if(!confirm(msg)) return;
+  const now = new Date().toISOString();
+  updateOrder(orderId, (ord) => {
+    ord.guncelleme_gecmisi.push({ ts: now, kim:'musteri', alan:'durum', eski:ord.durum, yeni:'IPTAL_EDILDI' });
+    ord.durum = 'IPTAL_EDILDI';
+    ord.iptal_ts = now;
+  }, { kim:'sistem', reset_to_bekliyor:false });
   renderAccountOrders();
-  toast('Sipariş iptal edildi.');
+  toast(wasOnaylandi ? 'İptal talebi alındı · admin stoğu serbest bırakacak' : 'Sipariş iptal edildi');
 }
 
 function removeOrderItem(orderId, itemIdx){
   const all = getPendingOrders();
-  const i = all.findIndex(o => (o.id || o.order_id) === orderId);
-  if(i < 0) return;
-  const order = all[i];
-  if((order.durum || order.status || 'YENI') !== 'YENI'){
+  const o = all.find(x => (x.id || x.order_id) === orderId);
+  if(!o) return;
+  if(!ORDER_EDITABLE_STATES.includes(o.durum)){
     toast('Bu sipariş düzenlenemez.', true);
     return;
   }
-  if(!Array.isArray(order.items) || itemIdx < 0 || itemIdx >= order.items.length) return;
-  order.items.splice(itemIdx, 1);
-  if(order.items.length === 0){
-    order.durum = 'IPTAL';
-    order.cancelled_at = new Date().toISOString();
-    savePendingOrders(all);
-    renderAccountOrders();
-    toast('Sepetiniz boşaldığı için sipariş iptal edildi.');
+  if(!Array.isArray(o.items) || itemIdx < 0 || itemIdx >= o.items.length) return;
+  if(o.items.length === 1){
+    // Tek kalem kaldıysa sipariş iptal
+    if(!confirm('Bu siparişte son kalemi çıkarıyorsunuz. Sipariş tamamen iptal edilecek. Onaylıyor musunuz?')) return;
+    cancelOrder(orderId);
     return;
   }
-  // Toplamları yeniden hesapla
-  order.toplam_eur = order.items.reduce((s,it) => s + (Number(it.fiyat_eur || 0) * (Number(it.miktar ?? it.qty ?? 1))), 0);
-  savePendingOrders(all);
+  updateOrder(orderId, (ord) => {
+    ord.items.splice(itemIdx, 1);
+    ord.ara_toplam_eur = ord.items.reduce((s,i) => s + (Number(i.satir_toplam_eur) || _orderItemFiyat(i) * _orderItemQty(i)), 0);
+    ord.toplam_eur = ord.ara_toplam_eur + (Number(ord.kargo_eur)||0) - (Number(ord.indirim_eur)||0);
+  }, { kim:'musteri', reset_to_bekliyor:true });
   renderAccountOrders();
-  toast('Ürün siparişten çıkarıldı.');
+  toast('Ürün siparişten çıkarıldı · sipariş yeniden onay bekliyor');
 }
 
 function reorderOrder(orderId){
@@ -6256,7 +6689,7 @@ function reorderOrder(orderId){
     if(!vid) return;
     const cur = getCart();
     const found = cur.find(c => c.id === vid);
-    const inc = Number(it.miktar ?? it.qty ?? 1);
+    const inc = _orderItemQty(it);
     if(found) found.qty += inc;
     else cur.push({ id: vid, qty: inc });
     saveCart(cur);
