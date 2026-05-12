@@ -13,18 +13,6 @@
 <meta name="theme-color" content="#1A1A1A" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#0E0D0B" media="(prefers-color-scheme: dark)">
 <script>
-/* BOTL migration shim (rebrand Frida→BOTL) — eski frida_* key'leri botl_* prefix'e taşı (idempotent, rollback-safe).
-   AUTH_SALT 'frida_v1_' SABIT — değiştirilirse hash mismatch, müşteri credentials bozulur. */
-(function migrate(){
-  try {
-    var keys = ['theme','session','catalog_v1','cart_v1','orders_v1','customers_v1','suppliers_v1','pending_orders','profile_draft'];
-    keys.forEach(function(k){
-      var oldV = localStorage.getItem('frida_'+k);
-      var newV = localStorage.getItem('botl_'+k);
-      if(oldV != null && newV == null){ localStorage.setItem('botl_'+k, oldV); }
-    });
-  } catch(e){}
-})();
 /* Theme preload (FOUC önleme). */
 (function(){
   try{
@@ -820,8 +808,12 @@ a{color:inherit;text-decoration:none}
 }
 .order-status-badge--BEKLIYOR{background:var(--status-bekliyor-bg);color:var(--status-bekliyor-fg);border:1px solid var(--status-bekliyor-border)}
 .order-status-badge--ONAYLANDI{background:var(--status-onaylandi-bg);color:var(--status-onaylandi-fg);border:1px solid var(--status-onaylandi-border)}
+.order-status-badge--HAZIRLANIYOR{background:rgba(158,145,200,.14);color:#5A4A8A;border:1px solid #9E91C8}
+.order-status-badge--KARGODA{background:rgba(122,181,200,.16);color:#1A5E7A;border:1px solid #7AB5C8}
+.order-status-badge--TESLIM_EDILDI{background:rgba(143,190,146,.22);color:#1F4F22;border:1px solid #2A6A2D;font-weight:600}
 .order-status-badge--REDDEDILDI{background:var(--status-reddedildi-bg);color:var(--status-reddedildi-fg);border:1px solid var(--status-reddedildi-border)}
 .order-status-badge--IPTAL_EDILDI{background:var(--bg-alt);color:var(--text-muted);border:1px solid var(--border-strong)}
+.order-status-badge--TESLIM_ALINDI{background:var(--status-onaylandi-bg);color:var(--status-onaylandi-fg);border:1px solid var(--status-onaylandi-border)} /* supplier legacy */
 
 .order-id-badge{
   font-family:'Menlo','Monaco',monospace;
@@ -1743,13 +1735,16 @@ tr.row--draft td:first-child{box-shadow:inset 3px 0 0 var(--row-draft-edge)}
     <div class="modal__foot">
       <div style="display:flex;gap:8px;flex-wrap:wrap">
         <button class="btn btn--danger" id="btn-order-delete" hidden>Sil</button>
-        <button class="btn btn--danger" id="btn-order-cancel" hidden>İptal Et (stok geri)</button>
+        <button class="btn btn--danger" id="btn-order-cancel" hidden>İptal Et (occupied serbest)</button>
         <button class="btn btn--danger" id="btn-order-reject" hidden>Reddet</button>
       </div>
       <div class="modal__foot-right">
         <button class="btn" id="btn-order-modal-close">Kapat</button>
         <button class="btn" id="btn-order-save" hidden>Kaydet</button>
-        <button class="btn btn--primary" id="btn-order-approve" hidden>Onayla → Stoktan Düş</button>
+        <button class="btn" id="btn-order-prepare" hidden title="HAZIRLANIYOR opsiyonel ara state">Hazırla</button>
+        <button class="btn" id="btn-order-ship" hidden title="KARGODA — tracking ekle">Kargola</button>
+        <button class="btn btn--primary" id="btn-order-approve" hidden>Onayla → Rezerve</button>
+        <button class="btn btn--primary" id="btn-order-complete" hidden title="TESLIM_EDILDI — total düşür + fatura/kasa">Tamamla → Teslim</button>
       </div>
     </div>
   </div>
@@ -3538,7 +3533,7 @@ tr.row--draft td:first-child{box-shadow:inset 3px 0 0 var(--row-draft-edge)}
       }
     }
   }
-}; window.__FRIDA_DATA__ = window.__BOTL_DATA__;</script>
+};</script>
 <!-- BOTL_INLINE_DATA_END -->
 
 <script src="data-inline.js" onerror="window.__BOTL_INLINE_MISSING__=true;"></script>
@@ -4409,84 +4404,302 @@ function productToOrderItem(p, qty){
   };
 }
 
+// ─── Sipariş v2 — 3'lü stok modeli + state machine helpers ─────────
+// Stok semantiği (nyoworks-aligned):
+//   total_stok      = fiziksel + ön-rezerve toplam
+//   occupied_stok   = onaylı siparişlerle rezerve edilmiş (mağaza dışı satılamaz)
+//   available_stok  = total_stok - occupied_stok (canlı satışa açık)
+//
+// Akış:
+//   BEKLIYOR        → stok hareketi YOK (sadece niyet)
+//   ONAYLANDI       → occupied_stok += qty (hard reserve)
+//   HAZIRLANIYOR    → occupied korunur (paketleniyor)
+//   KARGODA         → occupied korunur (yolda)
+//   TESLIM_EDILDI   → total_stok -= qty + occupied_stok -= qty (CIKIS — fiziksel düşüş)
+//   ONAYLANDI'dan iptal → occupied_stok -= qty (release)
+//   TESLIM_EDILDI'den iade → ayrı iade akışı (botl_returns_v1)
+function _pStock(p){
+  return {
+    total: Number(p.total_stok != null ? p.total_stok : p.stok) || 0,
+    occupied: Number(p.occupied_stok || 0),
+  };
+}
+function _pStockApply(p, dTotal, dOccupied){
+  const st = _pStock(p);
+  const newTotal = Math.max(0, st.total + dTotal);
+  const newOccupied = Math.max(0, Math.min(newTotal, st.occupied + dOccupied));
+  p.total_stok = newTotal;
+  p.occupied_stok = newOccupied;
+  p.available_stok = Math.max(0, newTotal - newOccupied);
+  // Geri uyumluluk: legacy `stok` alanı = available
+  p.stok = p.available_stok;
+  return { total:newTotal, occupied:newOccupied, available:p.available_stok };
+}
+function _orderAuditPush(o, kim, alan, eski, yeni){
+  if(!Array.isArray(o.guncelleme_gecmisi)) o.guncelleme_gecmisi = [];
+  o.guncelleme_gecmisi.push({
+    ts: new Date().toISOString(),
+    kim, alan, eski, yeni,
+  });
+}
+function _bumpOrderVersion(o){
+  o.version = (Number(o.version) || 1) + 1;
+  o.guncelleme = new Date().toISOString();
+  o.guncelleme_ts = o.guncelleme;
+}
+
+// Site-origin order (botl_pending_orders) write-back — admin durum/değişiklik
+// yaptığında müşteri panelinde güncel durum görünsün.
+function syncSiteOrderBack(o){
+  if(!o._local_site_order) return;
+  try {
+    const raw = localStorage.getItem('botl_pending_orders');
+    if(!raw) return;
+    const arr = JSON.parse(raw);
+    if(!Array.isArray(arr)) return;
+    const idx = arr.findIndex(x => (x.id || x.order_id) === o.order_id);
+    if(idx < 0) return;
+    const orig = arr[idx];
+    orig.durum = o.durum;
+    orig.version = Number(o.version) || (Number(orig.version) || 1) + 1;
+    orig.guncelleme_ts = o.guncelleme || o.guncelleme_ts || new Date().toISOString();
+    orig.onay_ts = o.onay_ts || orig.onay_ts || null;
+    orig.kargo_ts = o.kargo_ts || orig.kargo_ts || null;
+    orig.teslim_ts = o.teslim_ts || orig.teslim_ts || null;
+    orig.iptal_ts = o.iptal_ts || orig.iptal_ts || null;
+    orig.tracking_no = o.tracking_no || orig.tracking_no || null;
+    orig.tracking_url = o.tracking_url || orig.tracking_url || null;
+    orig.patron_notu = o.patron_notu || orig.patron_notu || '';
+    orig.guncelleme_gecmisi = Array.isArray(o.guncelleme_gecmisi) ? o.guncelleme_gecmisi : orig.guncelleme_gecmisi || [];
+    arr[idx] = orig;
+    localStorage.setItem('botl_pending_orders', JSON.stringify(arr));
+  } catch(e){ console.error('[orders] site write-back failed', e); }
+}
+
 // ─── Order actions ─────────────────────────────────
 function approveOrder(orderId){
   const o = state.orders.find(x => x.order_id === orderId);
   if(!o || o.durum !== 'BEKLIYOR') return;
-  // Stok kontrolü
+  // 3'lü stok modeli: available_stok < qty olunca uyar
   const insufficient = [];
   o.items.forEach(item => {
     const p = state.products.find(x => x.variation_id === item.variation_id);
     if(!p){ insufficient.push({...item, available: 0, missing: 'ürün bulunamadı'}); return; }
-    if(p.stok < item.qty){ insufficient.push({...item, available: p.stok}); }
+    const st = _pStock(p);
+    const avail = Math.max(0, st.total - st.occupied);
+    if(avail < item.qty){ insufficient.push({...item, available: avail}); }
   });
   if(insufficient.length > 0){
     const msg = insufficient
-      .map(i => `• ${i.isim_snapshot || i.variation_id}: istenen ${i.qty}, mevcut ${i.available}`)
+      .map(i => `• ${i.isim_snapshot || i.variation_id}: istenen ${i.qty}, available ${i.available}`)
       .join('\n');
-    if(!confirm(`Stok yetersiz:\n${msg}\n\nYine de onayla? Stok eksiye düşebilir.`)) return;
+    if(!confirm(`Stok yetersiz:\n${msg}\n\nYine de onayla? Available eksiye düşmez ama occupied artırmayacağız.`)) return;
   }
-  // Stok düş + her birini logla
+  // occupied_stok += qty (hard reserve). total_stok DOKUNULMAZ.
   o.items.forEach(item => {
     const p = state.products.find(x => x.variation_id === item.variation_id);
     if(p){
-      const eskiStok = Number(p.stok)||0;
-      p.stok = Math.max(0, eskiStok - item.qty);
-      logActivity('STOCK_DECREASE', 'product', item.variation_id, `${item.marka} ${item.isim_snapshot}: stok ${eskiStok} → ${p.stok} (sipariş ${orderId})`, { variation_id: item.variation_id, eski_stok: eskiStok, yeni_stok: p.stok, delta: -item.qty, kaynak_siparis: orderId });
+      const before = _pStock(p);
+      _pStockApply(p, 0, +item.qty);
+      const after = _pStock(p);
+      logActivity('STOCK_RESERVE', 'product', item.variation_id,
+        `${item.marka} ${item.isim_snapshot}: occupied ${before.occupied} → ${after.occupied} (sipariş ${orderId})`,
+        { variation_id: item.variation_id, eski_occupied: before.occupied, yeni_occupied: after.occupied,
+          delta: +item.qty, total: after.total, available: after.total - after.occupied, kaynak_siparis: orderId });
     }
   });
+  const eskiDurum = o.durum;
   o.durum = 'ONAYLANDI';
   o.onaylama = new Date().toISOString();
-  o.guncelleme = o.onaylama;
+  o.onay_ts = o.onaylama;
+  _bumpOrderVersion(o);
+  _orderAuditPush(o, 'admin', 'durum', eskiDurum, 'ONAYLANDI');
+  syncSiteOrderBack(o);
   save(); saveOrders();
-  logActivity('ORDER_APPROVE', 'order', orderId, `${orderId} onaylandı · ${fmt(o.toplam_eur)} · ${o.musteri?.ad_soyad||'müşteri yok'}`, { items: o.items, toplam: o.toplam_eur });
+  logActivity('ORDER_APPROVE', 'order', orderId,
+    `${orderId} onaylandı · ${fmt(o.toplam_eur)} · ${o.musteri?.ad_soyad||'müşteri yok'}`,
+    { items: o.items, toplam: o.toplam_eur });
   renderAll();
-  toast(`${orderId} onaylandı, stok güncellendi`);
+  toast(`${orderId} onaylandı · ${o.items.length} kalem rezerve edildi`);
 }
 
 function rejectOrder(orderId){
   const o = state.orders.find(x => x.order_id === orderId);
-  if(!o || (o.durum !== 'BEKLIYOR')) return;
+  if(!o || o.durum !== 'BEKLIYOR') return;
   const reason = prompt('Red sebebi (opsiyonel):', '');
   if(reason === null) return;
+  const eskiDurum = o.durum;
   o.durum = 'REDDEDILDI';
   o.red_sebebi = reason;
-  o.guncelleme = new Date().toISOString();
+  o.iptal_ts = new Date().toISOString();
+  _bumpOrderVersion(o);
+  _orderAuditPush(o, 'admin', 'durum', eskiDurum, 'REDDEDILDI');
+  if(reason) _orderAuditPush(o, 'admin', 'red_sebebi', null, reason);
+  syncSiteOrderBack(o);
   saveOrders();
   logActivity('ORDER_REJECT', 'order', orderId, `${orderId} reddedildi${reason ? ' · ' + reason : ''}`, { red_sebebi: reason, items: o.items });
   renderAll();
   toast(`${orderId} reddedildi`);
 }
 
-function cancelApprovedOrder(orderId){
+// Onaylı → HAZIRLANIYOR (opsiyonel ara state)
+function prepareOrder(orderId){
   const o = state.orders.find(x => x.order_id === orderId);
-  if(!o || o.durum !== 'ONAYLANDI') return;
-  if(!confirm('Onaylı sipariş iptal edilecek, stok geri yüklenecek. Emin misin?')) return;
+  if(!o) return;
+  const next = ORDER_NEXT_STATES[o.durum] || [];
+  if(!next.includes('HAZIRLANIYOR')){ toast(`${o.durum}'dan HAZIRLANIYOR'a geçilemez.`, true); return; }
+  const eskiDurum = o.durum;
+  o.durum = 'HAZIRLANIYOR';
+  _bumpOrderVersion(o);
+  _orderAuditPush(o, 'admin', 'durum', eskiDurum, 'HAZIRLANIYOR');
+  syncSiteOrderBack(o);
+  saveOrders();
+  logActivity('ORDER_PREPARE', 'order', orderId, `${orderId} hazırlanıyor`, { eski_durum: eskiDurum });
+  renderAll();
+  toast(`${orderId} hazırlanmaya alındı`);
+}
+
+// → KARGODA (tracking no + url opsiyonel)
+function shipOrder(orderId){
+  const o = state.orders.find(x => x.order_id === orderId);
+  if(!o) return;
+  const next = ORDER_NEXT_STATES[o.durum] || [];
+  if(!next.includes('KARGODA')){ toast(`${o.durum}'dan KARGODA'a geçilemez.`, true); return; }
+  const trackingNo = prompt('Kargo takip numarası:', o.tracking_no || '');
+  if(trackingNo === null) return;
+  const trackingUrl = prompt('Kargo takip URL (opsiyonel):', o.tracking_url || '');
+  if(trackingUrl === null) return;
+  const eskiDurum = o.durum;
+  o.durum = 'KARGODA';
+  o.kargo_ts = new Date().toISOString();
+  if(trackingNo){ o.tracking_no = trackingNo.trim() || null; }
+  if(trackingUrl){ o.tracking_url = trackingUrl.trim() || null; }
+  _bumpOrderVersion(o);
+  _orderAuditPush(o, 'admin', 'durum', eskiDurum, 'KARGODA');
+  if(o.tracking_no) _orderAuditPush(o, 'admin', 'tracking_no', null, o.tracking_no);
+  syncSiteOrderBack(o);
+  saveOrders();
+  logActivity('ORDER_SHIP', 'order', orderId, `${orderId} kargoda · ${o.tracking_no || '(takip no yok)'}`, { tracking_no: o.tracking_no, tracking_url: o.tracking_url });
+  renderAll();
+  toast(`${orderId} kargoya verildi`);
+}
+
+// → TESLIM_EDILDI (terminal — total_stok -= qty + occupied_stok -= qty + fatura/kasa zinciri)
+function completeOrder(orderId){
+  const o = state.orders.find(x => x.order_id === orderId);
+  if(!o) return;
+  const next = ORDER_NEXT_STATES[o.durum] || [];
+  if(!next.includes('TESLIM_EDILDI')){ toast(`${o.durum}'dan TESLİM EDİLDİ'ye geçilemez.`, true); return; }
+  const lines = [
+    `${orderId} TESLİM EDİLDİ olarak işaretlenecek.`,
+    `Stok hareketleri:`,
+    ...o.items.map(it => `  • ${it.marka} ${it.isim_snapshot} (${it.variation_id}): total -${it.qty}, occupied -${it.qty}`),
+    `Toplam: ${fmt(o.toplam_eur)}`,
+    `Fatura / kasa / customer.toplam_alisveris güncellemesi için MCP komutu kopyalanacak.`,
+    `Devam edilsin mi?`,
+  ];
+  if(!confirm(lines.join('\n'))) return;
+  // total_stok -= qty + occupied_stok -= qty
   o.items.forEach(item => {
     const p = state.products.find(x => x.variation_id === item.variation_id);
     if(p){
-      const eskiStok = Number(p.stok)||0;
-      p.stok = eskiStok + item.qty;
-      logActivity('STOCK_INCREASE', 'product', item.variation_id, `${item.marka} ${item.isim_snapshot}: stok ${eskiStok} → ${p.stok} (iptal: ${orderId})`, { variation_id: item.variation_id, eski_stok: eskiStok, yeni_stok: p.stok, delta: +item.qty, kaynak_siparis: orderId, sebep: 'order_cancel' });
+      const before = _pStock(p);
+      _pStockApply(p, -item.qty, -item.qty);
+      const after = _pStock(p);
+      logActivity('STOCK_DECREASE', 'product', item.variation_id,
+        `${item.marka} ${item.isim_snapshot}: total ${before.total} → ${after.total} · occupied ${before.occupied} → ${after.occupied} (teslim: ${orderId})`,
+        { variation_id: item.variation_id,
+          eski_total: before.total, yeni_total: after.total,
+          eski_occupied: before.occupied, yeni_occupied: after.occupied,
+          delta: -item.qty, kaynak_siparis: orderId, sebep: 'order_delivered' });
     }
   });
-  o.durum = 'IPTAL_EDILDI';
-  o.guncelleme = new Date().toISOString();
+  const eskiDurum = o.durum;
+  o.durum = 'TESLIM_EDILDI';
+  o.teslim_ts = new Date().toISOString();
+  _bumpOrderVersion(o);
+  _orderAuditPush(o, 'admin', 'durum', eskiDurum, 'TESLIM_EDILDI');
+  syncSiteOrderBack(o);
   save(); saveOrders();
-  logActivity('ORDER_CANCEL', 'order', orderId, `${orderId} iptal edildi, stok geri yüklendi`, { items: o.items });
+  logActivity('ORDER_DELIVERED', 'order', orderId,
+    `${orderId} teslim edildi · ${fmt(o.toplam_eur)} · ${o.musteri?.ad_soyad||'müşteri yok'}`,
+    { items: o.items, toplam: o.toplam_eur, musteri_id: o.musteri?.customer_id });
+
+  // MCP komut zinciri patron'a göster (admin direkt MCP çağıramaz; ASS oturumuna pasla).
+  // Snapshot — patron kopyala-yapıştırla ASS'e söyleyebilir veya ASS otomatik okur.
+  const mcpCmd = [
+    `# Sipariş ${orderId} TESLIM_EDILDI tetikleyici zinciri:`,
+    ...o.items.map(it =>
+      `stock_move(tip="CIKIS", variation_id="${it.variation_id}", adet=${it.qty}, musteri_id="${o.musteri?.customer_id||'?'}", satis_fiyat_eur=${it.fiyat_eur}, kaynak="ORDER:${orderId}")`
+    ),
+    `record_satis_faturasi(musteri_id="${o.musteri?.customer_id||'?'}", toplam_eur=${o.toplam_eur}, kdv_orani=20, kaynak="ORDER:${orderId}")`,
+    `# kasa += ${o.toplam_eur} (otomatik record_satis_faturasi tarafından)`,
+    `# customer.toplam_alisveris += ${o.toplam_eur} (otomatik VIP yükseltme check)`,
+  ].join('\n');
+  state._lastDeliverMcp = mcpCmd;
+  try { navigator.clipboard && navigator.clipboard.writeText(mcpCmd); } catch {}
   renderAll();
-  toast(`${orderId} iptal edildi, stok geri yüklendi`);
+  toast(`${orderId} teslim edildi · MCP komut zinciri panoya kopyalandı (ASS'e söyleyin)`);
+}
+
+function cancelApprovedOrder(orderId){
+  const o = state.orders.find(x => x.order_id === orderId);
+  if(!o) return;
+  const cancellableFromAdmin = ['ONAYLANDI','HAZIRLANIYOR','KARGODA'];
+  if(!cancellableFromAdmin.includes(o.durum)){ toast(`${o.durum} durumundan iptal edilemez.`, true); return; }
+  if(!confirm(`${o.durum} sipariş iptal edilecek, occupied stok geri yüklenecek. Emin misin?`)) return;
+  // occupied_stok -= qty (release). total_stok dokunulmaz.
+  o.items.forEach(item => {
+    const p = state.products.find(x => x.variation_id === item.variation_id);
+    if(p){
+      const before = _pStock(p);
+      _pStockApply(p, 0, -item.qty);
+      const after = _pStock(p);
+      logActivity('STOCK_RELEASE', 'product', item.variation_id,
+        `${item.marka} ${item.isim_snapshot}: occupied ${before.occupied} → ${after.occupied} (iptal: ${orderId})`,
+        { variation_id: item.variation_id, eski_occupied: before.occupied, yeni_occupied: after.occupied,
+          delta: -item.qty, kaynak_siparis: orderId, sebep: 'order_cancel' });
+    }
+  });
+  const eskiDurum = o.durum;
+  o.durum = 'IPTAL_EDILDI';
+  o.iptal_ts = new Date().toISOString();
+  _bumpOrderVersion(o);
+  _orderAuditPush(o, 'admin', 'durum', eskiDurum, 'IPTAL_EDILDI');
+  syncSiteOrderBack(o);
+  save(); saveOrders();
+  logActivity('ORDER_CANCEL', 'order', orderId, `${orderId} iptal edildi, occupied stok serbest`, { items: o.items });
+  renderAll();
+  toast(`${orderId} iptal edildi, occupied serbest`);
 }
 
 function deleteOrder(orderId){
   const o = state.orders.find(x => x.order_id === orderId);
   if(!o) return;
-  if(o.durum === 'ONAYLANDI'){
-    alert('Onaylı sipariş silinemez. Önce iptal et (stok geri yüklenir), sonra sil.');
+  const blockedStates = ['ONAYLANDI','HAZIRLANIYOR','KARGODA'];
+  if(blockedStates.includes(o.durum)){
+    alert(`${o.durum} durumundaki sipariş silinemez. Önce iptal et (occupied stok serbest bırakılır), sonra sil.`);
     return;
   }
-  if(!confirm(`${orderId} kalıcı silinecek. Emin misin?`)) return;
+  if(o.durum === 'TESLIM_EDILDI'){
+    if(!confirm(`${orderId} TESLİM EDİLDİ. Silmek audit'i etkilemez (workflow/audit/ kalıcı). Yine de UI'dan kaldıralım mı?`)) return;
+  } else {
+    if(!confirm(`${orderId} kalıcı silinecek (durum: ${o.durum}). Emin misin?`)) return;
+  }
   state.orders = state.orders.filter(x => x.order_id !== orderId);
+  // Site-origin order ise botl_pending_orders'tan da temizle
+  if(o._local_site_order){
+    try {
+      const raw = localStorage.getItem('botl_pending_orders');
+      if(raw){
+        const arr = JSON.parse(raw);
+        if(Array.isArray(arr)){
+          const filtered = arr.filter(x => (x.id || x.order_id) !== orderId);
+          localStorage.setItem('botl_pending_orders', JSON.stringify(filtered));
+        }
+      }
+    } catch {}
+  }
   saveOrders();
   logActivity('ORDER_DELETE', 'order', orderId, `${orderId} silindi (durum: ${o.durum})`, { silinen: o });
   if(state.editingOrder === orderId) closeOrderModal();
@@ -5174,14 +5387,22 @@ function openOrderModal(id){
   const btnReject = $('#btn-order-reject');
   const btnCancel = $('#btn-order-cancel');
   const btnDelete = $('#btn-order-delete');
+  const btnPrepare = $('#btn-order-prepare');
+  const btnShip = $('#btn-order-ship');
+  const btnComplete = $('#btn-order-complete');
 
   refreshOrderProductPicker();
 
   if(id){
     const o = state.orders.find(x => x.order_id === id);
     if(!o) return;
+    const tsBits = [`Açılma: ${fmtDate(o.olusturma)}`];
+    if(o.onay_ts || o.onaylama) tsBits.push(`Onay: ${fmtDate(o.onay_ts || o.onaylama)}`);
+    if(o.kargo_ts) tsBits.push(`Kargo: ${fmtDate(o.kargo_ts)}`);
+    if(o.teslim_ts) tsBits.push(`Teslim: ${fmtDate(o.teslim_ts)}`);
+    if(o.iptal_ts) tsBits.push(`İptal: ${fmtDate(o.iptal_ts)}`);
     title.textContent = `Sipariş ${o.order_id}`;
-    idBadge.textContent = `Açılma: ${fmtDate(o.olusturma)}${o.onaylama ? ' · Onay: ' + fmtDate(o.onaylama) : ''}`;
+    idBadge.textContent = `${tsBits.join(' · ')} · v${o.version || 1}`;
     statusBadge.textContent = DURUM_LABELS[o.durum] || o.durum;
     statusBadge.className = `order-status-badge order-status-badge--${o.durum}`;
     statusBadge.hidden = false;
@@ -5196,19 +5417,23 @@ function openOrderModal(id){
     form.elements.musteri_ulke.value = c.ulke || '';
     form.elements.musteri_notlar.value = c.notlar || '';
     form.elements.kaynak.value = o.kaynak || 'MANUEL';
-    form.elements.notlar.value = o.notlar || '';
+    form.elements.notlar.value = o.notlar || o.patron_notu || '';
 
     orderModalItems = o.items.map(i => ({...i}));
 
-    // Form alanlarını duruma göre kilitle
+    // Form alanlarını duruma göre kilitle (sadece BEKLEMEDE'de yazılabilir)
     const readOnly = o.durum !== 'BEKLIYOR';
     [...form.elements].forEach(el => { el.disabled = readOnly; });
 
+    const next = ORDER_NEXT_STATES[o.durum] || [];
     btnSave.hidden = readOnly;
-    btnApprove.hidden = o.durum !== 'BEKLIYOR';
-    btnReject.hidden = o.durum !== 'BEKLIYOR';
-    btnCancel.hidden = o.durum !== 'ONAYLANDI';
-    btnDelete.hidden = o.durum === 'ONAYLANDI';
+    btnApprove.hidden = !next.includes('ONAYLANDI');
+    btnReject.hidden = !next.includes('REDDEDILDI');
+    btnPrepare.hidden = !next.includes('HAZIRLANIYOR');
+    btnShip.hidden = !next.includes('KARGODA');
+    btnComplete.hidden = !next.includes('TESLIM_EDILDI');
+    btnCancel.hidden = !next.includes('IPTAL_EDILDI') || o.durum === 'BEKLIYOR'; // BEKLEMEDE'de REDDET yeterli
+    btnDelete.hidden = ['ONAYLANDI','HAZIRLANIYOR','KARGODA'].includes(o.durum);
   } else {
     title.textContent = 'Yeni Sipariş';
     idBadge.textContent = `Yeni → ID kaydedince üretilir`;
@@ -5219,6 +5444,9 @@ function openOrderModal(id){
     btnSave.hidden = false;
     btnApprove.hidden = true;
     btnReject.hidden = true;
+    btnPrepare.hidden = true;
+    btnShip.hidden = true;
+    btnComplete.hidden = true;
     btnCancel.hidden = true;
     btnDelete.hidden = true;
   }
@@ -5573,7 +5801,7 @@ function closeCustomerModal(){ $('#customer-modal').hidden = true; state.editing
 // Faz 1: hash client-side hesaplanır + MCP komutu üretilir,
 // patron bunu ASS'e söyler → set_customer_credentials çağrılır.
 // Draft olarak admin localStorage'una yazılır (Faz 2'de doğrudan MCP push).
-const AUTH_SALT_ADMIN = 'frida_v1_';  // SABIT — backend ile aynı salt, değiştirilirse password hash mismatch (rebrand audit: bilerek korundu)
+const AUTH_SALT_ADMIN = 'botl_v1_';  // SABIT — backend ile aynı salt (botl_mcp/tools/customers.py _AUTH_SALT ile eşleşmek zorunda)
 
 async function hashPasswordAdmin(plain){
   const buf = new TextEncoder().encode(AUTH_SALT_ADMIN + plain);
@@ -7082,6 +7310,9 @@ async function init(){
     bindEl('#btn-order-save', 'click', saveOrder);
     bindEl('#btn-order-approve', 'click', () => { if(state.editingOrder) approveOrder(state.editingOrder); closeOrderModal(); });
     bindEl('#btn-order-reject', 'click', () => { if(state.editingOrder) rejectOrder(state.editingOrder); closeOrderModal(); });
+    bindEl('#btn-order-prepare', 'click', () => { if(state.editingOrder) prepareOrder(state.editingOrder); closeOrderModal(); });
+    bindEl('#btn-order-ship', 'click', () => { if(state.editingOrder) shipOrder(state.editingOrder); closeOrderModal(); });
+    bindEl('#btn-order-complete', 'click', () => { if(state.editingOrder) completeOrder(state.editingOrder); closeOrderModal(); });
     bindEl('#btn-order-cancel', 'click', () => { if(state.editingOrder) cancelApprovedOrder(state.editingOrder); closeOrderModal(); });
     bindEl('#btn-order-delete', 'click', () => { if(state.editingOrder) deleteOrder(state.editingOrder); });
     bindEl('#btn-add-line', 'click', addLineFromPicker);

@@ -19,44 +19,6 @@
 <meta name="theme-color" content="#1A1A1A" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#0E0D0B" media="(prefers-color-scheme: dark)">
 <script>
-/* BOTL migration shim (rebrand Frida→BOTL) — eski frida_* key'leri botl_* prefix'e taşı.
-   AUTH_SALT 'frida_v1_' SABIT — değiştirilirse hash mismatch, müşteri credentials bozulur.
-   AAA+ guard: cart_v1 özel case — JSON parse + array + item shape validate. Bozuksa migrate ETME.
-   Eski key her durumda silinir (idempotent, replay-safe). */
-(function migrate(){
-  try {
-    var keys = ['theme','session','catalog_v1','cart_v1','orders_v1','customers_v1','suppliers_v1','pending_orders','profile_draft','returns_v1'];
-    keys.forEach(function(k){
-      var oldKey = 'frida_'+k;
-      var newKey = 'botl_'+k;
-      var oldV = localStorage.getItem(oldKey);
-      if(oldV == null) return;
-      var newV = localStorage.getItem(newKey);
-      if(newV == null){
-        // Cart için ekstra validate — corrupt cart taşımayı önler.
-        if(k === 'cart_v1'){
-          var safe = false;
-          try {
-            var parsed = JSON.parse(oldV);
-            if(Array.isArray(parsed)){
-              // Item'lar string|{id,qty} formatında olmalı. Boş array OK.
-              safe = parsed.every(function(it){
-                if(typeof it === 'string') return it.trim().length > 0;
-                return it && typeof it === 'object' && typeof it.id === 'string' && it.id.trim().length > 0;
-              });
-            }
-          } catch(_){}
-          if(safe){ localStorage.setItem(newKey, oldV); }
-          // Validate başarısızsa: eski cart taşınmaz, yeni cart boş kalır → temiz başlangıç.
-        } else {
-          localStorage.setItem(newKey, oldV);
-        }
-      }
-      // Migration tek seferlik — eski key'i her halükarda temizle (idempotent).
-      try { localStorage.removeItem(oldKey); } catch(_){}
-    });
-  } catch(e){}
-})();
 /* Theme + Auth preload (FOUC önleme). Inline + senkron — ilk paint öncesi data-theme + data-auth-state set. */
 (function(){
   try{
@@ -2114,17 +2076,22 @@ body.auth-gate-active > footer{display:none!important}
 }
 @media (max-width:640px){
   body{font-size:13px}
+  /* AAA+ mobile header — 3 satır, logo + actions overlap fix.
+     PRE-FIX (deb18c1): grid-template-columns:auto 1fr auto + actions grid-column:2/4 →
+       actions width 222px overflow ediyordu logo'nun (216px) üstüne ~87px → "BAGS OF THE L:O:M" görünümü.
+     FIX: actions kendi satırına (row 2, justify-self:end) — logo row 1 full-width, search row 3 full-width. */
   .hdr__wrap{
-    grid-template-columns:auto 1fr auto;
-    grid-template-rows:auto auto;
+    grid-template-columns:1fr;
+    grid-template-rows:auto auto auto;
     padding:10px 14px;
     gap:8px 10px;
     align-items:center;
   }
-  .hdr__logo{grid-column:1;grid-row:1}
-  .hdr__search{grid-column:1/-1;grid-row:2;max-width:none}
+  .hdr__logo{grid-column:1;grid-row:1;justify-self:start;min-width:0;max-width:100%}
+  .hdr__logo-text{overflow:hidden;text-overflow:ellipsis}
+  .hdr__actions{grid-column:1;grid-row:2;justify-self:end;gap:6px;flex-wrap:wrap}
+  .hdr__search{grid-column:1;grid-row:3;max-width:none}
   .hdr__search input{padding:10px 14px 10px 36px;font-size:16px;min-height:42px}
-  .hdr__actions{grid-column:2/4;grid-row:1;justify-self:end;gap:6px}
   .cart-btn{padding:8px 12px;font-size:11px;min-height:40px;min-width:40px;justify-content:center}
   .cart-btn__label{display:none}
   .theme-toggle{width:40px;height:40px}
@@ -4085,7 +4052,7 @@ input,select,textarea{font-size:16px}
       }
     }
   }
-}; window.__FRIDA_DATA__ = window.__BOTL_DATA__;</script>
+};</script>
 <!-- BOTL_INLINE_DATA_END -->
 
 <script src="data-inline.js" onerror="window.__BOTL_INLINE_MISSING__=true;"></script>
@@ -4749,7 +4716,7 @@ if(typeof window !== 'undefined'){
 // ─── Auth + Session (Faz 1 — client-side, localStorage) ───────────
 const SESSION_KEY = 'botl_session';
 const ORDERS_KEY = 'botl_pending_orders';
-const AUTH_SALT = 'frida_v1_';  // SABIT — backend ile aynı salt, değiştirilirse password hash mismatch (rebrand audit: bilerek korundu)
+const AUTH_SALT = 'botl_v1_';  // SABIT — backend ile aynı salt (botl_mcp/tools/customers.py _AUTH_SALT ile eşleşmek zorunda)
 
 async function hashPassword(plain){
   const buf = new TextEncoder().encode(AUTH_SALT + plain);
