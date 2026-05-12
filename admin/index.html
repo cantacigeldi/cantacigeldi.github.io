@@ -4283,7 +4283,7 @@ function loadOrders(){
 
   // 3) Catalog tarafından (login'li müşteri) verilen pending siparişler —
   //    aynı origin'de paylaşılan `botl_pending_orders` anahtarından oku.
-  //    Faz 1: sadece görüntüle, henüz MCP'ye commit etme.
+  //    Sipariş v2 schema (nyoworks-aligned) → admin order shape adapter.
   try {
     const raw = localStorage.getItem('botl_pending_orders');
     if(raw){
@@ -4291,44 +4291,75 @@ function loadOrders(){
       if(Array.isArray(arr)){
         const liveIds = new Set(state.orders.map(o => o.order_id));
         for(const o of arr){
-          if(liveIds.has(o.id)) continue;
-          // Catalog order shape → admin order shape adapter
-          state.orders.unshift({
-            order_id: o.id,
-            durum: (o.durum === 'YENI') ? 'BEKLIYOR' :
-                   (o.durum === 'ONAYLI') ? 'ONAYLANDI' :
-                   (o.durum === 'IPTAL') ? 'IPTAL_EDILDI' :
-                   (o.durum || 'BEKLIYOR'),
-            kaynak: 'SITE',
-            musteri: {
-              ad_soyad: o.isim || '',
-              telefon: '',
-              email: '',
-              sehir: '',
-              ulke: '',
-              notlar: `Kullanıcı: ${o.kullanici_adi || '-'} · CST: ${o.customer_id || '-'}`,
-              customer_id: o.customer_id || null,
-              kullanici_adi: o.kullanici_adi || null,
-            },
-            items: (o.items || []).map(it => ({
+          const oid = o.id || o.order_id;
+          if(liveIds.has(oid)) continue;
+          // v2 + legacy durum normalize
+          const durumMap = {
+            'YENI':'BEKLIYOR','BEKLIYOR':'BEKLIYOR',
+            'ONAYLI':'ONAYLANDI','ONAYLANDI':'ONAYLANDI',
+            'HAZIRLANIYOR':'HAZIRLANIYOR',
+            'KARGODA':'KARGODA','KARGOLANDI':'KARGODA',
+            'TESLIM':'TESLIM_EDILDI','TESLIM_EDILDI':'TESLIM_EDILDI','TAMAMLANDI':'TESLIM_EDILDI',
+            'IPTAL':'IPTAL_EDILDI','IPTAL_EDILDI':'IPTAL_EDILDI',
+            'REDDEDILDI':'REDDEDILDI',
+          };
+          const rawDurum = (o.durum || 'BEKLIYOR').toUpperCase();
+          const durum = durumMap[rawDurum] || 'BEKLIYOR';
+          const items = (o.items || []).map(it => {
+            const qty = Number(it.qty ?? it.miktar) || 1;
+            const fiyat = Number(it.birim_fiyat_eur ?? it.fiyat_eur) || 0;
+            return {
               variation_id: it.variation_id,
-              sku: it.sku || null,
-              isim_snapshot: it.isim || '',
-              isim_resmi: '',
+              sku: it.sku_master || it.sku || null,
+              isim_snapshot: it.model || it.isim || '',
+              isim_resmi: it.model || '',
               marka: it.marka || '',
               renk: it.renk || '',
               boyut: it.boyut || '',
               donanim: it.donanim || '',
               kondisyon: '',
-              qty: it.miktar || 1,
-              fiyat_eur: Number(it.fiyat_eur) || 0,
-              satir_toplam: (Number(it.fiyat_eur) || 0) * (it.miktar || 1),
-            })),
-            toplam_eur: Number(o.toplam_eur) || 0,
+              qty,
+              fiyat_eur: fiyat,
+              satir_toplam: fiyat * qty,
+            };
+          });
+          const ara = items.reduce((s,i) => s + (i.satir_toplam || 0), 0);
+          const mi = o.musteri_iletisim || {};
+          state.orders.unshift({
+            order_id: oid,
+            schema_version: o.schema_version || 2,
+            version: Number(o.version) || 1,
+            durum,
+            kaynak: 'SITE',
+            musteri: {
+              ad_soyad: mi.isim || o.isim || '',
+              telefon: mi.telefon || '',
+              email: mi.email || '',
+              sehir: (o.kargo_adresi && o.kargo_adresi.sehir) || '',
+              ulke: (o.kargo_adresi && o.kargo_adresi.ulke) || '',
+              notlar: `Kullanıcı: ${mi.kullanici_adi || o.kullanici_adi || '-'} · CST: ${o.musteri_id || o.customer_id || '-'}`,
+              customer_id: o.musteri_id || o.customer_id || null,
+              kullanici_adi: mi.kullanici_adi || o.kullanici_adi || null,
+            },
+            kargo_adresi: o.kargo_adresi || { adres:'', sehir:'', posta_kodu:'', ulke:'' },
+            musteri_notu: o.musteri_notu || '',
+            patron_notu: o.patron_notu || '',
+            tracking_no: o.tracking_no || null,
+            tracking_url: o.tracking_url || null,
+            items,
+            ara_toplam_eur: Number(o.ara_toplam_eur) || ara,
+            kargo_eur: Number(o.kargo_eur) || 0,
+            indirim_eur: Number(o.indirim_eur) || 0,
+            toplam_eur: Number(o.toplam_eur) || ara,
             para_birimi: o.para_birimi || 'EUR',
-            notlar: '',
-            olusturma: o.tarih || new Date().toISOString(),
-            guncelleme: o.tarih || new Date().toISOString(),
+            notlar: o.patron_notu || '',
+            olusturma: o.olusturma_ts || o.tarih || new Date().toISOString(),
+            guncelleme: o.guncelleme_ts || o.olusturma_ts || o.tarih || new Date().toISOString(),
+            onay_ts: o.onay_ts || null,
+            kargo_ts: o.kargo_ts || null,
+            teslim_ts: o.teslim_ts || null,
+            iptal_ts: o.iptal_ts || null,
+            guncelleme_gecmisi: Array.isArray(o.guncelleme_gecmisi) ? o.guncelleme_gecmisi : [],
             _draft: true,
             _local_site_order: true,
           });
@@ -4963,11 +4994,26 @@ function fmtDate(iso){
          d.toLocaleTimeString('tr-TR', {hour:'2-digit',minute:'2-digit'});
 }
 
+// Sipariş v2 — nyoworks-aligned state machine + label
 const DURUM_LABELS = {
-  'BEKLIYOR': 'BEKLIYOR',
+  'BEKLIYOR': 'BEKLEMEDE',
   'ONAYLANDI': 'ONAYLANDI',
+  'HAZIRLANIYOR': 'HAZIRLANIYOR',
+  'KARGODA': 'KARGODA',
+  'TESLIM_EDILDI': 'TESLİM EDİLDİ',
   'REDDEDILDI': 'REDDEDİLDİ',
   'IPTAL_EDILDI': 'İPTAL',
+  // Geri uyumluluk: legacy enum (supplier order'tan farklı; admin order için kullanılmaz)
+  'TESLIM_ALINDI': 'TESLİM ALINDI',
+};
+const ORDER_NEXT_STATES = {
+  'BEKLIYOR': ['ONAYLANDI','REDDEDILDI','IPTAL_EDILDI'],
+  'ONAYLANDI': ['HAZIRLANIYOR','KARGODA','TESLIM_EDILDI','IPTAL_EDILDI'],
+  'HAZIRLANIYOR': ['KARGODA','TESLIM_EDILDI','IPTAL_EDILDI'],
+  'KARGODA': ['TESLIM_EDILDI','IPTAL_EDILDI'],
+  'TESLIM_EDILDI': [], // terminal
+  'REDDEDILDI': [],    // terminal
+  'IPTAL_EDILDI': [],  // terminal
 };
 const KAYNAK_LABELS = {
   'MANUEL': 'Manuel',
