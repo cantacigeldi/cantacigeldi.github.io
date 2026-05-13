@@ -1075,19 +1075,32 @@ a{color:inherit;text-decoration:none}
 @media(max-width:900px){
   .po-layout{grid-template-columns:1fr;gap:16px}
   .po-sidebar{position:static}
-  .po-header{padding:10px 14px}
+  .po-header{padding:10px 14px;flex-wrap:wrap}
+  .po-header__title{font-size:16px;order:1;flex:0 0 calc(100% - 48px)}
+  .po-header__title small{font-size:10px}
+  .po-header__back{order:0}
+  .po-header__actions{order:2;flex:0 0 100%;justify-content:flex-end;padding-top:6px;border-top:1px solid var(--border);margin-top:4px}
   .po-body{padding:14px}
   .po-footer{padding:12px 14px;flex-wrap:wrap;gap:10px}
   .po-footer__totals{gap:16px;flex-wrap:wrap}
   .po-picker__row{grid-template-columns:28px 28px 1fr auto;gap:6px;padding:8px 12px}
   .po-picker__meta:nth-child(n+5){display:none}
+  .po-picker__head{flex-wrap:wrap}
+  .po-picker__search{flex:1 1 100%;order:0}
+  .po-picker__count{order:1}
+  .po-picker__add-btn{order:2}
+  .po-lines-table th:nth-child(3),.po-lines-table td:nth-child(3){display:none}
 }
 @media(max-width:500px){
-  .po-header__title{font-size:16px}
+  .po-header__title{font-size:14px}
+  .po-header__actions .btn{font-size:11px;padding:6px 10px}
   .po-footer__stat strong{font-size:14px}
   .po-footer__stat--grand strong{font-size:18px}
   .po-picker__row{grid-template-columns:24px 1fr auto}
   .po-picker__swatch{display:none}
+  .po-lines-table .col-qty-wrap{flex-direction:column}
+  .po-lines-table .col-qty-btn{width:24px;height:20px}
+  .po-lines-table .col-qty-input{width:36px;height:24px;border-left:none;border-right:none;border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
 }
 
 /* ─── Activity tip badges ─────────────────────── */
@@ -2469,60 +2482,6 @@ tr.row--re-onay td:first-child{box-shadow:inset 3px 0 0 #C77A17}
   </div>
 </div>
 
-<!-- ── Supplier Order Modal (Alım) ─────────────────── -->
-<div class="modal" id="supplier-order-modal" hidden>
-  <div class="modal__panel modal__panel--wide">
-    <div class="modal__head">
-      <h2 class="modal__title" id="so-modal-title">Yeni Alım Siparişi</h2>
-      <span class="order-id-badge" id="so-modal-id"></span>
-      <span class="order-status-badge" id="so-modal-status" hidden></span>
-      <button class="modal__close" id="so-modal-close" aria-label="Kapat">×</button>
-    </div>
-    <form id="so-form" class="modal__body" autocomplete="off">
-      <div class="form-grid">
-        <div class="form-section">
-          <h3 class="form-section__title">Sipariş Bilgisi</h3>
-          <div class="field">
-            <label class="field__label">Tedarikçi<span class="req">*</span></label>
-            <select class="field__select" name="tedarikci_id" required id="so-tedarikci"></select>
-          </div>
-          <div class="field--inline">
-            <div class="field"><label class="field__label">Sipariş Tarihi</label><input class="field__input" name="siparis_tarihi" type="date"></div>
-            <div class="field"><label class="field__label">Beklenen Teslim</label><input class="field__input" name="beklenen_teslim" type="date"></div>
-          </div>
-          <div class="field"><label class="field__label">Fatura/PO No</label><input class="field__input" name="fatura_no"></div>
-          <div class="field--inline">
-            <input type="hidden" name="para_birimi" value="EUR">
-            <div class="field"><label class="field__label">Notlar</label><input class="field__input" name="notlar"></div>
-          </div>
-        </div>
-        <div class="form-section">
-          <h3 class="form-section__title">Kalemler (Maliyetler)</h3>
-          <div class="order-add-row">
-            <select class="field__select" id="so-product-pick"><option value="">Ürün seç...</option></select>
-            <input class="field__input" id="so-product-qty" type="number" min="1" value="1" style="width:60px" placeholder="Adet">
-            <input class="field__input" id="so-product-cost" type="number" min="0" step="0.01" style="width:120px" placeholder="Birim maliyet €">
-            <button type="button" class="btn btn--primary" id="btn-so-add-line">+ Ekle</button>
-          </div>
-          <div class="order-items" id="so-items"><div class="order-items__empty">Henüz kalem yok.</div></div>
-          <div class="order-total-row"><span class="order-total__label">Alım Toplamı</span><strong class="order-total__value" id="so-total">€0</strong></div>
-        </div>
-      </div>
-    </form>
-    <div class="modal__foot">
-      <div style="display:flex;gap:8px;flex-wrap:wrap">
-        <button class="btn btn--danger" id="btn-so-delete" hidden>Sil</button>
-        <button class="btn btn--danger" id="btn-so-cancel-received" hidden>İptal (stok geri)</button>
-      </div>
-      <div class="modal__foot-right">
-        <button class="btn" id="btn-so-close">Kapat</button>
-        <button class="btn" id="btn-so-save" hidden>Kaydet (Bekliyor)</button>
-        <button class="btn btn--primary" id="btn-so-receive" hidden>Teslim Aldım → Stok Ekle</button>
-      </div>
-    </div>
-  </div>
-</div>
-
 <!-- ── Purchase Order Full Page (İrsaliye) ─────── -->
 <div class="po-page" id="po-page" hidden>
   <div class="po-header">
@@ -2530,13 +2489,15 @@ tr.row--re-onay td:first-child{box-shadow:inset 3px 0 0 #C77A17}
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5"/><path d="M12 19l-7-7 7-7"/></svg>
     </button>
     <div class="po-header__title" id="po-title">
-      Yeni Alim Siparisi
-      <small id="po-subtitle">Irsaliye olustur</small>
+      Yeni Alım Siparişi
+      <small id="po-subtitle">İrsaliye oluştur</small>
     </div>
     <div class="po-header__actions">
-      <button class="btn" id="po-btn-cancel">Vazgec</button>
+      <button class="btn btn--danger" id="po-btn-delete" hidden>Sil</button>
+      <button class="btn btn--danger" id="po-btn-cancel-received" hidden>İptal (stok geri)</button>
+      <button class="btn" id="po-btn-cancel">Vazgeç</button>
       <button class="btn btn--primary" id="po-btn-save">Kaydet (Bekliyor)</button>
-      <button class="btn btn--primary" id="po-btn-receive" hidden>Teslim Aldim</button>
+      <button class="btn btn--primary" id="po-btn-receive" hidden>Teslim Aldım</button>
     </div>
   </div>
 
@@ -2545,15 +2506,15 @@ tr.row--re-onay td:first-child{box-shadow:inset 3px 0 0 #C77A17}
       <!-- Sol: Siparis bilgisi -->
       <div class="po-sidebar">
         <div class="po-card">
-          <div class="po-card__title">Siparis Bilgisi</div>
+          <div class="po-card__title">Sipariş Bilgisi</div>
           <form id="po-form" autocomplete="off">
             <div class="po-field">
-              <label>Tedarikci<span class="req">*</span></label>
-              <select id="po-tedarikci" required><option value="">Tedarikci sec...</option></select>
+              <label>Tedarikçi<span class="req">*</span></label>
+              <select id="po-tedarikci" required><option value="">Tedarikçi seç...</option></select>
             </div>
             <div class="po-field--inline">
               <div class="po-field">
-                <label>Siparis Tarihi</label>
+                <label>Sipariş Tarihi</label>
                 <input type="date" id="po-tarih">
               </div>
               <div class="po-field">
@@ -2563,17 +2524,17 @@ tr.row--re-onay td:first-child{box-shadow:inset 3px 0 0 #C77A17}
             </div>
             <div class="po-field">
               <label>Fatura / PO No</label>
-              <input type="text" id="po-fatura-no" placeholder="Orn: INV-2026-001">
+              <input type="text" id="po-fatura-no" placeholder="Örn: INV-2026-001">
             </div>
             <div class="po-field">
               <label>Notlar</label>
-              <textarea id="po-notlar" rows="2" placeholder="Ek bilgi, kargo detayi..."></textarea>
+              <textarea id="po-notlar" rows="2" placeholder="Ek bilgi, kargo detayı..."></textarea>
             </div>
           </form>
         </div>
 
         <div class="po-summary" id="po-summary-card">
-          <div class="po-card__title">Siparis Ozeti</div>
+          <div class="po-card__title">Sipariş Özeti</div>
           <div class="po-summary__row">
             <span>Toplam Kalem</span>
             <span class="po-summary__val" id="po-sum-lines">0</span>
@@ -2599,34 +2560,34 @@ tr.row--re-onay td:first-child{box-shadow:inset 3px 0 0 #C77A17}
         <div class="po-picker">
           <div class="po-picker__head">
             <input type="text" class="po-picker__search" id="po-picker-search" placeholder="Marka, model, renk, SKU ile ara...">
-            <span class="po-picker__count" id="po-picker-count">0 secili</span>
-            <button class="po-picker__add-btn" id="po-picker-add" disabled>Secilenleri Ekle</button>
+            <span class="po-picker__count" id="po-picker-count">0 seçili</span>
+            <button class="po-picker__add-btn" id="po-picker-add" disabled>Seçilenleri Ekle</button>
           </div>
           <div class="po-picker__body" id="po-picker-body">
-            <div class="po-picker__empty">Urunler yukleniyor...</div>
+            <div class="po-picker__empty">Ürünler yükleniyor...</div>
           </div>
         </div>
 
         <!-- Kalem tablosu (irsaliye satirlari) -->
         <div class="po-lines">
           <div class="po-lines__head">
-            <span class="po-lines__title">Irsaliye Kalemleri</span>
+            <span class="po-lines__title">İrsaliye Kalemleri</span>
             <span class="po-lines__badge" id="po-lines-count">0</span>
           </div>
           <div id="po-lines-body">
             <div class="po-lines__empty" id="po-lines-empty">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2"/><rect x="9" y="3" width="6" height="4" rx="1"/><path d="M9 14l2 2 4-4"/></svg>
-              Yukaridaki listeden urun secip "Secilenleri Ekle" butonuna basin
+              Yukarıdaki listeden ürün seçip "Seçilenleri Ekle" butonuna basın
             </div>
             <table class="po-lines-table" id="po-lines-table" hidden>
               <thead>
                 <tr>
                   <th style="width:32px">#</th>
-                  <th>Urun</th>
+                  <th>Ürün</th>
                   <th>Varyasyon</th>
                   <th>Adet</th>
                   <th>Birim Maliyet</th>
-                  <th>Satir Toplam</th>
+                  <th>Satır Toplam</th>
                   <th style="width:36px"></th>
                 </tr>
               </thead>
@@ -2645,7 +2606,9 @@ tr.row--re-onay td:first-child{box-shadow:inset 3px 0 0 #C77A17}
       <div class="po-footer__stat po-footer__stat--grand"><span>Toplam:</span><strong id="po-foot-total">-</strong></div>
     </div>
     <div class="po-footer__actions">
-      <button class="btn" id="po-foot-cancel">Vazgec</button>
+      <button class="btn btn--danger" id="po-foot-delete" hidden>Sil</button>
+      <button class="btn btn--danger" id="po-foot-cancel-received" hidden>İptal (stok geri)</button>
+      <button class="btn" id="po-foot-cancel">Vazgeç</button>
       <button class="btn btn--primary" id="po-foot-save">Kaydet (Bekliyor)</button>
     </div>
   </div>
@@ -2661,7 +2624,7 @@ tr.row--re-onay td:first-child{box-shadow:inset 3px 0 0 #C77A17}
 <!-- BOTL_INLINE_DATA_START — catalog_sync_data tarafından yenilenir, elle düzenleme -->
 <script>window.__BOTL_DATA__ = {
   "schema_version": 5,
-  "exported_at": "2026-05-13T08:01:48.817617+00:00",
+  "exported_at": "2026-05-13T10:11:09.346905+00:00",
   "counter": 46,
   "products": [
     {
@@ -2673,9 +2636,9 @@ tr.row--re-onay td:first-child{box-shadow:inset 3px 0 0 #C77A17}
       "isim_resmi": "",
       "isim_bilinen": "LV Speedy Nano",
       "marka": "Louis Vuitton",
-      "kategori": "MINI",
-      "kategori_ust": "CANTA",
-      "kategori_alt": "MINI",
+      "kategori": "Mini Çanta",
+      "kategori_ust": "Çanta",
+      "kategori_alt": "Mini Çanta",
       "renk": "KOYU KAHVE",
       "ana_renk": "Koyu Kahve",
       "ana_renk_en": "Dark Brown",
@@ -2691,7 +2654,7 @@ tr.row--re-onay td:first-child{box-shadow:inset 3px 0 0 #C77A17}
       "stil": "Mini",
       "sapli_sapsiz": "Saplı",
       "boyut": "NANO",
-      "donanim": "GOLD",
+      "donanim": "Altın",
       "deri_tipi": "Kanvas",
       "sezon": "SS26",
       "fiyat_eur": 1950.0,
@@ -2701,7 +2664,7 @@ tr.row--re-onay td:first-child{box-shadow:inset 3px 0 0 #C77A17}
       "occupied_stok": 0,
       "available_stok": 1,
       "stok": 1,
-      "kondisyon": "BNIB",
+      "kondisyon": "Sıfır",
       "kondisyon_label": "Sıfır",
       "aciklama": "",
       "tedarikci_id": null,
@@ -2716,9 +2679,9 @@ tr.row--re-onay td:first-child{box-shadow:inset 3px 0 0 #C77A17}
       "isim_resmi": "",
       "isim_bilinen": "LV Speedy Nano",
       "marka": "Louis Vuitton",
-      "kategori": "MINI",
-      "kategori_ust": "CANTA",
-      "kategori_alt": "MINI",
+      "kategori": "Mini Çanta",
+      "kategori_ust": "Çanta",
+      "kategori_alt": "Mini Çanta",
       "renk": "ACIK KAHVE",
       "ana_renk": "Açık Kahve",
       "ana_renk_en": "Light Brown",
@@ -2734,7 +2697,7 @@ tr.row--re-onay td:first-child{box-shadow:inset 3px 0 0 #C77A17}
       "stil": "Mini",
       "sapli_sapsiz": "Saplı",
       "boyut": "NANO",
-      "donanim": "GOLD",
+      "donanim": "Altın",
       "deri_tipi": "Kanvas",
       "sezon": "SS26",
       "fiyat_eur": 1950.0,
@@ -2744,7 +2707,7 @@ tr.row--re-onay td:first-child{box-shadow:inset 3px 0 0 #C77A17}
       "occupied_stok": 0,
       "available_stok": 1,
       "stok": 1,
-      "kondisyon": "BNIB",
+      "kondisyon": "Sıfır",
       "kondisyon_label": "Sıfır",
       "aciklama": "",
       "tedarikci_id": null,
@@ -2759,9 +2722,9 @@ tr.row--re-onay td:first-child{box-shadow:inset 3px 0 0 #C77A17}
       "isim_resmi": "",
       "isim_bilinen": "LV Speedy Nano",
       "marka": "Louis Vuitton",
-      "kategori": "MINI",
-      "kategori_ust": "CANTA",
-      "kategori_alt": "MINI",
+      "kategori": "Mini Çanta",
+      "kategori_ust": "Çanta",
+      "kategori_alt": "Mini Çanta",
       "renk": "MAVI",
       "ana_renk": "Mavi",
       "ana_renk_en": "Blue",
@@ -2777,7 +2740,7 @@ tr.row--re-onay td:first-child{box-shadow:inset 3px 0 0 #C77A17}
       "stil": "Mini",
       "sapli_sapsiz": "Saplı",
       "boyut": "NANO",
-      "donanim": "GOLD",
+      "donanim": "Altın",
       "deri_tipi": "Denim",
       "sezon": "SS26",
       "fiyat_eur": 2200.0,
@@ -2787,7 +2750,7 @@ tr.row--re-onay td:first-child{box-shadow:inset 3px 0 0 #C77A17}
       "occupied_stok": 0,
       "available_stok": 1,
       "stok": 1,
-      "kondisyon": "BNIB",
+      "kondisyon": "Sıfır",
       "kondisyon_label": "Sıfır",
       "aciklama": "",
       "tedarikci_id": null,
@@ -2802,9 +2765,9 @@ tr.row--re-onay td:first-child{box-shadow:inset 3px 0 0 #C77A17}
       "isim_resmi": "",
       "isim_bilinen": "LV Speedy Nano",
       "marka": "Louis Vuitton",
-      "kategori": "MINI",
-      "kategori_ust": "CANTA",
-      "kategori_alt": "MINI",
+      "kategori": "Mini Çanta",
+      "kategori_ust": "Çanta",
+      "kategori_alt": "Mini Çanta",
       "renk": "ACIK MAVI",
       "ana_renk": "Açık Mavi",
       "ana_renk_en": "Light Blue",
@@ -2820,7 +2783,7 @@ tr.row--re-onay td:first-child{box-shadow:inset 3px 0 0 #C77A17}
       "stil": "Mini",
       "sapli_sapsiz": "Saplı",
       "boyut": "NANO",
-      "donanim": "GOLD",
+      "donanim": "Altın",
       "deri_tipi": "Denim",
       "sezon": "SS26",
       "fiyat_eur": 2200.0,
@@ -2830,7 +2793,7 @@ tr.row--re-onay td:first-child{box-shadow:inset 3px 0 0 #C77A17}
       "occupied_stok": 0,
       "available_stok": 1,
       "stok": 1,
-      "kondisyon": "BNIB",
+      "kondisyon": "Sıfır",
       "kondisyon_label": "Sıfır",
       "aciklama": "",
       "tedarikci_id": null,
@@ -2845,9 +2808,9 @@ tr.row--re-onay td:first-child{box-shadow:inset 3px 0 0 #C77A17}
       "isim_resmi": "",
       "isim_bilinen": "LV Speedy Nano",
       "marka": "Louis Vuitton",
-      "kategori": "MINI",
-      "kategori_ust": "CANTA",
-      "kategori_alt": "MINI",
+      "kategori": "Mini Çanta",
+      "kategori_ust": "Çanta",
+      "kategori_alt": "Mini Çanta",
       "renk": "SIYAH",
       "ana_renk": "Siyah",
       "ana_renk_en": "Black",
@@ -2863,7 +2826,7 @@ tr.row--re-onay td:first-child{box-shadow:inset 3px 0 0 #C77A17}
       "stil": "Mini",
       "sapli_sapsiz": "Saplı",
       "boyut": "NANO",
-      "donanim": "SILVER",
+      "donanim": "Gümüş",
       "deri_tipi": "Kanvas",
       "sezon": "SS26",
       "fiyat_eur": 2000.0,
@@ -2873,7 +2836,7 @@ tr.row--re-onay td:first-child{box-shadow:inset 3px 0 0 #C77A17}
       "occupied_stok": 0,
       "available_stok": 1,
       "stok": 1,
-      "kondisyon": "BNIB",
+      "kondisyon": "Sıfır",
       "kondisyon_label": "Sıfır",
       "aciklama": "",
       "tedarikci_id": null,
@@ -2888,9 +2851,9 @@ tr.row--re-onay td:first-child{box-shadow:inset 3px 0 0 #C77A17}
       "isim_resmi": "",
       "isim_bilinen": "LV Speedy Nano",
       "marka": "Louis Vuitton",
-      "kategori": "MINI",
-      "kategori_ust": "CANTA",
-      "kategori_alt": "MINI",
+      "kategori": "Mini Çanta",
+      "kategori_ust": "Çanta",
+      "kategori_alt": "Mini Çanta",
       "renk": "KREM",
       "ana_renk": "Krem",
       "ana_renk_en": "Cream",
@@ -2906,7 +2869,7 @@ tr.row--re-onay td:first-child{box-shadow:inset 3px 0 0 #C77A17}
       "stil": "Mini",
       "sapli_sapsiz": "Saplı",
       "boyut": "NANO",
-      "donanim": "GOLD",
+      "donanim": "Altın",
       "deri_tipi": "Kanvas",
       "sezon": "SS26",
       "fiyat_eur": 2000.0,
@@ -2916,7 +2879,7 @@ tr.row--re-onay td:first-child{box-shadow:inset 3px 0 0 #C77A17}
       "occupied_stok": 0,
       "available_stok": 1,
       "stok": 1,
-      "kondisyon": "BNIB",
+      "kondisyon": "Sıfır",
       "kondisyon_label": "Sıfır",
       "aciklama": "",
       "tedarikci_id": null,
@@ -2931,9 +2894,9 @@ tr.row--re-onay td:first-child{box-shadow:inset 3px 0 0 #C77A17}
       "isim_resmi": "",
       "isim_bilinen": "LV Speedy Nano",
       "marka": "Louis Vuitton",
-      "kategori": "MINI",
-      "kategori_ust": "CANTA",
-      "kategori_alt": "MINI",
+      "kategori": "Mini Çanta",
+      "kategori_ust": "Çanta",
+      "kategori_alt": "Mini Çanta",
       "renk": "SIYAH",
       "ana_renk": "Siyah",
       "ana_renk_en": "Black",
@@ -2949,7 +2912,7 @@ tr.row--re-onay td:first-child{box-shadow:inset 3px 0 0 #C77A17}
       "stil": "Mini",
       "sapli_sapsiz": "Saplı",
       "boyut": "NANO",
-      "donanim": "GOLD",
+      "donanim": "Altın",
       "deri_tipi": "Denim",
       "sezon": "SS26",
       "fiyat_eur": 2200.0,
@@ -2959,7 +2922,7 @@ tr.row--re-onay td:first-child{box-shadow:inset 3px 0 0 #C77A17}
       "occupied_stok": 0,
       "available_stok": 1,
       "stok": 1,
-      "kondisyon": "BNIB",
+      "kondisyon": "Sıfır",
       "kondisyon_label": "Sıfır",
       "aciklama": "",
       "tedarikci_id": null,
@@ -2974,9 +2937,9 @@ tr.row--re-onay td:first-child{box-shadow:inset 3px 0 0 #C77A17}
       "isim_resmi": "",
       "isim_bilinen": "LV Speedy Nano",
       "marka": "Louis Vuitton",
-      "kategori": "MINI",
-      "kategori_ust": "CANTA",
-      "kategori_alt": "MINI",
+      "kategori": "Mini Çanta",
+      "kategori_ust": "Çanta",
+      "kategori_alt": "Mini Çanta",
       "renk": "SIYAH",
       "ana_renk": "Siyah",
       "ana_renk_en": "Black",
@@ -2992,7 +2955,7 @@ tr.row--re-onay td:first-child{box-shadow:inset 3px 0 0 #C77A17}
       "stil": "Mini",
       "sapli_sapsiz": "Saplı",
       "boyut": "NANO",
-      "donanim": "GOLD",
+      "donanim": "Altın",
       "deri_tipi": "Kanvas",
       "sezon": "SS26",
       "fiyat_eur": 2250.0,
@@ -3002,7 +2965,7 @@ tr.row--re-onay td:first-child{box-shadow:inset 3px 0 0 #C77A17}
       "occupied_stok": 0,
       "available_stok": 1,
       "stok": 1,
-      "kondisyon": "BNIB",
+      "kondisyon": "Sıfır",
       "kondisyon_label": "Sıfır",
       "aciklama": "",
       "tedarikci_id": null,
@@ -3017,9 +2980,9 @@ tr.row--re-onay td:first-child{box-shadow:inset 3px 0 0 #C77A17}
       "isim_resmi": "",
       "isim_bilinen": "LV Speedy Nano",
       "marka": "Louis Vuitton",
-      "kategori": "MINI",
-      "kategori_ust": "CANTA",
-      "kategori_alt": "MINI",
+      "kategori": "Mini Çanta",
+      "kategori_ust": "Çanta",
+      "kategori_alt": "Mini Çanta",
       "renk": "BEYAZ",
       "ana_renk": "Beyaz",
       "ana_renk_en": "White",
@@ -3035,7 +2998,7 @@ tr.row--re-onay td:first-child{box-shadow:inset 3px 0 0 #C77A17}
       "stil": "Mini",
       "sapli_sapsiz": "Saplı",
       "boyut": "NANO",
-      "donanim": "GOLD",
+      "donanim": "Altın",
       "deri_tipi": "Kanvas",
       "sezon": "SS26",
       "fiyat_eur": 2100.0,
@@ -3045,7 +3008,7 @@ tr.row--re-onay td:first-child{box-shadow:inset 3px 0 0 #C77A17}
       "occupied_stok": 0,
       "available_stok": 1,
       "stok": 1,
-      "kondisyon": "BNIB",
+      "kondisyon": "Sıfır",
       "kondisyon_label": "Sıfır",
       "aciklama": "",
       "tedarikci_id": null,
@@ -3060,9 +3023,9 @@ tr.row--re-onay td:first-child{box-shadow:inset 3px 0 0 #C77A17}
       "isim_resmi": "",
       "isim_bilinen": "Gucci Ophidia",
       "marka": "Gucci",
-      "kategori": "SHOULDER",
-      "kategori_ust": "CANTA",
-      "kategori_alt": "SHOULDER",
+      "kategori": "Omuz Çantası",
+      "kategori_ust": "Çanta",
+      "kategori_alt": "Omuz Çantası",
       "renk": "KOYU KAHVE",
       "ana_renk": "Koyu Kahve",
       "ana_renk_en": "Dark Brown",
@@ -3078,7 +3041,7 @@ tr.row--re-onay td:first-child{box-shadow:inset 3px 0 0 #C77A17}
       "stil": "Omuz",
       "sapli_sapsiz": "Saplı",
       "boyut": "STANDART",
-      "donanim": "GOLD",
+      "donanim": "Altın",
       "deri_tipi": "Kanvas",
       "sezon": "SS26",
       "fiyat_eur": 1100.0,
@@ -3088,7 +3051,7 @@ tr.row--re-onay td:first-child{box-shadow:inset 3px 0 0 #C77A17}
       "occupied_stok": 0,
       "available_stok": 1,
       "stok": 1,
-      "kondisyon": "BNIB",
+      "kondisyon": "Sıfır",
       "kondisyon_label": "Sıfır",
       "aciklama": "",
       "tedarikci_id": null,
@@ -3103,9 +3066,9 @@ tr.row--re-onay td:first-child{box-shadow:inset 3px 0 0 #C77A17}
       "isim_resmi": "",
       "isim_bilinen": "Gucci Ophidia",
       "marka": "Gucci",
-      "kategori": "SHOULDER",
-      "kategori_ust": "CANTA",
-      "kategori_alt": "SHOULDER",
+      "kategori": "Omuz Çantası",
+      "kategori_ust": "Çanta",
+      "kategori_alt": "Omuz Çantası",
       "renk": "TABA",
       "ana_renk": "Taba",
       "ana_renk_en": "Tan",
@@ -3121,7 +3084,7 @@ tr.row--re-onay td:first-child{box-shadow:inset 3px 0 0 #C77A17}
       "stil": "Omuz",
       "sapli_sapsiz": "Saplı",
       "boyut": "STANDART",
-      "donanim": "GOLD",
+      "donanim": "Altın",
       "deri_tipi": "Kanvas",
       "sezon": "SS26",
       "fiyat_eur": 1100.0,
@@ -3131,7 +3094,7 @@ tr.row--re-onay td:first-child{box-shadow:inset 3px 0 0 #C77A17}
       "occupied_stok": 0,
       "available_stok": 1,
       "stok": 1,
-      "kondisyon": "BNIB",
+      "kondisyon": "Sıfır",
       "kondisyon_label": "Sıfır",
       "aciklama": "",
       "tedarikci_id": null,
@@ -3146,9 +3109,9 @@ tr.row--re-onay td:first-child{box-shadow:inset 3px 0 0 #C77A17}
       "isim_resmi": "",
       "isim_bilinen": "Gucci Ophidia",
       "marka": "Gucci",
-      "kategori": "SHOULDER",
-      "kategori_ust": "CANTA",
-      "kategori_alt": "SHOULDER",
+      "kategori": "Omuz Çantası",
+      "kategori_ust": "Çanta",
+      "kategori_alt": "Omuz Çantası",
       "renk": "BEJ",
       "ana_renk": "Bej",
       "ana_renk_en": "Beige",
@@ -3164,7 +3127,7 @@ tr.row--re-onay td:first-child{box-shadow:inset 3px 0 0 #C77A17}
       "stil": "Omuz",
       "sapli_sapsiz": "Saplı",
       "boyut": "STANDART",
-      "donanim": "GOLD",
+      "donanim": "Altın",
       "deri_tipi": "Kanvas",
       "sezon": "SS26",
       "fiyat_eur": 1150.0,
@@ -3174,7 +3137,7 @@ tr.row--re-onay td:first-child{box-shadow:inset 3px 0 0 #C77A17}
       "occupied_stok": 0,
       "available_stok": 1,
       "stok": 1,
-      "kondisyon": "BNIB",
+      "kondisyon": "Sıfır",
       "kondisyon_label": "Sıfır",
       "aciklama": "",
       "tedarikci_id": null,
@@ -3189,9 +3152,9 @@ tr.row--re-onay td:first-child{box-shadow:inset 3px 0 0 #C77A17}
       "isim_resmi": "",
       "isim_bilinen": "Gucci Ophidia",
       "marka": "Gucci",
-      "kategori": "SHOULDER",
-      "kategori_ust": "CANTA",
-      "kategori_alt": "SHOULDER",
+      "kategori": "Omuz Çantası",
+      "kategori_ust": "Çanta",
+      "kategori_alt": "Omuz Çantası",
       "renk": "ACIK VIZON",
       "ana_renk": "Açık Vizon",
       "ana_renk_en": "Light Mink",
@@ -3207,7 +3170,7 @@ tr.row--re-onay td:first-child{box-shadow:inset 3px 0 0 #C77A17}
       "stil": "Omuz",
       "sapli_sapsiz": "Saplı",
       "boyut": "STANDART",
-      "donanim": "GOLD",
+      "donanim": "Altın",
       "deri_tipi": "Kanvas",
       "sezon": "SS26",
       "fiyat_eur": 1200.0,
@@ -3217,7 +3180,7 @@ tr.row--re-onay td:first-child{box-shadow:inset 3px 0 0 #C77A17}
       "occupied_stok": 0,
       "available_stok": 1,
       "stok": 1,
-      "kondisyon": "BNIB",
+      "kondisyon": "Sıfır",
       "kondisyon_label": "Sıfır",
       "aciklama": "",
       "tedarikci_id": null,
@@ -3232,9 +3195,9 @@ tr.row--re-onay td:first-child{box-shadow:inset 3px 0 0 #C77A17}
       "isim_resmi": "",
       "isim_bilinen": "Gucci Ophidia",
       "marka": "Gucci",
-      "kategori": "SHOULDER",
-      "kategori_ust": "CANTA",
-      "kategori_alt": "SHOULDER",
+      "kategori": "Omuz Çantası",
+      "kategori_ust": "Çanta",
+      "kategori_alt": "Omuz Çantası",
       "renk": "ACIK PEMBE",
       "ana_renk": "Açık Pembe",
       "ana_renk_en": "Light Pink",
@@ -3250,7 +3213,7 @@ tr.row--re-onay td:first-child{box-shadow:inset 3px 0 0 #C77A17}
       "stil": "Omuz",
       "sapli_sapsiz": "Saplı",
       "boyut": "STANDART",
-      "donanim": "GOLD",
+      "donanim": "Altın",
       "deri_tipi": "Deri",
       "sezon": "SS26",
       "fiyat_eur": 1200.0,
@@ -3260,7 +3223,7 @@ tr.row--re-onay td:first-child{box-shadow:inset 3px 0 0 #C77A17}
       "occupied_stok": 0,
       "available_stok": 1,
       "stok": 1,
-      "kondisyon": "BNIB",
+      "kondisyon": "Sıfır",
       "kondisyon_label": "Sıfır",
       "aciklama": "",
       "tedarikci_id": null,
@@ -3275,9 +3238,9 @@ tr.row--re-onay td:first-child{box-shadow:inset 3px 0 0 #C77A17}
       "isim_resmi": "",
       "isim_bilinen": "Gucci Ophidia",
       "marka": "Gucci",
-      "kategori": "SHOULDER",
-      "kategori_ust": "CANTA",
-      "kategori_alt": "SHOULDER",
+      "kategori": "Omuz Çantası",
+      "kategori_ust": "Çanta",
+      "kategori_alt": "Omuz Çantası",
       "renk": "SIYAH",
       "ana_renk": "Siyah",
       "ana_renk_en": "Black",
@@ -3293,7 +3256,7 @@ tr.row--re-onay td:first-child{box-shadow:inset 3px 0 0 #C77A17}
       "stil": "Omuz",
       "sapli_sapsiz": "Saplı",
       "boyut": "STANDART",
-      "donanim": "GOLD",
+      "donanim": "Altın",
       "deri_tipi": "Deri",
       "sezon": "SS26",
       "fiyat_eur": 1300.0,
@@ -3303,7 +3266,7 @@ tr.row--re-onay td:first-child{box-shadow:inset 3px 0 0 #C77A17}
       "occupied_stok": 0,
       "available_stok": 1,
       "stok": 1,
-      "kondisyon": "BNIB",
+      "kondisyon": "Sıfır",
       "kondisyon_label": "Sıfır",
       "aciklama": "",
       "tedarikci_id": null,
@@ -3318,9 +3281,9 @@ tr.row--re-onay td:first-child{box-shadow:inset 3px 0 0 #C77A17}
       "isim_resmi": "",
       "isim_bilinen": "Gucci Ophidia",
       "marka": "Gucci",
-      "kategori": "SHOULDER",
-      "kategori_ust": "CANTA",
-      "kategori_alt": "SHOULDER",
+      "kategori": "Omuz Çantası",
+      "kategori_ust": "Çanta",
+      "kategori_alt": "Omuz Çantası",
       "renk": "BEYAZ",
       "ana_renk": "Beyaz",
       "ana_renk_en": "White",
@@ -3336,7 +3299,7 @@ tr.row--re-onay td:first-child{box-shadow:inset 3px 0 0 #C77A17}
       "stil": "Omuz",
       "sapli_sapsiz": "Saplı",
       "boyut": "STANDART",
-      "donanim": "GOLD",
+      "donanim": "Altın",
       "deri_tipi": "Deri",
       "sezon": "SS26",
       "fiyat_eur": 1250.0,
@@ -3346,7 +3309,7 @@ tr.row--re-onay td:first-child{box-shadow:inset 3px 0 0 #C77A17}
       "occupied_stok": 0,
       "available_stok": 1,
       "stok": 1,
-      "kondisyon": "BNIB",
+      "kondisyon": "Sıfır",
       "kondisyon_label": "Sıfır",
       "aciklama": "",
       "tedarikci_id": null,
@@ -3361,9 +3324,9 @@ tr.row--re-onay td:first-child{box-shadow:inset 3px 0 0 #C77A17}
       "isim_resmi": "",
       "isim_bilinen": "Hermès Picotin",
       "marka": "Hermès",
-      "kategori": "TOTE",
-      "kategori_ust": "CANTA",
-      "kategori_alt": "TOTE",
+      "kategori": "Tote Çanta",
+      "kategori_ust": "Çanta",
+      "kategori_alt": "Tote Çanta",
       "renk": "KOYU KAHVE",
       "ana_renk": "Koyu Kahve",
       "ana_renk_en": "Dark Brown",
@@ -3375,11 +3338,11 @@ tr.row--re-onay td:first-child{box-shadow:inset 3px 0 0 #C77A17}
       "ikincil_renk_hex": "#d4b896",
       "ana_malzeme": "Hasır",
       "desen": "Düz",
-      "donanim_rengi": "Gümüş",
+      "donanim_rengi": "Paladyum",
       "stil": "Tote",
       "sapli_sapsiz": "Saplı",
       "boyut": "PM",
-      "donanim": "PALLADIUM",
+      "donanim": "Paladyum",
       "deri_tipi": "Hasır",
       "sezon": "SS26",
       "fiyat_eur": 7400.0,
@@ -3389,7 +3352,7 @@ tr.row--re-onay td:first-child{box-shadow:inset 3px 0 0 #C77A17}
       "occupied_stok": 0,
       "available_stok": 1,
       "stok": 1,
-      "kondisyon": "BNIB",
+      "kondisyon": "Sıfır",
       "kondisyon_label": "Sıfır",
       "aciklama": "",
       "tedarikci_id": null,
@@ -3404,9 +3367,9 @@ tr.row--re-onay td:first-child{box-shadow:inset 3px 0 0 #C77A17}
       "isim_resmi": "",
       "isim_bilinen": "Hermès Picotin",
       "marka": "Hermès",
-      "kategori": "TOTE",
-      "kategori_ust": "CANTA",
-      "kategori_alt": "TOTE",
+      "kategori": "Tote Çanta",
+      "kategori_ust": "Çanta",
+      "kategori_alt": "Tote Çanta",
       "renk": "KOYU KAHVE",
       "ana_renk": "Koyu Kahve",
       "ana_renk_en": "Dark Brown",
@@ -3418,11 +3381,11 @@ tr.row--re-onay td:first-child{box-shadow:inset 3px 0 0 #C77A17}
       "ikincil_renk_hex": "#d4b896",
       "ana_malzeme": "Hasır",
       "desen": "Düz",
-      "donanim_rengi": "Gümüş",
+      "donanim_rengi": "Paladyum",
       "stil": "Tote",
       "sapli_sapsiz": "Saplı",
       "boyut": "PM",
-      "donanim": "PALLADIUM",
+      "donanim": "Paladyum",
       "deri_tipi": "Hasır",
       "sezon": "SS26",
       "fiyat_eur": 7200.0,
@@ -3432,7 +3395,7 @@ tr.row--re-onay td:first-child{box-shadow:inset 3px 0 0 #C77A17}
       "occupied_stok": 0,
       "available_stok": 1,
       "stok": 1,
-      "kondisyon": "BNIB",
+      "kondisyon": "Sıfır",
       "kondisyon_label": "Sıfır",
       "aciklama": "",
       "tedarikci_id": null,
@@ -3447,9 +3410,9 @@ tr.row--re-onay td:first-child{box-shadow:inset 3px 0 0 #C77A17}
       "isim_resmi": "",
       "isim_bilinen": "Hermès Picotin",
       "marka": "Hermès",
-      "kategori": "TOTE",
-      "kategori_ust": "CANTA",
-      "kategori_alt": "TOTE",
+      "kategori": "Tote Çanta",
+      "kategori_ust": "Çanta",
+      "kategori_alt": "Tote Çanta",
       "renk": "DOGAL",
       "ana_renk": "Doğal",
       "ana_renk_en": "Natural",
@@ -3461,11 +3424,11 @@ tr.row--re-onay td:first-child{box-shadow:inset 3px 0 0 #C77A17}
       "ikincil_renk_hex": "#1a1a1a",
       "ana_malzeme": "Hasır",
       "desen": "Düz",
-      "donanim_rengi": "Gümüş",
+      "donanim_rengi": "Paladyum",
       "stil": "Tote",
       "sapli_sapsiz": "Saplı",
       "boyut": "PM",
-      "donanim": "PALLADIUM",
+      "donanim": "Paladyum",
       "deri_tipi": "Hasır",
       "sezon": "SS26",
       "fiyat_eur": 7800.0,
@@ -3475,7 +3438,7 @@ tr.row--re-onay td:first-child{box-shadow:inset 3px 0 0 #C77A17}
       "occupied_stok": 0,
       "available_stok": 1,
       "stok": 1,
-      "kondisyon": "BNIB",
+      "kondisyon": "Sıfır",
       "kondisyon_label": "Sıfır",
       "aciklama": "",
       "tedarikci_id": null,
@@ -3490,9 +3453,9 @@ tr.row--re-onay td:first-child{box-shadow:inset 3px 0 0 #C77A17}
       "isim_resmi": "",
       "isim_bilinen": "Hermès Picotin",
       "marka": "Hermès",
-      "kategori": "TOTE",
-      "kategori_ust": "CANTA",
-      "kategori_alt": "TOTE",
+      "kategori": "Tote Çanta",
+      "kategori_ust": "Çanta",
+      "kategori_alt": "Tote Çanta",
       "renk": "SIYAH",
       "ana_renk": "Siyah",
       "ana_renk_en": "Black",
@@ -3504,11 +3467,11 @@ tr.row--re-onay td:first-child{box-shadow:inset 3px 0 0 #C77A17}
       "ikincil_renk_hex": "#1a1a1a",
       "ana_malzeme": "Hasır",
       "desen": "Düz",
-      "donanim_rengi": "Gümüş",
+      "donanim_rengi": "Paladyum",
       "stil": "Tote",
       "sapli_sapsiz": "Saplı",
       "boyut": "PM",
-      "donanim": "PALLADIUM",
+      "donanim": "Paladyum",
       "deri_tipi": "Hasır",
       "sezon": "SS26",
       "fiyat_eur": 7600.0,
@@ -3518,7 +3481,7 @@ tr.row--re-onay td:first-child{box-shadow:inset 3px 0 0 #C77A17}
       "occupied_stok": 0,
       "available_stok": 1,
       "stok": 1,
-      "kondisyon": "BNIB",
+      "kondisyon": "Sıfır",
       "kondisyon_label": "Sıfır",
       "aciklama": "",
       "tedarikci_id": null,
@@ -3533,9 +3496,9 @@ tr.row--re-onay td:first-child{box-shadow:inset 3px 0 0 #C77A17}
       "isim_resmi": "",
       "isim_bilinen": "Hermès Picotin",
       "marka": "Hermès",
-      "kategori": "TOTE",
-      "kategori_ust": "CANTA",
-      "kategori_alt": "TOTE",
+      "kategori": "Tote Çanta",
+      "kategori_ust": "Çanta",
+      "kategori_alt": "Tote Çanta",
       "renk": "TABA",
       "ana_renk": "Taba",
       "ana_renk_en": "Tan",
@@ -3547,11 +3510,11 @@ tr.row--re-onay td:first-child{box-shadow:inset 3px 0 0 #C77A17}
       "ikincil_renk_hex": "#d4b896",
       "ana_malzeme": "Hasır",
       "desen": "Düz",
-      "donanim_rengi": "Gümüş",
+      "donanim_rengi": "Paladyum",
       "stil": "Tote",
       "sapli_sapsiz": "Saplı",
       "boyut": "PM",
-      "donanim": "PALLADIUM",
+      "donanim": "Paladyum",
       "deri_tipi": "Hasır",
       "sezon": "SS26",
       "fiyat_eur": 7300.0,
@@ -3561,7 +3524,7 @@ tr.row--re-onay td:first-child{box-shadow:inset 3px 0 0 #C77A17}
       "occupied_stok": 0,
       "available_stok": 1,
       "stok": 1,
-      "kondisyon": "BNIB",
+      "kondisyon": "Sıfır",
       "kondisyon_label": "Sıfır",
       "aciklama": "",
       "tedarikci_id": null,
@@ -3576,9 +3539,9 @@ tr.row--re-onay td:first-child{box-shadow:inset 3px 0 0 #C77A17}
       "isim_resmi": "",
       "isim_bilinen": "YSL Kemerli Hasır",
       "marka": "Yves Saint Laurent",
-      "kategori": "TOTE",
-      "kategori_ust": "CANTA",
-      "kategori_alt": "TOTE",
+      "kategori": "Tote Çanta",
+      "kategori_ust": "Çanta",
+      "kategori_alt": "Tote Çanta",
       "renk": "DOGAL",
       "ana_renk": "Doğal",
       "ana_renk_en": "Natural",
@@ -3594,7 +3557,7 @@ tr.row--re-onay td:first-child{box-shadow:inset 3px 0 0 #C77A17}
       "stil": "Tote",
       "sapli_sapsiz": "Saplı",
       "boyut": "STANDART",
-      "donanim": "GOLD",
+      "donanim": "Altın",
       "deri_tipi": "Hasır",
       "sezon": "SS26",
       "fiyat_eur": 1650.0,
@@ -3604,7 +3567,7 @@ tr.row--re-onay td:first-child{box-shadow:inset 3px 0 0 #C77A17}
       "occupied_stok": 0,
       "available_stok": 1,
       "stok": 1,
-      "kondisyon": "BNIB",
+      "kondisyon": "Sıfır",
       "kondisyon_label": "Sıfır",
       "aciklama": "",
       "tedarikci_id": null,
@@ -3619,9 +3582,9 @@ tr.row--re-onay td:first-child{box-shadow:inset 3px 0 0 #C77A17}
       "isim_resmi": "",
       "isim_bilinen": "YSL Kemerli Hasır",
       "marka": "Yves Saint Laurent",
-      "kategori": "TOTE",
-      "kategori_ust": "CANTA",
-      "kategori_alt": "TOTE",
+      "kategori": "Tote Çanta",
+      "kategori_ust": "Çanta",
+      "kategori_alt": "Tote Çanta",
       "renk": "DOGAL",
       "ana_renk": "Doğal",
       "ana_renk_en": "Natural",
@@ -3637,7 +3600,7 @@ tr.row--re-onay td:first-child{box-shadow:inset 3px 0 0 #C77A17}
       "stil": "Tote",
       "sapli_sapsiz": "Saplı",
       "boyut": "STANDART",
-      "donanim": "GOLD",
+      "donanim": "Altın",
       "deri_tipi": "Hasır",
       "sezon": "SS26",
       "fiyat_eur": 1650.0,
@@ -3647,7 +3610,7 @@ tr.row--re-onay td:first-child{box-shadow:inset 3px 0 0 #C77A17}
       "occupied_stok": 0,
       "available_stok": 1,
       "stok": 1,
-      "kondisyon": "BNIB",
+      "kondisyon": "Sıfır",
       "kondisyon_label": "Sıfır",
       "aciklama": "",
       "tedarikci_id": null,
@@ -3662,9 +3625,9 @@ tr.row--re-onay td:first-child{box-shadow:inset 3px 0 0 #C77A17}
       "isim_resmi": "",
       "isim_bilinen": "YSL Kemerli Hasır",
       "marka": "Yves Saint Laurent",
-      "kategori": "TOTE",
-      "kategori_ust": "CANTA",
-      "kategori_alt": "TOTE",
+      "kategori": "Tote Çanta",
+      "kategori_ust": "Çanta",
+      "kategori_alt": "Tote Çanta",
       "renk": "DOGAL",
       "ana_renk": "Doğal",
       "ana_renk_en": "Natural",
@@ -3680,7 +3643,7 @@ tr.row--re-onay td:first-child{box-shadow:inset 3px 0 0 #C77A17}
       "stil": "Tote",
       "sapli_sapsiz": "Saplı",
       "boyut": "STANDART",
-      "donanim": "GOLD",
+      "donanim": "Altın",
       "deri_tipi": "Hasır",
       "sezon": "SS26",
       "fiyat_eur": 1650.0,
@@ -3690,7 +3653,7 @@ tr.row--re-onay td:first-child{box-shadow:inset 3px 0 0 #C77A17}
       "occupied_stok": 0,
       "available_stok": 1,
       "stok": 1,
-      "kondisyon": "BNIB",
+      "kondisyon": "Sıfır",
       "kondisyon_label": "Sıfır",
       "aciklama": "",
       "tedarikci_id": null,
@@ -3705,9 +3668,9 @@ tr.row--re-onay td:first-child{box-shadow:inset 3px 0 0 #C77A17}
       "isim_resmi": "",
       "isim_bilinen": "YSL Örme Tote",
       "marka": "Yves Saint Laurent",
-      "kategori": "TOTE",
-      "kategori_ust": "CANTA",
-      "kategori_alt": "TOTE",
+      "kategori": "Tote Çanta",
+      "kategori_ust": "Çanta",
+      "kategori_alt": "Tote Çanta",
       "renk": "LACIVERT",
       "ana_renk": "Lacivert",
       "ana_renk_en": "Navy",
@@ -3723,7 +3686,7 @@ tr.row--re-onay td:first-child{box-shadow:inset 3px 0 0 #C77A17}
       "stil": "Tote",
       "sapli_sapsiz": "Saplı",
       "boyut": "STANDART",
-      "donanim": "GOLD",
+      "donanim": "Altın",
       "deri_tipi": "Örme",
       "sezon": "SS26",
       "fiyat_eur": 1450.0,
@@ -3733,7 +3696,7 @@ tr.row--re-onay td:first-child{box-shadow:inset 3px 0 0 #C77A17}
       "occupied_stok": 0,
       "available_stok": 1,
       "stok": 1,
-      "kondisyon": "BNIB",
+      "kondisyon": "Sıfır",
       "kondisyon_label": "Sıfır",
       "aciklama": "",
       "tedarikci_id": null,
@@ -3748,9 +3711,9 @@ tr.row--re-onay td:first-child{box-shadow:inset 3px 0 0 #C77A17}
       "isim_resmi": "",
       "isim_bilinen": "YSL Örme Tote",
       "marka": "Yves Saint Laurent",
-      "kategori": "TOTE",
-      "kategori_ust": "CANTA",
-      "kategori_alt": "TOTE",
+      "kategori": "Tote Çanta",
+      "kategori_ust": "Çanta",
+      "kategori_alt": "Tote Çanta",
       "renk": "BEJ",
       "ana_renk": "Bej",
       "ana_renk_en": "Beige",
@@ -3766,7 +3729,7 @@ tr.row--re-onay td:first-child{box-shadow:inset 3px 0 0 #C77A17}
       "stil": "Tote",
       "sapli_sapsiz": "Saplı",
       "boyut": "STANDART",
-      "donanim": "GOLD",
+      "donanim": "Altın",
       "deri_tipi": "Örme",
       "sezon": "SS26",
       "fiyat_eur": 1450.0,
@@ -3776,7 +3739,7 @@ tr.row--re-onay td:first-child{box-shadow:inset 3px 0 0 #C77A17}
       "occupied_stok": 0,
       "available_stok": 1,
       "stok": 1,
-      "kondisyon": "BNIB",
+      "kondisyon": "Sıfır",
       "kondisyon_label": "Sıfır",
       "aciklama": "",
       "tedarikci_id": null,
@@ -3791,9 +3754,9 @@ tr.row--re-onay td:first-child{box-shadow:inset 3px 0 0 #C77A17}
       "isim_resmi": "",
       "isim_bilinen": "YSL Örme Tote",
       "marka": "Yves Saint Laurent",
-      "kategori": "TOTE",
-      "kategori_ust": "CANTA",
-      "kategori_alt": "TOTE",
+      "kategori": "Tote Çanta",
+      "kategori_ust": "Çanta",
+      "kategori_alt": "Tote Çanta",
       "renk": "TABA",
       "ana_renk": "Taba",
       "ana_renk_en": "Tan",
@@ -3809,7 +3772,7 @@ tr.row--re-onay td:first-child{box-shadow:inset 3px 0 0 #C77A17}
       "stil": "Tote",
       "sapli_sapsiz": "Saplı",
       "boyut": "STANDART",
-      "donanim": "GOLD",
+      "donanim": "Altın",
       "deri_tipi": "Örme",
       "sezon": "SS26",
       "fiyat_eur": 1450.0,
@@ -3819,7 +3782,7 @@ tr.row--re-onay td:first-child{box-shadow:inset 3px 0 0 #C77A17}
       "occupied_stok": 0,
       "available_stok": 1,
       "stok": 1,
-      "kondisyon": "BNIB",
+      "kondisyon": "Sıfır",
       "kondisyon_label": "Sıfır",
       "aciklama": "",
       "tedarikci_id": null,
@@ -3834,9 +3797,9 @@ tr.row--re-onay td:first-child{box-shadow:inset 3px 0 0 #C77A17}
       "isim_resmi": "",
       "isim_bilinen": "Miu Miu Woven",
       "marka": "Miu Miu",
-      "kategori": "SHOULDER",
-      "kategori_ust": "CANTA",
-      "kategori_alt": "SHOULDER",
+      "kategori": "Omuz Çantası",
+      "kategori_ust": "Çanta",
+      "kategori_alt": "Omuz Çantası",
       "renk": "TABA",
       "ana_renk": "Taba",
       "ana_renk_en": "Tan",
@@ -3852,7 +3815,7 @@ tr.row--re-onay td:first-child{box-shadow:inset 3px 0 0 #C77A17}
       "stil": "Omuz",
       "sapli_sapsiz": "Saplı",
       "boyut": "STANDART",
-      "donanim": "GOLD",
+      "donanim": "Altın",
       "deri_tipi": "Hasır",
       "sezon": "SS26",
       "fiyat_eur": 1350.0,
@@ -3862,7 +3825,7 @@ tr.row--re-onay td:first-child{box-shadow:inset 3px 0 0 #C77A17}
       "occupied_stok": 0,
       "available_stok": 1,
       "stok": 1,
-      "kondisyon": "BNIB",
+      "kondisyon": "Sıfır",
       "kondisyon_label": "Sıfır",
       "aciklama": "",
       "tedarikci_id": null,
@@ -3877,9 +3840,9 @@ tr.row--re-onay td:first-child{box-shadow:inset 3px 0 0 #C77A17}
       "isim_resmi": "",
       "isim_bilinen": "Miu Miu Woven",
       "marka": "Miu Miu",
-      "kategori": "SHOULDER",
-      "kategori_ust": "CANTA",
-      "kategori_alt": "SHOULDER",
+      "kategori": "Omuz Çantası",
+      "kategori_ust": "Çanta",
+      "kategori_alt": "Omuz Çantası",
       "renk": "KOYU KAHVE",
       "ana_renk": "Koyu Kahve",
       "ana_renk_en": "Dark Brown",
@@ -3895,7 +3858,7 @@ tr.row--re-onay td:first-child{box-shadow:inset 3px 0 0 #C77A17}
       "stil": "Omuz",
       "sapli_sapsiz": "Saplı",
       "boyut": "STANDART",
-      "donanim": "GOLD",
+      "donanim": "Altın",
       "deri_tipi": "Hasır",
       "sezon": "SS26",
       "fiyat_eur": 1350.0,
@@ -3905,7 +3868,7 @@ tr.row--re-onay td:first-child{box-shadow:inset 3px 0 0 #C77A17}
       "occupied_stok": 0,
       "available_stok": 1,
       "stok": 1,
-      "kondisyon": "BNIB",
+      "kondisyon": "Sıfır",
       "kondisyon_label": "Sıfır",
       "aciklama": "",
       "tedarikci_id": null,
@@ -3920,9 +3883,9 @@ tr.row--re-onay td:first-child{box-shadow:inset 3px 0 0 #C77A17}
       "isim_resmi": "",
       "isim_bilinen": "Miu Miu Woven",
       "marka": "Miu Miu",
-      "kategori": "SHOULDER",
-      "kategori_ust": "CANTA",
-      "kategori_alt": "SHOULDER",
+      "kategori": "Omuz Çantası",
+      "kategori_ust": "Çanta",
+      "kategori_alt": "Omuz Çantası",
       "renk": "SIYAH",
       "ana_renk": "Siyah",
       "ana_renk_en": "Black",
@@ -3938,7 +3901,7 @@ tr.row--re-onay td:first-child{box-shadow:inset 3px 0 0 #C77A17}
       "stil": "Omuz",
       "sapli_sapsiz": "Saplı",
       "boyut": "STANDART",
-      "donanim": "GOLD",
+      "donanim": "Altın",
       "deri_tipi": "Hasır",
       "sezon": "SS26",
       "fiyat_eur": 1350.0,
@@ -3948,7 +3911,7 @@ tr.row--re-onay td:first-child{box-shadow:inset 3px 0 0 #C77A17}
       "occupied_stok": 0,
       "available_stok": 1,
       "stok": 1,
-      "kondisyon": "BNIB",
+      "kondisyon": "Sıfır",
       "kondisyon_label": "Sıfır",
       "aciklama": "",
       "tedarikci_id": null,
@@ -3963,9 +3926,9 @@ tr.row--re-onay td:first-child{box-shadow:inset 3px 0 0 #C77A17}
       "isim_resmi": "",
       "isim_bilinen": "Miu Miu Woven",
       "marka": "Miu Miu",
-      "kategori": "SHOULDER",
-      "kategori_ust": "CANTA",
-      "kategori_alt": "SHOULDER",
+      "kategori": "Omuz Çantası",
+      "kategori_ust": "Çanta",
+      "kategori_alt": "Omuz Çantası",
       "renk": "BEYAZ",
       "ana_renk": "Beyaz",
       "ana_renk_en": "White",
@@ -3981,7 +3944,7 @@ tr.row--re-onay td:first-child{box-shadow:inset 3px 0 0 #C77A17}
       "stil": "Omuz",
       "sapli_sapsiz": "Saplı",
       "boyut": "STANDART",
-      "donanim": "GOLD",
+      "donanim": "Altın",
       "deri_tipi": "Hasır",
       "sezon": "SS26",
       "fiyat_eur": 1350.0,
@@ -3991,7 +3954,7 @@ tr.row--re-onay td:first-child{box-shadow:inset 3px 0 0 #C77A17}
       "occupied_stok": 0,
       "available_stok": 1,
       "stok": 1,
-      "kondisyon": "BNIB",
+      "kondisyon": "Sıfır",
       "kondisyon_label": "Sıfır",
       "aciklama": "",
       "tedarikci_id": null,
@@ -4006,9 +3969,9 @@ tr.row--re-onay td:first-child{box-shadow:inset 3px 0 0 #C77A17}
       "isim_resmi": "",
       "isim_bilinen": "YSL Küçük Örme",
       "marka": "Yves Saint Laurent",
-      "kategori": "CROSSBODY",
-      "kategori_ust": "CANTA",
-      "kategori_alt": "CROSSBODY",
+      "kategori": "Çapraz Çanta",
+      "kategori_ust": "Çanta",
+      "kategori_alt": "Çapraz Çanta",
       "renk": "KOYU GRI",
       "ana_renk": "Koyu Gri",
       "ana_renk_en": "Dark Gray",
@@ -4024,7 +3987,7 @@ tr.row--re-onay td:first-child{box-shadow:inset 3px 0 0 #C77A17}
       "stil": "Çapraz",
       "sapli_sapsiz": "Saplı",
       "boyut": "MINI",
-      "donanim": "GOLD",
+      "donanim": "Altın",
       "deri_tipi": "Örme",
       "sezon": "SS26",
       "fiyat_eur": 1300.0,
@@ -4034,7 +3997,7 @@ tr.row--re-onay td:first-child{box-shadow:inset 3px 0 0 #C77A17}
       "occupied_stok": 0,
       "available_stok": 1,
       "stok": 1,
-      "kondisyon": "BNIB",
+      "kondisyon": "Sıfır",
       "kondisyon_label": "Sıfır",
       "aciklama": "",
       "tedarikci_id": null,
@@ -4049,9 +4012,9 @@ tr.row--re-onay td:first-child{box-shadow:inset 3px 0 0 #C77A17}
       "isim_resmi": "",
       "isim_bilinen": "YSL Küçük Örme",
       "marka": "Yves Saint Laurent",
-      "kategori": "CROSSBODY",
-      "kategori_ust": "CANTA",
-      "kategori_alt": "CROSSBODY",
+      "kategori": "Çapraz Çanta",
+      "kategori_ust": "Çanta",
+      "kategori_alt": "Çapraz Çanta",
       "renk": "BEYAZ",
       "ana_renk": "Beyaz",
       "ana_renk_en": "White",
@@ -4067,7 +4030,7 @@ tr.row--re-onay td:first-child{box-shadow:inset 3px 0 0 #C77A17}
       "stil": "Çapraz",
       "sapli_sapsiz": "Saplı",
       "boyut": "MINI",
-      "donanim": "GOLD",
+      "donanim": "Altın",
       "deri_tipi": "Örme",
       "sezon": "SS26",
       "fiyat_eur": 1300.0,
@@ -4077,7 +4040,7 @@ tr.row--re-onay td:first-child{box-shadow:inset 3px 0 0 #C77A17}
       "occupied_stok": 0,
       "available_stok": 1,
       "stok": 1,
-      "kondisyon": "BNIB",
+      "kondisyon": "Sıfır",
       "kondisyon_label": "Sıfır",
       "aciklama": "",
       "tedarikci_id": null,
@@ -4092,9 +4055,9 @@ tr.row--re-onay td:first-child{box-shadow:inset 3px 0 0 #C77A17}
       "isim_resmi": "",
       "isim_bilinen": "YSL Küçük Örme",
       "marka": "Yves Saint Laurent",
-      "kategori": "CROSSBODY",
-      "kategori_ust": "CANTA",
-      "kategori_alt": "CROSSBODY",
+      "kategori": "Çapraz Çanta",
+      "kategori_ust": "Çanta",
+      "kategori_alt": "Çapraz Çanta",
       "renk": "TABA",
       "ana_renk": "Taba",
       "ana_renk_en": "Tan",
@@ -4110,7 +4073,7 @@ tr.row--re-onay td:first-child{box-shadow:inset 3px 0 0 #C77A17}
       "stil": "Çapraz",
       "sapli_sapsiz": "Saplı",
       "boyut": "MINI",
-      "donanim": "GOLD",
+      "donanim": "Altın",
       "deri_tipi": "Örme",
       "sezon": "SS26",
       "fiyat_eur": 1250.0,
@@ -4120,7 +4083,7 @@ tr.row--re-onay td:first-child{box-shadow:inset 3px 0 0 #C77A17}
       "occupied_stok": 0,
       "available_stok": 1,
       "stok": 1,
-      "kondisyon": "BNIB",
+      "kondisyon": "Sıfır",
       "kondisyon_label": "Sıfır",
       "aciklama": "",
       "tedarikci_id": null,
@@ -4135,9 +4098,9 @@ tr.row--re-onay td:first-child{box-shadow:inset 3px 0 0 #C77A17}
       "isim_resmi": "",
       "isim_bilinen": "YSL Küçük Örme",
       "marka": "Yves Saint Laurent",
-      "kategori": "CROSSBODY",
-      "kategori_ust": "CANTA",
-      "kategori_alt": "CROSSBODY",
+      "kategori": "Çapraz Çanta",
+      "kategori_ust": "Çanta",
+      "kategori_alt": "Çapraz Çanta",
       "renk": "BEJ",
       "ana_renk": "Bej",
       "ana_renk_en": "Beige",
@@ -4153,7 +4116,7 @@ tr.row--re-onay td:first-child{box-shadow:inset 3px 0 0 #C77A17}
       "stil": "Çapraz",
       "sapli_sapsiz": "Saplı",
       "boyut": "MINI",
-      "donanim": "GOLD",
+      "donanim": "Altın",
       "deri_tipi": "Örme",
       "sezon": "SS26",
       "fiyat_eur": 1250.0,
@@ -4163,7 +4126,7 @@ tr.row--re-onay td:first-child{box-shadow:inset 3px 0 0 #C77A17}
       "occupied_stok": 0,
       "available_stok": 1,
       "stok": 1,
-      "kondisyon": "BNIB",
+      "kondisyon": "Sıfır",
       "kondisyon_label": "Sıfır",
       "aciklama": "",
       "tedarikci_id": null,
@@ -4178,9 +4141,9 @@ tr.row--re-onay td:first-child{box-shadow:inset 3px 0 0 #C77A17}
       "isim_resmi": "",
       "isim_bilinen": "YSL Küçük Örme",
       "marka": "Yves Saint Laurent",
-      "kategori": "CROSSBODY",
-      "kategori_ust": "CANTA",
-      "kategori_alt": "CROSSBODY",
+      "kategori": "Çapraz Çanta",
+      "kategori_ust": "Çanta",
+      "kategori_alt": "Çapraz Çanta",
       "renk": "BEJ",
       "ana_renk": "Bej",
       "ana_renk_en": "Beige",
@@ -4196,7 +4159,7 @@ tr.row--re-onay td:first-child{box-shadow:inset 3px 0 0 #C77A17}
       "stil": "Çapraz",
       "sapli_sapsiz": "Saplı",
       "boyut": "MINI",
-      "donanim": "GOLD",
+      "donanim": "Altın",
       "deri_tipi": "Örme",
       "sezon": "SS26",
       "fiyat_eur": 1250.0,
@@ -4206,7 +4169,7 @@ tr.row--re-onay td:first-child{box-shadow:inset 3px 0 0 #C77A17}
       "occupied_stok": 0,
       "available_stok": 1,
       "stok": 1,
-      "kondisyon": "BNIB",
+      "kondisyon": "Sıfır",
       "kondisyon_label": "Sıfır",
       "aciklama": "",
       "tedarikci_id": null,
@@ -4221,9 +4184,9 @@ tr.row--re-onay td:first-child{box-shadow:inset 3px 0 0 #C77A17}
       "isim_resmi": "",
       "isim_bilinen": "YSL Küçük Örme",
       "marka": "Yves Saint Laurent",
-      "kategori": "CROSSBODY",
-      "kategori_ust": "CANTA",
-      "kategori_alt": "CROSSBODY",
+      "kategori": "Çapraz Çanta",
+      "kategori_ust": "Çanta",
+      "kategori_alt": "Çapraz Çanta",
       "renk": "DOGAL",
       "ana_renk": "Doğal",
       "ana_renk_en": "Natural",
@@ -4239,7 +4202,7 @@ tr.row--re-onay td:first-child{box-shadow:inset 3px 0 0 #C77A17}
       "stil": "Çapraz",
       "sapli_sapsiz": "Saplı",
       "boyut": "MINI",
-      "donanim": "GOLD",
+      "donanim": "Altın",
       "deri_tipi": "Hasır",
       "sezon": "SS26",
       "fiyat_eur": 1250.0,
@@ -4249,7 +4212,7 @@ tr.row--re-onay td:first-child{box-shadow:inset 3px 0 0 #C77A17}
       "occupied_stok": 0,
       "available_stok": 1,
       "stok": 1,
-      "kondisyon": "BNIB",
+      "kondisyon": "Sıfır",
       "kondisyon_label": "Sıfır",
       "aciklama": "",
       "tedarikci_id": null,
@@ -4264,9 +4227,9 @@ tr.row--re-onay td:first-child{box-shadow:inset 3px 0 0 #C77A17}
       "isim_resmi": "",
       "isim_bilinen": "YSL Küçük Örme",
       "marka": "Yves Saint Laurent",
-      "kategori": "CROSSBODY",
-      "kategori_ust": "CANTA",
-      "kategori_alt": "CROSSBODY",
+      "kategori": "Çapraz Çanta",
+      "kategori_ust": "Çanta",
+      "kategori_alt": "Çapraz Çanta",
       "renk": "BORDO",
       "ana_renk": "Bordo",
       "ana_renk_en": "Burgundy",
@@ -4282,7 +4245,7 @@ tr.row--re-onay td:first-child{box-shadow:inset 3px 0 0 #C77A17}
       "stil": "Çapraz",
       "sapli_sapsiz": "Saplı",
       "boyut": "MINI",
-      "donanim": "GOLD",
+      "donanim": "Altın",
       "deri_tipi": "Örme",
       "sezon": "SS26",
       "fiyat_eur": 1450.0,
@@ -4292,7 +4255,7 @@ tr.row--re-onay td:first-child{box-shadow:inset 3px 0 0 #C77A17}
       "occupied_stok": 0,
       "available_stok": 1,
       "stok": 1,
-      "kondisyon": "BNIB",
+      "kondisyon": "Sıfır",
       "kondisyon_label": "Sıfır",
       "aciklama": "",
       "tedarikci_id": null,
@@ -4307,9 +4270,9 @@ tr.row--re-onay td:first-child{box-shadow:inset 3px 0 0 #C77A17}
       "isim_resmi": "",
       "isim_bilinen": "YSL Küçük Örme",
       "marka": "Yves Saint Laurent",
-      "kategori": "CROSSBODY",
-      "kategori_ust": "CANTA",
-      "kategori_alt": "CROSSBODY",
+      "kategori": "Çapraz Çanta",
+      "kategori_ust": "Çanta",
+      "kategori_alt": "Çapraz Çanta",
       "renk": "KREM",
       "ana_renk": "Krem",
       "ana_renk_en": "Cream",
@@ -4325,7 +4288,7 @@ tr.row--re-onay td:first-child{box-shadow:inset 3px 0 0 #C77A17}
       "stil": "Çapraz",
       "sapli_sapsiz": "Saplı",
       "boyut": "MINI",
-      "donanim": "GOLD",
+      "donanim": "Altın",
       "deri_tipi": "Örme",
       "sezon": "SS26",
       "fiyat_eur": 1250.0,
@@ -4335,7 +4298,7 @@ tr.row--re-onay td:first-child{box-shadow:inset 3px 0 0 #C77A17}
       "occupied_stok": 0,
       "available_stok": 1,
       "stok": 1,
-      "kondisyon": "BNIB",
+      "kondisyon": "Sıfır",
       "kondisyon_label": "Sıfır",
       "aciklama": "",
       "tedarikci_id": null,
@@ -4350,9 +4313,9 @@ tr.row--re-onay td:first-child{box-shadow:inset 3px 0 0 #C77A17}
       "isim_resmi": "",
       "isim_bilinen": "Prada Üçgen Hasır",
       "marka": "Prada",
-      "kategori": "CROSSBODY",
-      "kategori_ust": "CANTA",
-      "kategori_alt": "CROSSBODY",
+      "kategori": "Çapraz Çanta",
+      "kategori_ust": "Çanta",
+      "kategori_alt": "Çapraz Çanta",
       "renk": "DOGAL",
       "ana_renk": "Doğal",
       "ana_renk_en": "Natural",
@@ -4368,7 +4331,7 @@ tr.row--re-onay td:first-child{box-shadow:inset 3px 0 0 #C77A17}
       "stil": "Çapraz",
       "sapli_sapsiz": "Saplı",
       "boyut": "STANDART",
-      "donanim": "SILVER",
+      "donanim": "Gümüş",
       "deri_tipi": "Hasır",
       "sezon": "SS26",
       "fiyat_eur": 1450.0,
@@ -4378,7 +4341,7 @@ tr.row--re-onay td:first-child{box-shadow:inset 3px 0 0 #C77A17}
       "occupied_stok": 0,
       "available_stok": 1,
       "stok": 1,
-      "kondisyon": "BNIB",
+      "kondisyon": "Sıfır",
       "kondisyon_label": "Sıfır",
       "aciklama": "",
       "tedarikci_id": null,
@@ -4393,9 +4356,9 @@ tr.row--re-onay td:first-child{box-shadow:inset 3px 0 0 #C77A17}
       "isim_resmi": "",
       "isim_bilinen": "Prada Üçgen Hasır",
       "marka": "Prada",
-      "kategori": "CROSSBODY",
-      "kategori_ust": "CANTA",
-      "kategori_alt": "CROSSBODY",
+      "kategori": "Çapraz Çanta",
+      "kategori_ust": "Çanta",
+      "kategori_alt": "Çapraz Çanta",
       "renk": "DOGAL",
       "ana_renk": "Doğal",
       "ana_renk_en": "Natural",
@@ -4411,7 +4374,7 @@ tr.row--re-onay td:first-child{box-shadow:inset 3px 0 0 #C77A17}
       "stil": "Çapraz",
       "sapli_sapsiz": "Saplı",
       "boyut": "STANDART",
-      "donanim": "SILVER",
+      "donanim": "Gümüş",
       "deri_tipi": "Hasır",
       "sezon": "SS26",
       "fiyat_eur": 1450.0,
@@ -4421,7 +4384,7 @@ tr.row--re-onay td:first-child{box-shadow:inset 3px 0 0 #C77A17}
       "occupied_stok": 0,
       "available_stok": 1,
       "stok": 1,
-      "kondisyon": "BNIB",
+      "kondisyon": "Sıfır",
       "kondisyon_label": "Sıfır",
       "aciklama": "",
       "tedarikci_id": null,
@@ -4436,9 +4399,9 @@ tr.row--re-onay td:first-child{box-shadow:inset 3px 0 0 #C77A17}
       "isim_resmi": "",
       "isim_bilinen": "Prada Üçgen Hasır",
       "marka": "Prada",
-      "kategori": "CROSSBODY",
-      "kategori_ust": "CANTA",
-      "kategori_alt": "CROSSBODY",
+      "kategori": "Çapraz Çanta",
+      "kategori_ust": "Çanta",
+      "kategori_alt": "Çapraz Çanta",
       "renk": "DOGAL",
       "ana_renk": "Doğal",
       "ana_renk_en": "Natural",
@@ -4454,7 +4417,7 @@ tr.row--re-onay td:first-child{box-shadow:inset 3px 0 0 #C77A17}
       "stil": "Çapraz",
       "sapli_sapsiz": "Saplı",
       "boyut": "STANDART",
-      "donanim": "SILVER",
+      "donanim": "Gümüş",
       "deri_tipi": "Hasır",
       "sezon": "SS26",
       "fiyat_eur": 1450.0,
@@ -4464,7 +4427,7 @@ tr.row--re-onay td:first-child{box-shadow:inset 3px 0 0 #C77A17}
       "occupied_stok": 0,
       "available_stok": 1,
       "stok": 1,
-      "kondisyon": "BNIB",
+      "kondisyon": "Sıfır",
       "kondisyon_label": "Sıfır",
       "aciklama": "",
       "tedarikci_id": null,
@@ -4479,9 +4442,9 @@ tr.row--re-onay td:first-child{box-shadow:inset 3px 0 0 #C77A17}
       "isim_resmi": "",
       "isim_bilinen": "Armani Erkek",
       "marka": "Giorgio Armani",
-      "kategori": "MENS_BRIEFCASE",
-      "kategori_ust": "CANTA",
-      "kategori_alt": "MENS_BRIEFCASE",
+      "kategori": "Erkek Evrak",
+      "kategori_ust": "Çanta",
+      "kategori_alt": "Erkek Evrak",
       "renk": "SIYAH",
       "ana_renk": "Siyah",
       "ana_renk_en": "Black",
@@ -4497,7 +4460,7 @@ tr.row--re-onay td:first-child{box-shadow:inset 3px 0 0 #C77A17}
       "stil": "Portföy",
       "sapli_sapsiz": "Saplı",
       "boyut": "MINI",
-      "donanim": "SILVER",
+      "donanim": "Gümüş",
       "deri_tipi": "Deri",
       "sezon": "SS26",
       "fiyat_eur": 650.0,
@@ -4507,7 +4470,7 @@ tr.row--re-onay td:first-child{box-shadow:inset 3px 0 0 #C77A17}
       "occupied_stok": 0,
       "available_stok": 1,
       "stok": 1,
-      "kondisyon": "BNIB",
+      "kondisyon": "Sıfır",
       "kondisyon_label": "Sıfır",
       "aciklama": "",
       "tedarikci_id": null,
@@ -4522,9 +4485,9 @@ tr.row--re-onay td:first-child{box-shadow:inset 3px 0 0 #C77A17}
       "isim_resmi": "",
       "isim_bilinen": "Armani Erkek",
       "marka": "Giorgio Armani",
-      "kategori": "MENS_BRIEFCASE",
-      "kategori_ust": "CANTA",
-      "kategori_alt": "MENS_BRIEFCASE",
+      "kategori": "Erkek Evrak",
+      "kategori_ust": "Çanta",
+      "kategori_alt": "Erkek Evrak",
       "renk": "SIYAH",
       "ana_renk": "Siyah",
       "ana_renk_en": "Black",
@@ -4540,7 +4503,7 @@ tr.row--re-onay td:first-child{box-shadow:inset 3px 0 0 #C77A17}
       "stil": "Portföy",
       "sapli_sapsiz": "Saplı",
       "boyut": "MAXI",
-      "donanim": "SILVER",
+      "donanim": "Gümüş",
       "deri_tipi": "Deri",
       "sezon": "SS26",
       "fiyat_eur": 800.0,
@@ -4550,7 +4513,7 @@ tr.row--re-onay td:first-child{box-shadow:inset 3px 0 0 #C77A17}
       "occupied_stok": 0,
       "available_stok": 1,
       "stok": 1,
-      "kondisyon": "BNIB",
+      "kondisyon": "Sıfır",
       "kondisyon_label": "Sıfır",
       "aciklama": "",
       "tedarikci_id": null,
@@ -4565,9 +4528,9 @@ tr.row--re-onay td:first-child{box-shadow:inset 3px 0 0 #C77A17}
       "isim_resmi": "",
       "isim_bilinen": "Hugo Boss Erkek",
       "marka": "Hugo Boss",
-      "kategori": "MENS_BRIEFCASE",
-      "kategori_ust": "CANTA",
-      "kategori_alt": "MENS_BRIEFCASE",
+      "kategori": "Erkek Evrak",
+      "kategori_ust": "Çanta",
+      "kategori_alt": "Erkek Evrak",
       "renk": "SIYAH",
       "ana_renk": "Siyah",
       "ana_renk_en": "Black",
@@ -4583,7 +4546,7 @@ tr.row--re-onay td:first-child{box-shadow:inset 3px 0 0 #C77A17}
       "stil": "Portföy",
       "sapli_sapsiz": "Saplı",
       "boyut": "MINI",
-      "donanim": "SILVER",
+      "donanim": "Gümüş",
       "deri_tipi": "Deri",
       "sezon": "SS26",
       "fiyat_eur": 550.0,
@@ -4593,7 +4556,7 @@ tr.row--re-onay td:first-child{box-shadow:inset 3px 0 0 #C77A17}
       "occupied_stok": 0,
       "available_stok": 1,
       "stok": 1,
-      "kondisyon": "BNIB",
+      "kondisyon": "Sıfır",
       "kondisyon_label": "Sıfır",
       "aciklama": "",
       "tedarikci_id": null,
@@ -4608,9 +4571,9 @@ tr.row--re-onay td:first-child{box-shadow:inset 3px 0 0 #C77A17}
       "isim_resmi": "",
       "isim_bilinen": "Hugo Boss Erkek",
       "marka": "Hugo Boss",
-      "kategori": "MENS_BRIEFCASE",
-      "kategori_ust": "CANTA",
-      "kategori_alt": "MENS_BRIEFCASE",
+      "kategori": "Erkek Evrak",
+      "kategori_ust": "Çanta",
+      "kategori_alt": "Erkek Evrak",
       "renk": "SIYAH",
       "ana_renk": "Siyah",
       "ana_renk_en": "Black",
@@ -4626,7 +4589,7 @@ tr.row--re-onay td:first-child{box-shadow:inset 3px 0 0 #C77A17}
       "stil": "Portföy",
       "sapli_sapsiz": "Saplı",
       "boyut": "MAXI",
-      "donanim": "SILVER",
+      "donanim": "Gümüş",
       "deri_tipi": "Deri",
       "sezon": "SS26",
       "fiyat_eur": 700.0,
@@ -4636,7 +4599,7 @@ tr.row--re-onay td:first-child{box-shadow:inset 3px 0 0 #C77A17}
       "occupied_stok": 0,
       "available_stok": 1,
       "stok": 1,
-      "kondisyon": "BNIB",
+      "kondisyon": "Sıfır",
       "kondisyon_label": "Sıfır",
       "aciklama": "",
       "tedarikci_id": null,
@@ -4999,12 +4962,12 @@ tr.row--re-onay td:first-child{box-shadow:inset 3px 0 0 #C77A17}
     }
   ],
   "kanonik_kategoriler": [
-    "CANTA",
-    "CROSSBODY",
-    "MENS_BRIEFCASE",
-    "MINI",
-    "SHOULDER",
-    "TOTE"
+    "Erkek Evrak",
+    "Mini Çanta",
+    "Omuz Çantası",
+    "Tote Çanta",
+    "Çanta",
+    "Çapraz Çanta"
   ],
   "kanonik_malzemeler": [
     "Denim",
@@ -5024,16 +4987,17 @@ tr.row--re-onay td:first-child{box-shadow:inset 3px 0 0 #C77A17}
     "Yves Saint Laurent"
   ],
   "kanonik_donanimlar": [
-    "GOLD",
-    "PALLADIUM",
-    "SILVER"
+    "Altın",
+    "Gümüş",
+    "Paladyum"
   ],
   "kanonik_donanim_renkleri": [
     "Altın",
-    "Gümüş"
+    "Gümüş",
+    "Paladyum"
   ],
   "kanonik_kondisyonlar": [
-    "BNIB"
+    "Sıfır"
   ],
   "kanonik_boyutlar": [
     "MAXI",
@@ -8234,7 +8198,7 @@ function renderSupplierOrdersList(supplier_id, container){
     `;
   }).join('');
   container.querySelectorAll('[data-so-id]').forEach(el => {
-    el.addEventListener('click', () => openSupplierOrderModal(el.dataset.soId));
+    el.addEventListener('click', () => openPurchaseOrderPage(el.dataset.soId));
   });
 }
 
@@ -8544,138 +8508,6 @@ function deleteSupplier(id){
   toast('Tedarikçi silindi');
 }
 
-// ─── Supplier Order (Alım) ─────────────────────────
-let soModalItems = [];
-function openSupplierOrderModal(id, defaultSupplierId){
-  state.editingSupplierOrder = id || null;
-  soModalItems = [];
-  const form = $('#so-form'); form.reset();
-  const title = $('#so-modal-title'), idBadge = $('#so-modal-id'), statusBadge = $('#so-modal-status');
-  const btnSave = $('#btn-so-save'), btnReceive = $('#btn-so-receive');
-  const btnCancelRcv = $('#btn-so-cancel-received'), btnDelete = $('#btn-so-delete');
-
-  // Tedarikçi seçeneklerini doldur
-  const sel = $('#so-tedarikci');
-  sel.innerHTML = '<option value="">Tedarikçi seç...</option>' + state.suppliers.map(s =>
-    `<option value="${s.tedarikci_id}">${s.isim} · ${s.tedarikci_id}</option>`
-  ).join('');
-
-  // Ürün picker
-  refreshSoProductPicker();
-
-  if(id){
-    const o = state.supplierOrders.find(x=>x.alim_id===id);
-    if(!o) return;
-    title.textContent = `Alım ${o.alim_id}`;
-    idBadge.textContent = `Açılma: ${fmtDateTime(o.olusturma)}${o.teslim_tarihi ? ' · Teslim: ' + fmtDateTime(o.teslim_tarihi) : ''}`;
-    statusBadge.textContent = DURUM_LABELS[o.durum] || o.durum;
-    statusBadge.className = `order-status-badge order-status-badge--${o.durum}`;
-    statusBadge.hidden = false;
-
-    form.elements.tedarikci_id.value = o.tedarikci_id || '';
-    form.elements.siparis_tarihi.value = (o.siparis_tarihi||'').split('T')[0];
-    form.elements.beklenen_teslim.value = (o.beklenen_teslim||'').split('T')[0];
-    form.elements.fatura_no.value = o.fatura_no || '';
-    form.elements.para_birimi.value = o.para_birimi || 'EUR';
-    form.elements.notlar.value = o.notlar || '';
-    soModalItems = o.items.map(i => ({...i}));
-
-    const readOnly = o.durum !== 'BEKLIYOR';
-    [...form.elements].forEach(el => { el.disabled = readOnly; });
-    btnSave.hidden = readOnly;
-    btnReceive.hidden = o.durum !== 'BEKLIYOR';
-    btnCancelRcv.hidden = o.durum !== 'TESLIM_ALINDI';
-    btnDelete.hidden = o.durum === 'TESLIM_ALINDI';
-  } else {
-    title.textContent = 'Yeni Alım Siparişi';
-    idBadge.textContent = `Yeni → ID kaydedince üretilir`;
-    statusBadge.hidden = true;
-    if(defaultSupplierId) form.elements.tedarikci_id.value = defaultSupplierId;
-    form.elements.siparis_tarihi.value = new Date().toISOString().split('T')[0];
-    form.elements.para_birimi.value = 'EUR';
-    [...form.elements].forEach(el => { el.disabled = false; });
-    btnSave.hidden = false;
-    btnReceive.hidden = true;
-    btnCancelRcv.hidden = true;
-    btnDelete.hidden = true;
-  }
-  renderSoItems();
-  $('#supplier-order-modal').hidden = false;
-  document.body.style.overflow = 'hidden';
-}
-function refreshSoProductPicker(){
-  const sel = $('#so-product-pick');
-  const opts = ['<option value="">Ürün seç...</option>'];
-  state.products
-    .filter(p => p.durum !== 'ARSIVLENDI')
-    .sort((a,b)=>(a.marka+a.isim_bilinen).localeCompare(b.marka+b.isim_bilinen,'tr'))
-    .forEach(p => {
-      const name = (p.isim_bilinen || p.isim_resmi || '').split(',')[0].trim();
-      opts.push(`<option value="${p.variation_id}">${p.marka} · ${name} · ${renkLabel(p)} · ${p.boyut} · ${p.donanim} · stok ${p.stok}</option>`);
-    });
-  sel.innerHTML = opts.join('');
-}
-function renderSoItems(){
-  const wrap = $('#so-items');
-  if(soModalItems.length === 0){
-    wrap.innerHTML = '<div class="order-items__empty">Henüz kalem yok.</div>';
-    $('#so-total').textContent = fmt(0);
-    return;
-  }
-  const total = soModalItems.reduce((s,i)=>s+(i.birim_fiyat_eur*i.qty),0);
-  $('#so-total').textContent = fmt(total);
-  const readOnly = state.editingSupplierOrder && state.supplierOrders.find(o=>o.alim_id===state.editingSupplierOrder)?.durum !== 'BEKLIYOR';
-  wrap.innerHTML = soModalItems.map((it, idx) => `
-    <div class="order-line">
-      <div class="order-line__name">
-        <strong>${it.marka} ${it.isim_snapshot}</strong>
-        <span>${it.renk} · ${it.boyut} · ${it.donanim}</span>
-      </div>
-      <div class="order-line__qty">
-        <button type="button" class="order-line__qty-btn" data-so-line-dec="${idx}" ${readOnly?'disabled':''}>−</button>
-        <span class="order-line__qty-val">${it.qty}</span>
-        <button type="button" class="order-line__qty-btn" data-so-line-inc="${idx}" ${readOnly?'disabled':''}>+</button>
-      </div>
-      <div class="order-line__price">${fmt(it.birim_fiyat_eur * it.qty)}</div>
-      <div style="font-size:10px;color:var(--text-faint);font-variant-numeric:tabular-nums">${fmt(it.birim_fiyat_eur)} maliyet</div>
-      <button type="button" class="order-line__remove" data-so-line-remove="${idx}" ${readOnly?'disabled':''}>×</button>
-    </div>
-  `).join('');
-  wrap.querySelectorAll('[data-so-line-inc]').forEach(b => b.addEventListener('click', () => {
-    const i = Number(b.dataset.soLineInc); soModalItems[i].qty++; renderSoItems();
-  }));
-  wrap.querySelectorAll('[data-so-line-dec]').forEach(b => b.addEventListener('click', () => {
-    const i = Number(b.dataset.soLineDec); soModalItems[i].qty = Math.max(1, soModalItems[i].qty-1); renderSoItems();
-  }));
-  wrap.querySelectorAll('[data-so-line-remove]').forEach(b => b.addEventListener('click', () => {
-    soModalItems.splice(Number(b.dataset.soLineRemove),1); renderSoItems();
-  }));
-}
-function addSoLine(){
-  const id = $('#so-product-pick').value;
-  if(!id){ toast('Önce ürün seç', true); return; }
-  const qty = Math.max(1, Number($('#so-product-qty').value)||1);
-  const cost = Math.max(0, Number($('#so-product-cost').value)||0);
-  if(cost <= 0){ if(!confirm('Birim maliyet 0 — yine de ekle?')) return; }
-  const p = state.products.find(x=>x.variation_id===id);
-  if(!p) return;
-  const existing = soModalItems.find(x=>x.variation_id===id);
-  if(existing){
-    existing.qty += qty;
-    if(cost > 0) existing.birim_fiyat_eur = cost;  // son maliyet
-  } else {
-    soModalItems.push({
-      variation_id: id, sku: p.sku, isim_snapshot: (p.isim_bilinen||p.isim_resmi||'').split(',')[0].trim() || p.marka,
-      marka: p.marka, renk: p.renk, boyut: p.boyut, donanim: p.donanim,
-      qty, birim_fiyat_eur: cost,
-      satir_toplam: qty * cost,
-    });
-  }
-  $('#so-product-pick').value = '';
-  $('#so-product-qty').value = 1;
-  $('#so-product-cost').value = '';
-  renderSoItems();
-}
 // ─── Purchase Order Full Page (İrsaliye) ────────────────
 let poPageItems = [];       // [{variation_id, sku, marka, isim, renk, boyut, donanim, qty, birim_fiyat_eur}]
 let poPickerChecked = new Set();  // variation_id'ler
@@ -8691,11 +8523,14 @@ function openPurchaseOrderPage(id){
   const subtitle = $('#po-subtitle');
   const btnSave = $('#po-btn-save');
   const btnReceive = $('#po-btn-receive');
+  const btnDelete = $('#po-btn-delete');
+  const btnCancelRcv = $('#po-btn-cancel-received');
+  const picker = page.querySelector('.po-picker');
 
   // Tedarikçi select doldur
   const sel = $('#po-tedarikci');
-  sel.innerHTML = '<option value="">Tedarikci sec...</option>' + state.suppliers.map(s =>
-    `<option value="${supId(s)}">${s.isim} · ${supId(s)}</option>`
+  sel.innerHTML = '<option value="">Tedarikçi seç...</option>' + state.suppliers.map(s =>
+    `<option value="${supId(s)}">${supName(s)} · ${supId(s)}</option>`
   ).join('');
 
   // Form resetle
@@ -8707,8 +8542,8 @@ function openPurchaseOrderPage(id){
   if(id){
     const o = state.supplierOrders.find(x => x.alim_id === id);
     if(!o) return;
-    title.innerHTML = `Alim Siparisi <small>${o.alim_id}</small>`;
-    subtitle.textContent = `Durum: ${DURUM_LABELS[o.durum] || o.durum}`;
+    title.childNodes[0].textContent = 'Alım Siparişi ';
+    subtitle.textContent = `${o.alim_id} — Durum: ${DURUM_LABELS[o.durum] || o.durum}`;
     sel.value = o.tedarikci_id || '';
     $('#po-tarih').value = (o.siparis_tarihi || '').split('T')[0];
     $('#po-beklenen').value = (o.beklenen_teslim || '').split('T')[0];
@@ -8719,17 +8554,26 @@ function openPurchaseOrderPage(id){
     const readOnly = o.durum !== 'BEKLIYOR';
     btnSave.hidden = readOnly;
     btnReceive.hidden = o.durum !== 'BEKLIYOR';
+    btnDelete.hidden = o.durum === 'TESLIM_ALINDI';
+    btnCancelRcv.hidden = o.durum !== 'TESLIM_ALINDI';
     $('#po-foot-save').hidden = readOnly;
-    // Readonly durumda form'u disable et
+    $('#po-foot-delete').hidden = o.durum === 'TESLIM_ALINDI';
+    $('#po-foot-cancel-received').hidden = o.durum !== 'TESLIM_ALINDI';
+    if(picker) picker.hidden = readOnly;
     ['po-tedarikci','po-tarih','po-beklenen','po-fatura-no','po-notlar'].forEach(fid => {
       const el = $('#'+fid); if(el) el.disabled = readOnly;
     });
   } else {
-    title.innerHTML = 'Yeni Alim Siparisi <small>Irsaliye olustur</small>';
-    subtitle.textContent = '';
+    title.childNodes[0].textContent = 'Yeni Alım Siparişi ';
+    subtitle.textContent = 'İrsaliye oluştur';
     btnSave.hidden = false;
     btnReceive.hidden = true;
+    btnDelete.hidden = true;
+    btnCancelRcv.hidden = true;
     $('#po-foot-save').hidden = false;
+    $('#po-foot-delete').hidden = true;
+    $('#po-foot-cancel-received').hidden = true;
+    if(picker) picker.hidden = false;
     ['po-tedarikci','po-tarih','po-beklenen','po-fatura-no','po-notlar'].forEach(fid => {
       const el = $('#'+fid); if(el) el.disabled = false;
     });
@@ -8765,7 +8609,7 @@ function renderPoPickerList(){
   }
 
   if(filtered.length === 0){
-    body.innerHTML = '<div class="po-picker__empty">Arama sonucu bulunamadi.</div>';
+    body.innerHTML = '<div class="po-picker__empty">Arama sonucu bulunamadı.</div>';
     updatePoPickerCount();
     return;
   }
@@ -8815,7 +8659,7 @@ function renderPoPickerList(){
 function updatePoPickerCount(){
   const cnt = poPickerChecked.size;
   const el = $('#po-picker-count');
-  if(el) el.textContent = cnt > 0 ? `${cnt} secili` : '0 secili';
+  if(el) el.textContent = cnt > 0 ? `${cnt} seçili` : '0 seçili';
   const btn = $('#po-picker-add');
   if(btn) btn.disabled = cnt === 0;
 }
@@ -8846,7 +8690,7 @@ function addPoPickerSelection(){
   });
   poPickerChecked = new Set();
   if(added > 0){
-    toast(`${added} urun eklendi`);
+    toast(`${added} ürün eklendi`);
   }
   renderPoPickerList();
   renderPoLines();
@@ -8956,7 +8800,7 @@ function updatePoSummary(){
 
 function savePurchaseOrderPage(){
   const tedarikciId = $('#po-tedarikci').value;
-  if(!tedarikciId){ toast('Tedarikci sec', true); return; }
+  if(!tedarikciId){ toast('Tedarikçi seç', true); return; }
   if(poPageItems.length === 0){ toast('En az bir kalem ekle', true); return; }
 
   // Maliyet 0 uyarisi
@@ -8975,7 +8819,7 @@ function savePurchaseOrderPage(){
   if(poEditingId){
     const o = state.supplierOrders.find(x => x.alim_id === poEditingId);
     if(!o) return;
-    if(o.durum !== 'BEKLIYOR'){ toast('Sadece BEKLIYOR alimlar duzenlenebilir', true); return; }
+    if(o.durum !== 'BEKLIYOR'){ toast('Sadece BEKLIYOR alımlar düzenlenebilir', true); return; }
     o.tedarikci_id = tedarikciId;
     o.siparis_tarihi = $('#po-tarih').value;
     o.beklenen_teslim = $('#po-beklenen').value;
@@ -8985,10 +8829,10 @@ function savePurchaseOrderPage(){
     o.toplam_eur = total;
     o.guncelleme = now;
     saveSupplierOrdersStore();
-    logActivity('SUPPLIER_ORDER_UPDATE', 'supplier_order', o.alim_id, `${o.alim_id} guncellendi (${total.toLocaleString('tr-TR')} EUR)`, { tedarikci_id: tedarikciId, items: o.items });
+    logActivity('SUPPLIER_ORDER_UPDATE', 'supplier_order', o.alim_id, `${o.alim_id} güncellendi (${total.toLocaleString('tr-TR')} EUR)`, { tedarikci_id: tedarikciId, items: o.items });
     closePurchaseOrderPage();
     renderAll();
-    toast(`${o.alim_id} guncellendi`);
+    toast(`${o.alim_id} güncellendi`);
   } else {
     const order = {
       alim_id: makeSupplierOrderId(),
@@ -9010,64 +8854,10 @@ function savePurchaseOrderPage(){
     logActivity('SUPPLIER_ORDER_CREATE', 'supplier_order', order.alim_id, `${supName(sup)||tedarikciId}: ${items.length} kalem · ${fmt(total)}`, { tedarikci_id: tedarikciId, items: order.items, toplam: total });
     closePurchaseOrderPage();
     renderAll();
-    toast(`${order.alim_id} olusturuldu — BEKLIYOR durumunda`);
+    toast(`${order.alim_id} oluşturuldu — BEKLIYOR durumunda`);
   }
 }
 
-function closeSupplierOrderModal(){ $('#supplier-order-modal').hidden=true; state.editingSupplierOrder=null; soModalItems=[]; document.body.style.overflow=''; }
-function saveSupplierOrder(){
-  const form = $('#so-form');
-  if(!form.reportValidity()) return;
-  const fd = form.elements;
-  if(soModalItems.length === 0){ toast('En az bir kalem ekle', true); return; }
-  const now = new Date().toISOString();
-  const total = soModalItems.reduce((s,i)=>s+(i.birim_fiyat_eur*i.qty),0);
-  const tedarikciId = fd.tedarikci_id.value;
-  if(!tedarikciId){ toast('Tedarikçi seç', true); return; }
-  if(state.editingSupplierOrder){
-    const o = state.supplierOrders.find(x=>x.alim_id===state.editingSupplierOrder);
-    if(!o) return;
-    if(o.durum !== 'BEKLIYOR'){ toast('Sadece BEKLIYOR alımlar düzenlenebilir', true); return; }
-    o.tedarikci_id = tedarikciId;
-    o.siparis_tarihi = fd.siparis_tarihi.value;
-    o.beklenen_teslim = fd.beklenen_teslim.value;
-    o.fatura_no = fd.fatura_no.value.trim();
-    o.para_birimi = fd.para_birimi.value;
-    o.notlar = fd.notlar.value.trim();
-    o.items = soModalItems.map(i=>({...i, satir_toplam: i.birim_fiyat_eur*i.qty}));
-    o.toplam_eur = total;
-    o.guncelleme = now;
-    saveSupplierOrdersStore();
-    logActivity('SUPPLIER_ORDER_UPDATE', 'supplier_order', o.alim_id, `${o.alim_id} güncellendi (${total.toLocaleString('tr-TR')} €)`, { tedarikci_id: tedarikciId, items: o.items });
-    closeSupplierOrderModal();
-    renderAll();
-    toast(`${o.alim_id} güncellendi`);
-  } else {
-    const order = {
-      alim_id: makeSupplierOrderId(),
-      tedarikci_id: tedarikciId,
-      durum: 'BEKLIYOR',
-      items: soModalItems.map(i=>({...i, satir_toplam: i.birim_fiyat_eur*i.qty})),
-      toplam_eur: total,
-      para_birimi: fd.para_birimi.value,
-      siparis_tarihi: fd.siparis_tarihi.value,
-      beklenen_teslim: fd.beklenen_teslim.value,
-      fatura_no: fd.fatura_no.value.trim(),
-      notlar: fd.notlar.value.trim(),
-      olusturma: now,
-      guncelleme: now,
-    };
-    state.supplierOrders.unshift(order);
-    saveSupplierOrdersStore();
-    const sup = state.suppliers.find(s => supId(s) === tedarikciId);
-    logActivity('SUPPLIER_ORDER_CREATE', 'supplier_order', order.alim_id, `${supName(sup)||tedarikciId}: ${soModalItems.length} kalem · ${fmt(total)}`, { tedarikci_id: tedarikciId, items: order.items, toplam: total });
-    closeSupplierOrderModal();
-    // Tedarikçi modal'ı açıksa listeyi yenile
-    if(state.editingSupplier === tedarikciId) renderSupplierOrdersList(tedarikciId, $('#supplier-orders-list'));
-    renderAll();
-    toast(`${order.alim_id} alım siparişi oluşturuldu`);
-  }
-}
 function receiveSupplierOrder(id){
   const o = state.supplierOrders.find(x=>x.alim_id===id);
   if(!o || o.durum !== 'BEKLIYOR') return;
@@ -9131,7 +8921,7 @@ function deleteSupplierOrder(id){
   state.supplierOrders = state.supplierOrders.filter(x=>x.alim_id!==id);
   saveSupplierOrdersStore();
   logActivity('SUPPLIER_ORDER_DELETE', 'supplier_order', id, `${id} silindi`, { silinen: o });
-  if(state.editingSupplierOrder===id) closeSupplierOrderModal();
+  if(poEditingId===id) closePurchaseOrderPage();
   renderAll();
   toast('Alım silindi');
 }
@@ -9177,48 +8967,82 @@ function filteredActivity(){
 }
 function renderActivityStats(){
   const all = state.activity;
+  const filtered = filteredActivity();
+  const hasFilter = state.activityFilter.dateFrom || state.activityFilter.dateTo;
   const now = Date.now();
   const today = all.filter(e => (now - new Date(e.ts).getTime()) < 86400000).length;
   const week = all.filter(e => (now - new Date(e.ts).getTime()) < 7*86400000).length;
-  $('#astat-count').textContent = all.length;
+  $('#astat-count').textContent = hasFilter ? `${filtered.length} / ${all.length}` : all.length;
   $('#astat-today').textContent = today;
   $('#astat-week').textContent = week;
-  $('#ac-all').textContent = all.length;
+  $('#ac-all').textContent = hasFilter ? filtered.length : all.length;
   ['product','order','customer','supplier','stock'].forEach(cat => {
     const el = document.querySelector(`#ac-${cat}`);
-    if(el) el.textContent = all.filter(e => ACTIVITY_TIP_CATEGORY[e.tip] === cat).length;
+    const src = hasFilter ? filtered : all;
+    if(el) el.textContent = src.filter(e => ACTIVITY_TIP_CATEGORY[e.tip] === cat).length;
   });
+}
+function _activityMetaHTML(meta){
+  if(!meta || typeof meta !== 'object') return '<div class="activity-detail__empty">Detay bilgisi yok</div>';
+  const keys = Object.keys(meta);
+  if(keys.length === 0) return '<div class="activity-detail__empty">Detay bilgisi yok</div>';
+  const esc = s => String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+  let html = '<div class="activity-detail__grid">';
+  for(const k of keys){
+    const raw = meta[k];
+    const v = (typeof raw === 'object' && raw !== null) ? JSON.stringify(raw, null, 2) : String(raw ?? '');
+    html += `<span class="activity-detail__key">${esc(k)}</span><span class="activity-detail__val">${esc(v)}</span>`;
+  }
+  html += '</div>';
+  return html;
 }
 function renderActivityTable(){
   const arr = filteredActivity();
   const tbody = $('#activity-tbody'), empty = $('#activity-empty');
   if(arr.length === 0){ tbody.innerHTML = ''; empty.hidden = false; return; }
   empty.hidden = true;
-  // Performans: en çok 500 satır göster
   const cap = 500;
   const sliced = arr.slice(0, cap);
-  tbody.innerHTML = sliced.map(e => {
+  tbody.innerHTML = sliced.map((e, i) => {
     const cat = ACTIVITY_TIP_CATEGORY[e.tip] || 'other';
-    const badgeClass = {
-      product:'order-status-badge--BEKLIYOR',
-      order:'order-status-badge--ONAYLANDI',
-      customer:'order-status-badge--IPTAL_EDILDI',
-      supplier:'order-status-badge--REDDEDILDI',
-      stock:'',
-    }[cat] || '';
     const tipLabel = ACTIVITY_TIP_LABEL[e.tip] || e.tip;
     return `
-      <tr>
+      <tr class="activity-row" data-act-idx="${i}">
         <td style="font-family:'Menlo','Monaco',monospace;font-size:10px;color:var(--text-muted);white-space:nowrap">${fmtDateTime(e.ts, true)}</td>
         <td><span class="activity-tip-badge activity-tip-badge--${cat}">${tipLabel}</span></td>
         <td style="font-family:'Menlo','Monaco',monospace;font-size:10px;color:var(--text-muted)">${e.entity_id}</td>
         <td style="font-size:12px">${e.detay || ''}</td>
+      </tr>
+      <tr class="activity-detail-row" data-act-detail="${i}" hidden>
+        <td colspan="4">
+          <div class="activity-detail">${_activityMetaHTML(e.meta)}</div>
+        </td>
       </tr>
     `;
   }).join('');
   if(arr.length > cap){
     tbody.innerHTML += `<tr><td colspan="4" style="text-align:center;padding:14px;color:var(--text-muted);font-size:11px">+${arr.length - cap} eski kayıt daha (görünmüyor) — filtreyi daralt</td></tr>`;
   }
+  tbody.querySelectorAll('.activity-row').forEach(row => {
+    row.addEventListener('click', () => {
+      const idx = row.dataset.actIdx;
+      const detailRow = tbody.querySelector(`.activity-detail-row[data-act-detail="${idx}"]`);
+      if(!detailRow) return;
+      const wasOpen = !detailRow.hidden;
+      tbody.querySelectorAll('.activity-row.expanded').forEach(r => r.classList.remove('expanded'));
+      tbody.querySelectorAll('.activity-detail-row').forEach(r => {
+        r.hidden = true;
+        const d = r.querySelector('.activity-detail');
+        if(d) d.classList.remove('open');
+      });
+      if(!wasOpen){
+        row.classList.add('expanded');
+        detailRow.hidden = false;
+        const d = detailRow.querySelector('.activity-detail');
+        if(d) requestAnimationFrame(() => d.classList.add('open'));
+      }
+    });
+  });
 }
 
 // ─── Render all ─────────────────────────────────────
@@ -9490,7 +9314,7 @@ async function init(){
       else if(state.view === 'suppliers'){ state.supplierFilter.search = v; renderSuppliersTable(); }
       else if(state.view === 'purchases'){ if(!state.purchaseFilter) state.purchaseFilter={search:'',durum:'all'}; state.purchaseFilter.search = v; renderPurchasesTable(); }
       else if(state.view === 'returns'){ if(!state.returnFilter) state.returnFilter={search:'',durum:'all'}; state.returnFilter.search = v; renderReturnsAdminTable(); }
-      else if(state.view === 'activity'){ state.activityFilter.search = v; renderActivityTable(); }
+      else if(state.view === 'activity'){ state.activityFilter.search = v; renderActivityStats(); renderActivityTable(); }
       else { state.filter.search = v; renderTable(); }
     });
   });
@@ -9545,7 +9369,6 @@ async function init(){
     document.addEventListener('keydown', e => {
       if(e.key === 'Escape'){
         const closers = [
-          ['#supplier-order-modal', closeSupplierOrderModal],
           ['#supplier-modal', closeSupplierModal],
           ['#customer-auth-modal', closeCustomerAuthModal],
           ['#customer-modal', closeCustomerModal],
@@ -9740,17 +9563,6 @@ async function init(){
     });
   });
 
-  // ─── Supplier Order modal ──────────────────────
-  safeStep('so-modal', () => {
-    bindEl('#so-modal-close', 'click', closeSupplierOrderModal);
-    bindEl('#btn-so-close', 'click', closeSupplierOrderModal);
-    bindEl('#btn-so-save', 'click', saveSupplierOrder);
-    bindEl('#btn-so-receive', 'click', () => { if(state.editingSupplierOrder){ receiveSupplierOrder(state.editingSupplierOrder); closeSupplierOrderModal(); } });
-    bindEl('#btn-so-cancel-received', 'click', () => { if(state.editingSupplierOrder){ cancelReceivedSupplierOrder(state.editingSupplierOrder); closeSupplierOrderModal(); } });
-    bindEl('#btn-so-delete', 'click', () => { if(state.editingSupplierOrder) deleteSupplierOrder(state.editingSupplierOrder); });
-    bindEl('#btn-so-add-line', 'click', addSoLine);
-    bindEl('#supplier-order-modal', 'click', e => { if(e.target === document.querySelector('#supplier-order-modal')) closeSupplierOrderModal(); });
-  });
 
   // ─── Activity view filters ─────────────────────
   safeStep('activity-chips', () => {
@@ -9758,7 +9570,19 @@ async function init(){
       document.querySelectorAll('.chip[data-activity-tip]').forEach(x => x.classList.remove('active'));
       c.classList.add('active');
       state.activityFilter.tip = c.dataset.activityTip;
-      renderActivityTable();
+      renderActivityStats(); renderActivityTable();
+    });
+  });
+
+  // ─── Activity date filter ─────────────────────
+  safeStep('activity-date-filter', () => {
+    const dfrom = $('#activity-date-from'), dto = $('#activity-date-to'), dclear = $('#activity-date-clear');
+    if(dfrom) dfrom.addEventListener('change', () => { state.activityFilter.dateFrom = dfrom.value; renderActivityStats(); renderActivityTable(); });
+    if(dto) dto.addEventListener('change', () => { state.activityFilter.dateTo = dto.value; renderActivityStats(); renderActivityTable(); });
+    if(dclear) dclear.addEventListener('click', () => {
+      state.activityFilter.dateFrom = ''; state.activityFilter.dateTo = '';
+      if(dfrom) dfrom.value = ''; if(dto) dto.value = '';
+      renderActivityStats(); renderActivityTable();
     });
   });
 
@@ -9791,6 +9615,14 @@ async function init(){
     bindEl('#po-picker-add', 'click', addPoPickerSelection);
     bindEl('#po-btn-receive', 'click', () => {
       if(poEditingId){ receiveSupplierOrder(poEditingId); closePurchaseOrderPage(); }
+    });
+    bindEl('#po-btn-delete', 'click', () => { if(poEditingId) deleteSupplierOrder(poEditingId); });
+    bindEl('#po-foot-delete', 'click', () => { if(poEditingId) deleteSupplierOrder(poEditingId); });
+    bindEl('#po-btn-cancel-received', 'click', () => {
+      if(poEditingId){ cancelReceivedSupplierOrder(poEditingId); closePurchaseOrderPage(); }
+    });
+    bindEl('#po-foot-cancel-received', 'click', () => {
+      if(poEditingId){ cancelReceivedSupplierOrder(poEditingId); closePurchaseOrderPage(); }
     });
     const poSearch = $('#po-picker-search');
     if(poSearch){
