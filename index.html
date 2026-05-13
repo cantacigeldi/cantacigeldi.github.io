@@ -2958,7 +2958,7 @@ input,select,textarea{font-size:16px}
 <!-- BOTL_INLINE_DATA_START — catalog_sync_data tarafından yenilenir, elle düzenleme -->
 <script>window.__BOTL_DATA__ = {
   "schema_version": 5,
-  "exported_at": "2026-05-13T16:32:13.751553+00:00",
+  "exported_at": "2026-05-13T16:39:50.178672+00:00",
   "counter": 146,
   "products": [
     {
@@ -12429,12 +12429,11 @@ function showAuthGate(){
   if(!gate) return;
   gate.hidden = false;
   document.body.classList.add('auth-gate-active');
-  const err = document.getElementById('auth-gate-err'); if(err) err.hidden = true;
-  setTimeout(() => { const u = document.getElementById('auth-gate-username'); if(u) u.focus(); }, 80);
   // Gate açılırken eski hata mesajı temizlenir; backend offline ise sessiz —
   // gerçek hata submit sırasında "Giriş yapılamadı, tekrar deneyin" ile çıkar.
   const err = document.getElementById('auth-gate-err');
   if(err){ err.textContent = ''; err.hidden = true; }
+  setTimeout(() => { const u = document.getElementById('auth-gate-username'); if(u) u.focus(); }, 80);
 }
 function hideAuthGate(){
   const gate = document.getElementById('auth-gate');
