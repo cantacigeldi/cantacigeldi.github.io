@@ -10111,7 +10111,7 @@ window.BotlAPI = (function(){
     _authPending = (async () => {
       const r = await window.showInputModal({
         title: 'Admin girişi',
-        description: 'Backend API erişimi için kullanıcı adı ve parola gir. Bilgiler bu oturum süresince tarayıcıda saklanır (sessionStorage).',
+        description: 'Yönetici girişi — bilgiler bu oturum süresince tarayıcıda saklanır.',
         fields: [
           { name: 'user', label: 'Kullanıcı adı', defaultValue: 'admin', required: true, autocomplete: 'username' },
           { name: 'pass', label: 'Parola', type: 'password', defaultValue: 'botl-dev-2026', required: true, autocomplete: 'current-password' },
