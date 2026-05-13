@@ -10250,6 +10250,110 @@ input,select,textarea{font-size:16px}
 <script src="data-inline.js" onerror="window.__BOTL_INLINE_MISSING__=true;"></script>
 
 <script>
+// ─── Inline Input Modal ─────────────────────────────
+// prompt()/confirm() yasak — ekran-içi modal. async Promise döner:
+// submit → {field1: val, ...}, cancel/Escape/dış-klik → null.
+(function(){
+  if(window.showInputModal) return;
+  const STYLE_ID = 'botl-imodal-style';
+  if(!document.getElementById(STYLE_ID)){
+    const s = document.createElement('style');
+    s.id = STYLE_ID;
+    s.textContent = `
+      .botl-imodal{position:fixed;inset:0;z-index:9999;display:flex;align-items:center;justify-content:center;padding:20px;background:rgba(0,0,0,.55)}
+      .botl-imodal__panel{background:var(--surface,#fff);color:var(--text,#111);width:100%;max-width:480px;max-height:90vh;display:flex;flex-direction:column;box-shadow:0 16px 64px rgba(0,0,0,.32);border:1px solid var(--border,#ddd);font-family:inherit}
+      .botl-imodal__head{display:flex;align-items:center;gap:12px;padding:16px 20px;border-bottom:1px solid var(--border,#ddd)}
+      .botl-imodal__title{font-family:var(--serif,inherit);font-size:18px;font-weight:500;margin:0;flex:1;line-height:1.3}
+      .botl-imodal__close{width:34px;height:34px;border:1px solid var(--border,#ddd);background:transparent;color:inherit;font-size:20px;line-height:1;cursor:pointer;flex:0 0 auto}
+      .botl-imodal__close:hover{background:var(--bg-alt,#f5f5f5)}
+      .botl-imodal__body{padding:18px 20px;display:flex;flex-direction:column;gap:14px;overflow-y:auto;flex:1;min-height:0}
+      .botl-imodal__desc{margin:0;color:var(--text-muted,#777);font-size:13px;line-height:1.5}
+      .botl-imodal__field{display:flex;flex-direction:column;gap:5px}
+      .botl-imodal__label{font-size:11px;letter-spacing:.04em;color:var(--text-muted,#777)}
+      .botl-imodal__input,.botl-imodal__textarea{padding:9px 11px;border:1px solid var(--border,#ddd);background:var(--surface,#fff);color:inherit;font:inherit;font-size:14px;outline:none;width:100%;box-sizing:border-box}
+      .botl-imodal__input:focus,.botl-imodal__textarea:focus{border-color:var(--accent,#222);box-shadow:0 0 0 2px color-mix(in srgb, var(--accent,#222) 22%, transparent)}
+      .botl-imodal__textarea{resize:vertical;min-height:80px;font-family:inherit}
+      .botl-imodal__foot{display:flex;justify-content:flex-end;gap:8px;padding:14px 20px;border-top:1px solid var(--border,#ddd);background:var(--bg-alt,#fafafa)}
+      .botl-imodal__btn{padding:9px 16px;border:1px solid var(--border,#ddd);background:var(--surface,#fff);color:inherit;font:inherit;font-size:13px;cursor:pointer;letter-spacing:.02em}
+      .botl-imodal__btn:hover{background:var(--bg-alt,#f5f5f5)}
+      .botl-imodal__btn--primary{background:var(--accent,#222);color:var(--on-accent,#fff);border-color:var(--accent,#222)}
+      .botl-imodal__btn--primary:hover{opacity:.9}
+    `;
+    document.head.appendChild(s);
+  }
+  const esc = (v) => String(v ?? '').replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+  window.showInputModal = function(opts){
+    const { title='', description='', fields=[], submitLabel='Tamam', cancelLabel='Vazgeç' } = opts || {};
+    return new Promise(resolve => {
+      const overlay = document.createElement('div');
+      overlay.className = 'botl-imodal';
+      const fieldsHTML = fields.map((f, i) => {
+        const fid = `botl-imodal-f-${i}-${Math.random().toString(36).slice(2,7)}`;
+        if(f.type === 'textarea'){
+          return `<div class="botl-imodal__field"><label class="botl-imodal__label" for="${fid}">${esc(f.label || f.name || '')}</label><textarea id="${fid}" name="${esc(f.name)}" class="botl-imodal__textarea" rows="${f.rows || 3}" placeholder="${esc(f.placeholder)}">${esc(f.defaultValue)}</textarea></div>`;
+        }
+        const type = f.type === 'password' ? 'password' : 'text';
+        return `<div class="botl-imodal__field"><label class="botl-imodal__label" for="${fid}">${esc(f.label || f.name || '')}</label><input type="${type}" id="${fid}" name="${esc(f.name)}" class="botl-imodal__input" value="${esc(f.defaultValue)}" placeholder="${esc(f.placeholder)}" autocomplete="${esc(f.autocomplete || 'off')}"></div>`;
+      }).join('');
+      const descHTML = description ? `<p class="botl-imodal__desc">${esc(description)}</p>` : '';
+      overlay.innerHTML = `
+        <div class="botl-imodal__panel" role="dialog" aria-modal="true" aria-label="${esc(title)}">
+          <div class="botl-imodal__head">
+            <h2 class="botl-imodal__title">${esc(title)}</h2>
+            <button type="button" class="botl-imodal__close" data-imodal-action="cancel" aria-label="Kapat">×</button>
+          </div>
+          <form class="botl-imodal__body" data-imodal-form>
+            ${descHTML}${fieldsHTML}
+          </form>
+          <div class="botl-imodal__foot">
+            <button type="button" class="botl-imodal__btn" data-imodal-action="cancel">${esc(cancelLabel)}</button>
+            <button type="button" class="botl-imodal__btn botl-imodal__btn--primary" data-imodal-action="submit">${esc(submitLabel)}</button>
+          </div>
+        </div>
+      `;
+      document.body.appendChild(overlay);
+      const form = overlay.querySelector('[data-imodal-form]');
+      const firstField = form.querySelector('input,textarea');
+      setTimeout(() => { if(firstField){ firstField.focus(); if(firstField.tagName === 'INPUT' && typeof firstField.select === 'function') firstField.select(); } }, 30);
+      function cleanup(result){
+        document.removeEventListener('keydown', onKey, true);
+        overlay.remove();
+        resolve(result);
+      }
+      function getValues(){
+        const out = {};
+        fields.forEach(f => {
+          const el = form.querySelector(`[name="${CSS.escape(f.name)}"]`);
+          out[f.name] = el ? el.value : '';
+        });
+        return out;
+      }
+      function submit(){
+        for(const f of fields){
+          if(!f.required) continue;
+          const el = form.querySelector(`[name="${CSS.escape(f.name)}"]`);
+          if(!el || !el.value.trim()){ el && el.focus(); return; }
+        }
+        cleanup(getValues());
+      }
+      overlay.addEventListener('click', e => {
+        if(e.target === overlay){ cleanup(null); return; }
+        const action = e.target.closest('[data-imodal-action]')?.dataset?.imodalAction;
+        if(action === 'cancel') cleanup(null);
+        else if(action === 'submit') submit();
+      });
+      form.addEventListener('submit', e => { e.preventDefault(); submit(); });
+      function onKey(e){
+        if(e.key === 'Escape'){ e.stopPropagation(); cleanup(null); }
+        else if(e.key === 'Enter' && e.target.tagName !== 'TEXTAREA'){
+          e.preventDefault(); e.stopPropagation(); submit();
+        }
+      }
+      document.addEventListener('keydown', onKey, true);
+    });
+  };
+})();
+
 // ─── Sample Data ────────────────────────────────────
 // Patron verisini sağladığında bu array build-catalog.py ile yenilenir
 // Her kayıt = bir varyasyon (flatten product + variation join)
@@ -13062,29 +13166,33 @@ function updateOrderItemQty(orderId, itemIdx, value, mode){
   toast(`Adet ${oldQty}→${newQty} güncellendi · sipariş yeniden onay bekliyor`);
 }
 
-function editOrderAddressNote(orderId){
+async function editOrderAddressNote(orderId){
   const all = getPendingOrders();
   const o = all.find(x => (x.id || x.order_id) === orderId);
   if(!o) return;
   const adr = o.kargo_adresi || {};
-  const adres = prompt('Kargo adresi (sokak, no, daire):', adr.adres || '');
-  if(adres === null) return;
-  const sehir = prompt('Şehir:', adr.sehir || '');
-  if(sehir === null) return;
-  const posta = prompt('Posta kodu:', adr.posta_kodu || '');
-  if(posta === null) return;
-  const ulke = prompt('Ülke:', adr.ulke || 'Türkiye');
-  if(ulke === null) return;
-  const not = prompt('Müşteri notu (opsiyonel):', o.musteri_notu || '');
-  if(not === null) return;
+  const r = await window.showInputModal({
+    title: 'Kargo adresi & not',
+    description: 'Bu siparişi yeniden onaya gönderir. Boş bırakılan alanlar mevcut değerlerini korur.',
+    fields: [
+      { name: 'adres', label: 'Adres (sokak, no, daire)', defaultValue: adr.adres || '', placeholder: '', autocomplete: 'street-address' },
+      { name: 'sehir', label: 'Şehir', defaultValue: adr.sehir || '', autocomplete: 'address-level2' },
+      { name: 'posta_kodu', label: 'Posta kodu', defaultValue: adr.posta_kodu || '', autocomplete: 'postal-code' },
+      { name: 'ulke', label: 'Ülke', defaultValue: adr.ulke || 'Türkiye', autocomplete: 'country-name' },
+      { name: 'musteri_notu', label: 'Müşteri notu (opsiyonel)', type: 'textarea', defaultValue: o.musteri_notu || '', rows: 2 },
+    ],
+    submitLabel: 'Kaydet',
+    cancelLabel: 'Vazgeç',
+  });
+  if(!r) return;
   updateOrder(orderId, (ord) => {
     ord.kargo_adresi = {
-      adres: (adres || '').trim(),
-      sehir: (sehir || '').trim(),
-      posta_kodu: (posta || '').trim(),
-      ulke: (ulke || '').trim(),
+      adres: (r.adres || '').trim(),
+      sehir: (r.sehir || '').trim(),
+      posta_kodu: (r.posta_kodu || '').trim(),
+      ulke: (r.ulke || '').trim(),
     };
-    ord.musteri_notu = (not || '').trim();
+    ord.musteri_notu = (r.musteri_notu || '').trim();
   }, { kim:'musteri', reset_to_bekliyor:true });
   renderAccountOrders();
   toast('Adres ve not güncellendi · sipariş yeniden onay bekliyor');
