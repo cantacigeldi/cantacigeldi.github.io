@@ -207,10 +207,7 @@ a{color:inherit;text-decoration:none}
   display:flex;align-items:center;gap:16px;
   padding:14px 24px;
   max-width:1800px;margin:0 auto;
-  flex-wrap:wrap;
-  min-width:0;
 }
-.hdr__wrap > *{min-width:0}
 .hdr__logo{
   display:inline-flex;align-items:center;gap:10px;
   font-family:var(--serif);
@@ -987,6 +984,110 @@ a{color:inherit;text-decoration:none}
 .order-total__value{
   font-size:20px;font-weight:500;
   font-variant-numeric:tabular-nums;
+}
+
+/* ─── Purchase Order Full Page ────────────────── */
+.po-page{position:fixed;inset:0;z-index:900;background:var(--bg);display:flex;flex-direction:column;overflow:hidden}
+.po-page[hidden]{display:none}
+.po-header{display:flex;align-items:center;gap:12px;padding:14px 24px;border-bottom:1px solid var(--border);background:var(--surface);flex-shrink:0}
+.po-header__back{width:36px;height:36px;display:inline-flex;align-items:center;justify-content:center;background:none;border:1px solid var(--border);border-radius:6px;cursor:pointer;color:var(--text-muted);transition:all .15s}
+.po-header__back:hover{background:var(--bg-alt);color:var(--text);border-color:var(--border-strong)}
+.po-header__back svg{width:18px;height:18px}
+.po-header__title{font-family:var(--serif);font-size:20px;font-weight:500;color:var(--text);flex:1}
+.po-header__title small{display:block;font-size:11px;font-weight:400;color:var(--text-muted);letter-spacing:.06em;font-family:var(--mono);margin-top:2px}
+.po-header__actions{display:flex;gap:8px;align-items:center}
+.po-body{flex:1;overflow-y:auto;padding:24px}
+.po-layout{display:grid;grid-template-columns:340px 1fr;gap:24px;max-width:1400px;margin:0 auto}
+.po-sidebar{display:flex;flex-direction:column;gap:16px;position:sticky;top:0;align-self:start}
+.po-card{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:20px}
+.po-card__title{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--text-muted);font-weight:600;margin-bottom:14px;padding-bottom:8px;border-bottom:1px solid var(--border)}
+.po-field{margin-bottom:12px}
+.po-field:last-child{margin-bottom:0}
+.po-field label{display:block;font-size:11px;font-weight:500;color:var(--text-muted);margin-bottom:4px;letter-spacing:.04em}
+.po-field label .req{color:var(--stock-out);margin-left:2px}
+.po-field input,.po-field select,.po-field textarea{width:100%;padding:8px 10px;font-size:13px;background:var(--bg);border:1px solid var(--border);border-radius:4px;color:var(--text);font-family:inherit;transition:border-color .15s}
+.po-field input:focus,.po-field select:focus,.po-field textarea:focus{outline:none;border-color:var(--accent)}
+.po-field textarea{resize:vertical;min-height:60px}
+.po-field--inline{display:flex;gap:10px}
+.po-field--inline .po-field{flex:1;margin-bottom:0}
+.po-summary{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:16px 20px}
+.po-summary__row{display:flex;justify-content:space-between;align-items:baseline;padding:4px 0;font-size:12px;color:var(--text-muted)}
+.po-summary__row--total{border-top:2px solid var(--border-strong);margin-top:8px;padding-top:10px;font-size:16px;font-weight:600;color:var(--text)}
+.po-summary__row--total .po-summary__val{font-size:22px;font-family:var(--mono)}
+.po-summary__val{font-variant-numeric:tabular-nums;font-weight:500;color:var(--text)}
+.po-main{display:flex;flex-direction:column;gap:20px;min-width:0}
+.po-picker{background:var(--surface);border:1px solid var(--border);border-radius:8px;overflow:hidden}
+.po-picker__head{display:flex;align-items:center;gap:10px;padding:12px 16px;border-bottom:1px solid var(--border);background:var(--bg-alt)}
+.po-picker__search{flex:1;padding:7px 10px;font-size:13px;background:var(--bg);border:1px solid var(--border);border-radius:4px;color:var(--text);font-family:inherit}
+.po-picker__search:focus{outline:none;border-color:var(--accent)}
+.po-picker__search::placeholder{color:var(--text-faint)}
+.po-picker__count{font-size:11px;color:var(--text-muted);white-space:nowrap;letter-spacing:.04em}
+.po-picker__add-btn{padding:7px 16px;font-size:12px;font-weight:600;background:var(--accent);color:#fff;border:none;border-radius:4px;cursor:pointer;white-space:nowrap;transition:opacity .15s}
+.po-picker__add-btn:hover{opacity:.85}
+.po-picker__add-btn:disabled{opacity:.4;cursor:not-allowed}
+.po-picker__body{max-height:320px;overflow-y:auto;overflow-x:hidden}
+.po-picker__body::-webkit-scrollbar{width:6px}
+.po-picker__body::-webkit-scrollbar-thumb{background:var(--border);border-radius:3px}
+.po-picker__row{display:grid;grid-template-columns:28px 36px 1fr auto auto auto auto;gap:8px;align-items:center;padding:6px 16px;border-bottom:1px solid var(--border);font-size:12px;cursor:pointer;transition:background .1s}
+.po-picker__row:last-child{border-bottom:none}
+.po-picker__row:hover{background:var(--bg-alt)}
+.po-picker__row.selected{background:rgba(59,130,246,.08)}
+.po-picker__row input[type=checkbox]{width:16px;height:16px;cursor:pointer;accent-color:var(--accent)}
+.po-picker__swatch{width:20px;height:20px;border-radius:50%;border:1px solid var(--border);flex-shrink:0}
+.po-picker__name{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-weight:500}
+.po-picker__name small{font-weight:400;color:var(--text-muted);margin-left:4px}
+.po-picker__meta{font-size:10px;color:var(--text-muted);white-space:nowrap;font-variant-numeric:tabular-nums}
+.po-picker__empty{padding:30px 20px;text-align:center;font-size:12px;color:var(--text-faint)}
+.po-lines{background:var(--surface);border:1px solid var(--border);border-radius:8px;overflow:hidden}
+.po-lines__head{display:flex;align-items:center;justify-content:space-between;padding:12px 16px;border-bottom:1px solid var(--border);background:var(--bg-alt)}
+.po-lines__title{font-size:12px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--text-muted)}
+.po-lines__badge{display:inline-flex;align-items:center;justify-content:center;min-width:22px;height:22px;background:var(--accent);color:#fff;border-radius:11px;padding:0 7px;font-size:11px;font-weight:600}
+.po-lines-table{width:100%;border-collapse:collapse}
+.po-lines-table th{font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--text-faint);font-weight:500;padding:8px 12px;text-align:left;border-bottom:1px solid var(--border);background:var(--bg-alt);position:sticky;top:0}
+.po-lines-table th:nth-child(n+4){text-align:right}
+.po-lines-table td{padding:10px 12px;border-bottom:1px solid var(--border);font-size:13px;vertical-align:middle}
+.po-lines-table tr:last-child td{border-bottom:none}
+.po-lines-table tr:hover td{background:var(--bg-alt)}
+.po-lines-table .col-name{min-width:0}
+.po-lines-table .col-name strong{display:block;font-weight:500}
+.po-lines-table .col-name span{font-size:10px;color:var(--text-muted)}
+.po-lines-table .col-qty{width:110px}
+.po-lines-table .col-qty-wrap{display:inline-flex;align-items:center;border:1px solid var(--border);border-radius:4px;overflow:hidden}
+.po-lines-table .col-qty-btn{width:28px;height:28px;background:var(--bg-alt);border:none;cursor:pointer;font-size:15px;color:var(--text-muted);display:inline-flex;align-items:center;justify-content:center;transition:background .1s}
+.po-lines-table .col-qty-btn:hover{background:var(--border);color:var(--text)}
+.po-lines-table .col-qty-input{width:42px;text-align:center;border:none;border-left:1px solid var(--border);border-right:1px solid var(--border);background:var(--bg);color:var(--text);font-size:13px;font-variant-numeric:tabular-nums;height:28px;padding:0;font-family:var(--mono)}
+.po-lines-table .col-qty-input:focus{outline:none;background:var(--surface)}
+.po-lines-table .col-cost{width:130px}
+.po-lines-table .col-cost input{width:100%;text-align:right;padding:6px 8px;font-size:13px;font-variant-numeric:tabular-nums;background:var(--bg);border:1px solid var(--border);border-radius:4px;color:var(--text);font-family:var(--mono)}
+.po-lines-table .col-cost input:focus{outline:none;border-color:var(--accent)}
+.po-lines-table .col-total{text-align:right;font-weight:500;font-variant-numeric:tabular-nums;font-family:var(--mono);white-space:nowrap}
+.po-lines-table .col-remove{width:36px;text-align:center}
+.po-lines-table .col-remove button{width:28px;height:28px;background:none;border:1px solid transparent;border-radius:4px;cursor:pointer;color:var(--text-faint);font-size:15px;display:inline-flex;align-items:center;justify-content:center;transition:all .15s}
+.po-lines-table .col-remove button:hover{color:var(--stock-out);border-color:var(--stock-out);background:rgba(220,38,38,.06)}
+.po-lines__empty{padding:40px 20px;text-align:center;color:var(--text-faint);font-size:13px}
+.po-lines__empty svg{width:40px;height:40px;margin-bottom:10px;color:var(--border)}
+.po-footer{flex-shrink:0;border-top:1px solid var(--border);background:var(--surface);padding:16px 24px;display:flex;align-items:center;justify-content:space-between}
+.po-footer__totals{display:flex;gap:32px;align-items:baseline}
+.po-footer__stat{font-size:12px;color:var(--text-muted)}
+.po-footer__stat strong{font-size:18px;color:var(--text);font-variant-numeric:tabular-nums;font-family:var(--mono);margin-left:6px}
+.po-footer__stat--grand strong{font-size:24px}
+.po-footer__actions{display:flex;gap:8px}
+@media(max-width:900px){
+  .po-layout{grid-template-columns:1fr;gap:16px}
+  .po-sidebar{position:static}
+  .po-header{padding:10px 14px}
+  .po-body{padding:14px}
+  .po-footer{padding:12px 14px;flex-wrap:wrap;gap:10px}
+  .po-footer__totals{gap:16px;flex-wrap:wrap}
+  .po-picker__row{grid-template-columns:28px 28px 1fr auto;gap:6px;padding:8px 12px}
+  .po-picker__meta:nth-child(n+5){display:none}
+}
+@media(max-width:500px){
+  .po-header__title{font-size:16px}
+  .po-footer__stat strong{font-size:14px}
+  .po-footer__stat--grand strong{font-size:18px}
+  .po-picker__row{grid-template-columns:24px 1fr auto}
+  .po-picker__swatch{display:none}
 }
 
 /* ─── Activity tip badges ─────────────────────── */
@@ -2422,6 +2523,134 @@ tr.row--re-onay td:first-child{box-shadow:inset 3px 0 0 #C77A17}
   </div>
 </div>
 
+<!-- ── Purchase Order Full Page (İrsaliye) ─────── -->
+<div class="po-page" id="po-page" hidden>
+  <div class="po-header">
+    <button class="po-header__back" id="po-back" title="Geri">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5"/><path d="M12 19l-7-7 7-7"/></svg>
+    </button>
+    <div class="po-header__title" id="po-title">
+      Yeni Alim Siparisi
+      <small id="po-subtitle">Irsaliye olustur</small>
+    </div>
+    <div class="po-header__actions">
+      <button class="btn" id="po-btn-cancel">Vazgec</button>
+      <button class="btn btn--primary" id="po-btn-save">Kaydet (Bekliyor)</button>
+      <button class="btn btn--primary" id="po-btn-receive" hidden>Teslim Aldim</button>
+    </div>
+  </div>
+
+  <div class="po-body">
+    <div class="po-layout">
+      <!-- Sol: Siparis bilgisi -->
+      <div class="po-sidebar">
+        <div class="po-card">
+          <div class="po-card__title">Siparis Bilgisi</div>
+          <form id="po-form" autocomplete="off">
+            <div class="po-field">
+              <label>Tedarikci<span class="req">*</span></label>
+              <select id="po-tedarikci" required><option value="">Tedarikci sec...</option></select>
+            </div>
+            <div class="po-field--inline">
+              <div class="po-field">
+                <label>Siparis Tarihi</label>
+                <input type="date" id="po-tarih">
+              </div>
+              <div class="po-field">
+                <label>Beklenen Teslim</label>
+                <input type="date" id="po-beklenen">
+              </div>
+            </div>
+            <div class="po-field">
+              <label>Fatura / PO No</label>
+              <input type="text" id="po-fatura-no" placeholder="Orn: INV-2026-001">
+            </div>
+            <div class="po-field">
+              <label>Notlar</label>
+              <textarea id="po-notlar" rows="2" placeholder="Ek bilgi, kargo detayi..."></textarea>
+            </div>
+          </form>
+        </div>
+
+        <div class="po-summary" id="po-summary-card">
+          <div class="po-card__title">Siparis Ozeti</div>
+          <div class="po-summary__row">
+            <span>Toplam Kalem</span>
+            <span class="po-summary__val" id="po-sum-lines">0</span>
+          </div>
+          <div class="po-summary__row">
+            <span>Toplam Adet</span>
+            <span class="po-summary__val" id="po-sum-qty">0</span>
+          </div>
+          <div class="po-summary__row">
+            <span>Ara Toplam</span>
+            <span class="po-summary__val" id="po-sum-subtotal">-</span>
+          </div>
+          <div class="po-summary__row po-summary__row--total">
+            <span>Genel Toplam</span>
+            <span class="po-summary__val" id="po-sum-total">-</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Sag: Urun secimi + Kalem tablosu -->
+      <div class="po-main">
+        <!-- Urun secme paneli -->
+        <div class="po-picker">
+          <div class="po-picker__head">
+            <input type="text" class="po-picker__search" id="po-picker-search" placeholder="Marka, model, renk, SKU ile ara...">
+            <span class="po-picker__count" id="po-picker-count">0 secili</span>
+            <button class="po-picker__add-btn" id="po-picker-add" disabled>Secilenleri Ekle</button>
+          </div>
+          <div class="po-picker__body" id="po-picker-body">
+            <div class="po-picker__empty">Urunler yukleniyor...</div>
+          </div>
+        </div>
+
+        <!-- Kalem tablosu (irsaliye satirlari) -->
+        <div class="po-lines">
+          <div class="po-lines__head">
+            <span class="po-lines__title">Irsaliye Kalemleri</span>
+            <span class="po-lines__badge" id="po-lines-count">0</span>
+          </div>
+          <div id="po-lines-body">
+            <div class="po-lines__empty" id="po-lines-empty">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2"/><rect x="9" y="3" width="6" height="4" rx="1"/><path d="M9 14l2 2 4-4"/></svg>
+              Yukaridaki listeden urun secip "Secilenleri Ekle" butonuna basin
+            </div>
+            <table class="po-lines-table" id="po-lines-table" hidden>
+              <thead>
+                <tr>
+                  <th style="width:32px">#</th>
+                  <th>Urun</th>
+                  <th>Varyasyon</th>
+                  <th>Adet</th>
+                  <th>Birim Maliyet</th>
+                  <th>Satir Toplam</th>
+                  <th style="width:36px"></th>
+                </tr>
+              </thead>
+              <tbody id="po-lines-tbody"></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="po-footer">
+    <div class="po-footer__totals">
+      <div class="po-footer__stat"><span>Kalem:</span><strong id="po-foot-lines">0</strong></div>
+      <div class="po-footer__stat"><span>Adet:</span><strong id="po-foot-qty">0</strong></div>
+      <div class="po-footer__stat po-footer__stat--grand"><span>Toplam:</span><strong id="po-foot-total">-</strong></div>
+    </div>
+    <div class="po-footer__actions">
+      <button class="btn" id="po-foot-cancel">Vazgec</button>
+      <button class="btn btn--primary" id="po-foot-save">Kaydet (Bekliyor)</button>
+    </div>
+  </div>
+</div>
+
 <div class="toast" id="toast"></div>
 
 <!--
@@ -2432,7 +2661,7 @@ tr.row--re-onay td:first-child{box-shadow:inset 3px 0 0 #C77A17}
 <!-- BOTL_INLINE_DATA_START — catalog_sync_data tarafından yenilenir, elle düzenleme -->
 <script>window.__BOTL_DATA__ = {
   "schema_version": 5,
-  "exported_at": "2026-05-13T08:05:19.695904+00:00",
+  "exported_at": "2026-05-13T08:01:48.817617+00:00",
   "counter": 46,
   "products": [
     {
@@ -8088,9 +8317,9 @@ function renderPurchasesTable(){
 
   tbody.querySelectorAll('tr[data-purchase-id]').forEach(tr => {
     const id = tr.getAttribute('data-purchase-id');
-    tr.addEventListener('click', () => openSupplierOrderModal(id));
+    tr.addEventListener('click', () => openPurchaseOrderPage(id));
     tr.querySelectorAll('[data-purchase-action]').forEach(btn => {
-      btn.addEventListener('click', (e) => { e.stopPropagation(); openSupplierOrderModal(id); });
+      btn.addEventListener('click', (e) => { e.stopPropagation(); openPurchaseOrderPage(id); });
     });
   });
 }
@@ -8447,6 +8676,344 @@ function addSoLine(){
   $('#so-product-cost').value = '';
   renderSoItems();
 }
+// ─── Purchase Order Full Page (İrsaliye) ────────────────
+let poPageItems = [];       // [{variation_id, sku, marka, isim, renk, boyut, donanim, qty, birim_fiyat_eur}]
+let poPickerChecked = new Set();  // variation_id'ler
+let poEditingId = null;     // düzenleme modundaysa alim_id
+
+function openPurchaseOrderPage(id){
+  poEditingId = id || null;
+  poPageItems = [];
+  poPickerChecked = new Set();
+
+  const page = $('#po-page');
+  const title = $('#po-title');
+  const subtitle = $('#po-subtitle');
+  const btnSave = $('#po-btn-save');
+  const btnReceive = $('#po-btn-receive');
+
+  // Tedarikçi select doldur
+  const sel = $('#po-tedarikci');
+  sel.innerHTML = '<option value="">Tedarikci sec...</option>' + state.suppliers.map(s =>
+    `<option value="${supId(s)}">${s.isim} · ${supId(s)}</option>`
+  ).join('');
+
+  // Form resetle
+  $('#po-tarih').value = new Date().toISOString().split('T')[0];
+  $('#po-beklenen').value = '';
+  $('#po-fatura-no').value = '';
+  $('#po-notlar').value = '';
+
+  if(id){
+    const o = state.supplierOrders.find(x => x.alim_id === id);
+    if(!o) return;
+    title.innerHTML = `Alim Siparisi <small>${o.alim_id}</small>`;
+    subtitle.textContent = `Durum: ${DURUM_LABELS[o.durum] || o.durum}`;
+    sel.value = o.tedarikci_id || '';
+    $('#po-tarih').value = (o.siparis_tarihi || '').split('T')[0];
+    $('#po-beklenen').value = (o.beklenen_teslim || '').split('T')[0];
+    $('#po-fatura-no').value = o.fatura_no || '';
+    $('#po-notlar').value = o.notlar || '';
+    poPageItems = (o.items || []).map(i => ({...i}));
+
+    const readOnly = o.durum !== 'BEKLIYOR';
+    btnSave.hidden = readOnly;
+    btnReceive.hidden = o.durum !== 'BEKLIYOR';
+    $('#po-foot-save').hidden = readOnly;
+    // Readonly durumda form'u disable et
+    ['po-tedarikci','po-tarih','po-beklenen','po-fatura-no','po-notlar'].forEach(fid => {
+      const el = $('#'+fid); if(el) el.disabled = readOnly;
+    });
+  } else {
+    title.innerHTML = 'Yeni Alim Siparisi <small>Irsaliye olustur</small>';
+    subtitle.textContent = '';
+    btnSave.hidden = false;
+    btnReceive.hidden = true;
+    $('#po-foot-save').hidden = false;
+    ['po-tedarikci','po-tarih','po-beklenen','po-fatura-no','po-notlar'].forEach(fid => {
+      const el = $('#'+fid); if(el) el.disabled = false;
+    });
+  }
+
+  renderPoPickerList();
+  renderPoLines();
+  page.hidden = false;
+  document.body.style.overflow = 'hidden';
+}
+
+function closePurchaseOrderPage(){
+  $('#po-page').hidden = true;
+  poEditingId = null;
+  poPageItems = [];
+  poPickerChecked = new Set();
+  document.body.style.overflow = '';
+}
+
+function renderPoPickerList(){
+  const body = $('#po-picker-body');
+  const search = ($('#po-picker-search')?.value || '').toLowerCase().trim();
+  const prods = (state.products || [])
+    .filter(p => p.durum !== 'ARSIVLENDI')
+    .sort((a,b) => (a.marka+a.isim_bilinen).localeCompare(b.marka+b.isim_bilinen,'tr'));
+
+  let filtered = prods;
+  if(search){
+    filtered = prods.filter(p => {
+      const hay = `${p.variation_id} ${p.marka} ${p.isim_bilinen||''} ${p.isim_resmi||''} ${p.ana_renk||''} ${p.renk||''} ${p.boyut||''} ${p.sku||''}`.toLowerCase();
+      return hay.includes(search);
+    });
+  }
+
+  if(filtered.length === 0){
+    body.innerHTML = '<div class="po-picker__empty">Arama sonucu bulunamadi.</div>';
+    updatePoPickerCount();
+    return;
+  }
+
+  // Zaten eklenmis urunleri isaretleyelim
+  const existingIds = new Set(poPageItems.map(i => i.variation_id));
+
+  body.innerHTML = filtered.map(p => {
+    const name = (p.isim_bilinen || p.isim_resmi || p.marka || '').split(',')[0].trim();
+    const hex = p.ana_renk_hex || p.renk_hex || '#ccc';
+    const checked = poPickerChecked.has(p.variation_id);
+    const already = existingIds.has(p.variation_id);
+    return `<div class="po-picker__row${checked ? ' selected' : ''}${already ? ' already' : ''}" data-vid="${p.variation_id}">
+      <input type="checkbox" ${checked ? 'checked' : ''} ${already ? 'disabled title="Zaten eklendi"' : ''} data-po-check="${p.variation_id}">
+      <div class="po-picker__swatch" style="background:${hex}"></div>
+      <div class="po-picker__name">${p.marka} · ${name}<small>${p.variation_id}</small></div>
+      <div class="po-picker__meta">${p.ana_renk || p.renk || ''}</div>
+      <div class="po-picker__meta">${p.boyut || ''}</div>
+      <div class="po-picker__meta">${p.donanim || ''}</div>
+      <div class="po-picker__meta">stok ${p.stok ?? 0}</div>
+    </div>`;
+  }).join('');
+
+  // Checkbox event binding
+  body.querySelectorAll('[data-po-check]').forEach(cb => {
+    if(cb.disabled) return;
+    cb.addEventListener('change', () => {
+      const vid = cb.dataset.poCheck;
+      if(cb.checked) poPickerChecked.add(vid);
+      else poPickerChecked.delete(vid);
+      cb.closest('.po-picker__row').classList.toggle('selected', cb.checked);
+      updatePoPickerCount();
+    });
+  });
+  // Row click = toggle checkbox
+  body.querySelectorAll('.po-picker__row').forEach(row => {
+    row.addEventListener('click', (e) => {
+      if(e.target.tagName === 'INPUT') return;
+      const cb = row.querySelector('input[type=checkbox]');
+      if(cb && !cb.disabled){ cb.checked = !cb.checked; cb.dispatchEvent(new Event('change')); }
+    });
+  });
+
+  updatePoPickerCount();
+}
+
+function updatePoPickerCount(){
+  const cnt = poPickerChecked.size;
+  const el = $('#po-picker-count');
+  if(el) el.textContent = cnt > 0 ? `${cnt} secili` : '0 secili';
+  const btn = $('#po-picker-add');
+  if(btn) btn.disabled = cnt === 0;
+}
+
+function addPoPickerSelection(){
+  if(poPickerChecked.size === 0) return;
+  const existingIds = new Set(poPageItems.map(i => i.variation_id));
+  let added = 0;
+  poPickerChecked.forEach(vid => {
+    if(existingIds.has(vid)) return;
+    const p = state.products.find(x => x.variation_id === vid);
+    if(!p) return;
+    const name = (p.isim_bilinen || p.isim_resmi || '').split(',')[0].trim() || p.marka;
+    poPageItems.push({
+      variation_id: vid,
+      sku: p.sku,
+      marka: p.marka,
+      isim_snapshot: name,
+      renk: p.renk,
+      ana_renk: p.ana_renk || '',
+      ana_renk_hex: p.ana_renk_hex || p.renk_hex || '#ccc',
+      boyut: p.boyut,
+      donanim: p.donanim,
+      qty: 1,
+      birim_fiyat_eur: p.maliyet_eur || 0,
+    });
+    added++;
+  });
+  poPickerChecked = new Set();
+  if(added > 0){
+    toast(`${added} urun eklendi`);
+  }
+  renderPoPickerList();
+  renderPoLines();
+}
+
+function renderPoLines(){
+  const tbody = $('#po-lines-tbody');
+  const table = $('#po-lines-table');
+  const empty = $('#po-lines-empty');
+  const badge = $('#po-lines-count');
+
+  if(poPageItems.length === 0){
+    table.hidden = true;
+    empty.hidden = false;
+    badge.textContent = '0';
+    updatePoSummary();
+    return;
+  }
+
+  table.hidden = false;
+  empty.hidden = true;
+  badge.textContent = poPageItems.length;
+
+  const isReadOnly = poEditingId && state.supplierOrders.find(o => o.alim_id === poEditingId)?.durum !== 'BEKLIYOR';
+
+  tbody.innerHTML = poPageItems.map((it, idx) => `
+    <tr data-po-line="${idx}">
+      <td style="color:var(--text-faint);font-size:11px;text-align:center">${idx + 1}</td>
+      <td class="col-name">
+        <strong>${it.marka} ${it.isim_snapshot}</strong>
+        <span>${it.sku}</span>
+      </td>
+      <td>
+        <div style="display:flex;align-items:center;gap:6px">
+          <div style="width:14px;height:14px;border-radius:50%;background:${it.ana_renk_hex||'#ccc'};border:1px solid var(--border);flex-shrink:0"></div>
+          <span style="font-size:12px">${it.ana_renk || it.renk} · ${it.boyut || ''} · ${it.donanim || ''}</span>
+        </div>
+      </td>
+      <td class="col-qty">
+        <div class="col-qty-wrap">
+          <button type="button" class="col-qty-btn" data-po-qty-dec="${idx}" ${isReadOnly?'disabled':''}>-</button>
+          <input type="number" class="col-qty-input" value="${it.qty}" min="1" data-po-qty-input="${idx}" ${isReadOnly?'disabled':''}>
+          <button type="button" class="col-qty-btn" data-po-qty-inc="${idx}" ${isReadOnly?'disabled':''}>+</button>
+        </div>
+      </td>
+      <td class="col-cost">
+        <input type="number" min="0" step="0.01" value="${it.birim_fiyat_eur || ''}" placeholder="0.00" data-po-cost="${idx}" ${isReadOnly?'disabled':''}>
+      </td>
+      <td class="col-total">${fmt(it.birim_fiyat_eur * it.qty)}</td>
+      <td class="col-remove">
+        ${isReadOnly ? '' : `<button type="button" data-po-remove="${idx}" title="Kalemi sil">&times;</button>`}
+      </td>
+    </tr>
+  `).join('');
+
+  // Qty stepper bindings
+  tbody.querySelectorAll('[data-po-qty-dec]').forEach(b => b.addEventListener('click', () => {
+    const i = Number(b.dataset.poQtyDec);
+    poPageItems[i].qty = Math.max(1, poPageItems[i].qty - 1);
+    renderPoLines();
+  }));
+  tbody.querySelectorAll('[data-po-qty-inc]').forEach(b => b.addEventListener('click', () => {
+    const i = Number(b.dataset.poQtyInc);
+    poPageItems[i].qty++;
+    renderPoLines();
+  }));
+  tbody.querySelectorAll('[data-po-qty-input]').forEach(inp => inp.addEventListener('change', () => {
+    const i = Number(inp.dataset.poQtyInput);
+    poPageItems[i].qty = Math.max(1, Number(inp.value) || 1);
+    renderPoLines();
+  }));
+  // Cost bindings
+  tbody.querySelectorAll('[data-po-cost]').forEach(inp => inp.addEventListener('input', () => {
+    const i = Number(inp.dataset.poCost);
+    poPageItems[i].birim_fiyat_eur = Math.max(0, Number(inp.value) || 0);
+    updatePoSummary();
+    // Satir toplami guncelle
+    const tr = inp.closest('tr');
+    const totalCell = tr.querySelector('.col-total');
+    if(totalCell) totalCell.textContent = fmt(poPageItems[i].birim_fiyat_eur * poPageItems[i].qty);
+  }));
+  // Remove bindings
+  tbody.querySelectorAll('[data-po-remove]').forEach(b => b.addEventListener('click', () => {
+    poPageItems.splice(Number(b.dataset.poRemove), 1);
+    renderPoPickerList();
+    renderPoLines();
+  }));
+
+  updatePoSummary();
+}
+
+function updatePoSummary(){
+  const lines = poPageItems.length;
+  const qty = poPageItems.reduce((s, i) => s + i.qty, 0);
+  const total = poPageItems.reduce((s, i) => s + (i.birim_fiyat_eur * i.qty), 0);
+
+  const setText = (id, val) => { const el = $(id); if(el) el.textContent = val; };
+  setText('#po-sum-lines', lines);
+  setText('#po-sum-qty', qty);
+  setText('#po-sum-subtotal', fmt(total));
+  setText('#po-sum-total', fmt(total));
+  setText('#po-foot-lines', lines);
+  setText('#po-foot-qty', qty);
+  setText('#po-foot-total', fmt(total));
+  setText('#po-lines-count', lines);
+}
+
+function savePurchaseOrderPage(){
+  const tedarikciId = $('#po-tedarikci').value;
+  if(!tedarikciId){ toast('Tedarikci sec', true); return; }
+  if(poPageItems.length === 0){ toast('En az bir kalem ekle', true); return; }
+
+  // Maliyet 0 uyarisi
+  const zeroCost = poPageItems.filter(i => !i.birim_fiyat_eur || i.birim_fiyat_eur <= 0);
+  if(zeroCost.length > 0){
+    if(!confirm(`${zeroCost.length} kalemde maliyet 0 — yine de kaydet?`)) return;
+  }
+
+  const now = new Date().toISOString();
+  const total = poPageItems.reduce((s, i) => s + (i.birim_fiyat_eur * i.qty), 0);
+  const items = poPageItems.map(i => ({
+    ...i,
+    satir_toplam: i.birim_fiyat_eur * i.qty,
+  }));
+
+  if(poEditingId){
+    const o = state.supplierOrders.find(x => x.alim_id === poEditingId);
+    if(!o) return;
+    if(o.durum !== 'BEKLIYOR'){ toast('Sadece BEKLIYOR alimlar duzenlenebilir', true); return; }
+    o.tedarikci_id = tedarikciId;
+    o.siparis_tarihi = $('#po-tarih').value;
+    o.beklenen_teslim = $('#po-beklenen').value;
+    o.fatura_no = ($('#po-fatura-no').value || '').trim();
+    o.notlar = ($('#po-notlar').value || '').trim();
+    o.items = items;
+    o.toplam_eur = total;
+    o.guncelleme = now;
+    saveSupplierOrdersStore();
+    logActivity('SUPPLIER_ORDER_UPDATE', 'supplier_order', o.alim_id, `${o.alim_id} guncellendi (${total.toLocaleString('tr-TR')} EUR)`, { tedarikci_id: tedarikciId, items: o.items });
+    closePurchaseOrderPage();
+    renderAll();
+    toast(`${o.alim_id} guncellendi`);
+  } else {
+    const order = {
+      alim_id: makeSupplierOrderId(),
+      tedarikci_id: tedarikciId,
+      durum: 'BEKLIYOR',
+      items: items,
+      toplam_eur: total,
+      para_birimi: 'EUR',
+      siparis_tarihi: $('#po-tarih').value,
+      beklenen_teslim: $('#po-beklenen').value,
+      fatura_no: ($('#po-fatura-no').value || '').trim(),
+      notlar: ($('#po-notlar').value || '').trim(),
+      olusturma: now,
+      guncelleme: now,
+    };
+    state.supplierOrders.unshift(order);
+    saveSupplierOrdersStore();
+    const sup = state.suppliers.find(s => supId(s) === tedarikciId);
+    logActivity('SUPPLIER_ORDER_CREATE', 'supplier_order', order.alim_id, `${supName(sup)||tedarikciId}: ${items.length} kalem · ${fmt(total)}`, { tedarikci_id: tedarikciId, items: order.items, toplam: total });
+    closePurchaseOrderPage();
+    renderAll();
+    toast(`${order.alim_id} olusturuldu — BEKLIYOR durumunda`);
+  }
+}
+
 function closeSupplierOrderModal(){ $('#supplier-order-modal').hidden=true; state.editingSupplierOrder=null; soModalItems=[]; document.body.style.overflow=''; }
 function saveSupplierOrder(){
   const form = $('#so-form');
@@ -8610,12 +9177,10 @@ function filteredActivity(){
 }
 function renderActivityStats(){
   const all = state.activity;
-  const filtered = filteredActivity();
   const now = Date.now();
   const today = all.filter(e => (now - new Date(e.ts).getTime()) < 86400000).length;
   const week = all.filter(e => (now - new Date(e.ts).getTime()) < 7*86400000).length;
-  const hasDateFilter = state.activityFilter.dateFrom || state.activityFilter.dateTo;
-  $('#astat-count').textContent = hasDateFilter ? `${filtered.length}/${all.length}` : all.length;
+  $('#astat-count').textContent = all.length;
   $('#astat-today').textContent = today;
   $('#astat-week').textContent = week;
   $('#ac-all').textContent = all.length;
@@ -8624,73 +9189,36 @@ function renderActivityStats(){
     if(el) el.textContent = all.filter(e => ACTIVITY_TIP_CATEGORY[e.tip] === cat).length;
   });
 }
-function _activityMetaHTML(meta){
-  if(!meta || typeof meta !== 'object') return '<div class="activity-detail__empty">Detay bilgisi yok</div>';
-  const keys = Object.keys(meta);
-  if(keys.length === 0) return '<div class="activity-detail__empty">Detay bilgisi yok</div>';
-  const esc = s => String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
-  let html = '<div class="activity-detail__grid">';
-  keys.forEach(k => {
-    let v = meta[k];
-    if(v === null || v === undefined) v = '—';
-    else if(typeof v === 'object') v = JSON.stringify(v, null, 2);
-    else v = String(v);
-    html += `<span class="activity-detail__key">${esc(k)}</span><span class="activity-detail__val">${esc(v)}</span>`;
-  });
-  html += '</div>';
-  return html;
-}
 function renderActivityTable(){
   const arr = filteredActivity();
   const tbody = $('#activity-tbody'), empty = $('#activity-empty');
   if(arr.length === 0){ tbody.innerHTML = ''; empty.hidden = false; return; }
   empty.hidden = true;
+  // Performans: en çok 500 satır göster
   const cap = 500;
   const sliced = arr.slice(0, cap);
-  tbody.innerHTML = sliced.map((e, i) => {
+  tbody.innerHTML = sliced.map(e => {
     const cat = ACTIVITY_TIP_CATEGORY[e.tip] || 'other';
+    const badgeClass = {
+      product:'order-status-badge--BEKLIYOR',
+      order:'order-status-badge--ONAYLANDI',
+      customer:'order-status-badge--IPTAL_EDILDI',
+      supplier:'order-status-badge--REDDEDILDI',
+      stock:'',
+    }[cat] || '';
     const tipLabel = ACTIVITY_TIP_LABEL[e.tip] || e.tip;
     return `
-      <tr class="activity-row" data-act-idx="${i}">
+      <tr>
         <td style="font-family:'Menlo','Monaco',monospace;font-size:10px;color:var(--text-muted);white-space:nowrap">${fmtDateTime(e.ts, true)}</td>
         <td><span class="activity-tip-badge activity-tip-badge--${cat}">${tipLabel}</span></td>
         <td style="font-family:'Menlo','Monaco',monospace;font-size:10px;color:var(--text-muted)">${e.entity_id}</td>
         <td style="font-size:12px">${e.detay || ''}</td>
-      </tr>
-      <tr class="activity-detail-row" data-act-detail="${i}" hidden>
-        <td colspan="4">
-          <div class="activity-detail">${_activityMetaHTML(e.meta)}</div>
-        </td>
       </tr>
     `;
   }).join('');
   if(arr.length > cap){
     tbody.innerHTML += `<tr><td colspan="4" style="text-align:center;padding:14px;color:var(--text-muted);font-size:11px">+${arr.length - cap} eski kayıt daha (görünmüyor) — filtreyi daralt</td></tr>`;
   }
-  // Accordion click delegation
-  tbody.querySelectorAll('.activity-row').forEach(row => {
-    row.addEventListener('click', () => {
-      const idx = row.dataset.actIdx;
-      const detailRow = tbody.querySelector(`.activity-detail-row[data-act-detail="${idx}"]`);
-      if(!detailRow) return;
-      const isOpen = !detailRow.hidden;
-      // Close all others
-      tbody.querySelectorAll('.activity-row.expanded').forEach(r => r.classList.remove('expanded'));
-      tbody.querySelectorAll('.activity-detail-row').forEach(r => {
-        r.hidden = true;
-        const d = r.querySelector('.activity-detail');
-        if(d) d.classList.remove('open');
-      });
-      if(!isOpen){
-        row.classList.add('expanded');
-        detailRow.hidden = false;
-        requestAnimationFrame(() => {
-          const d = detailRow.querySelector('.activity-detail');
-          if(d) d.classList.add('open');
-        });
-      }
-    });
-  });
 }
 
 // ─── Render all ─────────────────────────────────────
@@ -8987,6 +9515,7 @@ async function init(){
       if(state.view === 'orders') openOrderModal(null);
       else if(state.view === 'customers') openCustomerModal(null);
       else if(state.view === 'suppliers') openSupplierModal(null);
+      else if(state.view === 'purchases') openPurchaseOrderPage(null);
       else openModal(null);
     });
   });
@@ -9034,6 +9563,7 @@ async function init(){
         if(state.view === 'orders') openOrderModal(null);
         else if(state.view === 'customers') openCustomerModal(null);
         else if(state.view === 'suppliers') openSupplierModal(null);
+        else if(state.view === 'purchases') openPurchaseOrderPage(null);
         else openModal(null);
       }
     });
@@ -9201,7 +9731,12 @@ async function init(){
     bindEl('#btn-empty-new-supplier', 'click', () => openSupplierModal(null));
     bindEl('#supplier-modal', 'click', e => { if(e.target === document.querySelector('#supplier-modal')) closeSupplierModal(); });
     bindEl('#btn-new-supplier-order', 'click', () => {
-      if(state.editingSupplier) openSupplierOrderModal(null, state.editingSupplier);
+      if(state.editingSupplier){
+        closeSupplierModal();
+        openPurchaseOrderPage(null);
+        // Tedarikçiyi otomatik seç
+        setTimeout(() => { const s = $('#po-tedarikci'); if(s) s.value = state.editingSupplier; }, 50);
+      }
     });
   });
 
@@ -9226,20 +9761,6 @@ async function init(){
       renderActivityTable();
     });
   });
-  safeStep('activity-date-filter', () => {
-    const dfrom = $('#activity-date-from');
-    const dto = $('#activity-date-to');
-    const dclear = $('#activity-date-clear');
-    if(dfrom) dfrom.addEventListener('change', () => { state.activityFilter.dateFrom = dfrom.value; renderActivityTable(); });
-    if(dto) dto.addEventListener('change', () => { state.activityFilter.dateTo = dto.value; renderActivityTable(); });
-    if(dclear) dclear.addEventListener('click', () => {
-      state.activityFilter.dateFrom = '';
-      state.activityFilter.dateTo = '';
-      if(dfrom) dfrom.value = '';
-      if(dto) dto.value = '';
-      renderActivityTable();
-    });
-  });
 
   // ─── Purchases (Alımlar) view ─────────────────
   safeStep('purchases-chips', () => {
@@ -9253,11 +9774,39 @@ async function init(){
   });
   safeStep('btn-new-purchase-quick', () => {
     const b = $('#btn-new-purchase-quick');
-    if(b) b.addEventListener('click', () => openSupplierOrderModal(null));
+    if(b) b.addEventListener('click', () => openPurchaseOrderPage(null));
   });
   safeStep('btn-empty-new-purchase', () => {
     const b = $('#btn-empty-new-purchase');
-    if(b) b.addEventListener('click', () => openSupplierOrderModal(null));
+    if(b) b.addEventListener('click', () => openPurchaseOrderPage(null));
+  });
+
+  // ─── Purchase Order Page bindings ─────────────
+  safeStep('po-page-bindings', () => {
+    bindEl('#po-back', 'click', closePurchaseOrderPage);
+    bindEl('#po-btn-cancel', 'click', closePurchaseOrderPage);
+    bindEl('#po-btn-save', 'click', savePurchaseOrderPage);
+    bindEl('#po-foot-cancel', 'click', closePurchaseOrderPage);
+    bindEl('#po-foot-save', 'click', savePurchaseOrderPage);
+    bindEl('#po-picker-add', 'click', addPoPickerSelection);
+    bindEl('#po-btn-receive', 'click', () => {
+      if(poEditingId){ receiveSupplierOrder(poEditingId); closePurchaseOrderPage(); }
+    });
+    const poSearch = $('#po-picker-search');
+    if(poSearch){
+      let poSearchTimer;
+      poSearch.addEventListener('input', () => {
+        clearTimeout(poSearchTimer);
+        poSearchTimer = setTimeout(renderPoPickerList, 150);
+      });
+    }
+    // Escape key
+    document.addEventListener('keydown', (e) => {
+      if(e.key === 'Escape' && !$('#po-page').hidden){
+        closePurchaseOrderPage();
+        e.stopPropagation();
+      }
+    });
   });
 
   // ─── Returns (İadeler) view ───────────────────
