@@ -2,7 +2,7 @@
 // Bu dosya catalog_sync_data tool'u tarafından üretilir; data.json ile birebir aynı içeriği taşır.
 window.__BOTL_DATA__ = {
   "schema_version": 5,
-  "exported_at": "2026-05-13T14:30:58.694590+00:00",
+  "exported_at": "2026-05-13T15:01:28.410865+00:00",
   "counter": 146,
   "products": [
     {
@@ -44,13 +44,7 @@ window.__BOTL_DATA__ = {
       "kondisyon_label": "Sıfır",
       "aciklama": "Akıllı kart kabı, üst metal pop-up mekanizması. Patron 2026-05-13 toplu yüklemesi (foto: IMG_8807, IMG_8808).",
       "tedarikci_id": null,
-      "olusturma": "2026-05-13",
-      "gorseller": {
-        "cover": "assets/products/kart-kabi-1-lutfen-duzenle-karisik-gumus.jpg",
-        "gallery": [
-          "assets/products/kart-kabi-1-lutfen-duzenle-karisik-gumus-g1.jpg"
-        ]
-      }
+      "olusturma": "2026-05-13"
     },
     {
       "variation_id": "FR-00012-KARISIK-STANDART-GUMUS",
@@ -91,13 +85,7 @@ window.__BOTL_DATA__ = {
       "kondisyon_label": "Sıfır",
       "aciklama": "Patron toplu yükleme. Foto: IMG_8809, IMG_8810.",
       "tedarikci_id": null,
-      "olusturma": "2026-05-13",
-      "gorseller": {
-        "cover": "assets/products/kart-kabi-2-lutfen-duzenle-karisik-gumus.jpg",
-        "gallery": [
-          "assets/products/kart-kabi-2-lutfen-duzenle-karisik-gumus-g1.jpg"
-        ]
-      }
+      "olusturma": "2026-05-13"
     },
     {
       "variation_id": "FR-00013-KARISIK-STANDART-GUMUS",
@@ -138,13 +126,7 @@ window.__BOTL_DATA__ = {
       "kondisyon_label": "Sıfır",
       "aciklama": "Patron toplu yükleme. Foto: IMG_8811, IMG_8812.",
       "tedarikci_id": null,
-      "olusturma": "2026-05-13",
-      "gorseller": {
-        "cover": "assets/products/kart-kabi-3-lutfen-duzenle-karisik-gumus.jpg",
-        "gallery": [
-          "assets/products/kart-kabi-3-lutfen-duzenle-karisik-gumus-g1.jpg"
-        ]
-      }
+      "olusturma": "2026-05-13"
     },
     {
       "variation_id": "FR-00014-KARISIK-STANDART-GUMUS",
@@ -185,13 +167,7 @@ window.__BOTL_DATA__ = {
       "kondisyon_label": "Sıfır",
       "aciklama": "Patron toplu yükleme. Foto: IMG_8813, IMG_8814.",
       "tedarikci_id": null,
-      "olusturma": "2026-05-13",
-      "gorseller": {
-        "cover": "assets/products/kart-kabi-4-lutfen-duzenle-karisik-gumus.jpg",
-        "gallery": [
-          "assets/products/kart-kabi-4-lutfen-duzenle-karisik-gumus-g1.jpg"
-        ]
-      }
+      "olusturma": "2026-05-13"
     },
     {
       "variation_id": "FR-00015-KARISIK-STANDART-GUMUS",
@@ -232,13 +208,7 @@ window.__BOTL_DATA__ = {
       "kondisyon_label": "Sıfır",
       "aciklama": "Patron toplu yükleme. Foto: IMG_8815, IMG_8816.",
       "tedarikci_id": null,
-      "olusturma": "2026-05-13",
-      "gorseller": {
-        "cover": "assets/products/kart-kabi-5-lutfen-duzenle-karisik-gumus.jpg",
-        "gallery": [
-          "assets/products/kart-kabi-5-lutfen-duzenle-karisik-gumus-g1.jpg"
-        ]
-      }
+      "olusturma": "2026-05-13"
     },
     {
       "variation_id": "FR-00016-KARISIK-STANDART-GUMUS",
@@ -279,13 +249,7 @@ window.__BOTL_DATA__ = {
       "kondisyon_label": "Sıfır",
       "aciklama": "Patron toplu yükleme. Foto: IMG_8817, IMG_8818.",
       "tedarikci_id": null,
-      "olusturma": "2026-05-13",
-      "gorseller": {
-        "cover": "assets/products/kart-kabi-6-lutfen-duzenle-karisik-gumus.jpg",
-        "gallery": [
-          "assets/products/kart-kabi-6-lutfen-duzenle-karisik-gumus-g1.jpg"
-        ]
-      }
+      "olusturma": "2026-05-13"
     },
     {
       "variation_id": "FR-00017-KARISIK-STANDART-GUMUS",
@@ -326,13 +290,7 @@ window.__BOTL_DATA__ = {
       "kondisyon_label": "Sıfır",
       "aciklama": "Patron toplu yükleme. Foto: IMG_8819, IMG_8820.",
       "tedarikci_id": null,
-      "olusturma": "2026-05-13",
-      "gorseller": {
-        "cover": "assets/products/kart-kabi-7-lutfen-duzenle-karisik-gumus.jpg",
-        "gallery": [
-          "assets/products/kart-kabi-7-lutfen-duzenle-karisik-gumus-g1.jpg"
-        ]
-      }
+      "olusturma": "2026-05-13"
     },
     {
       "variation_id": "FR-00018-KARISIK-STANDART-GUMUS",
@@ -373,13 +331,7 @@ window.__BOTL_DATA__ = {
       "kondisyon_label": "Sıfır",
       "aciklama": "Patron toplu yükleme. Foto: IMG_8821, IMG_8822.",
       "tedarikci_id": null,
-      "olusturma": "2026-05-13",
-      "gorseller": {
-        "cover": "assets/products/kart-kabi-8-lutfen-duzenle-karisik-gumus.jpg",
-        "gallery": [
-          "assets/products/kart-kabi-8-lutfen-duzenle-karisik-gumus-g1.jpg"
-        ]
-      }
+      "olusturma": "2026-05-13"
     },
     {
       "variation_id": "FR-00019-KARISIK-STANDART-GUMUS",
@@ -420,13 +372,7 @@ window.__BOTL_DATA__ = {
       "kondisyon_label": "Sıfır",
       "aciklama": "Patron toplu yükleme. Foto: IMG_8823, IMG_8824.",
       "tedarikci_id": null,
-      "olusturma": "2026-05-13",
-      "gorseller": {
-        "cover": "assets/products/kart-kabi-9-lutfen-duzenle-karisik-gumus.jpg",
-        "gallery": [
-          "assets/products/kart-kabi-9-lutfen-duzenle-karisik-gumus-g1.jpg"
-        ]
-      }
+      "olusturma": "2026-05-13"
     },
     {
       "variation_id": "FR-00020-KARISIK-STANDART-GUMUS",
@@ -467,13 +413,7 @@ window.__BOTL_DATA__ = {
       "kondisyon_label": "Sıfır",
       "aciklama": "Patron toplu yükleme. Foto: IMG_8825, IMG_8826.",
       "tedarikci_id": null,
-      "olusturma": "2026-05-13",
-      "gorseller": {
-        "cover": "assets/products/kart-kabi-10-lutfen-duzenle-karisik-gumus.jpg",
-        "gallery": [
-          "assets/products/kart-kabi-10-lutfen-duzenle-karisik-gumus-g1.jpg"
-        ]
-      }
+      "olusturma": "2026-05-13"
     },
     {
       "variation_id": "FR-00021-KARISIK-STANDART-GUMUS",
@@ -514,13 +454,7 @@ window.__BOTL_DATA__ = {
       "kondisyon_label": "Sıfır",
       "aciklama": "Patron toplu yükleme. Foto: IMG_8827, IMG_8828.",
       "tedarikci_id": null,
-      "olusturma": "2026-05-13",
-      "gorseller": {
-        "cover": "assets/products/kart-kabi-11-lutfen-duzenle-karisik-gumus.jpg",
-        "gallery": [
-          "assets/products/kart-kabi-11-lutfen-duzenle-karisik-gumus-g1.jpg"
-        ]
-      }
+      "olusturma": "2026-05-13"
     },
     {
       "variation_id": "FR-00022-KARISIK-STANDART-GUMUS",
@@ -561,13 +495,7 @@ window.__BOTL_DATA__ = {
       "kondisyon_label": "Sıfır",
       "aciklama": "Patron toplu yükleme. Foto: IMG_8829, IMG_8830.",
       "tedarikci_id": null,
-      "olusturma": "2026-05-13",
-      "gorseller": {
-        "cover": "assets/products/kart-kabi-12-lutfen-duzenle-karisik-gumus.jpg",
-        "gallery": [
-          "assets/products/kart-kabi-12-lutfen-duzenle-karisik-gumus-g1.jpg"
-        ]
-      }
+      "olusturma": "2026-05-13"
     },
     {
       "variation_id": "FR-00023-KARISIK-STANDART-GUMUS",
@@ -608,13 +536,7 @@ window.__BOTL_DATA__ = {
       "kondisyon_label": "Sıfır",
       "aciklama": "Patron toplu yükleme. Foto: IMG_8831.heic, IMG_8832.heic.",
       "tedarikci_id": null,
-      "olusturma": "2026-05-13",
-      "gorseller": {
-        "cover": "assets/products/kart-kabi-13-lutfen-duzenle-karisik-gumus.jpg",
-        "gallery": [
-          "assets/products/kart-kabi-13-lutfen-duzenle-karisik-gumus-g1.jpg"
-        ]
-      }
+      "olusturma": "2026-05-13"
     },
     {
       "variation_id": "FR-00024-KARISIK-STANDART-GUMUS",
@@ -655,13 +577,7 @@ window.__BOTL_DATA__ = {
       "kondisyon_label": "Sıfır",
       "aciklama": "Patron toplu yükleme. Foto: IMG_8833.heic, IMG_8834.heic.",
       "tedarikci_id": null,
-      "olusturma": "2026-05-13",
-      "gorseller": {
-        "cover": "assets/products/kart-kabi-14-lutfen-duzenle-karisik-gumus.jpg",
-        "gallery": [
-          "assets/products/kart-kabi-14-lutfen-duzenle-karisik-gumus-g1.jpg"
-        ]
-      }
+      "olusturma": "2026-05-13"
     },
     {
       "variation_id": "FR-00025-KARISIK-STANDART-GUMUS",
@@ -702,13 +618,7 @@ window.__BOTL_DATA__ = {
       "kondisyon_label": "Sıfır",
       "aciklama": "Patron toplu yükleme. Foto: IMG_8835.heic, IMG_8836.heic.",
       "tedarikci_id": null,
-      "olusturma": "2026-05-13",
-      "gorseller": {
-        "cover": "assets/products/kart-kabi-15-lutfen-duzenle-karisik-gumus.jpg",
-        "gallery": [
-          "assets/products/kart-kabi-15-lutfen-duzenle-karisik-gumus-g1.jpg"
-        ]
-      }
+      "olusturma": "2026-05-13"
     },
     {
       "variation_id": "FR-00026-KARISIK-STANDART-GUMUS",
@@ -749,13 +659,7 @@ window.__BOTL_DATA__ = {
       "kondisyon_label": "Sıfır",
       "aciklama": "Patron toplu yükleme. Foto: IMG_8837.heic, IMG_8838.heic.",
       "tedarikci_id": null,
-      "olusturma": "2026-05-13",
-      "gorseller": {
-        "cover": "assets/products/kart-kabi-16-lutfen-duzenle-karisik-gumus.jpg",
-        "gallery": [
-          "assets/products/kart-kabi-16-lutfen-duzenle-karisik-gumus-g1.jpg"
-        ]
-      }
+      "olusturma": "2026-05-13"
     },
     {
       "variation_id": "FR-00027-KARISIK-STANDART-GUMUS",
@@ -796,13 +700,7 @@ window.__BOTL_DATA__ = {
       "kondisyon_label": "Sıfır",
       "aciklama": "Patron toplu yükleme. Foto: IMG_8839.heic, IMG_8840.heic.",
       "tedarikci_id": null,
-      "olusturma": "2026-05-13",
-      "gorseller": {
-        "cover": "assets/products/kart-kabi-17-lutfen-duzenle-karisik-gumus.jpg",
-        "gallery": [
-          "assets/products/kart-kabi-17-lutfen-duzenle-karisik-gumus-g1.jpg"
-        ]
-      }
+      "olusturma": "2026-05-13"
     },
     {
       "variation_id": "FR-00028-KARISIK-STANDART-GUMUS",
@@ -843,13 +741,7 @@ window.__BOTL_DATA__ = {
       "kondisyon_label": "Sıfır",
       "aciklama": "Patron toplu yükleme. Foto: IMG_8841.heic, IMG_8842.heic.",
       "tedarikci_id": null,
-      "olusturma": "2026-05-13",
-      "gorseller": {
-        "cover": "assets/products/kart-kabi-18-lutfen-duzenle-karisik-gumus.jpg",
-        "gallery": [
-          "assets/products/kart-kabi-18-lutfen-duzenle-karisik-gumus-g1.jpg"
-        ]
-      }
+      "olusturma": "2026-05-13"
     },
     {
       "variation_id": "FR-00029-KARISIK-STANDART-GUMUS",
@@ -890,13 +782,7 @@ window.__BOTL_DATA__ = {
       "kondisyon_label": "Sıfır",
       "aciklama": "Patron toplu yükleme. Foto: IMG_8843.heic, IMG_8844.heic.",
       "tedarikci_id": null,
-      "olusturma": "2026-05-13",
-      "gorseller": {
-        "cover": "assets/products/kart-kabi-19-lutfen-duzenle-karisik-gumus.jpg",
-        "gallery": [
-          "assets/products/kart-kabi-19-lutfen-duzenle-karisik-gumus-g1.jpg"
-        ]
-      }
+      "olusturma": "2026-05-13"
     },
     {
       "variation_id": "FR-00030-KARISIK-STANDART-GUMUS",
@@ -937,13 +823,7 @@ window.__BOTL_DATA__ = {
       "kondisyon_label": "Sıfır",
       "aciklama": "Patron toplu yükleme. Foto: IMG_8845.heic, IMG_8846.heic.",
       "tedarikci_id": null,
-      "olusturma": "2026-05-13",
-      "gorseller": {
-        "cover": "assets/products/kart-kabi-20-lutfen-duzenle-karisik-gumus.jpg",
-        "gallery": [
-          "assets/products/kart-kabi-20-lutfen-duzenle-karisik-gumus-g1.jpg"
-        ]
-      }
+      "olusturma": "2026-05-13"
     },
     {
       "variation_id": "FR-00031-KARISIK-STANDART-GUMUS",
@@ -984,13 +864,7 @@ window.__BOTL_DATA__ = {
       "kondisyon_label": "Sıfır",
       "aciklama": "Patron toplu yükleme. Foto: IMG_8847.heic, IMG_8848.heic.",
       "tedarikci_id": null,
-      "olusturma": "2026-05-13",
-      "gorseller": {
-        "cover": "assets/products/kart-kabi-21-lutfen-duzenle-karisik-gumus.jpg",
-        "gallery": [
-          "assets/products/kart-kabi-21-lutfen-duzenle-karisik-gumus-g1.jpg"
-        ]
-      }
+      "olusturma": "2026-05-13"
     },
     {
       "variation_id": "FR-00032-KARISIK-STANDART-GUMUS",
@@ -1031,13 +905,7 @@ window.__BOTL_DATA__ = {
       "kondisyon_label": "Sıfır",
       "aciklama": "Patron toplu yükleme. Foto: IMG_8849.heic, IMG_8850.heic.",
       "tedarikci_id": null,
-      "olusturma": "2026-05-13",
-      "gorseller": {
-        "cover": "assets/products/kart-kabi-22-lutfen-duzenle-karisik-gumus.jpg",
-        "gallery": [
-          "assets/products/kart-kabi-22-lutfen-duzenle-karisik-gumus-g1.jpg"
-        ]
-      }
+      "olusturma": "2026-05-13"
     },
     {
       "variation_id": "FR-00033-KARISIK-STANDART-GUMUS",
@@ -1078,13 +946,7 @@ window.__BOTL_DATA__ = {
       "kondisyon_label": "Sıfır",
       "aciklama": "Patron toplu yükleme. Foto: IMG_8851.heic, IMG_8852.heic.",
       "tedarikci_id": null,
-      "olusturma": "2026-05-13",
-      "gorseller": {
-        "cover": "assets/products/kart-kabi-23-lutfen-duzenle-karisik-gumus.jpg",
-        "gallery": [
-          "assets/products/kart-kabi-23-lutfen-duzenle-karisik-gumus-g1.jpg"
-        ]
-      }
+      "olusturma": "2026-05-13"
     },
     {
       "variation_id": "FR-00034-KARISIK-STANDART-GUMUS",
@@ -1125,13 +987,7 @@ window.__BOTL_DATA__ = {
       "kondisyon_label": "Sıfır",
       "aciklama": "Patron toplu yükleme. Foto: IMG_8853.heic, IMG_8854.heic.",
       "tedarikci_id": null,
-      "olusturma": "2026-05-13",
-      "gorseller": {
-        "cover": "assets/products/kart-kabi-24-lutfen-duzenle-karisik-gumus.jpg",
-        "gallery": [
-          "assets/products/kart-kabi-24-lutfen-duzenle-karisik-gumus-g1.jpg"
-        ]
-      }
+      "olusturma": "2026-05-13"
     },
     {
       "variation_id": "FR-00035-KARISIK-STANDART-GUMUS",
@@ -1172,13 +1028,7 @@ window.__BOTL_DATA__ = {
       "kondisyon_label": "Sıfır",
       "aciklama": "Patron toplu yükleme. Foto: IMG_8855.heic, IMG_8856.heic.",
       "tedarikci_id": null,
-      "olusturma": "2026-05-13",
-      "gorseller": {
-        "cover": "assets/products/kart-kabi-25-lutfen-duzenle-karisik-gumus.jpg",
-        "gallery": [
-          "assets/products/kart-kabi-25-lutfen-duzenle-karisik-gumus-g1.jpg"
-        ]
-      }
+      "olusturma": "2026-05-13"
     },
     {
       "variation_id": "FR-00036-KARISIK-STANDART-GUMUS",
@@ -1219,13 +1069,7 @@ window.__BOTL_DATA__ = {
       "kondisyon_label": "Sıfır",
       "aciklama": "Patron toplu yükleme. Foto: IMG_8857.heic, IMG_8858.heic.",
       "tedarikci_id": null,
-      "olusturma": "2026-05-13",
-      "gorseller": {
-        "cover": "assets/products/kart-kabi-26-lutfen-duzenle-karisik-gumus.jpg",
-        "gallery": [
-          "assets/products/kart-kabi-26-lutfen-duzenle-karisik-gumus-g1.jpg"
-        ]
-      }
+      "olusturma": "2026-05-13"
     },
     {
       "variation_id": "FR-00037-KARISIK-STANDART-GUMUS",
@@ -1266,13 +1110,7 @@ window.__BOTL_DATA__ = {
       "kondisyon_label": "Sıfır",
       "aciklama": "Patron toplu yükleme. Foto: IMG_8859.heic, IMG_8860.heic.",
       "tedarikci_id": null,
-      "olusturma": "2026-05-13",
-      "gorseller": {
-        "cover": "assets/products/kart-kabi-27-lutfen-duzenle-karisik-gumus.jpg",
-        "gallery": [
-          "assets/products/kart-kabi-27-lutfen-duzenle-karisik-gumus-g1.jpg"
-        ]
-      }
+      "olusturma": "2026-05-13"
     },
     {
       "variation_id": "FR-00038-KARISIK-STANDART-GUMUS",
@@ -1313,13 +1151,7 @@ window.__BOTL_DATA__ = {
       "kondisyon_label": "Sıfır",
       "aciklama": "Patron toplu yükleme. Foto: IMG_8861.heic, IMG_8862.heic.",
       "tedarikci_id": null,
-      "olusturma": "2026-05-13",
-      "gorseller": {
-        "cover": "assets/products/kart-kabi-28-lutfen-duzenle-karisik-gumus.jpg",
-        "gallery": [
-          "assets/products/kart-kabi-28-lutfen-duzenle-karisik-gumus-g1.jpg"
-        ]
-      }
+      "olusturma": "2026-05-13"
     },
     {
       "variation_id": "FR-00039-KARISIK-STANDART-GUMUS",
@@ -1360,13 +1192,7 @@ window.__BOTL_DATA__ = {
       "kondisyon_label": "Sıfır",
       "aciklama": "Patron toplu yükleme. Foto: IMG_8863.heic, IMG_8864.heic.",
       "tedarikci_id": null,
-      "olusturma": "2026-05-13",
-      "gorseller": {
-        "cover": "assets/products/kart-kabi-29-lutfen-duzenle-karisik-gumus.jpg",
-        "gallery": [
-          "assets/products/kart-kabi-29-lutfen-duzenle-karisik-gumus-g1.jpg"
-        ]
-      }
+      "olusturma": "2026-05-13"
     },
     {
       "variation_id": "FR-00040-KARISIK-STANDART-GUMUS",
@@ -1407,13 +1233,7 @@ window.__BOTL_DATA__ = {
       "kondisyon_label": "Sıfır",
       "aciklama": "Patron toplu yükleme. Foto: IMG_8865.heic, IMG_8866.heic.",
       "tedarikci_id": null,
-      "olusturma": "2026-05-13",
-      "gorseller": {
-        "cover": "assets/products/kart-kabi-30-lutfen-duzenle-karisik-gumus.jpg",
-        "gallery": [
-          "assets/products/kart-kabi-30-lutfen-duzenle-karisik-gumus-g1.jpg"
-        ]
-      }
+      "olusturma": "2026-05-13"
     },
     {
       "variation_id": "FR-00041-KARISIK-STANDART-GUMUS",
@@ -1454,13 +1274,7 @@ window.__BOTL_DATA__ = {
       "kondisyon_label": "Sıfır",
       "aciklama": "Patron toplu yükleme. Foto: IMG_8867.heic, IMG_8868.heic.",
       "tedarikci_id": null,
-      "olusturma": "2026-05-13",
-      "gorseller": {
-        "cover": "assets/products/kart-kabi-31-lutfen-duzenle-karisik-gumus.jpg",
-        "gallery": [
-          "assets/products/kart-kabi-31-lutfen-duzenle-karisik-gumus-g1.jpg"
-        ]
-      }
+      "olusturma": "2026-05-13"
     },
     {
       "variation_id": "FR-00042-KARISIK-STANDART-GUMUS",
@@ -1501,13 +1315,7 @@ window.__BOTL_DATA__ = {
       "kondisyon_label": "Sıfır",
       "aciklama": "Patron toplu yükleme. Foto: IMG_8869.heic, IMG_8870.heic.",
       "tedarikci_id": null,
-      "olusturma": "2026-05-13",
-      "gorseller": {
-        "cover": "assets/products/kart-kabi-32-lutfen-duzenle-karisik-gumus.jpg",
-        "gallery": [
-          "assets/products/kart-kabi-32-lutfen-duzenle-karisik-gumus-g1.jpg"
-        ]
-      }
+      "olusturma": "2026-05-13"
     },
     {
       "variation_id": "FR-00043-KARISIK-STANDART-GUMUS",
@@ -1548,13 +1356,7 @@ window.__BOTL_DATA__ = {
       "kondisyon_label": "Sıfır",
       "aciklama": "Patron toplu yükleme. Foto: IMG_8872.heic, IMG_8873.heic.",
       "tedarikci_id": null,
-      "olusturma": "2026-05-13",
-      "gorseller": {
-        "cover": "assets/products/kart-kabi-33-lutfen-duzenle-karisik-gumus.jpg",
-        "gallery": [
-          "assets/products/kart-kabi-33-lutfen-duzenle-karisik-gumus-g1.jpg"
-        ]
-      }
+      "olusturma": "2026-05-13"
     },
     {
       "variation_id": "FR-00044-KARISIK-STANDART-GUMUS",
@@ -1595,13 +1397,7 @@ window.__BOTL_DATA__ = {
       "kondisyon_label": "Sıfır",
       "aciklama": "Patron toplu yükleme. Foto: IMG_8874.HEIC, IMG_8875.heic.",
       "tedarikci_id": null,
-      "olusturma": "2026-05-13",
-      "gorseller": {
-        "cover": "assets/products/kart-kabi-34-lutfen-duzenle-karisik-gumus.jpg",
-        "gallery": [
-          "assets/products/kart-kabi-34-lutfen-duzenle-karisik-gumus-g1.jpg"
-        ]
-      }
+      "olusturma": "2026-05-13"
     },
     {
       "variation_id": "FR-00045-KARISIK-STANDART-GUMUS",
@@ -1642,13 +1438,7 @@ window.__BOTL_DATA__ = {
       "kondisyon_label": "Sıfır",
       "aciklama": "Patron toplu yükleme. Foto: IMG_8876.heic, IMG_8877.heic.",
       "tedarikci_id": null,
-      "olusturma": "2026-05-13",
-      "gorseller": {
-        "cover": "assets/products/kart-kabi-35-lutfen-duzenle-karisik-gumus.jpg",
-        "gallery": [
-          "assets/products/kart-kabi-35-lutfen-duzenle-karisik-gumus-g1.jpg"
-        ]
-      }
+      "olusturma": "2026-05-13"
     },
     {
       "variation_id": "FR-00046-KARISIK-STANDART-GUMUS",
@@ -1689,13 +1479,7 @@ window.__BOTL_DATA__ = {
       "kondisyon_label": "Sıfır",
       "aciklama": "Patron toplu yükleme. Foto: IMG_8878.heic, IMG_8879.heic.",
       "tedarikci_id": null,
-      "olusturma": "2026-05-13",
-      "gorseller": {
-        "cover": "assets/products/kart-kabi-36-lutfen-duzenle-karisik-gumus.jpg",
-        "gallery": [
-          "assets/products/kart-kabi-36-lutfen-duzenle-karisik-gumus-g1.jpg"
-        ]
-      }
+      "olusturma": "2026-05-13"
     },
     {
       "variation_id": "FR-00047-KARISIK-STANDART-GUMUS",
@@ -1736,13 +1520,7 @@ window.__BOTL_DATA__ = {
       "kondisyon_label": "Sıfır",
       "aciklama": "Patron toplu yükleme. Foto: IMG_8880.heic, IMG_8881.heic.",
       "tedarikci_id": null,
-      "olusturma": "2026-05-13",
-      "gorseller": {
-        "cover": "assets/products/kart-kabi-37-lutfen-duzenle-karisik-gumus.jpg",
-        "gallery": [
-          "assets/products/kart-kabi-37-lutfen-duzenle-karisik-gumus-g1.jpg"
-        ]
-      }
+      "olusturma": "2026-05-13"
     },
     {
       "variation_id": "FR-00048-KARISIK-STANDART-GUMUS",
@@ -1783,13 +1561,7 @@ window.__BOTL_DATA__ = {
       "kondisyon_label": "Sıfır",
       "aciklama": "Patron toplu yükleme. Foto: IMG_8882.heic, IMG_8883.heic.",
       "tedarikci_id": null,
-      "olusturma": "2026-05-13",
-      "gorseller": {
-        "cover": "assets/products/kart-kabi-38-lutfen-duzenle-karisik-gumus.jpg",
-        "gallery": [
-          "assets/products/kart-kabi-38-lutfen-duzenle-karisik-gumus-g1.jpg"
-        ]
-      }
+      "olusturma": "2026-05-13"
     },
     {
       "variation_id": "FR-00049-KARISIK-STANDART-GUMUS",
@@ -1830,13 +1602,7 @@ window.__BOTL_DATA__ = {
       "kondisyon_label": "Sıfır",
       "aciklama": "Patron toplu yükleme. Foto: IMG_8884.heic, IMG_8885.heic.",
       "tedarikci_id": null,
-      "olusturma": "2026-05-13",
-      "gorseller": {
-        "cover": "assets/products/kart-kabi-39-lutfen-duzenle-karisik-gumus.jpg",
-        "gallery": [
-          "assets/products/kart-kabi-39-lutfen-duzenle-karisik-gumus-g1.jpg"
-        ]
-      }
+      "olusturma": "2026-05-13"
     },
     {
       "variation_id": "FR-00050-KARISIK-STANDART-GUMUS",
@@ -1877,13 +1643,7 @@ window.__BOTL_DATA__ = {
       "kondisyon_label": "Sıfır",
       "aciklama": "Patron toplu yükleme. Foto: IMG_8886.heic, IMG_8887.heic.",
       "tedarikci_id": null,
-      "olusturma": "2026-05-13",
-      "gorseller": {
-        "cover": "assets/products/kart-kabi-40-lutfen-duzenle-karisik-gumus.jpg",
-        "gallery": [
-          "assets/products/kart-kabi-40-lutfen-duzenle-karisik-gumus-g1.jpg"
-        ]
-      }
+      "olusturma": "2026-05-13"
     },
     {
       "variation_id": "FR-00051-KARISIK-STANDART-GUMUS",
@@ -1924,13 +1684,7 @@ window.__BOTL_DATA__ = {
       "kondisyon_label": "Sıfır",
       "aciklama": "Patron toplu yükleme. Foto: IMG_8888.heic, IMG_8889.heic.",
       "tedarikci_id": null,
-      "olusturma": "2026-05-13",
-      "gorseller": {
-        "cover": "assets/products/kart-kabi-41-lutfen-duzenle-karisik-gumus.jpg",
-        "gallery": [
-          "assets/products/kart-kabi-41-lutfen-duzenle-karisik-gumus-g1.jpg"
-        ]
-      }
+      "olusturma": "2026-05-13"
     },
     {
       "variation_id": "FR-00052-KARISIK-STANDART-GUMUS",
@@ -1971,13 +1725,7 @@ window.__BOTL_DATA__ = {
       "kondisyon_label": "Sıfır",
       "aciklama": "Patron toplu yükleme. Foto: IMG_8890.heic, IMG_8891.heic.",
       "tedarikci_id": null,
-      "olusturma": "2026-05-13",
-      "gorseller": {
-        "cover": "assets/products/kart-kabi-42-lutfen-duzenle-karisik-gumus.jpg",
-        "gallery": [
-          "assets/products/kart-kabi-42-lutfen-duzenle-karisik-gumus-g1.jpg"
-        ]
-      }
+      "olusturma": "2026-05-13"
     },
     {
       "variation_id": "FR-00053-KARISIK-STANDART-GUMUS",
@@ -2018,13 +1766,7 @@ window.__BOTL_DATA__ = {
       "kondisyon_label": "Sıfır",
       "aciklama": "Patron toplu yükleme. Foto: IMG_8892.heic, IMG_8893.heic.",
       "tedarikci_id": null,
-      "olusturma": "2026-05-13",
-      "gorseller": {
-        "cover": "assets/products/kart-kabi-43-lutfen-duzenle-karisik-gumus.jpg",
-        "gallery": [
-          "assets/products/kart-kabi-43-lutfen-duzenle-karisik-gumus-g1.jpg"
-        ]
-      }
+      "olusturma": "2026-05-13"
     },
     {
       "variation_id": "FR-00054-KARISIK-STANDART-GUMUS",
@@ -2065,13 +1807,7 @@ window.__BOTL_DATA__ = {
       "kondisyon_label": "Sıfır",
       "aciklama": "Patron toplu yükleme. Foto: IMG_8894.heic, IMG_8895.heic.",
       "tedarikci_id": null,
-      "olusturma": "2026-05-13",
-      "gorseller": {
-        "cover": "assets/products/kart-kabi-44-lutfen-duzenle-karisik-gumus.jpg",
-        "gallery": [
-          "assets/products/kart-kabi-44-lutfen-duzenle-karisik-gumus-g1.jpg"
-        ]
-      }
+      "olusturma": "2026-05-13"
     },
     {
       "variation_id": "FR-00055-KARISIK-STANDART-GUMUS",
@@ -2112,13 +1848,7 @@ window.__BOTL_DATA__ = {
       "kondisyon_label": "Sıfır",
       "aciklama": "Patron toplu yükleme. Foto: IMG_8896.heic, IMG_8897.heic.",
       "tedarikci_id": null,
-      "olusturma": "2026-05-13",
-      "gorseller": {
-        "cover": "assets/products/kart-kabi-45-lutfen-duzenle-karisik-gumus.jpg",
-        "gallery": [
-          "assets/products/kart-kabi-45-lutfen-duzenle-karisik-gumus-g1.jpg"
-        ]
-      }
+      "olusturma": "2026-05-13"
     },
     {
       "variation_id": "FR-00056-KARISIK-STANDART-GUMUS",
@@ -2159,13 +1889,7 @@ window.__BOTL_DATA__ = {
       "kondisyon_label": "Sıfır",
       "aciklama": "Patron toplu yükleme. Foto: IMG_8898.heic, IMG_8899.heic.",
       "tedarikci_id": null,
-      "olusturma": "2026-05-13",
-      "gorseller": {
-        "cover": "assets/products/kart-kabi-46-lutfen-duzenle-karisik-gumus.jpg",
-        "gallery": [
-          "assets/products/kart-kabi-46-lutfen-duzenle-karisik-gumus-g1.jpg"
-        ]
-      }
+      "olusturma": "2026-05-13"
     },
     {
       "variation_id": "FR-00057-KARISIK-STANDART-GUMUS",
@@ -2206,13 +1930,7 @@ window.__BOTL_DATA__ = {
       "kondisyon_label": "Sıfır",
       "aciklama": "Patron toplu yükleme. Foto: IMG_8900.heic, IMG_8901.heic.",
       "tedarikci_id": null,
-      "olusturma": "2026-05-13",
-      "gorseller": {
-        "cover": "assets/products/kart-kabi-47-lutfen-duzenle-karisik-gumus.jpg",
-        "gallery": [
-          "assets/products/kart-kabi-47-lutfen-duzenle-karisik-gumus-g1.jpg"
-        ]
-      }
+      "olusturma": "2026-05-13"
     },
     {
       "variation_id": "FR-00058-KARISIK-STANDART-GUMUS",
@@ -2253,13 +1971,7 @@ window.__BOTL_DATA__ = {
       "kondisyon_label": "Sıfır",
       "aciklama": "Patron toplu yükleme. Foto: IMG_8902.heic, IMG_8903.heic.",
       "tedarikci_id": null,
-      "olusturma": "2026-05-13",
-      "gorseller": {
-        "cover": "assets/products/kart-kabi-48-lutfen-duzenle-karisik-gumus.jpg",
-        "gallery": [
-          "assets/products/kart-kabi-48-lutfen-duzenle-karisik-gumus-g1.jpg"
-        ]
-      }
+      "olusturma": "2026-05-13"
     },
     {
       "variation_id": "FR-00059-KARISIK-STANDART-GUMUS",
@@ -2300,13 +2012,7 @@ window.__BOTL_DATA__ = {
       "kondisyon_label": "Sıfır",
       "aciklama": "Patron toplu yükleme. Foto: IMG_8904.heic, IMG_8905.heic.",
       "tedarikci_id": null,
-      "olusturma": "2026-05-13",
-      "gorseller": {
-        "cover": "assets/products/kart-kabi-49-lutfen-duzenle-karisik-gumus.jpg",
-        "gallery": [
-          "assets/products/kart-kabi-49-lutfen-duzenle-karisik-gumus-g1.jpg"
-        ]
-      }
+      "olusturma": "2026-05-13"
     },
     {
       "variation_id": "FR-00060-KARISIK-STANDART-GUMUS",
@@ -2347,13 +2053,7 @@ window.__BOTL_DATA__ = {
       "kondisyon_label": "Sıfır",
       "aciklama": "Patron toplu yükleme. Foto: IMG_8906.heic, IMG_8907.heic.",
       "tedarikci_id": null,
-      "olusturma": "2026-05-13",
-      "gorseller": {
-        "cover": "assets/products/kart-kabi-50-lutfen-duzenle-karisik-gumus.jpg",
-        "gallery": [
-          "assets/products/kart-kabi-50-lutfen-duzenle-karisik-gumus-g1.jpg"
-        ]
-      }
+      "olusturma": "2026-05-13"
     },
     {
       "variation_id": "FR-00061-KARISIK-STANDART-GUMUS",
@@ -2394,13 +2094,7 @@ window.__BOTL_DATA__ = {
       "kondisyon_label": "Sıfır",
       "aciklama": "Patron toplu yükleme. Foto: IMG_8908.heic, IMG_8909.HEIC.",
       "tedarikci_id": null,
-      "olusturma": "2026-05-13",
-      "gorseller": {
-        "cover": "assets/products/kart-kabi-51-lutfen-duzenle-karisik-gumus.jpg",
-        "gallery": [
-          "assets/products/kart-kabi-51-lutfen-duzenle-karisik-gumus-g1.jpg"
-        ]
-      }
+      "olusturma": "2026-05-13"
     },
     {
       "variation_id": "FR-00062-KARISIK-STANDART-GUMUS",
@@ -2441,13 +2135,7 @@ window.__BOTL_DATA__ = {
       "kondisyon_label": "Sıfır",
       "aciklama": "Patron toplu yükleme. Foto: IMG_8910.heic, IMG_8911.heic.",
       "tedarikci_id": null,
-      "olusturma": "2026-05-13",
-      "gorseller": {
-        "cover": "assets/products/kart-kabi-52-lutfen-duzenle-karisik-gumus.jpg",
-        "gallery": [
-          "assets/products/kart-kabi-52-lutfen-duzenle-karisik-gumus-g1.jpg"
-        ]
-      }
+      "olusturma": "2026-05-13"
     },
     {
       "variation_id": "FR-00063-KARISIK-STANDART-GUMUS",
@@ -2488,13 +2176,7 @@ window.__BOTL_DATA__ = {
       "kondisyon_label": "Sıfır",
       "aciklama": "Patron toplu yükleme. Foto: IMG_8912.heic, IMG_8913.heic.",
       "tedarikci_id": null,
-      "olusturma": "2026-05-13",
-      "gorseller": {
-        "cover": "assets/products/kart-kabi-53-lutfen-duzenle-karisik-gumus.jpg",
-        "gallery": [
-          "assets/products/kart-kabi-53-lutfen-duzenle-karisik-gumus-g1.jpg"
-        ]
-      }
+      "olusturma": "2026-05-13"
     },
     {
       "variation_id": "FR-00064-KARISIK-STANDART-GUMUS",
@@ -2535,13 +2217,7 @@ window.__BOTL_DATA__ = {
       "kondisyon_label": "Sıfır",
       "aciklama": "Patron toplu yükleme. Foto: IMG_8914.heic, IMG_8915.heic.",
       "tedarikci_id": null,
-      "olusturma": "2026-05-13",
-      "gorseller": {
-        "cover": "assets/products/kart-kabi-54-lutfen-duzenle-karisik-gumus.jpg",
-        "gallery": [
-          "assets/products/kart-kabi-54-lutfen-duzenle-karisik-gumus-g1.jpg"
-        ]
-      }
+      "olusturma": "2026-05-13"
     },
     {
       "variation_id": "FR-00065-KARISIK-STANDART-GUMUS",
@@ -2582,13 +2258,7 @@ window.__BOTL_DATA__ = {
       "kondisyon_label": "Sıfır",
       "aciklama": "Patron toplu yükleme. Foto: IMG_8916.heic, IMG_8917.heic.",
       "tedarikci_id": null,
-      "olusturma": "2026-05-13",
-      "gorseller": {
-        "cover": "assets/products/kart-kabi-55-lutfen-duzenle-karisik-gumus.jpg",
-        "gallery": [
-          "assets/products/kart-kabi-55-lutfen-duzenle-karisik-gumus-g1.jpg"
-        ]
-      }
+      "olusturma": "2026-05-13"
     },
     {
       "variation_id": "FR-00066-KARISIK-STANDART-GUMUS",
@@ -2629,13 +2299,7 @@ window.__BOTL_DATA__ = {
       "kondisyon_label": "Sıfır",
       "aciklama": "Patron toplu yükleme. Foto: IMG_8918.heic, IMG_8919.heic.",
       "tedarikci_id": null,
-      "olusturma": "2026-05-13",
-      "gorseller": {
-        "cover": "assets/products/kart-kabi-56-lutfen-duzenle-karisik-gumus.jpg",
-        "gallery": [
-          "assets/products/kart-kabi-56-lutfen-duzenle-karisik-gumus-g1.jpg"
-        ]
-      }
+      "olusturma": "2026-05-13"
     },
     {
       "variation_id": "FR-00067-KARISIK-STANDART-GUMUS",
@@ -2676,13 +2340,7 @@ window.__BOTL_DATA__ = {
       "kondisyon_label": "Sıfır",
       "aciklama": "Patron toplu yükleme. Foto: IMG_8920.heic, IMG_8921.heic.",
       "tedarikci_id": null,
-      "olusturma": "2026-05-13",
-      "gorseller": {
-        "cover": "assets/products/kart-kabi-57-lutfen-duzenle-karisik-gumus.jpg",
-        "gallery": [
-          "assets/products/kart-kabi-57-lutfen-duzenle-karisik-gumus-g1.jpg"
-        ]
-      }
+      "olusturma": "2026-05-13"
     },
     {
       "variation_id": "FR-00068-KARISIK-STANDART-GUMUS",
@@ -2723,13 +2381,7 @@ window.__BOTL_DATA__ = {
       "kondisyon_label": "Sıfır",
       "aciklama": "Patron toplu yükleme. Foto: IMG_8922.heic, IMG_8923.heic.",
       "tedarikci_id": null,
-      "olusturma": "2026-05-13",
-      "gorseller": {
-        "cover": "assets/products/kart-kabi-58-lutfen-duzenle-karisik-gumus.jpg",
-        "gallery": [
-          "assets/products/kart-kabi-58-lutfen-duzenle-karisik-gumus-g1.jpg"
-        ]
-      }
+      "olusturma": "2026-05-13"
     },
     {
       "variation_id": "FR-00069-KARISIK-STANDART-GUMUS",
@@ -2770,13 +2422,7 @@ window.__BOTL_DATA__ = {
       "kondisyon_label": "Sıfır",
       "aciklama": "Patron toplu yükleme. Foto: IMG_8924.heic, IMG_8925.heic.",
       "tedarikci_id": null,
-      "olusturma": "2026-05-13",
-      "gorseller": {
-        "cover": "assets/products/kart-kabi-59-lutfen-duzenle-karisik-gumus.jpg",
-        "gallery": [
-          "assets/products/kart-kabi-59-lutfen-duzenle-karisik-gumus-g1.jpg"
-        ]
-      }
+      "olusturma": "2026-05-13"
     },
     {
       "variation_id": "FR-00070-KARISIK-STANDART-GUMUS",
@@ -2817,13 +2463,7 @@ window.__BOTL_DATA__ = {
       "kondisyon_label": "Sıfır",
       "aciklama": "Patron toplu yükleme. Foto: IMG_8926.heic, IMG_8927.heic.",
       "tedarikci_id": null,
-      "olusturma": "2026-05-13",
-      "gorseller": {
-        "cover": "assets/products/kart-kabi-60-lutfen-duzenle-karisik-gumus.jpg",
-        "gallery": [
-          "assets/products/kart-kabi-60-lutfen-duzenle-karisik-gumus-g1.jpg"
-        ]
-      }
+      "olusturma": "2026-05-13"
     },
     {
       "variation_id": "FR-00071-KARISIK-STANDART-GUMUS",
@@ -2864,13 +2504,7 @@ window.__BOTL_DATA__ = {
       "kondisyon_label": "Sıfır",
       "aciklama": "Patron toplu yükleme. Foto: IMG_8928.heic, IMG_8929.heic.",
       "tedarikci_id": null,
-      "olusturma": "2026-05-13",
-      "gorseller": {
-        "cover": "assets/products/kart-kabi-61-lutfen-duzenle-karisik-gumus.jpg",
-        "gallery": [
-          "assets/products/kart-kabi-61-lutfen-duzenle-karisik-gumus-g1.jpg"
-        ]
-      }
+      "olusturma": "2026-05-13"
     },
     {
       "variation_id": "FR-00072-KARISIK-STANDART-GUMUS",
@@ -2911,13 +2545,7 @@ window.__BOTL_DATA__ = {
       "kondisyon_label": "Sıfır",
       "aciklama": "Patron toplu yükleme. Foto: IMG_8930.heic, IMG_8931.heic.",
       "tedarikci_id": null,
-      "olusturma": "2026-05-13",
-      "gorseller": {
-        "cover": "assets/products/kart-kabi-62-lutfen-duzenle-karisik-gumus.jpg",
-        "gallery": [
-          "assets/products/kart-kabi-62-lutfen-duzenle-karisik-gumus-g1.jpg"
-        ]
-      }
+      "olusturma": "2026-05-13"
     },
     {
       "variation_id": "FR-00073-KARISIK-STANDART-GUMUS",
@@ -2958,13 +2586,7 @@ window.__BOTL_DATA__ = {
       "kondisyon_label": "Sıfır",
       "aciklama": "Patron toplu yükleme. Foto: IMG_8932.heic, IMG_8933.heic.",
       "tedarikci_id": null,
-      "olusturma": "2026-05-13",
-      "gorseller": {
-        "cover": "assets/products/kart-kabi-63-lutfen-duzenle-karisik-gumus.jpg",
-        "gallery": [
-          "assets/products/kart-kabi-63-lutfen-duzenle-karisik-gumus-g1.jpg"
-        ]
-      }
+      "olusturma": "2026-05-13"
     },
     {
       "variation_id": "FR-00074-KARISIK-STANDART-GUMUS",
@@ -3005,13 +2627,7 @@ window.__BOTL_DATA__ = {
       "kondisyon_label": "Sıfır",
       "aciklama": "Patron toplu yükleme. Foto: IMG_8934.heic, IMG_8935.heic.",
       "tedarikci_id": null,
-      "olusturma": "2026-05-13",
-      "gorseller": {
-        "cover": "assets/products/kart-kabi-64-lutfen-duzenle-karisik-gumus.jpg",
-        "gallery": [
-          "assets/products/kart-kabi-64-lutfen-duzenle-karisik-gumus-g1.jpg"
-        ]
-      }
+      "olusturma": "2026-05-13"
     },
     {
       "variation_id": "FR-00075-KARISIK-STANDART-GUMUS",
@@ -3020,21 +2636,21 @@ window.__BOTL_DATA__ = {
       "slug": "kart-kabi-65-lutfen-duzenle-karisik-gumus",
       "cover": "assets/products/kart-kabi-65-lutfen-duzenle-karisik-gumus.jpg",
       "isim_resmi": "Kart Kabı #65 (lütfen düzenle)",
-      "isim_bilinen": "",
-      "marka": "Bilinmeyen",
+      "isim_bilinen": "Goyard Kart Kabi Pembe",
+      "marka": "Goyard",
       "kategori": "Kart Kabı",
-      "kategori_ust": "Cüzdan",
+      "kategori_ust": "Aksesuar",
       "kategori_alt": "Kart Kabı",
-      "renk": "KARISIK",
-      "ana_renk": "Karisik",
-      "ana_renk_hex": "#9c9794",
-      "renk_slug": "karisik",
-      "renk_hex": "#9c9794",
+      "renk": "PEMBE",
+      "ana_renk": "Pembe",
+      "ana_renk_hex": "#e08aa0",
+      "renk_slug": "pembe",
+      "renk_hex": "#e08aa0",
       "ikincil_renk": "",
       "ikincil_renk_code": "",
       "ikincil_renk_hex": "",
       "ana_malzeme": "",
-      "desen": "",
+      "desen": "Goyardine",
       "donanim_rengi": "",
       "sapli_sapsiz": "",
       "boyut": "STANDART",
@@ -3052,13 +2668,7 @@ window.__BOTL_DATA__ = {
       "kondisyon_label": "Sıfır",
       "aciklama": "Patron toplu yükleme. Foto: IMG_8936.heic, IMG_8937.heic.",
       "tedarikci_id": null,
-      "olusturma": "2026-05-13",
-      "gorseller": {
-        "cover": "assets/products/kart-kabi-65-lutfen-duzenle-karisik-gumus.jpg",
-        "gallery": [
-          "assets/products/kart-kabi-65-lutfen-duzenle-karisik-gumus-g1.jpg"
-        ]
-      }
+      "olusturma": "2026-05-13"
     },
     {
       "variation_id": "FR-00076-KARISIK-STANDART-GUMUS",
@@ -3067,21 +2677,21 @@ window.__BOTL_DATA__ = {
       "slug": "kart-kabi-66-lutfen-duzenle-karisik-gumus",
       "cover": "assets/products/kart-kabi-66-lutfen-duzenle-karisik-gumus.jpg",
       "isim_resmi": "Kart Kabı #66 (lütfen düzenle)",
-      "isim_bilinen": "",
-      "marka": "Bilinmeyen",
+      "isim_bilinen": "Coach Kart Kabi Gri Signature",
+      "marka": "Coach",
       "kategori": "Kart Kabı",
-      "kategori_ust": "Cüzdan",
+      "kategori_ust": "Aksesuar",
       "kategori_alt": "Kart Kabı",
-      "renk": "KARISIK",
-      "ana_renk": "Karisik",
-      "ana_renk_hex": "#9c9794",
-      "renk_slug": "karisik",
-      "renk_hex": "#9c9794",
+      "renk": "GRI",
+      "ana_renk": "Gri",
+      "ana_renk_hex": "#7d7d7d",
+      "renk_slug": "gri",
+      "renk_hex": "#7d7d7d",
       "ikincil_renk": "",
       "ikincil_renk_code": "",
       "ikincil_renk_hex": "",
       "ana_malzeme": "",
-      "desen": "",
+      "desen": "Signature",
       "donanim_rengi": "",
       "sapli_sapsiz": "",
       "boyut": "STANDART",
@@ -3099,13 +2709,7 @@ window.__BOTL_DATA__ = {
       "kondisyon_label": "Sıfır",
       "aciklama": "Patron toplu yükleme. Foto: IMG_8938.heic, IMG_8939.heic.",
       "tedarikci_id": null,
-      "olusturma": "2026-05-13",
-      "gorseller": {
-        "cover": "assets/products/kart-kabi-66-lutfen-duzenle-karisik-gumus.jpg",
-        "gallery": [
-          "assets/products/kart-kabi-66-lutfen-duzenle-karisik-gumus-g1.jpg"
-        ]
-      }
+      "olusturma": "2026-05-13"
     },
     {
       "variation_id": "FR-00077-KARISIK-STANDART-GUMUS",
@@ -3114,21 +2718,21 @@ window.__BOTL_DATA__ = {
       "slug": "kart-kabi-67-lutfen-duzenle-karisik-gumus",
       "cover": "assets/products/kart-kabi-67-lutfen-duzenle-karisik-gumus.jpg",
       "isim_resmi": "Kart Kabı #67 (lütfen düzenle)",
-      "isim_bilinen": "",
-      "marka": "Bilinmeyen",
+      "isim_bilinen": "Guess Kart Kabi Gri 4G Monogram",
+      "marka": "Guess",
       "kategori": "Kart Kabı",
-      "kategori_ust": "Cüzdan",
+      "kategori_ust": "Aksesuar",
       "kategori_alt": "Kart Kabı",
-      "renk": "KARISIK",
-      "ana_renk": "Karisik",
-      "ana_renk_hex": "#9c9794",
-      "renk_slug": "karisik",
-      "renk_hex": "#9c9794",
+      "renk": "GRI",
+      "ana_renk": "Gri",
+      "ana_renk_hex": "#7d7d7d",
+      "renk_slug": "gri",
+      "renk_hex": "#7d7d7d",
       "ikincil_renk": "",
       "ikincil_renk_code": "",
       "ikincil_renk_hex": "",
       "ana_malzeme": "",
-      "desen": "",
+      "desen": "Monogram",
       "donanim_rengi": "",
       "sapli_sapsiz": "",
       "boyut": "STANDART",
@@ -3146,13 +2750,7 @@ window.__BOTL_DATA__ = {
       "kondisyon_label": "Sıfır",
       "aciklama": "Patron toplu yükleme. Foto: IMG_8940.heic, IMG_8941.heic.",
       "tedarikci_id": null,
-      "olusturma": "2026-05-13",
-      "gorseller": {
-        "cover": "assets/products/kart-kabi-67-lutfen-duzenle-karisik-gumus.jpg",
-        "gallery": [
-          "assets/products/kart-kabi-67-lutfen-duzenle-karisik-gumus-g1.jpg"
-        ]
-      }
+      "olusturma": "2026-05-13"
     },
     {
       "variation_id": "FR-00078-KARISIK-STANDART-GUMUS",
@@ -3161,21 +2759,21 @@ window.__BOTL_DATA__ = {
       "slug": "kart-kabi-68-lutfen-duzenle-karisik-gumus",
       "cover": "assets/products/kart-kabi-68-lutfen-duzenle-karisik-gumus.jpg",
       "isim_resmi": "Kart Kabı #68 (lütfen düzenle)",
-      "isim_bilinen": "",
-      "marka": "Bilinmeyen",
+      "isim_bilinen": "Gucci Kart Kabi Siyah GG Monogram",
+      "marka": "Gucci",
       "kategori": "Kart Kabı",
-      "kategori_ust": "Cüzdan",
+      "kategori_ust": "Aksesuar",
       "kategori_alt": "Kart Kabı",
-      "renk": "KARISIK",
-      "ana_renk": "Karisik",
-      "ana_renk_hex": "#9c9794",
-      "renk_slug": "karisik",
-      "renk_hex": "#9c9794",
+      "renk": "SIYAH",
+      "ana_renk": "Siyah",
+      "ana_renk_hex": "#1a1a1a",
+      "renk_slug": "siyah",
+      "renk_hex": "#1a1a1a",
       "ikincil_renk": "",
       "ikincil_renk_code": "",
       "ikincil_renk_hex": "",
       "ana_malzeme": "",
-      "desen": "",
+      "desen": "Monogram",
       "donanim_rengi": "",
       "sapli_sapsiz": "",
       "boyut": "STANDART",
@@ -3193,13 +2791,7 @@ window.__BOTL_DATA__ = {
       "kondisyon_label": "Sıfır",
       "aciklama": "Patron toplu yükleme. Foto: IMG_8942.heic, IMG_8943.heic.",
       "tedarikci_id": null,
-      "olusturma": "2026-05-13",
-      "gorseller": {
-        "cover": "assets/products/kart-kabi-68-lutfen-duzenle-karisik-gumus.jpg",
-        "gallery": [
-          "assets/products/kart-kabi-68-lutfen-duzenle-karisik-gumus-g1.jpg"
-        ]
-      }
+      "olusturma": "2026-05-13"
     },
     {
       "variation_id": "FR-00079-KARISIK-STANDART-GUMUS",
@@ -3208,21 +2800,21 @@ window.__BOTL_DATA__ = {
       "slug": "kart-kabi-69-lutfen-duzenle-karisik-gumus",
       "cover": "assets/products/kart-kabi-69-lutfen-duzenle-karisik-gumus.jpg",
       "isim_resmi": "Kart Kabı #69 (lütfen düzenle)",
-      "isim_bilinen": "",
-      "marka": "Bilinmeyen",
+      "isim_bilinen": "Goyard Kart Kabi Kirmizi",
+      "marka": "Goyard",
       "kategori": "Kart Kabı",
-      "kategori_ust": "Cüzdan",
+      "kategori_ust": "Aksesuar",
       "kategori_alt": "Kart Kabı",
-      "renk": "KARISIK",
-      "ana_renk": "Karisik",
-      "ana_renk_hex": "#9c9794",
-      "renk_slug": "karisik",
-      "renk_hex": "#9c9794",
+      "renk": "KIRMIZI",
+      "ana_renk": "Kırmızı",
+      "ana_renk_hex": "#9c2a2a",
+      "renk_slug": "kirmizi",
+      "renk_hex": "#9c2a2a",
       "ikincil_renk": "",
       "ikincil_renk_code": "",
       "ikincil_renk_hex": "",
       "ana_malzeme": "",
-      "desen": "",
+      "desen": "Goyardine",
       "donanim_rengi": "",
       "sapli_sapsiz": "",
       "boyut": "STANDART",
@@ -3240,13 +2832,7 @@ window.__BOTL_DATA__ = {
       "kondisyon_label": "Sıfır",
       "aciklama": "Patron toplu yükleme. Foto: IMG_8944.heic, IMG_8945.heic.",
       "tedarikci_id": null,
-      "olusturma": "2026-05-13",
-      "gorseller": {
-        "cover": "assets/products/kart-kabi-69-lutfen-duzenle-karisik-gumus.jpg",
-        "gallery": [
-          "assets/products/kart-kabi-69-lutfen-duzenle-karisik-gumus-g1.jpg"
-        ]
-      }
+      "olusturma": "2026-05-13"
     },
     {
       "variation_id": "FR-00080-KARISIK-STANDART-GUMUS",
@@ -3255,21 +2841,21 @@ window.__BOTL_DATA__ = {
       "slug": "kart-kabi-70-lutfen-duzenle-karisik-gumus",
       "cover": "assets/products/kart-kabi-70-lutfen-duzenle-karisik-gumus.jpg",
       "isim_resmi": "Kart Kabı #70 (lütfen düzenle)",
-      "isim_bilinen": "",
-      "marka": "Bilinmeyen",
+      "isim_bilinen": "LV Kart Kabi Yesil Monogram",
+      "marka": "LV",
       "kategori": "Kart Kabı",
-      "kategori_ust": "Cüzdan",
+      "kategori_ust": "Aksesuar",
       "kategori_alt": "Kart Kabı",
-      "renk": "KARISIK",
-      "ana_renk": "Karisik",
-      "ana_renk_hex": "#9c9794",
-      "renk_slug": "karisik",
-      "renk_hex": "#9c9794",
+      "renk": "YESIL",
+      "ana_renk": "Yeşil",
+      "ana_renk_hex": "#3d5a3d",
+      "renk_slug": "yesil",
+      "renk_hex": "#3d5a3d",
       "ikincil_renk": "",
       "ikincil_renk_code": "",
       "ikincil_renk_hex": "",
       "ana_malzeme": "",
-      "desen": "",
+      "desen": "Monogram",
       "donanim_rengi": "",
       "sapli_sapsiz": "",
       "boyut": "STANDART",
@@ -3287,13 +2873,7 @@ window.__BOTL_DATA__ = {
       "kondisyon_label": "Sıfır",
       "aciklama": "Patron toplu yükleme. Foto: IMG_8946.heic, IMG_8947.heic.",
       "tedarikci_id": null,
-      "olusturma": "2026-05-13",
-      "gorseller": {
-        "cover": "assets/products/kart-kabi-70-lutfen-duzenle-karisik-gumus.jpg",
-        "gallery": [
-          "assets/products/kart-kabi-70-lutfen-duzenle-karisik-gumus-g1.jpg"
-        ]
-      }
+      "olusturma": "2026-05-13"
     },
     {
       "variation_id": "FR-00081-KARISIK-STANDART-GUMUS",
@@ -3302,21 +2882,21 @@ window.__BOTL_DATA__ = {
       "slug": "kart-kabi-71-lutfen-duzenle-karisik-gumus",
       "cover": "assets/products/kart-kabi-71-lutfen-duzenle-karisik-gumus.jpg",
       "isim_resmi": "Kart Kabı #71 (lütfen düzenle)",
-      "isim_bilinen": "",
-      "marka": "Bilinmeyen",
+      "isim_bilinen": "Goyard Kart Kabi Krem",
+      "marka": "Goyard",
       "kategori": "Kart Kabı",
-      "kategori_ust": "Cüzdan",
+      "kategori_ust": "Aksesuar",
       "kategori_alt": "Kart Kabı",
-      "renk": "KARISIK",
-      "ana_renk": "Karisik",
-      "ana_renk_hex": "#9c9794",
-      "renk_slug": "karisik",
-      "renk_hex": "#9c9794",
+      "renk": "KREM",
+      "ana_renk": "Krem",
+      "ana_renk_hex": "#e8d4b0",
+      "renk_slug": "krem",
+      "renk_hex": "#e8d4b0",
       "ikincil_renk": "",
       "ikincil_renk_code": "",
       "ikincil_renk_hex": "",
       "ana_malzeme": "",
-      "desen": "",
+      "desen": "Goyardine",
       "donanim_rengi": "",
       "sapli_sapsiz": "",
       "boyut": "STANDART",
@@ -3334,13 +2914,7 @@ window.__BOTL_DATA__ = {
       "kondisyon_label": "Sıfır",
       "aciklama": "Patron toplu yükleme. Foto: IMG_8948.heic, IMG_8949.heic.",
       "tedarikci_id": null,
-      "olusturma": "2026-05-13",
-      "gorseller": {
-        "cover": "assets/products/kart-kabi-71-lutfen-duzenle-karisik-gumus.jpg",
-        "gallery": [
-          "assets/products/kart-kabi-71-lutfen-duzenle-karisik-gumus-g1.jpg"
-        ]
-      }
+      "olusturma": "2026-05-13"
     },
     {
       "variation_id": "FR-00082-KARISIK-STANDART-GUMUS",
@@ -3349,21 +2923,21 @@ window.__BOTL_DATA__ = {
       "slug": "kart-kabi-72-lutfen-duzenle-karisik-gumus",
       "cover": "assets/products/kart-kabi-72-lutfen-duzenle-karisik-gumus.jpg",
       "isim_resmi": "Kart Kabı #72 (lütfen düzenle)",
-      "isim_bilinen": "",
-      "marka": "Bilinmeyen",
-      "kategori": "Kart Kabı",
-      "kategori_ust": "Cüzdan",
-      "kategori_alt": "Kart Kabı",
-      "renk": "KARISIK",
-      "ana_renk": "Karisik",
-      "ana_renk_hex": "#9c9794",
-      "renk_slug": "karisik",
-      "renk_hex": "#9c9794",
+      "isim_bilinen": "Goyard Klasik Cuzdan Siyah",
+      "marka": "Goyard",
+      "kategori": "Cüzdan",
+      "kategori_ust": "Aksesuar",
+      "kategori_alt": "Cüzdan",
+      "renk": "SIYAH",
+      "ana_renk": "Siyah",
+      "ana_renk_hex": "#1a1a1a",
+      "renk_slug": "siyah",
+      "renk_hex": "#1a1a1a",
       "ikincil_renk": "",
       "ikincil_renk_code": "",
       "ikincil_renk_hex": "",
       "ana_malzeme": "",
-      "desen": "",
+      "desen": "Goyardine",
       "donanim_rengi": "",
       "sapli_sapsiz": "",
       "boyut": "STANDART",
@@ -3381,13 +2955,7 @@ window.__BOTL_DATA__ = {
       "kondisyon_label": "Sıfır",
       "aciklama": "Patron toplu yükleme. Foto: IMG_8958.heic, IMG_8959.heic.",
       "tedarikci_id": null,
-      "olusturma": "2026-05-13",
-      "gorseller": {
-        "cover": "assets/products/kart-kabi-72-lutfen-duzenle-karisik-gumus.jpg",
-        "gallery": [
-          "assets/products/kart-kabi-72-lutfen-duzenle-karisik-gumus-g1.jpg"
-        ]
-      }
+      "olusturma": "2026-05-13"
     },
     {
       "variation_id": "FR-00083-KARISIK-STANDART-GUMUS",
@@ -3396,21 +2964,21 @@ window.__BOTL_DATA__ = {
       "slug": "kart-kabi-73-lutfen-duzenle-karisik-gumus",
       "cover": "assets/products/kart-kabi-73-lutfen-duzenle-karisik-gumus.jpg",
       "isim_resmi": "Kart Kabı #73 (lütfen düzenle)",
-      "isim_bilinen": "",
-      "marka": "Bilinmeyen",
-      "kategori": "Kart Kabı",
-      "kategori_ust": "Cüzdan",
-      "kategori_alt": "Kart Kabı",
-      "renk": "KARISIK",
-      "ana_renk": "Karisik",
-      "ana_renk_hex": "#9c9794",
-      "renk_slug": "karisik",
-      "renk_hex": "#9c9794",
+      "isim_bilinen": "LV Anahtarlikli Mini Cuzdan Mavi Denim Monogram",
+      "marka": "LV",
+      "kategori": "Cüzdan",
+      "kategori_ust": "Aksesuar",
+      "kategori_alt": "Cüzdan",
+      "renk": "MAVI",
+      "ana_renk": "Mavi",
+      "ana_renk_hex": "#2d3e58",
+      "renk_slug": "mavi",
+      "renk_hex": "#2d3e58",
       "ikincil_renk": "",
       "ikincil_renk_code": "",
       "ikincil_renk_hex": "",
       "ana_malzeme": "",
-      "desen": "",
+      "desen": "Monogram",
       "donanim_rengi": "",
       "sapli_sapsiz": "",
       "boyut": "STANDART",
@@ -3428,13 +2996,7 @@ window.__BOTL_DATA__ = {
       "kondisyon_label": "Sıfır",
       "aciklama": "Patron toplu yükleme. Foto: IMG_8960.heic, IMG_8961.heic.",
       "tedarikci_id": null,
-      "olusturma": "2026-05-13",
-      "gorseller": {
-        "cover": "assets/products/kart-kabi-73-lutfen-duzenle-karisik-gumus.jpg",
-        "gallery": [
-          "assets/products/kart-kabi-73-lutfen-duzenle-karisik-gumus-g1.jpg"
-        ]
-      }
+      "olusturma": "2026-05-13"
     },
     {
       "variation_id": "FR-00084-KARISIK-STANDART-GUMUS",
@@ -3443,21 +3005,21 @@ window.__BOTL_DATA__ = {
       "slug": "kart-kabi-74-lutfen-duzenle-karisik-gumus",
       "cover": "assets/products/kart-kabi-74-lutfen-duzenle-karisik-gumus.jpg",
       "isim_resmi": "Kart Kabı #74 (lütfen düzenle)",
-      "isim_bilinen": "",
-      "marka": "Bilinmeyen",
-      "kategori": "Kart Kabı",
-      "kategori_ust": "Cüzdan",
-      "kategori_alt": "Kart Kabı",
-      "renk": "KARISIK",
-      "ana_renk": "Karisik",
-      "ana_renk_hex": "#9c9794",
-      "renk_slug": "karisik",
-      "renk_hex": "#9c9794",
+      "isim_bilinen": "Goyard Klasik Cuzdan Yesil",
+      "marka": "Goyard",
+      "kategori": "Cüzdan",
+      "kategori_ust": "Aksesuar",
+      "kategori_alt": "Cüzdan",
+      "renk": "YESIL",
+      "ana_renk": "Yeşil",
+      "ana_renk_hex": "#3d5a3d",
+      "renk_slug": "yesil",
+      "renk_hex": "#3d5a3d",
       "ikincil_renk": "",
       "ikincil_renk_code": "",
       "ikincil_renk_hex": "",
       "ana_malzeme": "",
-      "desen": "",
+      "desen": "Goyardine",
       "donanim_rengi": "",
       "sapli_sapsiz": "",
       "boyut": "STANDART",
@@ -3475,13 +3037,7 @@ window.__BOTL_DATA__ = {
       "kondisyon_label": "Sıfır",
       "aciklama": "Patron toplu yükleme. Foto: IMG_8962.heic, IMG_8963.heic.",
       "tedarikci_id": null,
-      "olusturma": "2026-05-13",
-      "gorseller": {
-        "cover": "assets/products/kart-kabi-74-lutfen-duzenle-karisik-gumus.jpg",
-        "gallery": [
-          "assets/products/kart-kabi-74-lutfen-duzenle-karisik-gumus-g1.jpg"
-        ]
-      }
+      "olusturma": "2026-05-13"
     },
     {
       "variation_id": "FR-00085-KARISIK-STANDART-GUMUS",
@@ -3490,21 +3046,21 @@ window.__BOTL_DATA__ = {
       "slug": "kart-kabi-75-lutfen-duzenle-karisik-gumus",
       "cover": "assets/products/kart-kabi-75-lutfen-duzenle-karisik-gumus.jpg",
       "isim_resmi": "Kart Kabı #75 (lütfen düzenle)",
-      "isim_bilinen": "",
-      "marka": "Bilinmeyen",
-      "kategori": "Kart Kabı",
-      "kategori_ust": "Cüzdan",
-      "kategori_alt": "Kart Kabı",
-      "renk": "KARISIK",
-      "ana_renk": "Karisik",
-      "ana_renk_hex": "#9c9794",
-      "renk_slug": "karisik",
-      "renk_hex": "#9c9794",
+      "isim_bilinen": "Goyard Klasik Cuzdan Siyah",
+      "marka": "Goyard",
+      "kategori": "Cüzdan",
+      "kategori_ust": "Aksesuar",
+      "kategori_alt": "Cüzdan",
+      "renk": "SIYAH",
+      "ana_renk": "Siyah",
+      "ana_renk_hex": "#1a1a1a",
+      "renk_slug": "siyah",
+      "renk_hex": "#1a1a1a",
       "ikincil_renk": "",
       "ikincil_renk_code": "",
       "ikincil_renk_hex": "",
       "ana_malzeme": "",
-      "desen": "",
+      "desen": "Goyardine",
       "donanim_rengi": "",
       "sapli_sapsiz": "",
       "boyut": "STANDART",
@@ -3522,13 +3078,7 @@ window.__BOTL_DATA__ = {
       "kondisyon_label": "Sıfır",
       "aciklama": "Patron toplu yükleme. Foto: IMG_8964.heic, IMG_8965.heic.",
       "tedarikci_id": null,
-      "olusturma": "2026-05-13",
-      "gorseller": {
-        "cover": "assets/products/kart-kabi-75-lutfen-duzenle-karisik-gumus.jpg",
-        "gallery": [
-          "assets/products/kart-kabi-75-lutfen-duzenle-karisik-gumus-g1.jpg"
-        ]
-      }
+      "olusturma": "2026-05-13"
     },
     {
       "variation_id": "FR-00086-KARISIK-STANDART-GUMUS",
@@ -3537,21 +3087,21 @@ window.__BOTL_DATA__ = {
       "slug": "kart-kabi-76-lutfen-duzenle-karisik-gumus",
       "cover": "assets/products/kart-kabi-76-lutfen-duzenle-karisik-gumus.jpg",
       "isim_resmi": "Kart Kabı #76 (lütfen düzenle)",
-      "isim_bilinen": "",
-      "marka": "Bilinmeyen",
-      "kategori": "Kart Kabı",
-      "kategori_ust": "Cüzdan",
-      "kategori_alt": "Kart Kabı",
-      "renk": "KARISIK",
-      "ana_renk": "Karisik",
-      "ana_renk_hex": "#9c9794",
-      "renk_slug": "karisik",
-      "renk_hex": "#9c9794",
+      "isim_bilinen": "Guess Anahtarlikli Mini Cuzdan Bej 4G Monogram",
+      "marka": "Guess",
+      "kategori": "Cüzdan",
+      "kategori_ust": "Aksesuar",
+      "kategori_alt": "Cüzdan",
+      "renk": "BEJ",
+      "ana_renk": "Bej",
+      "ana_renk_hex": "#d8c3a3",
+      "renk_slug": "bej",
+      "renk_hex": "#d8c3a3",
       "ikincil_renk": "",
       "ikincil_renk_code": "",
       "ikincil_renk_hex": "",
       "ana_malzeme": "",
-      "desen": "",
+      "desen": "Monogram",
       "donanim_rengi": "",
       "sapli_sapsiz": "",
       "boyut": "STANDART",
@@ -3569,13 +3119,7 @@ window.__BOTL_DATA__ = {
       "kondisyon_label": "Sıfır",
       "aciklama": "Patron toplu yükleme. Foto: IMG_8966.heic, IMG_8967.heic.",
       "tedarikci_id": null,
-      "olusturma": "2026-05-13",
-      "gorseller": {
-        "cover": "assets/products/kart-kabi-76-lutfen-duzenle-karisik-gumus.jpg",
-        "gallery": [
-          "assets/products/kart-kabi-76-lutfen-duzenle-karisik-gumus-g1.jpg"
-        ]
-      }
+      "olusturma": "2026-05-13"
     },
     {
       "variation_id": "FR-00087-KARISIK-STANDART-GUMUS",
@@ -3584,21 +3128,21 @@ window.__BOTL_DATA__ = {
       "slug": "kart-kabi-77-lutfen-duzenle-karisik-gumus",
       "cover": "assets/products/kart-kabi-77-lutfen-duzenle-karisik-gumus.jpg",
       "isim_resmi": "Kart Kabı #77 (lütfen düzenle)",
-      "isim_bilinen": "",
-      "marka": "Bilinmeyen",
-      "kategori": "Kart Kabı",
-      "kategori_ust": "Cüzdan",
-      "kategori_alt": "Kart Kabı",
-      "renk": "KARISIK",
-      "ana_renk": "Karisik",
-      "ana_renk_hex": "#9c9794",
-      "renk_slug": "karisik",
-      "renk_hex": "#9c9794",
+      "isim_bilinen": "Guess Anahtarlikli Mini Cuzdan Gri 4G Monogram",
+      "marka": "Guess",
+      "kategori": "Cüzdan",
+      "kategori_ust": "Aksesuar",
+      "kategori_alt": "Cüzdan",
+      "renk": "GRI",
+      "ana_renk": "Gri",
+      "ana_renk_hex": "#7d7d7d",
+      "renk_slug": "gri",
+      "renk_hex": "#7d7d7d",
       "ikincil_renk": "",
       "ikincil_renk_code": "",
       "ikincil_renk_hex": "",
       "ana_malzeme": "",
-      "desen": "",
+      "desen": "Monogram",
       "donanim_rengi": "",
       "sapli_sapsiz": "",
       "boyut": "STANDART",
@@ -3616,13 +3160,7 @@ window.__BOTL_DATA__ = {
       "kondisyon_label": "Sıfır",
       "aciklama": "Patron toplu yükleme. Foto: IMG_8968.heic, IMG_8969.heic.",
       "tedarikci_id": null,
-      "olusturma": "2026-05-13",
-      "gorseller": {
-        "cover": "assets/products/kart-kabi-77-lutfen-duzenle-karisik-gumus.jpg",
-        "gallery": [
-          "assets/products/kart-kabi-77-lutfen-duzenle-karisik-gumus-g1.jpg"
-        ]
-      }
+      "olusturma": "2026-05-13"
     },
     {
       "variation_id": "FR-00088-KARISIK-STANDART-GUMUS",
@@ -3631,21 +3169,21 @@ window.__BOTL_DATA__ = {
       "slug": "kart-kabi-78-lutfen-duzenle-karisik-gumus",
       "cover": "assets/products/kart-kabi-78-lutfen-duzenle-karisik-gumus.jpg",
       "isim_resmi": "Kart Kabı #78 (lütfen düzenle)",
-      "isim_bilinen": "",
-      "marka": "Bilinmeyen",
-      "kategori": "Kart Kabı",
-      "kategori_ust": "Cüzdan",
-      "kategori_alt": "Kart Kabı",
-      "renk": "KARISIK",
-      "ana_renk": "Karisik",
-      "ana_renk_hex": "#9c9794",
-      "renk_slug": "karisik",
-      "renk_hex": "#9c9794",
+      "isim_bilinen": "Guess Anahtarlikli Mini Cuzdan Kahve 4G Monogram",
+      "marka": "Guess",
+      "kategori": "Cüzdan",
+      "kategori_ust": "Aksesuar",
+      "kategori_alt": "Cüzdan",
+      "renk": "KAHVE",
+      "ana_renk": "Kahve",
+      "ana_renk_hex": "#5a3a25",
+      "renk_slug": "kahve",
+      "renk_hex": "#5a3a25",
       "ikincil_renk": "",
       "ikincil_renk_code": "",
       "ikincil_renk_hex": "",
       "ana_malzeme": "",
-      "desen": "",
+      "desen": "Monogram",
       "donanim_rengi": "",
       "sapli_sapsiz": "",
       "boyut": "STANDART",
@@ -3663,13 +3201,7 @@ window.__BOTL_DATA__ = {
       "kondisyon_label": "Sıfır",
       "aciklama": "Patron toplu yükleme. Foto: IMG_8970.heic, IMG_8971.heic.",
       "tedarikci_id": null,
-      "olusturma": "2026-05-13",
-      "gorseller": {
-        "cover": "assets/products/kart-kabi-78-lutfen-duzenle-karisik-gumus.jpg",
-        "gallery": [
-          "assets/products/kart-kabi-78-lutfen-duzenle-karisik-gumus-g1.jpg"
-        ]
-      }
+      "olusturma": "2026-05-13"
     },
     {
       "variation_id": "FR-00089-KARISIK-STANDART-GUMUS",
@@ -3678,21 +3210,21 @@ window.__BOTL_DATA__ = {
       "slug": "kart-kabi-79-lutfen-duzenle-karisik-gumus",
       "cover": "assets/products/kart-kabi-79-lutfen-duzenle-karisik-gumus.jpg",
       "isim_resmi": "Kart Kabı #79 (lütfen düzenle)",
-      "isim_bilinen": "",
-      "marka": "Bilinmeyen",
-      "kategori": "Kart Kabı",
-      "kategori_ust": "Cüzdan",
-      "kategori_alt": "Kart Kabı",
-      "renk": "KARISIK",
-      "ana_renk": "Karisik",
-      "ana_renk_hex": "#9c9794",
-      "renk_slug": "karisik",
-      "renk_hex": "#9c9794",
+      "isim_bilinen": "LV Anahtarlikli Mini Cuzdan Beyaz Multicolor Monogram",
+      "marka": "LV",
+      "kategori": "Cüzdan",
+      "kategori_ust": "Aksesuar",
+      "kategori_alt": "Cüzdan",
+      "renk": "BEYAZ",
+      "ana_renk": "Beyaz",
+      "ana_renk_hex": "#f5f1ea",
+      "renk_slug": "beyaz",
+      "renk_hex": "#f5f1ea",
       "ikincil_renk": "",
       "ikincil_renk_code": "",
       "ikincil_renk_hex": "",
       "ana_malzeme": "",
-      "desen": "",
+      "desen": "Monogram",
       "donanim_rengi": "",
       "sapli_sapsiz": "",
       "boyut": "STANDART",
@@ -3710,13 +3242,7 @@ window.__BOTL_DATA__ = {
       "kondisyon_label": "Sıfır",
       "aciklama": "Patron toplu yükleme. Foto: IMG_8972.heic, IMG_8973.heic.",
       "tedarikci_id": null,
-      "olusturma": "2026-05-13",
-      "gorseller": {
-        "cover": "assets/products/kart-kabi-79-lutfen-duzenle-karisik-gumus.jpg",
-        "gallery": [
-          "assets/products/kart-kabi-79-lutfen-duzenle-karisik-gumus-g1.jpg"
-        ]
-      }
+      "olusturma": "2026-05-13"
     },
     {
       "variation_id": "FR-00090-KARISIK-STANDART-GUMUS",
@@ -3725,21 +3251,21 @@ window.__BOTL_DATA__ = {
       "slug": "kart-kabi-80-lutfen-duzenle-karisik-gumus",
       "cover": "assets/products/kart-kabi-80-lutfen-duzenle-karisik-gumus.jpg",
       "isim_resmi": "Kart Kabı #80 (lütfen düzenle)",
-      "isim_bilinen": "",
-      "marka": "Bilinmeyen",
-      "kategori": "Kart Kabı",
-      "kategori_ust": "Cüzdan",
-      "kategori_alt": "Kart Kabı",
-      "renk": "KARISIK",
-      "ana_renk": "Karisik",
-      "ana_renk_hex": "#9c9794",
-      "renk_slug": "karisik",
-      "renk_hex": "#9c9794",
+      "isim_bilinen": "LV Anahtarlikli Mini Cuzdan Pembe Monogram",
+      "marka": "LV",
+      "kategori": "Cüzdan",
+      "kategori_ust": "Aksesuar",
+      "kategori_alt": "Cüzdan",
+      "renk": "PEMBE",
+      "ana_renk": "Pembe",
+      "ana_renk_hex": "#e08aa0",
+      "renk_slug": "pembe",
+      "renk_hex": "#e08aa0",
       "ikincil_renk": "",
       "ikincil_renk_code": "",
       "ikincil_renk_hex": "",
       "ana_malzeme": "",
-      "desen": "",
+      "desen": "Monogram",
       "donanim_rengi": "",
       "sapli_sapsiz": "",
       "boyut": "STANDART",
@@ -3757,13 +3283,7 @@ window.__BOTL_DATA__ = {
       "kondisyon_label": "Sıfır",
       "aciklama": "Patron toplu yükleme. Foto: IMG_8974.heic, IMG_8975.HEIC.",
       "tedarikci_id": null,
-      "olusturma": "2026-05-13",
-      "gorseller": {
-        "cover": "assets/products/kart-kabi-80-lutfen-duzenle-karisik-gumus.jpg",
-        "gallery": [
-          "assets/products/kart-kabi-80-lutfen-duzenle-karisik-gumus-g1.jpg"
-        ]
-      }
+      "olusturma": "2026-05-13"
     },
     {
       "variation_id": "FR-00091-KARISIK-STANDART-GUMUS",
@@ -3772,21 +3292,21 @@ window.__BOTL_DATA__ = {
       "slug": "kart-kabi-81-lutfen-duzenle-karisik-gumus",
       "cover": "assets/products/kart-kabi-81-lutfen-duzenle-karisik-gumus.jpg",
       "isim_resmi": "Kart Kabı #81 (lütfen düzenle)",
-      "isim_bilinen": "",
-      "marka": "Bilinmeyen",
-      "kategori": "Kart Kabı",
-      "kategori_ust": "Cüzdan",
-      "kategori_alt": "Kart Kabı",
-      "renk": "KARISIK",
-      "ana_renk": "Karisik",
-      "ana_renk_hex": "#9c9794",
-      "renk_slug": "karisik",
-      "renk_hex": "#9c9794",
+      "isim_bilinen": "Guess Anahtarlikli Mini Cuzdan Siyah 4G Monogram",
+      "marka": "Guess",
+      "kategori": "Cüzdan",
+      "kategori_ust": "Aksesuar",
+      "kategori_alt": "Cüzdan",
+      "renk": "SIYAH",
+      "ana_renk": "Siyah",
+      "ana_renk_hex": "#1a1a1a",
+      "renk_slug": "siyah",
+      "renk_hex": "#1a1a1a",
       "ikincil_renk": "",
       "ikincil_renk_code": "",
       "ikincil_renk_hex": "",
       "ana_malzeme": "",
-      "desen": "",
+      "desen": "Monogram",
       "donanim_rengi": "",
       "sapli_sapsiz": "",
       "boyut": "STANDART",
@@ -3804,13 +3324,7 @@ window.__BOTL_DATA__ = {
       "kondisyon_label": "Sıfır",
       "aciklama": "Patron toplu yükleme. Foto: IMG_8976.heic, IMG_8977.heic.",
       "tedarikci_id": null,
-      "olusturma": "2026-05-13",
-      "gorseller": {
-        "cover": "assets/products/kart-kabi-81-lutfen-duzenle-karisik-gumus.jpg",
-        "gallery": [
-          "assets/products/kart-kabi-81-lutfen-duzenle-karisik-gumus-g1.jpg"
-        ]
-      }
+      "olusturma": "2026-05-13"
     },
     {
       "variation_id": "FR-00092-KARISIK-STANDART-GUMUS",
@@ -3819,21 +3333,21 @@ window.__BOTL_DATA__ = {
       "slug": "kart-kabi-82-lutfen-duzenle-karisik-gumus",
       "cover": "assets/products/kart-kabi-82-lutfen-duzenle-karisik-gumus.jpg",
       "isim_resmi": "Kart Kabı #82 (lütfen düzenle)",
-      "isim_bilinen": "",
-      "marka": "Bilinmeyen",
-      "kategori": "Kart Kabı",
-      "kategori_ust": "Cüzdan",
-      "kategori_alt": "Kart Kabı",
-      "renk": "KARISIK",
-      "ana_renk": "Karisik",
-      "ana_renk_hex": "#9c9794",
-      "renk_slug": "karisik",
-      "renk_hex": "#9c9794",
+      "isim_bilinen": "Coach Mekanizmali Dikey Cuzdan Bej Signature",
+      "marka": "Coach",
+      "kategori": "Cüzdan",
+      "kategori_ust": "Aksesuar",
+      "kategori_alt": "Cüzdan",
+      "renk": "BEJ",
+      "ana_renk": "Bej",
+      "ana_renk_hex": "#d8c3a3",
+      "renk_slug": "bej",
+      "renk_hex": "#d8c3a3",
       "ikincil_renk": "",
       "ikincil_renk_code": "",
       "ikincil_renk_hex": "",
       "ana_malzeme": "",
-      "desen": "",
+      "desen": "Monogram",
       "donanim_rengi": "",
       "sapli_sapsiz": "",
       "boyut": "STANDART",
@@ -3851,13 +3365,7 @@ window.__BOTL_DATA__ = {
       "kondisyon_label": "Sıfır",
       "aciklama": "Patron toplu yükleme. Foto: IMG_8978.heic, IMG_8979.heic.",
       "tedarikci_id": null,
-      "olusturma": "2026-05-13",
-      "gorseller": {
-        "cover": "assets/products/kart-kabi-82-lutfen-duzenle-karisik-gumus.jpg",
-        "gallery": [
-          "assets/products/kart-kabi-82-lutfen-duzenle-karisik-gumus-g1.jpg"
-        ]
-      }
+      "olusturma": "2026-05-13"
     },
     {
       "variation_id": "FR-00093-KARISIK-STANDART-GUMUS",
@@ -3866,21 +3374,21 @@ window.__BOTL_DATA__ = {
       "slug": "kart-kabi-83-lutfen-duzenle-karisik-gumus",
       "cover": "assets/products/kart-kabi-83-lutfen-duzenle-karisik-gumus.jpg",
       "isim_resmi": "Kart Kabı #83 (lütfen düzenle)",
-      "isim_bilinen": "",
-      "marka": "Bilinmeyen",
-      "kategori": "Kart Kabı",
-      "kategori_ust": "Cüzdan",
-      "kategori_alt": "Kart Kabı",
-      "renk": "KARISIK",
-      "ana_renk": "Karisik",
-      "ana_renk_hex": "#9c9794",
-      "renk_slug": "karisik",
-      "renk_hex": "#9c9794",
+      "isim_bilinen": "Coach Mekanizmali Dikey Cuzdan Bej Signature",
+      "marka": "Coach",
+      "kategori": "Cüzdan",
+      "kategori_ust": "Aksesuar",
+      "kategori_alt": "Cüzdan",
+      "renk": "BEJ",
+      "ana_renk": "Bej",
+      "ana_renk_hex": "#d8c3a3",
+      "renk_slug": "bej",
+      "renk_hex": "#d8c3a3",
       "ikincil_renk": "",
       "ikincil_renk_code": "",
       "ikincil_renk_hex": "",
       "ana_malzeme": "",
-      "desen": "",
+      "desen": "Monogram",
       "donanim_rengi": "",
       "sapli_sapsiz": "",
       "boyut": "STANDART",
@@ -3898,13 +3406,7 @@ window.__BOTL_DATA__ = {
       "kondisyon_label": "Sıfır",
       "aciklama": "Patron toplu yükleme. Foto: IMG_8980.heic, IMG_8981.heic.",
       "tedarikci_id": null,
-      "olusturma": "2026-05-13",
-      "gorseller": {
-        "cover": "assets/products/kart-kabi-83-lutfen-duzenle-karisik-gumus.jpg",
-        "gallery": [
-          "assets/products/kart-kabi-83-lutfen-duzenle-karisik-gumus-g1.jpg"
-        ]
-      }
+      "olusturma": "2026-05-13"
     },
     {
       "variation_id": "FR-00094-KARISIK-STANDART-GUMUS",
@@ -3913,21 +3415,21 @@ window.__BOTL_DATA__ = {
       "slug": "kart-kabi-84-lutfen-duzenle-karisik-gumus",
       "cover": "assets/products/kart-kabi-84-lutfen-duzenle-karisik-gumus.jpg",
       "isim_resmi": "Kart Kabı #84 (lütfen düzenle)",
-      "isim_bilinen": "",
-      "marka": "Bilinmeyen",
-      "kategori": "Kart Kabı",
-      "kategori_ust": "Cüzdan",
-      "kategori_alt": "Kart Kabı",
-      "renk": "KARISIK",
-      "ana_renk": "Karisik",
-      "ana_renk_hex": "#9c9794",
-      "renk_slug": "karisik",
-      "renk_hex": "#9c9794",
+      "isim_bilinen": "LV Anahtarlikli Mini Cuzdan Bej Reverse Monogram",
+      "marka": "LV",
+      "kategori": "Cüzdan",
+      "kategori_ust": "Aksesuar",
+      "kategori_alt": "Cüzdan",
+      "renk": "BEJ",
+      "ana_renk": "Bej",
+      "ana_renk_hex": "#d8c3a3",
+      "renk_slug": "bej",
+      "renk_hex": "#d8c3a3",
       "ikincil_renk": "",
       "ikincil_renk_code": "",
       "ikincil_renk_hex": "",
       "ana_malzeme": "",
-      "desen": "",
+      "desen": "Monogram",
       "donanim_rengi": "",
       "sapli_sapsiz": "",
       "boyut": "STANDART",
@@ -3945,13 +3447,7 @@ window.__BOTL_DATA__ = {
       "kondisyon_label": "Sıfır",
       "aciklama": "Patron toplu yükleme. Foto: IMG_8982.heic, IMG_8983.heic.",
       "tedarikci_id": null,
-      "olusturma": "2026-05-13",
-      "gorseller": {
-        "cover": "assets/products/kart-kabi-84-lutfen-duzenle-karisik-gumus.jpg",
-        "gallery": [
-          "assets/products/kart-kabi-84-lutfen-duzenle-karisik-gumus-g1.jpg"
-        ]
-      }
+      "olusturma": "2026-05-13"
     },
     {
       "variation_id": "FR-00095-KARISIK-STANDART-GUMUS",
@@ -3960,21 +3456,21 @@ window.__BOTL_DATA__ = {
       "slug": "kart-kabi-85-lutfen-duzenle-karisik-gumus",
       "cover": "assets/products/kart-kabi-85-lutfen-duzenle-karisik-gumus.jpg",
       "isim_resmi": "Kart Kabı #85 (lütfen düzenle)",
-      "isim_bilinen": "",
-      "marka": "Bilinmeyen",
-      "kategori": "Kart Kabı",
-      "kategori_ust": "Cüzdan",
-      "kategori_alt": "Kart Kabı",
-      "renk": "KARISIK",
-      "ana_renk": "Karisik",
-      "ana_renk_hex": "#9c9794",
-      "renk_slug": "karisik",
-      "renk_hex": "#9c9794",
+      "isim_bilinen": "Gucci Mekanizmali Dikey Cuzdan Siyah GG Monogram",
+      "marka": "Gucci",
+      "kategori": "Cüzdan",
+      "kategori_ust": "Aksesuar",
+      "kategori_alt": "Cüzdan",
+      "renk": "SIYAH",
+      "ana_renk": "Siyah",
+      "ana_renk_hex": "#1a1a1a",
+      "renk_slug": "siyah",
+      "renk_hex": "#1a1a1a",
       "ikincil_renk": "",
       "ikincil_renk_code": "",
       "ikincil_renk_hex": "",
       "ana_malzeme": "",
-      "desen": "",
+      "desen": "Monogram",
       "donanim_rengi": "",
       "sapli_sapsiz": "",
       "boyut": "STANDART",
@@ -3992,13 +3488,7 @@ window.__BOTL_DATA__ = {
       "kondisyon_label": "Sıfır",
       "aciklama": "Patron toplu yükleme. Foto: IMG_8984.heic, IMG_8985.heic.",
       "tedarikci_id": null,
-      "olusturma": "2026-05-13",
-      "gorseller": {
-        "cover": "assets/products/kart-kabi-85-lutfen-duzenle-karisik-gumus.jpg",
-        "gallery": [
-          "assets/products/kart-kabi-85-lutfen-duzenle-karisik-gumus-g1.jpg"
-        ]
-      }
+      "olusturma": "2026-05-13"
     },
     {
       "variation_id": "FR-00096-KARISIK-STANDART-GUMUS",
@@ -4007,21 +3497,21 @@ window.__BOTL_DATA__ = {
       "slug": "kart-kabi-86-lutfen-duzenle-karisik-gumus",
       "cover": "assets/products/kart-kabi-86-lutfen-duzenle-karisik-gumus.jpg",
       "isim_resmi": "Kart Kabı #86 (lütfen düzenle)",
-      "isim_bilinen": "",
-      "marka": "Bilinmeyen",
-      "kategori": "Kart Kabı",
-      "kategori_ust": "Cüzdan",
-      "kategori_alt": "Kart Kabı",
-      "renk": "KARISIK",
-      "ana_renk": "Karisik",
-      "ana_renk_hex": "#9c9794",
-      "renk_slug": "karisik",
-      "renk_hex": "#9c9794",
+      "isim_bilinen": "Coach Mekanizmali Dikey Cuzdan Bej Signature",
+      "marka": "Coach",
+      "kategori": "Cüzdan",
+      "kategori_ust": "Aksesuar",
+      "kategori_alt": "Cüzdan",
+      "renk": "BEJ",
+      "ana_renk": "Bej",
+      "ana_renk_hex": "#d8c3a3",
+      "renk_slug": "bej",
+      "renk_hex": "#d8c3a3",
       "ikincil_renk": "",
       "ikincil_renk_code": "",
       "ikincil_renk_hex": "",
       "ana_malzeme": "",
-      "desen": "",
+      "desen": "Monogram",
       "donanim_rengi": "",
       "sapli_sapsiz": "",
       "boyut": "STANDART",
@@ -4039,13 +3529,7 @@ window.__BOTL_DATA__ = {
       "kondisyon_label": "Sıfır",
       "aciklama": "Patron toplu yükleme. Foto: IMG_8986.heic, IMG_8987.heic.",
       "tedarikci_id": null,
-      "olusturma": "2026-05-13",
-      "gorseller": {
-        "cover": "assets/products/kart-kabi-86-lutfen-duzenle-karisik-gumus.jpg",
-        "gallery": [
-          "assets/products/kart-kabi-86-lutfen-duzenle-karisik-gumus-g1.jpg"
-        ]
-      }
+      "olusturma": "2026-05-13"
     },
     {
       "variation_id": "FR-00097-KARISIK-STANDART-GUMUS",
@@ -4054,21 +3538,21 @@ window.__BOTL_DATA__ = {
       "slug": "kart-kabi-87-lutfen-duzenle-karisik-gumus",
       "cover": "assets/products/kart-kabi-87-lutfen-duzenle-karisik-gumus.jpg",
       "isim_resmi": "Kart Kabı #87 (lütfen düzenle)",
-      "isim_bilinen": "",
-      "marka": "Bilinmeyen",
-      "kategori": "Kart Kabı",
-      "kategori_ust": "Cüzdan",
-      "kategori_alt": "Kart Kabı",
-      "renk": "KARISIK",
-      "ana_renk": "Karisik",
-      "ana_renk_hex": "#9c9794",
-      "renk_slug": "karisik",
-      "renk_hex": "#9c9794",
+      "isim_bilinen": "Guess Anahtarlikli Mini Cuzdan Mavi Denim 4G Monogram",
+      "marka": "Guess",
+      "kategori": "Cüzdan",
+      "kategori_ust": "Aksesuar",
+      "kategori_alt": "Cüzdan",
+      "renk": "MAVI",
+      "ana_renk": "Mavi",
+      "ana_renk_hex": "#2d3e58",
+      "renk_slug": "mavi",
+      "renk_hex": "#2d3e58",
       "ikincil_renk": "",
       "ikincil_renk_code": "",
       "ikincil_renk_hex": "",
       "ana_malzeme": "",
-      "desen": "",
+      "desen": "Monogram",
       "donanim_rengi": "",
       "sapli_sapsiz": "",
       "boyut": "STANDART",
@@ -4086,13 +3570,7 @@ window.__BOTL_DATA__ = {
       "kondisyon_label": "Sıfır",
       "aciklama": "Patron toplu yükleme. Foto: IMG_8988.heic, IMG_8989.HEIC.",
       "tedarikci_id": null,
-      "olusturma": "2026-05-13",
-      "gorseller": {
-        "cover": "assets/products/kart-kabi-87-lutfen-duzenle-karisik-gumus.jpg",
-        "gallery": [
-          "assets/products/kart-kabi-87-lutfen-duzenle-karisik-gumus-g1.jpg"
-        ]
-      }
+      "olusturma": "2026-05-13"
     },
     {
       "variation_id": "FR-00098-KARISIK-STANDART-GUMUS",
@@ -4101,21 +3579,21 @@ window.__BOTL_DATA__ = {
       "slug": "kart-kabi-88-lutfen-duzenle-karisik-gumus",
       "cover": "assets/products/kart-kabi-88-lutfen-duzenle-karisik-gumus.jpg",
       "isim_resmi": "Kart Kabı #88 (lütfen düzenle)",
-      "isim_bilinen": "",
-      "marka": "Bilinmeyen",
-      "kategori": "Kart Kabı",
-      "kategori_ust": "Cüzdan",
-      "kategori_alt": "Kart Kabı",
-      "renk": "KARISIK",
-      "ana_renk": "Karisik",
-      "ana_renk_hex": "#9c9794",
-      "renk_slug": "karisik",
-      "renk_hex": "#9c9794",
+      "isim_bilinen": "LV Klasik Cuzdan Kahve Damier Ebene",
+      "marka": "LV",
+      "kategori": "Cüzdan",
+      "kategori_ust": "Aksesuar",
+      "kategori_alt": "Cüzdan",
+      "renk": "KAHVE",
+      "ana_renk": "Kahve",
+      "ana_renk_hex": "#5a3a25",
+      "renk_slug": "kahve",
+      "renk_hex": "#5a3a25",
       "ikincil_renk": "",
       "ikincil_renk_code": "",
       "ikincil_renk_hex": "",
       "ana_malzeme": "",
-      "desen": "",
+      "desen": "Damier",
       "donanim_rengi": "",
       "sapli_sapsiz": "",
       "boyut": "STANDART",
@@ -4133,13 +3611,7 @@ window.__BOTL_DATA__ = {
       "kondisyon_label": "Sıfır",
       "aciklama": "Patron toplu yükleme. Foto: IMG_8990.heic, IMG_8991.heic.",
       "tedarikci_id": null,
-      "olusturma": "2026-05-13",
-      "gorseller": {
-        "cover": "assets/products/kart-kabi-88-lutfen-duzenle-karisik-gumus.jpg",
-        "gallery": [
-          "assets/products/kart-kabi-88-lutfen-duzenle-karisik-gumus-g1.jpg"
-        ]
-      }
+      "olusturma": "2026-05-13"
     },
     {
       "variation_id": "FR-00099-KARISIK-STANDART-GUMUS",
@@ -4148,21 +3620,21 @@ window.__BOTL_DATA__ = {
       "slug": "kart-kabi-89-lutfen-duzenle-karisik-gumus",
       "cover": "assets/products/kart-kabi-89-lutfen-duzenle-karisik-gumus.jpg",
       "isim_resmi": "Kart Kabı #89 (lütfen düzenle)",
-      "isim_bilinen": "",
-      "marka": "Bilinmeyen",
-      "kategori": "Kart Kabı",
-      "kategori_ust": "Cüzdan",
-      "kategori_alt": "Kart Kabı",
-      "renk": "KARISIK",
-      "ana_renk": "Karisik",
-      "ana_renk_hex": "#9c9794",
-      "renk_slug": "karisik",
-      "renk_hex": "#9c9794",
+      "isim_bilinen": "Coach Mekanizmali Dikey Cuzdan Kahve Signature",
+      "marka": "Coach",
+      "kategori": "Cüzdan",
+      "kategori_ust": "Aksesuar",
+      "kategori_alt": "Cüzdan",
+      "renk": "KAHVE",
+      "ana_renk": "Kahve",
+      "ana_renk_hex": "#5a3a25",
+      "renk_slug": "kahve",
+      "renk_hex": "#5a3a25",
       "ikincil_renk": "",
       "ikincil_renk_code": "",
       "ikincil_renk_hex": "",
       "ana_malzeme": "",
-      "desen": "",
+      "desen": "Monogram",
       "donanim_rengi": "",
       "sapli_sapsiz": "",
       "boyut": "STANDART",
@@ -4180,13 +3652,7 @@ window.__BOTL_DATA__ = {
       "kondisyon_label": "Sıfır",
       "aciklama": "Patron toplu yükleme. Foto: IMG_8992.heic, IMG_8993.heic.",
       "tedarikci_id": null,
-      "olusturma": "2026-05-13",
-      "gorseller": {
-        "cover": "assets/products/kart-kabi-89-lutfen-duzenle-karisik-gumus.jpg",
-        "gallery": [
-          "assets/products/kart-kabi-89-lutfen-duzenle-karisik-gumus-g1.jpg"
-        ]
-      }
+      "olusturma": "2026-05-13"
     },
     {
       "variation_id": "FR-00100-KARISIK-STANDART-GUMUS",
@@ -4195,21 +3661,21 @@ window.__BOTL_DATA__ = {
       "slug": "kart-kabi-90-lutfen-duzenle-karisik-gumus",
       "cover": "assets/products/kart-kabi-90-lutfen-duzenle-karisik-gumus.jpg",
       "isim_resmi": "Kart Kabı #90 (lütfen düzenle)",
-      "isim_bilinen": "",
-      "marka": "Bilinmeyen",
-      "kategori": "Kart Kabı",
-      "kategori_ust": "Cüzdan",
-      "kategori_alt": "Kart Kabı",
-      "renk": "KARISIK",
-      "ana_renk": "Karisik",
-      "ana_renk_hex": "#9c9794",
-      "renk_slug": "karisik",
-      "renk_hex": "#9c9794",
+      "isim_bilinen": "Coach Mekanizmali Dikey Cuzdan Siyah Signature",
+      "marka": "Coach",
+      "kategori": "Cüzdan",
+      "kategori_ust": "Aksesuar",
+      "kategori_alt": "Cüzdan",
+      "renk": "SIYAH",
+      "ana_renk": "Siyah",
+      "ana_renk_hex": "#1a1a1a",
+      "renk_slug": "siyah",
+      "renk_hex": "#1a1a1a",
       "ikincil_renk": "",
       "ikincil_renk_code": "",
       "ikincil_renk_hex": "",
       "ana_malzeme": "",
-      "desen": "",
+      "desen": "Monogram",
       "donanim_rengi": "",
       "sapli_sapsiz": "",
       "boyut": "STANDART",
@@ -4227,13 +3693,7 @@ window.__BOTL_DATA__ = {
       "kondisyon_label": "Sıfır",
       "aciklama": "Patron toplu yükleme. Foto: IMG_8994.heic, IMG_8995.heic.",
       "tedarikci_id": null,
-      "olusturma": "2026-05-13",
-      "gorseller": {
-        "cover": "assets/products/kart-kabi-90-lutfen-duzenle-karisik-gumus.jpg",
-        "gallery": [
-          "assets/products/kart-kabi-90-lutfen-duzenle-karisik-gumus-g1.jpg"
-        ]
-      }
+      "olusturma": "2026-05-13"
     },
     {
       "variation_id": "FR-00101-KARISIK-STANDART-GUMUS",
@@ -4242,21 +3702,21 @@ window.__BOTL_DATA__ = {
       "slug": "kart-kabi-91-lutfen-duzenle-karisik-gumus",
       "cover": "assets/products/kart-kabi-91-lutfen-duzenle-karisik-gumus.jpg",
       "isim_resmi": "Kart Kabı #91 (lütfen düzenle)",
-      "isim_bilinen": "",
-      "marka": "Bilinmeyen",
-      "kategori": "Kart Kabı",
-      "kategori_ust": "Cüzdan",
-      "kategori_alt": "Kart Kabı",
-      "renk": "KARISIK",
-      "ana_renk": "Karisik",
-      "ana_renk_hex": "#9c9794",
-      "renk_slug": "karisik",
-      "renk_hex": "#9c9794",
+      "isim_bilinen": "LV Klasik Cuzdan Siyah Damier Graphite",
+      "marka": "LV",
+      "kategori": "Cüzdan",
+      "kategori_ust": "Aksesuar",
+      "kategori_alt": "Cüzdan",
+      "renk": "SIYAH",
+      "ana_renk": "Siyah",
+      "ana_renk_hex": "#1a1a1a",
+      "renk_slug": "siyah",
+      "renk_hex": "#1a1a1a",
       "ikincil_renk": "",
       "ikincil_renk_code": "",
       "ikincil_renk_hex": "",
       "ana_malzeme": "",
-      "desen": "",
+      "desen": "Damier",
       "donanim_rengi": "",
       "sapli_sapsiz": "",
       "boyut": "STANDART",
@@ -4274,13 +3734,7 @@ window.__BOTL_DATA__ = {
       "kondisyon_label": "Sıfır",
       "aciklama": "Patron toplu yükleme. Foto: IMG_8996.heic, IMG_8997.heic.",
       "tedarikci_id": null,
-      "olusturma": "2026-05-13",
-      "gorseller": {
-        "cover": "assets/products/kart-kabi-91-lutfen-duzenle-karisik-gumus.jpg",
-        "gallery": [
-          "assets/products/kart-kabi-91-lutfen-duzenle-karisik-gumus-g1.jpg"
-        ]
-      }
+      "olusturma": "2026-05-13"
     },
     {
       "variation_id": "FR-00102-KARISIK-STANDART-GUMUS",
@@ -4289,21 +3743,21 @@ window.__BOTL_DATA__ = {
       "slug": "kart-kabi-92-lutfen-duzenle-karisik-gumus",
       "cover": "assets/products/kart-kabi-92-lutfen-duzenle-karisik-gumus.jpg",
       "isim_resmi": "Kart Kabı #92 (lütfen düzenle)",
-      "isim_bilinen": "",
-      "marka": "Bilinmeyen",
-      "kategori": "Kart Kabı",
-      "kategori_ust": "Cüzdan",
-      "kategori_alt": "Kart Kabı",
-      "renk": "KARISIK",
-      "ana_renk": "Karisik",
-      "ana_renk_hex": "#9c9794",
-      "renk_slug": "karisik",
-      "renk_hex": "#9c9794",
+      "isim_bilinen": "Hugo Boss Mekanizmali Dikey Cuzdan Siyah",
+      "marka": "Hugo Boss",
+      "kategori": "Cüzdan",
+      "kategori_ust": "Aksesuar",
+      "kategori_alt": "Cüzdan",
+      "renk": "SIYAH",
+      "ana_renk": "Siyah",
+      "ana_renk_hex": "#1a1a1a",
+      "renk_slug": "siyah",
+      "renk_hex": "#1a1a1a",
       "ikincil_renk": "",
       "ikincil_renk_code": "",
       "ikincil_renk_hex": "",
       "ana_malzeme": "",
-      "desen": "",
+      "desen": "Duz",
       "donanim_rengi": "",
       "sapli_sapsiz": "",
       "boyut": "STANDART",
@@ -4321,13 +3775,7 @@ window.__BOTL_DATA__ = {
       "kondisyon_label": "Sıfır",
       "aciklama": "Patron toplu yükleme. Foto: IMG_8998.heic, IMG_8999.heic.",
       "tedarikci_id": null,
-      "olusturma": "2026-05-13",
-      "gorseller": {
-        "cover": "assets/products/kart-kabi-92-lutfen-duzenle-karisik-gumus.jpg",
-        "gallery": [
-          "assets/products/kart-kabi-92-lutfen-duzenle-karisik-gumus-g1.jpg"
-        ]
-      }
+      "olusturma": "2026-05-13"
     },
     {
       "variation_id": "FR-00103-KARISIK-STANDART-GUMUS",
@@ -4336,21 +3784,21 @@ window.__BOTL_DATA__ = {
       "slug": "kart-kabi-93-lutfen-duzenle-karisik-gumus",
       "cover": "assets/products/kart-kabi-93-lutfen-duzenle-karisik-gumus.jpg",
       "isim_resmi": "Kart Kabı #93 (lütfen düzenle)",
-      "isim_bilinen": "",
-      "marka": "Bilinmeyen",
-      "kategori": "Kart Kabı",
-      "kategori_ust": "Cüzdan",
-      "kategori_alt": "Kart Kabı",
-      "renk": "KARISIK",
-      "ana_renk": "Karisik",
-      "ana_renk_hex": "#9c9794",
-      "renk_slug": "karisik",
-      "renk_hex": "#9c9794",
+      "isim_bilinen": "Guess Anahtarlikli Mini Cuzdan Siyah Embossed 4G",
+      "marka": "Guess",
+      "kategori": "Cüzdan",
+      "kategori_ust": "Aksesuar",
+      "kategori_alt": "Cüzdan",
+      "renk": "SIYAH",
+      "ana_renk": "Siyah",
+      "ana_renk_hex": "#1a1a1a",
+      "renk_slug": "siyah",
+      "renk_hex": "#1a1a1a",
       "ikincil_renk": "",
       "ikincil_renk_code": "",
       "ikincil_renk_hex": "",
       "ana_malzeme": "",
-      "desen": "",
+      "desen": "Monogram",
       "donanim_rengi": "",
       "sapli_sapsiz": "",
       "boyut": "STANDART",
@@ -4368,13 +3816,7 @@ window.__BOTL_DATA__ = {
       "kondisyon_label": "Sıfır",
       "aciklama": "Patron toplu yükleme. Foto: IMG_9001.heic, IMG_9002.heic.",
       "tedarikci_id": null,
-      "olusturma": "2026-05-13",
-      "gorseller": {
-        "cover": "assets/products/kart-kabi-93-lutfen-duzenle-karisik-gumus.jpg",
-        "gallery": [
-          "assets/products/kart-kabi-93-lutfen-duzenle-karisik-gumus-g1.jpg"
-        ]
-      }
+      "olusturma": "2026-05-13"
     },
     {
       "variation_id": "FR-00104-KARISIK-STANDART-GUMUS",
@@ -4383,21 +3825,21 @@ window.__BOTL_DATA__ = {
       "slug": "kart-kabi-94-lutfen-duzenle-karisik-gumus",
       "cover": "assets/products/kart-kabi-94-lutfen-duzenle-karisik-gumus.jpg",
       "isim_resmi": "Kart Kabı #94 (lütfen düzenle)",
-      "isim_bilinen": "",
-      "marka": "Bilinmeyen",
-      "kategori": "Kart Kabı",
-      "kategori_ust": "Cüzdan",
-      "kategori_alt": "Kart Kabı",
-      "renk": "KARISIK",
-      "ana_renk": "Karisik",
-      "ana_renk_hex": "#9c9794",
-      "renk_slug": "karisik",
-      "renk_hex": "#9c9794",
+      "isim_bilinen": "Gucci Mekanizmali Dikey Cuzdan Siyah Embossed GG",
+      "marka": "Gucci",
+      "kategori": "Cüzdan",
+      "kategori_ust": "Aksesuar",
+      "kategori_alt": "Cüzdan",
+      "renk": "SIYAH",
+      "ana_renk": "Siyah",
+      "ana_renk_hex": "#1a1a1a",
+      "renk_slug": "siyah",
+      "renk_hex": "#1a1a1a",
       "ikincil_renk": "",
       "ikincil_renk_code": "",
       "ikincil_renk_hex": "",
       "ana_malzeme": "",
-      "desen": "",
+      "desen": "Monogram",
       "donanim_rengi": "",
       "sapli_sapsiz": "",
       "boyut": "STANDART",
@@ -4415,13 +3857,7 @@ window.__BOTL_DATA__ = {
       "kondisyon_label": "Sıfır",
       "aciklama": "Patron toplu yükleme. Foto: IMG_9003.heic, IMG_9004.HEIC.",
       "tedarikci_id": null,
-      "olusturma": "2026-05-13",
-      "gorseller": {
-        "cover": "assets/products/kart-kabi-94-lutfen-duzenle-karisik-gumus.jpg",
-        "gallery": [
-          "assets/products/kart-kabi-94-lutfen-duzenle-karisik-gumus-g1.jpg"
-        ]
-      }
+      "olusturma": "2026-05-13"
     },
     {
       "variation_id": "FR-00105-KARISIK-STANDART-GUMUS",
@@ -4430,21 +3866,21 @@ window.__BOTL_DATA__ = {
       "slug": "kart-kabi-95-lutfen-duzenle-karisik-gumus",
       "cover": "assets/products/kart-kabi-95-lutfen-duzenle-karisik-gumus.jpg",
       "isim_resmi": "Kart Kabı #95 (lütfen düzenle)",
-      "isim_bilinen": "",
-      "marka": "Bilinmeyen",
-      "kategori": "Kart Kabı",
-      "kategori_ust": "Cüzdan",
-      "kategori_alt": "Kart Kabı",
-      "renk": "KARISIK",
-      "ana_renk": "Karisik",
-      "ana_renk_hex": "#9c9794",
-      "renk_slug": "karisik",
-      "renk_hex": "#9c9794",
+      "isim_bilinen": "LV Anahtarlikli Mini Cuzdan Beyaz Damier Azur",
+      "marka": "LV",
+      "kategori": "Cüzdan",
+      "kategori_ust": "Aksesuar",
+      "kategori_alt": "Cüzdan",
+      "renk": "BEYAZ",
+      "ana_renk": "Beyaz",
+      "ana_renk_hex": "#f5f1ea",
+      "renk_slug": "beyaz",
+      "renk_hex": "#f5f1ea",
       "ikincil_renk": "",
       "ikincil_renk_code": "",
       "ikincil_renk_hex": "",
       "ana_malzeme": "",
-      "desen": "",
+      "desen": "Damier",
       "donanim_rengi": "",
       "sapli_sapsiz": "",
       "boyut": "STANDART",
@@ -4462,13 +3898,7 @@ window.__BOTL_DATA__ = {
       "kondisyon_label": "Sıfır",
       "aciklama": "Patron toplu yükleme. Foto: IMG_9005.heic, IMG_9006.heic.",
       "tedarikci_id": null,
-      "olusturma": "2026-05-13",
-      "gorseller": {
-        "cover": "assets/products/kart-kabi-95-lutfen-duzenle-karisik-gumus.jpg",
-        "gallery": [
-          "assets/products/kart-kabi-95-lutfen-duzenle-karisik-gumus-g1.jpg"
-        ]
-      }
+      "olusturma": "2026-05-13"
     },
     {
       "variation_id": "FR-00106-KARISIK-STANDART-GUMUS",
@@ -4477,21 +3907,21 @@ window.__BOTL_DATA__ = {
       "slug": "kart-kabi-96-lutfen-duzenle-karisik-gumus",
       "cover": "assets/products/kart-kabi-96-lutfen-duzenle-karisik-gumus.jpg",
       "isim_resmi": "Kart Kabı #96 (lütfen düzenle)",
-      "isim_bilinen": "",
-      "marka": "Bilinmeyen",
-      "kategori": "Kart Kabı",
-      "kategori_ust": "Cüzdan",
-      "kategori_alt": "Kart Kabı",
-      "renk": "KARISIK",
-      "ana_renk": "Karisik",
-      "ana_renk_hex": "#9c9794",
-      "renk_slug": "karisik",
-      "renk_hex": "#9c9794",
+      "isim_bilinen": "LV Mekanizmali Yatay Cuzdan Kahve Monogram",
+      "marka": "LV",
+      "kategori": "Cüzdan",
+      "kategori_ust": "Aksesuar",
+      "kategori_alt": "Cüzdan",
+      "renk": "KAHVE",
+      "ana_renk": "Kahve",
+      "ana_renk_hex": "#5a3a25",
+      "renk_slug": "kahve",
+      "renk_hex": "#5a3a25",
       "ikincil_renk": "",
       "ikincil_renk_code": "",
       "ikincil_renk_hex": "",
       "ana_malzeme": "",
-      "desen": "",
+      "desen": "Monogram",
       "donanim_rengi": "",
       "sapli_sapsiz": "",
       "boyut": "STANDART",
@@ -4509,13 +3939,7 @@ window.__BOTL_DATA__ = {
       "kondisyon_label": "Sıfır",
       "aciklama": "Patron toplu yükleme. Foto: IMG_9007.heic, IMG_9008.HEIC.",
       "tedarikci_id": null,
-      "olusturma": "2026-05-13",
-      "gorseller": {
-        "cover": "assets/products/kart-kabi-96-lutfen-duzenle-karisik-gumus.jpg",
-        "gallery": [
-          "assets/products/kart-kabi-96-lutfen-duzenle-karisik-gumus-g1.jpg"
-        ]
-      }
+      "olusturma": "2026-05-13"
     },
     {
       "variation_id": "FR-00107-KARISIK-STANDART-GUMUS",
@@ -4524,21 +3948,21 @@ window.__BOTL_DATA__ = {
       "slug": "kart-kabi-97-lutfen-duzenle-karisik-gumus",
       "cover": "assets/products/kart-kabi-97-lutfen-duzenle-karisik-gumus.jpg",
       "isim_resmi": "Kart Kabı #97 (lütfen düzenle)",
-      "isim_bilinen": "",
-      "marka": "Bilinmeyen",
-      "kategori": "Kart Kabı",
-      "kategori_ust": "Cüzdan",
-      "kategori_alt": "Kart Kabı",
-      "renk": "KARISIK",
-      "ana_renk": "Karisik",
-      "ana_renk_hex": "#9c9794",
-      "renk_slug": "karisik",
-      "renk_hex": "#9c9794",
+      "isim_bilinen": "Gucci Mekanizmali Dikey Cuzdan Bej GG Monogram",
+      "marka": "Gucci",
+      "kategori": "Cüzdan",
+      "kategori_ust": "Aksesuar",
+      "kategori_alt": "Cüzdan",
+      "renk": "BEJ",
+      "ana_renk": "Bej",
+      "ana_renk_hex": "#d8c3a3",
+      "renk_slug": "bej",
+      "renk_hex": "#d8c3a3",
       "ikincil_renk": "",
       "ikincil_renk_code": "",
       "ikincil_renk_hex": "",
       "ana_malzeme": "",
-      "desen": "",
+      "desen": "Monogram",
       "donanim_rengi": "",
       "sapli_sapsiz": "",
       "boyut": "STANDART",
@@ -4556,13 +3980,7 @@ window.__BOTL_DATA__ = {
       "kondisyon_label": "Sıfır",
       "aciklama": "Patron toplu yükleme. Foto: IMG_9009.heic, IMG_9010.heic.",
       "tedarikci_id": null,
-      "olusturma": "2026-05-13",
-      "gorseller": {
-        "cover": "assets/products/kart-kabi-97-lutfen-duzenle-karisik-gumus.jpg",
-        "gallery": [
-          "assets/products/kart-kabi-97-lutfen-duzenle-karisik-gumus-g1.jpg"
-        ]
-      }
+      "olusturma": "2026-05-13"
     },
     {
       "variation_id": "FR-00108-KARISIK-STANDART-GUMUS",
@@ -4571,21 +3989,21 @@ window.__BOTL_DATA__ = {
       "slug": "kart-kabi-98-lutfen-duzenle-karisik-gumus",
       "cover": "assets/products/kart-kabi-98-lutfen-duzenle-karisik-gumus.jpg",
       "isim_resmi": "Kart Kabı #98 (lütfen düzenle)",
-      "isim_bilinen": "",
-      "marka": "Bilinmeyen",
-      "kategori": "Kart Kabı",
-      "kategori_ust": "Cüzdan",
-      "kategori_alt": "Kart Kabı",
-      "renk": "KARISIK",
-      "ana_renk": "Karisik",
-      "ana_renk_hex": "#9c9794",
-      "renk_slug": "karisik",
-      "renk_hex": "#9c9794",
+      "isim_bilinen": "Coach Mekanizmali Dikey Cuzdan Acik Gri Signature",
+      "marka": "Coach",
+      "kategori": "Cüzdan",
+      "kategori_ust": "Aksesuar",
+      "kategori_alt": "Cüzdan",
+      "renk": "ACIK GRI",
+      "ana_renk": "Açık Gri",
+      "ana_renk_hex": "#b8b8b8",
+      "renk_slug": "acik-gri",
+      "renk_hex": "#b8b8b8",
       "ikincil_renk": "",
       "ikincil_renk_code": "",
       "ikincil_renk_hex": "",
       "ana_malzeme": "",
-      "desen": "",
+      "desen": "Monogram",
       "donanim_rengi": "",
       "sapli_sapsiz": "",
       "boyut": "STANDART",
@@ -4603,13 +4021,7 @@ window.__BOTL_DATA__ = {
       "kondisyon_label": "Sıfır",
       "aciklama": "Patron toplu yükleme. Foto: IMG_9011.heic, IMG_9012.heic.",
       "tedarikci_id": null,
-      "olusturma": "2026-05-13",
-      "gorseller": {
-        "cover": "assets/products/kart-kabi-98-lutfen-duzenle-karisik-gumus.jpg",
-        "gallery": [
-          "assets/products/kart-kabi-98-lutfen-duzenle-karisik-gumus-g1.jpg"
-        ]
-      }
+      "olusturma": "2026-05-13"
     },
     {
       "variation_id": "FR-00109-KARISIK-STANDART-GUMUS",
@@ -4618,21 +4030,21 @@ window.__BOTL_DATA__ = {
       "slug": "kart-kabi-99-lutfen-duzenle-karisik-gumus",
       "cover": "assets/products/kart-kabi-99-lutfen-duzenle-karisik-gumus.jpg",
       "isim_resmi": "Kart Kabı #99 (lütfen düzenle)",
-      "isim_bilinen": "",
-      "marka": "Bilinmeyen",
-      "kategori": "Kart Kabı",
-      "kategori_ust": "Cüzdan",
-      "kategori_alt": "Kart Kabı",
-      "renk": "KARISIK",
-      "ana_renk": "Karisik",
-      "ana_renk_hex": "#9c9794",
-      "renk_slug": "karisik",
-      "renk_hex": "#9c9794",
+      "isim_bilinen": "LV Klasik Cuzdan Siyah Embossed Monogram",
+      "marka": "LV",
+      "kategori": "Cüzdan",
+      "kategori_ust": "Aksesuar",
+      "kategori_alt": "Cüzdan",
+      "renk": "SIYAH",
+      "ana_renk": "Siyah",
+      "ana_renk_hex": "#1a1a1a",
+      "renk_slug": "siyah",
+      "renk_hex": "#1a1a1a",
       "ikincil_renk": "",
       "ikincil_renk_code": "",
       "ikincil_renk_hex": "",
       "ana_malzeme": "",
-      "desen": "",
+      "desen": "Monogram",
       "donanim_rengi": "",
       "sapli_sapsiz": "",
       "boyut": "STANDART",
@@ -4650,13 +4062,7 @@ window.__BOTL_DATA__ = {
       "kondisyon_label": "Sıfır",
       "aciklama": "Patron toplu yükleme. Foto: IMG_9013.heic, IMG_9014.heic.",
       "tedarikci_id": null,
-      "olusturma": "2026-05-13",
-      "gorseller": {
-        "cover": "assets/products/kart-kabi-99-lutfen-duzenle-karisik-gumus.jpg",
-        "gallery": [
-          "assets/products/kart-kabi-99-lutfen-duzenle-karisik-gumus-g1.jpg"
-        ]
-      }
+      "olusturma": "2026-05-13"
     },
     {
       "variation_id": "FR-00110-KARISIK-STANDART-GUMUS",
@@ -4665,21 +4071,21 @@ window.__BOTL_DATA__ = {
       "slug": "kart-kabi-100-lutfen-duzenle-karisik-gumus",
       "cover": "assets/products/kart-kabi-100-lutfen-duzenle-karisik-gumus.jpg",
       "isim_resmi": "Kart Kabı #100 (lütfen düzenle)",
-      "isim_bilinen": "",
-      "marka": "Bilinmeyen",
-      "kategori": "Kart Kabı",
-      "kategori_ust": "Cüzdan",
-      "kategori_alt": "Kart Kabı",
-      "renk": "KARISIK",
-      "ana_renk": "Karisik",
-      "ana_renk_hex": "#9c9794",
-      "renk_slug": "karisik",
-      "renk_hex": "#9c9794",
+      "isim_bilinen": "LV Mekanizmali Dikey Cuzdan Koyu Gri Denim Monogram",
+      "marka": "LV",
+      "kategori": "Cüzdan",
+      "kategori_ust": "Aksesuar",
+      "kategori_alt": "Cüzdan",
+      "renk": "KOYU GRI",
+      "ana_renk": "Koyu Gri",
+      "ana_renk_hex": "#4a4a4a",
+      "renk_slug": "koyu-gri",
+      "renk_hex": "#4a4a4a",
       "ikincil_renk": "",
       "ikincil_renk_code": "",
       "ikincil_renk_hex": "",
       "ana_malzeme": "",
-      "desen": "",
+      "desen": "Monogram",
       "donanim_rengi": "",
       "sapli_sapsiz": "",
       "boyut": "STANDART",
@@ -4697,13 +4103,7 @@ window.__BOTL_DATA__ = {
       "kondisyon_label": "Sıfır",
       "aciklama": "Patron toplu yükleme. Foto: IMG_9015.heic, IMG_9016.heic.",
       "tedarikci_id": null,
-      "olusturma": "2026-05-13",
-      "gorseller": {
-        "cover": "assets/products/kart-kabi-100-lutfen-duzenle-karisik-gumus.jpg",
-        "gallery": [
-          "assets/products/kart-kabi-100-lutfen-duzenle-karisik-gumus-g1.jpg"
-        ]
-      }
+      "olusturma": "2026-05-13"
     },
     {
       "variation_id": "FR-00111-KARISIK-STANDART-GUMUS",
@@ -4712,21 +4112,21 @@ window.__BOTL_DATA__ = {
       "slug": "kart-kabi-101-lutfen-duzenle-karisik-gumus",
       "cover": "assets/products/kart-kabi-101-lutfen-duzenle-karisik-gumus.jpg",
       "isim_resmi": "Kart Kabı #101 (lütfen düzenle)",
-      "isim_bilinen": "",
-      "marka": "Bilinmeyen",
-      "kategori": "Kart Kabı",
-      "kategori_ust": "Cüzdan",
-      "kategori_alt": "Kart Kabı",
-      "renk": "KARISIK",
-      "ana_renk": "Karisik",
-      "ana_renk_hex": "#9c9794",
-      "renk_slug": "karisik",
-      "renk_hex": "#9c9794",
+      "isim_bilinen": "LV Mekanizmali Dikey Cuzdan Kahve Monogram",
+      "marka": "LV",
+      "kategori": "Cüzdan",
+      "kategori_ust": "Aksesuar",
+      "kategori_alt": "Cüzdan",
+      "renk": "KAHVE",
+      "ana_renk": "Kahve",
+      "ana_renk_hex": "#5a3a25",
+      "renk_slug": "kahve",
+      "renk_hex": "#5a3a25",
       "ikincil_renk": "",
       "ikincil_renk_code": "",
       "ikincil_renk_hex": "",
       "ana_malzeme": "",
-      "desen": "",
+      "desen": "Monogram",
       "donanim_rengi": "",
       "sapli_sapsiz": "",
       "boyut": "STANDART",
@@ -4744,13 +4144,7 @@ window.__BOTL_DATA__ = {
       "kondisyon_label": "Sıfır",
       "aciklama": "Patron toplu yükleme. Foto: IMG_9017.heic, IMG_9018.heic.",
       "tedarikci_id": null,
-      "olusturma": "2026-05-13",
-      "gorseller": {
-        "cover": "assets/products/kart-kabi-101-lutfen-duzenle-karisik-gumus.jpg",
-        "gallery": [
-          "assets/products/kart-kabi-101-lutfen-duzenle-karisik-gumus-g1.jpg"
-        ]
-      }
+      "olusturma": "2026-05-13"
     },
     {
       "variation_id": "FR-00112-KARISIK-STANDART-GUMUS",
@@ -4759,21 +4153,21 @@ window.__BOTL_DATA__ = {
       "slug": "kart-kabi-102-lutfen-duzenle-karisik-gumus",
       "cover": "assets/products/kart-kabi-102-lutfen-duzenle-karisik-gumus.jpg",
       "isim_resmi": "Kart Kabı #102 (lütfen düzenle)",
-      "isim_bilinen": "",
-      "marka": "Bilinmeyen",
-      "kategori": "Kart Kabı",
-      "kategori_ust": "Cüzdan",
-      "kategori_alt": "Kart Kabı",
-      "renk": "KARISIK",
-      "ana_renk": "Karisik",
-      "ana_renk_hex": "#9c9794",
-      "renk_slug": "karisik",
-      "renk_hex": "#9c9794",
+      "isim_bilinen": "MCM Anahtarlikli Mini Cuzdan Kahve Visetos",
+      "marka": "MCM",
+      "kategori": "Cüzdan",
+      "kategori_ust": "Aksesuar",
+      "kategori_alt": "Cüzdan",
+      "renk": "KAHVE",
+      "ana_renk": "Kahve",
+      "ana_renk_hex": "#5a3a25",
+      "renk_slug": "kahve",
+      "renk_hex": "#5a3a25",
       "ikincil_renk": "",
       "ikincil_renk_code": "",
       "ikincil_renk_hex": "",
       "ana_malzeme": "",
-      "desen": "",
+      "desen": "Monogram",
       "donanim_rengi": "",
       "sapli_sapsiz": "",
       "boyut": "STANDART",
@@ -4791,13 +4185,7 @@ window.__BOTL_DATA__ = {
       "kondisyon_label": "Sıfır",
       "aciklama": "Patron toplu yükleme. Foto: IMG_9019.heic, IMG_9020.heic.",
       "tedarikci_id": null,
-      "olusturma": "2026-05-13",
-      "gorseller": {
-        "cover": "assets/products/kart-kabi-102-lutfen-duzenle-karisik-gumus.jpg",
-        "gallery": [
-          "assets/products/kart-kabi-102-lutfen-duzenle-karisik-gumus-g1.jpg"
-        ]
-      }
+      "olusturma": "2026-05-13"
     },
     {
       "variation_id": "FR-00113-KARISIK-STANDART-GUMUS",
@@ -4806,21 +4194,21 @@ window.__BOTL_DATA__ = {
       "slug": "kart-kabi-103-lutfen-duzenle-karisik-gumus",
       "cover": "assets/products/kart-kabi-103-lutfen-duzenle-karisik-gumus.jpg",
       "isim_resmi": "Kart Kabı #103 (lütfen düzenle)",
-      "isim_bilinen": "",
-      "marka": "Bilinmeyen",
-      "kategori": "Kart Kabı",
-      "kategori_ust": "Cüzdan",
-      "kategori_alt": "Kart Kabı",
-      "renk": "KARISIK",
-      "ana_renk": "Karisik",
-      "ana_renk_hex": "#9c9794",
-      "renk_slug": "karisik",
-      "renk_hex": "#9c9794",
+      "isim_bilinen": "LV Mekanizmali Yatay Cuzdan Kahve Damier Ebene",
+      "marka": "LV",
+      "kategori": "Cüzdan",
+      "kategori_ust": "Aksesuar",
+      "kategori_alt": "Cüzdan",
+      "renk": "KAHVE",
+      "ana_renk": "Kahve",
+      "ana_renk_hex": "#5a3a25",
+      "renk_slug": "kahve",
+      "renk_hex": "#5a3a25",
       "ikincil_renk": "",
       "ikincil_renk_code": "",
       "ikincil_renk_hex": "",
       "ana_malzeme": "",
-      "desen": "",
+      "desen": "Damier",
       "donanim_rengi": "",
       "sapli_sapsiz": "",
       "boyut": "STANDART",
@@ -4838,13 +4226,7 @@ window.__BOTL_DATA__ = {
       "kondisyon_label": "Sıfır",
       "aciklama": "Patron toplu yükleme. Foto: IMG_9021.heic, IMG_9022.heic.",
       "tedarikci_id": null,
-      "olusturma": "2026-05-13",
-      "gorseller": {
-        "cover": "assets/products/kart-kabi-103-lutfen-duzenle-karisik-gumus.jpg",
-        "gallery": [
-          "assets/products/kart-kabi-103-lutfen-duzenle-karisik-gumus-g1.jpg"
-        ]
-      }
+      "olusturma": "2026-05-13"
     },
     {
       "variation_id": "FR-00114-KARISIK-STANDART-GUMUS",
@@ -4853,21 +4235,21 @@ window.__BOTL_DATA__ = {
       "slug": "kart-kabi-104-lutfen-duzenle-karisik-gumus",
       "cover": "assets/products/kart-kabi-104-lutfen-duzenle-karisik-gumus.jpg",
       "isim_resmi": "Kart Kabı #104 (lütfen düzenle)",
-      "isim_bilinen": "",
-      "marka": "Bilinmeyen",
-      "kategori": "Kart Kabı",
-      "kategori_ust": "Cüzdan",
-      "kategori_alt": "Kart Kabı",
-      "renk": "KARISIK",
-      "ana_renk": "Karisik",
-      "ana_renk_hex": "#9c9794",
-      "renk_slug": "karisik",
-      "renk_hex": "#9c9794",
+      "isim_bilinen": "Armani Mekanizmali Yatay Cuzdan Siyah Embossed",
+      "marka": "Armani",
+      "kategori": "Cüzdan",
+      "kategori_ust": "Aksesuar",
+      "kategori_alt": "Cüzdan",
+      "renk": "SIYAH",
+      "ana_renk": "Siyah",
+      "ana_renk_hex": "#1a1a1a",
+      "renk_slug": "siyah",
+      "renk_hex": "#1a1a1a",
       "ikincil_renk": "",
       "ikincil_renk_code": "",
       "ikincil_renk_hex": "",
       "ana_malzeme": "",
-      "desen": "",
+      "desen": "Monogram",
       "donanim_rengi": "",
       "sapli_sapsiz": "",
       "boyut": "STANDART",
@@ -4885,13 +4267,7 @@ window.__BOTL_DATA__ = {
       "kondisyon_label": "Sıfır",
       "aciklama": "Patron toplu yükleme. Foto: IMG_9023.HEIC, IMG_9024.heic.",
       "tedarikci_id": null,
-      "olusturma": "2026-05-13",
-      "gorseller": {
-        "cover": "assets/products/kart-kabi-104-lutfen-duzenle-karisik-gumus.jpg",
-        "gallery": [
-          "assets/products/kart-kabi-104-lutfen-duzenle-karisik-gumus-g1.jpg"
-        ]
-      }
+      "olusturma": "2026-05-13"
     },
     {
       "variation_id": "FR-00115-KARISIK-STANDART-GUMUS",
@@ -4900,21 +4276,21 @@ window.__BOTL_DATA__ = {
       "slug": "kart-kabi-105-lutfen-duzenle-karisik-gumus",
       "cover": "assets/products/kart-kabi-105-lutfen-duzenle-karisik-gumus.jpg",
       "isim_resmi": "Kart Kabı #105 (lütfen düzenle)",
-      "isim_bilinen": "",
-      "marka": "Bilinmeyen",
-      "kategori": "Kart Kabı",
-      "kategori_ust": "Cüzdan",
-      "kategori_alt": "Kart Kabı",
-      "renk": "KARISIK",
-      "ana_renk": "Karisik",
-      "ana_renk_hex": "#9c9794",
-      "renk_slug": "karisik",
-      "renk_hex": "#9c9794",
+      "isim_bilinen": "Coach Mekanizmali Yatay Cuzdan Bej Signature",
+      "marka": "Coach",
+      "kategori": "Cüzdan",
+      "kategori_ust": "Aksesuar",
+      "kategori_alt": "Cüzdan",
+      "renk": "BEJ",
+      "ana_renk": "Bej",
+      "ana_renk_hex": "#d8c3a3",
+      "renk_slug": "bej",
+      "renk_hex": "#d8c3a3",
       "ikincil_renk": "",
       "ikincil_renk_code": "",
       "ikincil_renk_hex": "",
       "ana_malzeme": "",
-      "desen": "",
+      "desen": "Monogram",
       "donanim_rengi": "",
       "sapli_sapsiz": "",
       "boyut": "STANDART",
@@ -4932,13 +4308,7 @@ window.__BOTL_DATA__ = {
       "kondisyon_label": "Sıfır",
       "aciklama": "Patron toplu yükleme. Foto: IMG_9025.heic, IMG_9026.heic.",
       "tedarikci_id": null,
-      "olusturma": "2026-05-13",
-      "gorseller": {
-        "cover": "assets/products/kart-kabi-105-lutfen-duzenle-karisik-gumus.jpg",
-        "gallery": [
-          "assets/products/kart-kabi-105-lutfen-duzenle-karisik-gumus-g1.jpg"
-        ]
-      }
+      "olusturma": "2026-05-13"
     },
     {
       "variation_id": "FR-00116-KARISIK-STANDART-GUMUS",
@@ -4947,21 +4317,21 @@ window.__BOTL_DATA__ = {
       "slug": "kart-kabi-106-lutfen-duzenle-karisik-gumus",
       "cover": "assets/products/kart-kabi-106-lutfen-duzenle-karisik-gumus.jpg",
       "isim_resmi": "Kart Kabı #106 (lütfen düzenle)",
-      "isim_bilinen": "",
-      "marka": "Bilinmeyen",
-      "kategori": "Kart Kabı",
-      "kategori_ust": "Cüzdan",
-      "kategori_alt": "Kart Kabı",
-      "renk": "KARISIK",
-      "ana_renk": "Karisik",
-      "ana_renk_hex": "#9c9794",
-      "renk_slug": "karisik",
-      "renk_hex": "#9c9794",
+      "isim_bilinen": "Coach Mekanizmali Yatay Cuzdan Gri Signature",
+      "marka": "Coach",
+      "kategori": "Cüzdan",
+      "kategori_ust": "Aksesuar",
+      "kategori_alt": "Cüzdan",
+      "renk": "GRI",
+      "ana_renk": "Gri",
+      "ana_renk_hex": "#7d7d7d",
+      "renk_slug": "gri",
+      "renk_hex": "#7d7d7d",
       "ikincil_renk": "",
       "ikincil_renk_code": "",
       "ikincil_renk_hex": "",
       "ana_malzeme": "",
-      "desen": "",
+      "desen": "Monogram",
       "donanim_rengi": "",
       "sapli_sapsiz": "",
       "boyut": "STANDART",
@@ -4979,13 +4349,7 @@ window.__BOTL_DATA__ = {
       "kondisyon_label": "Sıfır",
       "aciklama": "Patron toplu yükleme. Foto: IMG_9027.heic, IMG_9028.heic.",
       "tedarikci_id": null,
-      "olusturma": "2026-05-13",
-      "gorseller": {
-        "cover": "assets/products/kart-kabi-106-lutfen-duzenle-karisik-gumus.jpg",
-        "gallery": [
-          "assets/products/kart-kabi-106-lutfen-duzenle-karisik-gumus-g1.jpg"
-        ]
-      }
+      "olusturma": "2026-05-13"
     },
     {
       "variation_id": "FR-00117-KARISIK-STANDART-GUMUS",
@@ -4994,21 +4358,21 @@ window.__BOTL_DATA__ = {
       "slug": "kart-kabi-107-lutfen-duzenle-karisik-gumus",
       "cover": "assets/products/kart-kabi-107-lutfen-duzenle-karisik-gumus.jpg",
       "isim_resmi": "Kart Kabı #107 (lütfen düzenle)",
-      "isim_bilinen": "",
-      "marka": "Bilinmeyen",
-      "kategori": "Kart Kabı",
-      "kategori_ust": "Cüzdan",
-      "kategori_alt": "Kart Kabı",
-      "renk": "KARISIK",
-      "ana_renk": "Karisik",
-      "ana_renk_hex": "#9c9794",
-      "renk_slug": "karisik",
-      "renk_hex": "#9c9794",
+      "isim_bilinen": "LV Mekanizmali Yatay Cuzdan Siyah Damier Graphite",
+      "marka": "LV",
+      "kategori": "Cüzdan",
+      "kategori_ust": "Aksesuar",
+      "kategori_alt": "Cüzdan",
+      "renk": "SIYAH",
+      "ana_renk": "Siyah",
+      "ana_renk_hex": "#1a1a1a",
+      "renk_slug": "siyah",
+      "renk_hex": "#1a1a1a",
       "ikincil_renk": "",
       "ikincil_renk_code": "",
       "ikincil_renk_hex": "",
       "ana_malzeme": "",
-      "desen": "",
+      "desen": "Damier",
       "donanim_rengi": "",
       "sapli_sapsiz": "",
       "boyut": "STANDART",
@@ -5026,13 +4390,7 @@ window.__BOTL_DATA__ = {
       "kondisyon_label": "Sıfır",
       "aciklama": "Patron toplu yükleme. Foto: IMG_9029.heic, IMG_9030.heic.",
       "tedarikci_id": null,
-      "olusturma": "2026-05-13",
-      "gorseller": {
-        "cover": "assets/products/kart-kabi-107-lutfen-duzenle-karisik-gumus.jpg",
-        "gallery": [
-          "assets/products/kart-kabi-107-lutfen-duzenle-karisik-gumus-g1.jpg"
-        ]
-      }
+      "olusturma": "2026-05-13"
     },
     {
       "variation_id": "FR-00118-KARISIK-STANDART-GUMUS",
@@ -5041,21 +4399,21 @@ window.__BOTL_DATA__ = {
       "slug": "kart-kabi-108-lutfen-duzenle-karisik-gumus",
       "cover": "assets/products/kart-kabi-108-lutfen-duzenle-karisik-gumus.jpg",
       "isim_resmi": "Kart Kabı #108 (lütfen düzenle)",
-      "isim_bilinen": "",
-      "marka": "Bilinmeyen",
-      "kategori": "Kart Kabı",
-      "kategori_ust": "Cüzdan",
-      "kategori_alt": "Kart Kabı",
-      "renk": "KARISIK",
-      "ana_renk": "Karisik",
-      "ana_renk_hex": "#9c9794",
-      "renk_slug": "karisik",
-      "renk_hex": "#9c9794",
+      "isim_bilinen": "LV Klasik Cuzdan Siyah Damier Graphite",
+      "marka": "LV",
+      "kategori": "Cüzdan",
+      "kategori_ust": "Aksesuar",
+      "kategori_alt": "Cüzdan",
+      "renk": "SIYAH",
+      "ana_renk": "Siyah",
+      "ana_renk_hex": "#1a1a1a",
+      "renk_slug": "siyah",
+      "renk_hex": "#1a1a1a",
       "ikincil_renk": "",
       "ikincil_renk_code": "",
       "ikincil_renk_hex": "",
       "ana_malzeme": "",
-      "desen": "",
+      "desen": "Damier",
       "donanim_rengi": "",
       "sapli_sapsiz": "",
       "boyut": "STANDART",
@@ -5073,13 +4431,7 @@ window.__BOTL_DATA__ = {
       "kondisyon_label": "Sıfır",
       "aciklama": "Patron toplu yükleme. Foto: IMG_9031.heic, IMG_9032.heic.",
       "tedarikci_id": null,
-      "olusturma": "2026-05-13",
-      "gorseller": {
-        "cover": "assets/products/kart-kabi-108-lutfen-duzenle-karisik-gumus.jpg",
-        "gallery": [
-          "assets/products/kart-kabi-108-lutfen-duzenle-karisik-gumus-g1.jpg"
-        ]
-      }
+      "olusturma": "2026-05-13"
     },
     {
       "variation_id": "FR-00119-KARISIK-STANDART-GUMUS",
@@ -5088,21 +4440,21 @@ window.__BOTL_DATA__ = {
       "slug": "kart-kabi-109-lutfen-duzenle-karisik-gumus",
       "cover": "assets/products/kart-kabi-109-lutfen-duzenle-karisik-gumus.jpg",
       "isim_resmi": "Kart Kabı #109 (lütfen düzenle)",
-      "isim_bilinen": "",
-      "marka": "Bilinmeyen",
-      "kategori": "Kart Kabı",
-      "kategori_ust": "Cüzdan",
-      "kategori_alt": "Kart Kabı",
-      "renk": "KARISIK",
-      "ana_renk": "Karisik",
-      "ana_renk_hex": "#9c9794",
-      "renk_slug": "karisik",
-      "renk_hex": "#9c9794",
+      "isim_bilinen": "LV Mekanizmali Yatay Cuzdan Kahve Damier Ebene",
+      "marka": "LV",
+      "kategori": "Cüzdan",
+      "kategori_ust": "Aksesuar",
+      "kategori_alt": "Cüzdan",
+      "renk": "KAHVE",
+      "ana_renk": "Kahve",
+      "ana_renk_hex": "#5a3a25",
+      "renk_slug": "kahve",
+      "renk_hex": "#5a3a25",
       "ikincil_renk": "",
       "ikincil_renk_code": "",
       "ikincil_renk_hex": "",
       "ana_malzeme": "",
-      "desen": "",
+      "desen": "Damier",
       "donanim_rengi": "",
       "sapli_sapsiz": "",
       "boyut": "STANDART",
@@ -5120,13 +4472,7 @@ window.__BOTL_DATA__ = {
       "kondisyon_label": "Sıfır",
       "aciklama": "Patron toplu yükleme. Foto: IMG_9033.heic, IMG_9034.heic.",
       "tedarikci_id": null,
-      "olusturma": "2026-05-13",
-      "gorseller": {
-        "cover": "assets/products/kart-kabi-109-lutfen-duzenle-karisik-gumus.jpg",
-        "gallery": [
-          "assets/products/kart-kabi-109-lutfen-duzenle-karisik-gumus-g1.jpg"
-        ]
-      }
+      "olusturma": "2026-05-13"
     },
     {
       "variation_id": "FR-00120-KARISIK-STANDART-GUMUS",
@@ -5135,21 +4481,21 @@ window.__BOTL_DATA__ = {
       "slug": "kart-kabi-110-lutfen-duzenle-karisik-gumus",
       "cover": "assets/products/kart-kabi-110-lutfen-duzenle-karisik-gumus.jpg",
       "isim_resmi": "Kart Kabı #110 (lütfen düzenle)",
-      "isim_bilinen": "",
-      "marka": "Bilinmeyen",
-      "kategori": "Kart Kabı",
-      "kategori_ust": "Cüzdan",
-      "kategori_alt": "Kart Kabı",
-      "renk": "KARISIK",
-      "ana_renk": "Karisik",
-      "ana_renk_hex": "#9c9794",
-      "renk_slug": "karisik",
-      "renk_hex": "#9c9794",
+      "isim_bilinen": "LV Mekanizmali Yatay Cuzdan Siyah Monogram Eclipse",
+      "marka": "LV",
+      "kategori": "Cüzdan",
+      "kategori_ust": "Aksesuar",
+      "kategori_alt": "Cüzdan",
+      "renk": "SIYAH",
+      "ana_renk": "Siyah",
+      "ana_renk_hex": "#1a1a1a",
+      "renk_slug": "siyah",
+      "renk_hex": "#1a1a1a",
       "ikincil_renk": "",
       "ikincil_renk_code": "",
       "ikincil_renk_hex": "",
       "ana_malzeme": "",
-      "desen": "",
+      "desen": "Monogram",
       "donanim_rengi": "",
       "sapli_sapsiz": "",
       "boyut": "STANDART",
@@ -5167,13 +4513,7 @@ window.__BOTL_DATA__ = {
       "kondisyon_label": "Sıfır",
       "aciklama": "Patron toplu yükleme. Foto: IMG_9035.heic, IMG_9036.heic.",
       "tedarikci_id": null,
-      "olusturma": "2026-05-13",
-      "gorseller": {
-        "cover": "assets/products/kart-kabi-110-lutfen-duzenle-karisik-gumus.jpg",
-        "gallery": [
-          "assets/products/kart-kabi-110-lutfen-duzenle-karisik-gumus-g1.jpg"
-        ]
-      }
+      "olusturma": "2026-05-13"
     },
     {
       "variation_id": "FR-00121-KARISIK-STANDART-GUMUS",
@@ -5182,21 +4522,21 @@ window.__BOTL_DATA__ = {
       "slug": "kart-kabi-111-lutfen-duzenle-karisik-gumus",
       "cover": "assets/products/kart-kabi-111-lutfen-duzenle-karisik-gumus.jpg",
       "isim_resmi": "Kart Kabı #111 (lütfen düzenle)",
-      "isim_bilinen": "",
-      "marka": "Bilinmeyen",
-      "kategori": "Kart Kabı",
-      "kategori_ust": "Cüzdan",
-      "kategori_alt": "Kart Kabı",
-      "renk": "KARISIK",
-      "ana_renk": "Karisik",
-      "ana_renk_hex": "#9c9794",
-      "renk_slug": "karisik",
-      "renk_hex": "#9c9794",
+      "isim_bilinen": "LV Anahtarlikli Mini Cuzdan Mavi Denim Monogram",
+      "marka": "LV",
+      "kategori": "Cüzdan",
+      "kategori_ust": "Aksesuar",
+      "kategori_alt": "Cüzdan",
+      "renk": "MAVI",
+      "ana_renk": "Mavi",
+      "ana_renk_hex": "#2d3e58",
+      "renk_slug": "mavi",
+      "renk_hex": "#2d3e58",
       "ikincil_renk": "",
       "ikincil_renk_code": "",
       "ikincil_renk_hex": "",
       "ana_malzeme": "",
-      "desen": "",
+      "desen": "Monogram",
       "donanim_rengi": "",
       "sapli_sapsiz": "",
       "boyut": "STANDART",
@@ -5214,13 +4554,7 @@ window.__BOTL_DATA__ = {
       "kondisyon_label": "Sıfır",
       "aciklama": "Patron toplu yükleme. Foto: IMG_9037.heic, IMG_9038.heic.",
       "tedarikci_id": null,
-      "olusturma": "2026-05-13",
-      "gorseller": {
-        "cover": "assets/products/kart-kabi-111-lutfen-duzenle-karisik-gumus.jpg",
-        "gallery": [
-          "assets/products/kart-kabi-111-lutfen-duzenle-karisik-gumus-g1.jpg"
-        ]
-      }
+      "olusturma": "2026-05-13"
     },
     {
       "variation_id": "FR-00122-KARISIK-STANDART-GUMUS",
@@ -5229,21 +4563,21 @@ window.__BOTL_DATA__ = {
       "slug": "kart-kabi-112-lutfen-duzenle-karisik-gumus",
       "cover": "assets/products/kart-kabi-112-lutfen-duzenle-karisik-gumus.jpg",
       "isim_resmi": "Kart Kabı #112 (lütfen düzenle)",
-      "isim_bilinen": "",
-      "marka": "Bilinmeyen",
-      "kategori": "Kart Kabı",
-      "kategori_ust": "Cüzdan",
-      "kategori_alt": "Kart Kabı",
-      "renk": "KARISIK",
-      "ana_renk": "Karisik",
-      "ana_renk_hex": "#9c9794",
-      "renk_slug": "karisik",
-      "renk_hex": "#9c9794",
+      "isim_bilinen": "Coach Mekanizmali Dikey Cuzdan Koyu Kahve Signature",
+      "marka": "Coach",
+      "kategori": "Cüzdan",
+      "kategori_ust": "Aksesuar",
+      "kategori_alt": "Cüzdan",
+      "renk": "KOYU KAHVE",
+      "ana_renk": "Koyu Kahve",
+      "ana_renk_hex": "#3d2817",
+      "renk_slug": "koyu-kahve",
+      "renk_hex": "#3d2817",
       "ikincil_renk": "",
       "ikincil_renk_code": "",
       "ikincil_renk_hex": "",
       "ana_malzeme": "",
-      "desen": "",
+      "desen": "Monogram",
       "donanim_rengi": "",
       "sapli_sapsiz": "",
       "boyut": "STANDART",
@@ -5261,13 +4595,7 @@ window.__BOTL_DATA__ = {
       "kondisyon_label": "Sıfır",
       "aciklama": "Patron toplu yükleme. Foto: IMG_9039.heic, IMG_9040.HEIC.",
       "tedarikci_id": null,
-      "olusturma": "2026-05-13",
-      "gorseller": {
-        "cover": "assets/products/kart-kabi-112-lutfen-duzenle-karisik-gumus.jpg",
-        "gallery": [
-          "assets/products/kart-kabi-112-lutfen-duzenle-karisik-gumus-g1.jpg"
-        ]
-      }
+      "olusturma": "2026-05-13"
     },
     {
       "variation_id": "FR-00123-KARISIK-STANDART-GUMUS",
@@ -5276,21 +4604,21 @@ window.__BOTL_DATA__ = {
       "slug": "kart-kabi-113-lutfen-duzenle-karisik-gumus",
       "cover": "assets/products/kart-kabi-113-lutfen-duzenle-karisik-gumus.jpg",
       "isim_resmi": "Kart Kabı #113 (lütfen düzenle)",
-      "isim_bilinen": "",
-      "marka": "Bilinmeyen",
-      "kategori": "Kart Kabı",
-      "kategori_ust": "Cüzdan",
-      "kategori_alt": "Kart Kabı",
-      "renk": "KARISIK",
-      "ana_renk": "Karisik",
-      "ana_renk_hex": "#9c9794",
-      "renk_slug": "karisik",
-      "renk_hex": "#9c9794",
+      "isim_bilinen": "Coach Mekanizmali Dikey Cuzdan Siyah Signature",
+      "marka": "Coach",
+      "kategori": "Cüzdan",
+      "kategori_ust": "Aksesuar",
+      "kategori_alt": "Cüzdan",
+      "renk": "SIYAH",
+      "ana_renk": "Siyah",
+      "ana_renk_hex": "#1a1a1a",
+      "renk_slug": "siyah",
+      "renk_hex": "#1a1a1a",
       "ikincil_renk": "",
       "ikincil_renk_code": "",
       "ikincil_renk_hex": "",
       "ana_malzeme": "",
-      "desen": "",
+      "desen": "Monogram",
       "donanim_rengi": "",
       "sapli_sapsiz": "",
       "boyut": "STANDART",
@@ -5308,13 +4636,7 @@ window.__BOTL_DATA__ = {
       "kondisyon_label": "Sıfır",
       "aciklama": "Patron toplu yükleme. Foto: IMG_9041.heic, IMG_9042.heic.",
       "tedarikci_id": null,
-      "olusturma": "2026-05-13",
-      "gorseller": {
-        "cover": "assets/products/kart-kabi-113-lutfen-duzenle-karisik-gumus.jpg",
-        "gallery": [
-          "assets/products/kart-kabi-113-lutfen-duzenle-karisik-gumus-g1.jpg"
-        ]
-      }
+      "olusturma": "2026-05-13"
     },
     {
       "variation_id": "FR-00124-KARISIK-STANDART-GUMUS",
@@ -5323,21 +4645,21 @@ window.__BOTL_DATA__ = {
       "slug": "kart-kabi-114-lutfen-duzenle-karisik-gumus",
       "cover": "assets/products/kart-kabi-114-lutfen-duzenle-karisik-gumus.jpg",
       "isim_resmi": "Kart Kabı #114 (lütfen düzenle)",
-      "isim_bilinen": "",
-      "marka": "Bilinmeyen",
-      "kategori": "Kart Kabı",
-      "kategori_ust": "Cüzdan",
-      "kategori_alt": "Kart Kabı",
-      "renk": "KARISIK",
-      "ana_renk": "Karisik",
-      "ana_renk_hex": "#9c9794",
-      "renk_slug": "karisik",
-      "renk_hex": "#9c9794",
+      "isim_bilinen": "Coach Mekanizmali Dikey Cuzdan Beyaz Signature",
+      "marka": "Coach",
+      "kategori": "Cüzdan",
+      "kategori_ust": "Aksesuar",
+      "kategori_alt": "Cüzdan",
+      "renk": "BEYAZ",
+      "ana_renk": "Beyaz",
+      "ana_renk_hex": "#f5f1ea",
+      "renk_slug": "beyaz",
+      "renk_hex": "#f5f1ea",
       "ikincil_renk": "",
       "ikincil_renk_code": "",
       "ikincil_renk_hex": "",
       "ana_malzeme": "",
-      "desen": "",
+      "desen": "Monogram",
       "donanim_rengi": "",
       "sapli_sapsiz": "",
       "boyut": "STANDART",
@@ -5355,13 +4677,7 @@ window.__BOTL_DATA__ = {
       "kondisyon_label": "Sıfır",
       "aciklama": "Patron toplu yükleme. Foto: IMG_9043.heic, IMG_9044.heic.",
       "tedarikci_id": null,
-      "olusturma": "2026-05-13",
-      "gorseller": {
-        "cover": "assets/products/kart-kabi-114-lutfen-duzenle-karisik-gumus.jpg",
-        "gallery": [
-          "assets/products/kart-kabi-114-lutfen-duzenle-karisik-gumus-g1.jpg"
-        ]
-      }
+      "olusturma": "2026-05-13"
     },
     {
       "variation_id": "FR-00125-KARISIK-STANDART-GUMUS",
@@ -5370,21 +4686,21 @@ window.__BOTL_DATA__ = {
       "slug": "kart-kabi-115-lutfen-duzenle-karisik-gumus",
       "cover": "assets/products/kart-kabi-115-lutfen-duzenle-karisik-gumus.jpg",
       "isim_resmi": "Kart Kabı #115 (lütfen düzenle)",
-      "isim_bilinen": "",
-      "marka": "Bilinmeyen",
-      "kategori": "Kart Kabı",
-      "kategori_ust": "Cüzdan",
-      "kategori_alt": "Kart Kabı",
-      "renk": "KARISIK",
-      "ana_renk": "Karisik",
-      "ana_renk_hex": "#9c9794",
-      "renk_slug": "karisik",
-      "renk_hex": "#9c9794",
+      "isim_bilinen": "Gucci Mekanizmali Yatay Cuzdan Acik Gri GG Monogram",
+      "marka": "Gucci",
+      "kategori": "Cüzdan",
+      "kategori_ust": "Aksesuar",
+      "kategori_alt": "Cüzdan",
+      "renk": "ACIK GRI",
+      "ana_renk": "Açık Gri",
+      "ana_renk_hex": "#b8b8b8",
+      "renk_slug": "acik-gri",
+      "renk_hex": "#b8b8b8",
       "ikincil_renk": "",
       "ikincil_renk_code": "",
       "ikincil_renk_hex": "",
       "ana_malzeme": "",
-      "desen": "",
+      "desen": "Monogram",
       "donanim_rengi": "",
       "sapli_sapsiz": "",
       "boyut": "STANDART",
@@ -5402,13 +4718,7 @@ window.__BOTL_DATA__ = {
       "kondisyon_label": "Sıfır",
       "aciklama": "Patron toplu yükleme. Foto: IMG_9045.heic, IMG_9046.heic.",
       "tedarikci_id": null,
-      "olusturma": "2026-05-13",
-      "gorseller": {
-        "cover": "assets/products/kart-kabi-115-lutfen-duzenle-karisik-gumus.jpg",
-        "gallery": [
-          "assets/products/kart-kabi-115-lutfen-duzenle-karisik-gumus-g1.jpg"
-        ]
-      }
+      "olusturma": "2026-05-13"
     },
     {
       "variation_id": "FR-00126-KARISIK-STANDART-GUMUS",
@@ -5417,21 +4727,21 @@ window.__BOTL_DATA__ = {
       "slug": "kart-kabi-116-lutfen-duzenle-karisik-gumus",
       "cover": "assets/products/kart-kabi-116-lutfen-duzenle-karisik-gumus.jpg",
       "isim_resmi": "Kart Kabı #116 (lütfen düzenle)",
-      "isim_bilinen": "",
-      "marka": "Bilinmeyen",
-      "kategori": "Kart Kabı",
-      "kategori_ust": "Cüzdan",
-      "kategori_alt": "Kart Kabı",
-      "renk": "KARISIK",
-      "ana_renk": "Karisik",
-      "ana_renk_hex": "#9c9794",
-      "renk_slug": "karisik",
-      "renk_hex": "#9c9794",
+      "isim_bilinen": "LV Mekanizmali Yatay Cuzdan Siyah Embossed Monogram",
+      "marka": "LV",
+      "kategori": "Cüzdan",
+      "kategori_ust": "Aksesuar",
+      "kategori_alt": "Cüzdan",
+      "renk": "SIYAH",
+      "ana_renk": "Siyah",
+      "ana_renk_hex": "#1a1a1a",
+      "renk_slug": "siyah",
+      "renk_hex": "#1a1a1a",
       "ikincil_renk": "",
       "ikincil_renk_code": "",
       "ikincil_renk_hex": "",
       "ana_malzeme": "",
-      "desen": "",
+      "desen": "Monogram",
       "donanim_rengi": "",
       "sapli_sapsiz": "",
       "boyut": "STANDART",
@@ -5449,13 +4759,7 @@ window.__BOTL_DATA__ = {
       "kondisyon_label": "Sıfır",
       "aciklama": "Patron toplu yükleme. Foto: IMG_9047.heic, IMG_9048.heic.",
       "tedarikci_id": null,
-      "olusturma": "2026-05-13",
-      "gorseller": {
-        "cover": "assets/products/kart-kabi-116-lutfen-duzenle-karisik-gumus.jpg",
-        "gallery": [
-          "assets/products/kart-kabi-116-lutfen-duzenle-karisik-gumus-g1.jpg"
-        ]
-      }
+      "olusturma": "2026-05-13"
     },
     {
       "variation_id": "FR-00127-KARISIK-STANDART-GUMUS",
@@ -5464,21 +4768,21 @@ window.__BOTL_DATA__ = {
       "slug": "kart-kabi-117-lutfen-duzenle-karisik-gumus",
       "cover": "assets/products/kart-kabi-117-lutfen-duzenle-karisik-gumus.jpg",
       "isim_resmi": "Kart Kabı #117 (lütfen düzenle)",
-      "isim_bilinen": "",
-      "marka": "Bilinmeyen",
-      "kategori": "Kart Kabı",
-      "kategori_ust": "Cüzdan",
-      "kategori_alt": "Kart Kabı",
-      "renk": "KARISIK",
-      "ana_renk": "Karisik",
-      "ana_renk_hex": "#9c9794",
-      "renk_slug": "karisik",
-      "renk_hex": "#9c9794",
+      "isim_bilinen": "LV Anahtarlikli Mini Cuzdan Kahve Monogram",
+      "marka": "LV",
+      "kategori": "Cüzdan",
+      "kategori_ust": "Aksesuar",
+      "kategori_alt": "Cüzdan",
+      "renk": "KAHVE",
+      "ana_renk": "Kahve",
+      "ana_renk_hex": "#5a3a25",
+      "renk_slug": "kahve",
+      "renk_hex": "#5a3a25",
       "ikincil_renk": "",
       "ikincil_renk_code": "",
       "ikincil_renk_hex": "",
       "ana_malzeme": "",
-      "desen": "",
+      "desen": "Monogram",
       "donanim_rengi": "",
       "sapli_sapsiz": "",
       "boyut": "STANDART",
@@ -5496,13 +4800,7 @@ window.__BOTL_DATA__ = {
       "kondisyon_label": "Sıfır",
       "aciklama": "Patron toplu yükleme. Foto: IMG_9049.heic, IMG_9050.heic.",
       "tedarikci_id": null,
-      "olusturma": "2026-05-13",
-      "gorseller": {
-        "cover": "assets/products/kart-kabi-117-lutfen-duzenle-karisik-gumus.jpg",
-        "gallery": [
-          "assets/products/kart-kabi-117-lutfen-duzenle-karisik-gumus-g1.jpg"
-        ]
-      }
+      "olusturma": "2026-05-13"
     },
     {
       "variation_id": "FR-00128-KARISIK-STANDART-GUMUS",
@@ -5511,21 +4809,21 @@ window.__BOTL_DATA__ = {
       "slug": "kart-kabi-118-lutfen-duzenle-karisik-gumus",
       "cover": "assets/products/kart-kabi-118-lutfen-duzenle-karisik-gumus.jpg",
       "isim_resmi": "Kart Kabı #118 (lütfen düzenle)",
-      "isim_bilinen": "",
-      "marka": "Bilinmeyen",
-      "kategori": "Kart Kabı",
-      "kategori_ust": "Cüzdan",
-      "kategori_alt": "Kart Kabı",
-      "renk": "KARISIK",
-      "ana_renk": "Karisik",
-      "ana_renk_hex": "#9c9794",
-      "renk_slug": "karisik",
-      "renk_hex": "#9c9794",
+      "isim_bilinen": "Coach Mekanizmali Dikey Cuzdan Gri Signature",
+      "marka": "Coach",
+      "kategori": "Cüzdan",
+      "kategori_ust": "Aksesuar",
+      "kategori_alt": "Cüzdan",
+      "renk": "GRI",
+      "ana_renk": "Gri",
+      "ana_renk_hex": "#7d7d7d",
+      "renk_slug": "gri",
+      "renk_hex": "#7d7d7d",
       "ikincil_renk": "",
       "ikincil_renk_code": "",
       "ikincil_renk_hex": "",
       "ana_malzeme": "",
-      "desen": "",
+      "desen": "Monogram",
       "donanim_rengi": "",
       "sapli_sapsiz": "",
       "boyut": "STANDART",
@@ -5543,13 +4841,7 @@ window.__BOTL_DATA__ = {
       "kondisyon_label": "Sıfır",
       "aciklama": "Patron toplu yükleme. Foto: IMG_9051.heic, IMG_9052.heic.",
       "tedarikci_id": null,
-      "olusturma": "2026-05-13",
-      "gorseller": {
-        "cover": "assets/products/kart-kabi-118-lutfen-duzenle-karisik-gumus.jpg",
-        "gallery": [
-          "assets/products/kart-kabi-118-lutfen-duzenle-karisik-gumus-g1.jpg"
-        ]
-      }
+      "olusturma": "2026-05-13"
     },
     {
       "variation_id": "FR-00129-KARISIK-STANDART-GUMUS",
@@ -5558,21 +4850,21 @@ window.__BOTL_DATA__ = {
       "slug": "kart-kabi-119-lutfen-duzenle-karisik-gumus",
       "cover": "assets/products/kart-kabi-119-lutfen-duzenle-karisik-gumus.jpg",
       "isim_resmi": "Kart Kabı #119 (lütfen düzenle)",
-      "isim_bilinen": "",
-      "marka": "Bilinmeyen",
-      "kategori": "Kart Kabı",
-      "kategori_ust": "Cüzdan",
-      "kategori_alt": "Kart Kabı",
-      "renk": "KARISIK",
-      "ana_renk": "Karisik",
-      "ana_renk_hex": "#9c9794",
-      "renk_slug": "karisik",
-      "renk_hex": "#9c9794",
+      "isim_bilinen": "LV Klasik Cuzdan Kahve Monogram",
+      "marka": "LV",
+      "kategori": "Cüzdan",
+      "kategori_ust": "Aksesuar",
+      "kategori_alt": "Cüzdan",
+      "renk": "KAHVE",
+      "ana_renk": "Kahve",
+      "ana_renk_hex": "#5a3a25",
+      "renk_slug": "kahve",
+      "renk_hex": "#5a3a25",
       "ikincil_renk": "",
       "ikincil_renk_code": "",
       "ikincil_renk_hex": "",
       "ana_malzeme": "",
-      "desen": "",
+      "desen": "Monogram",
       "donanim_rengi": "",
       "sapli_sapsiz": "",
       "boyut": "STANDART",
@@ -5590,13 +4882,7 @@ window.__BOTL_DATA__ = {
       "kondisyon_label": "Sıfır",
       "aciklama": "Patron toplu yükleme. Foto: IMG_9053.heic, IMG_9054.heic.",
       "tedarikci_id": null,
-      "olusturma": "2026-05-13",
-      "gorseller": {
-        "cover": "assets/products/kart-kabi-119-lutfen-duzenle-karisik-gumus.jpg",
-        "gallery": [
-          "assets/products/kart-kabi-119-lutfen-duzenle-karisik-gumus-g1.jpg"
-        ]
-      }
+      "olusturma": "2026-05-13"
     },
     {
       "variation_id": "FR-00130-KARISIK-STANDART-GUMUS",
@@ -5605,21 +4891,21 @@ window.__BOTL_DATA__ = {
       "slug": "kart-kabi-120-lutfen-duzenle-karisik-gumus",
       "cover": "assets/products/kart-kabi-120-lutfen-duzenle-karisik-gumus.jpg",
       "isim_resmi": "Kart Kabı #120 (lütfen düzenle)",
-      "isim_bilinen": "",
-      "marka": "Bilinmeyen",
+      "isim_bilinen": "Goyard Kart Kabi Sari",
+      "marka": "Goyard",
       "kategori": "Kart Kabı",
-      "kategori_ust": "Cüzdan",
+      "kategori_ust": "Aksesuar",
       "kategori_alt": "Kart Kabı",
-      "renk": "KARISIK",
-      "ana_renk": "Karisik",
-      "ana_renk_hex": "#9c9794",
-      "renk_slug": "karisik",
-      "renk_hex": "#9c9794",
+      "renk": "SARI",
+      "ana_renk": "Sarı",
+      "ana_renk_hex": "#e8c840",
+      "renk_slug": "sari",
+      "renk_hex": "#e8c840",
       "ikincil_renk": "",
       "ikincil_renk_code": "",
       "ikincil_renk_hex": "",
       "ana_malzeme": "",
-      "desen": "",
+      "desen": "Goyardine",
       "donanim_rengi": "",
       "sapli_sapsiz": "",
       "boyut": "STANDART",
@@ -5637,13 +4923,7 @@ window.__BOTL_DATA__ = {
       "kondisyon_label": "Sıfır",
       "aciklama": "Patron toplu yükleme. Foto: IMG_9055.heic, IMG_9056.heic.",
       "tedarikci_id": null,
-      "olusturma": "2026-05-13",
-      "gorseller": {
-        "cover": "assets/products/kart-kabi-120-lutfen-duzenle-karisik-gumus.jpg",
-        "gallery": [
-          "assets/products/kart-kabi-120-lutfen-duzenle-karisik-gumus-g1.jpg"
-        ]
-      }
+      "olusturma": "2026-05-13"
     },
     {
       "variation_id": "FR-00131-KARISIK-STANDART-GUMUS",
@@ -5652,21 +4932,21 @@ window.__BOTL_DATA__ = {
       "slug": "kart-kabi-121-lutfen-duzenle-karisik-gumus",
       "cover": "assets/products/kart-kabi-121-lutfen-duzenle-karisik-gumus.jpg",
       "isim_resmi": "Kart Kabı #121 (lütfen düzenle)",
-      "isim_bilinen": "",
-      "marka": "Bilinmeyen",
-      "kategori": "Kart Kabı",
-      "kategori_ust": "Cüzdan",
-      "kategori_alt": "Kart Kabı",
-      "renk": "KARISIK",
-      "ana_renk": "Karisik",
-      "ana_renk_hex": "#9c9794",
-      "renk_slug": "karisik",
-      "renk_hex": "#9c9794",
+      "isim_bilinen": "Hugo Boss Mekanizmali Dikey Cuzdan Siyah",
+      "marka": "Hugo Boss",
+      "kategori": "Cüzdan",
+      "kategori_ust": "Aksesuar",
+      "kategori_alt": "Cüzdan",
+      "renk": "SIYAH",
+      "ana_renk": "Siyah",
+      "ana_renk_hex": "#1a1a1a",
+      "renk_slug": "siyah",
+      "renk_hex": "#1a1a1a",
       "ikincil_renk": "",
       "ikincil_renk_code": "",
       "ikincil_renk_hex": "",
       "ana_malzeme": "",
-      "desen": "",
+      "desen": "Duz",
       "donanim_rengi": "",
       "sapli_sapsiz": "",
       "boyut": "STANDART",
@@ -5684,13 +4964,7 @@ window.__BOTL_DATA__ = {
       "kondisyon_label": "Sıfır",
       "aciklama": "Patron toplu yükleme. Foto: IMG_9057.heic, IMG_9058.heic.",
       "tedarikci_id": null,
-      "olusturma": "2026-05-13",
-      "gorseller": {
-        "cover": "assets/products/kart-kabi-121-lutfen-duzenle-karisik-gumus.jpg",
-        "gallery": [
-          "assets/products/kart-kabi-121-lutfen-duzenle-karisik-gumus-g1.jpg"
-        ]
-      }
+      "olusturma": "2026-05-13"
     },
     {
       "variation_id": "FR-00132-KARISIK-STANDART-GUMUS",
@@ -5699,21 +4973,21 @@ window.__BOTL_DATA__ = {
       "slug": "kart-kabi-122-lutfen-duzenle-karisik-gumus",
       "cover": "assets/products/kart-kabi-122-lutfen-duzenle-karisik-gumus.jpg",
       "isim_resmi": "Kart Kabı #122 (lütfen düzenle)",
-      "isim_bilinen": "",
-      "marka": "Bilinmeyen",
-      "kategori": "Kart Kabı",
-      "kategori_ust": "Cüzdan",
-      "kategori_alt": "Kart Kabı",
-      "renk": "KARISIK",
-      "ana_renk": "Karisik",
-      "ana_renk_hex": "#9c9794",
-      "renk_slug": "karisik",
-      "renk_hex": "#9c9794",
+      "isim_bilinen": "LV Mekanizmali Yatay Cuzdan Siyah Damier Infini",
+      "marka": "LV",
+      "kategori": "Cüzdan",
+      "kategori_ust": "Aksesuar",
+      "kategori_alt": "Cüzdan",
+      "renk": "SIYAH",
+      "ana_renk": "Siyah",
+      "ana_renk_hex": "#1a1a1a",
+      "renk_slug": "siyah",
+      "renk_hex": "#1a1a1a",
       "ikincil_renk": "",
       "ikincil_renk_code": "",
       "ikincil_renk_hex": "",
       "ana_malzeme": "",
-      "desen": "",
+      "desen": "Damier",
       "donanim_rengi": "",
       "sapli_sapsiz": "",
       "boyut": "STANDART",
@@ -5731,13 +5005,7 @@ window.__BOTL_DATA__ = {
       "kondisyon_label": "Sıfır",
       "aciklama": "Patron toplu yükleme. Foto: IMG_9059.heic, IMG_9060.heic.",
       "tedarikci_id": null,
-      "olusturma": "2026-05-13",
-      "gorseller": {
-        "cover": "assets/products/kart-kabi-122-lutfen-duzenle-karisik-gumus.jpg",
-        "gallery": [
-          "assets/products/kart-kabi-122-lutfen-duzenle-karisik-gumus-g1.jpg"
-        ]
-      }
+      "olusturma": "2026-05-13"
     },
     {
       "variation_id": "FR-00133-KARISIK-STANDART-GUMUS",
@@ -5746,21 +5014,21 @@ window.__BOTL_DATA__ = {
       "slug": "kart-kabi-123-lutfen-duzenle-karisik-gumus",
       "cover": "assets/products/kart-kabi-123-lutfen-duzenle-karisik-gumus.jpg",
       "isim_resmi": "Kart Kabı #123 (lütfen düzenle)",
-      "isim_bilinen": "",
-      "marka": "Bilinmeyen",
-      "kategori": "Kart Kabı",
-      "kategori_ust": "Cüzdan",
-      "kategori_alt": "Kart Kabı",
-      "renk": "KARISIK",
-      "ana_renk": "Karisik",
-      "ana_renk_hex": "#9c9794",
-      "renk_slug": "karisik",
-      "renk_hex": "#9c9794",
+      "isim_bilinen": "LV Mekanizmali Yatay Cuzdan Siyah Monogram Eclipse",
+      "marka": "LV",
+      "kategori": "Cüzdan",
+      "kategori_ust": "Aksesuar",
+      "kategori_alt": "Cüzdan",
+      "renk": "SIYAH",
+      "ana_renk": "Siyah",
+      "ana_renk_hex": "#1a1a1a",
+      "renk_slug": "siyah",
+      "renk_hex": "#1a1a1a",
       "ikincil_renk": "",
       "ikincil_renk_code": "",
       "ikincil_renk_hex": "",
       "ana_malzeme": "",
-      "desen": "",
+      "desen": "Monogram",
       "donanim_rengi": "",
       "sapli_sapsiz": "",
       "boyut": "STANDART",
@@ -5778,13 +5046,7 @@ window.__BOTL_DATA__ = {
       "kondisyon_label": "Sıfır",
       "aciklama": "Patron toplu yükleme. Foto: IMG_9061.heic, IMG_9062.heic.",
       "tedarikci_id": null,
-      "olusturma": "2026-05-13",
-      "gorseller": {
-        "cover": "assets/products/kart-kabi-123-lutfen-duzenle-karisik-gumus.jpg",
-        "gallery": [
-          "assets/products/kart-kabi-123-lutfen-duzenle-karisik-gumus-g1.jpg"
-        ]
-      }
+      "olusturma": "2026-05-13"
     },
     {
       "variation_id": "FR-00134-KARISIK-STANDART-GUMUS",
@@ -5793,21 +5055,21 @@ window.__BOTL_DATA__ = {
       "slug": "kart-kabi-124-lutfen-duzenle-karisik-gumus",
       "cover": "assets/products/kart-kabi-124-lutfen-duzenle-karisik-gumus.jpg",
       "isim_resmi": "Kart Kabı #124 (lütfen düzenle)",
-      "isim_bilinen": "",
-      "marka": "Bilinmeyen",
-      "kategori": "Kart Kabı",
-      "kategori_ust": "Cüzdan",
-      "kategori_alt": "Kart Kabı",
-      "renk": "KARISIK",
-      "ana_renk": "Karisik",
-      "ana_renk_hex": "#9c9794",
-      "renk_slug": "karisik",
-      "renk_hex": "#9c9794",
+      "isim_bilinen": "Armani Klasik Cuzdan Siyah",
+      "marka": "Armani",
+      "kategori": "Cüzdan",
+      "kategori_ust": "Aksesuar",
+      "kategori_alt": "Cüzdan",
+      "renk": "SIYAH",
+      "ana_renk": "Siyah",
+      "ana_renk_hex": "#1a1a1a",
+      "renk_slug": "siyah",
+      "renk_hex": "#1a1a1a",
       "ikincil_renk": "",
       "ikincil_renk_code": "",
       "ikincil_renk_hex": "",
       "ana_malzeme": "",
-      "desen": "",
+      "desen": "Duz",
       "donanim_rengi": "",
       "sapli_sapsiz": "",
       "boyut": "STANDART",
@@ -5825,13 +5087,7 @@ window.__BOTL_DATA__ = {
       "kondisyon_label": "Sıfır",
       "aciklama": "Patron toplu yükleme. Foto: IMG_9063.heic, IMG_9064.heic.",
       "tedarikci_id": null,
-      "olusturma": "2026-05-13",
-      "gorseller": {
-        "cover": "assets/products/kart-kabi-124-lutfen-duzenle-karisik-gumus.jpg",
-        "gallery": [
-          "assets/products/kart-kabi-124-lutfen-duzenle-karisik-gumus-g1.jpg"
-        ]
-      }
+      "olusturma": "2026-05-13"
     },
     {
       "variation_id": "FR-00135-KARISIK-STANDART-GUMUS",
@@ -5840,21 +5096,21 @@ window.__BOTL_DATA__ = {
       "slug": "kart-kabi-125-lutfen-duzenle-karisik-gumus",
       "cover": "assets/products/kart-kabi-125-lutfen-duzenle-karisik-gumus.jpg",
       "isim_resmi": "Kart Kabı #125 (lütfen düzenle)",
-      "isim_bilinen": "",
-      "marka": "Bilinmeyen",
-      "kategori": "Kart Kabı",
-      "kategori_ust": "Cüzdan",
-      "kategori_alt": "Kart Kabı",
-      "renk": "KARISIK",
-      "ana_renk": "Karisik",
-      "ana_renk_hex": "#9c9794",
-      "renk_slug": "karisik",
-      "renk_hex": "#9c9794",
+      "isim_bilinen": "Coach Mekanizmali Yatay Cuzdan Kahve Signature",
+      "marka": "Coach",
+      "kategori": "Cüzdan",
+      "kategori_ust": "Aksesuar",
+      "kategori_alt": "Cüzdan",
+      "renk": "KAHVE",
+      "ana_renk": "Kahve",
+      "ana_renk_hex": "#5a3a25",
+      "renk_slug": "kahve",
+      "renk_hex": "#5a3a25",
       "ikincil_renk": "",
       "ikincil_renk_code": "",
       "ikincil_renk_hex": "",
       "ana_malzeme": "",
-      "desen": "",
+      "desen": "Monogram",
       "donanim_rengi": "",
       "sapli_sapsiz": "",
       "boyut": "STANDART",
@@ -5872,13 +5128,7 @@ window.__BOTL_DATA__ = {
       "kondisyon_label": "Sıfır",
       "aciklama": "Patron toplu yükleme. Foto: IMG_9065.heic, IMG_9066.heic.",
       "tedarikci_id": null,
-      "olusturma": "2026-05-13",
-      "gorseller": {
-        "cover": "assets/products/kart-kabi-125-lutfen-duzenle-karisik-gumus.jpg",
-        "gallery": [
-          "assets/products/kart-kabi-125-lutfen-duzenle-karisik-gumus-g1.jpg"
-        ]
-      }
+      "olusturma": "2026-05-13"
     },
     {
       "variation_id": "FR-00136-KARISIK-STANDART-GUMUS",
@@ -5887,21 +5137,21 @@ window.__BOTL_DATA__ = {
       "slug": "kart-kabi-126-lutfen-duzenle-karisik-gumus",
       "cover": "assets/products/kart-kabi-126-lutfen-duzenle-karisik-gumus.jpg",
       "isim_resmi": "Kart Kabı #126 (lütfen düzenle)",
-      "isim_bilinen": "",
-      "marka": "Bilinmeyen",
-      "kategori": "Kart Kabı",
-      "kategori_ust": "Cüzdan",
-      "kategori_alt": "Kart Kabı",
-      "renk": "KARISIK",
-      "ana_renk": "Karisik",
-      "ana_renk_hex": "#9c9794",
-      "renk_slug": "karisik",
-      "renk_hex": "#9c9794",
+      "isim_bilinen": "Gucci Mekanizmali Yatay Cuzdan Bej GG Monogram",
+      "marka": "Gucci",
+      "kategori": "Cüzdan",
+      "kategori_ust": "Aksesuar",
+      "kategori_alt": "Cüzdan",
+      "renk": "BEJ",
+      "ana_renk": "Bej",
+      "ana_renk_hex": "#d8c3a3",
+      "renk_slug": "bej",
+      "renk_hex": "#d8c3a3",
       "ikincil_renk": "",
       "ikincil_renk_code": "",
       "ikincil_renk_hex": "",
       "ana_malzeme": "",
-      "desen": "",
+      "desen": "Monogram",
       "donanim_rengi": "",
       "sapli_sapsiz": "",
       "boyut": "STANDART",
@@ -5919,13 +5169,7 @@ window.__BOTL_DATA__ = {
       "kondisyon_label": "Sıfır",
       "aciklama": "Patron toplu yükleme. Foto: IMG_9067.heic, IMG_9068.heic.",
       "tedarikci_id": null,
-      "olusturma": "2026-05-13",
-      "gorseller": {
-        "cover": "assets/products/kart-kabi-126-lutfen-duzenle-karisik-gumus.jpg",
-        "gallery": [
-          "assets/products/kart-kabi-126-lutfen-duzenle-karisik-gumus-g1.jpg"
-        ]
-      }
+      "olusturma": "2026-05-13"
     },
     {
       "variation_id": "FR-00137-KARISIK-STANDART-GUMUS",
@@ -5934,21 +5178,21 @@ window.__BOTL_DATA__ = {
       "slug": "kart-kabi-127-lutfen-duzenle-karisik-gumus",
       "cover": "assets/products/kart-kabi-127-lutfen-duzenle-karisik-gumus.jpg",
       "isim_resmi": "Kart Kabı #127 (lütfen düzenle)",
-      "isim_bilinen": "",
-      "marka": "Bilinmeyen",
-      "kategori": "Kart Kabı",
-      "kategori_ust": "Cüzdan",
-      "kategori_alt": "Kart Kabı",
-      "renk": "KARISIK",
-      "ana_renk": "Karisik",
-      "ana_renk_hex": "#9c9794",
-      "renk_slug": "karisik",
-      "renk_hex": "#9c9794",
+      "isim_bilinen": "LV Mekanizmali Yatay Cuzdan Kahve Monogram",
+      "marka": "LV",
+      "kategori": "Cüzdan",
+      "kategori_ust": "Aksesuar",
+      "kategori_alt": "Cüzdan",
+      "renk": "KAHVE",
+      "ana_renk": "Kahve",
+      "ana_renk_hex": "#5a3a25",
+      "renk_slug": "kahve",
+      "renk_hex": "#5a3a25",
       "ikincil_renk": "",
       "ikincil_renk_code": "",
       "ikincil_renk_hex": "",
       "ana_malzeme": "",
-      "desen": "",
+      "desen": "Monogram",
       "donanim_rengi": "",
       "sapli_sapsiz": "",
       "boyut": "STANDART",
@@ -5966,13 +5210,7 @@ window.__BOTL_DATA__ = {
       "kondisyon_label": "Sıfır",
       "aciklama": "Patron toplu yükleme. Foto: IMG_9069.heic, IMG_9070.heic.",
       "tedarikci_id": null,
-      "olusturma": "2026-05-13",
-      "gorseller": {
-        "cover": "assets/products/kart-kabi-127-lutfen-duzenle-karisik-gumus.jpg",
-        "gallery": [
-          "assets/products/kart-kabi-127-lutfen-duzenle-karisik-gumus-g1.jpg"
-        ]
-      }
+      "olusturma": "2026-05-13"
     },
     {
       "variation_id": "FR-00138-KARISIK-STANDART-GUMUS",
@@ -5981,21 +5219,21 @@ window.__BOTL_DATA__ = {
       "slug": "kart-kabi-128-lutfen-duzenle-karisik-gumus",
       "cover": "assets/products/kart-kabi-128-lutfen-duzenle-karisik-gumus.jpg",
       "isim_resmi": "Kart Kabı #128 (lütfen düzenle)",
-      "isim_bilinen": "",
-      "marka": "Bilinmeyen",
-      "kategori": "Kart Kabı",
-      "kategori_ust": "Cüzdan",
-      "kategori_alt": "Kart Kabı",
-      "renk": "KARISIK",
-      "ana_renk": "Karisik",
-      "ana_renk_hex": "#9c9794",
-      "renk_slug": "karisik",
-      "renk_hex": "#9c9794",
+      "isim_bilinen": "Coach Mekanizmali Dikey Cuzdan Gri Signature",
+      "marka": "Coach",
+      "kategori": "Cüzdan",
+      "kategori_ust": "Aksesuar",
+      "kategori_alt": "Cüzdan",
+      "renk": "GRI",
+      "ana_renk": "Gri",
+      "ana_renk_hex": "#7d7d7d",
+      "renk_slug": "gri",
+      "renk_hex": "#7d7d7d",
       "ikincil_renk": "",
       "ikincil_renk_code": "",
       "ikincil_renk_hex": "",
       "ana_malzeme": "",
-      "desen": "",
+      "desen": "Monogram",
       "donanim_rengi": "",
       "sapli_sapsiz": "",
       "boyut": "STANDART",
@@ -6013,13 +5251,7 @@ window.__BOTL_DATA__ = {
       "kondisyon_label": "Sıfır",
       "aciklama": "Patron toplu yükleme. Foto: IMG_9071.heic, IMG_9072.heic.",
       "tedarikci_id": null,
-      "olusturma": "2026-05-13",
-      "gorseller": {
-        "cover": "assets/products/kart-kabi-128-lutfen-duzenle-karisik-gumus.jpg",
-        "gallery": [
-          "assets/products/kart-kabi-128-lutfen-duzenle-karisik-gumus-g1.jpg"
-        ]
-      }
+      "olusturma": "2026-05-13"
     },
     {
       "variation_id": "FR-00139-KARISIK-STANDART-GUMUS",
@@ -6028,21 +5260,21 @@ window.__BOTL_DATA__ = {
       "slug": "kart-kabi-129-lutfen-duzenle-karisik-gumus",
       "cover": "assets/products/kart-kabi-129-lutfen-duzenle-karisik-gumus.jpg",
       "isim_resmi": "Kart Kabı #129 (lütfen düzenle)",
-      "isim_bilinen": "",
-      "marka": "Bilinmeyen",
-      "kategori": "Kart Kabı",
-      "kategori_ust": "Cüzdan",
-      "kategori_alt": "Kart Kabı",
-      "renk": "KARISIK",
-      "ana_renk": "Karisik",
-      "ana_renk_hex": "#9c9794",
-      "renk_slug": "karisik",
-      "renk_hex": "#9c9794",
+      "isim_bilinen": "Coach Mekanizmali Yatay Cuzdan Gri Signature",
+      "marka": "Coach",
+      "kategori": "Cüzdan",
+      "kategori_ust": "Aksesuar",
+      "kategori_alt": "Cüzdan",
+      "renk": "GRI",
+      "ana_renk": "Gri",
+      "ana_renk_hex": "#7d7d7d",
+      "renk_slug": "gri",
+      "renk_hex": "#7d7d7d",
       "ikincil_renk": "",
       "ikincil_renk_code": "",
       "ikincil_renk_hex": "",
       "ana_malzeme": "",
-      "desen": "",
+      "desen": "Monogram",
       "donanim_rengi": "",
       "sapli_sapsiz": "",
       "boyut": "STANDART",
@@ -6060,13 +5292,7 @@ window.__BOTL_DATA__ = {
       "kondisyon_label": "Sıfır",
       "aciklama": "Patron toplu yükleme. Foto: IMG_9073.heic, IMG_9074.heic.",
       "tedarikci_id": null,
-      "olusturma": "2026-05-13",
-      "gorseller": {
-        "cover": "assets/products/kart-kabi-129-lutfen-duzenle-karisik-gumus.jpg",
-        "gallery": [
-          "assets/products/kart-kabi-129-lutfen-duzenle-karisik-gumus-g1.jpg"
-        ]
-      }
+      "olusturma": "2026-05-13"
     },
     {
       "variation_id": "FR-00140-KARISIK-STANDART-GUMUS",
@@ -6075,21 +5301,21 @@ window.__BOTL_DATA__ = {
       "slug": "kart-kabi-130-lutfen-duzenle-karisik-gumus",
       "cover": "assets/products/kart-kabi-130-lutfen-duzenle-karisik-gumus.jpg",
       "isim_resmi": "Kart Kabı #130 (lütfen düzenle)",
-      "isim_bilinen": "",
-      "marka": "Bilinmeyen",
-      "kategori": "Kart Kabı",
-      "kategori_ust": "Cüzdan",
-      "kategori_alt": "Kart Kabı",
-      "renk": "KARISIK",
-      "ana_renk": "Karisik",
-      "ana_renk_hex": "#9c9794",
-      "renk_slug": "karisik",
-      "renk_hex": "#9c9794",
+      "isim_bilinen": "Coach Mekanizmali Yatay Cuzdan Beyaz Signature",
+      "marka": "Coach",
+      "kategori": "Cüzdan",
+      "kategori_ust": "Aksesuar",
+      "kategori_alt": "Cüzdan",
+      "renk": "BEYAZ",
+      "ana_renk": "Beyaz",
+      "ana_renk_hex": "#f5f1ea",
+      "renk_slug": "beyaz",
+      "renk_hex": "#f5f1ea",
       "ikincil_renk": "",
       "ikincil_renk_code": "",
       "ikincil_renk_hex": "",
       "ana_malzeme": "",
-      "desen": "",
+      "desen": "Monogram",
       "donanim_rengi": "",
       "sapli_sapsiz": "",
       "boyut": "STANDART",
@@ -6107,13 +5333,7 @@ window.__BOTL_DATA__ = {
       "kondisyon_label": "Sıfır",
       "aciklama": "Patron toplu yükleme. Foto: IMG_9075.heic, IMG_9076.heic.",
       "tedarikci_id": null,
-      "olusturma": "2026-05-13",
-      "gorseller": {
-        "cover": "assets/products/kart-kabi-130-lutfen-duzenle-karisik-gumus.jpg",
-        "gallery": [
-          "assets/products/kart-kabi-130-lutfen-duzenle-karisik-gumus-g1.jpg"
-        ]
-      }
+      "olusturma": "2026-05-13"
     },
     {
       "variation_id": "FR-00141-KARISIK-STANDART-GUMUS",
@@ -6122,21 +5342,21 @@ window.__BOTL_DATA__ = {
       "slug": "kart-kabi-131-lutfen-duzenle-karisik-gumus",
       "cover": "assets/products/kart-kabi-131-lutfen-duzenle-karisik-gumus.jpg",
       "isim_resmi": "Kart Kabı #131 (lütfen düzenle)",
-      "isim_bilinen": "",
-      "marka": "Bilinmeyen",
-      "kategori": "Kart Kabı",
-      "kategori_ust": "Cüzdan",
-      "kategori_alt": "Kart Kabı",
-      "renk": "KARISIK",
-      "ana_renk": "Karisik",
-      "ana_renk_hex": "#9c9794",
-      "renk_slug": "karisik",
-      "renk_hex": "#9c9794",
+      "isim_bilinen": "Guess Anahtarlikli Mini Cuzdan Bej 4G Kanvas",
+      "marka": "Guess",
+      "kategori": "Cüzdan",
+      "kategori_ust": "Aksesuar",
+      "kategori_alt": "Cüzdan",
+      "renk": "BEJ",
+      "ana_renk": "Bej",
+      "ana_renk_hex": "#d8c3a3",
+      "renk_slug": "bej",
+      "renk_hex": "#d8c3a3",
       "ikincil_renk": "",
       "ikincil_renk_code": "",
       "ikincil_renk_hex": "",
       "ana_malzeme": "",
-      "desen": "",
+      "desen": "Monogram",
       "donanim_rengi": "",
       "sapli_sapsiz": "",
       "boyut": "STANDART",
@@ -6154,13 +5374,7 @@ window.__BOTL_DATA__ = {
       "kondisyon_label": "Sıfır",
       "aciklama": "Patron toplu yükleme. Foto: IMG_9082.heic, IMG_9083.heic.",
       "tedarikci_id": null,
-      "olusturma": "2026-05-13",
-      "gorseller": {
-        "cover": "assets/products/kart-kabi-131-lutfen-duzenle-karisik-gumus.jpg",
-        "gallery": [
-          "assets/products/kart-kabi-131-lutfen-duzenle-karisik-gumus-g1.jpg"
-        ]
-      }
+      "olusturma": "2026-05-13"
     },
     {
       "variation_id": "FR-00142-KARISIK-STANDART-GUMUS",
@@ -6169,21 +5383,21 @@ window.__BOTL_DATA__ = {
       "slug": "kart-kabi-132-lutfen-duzenle-karisik-gumus",
       "cover": "assets/products/kart-kabi-132-lutfen-duzenle-karisik-gumus.jpg",
       "isim_resmi": "Kart Kabı #132 (lütfen düzenle)",
-      "isim_bilinen": "",
-      "marka": "Bilinmeyen",
-      "kategori": "Kart Kabı",
-      "kategori_ust": "Cüzdan",
-      "kategori_alt": "Kart Kabı",
-      "renk": "KARISIK",
-      "ana_renk": "Karisik",
-      "ana_renk_hex": "#9c9794",
-      "renk_slug": "karisik",
-      "renk_hex": "#9c9794",
+      "isim_bilinen": "Gucci Mekanizmali Yatay Cuzdan Bej GG Monogram",
+      "marka": "Gucci",
+      "kategori": "Cüzdan",
+      "kategori_ust": "Aksesuar",
+      "kategori_alt": "Cüzdan",
+      "renk": "BEJ",
+      "ana_renk": "Bej",
+      "ana_renk_hex": "#d8c3a3",
+      "renk_slug": "bej",
+      "renk_hex": "#d8c3a3",
       "ikincil_renk": "",
       "ikincil_renk_code": "",
       "ikincil_renk_hex": "",
       "ana_malzeme": "",
-      "desen": "",
+      "desen": "Monogram",
       "donanim_rengi": "",
       "sapli_sapsiz": "",
       "boyut": "STANDART",
@@ -6201,13 +5415,7 @@ window.__BOTL_DATA__ = {
       "kondisyon_label": "Sıfır",
       "aciklama": "Patron toplu yükleme. Foto: IMG_9084.heic, IMG_9085.heic.",
       "tedarikci_id": null,
-      "olusturma": "2026-05-13",
-      "gorseller": {
-        "cover": "assets/products/kart-kabi-132-lutfen-duzenle-karisik-gumus.jpg",
-        "gallery": [
-          "assets/products/kart-kabi-132-lutfen-duzenle-karisik-gumus-g1.jpg"
-        ]
-      }
+      "olusturma": "2026-05-13"
     },
     {
       "variation_id": "FR-00143-KARISIK-STANDART-GUMUS",
@@ -6216,21 +5424,21 @@ window.__BOTL_DATA__ = {
       "slug": "kart-kabi-133-lutfen-duzenle-karisik-gumus",
       "cover": "assets/products/kart-kabi-133-lutfen-duzenle-karisik-gumus.jpg",
       "isim_resmi": "Kart Kabı #133 (lütfen düzenle)",
-      "isim_bilinen": "",
-      "marka": "Bilinmeyen",
-      "kategori": "Kart Kabı",
-      "kategori_ust": "Cüzdan",
-      "kategori_alt": "Kart Kabı",
-      "renk": "KARISIK",
-      "ana_renk": "Karisik",
-      "ana_renk_hex": "#9c9794",
-      "renk_slug": "karisik",
-      "renk_hex": "#9c9794",
+      "isim_bilinen": "LV Mekanizmali Yatay Cuzdan Koyu Gri Denim Monogram",
+      "marka": "LV",
+      "kategori": "Cüzdan",
+      "kategori_ust": "Aksesuar",
+      "kategori_alt": "Cüzdan",
+      "renk": "KOYU GRI",
+      "ana_renk": "Koyu Gri",
+      "ana_renk_hex": "#4a4a4a",
+      "renk_slug": "koyu-gri",
+      "renk_hex": "#4a4a4a",
       "ikincil_renk": "",
       "ikincil_renk_code": "",
       "ikincil_renk_hex": "",
       "ana_malzeme": "",
-      "desen": "",
+      "desen": "Monogram",
       "donanim_rengi": "",
       "sapli_sapsiz": "",
       "boyut": "STANDART",
@@ -6248,13 +5456,7 @@ window.__BOTL_DATA__ = {
       "kondisyon_label": "Sıfır",
       "aciklama": "Patron toplu yükleme. Foto: IMG_9086.heic, IMG_9087.heic.",
       "tedarikci_id": null,
-      "olusturma": "2026-05-13",
-      "gorseller": {
-        "cover": "assets/products/kart-kabi-133-lutfen-duzenle-karisik-gumus.jpg",
-        "gallery": [
-          "assets/products/kart-kabi-133-lutfen-duzenle-karisik-gumus-g1.jpg"
-        ]
-      }
+      "olusturma": "2026-05-13"
     },
     {
       "variation_id": "FR-00144-KARISIK-STANDART-GUMUS",
@@ -6263,21 +5465,21 @@ window.__BOTL_DATA__ = {
       "slug": "kart-kabi-134-lutfen-duzenle-karisik-gumus",
       "cover": "assets/products/kart-kabi-134-lutfen-duzenle-karisik-gumus.jpg",
       "isim_resmi": "Kart Kabı #134 (lütfen düzenle)",
-      "isim_bilinen": "",
-      "marka": "Bilinmeyen",
-      "kategori": "Kart Kabı",
-      "kategori_ust": "Cüzdan",
-      "kategori_alt": "Kart Kabı",
-      "renk": "KARISIK",
-      "ana_renk": "Karisik",
-      "ana_renk_hex": "#9c9794",
-      "renk_slug": "karisik",
-      "renk_hex": "#9c9794",
+      "isim_bilinen": "Hugo Boss Mekanizmali Yatay Cuzdan Siyah",
+      "marka": "Hugo Boss",
+      "kategori": "Cüzdan",
+      "kategori_ust": "Aksesuar",
+      "kategori_alt": "Cüzdan",
+      "renk": "SIYAH",
+      "ana_renk": "Siyah",
+      "ana_renk_hex": "#1a1a1a",
+      "renk_slug": "siyah",
+      "renk_hex": "#1a1a1a",
       "ikincil_renk": "",
       "ikincil_renk_code": "",
       "ikincil_renk_hex": "",
       "ana_malzeme": "",
-      "desen": "",
+      "desen": "Duz",
       "donanim_rengi": "",
       "sapli_sapsiz": "",
       "boyut": "STANDART",
@@ -6295,13 +5497,7 @@ window.__BOTL_DATA__ = {
       "kondisyon_label": "Sıfır",
       "aciklama": "Patron toplu yükleme. Foto: IMG_9088.heic, IMG_9089.heic.",
       "tedarikci_id": null,
-      "olusturma": "2026-05-13",
-      "gorseller": {
-        "cover": "assets/products/kart-kabi-134-lutfen-duzenle-karisik-gumus.jpg",
-        "gallery": [
-          "assets/products/kart-kabi-134-lutfen-duzenle-karisik-gumus-g1.jpg"
-        ]
-      }
+      "olusturma": "2026-05-13"
     },
     {
       "variation_id": "FR-00145-KARISIK-STANDART-GUMUS",
@@ -6310,21 +5506,21 @@ window.__BOTL_DATA__ = {
       "slug": "kart-kabi-135-lutfen-duzenle-karisik-gumus",
       "cover": "assets/products/kart-kabi-135-lutfen-duzenle-karisik-gumus.jpg",
       "isim_resmi": "Kart Kabı #135 (lütfen düzenle)",
-      "isim_bilinen": "",
-      "marka": "Bilinmeyen",
-      "kategori": "Kart Kabı",
-      "kategori_ust": "Cüzdan",
-      "kategori_alt": "Kart Kabı",
-      "renk": "KARISIK",
-      "ana_renk": "Karisik",
-      "ana_renk_hex": "#9c9794",
-      "renk_slug": "karisik",
-      "renk_hex": "#9c9794",
+      "isim_bilinen": "LV Mekanizmali Yatay Cuzdan Siyah Damier Infini",
+      "marka": "LV",
+      "kategori": "Cüzdan",
+      "kategori_ust": "Aksesuar",
+      "kategori_alt": "Cüzdan",
+      "renk": "SIYAH",
+      "ana_renk": "Siyah",
+      "ana_renk_hex": "#1a1a1a",
+      "renk_slug": "siyah",
+      "renk_hex": "#1a1a1a",
       "ikincil_renk": "",
       "ikincil_renk_code": "",
       "ikincil_renk_hex": "",
       "ana_malzeme": "",
-      "desen": "",
+      "desen": "Damier",
       "donanim_rengi": "",
       "sapli_sapsiz": "",
       "boyut": "STANDART",
@@ -6342,13 +5538,7 @@ window.__BOTL_DATA__ = {
       "kondisyon_label": "Sıfır",
       "aciklama": "Patron toplu yükleme. Foto: IMG_9090.heic, IMG_9091.heic.",
       "tedarikci_id": null,
-      "olusturma": "2026-05-13",
-      "gorseller": {
-        "cover": "assets/products/kart-kabi-135-lutfen-duzenle-karisik-gumus.jpg",
-        "gallery": [
-          "assets/products/kart-kabi-135-lutfen-duzenle-karisik-gumus-g1.jpg"
-        ]
-      }
+      "olusturma": "2026-05-13"
     },
     {
       "variation_id": "FR-00146-KARISIK-STANDART-GUMUS",
@@ -6357,21 +5547,21 @@ window.__BOTL_DATA__ = {
       "slug": "kart-kabi-136-lutfen-duzenle-karisik-gumus",
       "cover": "assets/products/kart-kabi-136-lutfen-duzenle-karisik-gumus.jpg",
       "isim_resmi": "Kart Kabı #136 (lütfen düzenle)",
-      "isim_bilinen": "",
-      "marka": "Bilinmeyen",
-      "kategori": "Kart Kabı",
-      "kategori_ust": "Cüzdan",
-      "kategori_alt": "Kart Kabı",
-      "renk": "KARISIK",
-      "ana_renk": "Karisik",
-      "ana_renk_hex": "#9c9794",
-      "renk_slug": "karisik",
-      "renk_hex": "#9c9794",
+      "isim_bilinen": "LV Anahtarlikli Mini Cuzdan Kahve Monogram",
+      "marka": "LV",
+      "kategori": "Cüzdan",
+      "kategori_ust": "Aksesuar",
+      "kategori_alt": "Cüzdan",
+      "renk": "KAHVE",
+      "ana_renk": "Kahve",
+      "ana_renk_hex": "#5a3a25",
+      "renk_slug": "kahve",
+      "renk_hex": "#5a3a25",
       "ikincil_renk": "",
       "ikincil_renk_code": "",
       "ikincil_renk_hex": "",
       "ana_malzeme": "",
-      "desen": "",
+      "desen": "Monogram",
       "donanim_rengi": "",
       "sapli_sapsiz": "",
       "boyut": "STANDART",
@@ -6389,13 +5579,7 @@ window.__BOTL_DATA__ = {
       "kondisyon_label": "Sıfır",
       "aciklama": "Patron toplu yükleme. Foto: IMG_9092.heic, IMG_9093.heic.",
       "tedarikci_id": null,
-      "olusturma": "2026-05-13",
-      "gorseller": {
-        "cover": "assets/products/kart-kabi-136-lutfen-duzenle-karisik-gumus.jpg",
-        "gallery": [
-          "assets/products/kart-kabi-136-lutfen-duzenle-karisik-gumus-g1.jpg"
-        ]
-      }
+      "olusturma": "2026-05-13"
     },
     {
       "variation_id": "FR-00147-KARISIK-STANDART-GUMUS",
@@ -6404,21 +5588,21 @@ window.__BOTL_DATA__ = {
       "slug": "kart-kabi-137-lutfen-duzenle-karisik-gumus",
       "cover": "assets/products/kart-kabi-137-lutfen-duzenle-karisik-gumus.jpg",
       "isim_resmi": "Kart Kabı #137 (lütfen düzenle)",
-      "isim_bilinen": "",
-      "marka": "Bilinmeyen",
-      "kategori": "Kart Kabı",
-      "kategori_ust": "Cüzdan",
-      "kategori_alt": "Kart Kabı",
-      "renk": "KARISIK",
-      "ana_renk": "Karisik",
-      "ana_renk_hex": "#9c9794",
-      "renk_slug": "karisik",
-      "renk_hex": "#9c9794",
+      "isim_bilinen": "Guess Anahtarlikli Mini Cuzdan Gri 4G Kanvas",
+      "marka": "Guess",
+      "kategori": "Cüzdan",
+      "kategori_ust": "Aksesuar",
+      "kategori_alt": "Cüzdan",
+      "renk": "GRI",
+      "ana_renk": "Gri",
+      "ana_renk_hex": "#7d7d7d",
+      "renk_slug": "gri",
+      "renk_hex": "#7d7d7d",
       "ikincil_renk": "",
       "ikincil_renk_code": "",
       "ikincil_renk_hex": "",
       "ana_malzeme": "",
-      "desen": "",
+      "desen": "Monogram",
       "donanim_rengi": "",
       "sapli_sapsiz": "",
       "boyut": "STANDART",
@@ -6436,13 +5620,7 @@ window.__BOTL_DATA__ = {
       "kondisyon_label": "Sıfır",
       "aciklama": "Patron toplu yükleme. Foto: IMG_9094.heic, IMG_9095.heic.",
       "tedarikci_id": null,
-      "olusturma": "2026-05-13",
-      "gorseller": {
-        "cover": "assets/products/kart-kabi-137-lutfen-duzenle-karisik-gumus.jpg",
-        "gallery": [
-          "assets/products/kart-kabi-137-lutfen-duzenle-karisik-gumus-g1.jpg"
-        ]
-      }
+      "olusturma": "2026-05-13"
     },
     {
       "variation_id": "FR-00148-KARISIK-STANDART-GUMUS",
@@ -6451,21 +5629,21 @@ window.__BOTL_DATA__ = {
       "slug": "kart-kabi-138-lutfen-duzenle-karisik-gumus",
       "cover": "assets/products/kart-kabi-138-lutfen-duzenle-karisik-gumus.jpg",
       "isim_resmi": "Kart Kabı #138 (lütfen düzenle)",
-      "isim_bilinen": "",
-      "marka": "Bilinmeyen",
-      "kategori": "Kart Kabı",
-      "kategori_ust": "Cüzdan",
-      "kategori_alt": "Kart Kabı",
-      "renk": "KARISIK",
-      "ana_renk": "Karisik",
-      "ana_renk_hex": "#9c9794",
-      "renk_slug": "karisik",
-      "renk_hex": "#9c9794",
+      "isim_bilinen": "Coach Mekanizmali Dikey Cuzdan Siyah Signature",
+      "marka": "Coach",
+      "kategori": "Cüzdan",
+      "kategori_ust": "Aksesuar",
+      "kategori_alt": "Cüzdan",
+      "renk": "SIYAH",
+      "ana_renk": "Siyah",
+      "ana_renk_hex": "#1a1a1a",
+      "renk_slug": "siyah",
+      "renk_hex": "#1a1a1a",
       "ikincil_renk": "",
       "ikincil_renk_code": "",
       "ikincil_renk_hex": "",
       "ana_malzeme": "",
-      "desen": "",
+      "desen": "Monogram",
       "donanim_rengi": "",
       "sapli_sapsiz": "",
       "boyut": "STANDART",
@@ -6483,13 +5661,7 @@ window.__BOTL_DATA__ = {
       "kondisyon_label": "Sıfır",
       "aciklama": "Patron toplu yükleme. Foto: IMG_9096.heic, IMG_9097.heic.",
       "tedarikci_id": null,
-      "olusturma": "2026-05-13",
-      "gorseller": {
-        "cover": "assets/products/kart-kabi-138-lutfen-duzenle-karisik-gumus.jpg",
-        "gallery": [
-          "assets/products/kart-kabi-138-lutfen-duzenle-karisik-gumus-g1.jpg"
-        ]
-      }
+      "olusturma": "2026-05-13"
     },
     {
       "variation_id": "FR-00149-KARISIK-STANDART-GUMUS",
@@ -6498,21 +5670,21 @@ window.__BOTL_DATA__ = {
       "slug": "kart-kabi-139-lutfen-duzenle-karisik-gumus",
       "cover": "assets/products/kart-kabi-139-lutfen-duzenle-karisik-gumus.jpg",
       "isim_resmi": "Kart Kabı #139 (lütfen düzenle)",
-      "isim_bilinen": "",
-      "marka": "Bilinmeyen",
-      "kategori": "Kart Kabı",
-      "kategori_ust": "Cüzdan",
-      "kategori_alt": "Kart Kabı",
-      "renk": "KARISIK",
-      "ana_renk": "Karisik",
-      "ana_renk_hex": "#9c9794",
-      "renk_slug": "karisik",
-      "renk_hex": "#9c9794",
+      "isim_bilinen": "Gucci Mekanizmali Yatay Cuzdan Acik Gri GG Monogram",
+      "marka": "Gucci",
+      "kategori": "Cüzdan",
+      "kategori_ust": "Aksesuar",
+      "kategori_alt": "Cüzdan",
+      "renk": "ACIK GRI",
+      "ana_renk": "Açık Gri",
+      "ana_renk_hex": "#b8b8b8",
+      "renk_slug": "acik-gri",
+      "renk_hex": "#b8b8b8",
       "ikincil_renk": "",
       "ikincil_renk_code": "",
       "ikincil_renk_hex": "",
       "ana_malzeme": "",
-      "desen": "",
+      "desen": "Monogram",
       "donanim_rengi": "",
       "sapli_sapsiz": "",
       "boyut": "STANDART",
@@ -6530,13 +5702,7 @@ window.__BOTL_DATA__ = {
       "kondisyon_label": "Sıfır",
       "aciklama": "Patron toplu yükleme. Foto: IMG_9098.heic, IMG_9099.heic.",
       "tedarikci_id": null,
-      "olusturma": "2026-05-13",
-      "gorseller": {
-        "cover": "assets/products/kart-kabi-139-lutfen-duzenle-karisik-gumus.jpg",
-        "gallery": [
-          "assets/products/kart-kabi-139-lutfen-duzenle-karisik-gumus-g1.jpg"
-        ]
-      }
+      "olusturma": "2026-05-13"
     },
     {
       "variation_id": "FR-00150-KARISIK-STANDART-GUMUS",
@@ -6545,21 +5711,21 @@ window.__BOTL_DATA__ = {
       "slug": "kart-kabi-140-lutfen-duzenle-karisik-gumus",
       "cover": "assets/products/kart-kabi-140-lutfen-duzenle-karisik-gumus.jpg",
       "isim_resmi": "Kart Kabı #140 (lütfen düzenle)",
-      "isim_bilinen": "",
-      "marka": "Bilinmeyen",
-      "kategori": "Kart Kabı",
-      "kategori_ust": "Cüzdan",
-      "kategori_alt": "Kart Kabı",
-      "renk": "KARISIK",
-      "ana_renk": "Karisik",
-      "ana_renk_hex": "#9c9794",
-      "renk_slug": "karisik",
-      "renk_hex": "#9c9794",
+      "isim_bilinen": "Gucci Mekanizmali Dikey Cuzdan Acik Gri GG Monogram",
+      "marka": "Gucci",
+      "kategori": "Cüzdan",
+      "kategori_ust": "Aksesuar",
+      "kategori_alt": "Cüzdan",
+      "renk": "ACIK GRI",
+      "ana_renk": "Açık Gri",
+      "ana_renk_hex": "#b8b8b8",
+      "renk_slug": "acik-gri",
+      "renk_hex": "#b8b8b8",
       "ikincil_renk": "",
       "ikincil_renk_code": "",
       "ikincil_renk_hex": "",
       "ana_malzeme": "",
-      "desen": "",
+      "desen": "Monogram",
       "donanim_rengi": "",
       "sapli_sapsiz": "",
       "boyut": "STANDART",
@@ -6577,13 +5743,7 @@ window.__BOTL_DATA__ = {
       "kondisyon_label": "Sıfır",
       "aciklama": "Patron toplu yükleme. Foto: IMG_9100.heic, IMG_9101.heic.",
       "tedarikci_id": null,
-      "olusturma": "2026-05-13",
-      "gorseller": {
-        "cover": "assets/products/kart-kabi-140-lutfen-duzenle-karisik-gumus.jpg",
-        "gallery": [
-          "assets/products/kart-kabi-140-lutfen-duzenle-karisik-gumus-g1.jpg"
-        ]
-      }
+      "olusturma": "2026-05-13"
     },
     {
       "variation_id": "FR-00151-KARISIK-STANDART-GUMUS",
@@ -6592,21 +5752,21 @@ window.__BOTL_DATA__ = {
       "slug": "kart-kabi-141-lutfen-duzenle-karisik-gumus",
       "cover": "assets/products/kart-kabi-141-lutfen-duzenle-karisik-gumus.jpg",
       "isim_resmi": "Kart Kabı #141 (lütfen düzenle)",
-      "isim_bilinen": "",
-      "marka": "Bilinmeyen",
-      "kategori": "Kart Kabı",
-      "kategori_ust": "Cüzdan",
-      "kategori_alt": "Kart Kabı",
-      "renk": "KARISIK",
-      "ana_renk": "Karisik",
-      "ana_renk_hex": "#9c9794",
-      "renk_slug": "karisik",
-      "renk_hex": "#9c9794",
+      "isim_bilinen": "Gucci Mekanizmali Yatay Cuzdan Siyah GG Monogram",
+      "marka": "Gucci",
+      "kategori": "Cüzdan",
+      "kategori_ust": "Aksesuar",
+      "kategori_alt": "Cüzdan",
+      "renk": "SIYAH",
+      "ana_renk": "Siyah",
+      "ana_renk_hex": "#1a1a1a",
+      "renk_slug": "siyah",
+      "renk_hex": "#1a1a1a",
       "ikincil_renk": "",
       "ikincil_renk_code": "",
       "ikincil_renk_hex": "",
       "ana_malzeme": "",
-      "desen": "",
+      "desen": "Monogram",
       "donanim_rengi": "",
       "sapli_sapsiz": "",
       "boyut": "STANDART",
@@ -6624,13 +5784,7 @@ window.__BOTL_DATA__ = {
       "kondisyon_label": "Sıfır",
       "aciklama": "Patron toplu yükleme. Foto: IMG_9102.heic, IMG_9103.heic.",
       "tedarikci_id": null,
-      "olusturma": "2026-05-13",
-      "gorseller": {
-        "cover": "assets/products/kart-kabi-141-lutfen-duzenle-karisik-gumus.jpg",
-        "gallery": [
-          "assets/products/kart-kabi-141-lutfen-duzenle-karisik-gumus-g1.jpg"
-        ]
-      }
+      "olusturma": "2026-05-13"
     },
     {
       "variation_id": "FR-00152-KARISIK-STANDART-GUMUS",
@@ -6639,21 +5793,21 @@ window.__BOTL_DATA__ = {
       "slug": "kart-kabi-142-lutfen-duzenle-karisik-gumus",
       "cover": "assets/products/kart-kabi-142-lutfen-duzenle-karisik-gumus.jpg",
       "isim_resmi": "Kart Kabı #142 (lütfen düzenle)",
-      "isim_bilinen": "",
-      "marka": "Bilinmeyen",
-      "kategori": "Kart Kabı",
-      "kategori_ust": "Cüzdan",
-      "kategori_alt": "Kart Kabı",
-      "renk": "KARISIK",
-      "ana_renk": "Karisik",
-      "ana_renk_hex": "#9c9794",
-      "renk_slug": "karisik",
-      "renk_hex": "#9c9794",
+      "isim_bilinen": "Coach Mekanizmali Yatay Cuzdan Kahve Signature",
+      "marka": "Coach",
+      "kategori": "Cüzdan",
+      "kategori_ust": "Aksesuar",
+      "kategori_alt": "Cüzdan",
+      "renk": "KAHVE",
+      "ana_renk": "Kahve",
+      "ana_renk_hex": "#5a3a25",
+      "renk_slug": "kahve",
+      "renk_hex": "#5a3a25",
       "ikincil_renk": "",
       "ikincil_renk_code": "",
       "ikincil_renk_hex": "",
       "ana_malzeme": "",
-      "desen": "",
+      "desen": "Monogram",
       "donanim_rengi": "",
       "sapli_sapsiz": "",
       "boyut": "STANDART",
@@ -6671,13 +5825,7 @@ window.__BOTL_DATA__ = {
       "kondisyon_label": "Sıfır",
       "aciklama": "Patron toplu yükleme. Foto: IMG_9104.heic, IMG_9105.HEIC.",
       "tedarikci_id": null,
-      "olusturma": "2026-05-13",
-      "gorseller": {
-        "cover": "assets/products/kart-kabi-142-lutfen-duzenle-karisik-gumus.jpg",
-        "gallery": [
-          "assets/products/kart-kabi-142-lutfen-duzenle-karisik-gumus-g1.jpg"
-        ]
-      }
+      "olusturma": "2026-05-13"
     },
     {
       "variation_id": "FR-00153-KARISIK-STANDART-GUMUS",
@@ -6686,21 +5834,21 @@ window.__BOTL_DATA__ = {
       "slug": "kart-kabi-143-lutfen-duzenle-karisik-gumus",
       "cover": "assets/products/kart-kabi-143-lutfen-duzenle-karisik-gumus.jpg",
       "isim_resmi": "Kart Kabı #143 (lütfen düzenle)",
-      "isim_bilinen": "",
-      "marka": "Bilinmeyen",
-      "kategori": "Kart Kabı",
-      "kategori_ust": "Cüzdan",
-      "kategori_alt": "Kart Kabı",
-      "renk": "KARISIK",
-      "ana_renk": "Karisik",
-      "ana_renk_hex": "#9c9794",
-      "renk_slug": "karisik",
-      "renk_hex": "#9c9794",
+      "isim_bilinen": "Hugo Boss Klasik Cuzdan Siyah",
+      "marka": "Hugo Boss",
+      "kategori": "Cüzdan",
+      "kategori_ust": "Aksesuar",
+      "kategori_alt": "Cüzdan",
+      "renk": "SIYAH",
+      "ana_renk": "Siyah",
+      "ana_renk_hex": "#1a1a1a",
+      "renk_slug": "siyah",
+      "renk_hex": "#1a1a1a",
       "ikincil_renk": "",
       "ikincil_renk_code": "",
       "ikincil_renk_hex": "",
       "ana_malzeme": "",
-      "desen": "",
+      "desen": "Duz",
       "donanim_rengi": "",
       "sapli_sapsiz": "",
       "boyut": "STANDART",
@@ -6718,13 +5866,7 @@ window.__BOTL_DATA__ = {
       "kondisyon_label": "Sıfır",
       "aciklama": "Patron toplu yükleme. Foto: IMG_9106.heic, IMG_9107.heic.",
       "tedarikci_id": null,
-      "olusturma": "2026-05-13",
-      "gorseller": {
-        "cover": "assets/products/kart-kabi-143-lutfen-duzenle-karisik-gumus.jpg",
-        "gallery": [
-          "assets/products/kart-kabi-143-lutfen-duzenle-karisik-gumus-g1.jpg"
-        ]
-      }
+      "olusturma": "2026-05-13"
     },
     {
       "variation_id": "FR-00154-KARISIK-STANDART-GUMUS",
@@ -6733,21 +5875,21 @@ window.__BOTL_DATA__ = {
       "slug": "kart-kabi-144-lutfen-duzenle-karisik-gumus",
       "cover": "assets/products/kart-kabi-144-lutfen-duzenle-karisik-gumus.jpg",
       "isim_resmi": "Kart Kabı #144 (lütfen düzenle)",
-      "isim_bilinen": "",
-      "marka": "Bilinmeyen",
-      "kategori": "Kart Kabı",
-      "kategori_ust": "Cüzdan",
-      "kategori_alt": "Kart Kabı",
-      "renk": "KARISIK",
-      "ana_renk": "Karisik",
-      "ana_renk_hex": "#9c9794",
-      "renk_slug": "karisik",
-      "renk_hex": "#9c9794",
+      "isim_bilinen": "Hugo Boss Mekanizmali Yatay Cuzdan Siyah Embossed",
+      "marka": "Hugo Boss",
+      "kategori": "Cüzdan",
+      "kategori_ust": "Aksesuar",
+      "kategori_alt": "Cüzdan",
+      "renk": "SIYAH",
+      "ana_renk": "Siyah",
+      "ana_renk_hex": "#1a1a1a",
+      "renk_slug": "siyah",
+      "renk_hex": "#1a1a1a",
       "ikincil_renk": "",
       "ikincil_renk_code": "",
       "ikincil_renk_hex": "",
       "ana_malzeme": "",
-      "desen": "",
+      "desen": "Monogram",
       "donanim_rengi": "",
       "sapli_sapsiz": "",
       "boyut": "STANDART",
@@ -6765,13 +5907,7 @@ window.__BOTL_DATA__ = {
       "kondisyon_label": "Sıfır",
       "aciklama": "Patron toplu yükleme. Foto: IMG_9108.heic, IMG_9109.heic.",
       "tedarikci_id": null,
-      "olusturma": "2026-05-13",
-      "gorseller": {
-        "cover": "assets/products/kart-kabi-144-lutfen-duzenle-karisik-gumus.jpg",
-        "gallery": [
-          "assets/products/kart-kabi-144-lutfen-duzenle-karisik-gumus-g1.jpg"
-        ]
-      }
+      "olusturma": "2026-05-13"
     },
     {
       "variation_id": "FR-00155-KARISIK-STANDART-GUMUS",
@@ -6780,21 +5916,21 @@ window.__BOTL_DATA__ = {
       "slug": "kart-kabi-145-lutfen-duzenle-karisik-gumus",
       "cover": "assets/products/kart-kabi-145-lutfen-duzenle-karisik-gumus.jpg",
       "isim_resmi": "Kart Kabı #145 (lütfen düzenle)",
-      "isim_bilinen": "",
-      "marka": "Bilinmeyen",
-      "kategori": "Kart Kabı",
-      "kategori_ust": "Cüzdan",
-      "kategori_alt": "Kart Kabı",
-      "renk": "KARISIK",
-      "ana_renk": "Karisik",
-      "ana_renk_hex": "#9c9794",
-      "renk_slug": "karisik",
-      "renk_hex": "#9c9794",
+      "isim_bilinen": "Armani Klasik Cuzdan Siyah",
+      "marka": "Armani",
+      "kategori": "Cüzdan",
+      "kategori_ust": "Aksesuar",
+      "kategori_alt": "Cüzdan",
+      "renk": "SIYAH",
+      "ana_renk": "Siyah",
+      "ana_renk_hex": "#1a1a1a",
+      "renk_slug": "siyah",
+      "renk_hex": "#1a1a1a",
       "ikincil_renk": "",
       "ikincil_renk_code": "",
       "ikincil_renk_hex": "",
       "ana_malzeme": "",
-      "desen": "",
+      "desen": "Duz",
       "donanim_rengi": "",
       "sapli_sapsiz": "",
       "boyut": "STANDART",
@@ -6812,13 +5948,7 @@ window.__BOTL_DATA__ = {
       "kondisyon_label": "Sıfır",
       "aciklama": "Patron toplu yükleme. Foto: IMG_9110.HEIC, IMG_9111.heic.",
       "tedarikci_id": null,
-      "olusturma": "2026-05-13",
-      "gorseller": {
-        "cover": "assets/products/kart-kabi-145-lutfen-duzenle-karisik-gumus.jpg",
-        "gallery": [
-          "assets/products/kart-kabi-145-lutfen-duzenle-karisik-gumus-g1.jpg"
-        ]
-      }
+      "olusturma": "2026-05-13"
     },
     {
       "variation_id": "FR-00156-KARISIK-STANDART-GUMUS",
@@ -6827,21 +5957,21 @@ window.__BOTL_DATA__ = {
       "slug": "kart-kabi-146-lutfen-duzenle-karisik-gumus",
       "cover": "assets/products/kart-kabi-146-lutfen-duzenle-karisik-gumus.jpg",
       "isim_resmi": "Kart Kabı #146 (lütfen düzenle)",
-      "isim_bilinen": "",
-      "marka": "Bilinmeyen",
-      "kategori": "Kart Kabı",
-      "kategori_ust": "Cüzdan",
-      "kategori_alt": "Kart Kabı",
-      "renk": "KARISIK",
-      "ana_renk": "Karisik",
-      "ana_renk_hex": "#9c9794",
-      "renk_slug": "karisik",
-      "renk_hex": "#9c9794",
+      "isim_bilinen": "Hugo Boss Mekanizmali Yatay Cuzdan Siyah",
+      "marka": "Hugo Boss",
+      "kategori": "Cüzdan",
+      "kategori_ust": "Aksesuar",
+      "kategori_alt": "Cüzdan",
+      "renk": "SIYAH",
+      "ana_renk": "Siyah",
+      "ana_renk_hex": "#1a1a1a",
+      "renk_slug": "siyah",
+      "renk_hex": "#1a1a1a",
       "ikincil_renk": "",
       "ikincil_renk_code": "",
       "ikincil_renk_hex": "",
       "ana_malzeme": "",
-      "desen": "",
+      "desen": "Duz",
       "donanim_rengi": "",
       "sapli_sapsiz": "",
       "boyut": "STANDART",
@@ -6859,20 +5989,23 @@ window.__BOTL_DATA__ = {
       "kondisyon_label": "Sıfır",
       "aciklama": "Patron toplu yükleme. Foto: IMG_9112.heic, IMG_9113.heic.",
       "tedarikci_id": null,
-      "olusturma": "2026-05-13",
-      "gorseller": {
-        "cover": "assets/products/kart-kabi-146-lutfen-duzenle-karisik-gumus.jpg",
-        "gallery": [
-          "assets/products/kart-kabi-146-lutfen-duzenle-karisik-gumus-g1.jpg"
-        ]
-      }
+      "olusturma": "2026-05-13"
     }
   ],
   "customers": [
     {
       "customer_id": "CST-00001",
       "isim": "Adam Johnson",
-      "segment": "VIP"
+      "segment": "VIP",
+      "kullanici_adi": "admin",
+      "sifre_hash": "be24876b915460e2fdf087acea3de9475adb215c3faf0df44c02642ca895c7ed"
+    },
+    {
+      "customer_id": "CST-00003",
+      "isim": "Önder Taştekin",
+      "segment": "NEW",
+      "kullanici_adi": "ondertastekin",
+      "sifre_hash": "be24876b915460e2fdf087acea3de9475adb215c3faf0df44c02642ca895c7ed"
     }
   ],
   "suppliers": [
@@ -6896,7 +6029,7 @@ window.__BOTL_DATA__ = {
   "orders": [],
   "counters": {
     "sku_counter": 156,
-    "customer_counter": 1,
+    "customer_counter": 3,
     "supplier_counter": 1,
     "invoice_counter": 0
   },
@@ -7033,12 +6166,11 @@ window.__BOTL_DATA__ = {
       "hex": "#5a3a25"
     },
     {
-      "code": "KARISIK",
-      "tr": "Karisik",
-      "en": "Karisik",
-      "slug": "karisik",
-      "hex": "#9c9794",
-      "kaynak": "envanter"
+      "code": "KIRMIZI",
+      "tr": "Kırmızı",
+      "en": "Red",
+      "slug": "kirmizi",
+      "hex": "#9c2a2a"
     },
     {
       "code": "KOYU GRI",
@@ -7081,6 +6213,13 @@ window.__BOTL_DATA__ = {
       "en": "Pink",
       "slug": "pembe",
       "hex": "#e08aa0"
+    },
+    {
+      "code": "SARI",
+      "tr": "Sarı",
+      "en": "Yellow",
+      "slug": "sari",
+      "hex": "#e8c840"
     },
     {
       "code": "SIYAH",
@@ -7143,14 +6282,6 @@ window.__BOTL_DATA__ = {
       "kaynak": "rehber"
     },
     {
-      "code": "KIRMIZI",
-      "tr": "Kırmızı",
-      "en": "Red",
-      "slug": "kirmizi",
-      "hex": "#9c2a2a",
-      "kaynak": "rehber"
-    },
-    {
       "code": "KOYU PEMBE",
       "tr": "Koyu Pembe",
       "en": "Dark Pink",
@@ -7164,14 +6295,6 @@ window.__BOTL_DATA__ = {
       "en": "Orange",
       "slug": "turuncu",
       "hex": "#e08840",
-      "kaynak": "rehber"
-    },
-    {
-      "code": "SARI",
-      "tr": "Sarı",
-      "en": "Yellow",
-      "slug": "sari",
-      "hex": "#e8c840",
       "kaynak": "rehber"
     },
     {
@@ -7243,7 +6366,6 @@ window.__BOTL_DATA__ = {
   ],
   "kanonik_markalar": [
     "Armani",
-    "Bilinmeyen",
     "Coach",
     "Giorgio Armani",
     "Goyard",
@@ -7287,7 +6409,9 @@ window.__BOTL_DATA__ = {
     "Damier",
     "Duz",
     "Düz",
+    "Goyardine",
     "Kapitone",
-    "Monogram"
+    "Monogram",
+    "Signature"
   ]
 };
