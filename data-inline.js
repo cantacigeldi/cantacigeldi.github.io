@@ -2,7 +2,7 @@
 // Bu dosya catalog_sync_data tool'u tarafından üretilir; data.json ile birebir aynı içeriği taşır.
 window.__BOTL_DATA__ = {
   "schema_version": 5,
-  "exported_at": "2026-05-12T23:51:47.450475+00:00",
+  "exported_at": "2026-05-13T00:19:33.688832+00:00",
   "counter": 46,
   "products": [
     {
@@ -1935,5 +1935,3 @@ window.__BOTL_DATA__ = {
     }
   }
 };
-// Geri-uyum shim: eski __FRIDA_DATA__ tüketicileri (30 gün) için aynı objeyi expose et.
-window.__FRIDA_DATA__ = window.__BOTL_DATA__;
