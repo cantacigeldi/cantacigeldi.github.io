@@ -19,10 +19,9 @@
 <meta name="theme-color" content="#1A1A1A" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#0E0D0B" media="(prefers-color-scheme: dark)">
 <script>
-/* API_BASE runtime loader — Cloudflare Tunnel override (canlı GH Pages için).
-   Lokal (localhost/127.0.0.1/file:) → same-origin '' kullanır, hızlı.
-   Canlı → config.json'dan tunnel URL'i yükler, window.__BOTL_API_BASE__'e koyar.
-   BotlCustomerAPI/BotlAPI call() her seferinde bu pencere değişkenini re-read eder. */
+/* API_BASE runtime loader (sessiz). Lokalde same-origin '' kullanılır;
+   canlıda config.json varsa api_base oradan window.__BOTL_API_BASE__'e
+   alınır. Fail olursa fallback same-origin — kullanıcıya görünmez. */
 (async function(){
   try{
     var h = location.hostname;
@@ -2509,7 +2508,6 @@ input,select,textarea{font-size:16px}
       <div class="auth-gate__err" id="auth-gate-err" hidden role="alert" aria-live="polite">Kullanıcı adı veya parola hatalı</div>
       <button type="submit" class="auth-gate__btn">Giriş</button>
     </form>
-    <p class="auth-gate__note">Erişim için danışmanınızla iletişime geçin.</p>
   </div>
 </div>
 
@@ -11093,15 +11091,11 @@ function clearSession(){
 }
 
 // ─── BOTL Customer API client ─────────────────────────
-// Backend, patron'un kendi makinesinde Starlette üzerinden çalışır
-// (localhost:8090). Site BU backend'in static mount'undan da servis
-// edilir → same-origin → mixed content yok. GH Pages'teki canlı kopya
-// vitrin moddur (backend internet'te değil); login ping başarısız
-// olunca UI offline notice gösterir.
+// Same-origin (lokal) ya da config.json'dan yüklenen base URL (canlı).
+// Backend erişilemezse fetch reject olur, UI sade generic hata gösterir.
 window.BotlCustomerAPI = (function(){
-  // API_BASE runtime: lokalde same-origin (''), canlıda config.json'dan tunnel URL.
-  // window.__BOTL_API_BASE__ head'deki async loader tarafından set edilir; her
-  // çağrıda re-read edilir (config geç gelirse sonraki çağrı yeni URL kullanır).
+  // API_BASE runtime: lokalde same-origin (''), canlıda head'deki loader
+  // window.__BOTL_API_BASE__ set ettiyse onu kullanır. Her call'da re-read.
   function _apiBase(){
     return (typeof window !== 'undefined' && window.__BOTL_API_BASE__) ? window.__BOTL_API_BASE__ : '';
   }
@@ -11193,20 +11187,11 @@ async function tryLogin(username, password){
     return { ok:true, customer:{ customer_id:r.customer_id, kullanici_adi:r.kullanici_adi, isim:r.isim } };
   }
   if(r.status === 401) return { ok:false, error:'Kullanıcı adı veya şifre hatalı' };
+  // Network fail veya 404: kullanıcıya sade generic hata — teknik detay yok.
   if(r.error === 'network' || r.status === 404){
-    // Backend yok: GH Pages canlı vitrin modu veya lokal backend kapalı.
-    const onGhPages = /github\.io$/i.test(location.hostname) ||
-                      /bagsoftheloom\.com$/i.test(location.hostname);
-    if(onGhPages){
-      return { ok:false, error:
-        'Bu sayfa BOTL vitrinidir — canlı operasyon backend\'i internet üzerinden açık değil. ' +
-        'Müşteri panelin için danışmanınla iletişime geç.' };
-    }
-    return { ok:false, error:
-      'BOTL backend\'e ulaşılamıyor. Patron için: localhost:8090 servisi kapalı olabilir ' +
-      '(scripts/start-api.sh çalıştır).' };
+    return { ok:false, error: 'Giriş yapılamadı, tekrar deneyin' };
   }
-  return { ok:false, error: r.error || 'Giriş başarısız' };
+  return { ok:false, error: r.error || 'Giriş yapılamadı, tekrar deneyin' };
 }
 
 // ─── Sipariş akışı v2 — nyoworks-aligned ─────────────────────────────
@@ -12412,23 +12397,9 @@ function openAuthModal(){
   m.classList.add('open');
   document.body.style.overflow = 'hidden';
   setTimeout(() => { const u = $('#auth-username'); if(u) u.focus(); }, 50);
-  // Backend ping → erişilemezse modal'a vitrin notice koy
-  (async () => {
-    try {
-      const ok = await window.BotlCustomerAPI.ping();
-      const err = $('#auth-error');
-      if(!err) return;
-      if(!ok){
-        const onGhPages = /github\.io$/i.test(location.hostname) ||
-                          /bagsoftheloom\.com$/i.test(location.hostname);
-        err.textContent = onGhPages
-          ? 'Bu sayfa BOTL vitrinidir — operasyon backend\'i internet üzerinden açık değil. Üyelik için danışmanınla iletişime geç.'
-          : 'BOTL backend offline — localhost:8090 servisi kapalı (scripts/start-api.sh çalıştır).';
-      } else {
-        err.textContent = '';
-      }
-    } catch(_) {}
-  })();
+  // Modal açılınca eski hata mesajı temizlenir; backend offline ise kullanıcıyı
+  // sessizce karşılarız — gerçek bir hata oluştuğunda submit sırasında gösterilir.
+  const err = $('#auth-error'); if(err) err.textContent = '';
 }
 function closeAuthModal(){
   const m = $('#auth-modal');
@@ -12448,21 +12419,10 @@ function showAuthGate(){
   document.body.classList.add('auth-gate-active');
   const err = document.getElementById('auth-gate-err'); if(err) err.hidden = true;
   setTimeout(() => { const u = document.getElementById('auth-gate-username'); if(u) u.focus(); }, 80);
-  // Backend reachable mi? Değilse notice göster (form yine deneyebilir, ama
-  // kullanıcı sebebi görsün).
-  (async () => {
-    try {
-      const ok = await window.BotlCustomerAPI.ping();
-      const err = document.getElementById('auth-gate-err');
-      if(!err || ok) return;
-      const onGhPages = /github\.io$/i.test(location.hostname) ||
-                        /bagsoftheloom\.com$/i.test(location.hostname);
-      err.textContent = onGhPages
-        ? 'Bu sayfa BOTL vitrinidir — operasyon backend\'i internet üzerinden açık değil. Üyelik için danışmanınla iletişime geç.'
-        : 'BOTL backend offline — localhost:8090 servisi kapalı (scripts/start-api.sh çalıştır).';
-      err.hidden = false;
-    } catch(_) {}
-  })();
+  // Gate açılırken eski hata mesajı temizlenir; backend offline ise sessiz —
+  // gerçek hata submit sırasında "Giriş yapılamadı, tekrar deneyin" ile çıkar.
+  const err = document.getElementById('auth-gate-err');
+  if(err){ err.textContent = ''; err.hidden = true; }
 }
 function hideAuthGate(){
   const gate = document.getElementById('auth-gate');
@@ -12678,7 +12638,7 @@ async function saveAccountPassword(e){
 
   const backendOk = await window.BotlCustomerAPI.ping();
   if(!backendOk){
-    toast('Sunucuya ulaşılamıyor — parola değişikliği için backend gerekli', true);
+    toast('Bağlantı kurulamadı, tekrar deneyin', true);
     return;
   }
   // Önce login yenile (session backend değilse)
@@ -13031,7 +12991,7 @@ function renderAccountOrders(){
       ? `<div class="acct-order__actions">${baseActions.join('')}</div>`
       : '';
     const lockedHint = !editable && !cancellable && status !== 'TESLIM_EDILDI'
-      ? `<div class="acct-order__locked-hint">Bu siparişte değişiklik için danışmanınızla iletişime geçin.</div>`
+      ? `<div class="acct-order__locked-hint">Bu siparişte değişiklik yapılamaz.</div>`
       : (status === 'TESLIM_EDILDI'
           ? `<div class="acct-order__locked-hint">Sipariş teslim edildi. Sorununuz varsa kalem bazında iade açabilirsiniz.</div>`
           : '');

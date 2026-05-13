@@ -13,10 +13,9 @@
 <meta name="theme-color" content="#1A1A1A" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#0E0D0B" media="(prefers-color-scheme: dark)">
 <script>
-/* API_BASE runtime loader — Cloudflare Tunnel override (canlı GH Pages için).
-   Lokal (localhost/127.0.0.1/file:) → same-origin '' kullanır, hızlı.
-   Canlı → config.json'dan tunnel URL'i yükler, window.__BOTL_API_BASE__'e koyar.
-   BotlAPI call() her seferinde bu pencere değişkenini re-read eder. */
+/* API_BASE runtime loader (sessiz). Lokalde same-origin '' kullanılır;
+   canlıda config.json varsa api_base oradan window.__BOTL_API_BASE__'e
+   alınır. Fail olursa fallback same-origin — kullanıcıya görünmez. */
 (async function(){
   try{
     var h = location.hostname;
@@ -10095,13 +10094,13 @@ tr.row--re-onay td:first-child{box-shadow:inset 3px 0 0 #C77A17}
 })();
 
 // ─── BOTL HTTP API Client ─────────────────────────────
-// Localhost:8090'da uvicorn (botl_mcp.server_http) çalışıyorsa admin direkt
-// PATCH/POST yapar; çalışmıyorsa localStorage taslağa düşer.
-// Basic Auth credential'ları sessionStorage'da base64 olarak tutulur.
+// Backend erişilebilirse admin direkt PATCH/POST yapar; aksi halde
+// localStorage taslağa düşer. Basic Auth credential'ları sessionStorage'da
+// base64 olarak tutulur.
 window.BotlAPI = (function(){
   const STORAGE_AUTH = 'botl_admin_auth_b64';
-  // API_BASE runtime: lokalde same-origin (''), canlıda config.json'dan tunnel URL.
-  // window.__BOTL_API_BASE__ head'deki async loader tarafından set edilir.
+  // API_BASE runtime: lokalde same-origin (''), canlıda head'deki loader
+  // window.__BOTL_API_BASE__ set ettiyse onu kullanır.
   function _apiBase(){
     return (typeof window !== 'undefined' && window.__BOTL_API_BASE__) ? window.__BOTL_API_BASE__ : '';
   }
