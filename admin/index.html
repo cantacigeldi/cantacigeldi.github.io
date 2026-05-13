@@ -389,6 +389,27 @@ a{color:inherit;text-decoration:none}
   border:1px solid var(--banner-err-border);
 }
 
+/* "Canlıya Gönder" pulse (saveModal taslak yazdıktan sonra) */
+.btn--pulse{
+  animation:btnPulse 1.2s ease-in-out 0s 3;
+  box-shadow:0 0 0 0 rgba(220,38,38,.7);
+  border-color:#dc2626 !important;
+  background:#dc2626 !important;color:#fff !important;
+}
+@keyframes btnPulse{
+  0%   { box-shadow:0 0 0 0 rgba(220,38,38,.7); }
+  70%  { box-shadow:0 0 0 12px rgba(220,38,38,0); }
+  100% { box-shadow:0 0 0 0 rgba(220,38,38,0); }
+}
+/* Taslak varken header butonunda kalıcı kırmızı badge */
+.btn[data-draft-count]:not([data-draft-count="0"]){
+  background:#dc2626;color:#fff;border-color:#dc2626;
+  font-weight:700;
+}
+.btn[data-draft-count]:not([data-draft-count="0"])::after{
+  content:" (" attr(data-draft-count) ")";
+}
+
 /* ─── GitHub Push Modal ─────────────────────────────── */
 .gh-modal{
   position:fixed;inset:0;z-index:9000;
@@ -1426,12 +1447,20 @@ tr.row--re-onay td:first-child{box-shadow:inset 3px 0 0 #C77A17}
 <div class="gh-modal" id="gh-modal" hidden>
   <div class="gh-modal__panel">
     <h2 class="gh-modal__title">Canlıya Gönder</h2>
-    <p class="gh-modal__sub">Taslak değişiklikler doğrudan GitHub'a commit'lenir, GitHub Pages 30-90 saniye içinde yayınlar.</p>
+    <p class="gh-modal__sub">Taslak değişiklikler doğrudan GitHub'a commit'lenir, GitHub Pages 30-90 saniye içinde yayınlar. Hedef: <code id="gh-target-label">cantacigeldi/cantacigeldi.github.io · data.json</code></p>
     <label class="gh-modal__label" for="gh-pat-input">GitHub Personal Access Token <span id="gh-pat-status" style="text-transform:none;letter-spacing:0">—</span></label>
     <input class="gh-modal__input" id="gh-pat-input" type="password" placeholder="ghp_… veya github_pat_…" autocomplete="off" spellcheck="false">
+    <p style="font-size:11px;color:var(--text-muted,#777);margin:6px 0 0;line-height:1.45">
+      Token nasıl alınır: <a href="https://github.com/settings/personal-access-tokens/new" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline">github.com/settings/personal-access-tokens/new</a> →
+      <strong>Repository access</strong>: only <code>cantacigeldi.github.io</code> · <strong>Permissions → Contents: Read and write</strong>.
+    </p>
     <label class="gh-modal__label" for="gh-commit-msg">Commit Mesajı</label>
     <input class="gh-modal__input" id="gh-commit-msg" type="text" value="admin: data.json güncelle" maxlength="120">
     <div class="gh-modal__log" id="gh-modal-log" hidden></div>
+    <div id="gh-history" style="margin-top:14px;font-size:11px;color:var(--text-muted,#777);line-height:1.7" hidden>
+      <div style="font-weight:600;letter-spacing:.06em;text-transform:uppercase;margin-bottom:4px">Son Gönderiler</div>
+      <ul id="gh-history-list" style="list-style:none;padding:0;margin:0"></ul>
+    </div>
     <div class="gh-modal__row">
       <button class="btn btn--ghost" id="gh-modal-cancel" type="button">İptal</button>
       <button class="btn btn--ghost" id="gh-clear-pat" type="button" title="Bu tarayıcıdaki kayıtlı token'i sil" hidden>Token Sil</button>
@@ -2324,7 +2353,7 @@ tr.row--re-onay td:first-child{box-shadow:inset 3px 0 0 #C77A17}
 <!-- BOTL_INLINE_DATA_START — catalog_sync_data tarafından yenilenir, elle düzenleme -->
 <script>window.__BOTL_DATA__ = {
   "schema_version": 5,
-  "exported_at": "2026-05-13T00:30:50.137200+00:00",
+  "exported_at": "2026-05-13T07:38:11.167420+00:00",
   "counter": 46,
   "products": [
     {
@@ -4880,18 +4909,28 @@ function updateDataSourceBanner(){
     ? new Date(dataJsonCache.exported_at).toLocaleString('tr-TR')
     : 'bilinmiyor';
 
+  // "Canlıya Gönder" butonuna taslak sayısını yansıt (CSS data-attribute selector görsel etki)
+  const publishBtn = document.getElementById('btn-publish-gh');
+  if(publishBtn){
+    publishBtn.dataset.draftCount = String(drafts.total);
+    publishBtn.title = drafts.total > 0
+      ? `${drafts.total} taslak değişiklik — yayına almak için bas`
+      : 'data.json\'u GitHub\'a commit\'le, canlıya yansıt';
+  }
+
   if(dataJsonCache.source === 'inline' || dataJsonCache.source === 'data.json'){
     const sourceLabel = dataJsonCache.source === 'inline' ? 'inline (data-inline.js)' : 'data.json';
     if(drafts.total > 0){
       banner.classList.add('source-banner--draft');
-      text.innerHTML = `MCP verisi yüklendi (${sourceLabel}, schema v${v}, ${exp}) — ` +
-        `<strong>${drafts.total} taslak değişiklik</strong> ` +
-        `(${drafts.products} ürün, ${drafts.customers} müşteri, ${drafts.suppliers} tedarikçi, ${drafts.orders} sipariş)`;
-      hint.textContent = '“Canlıya Gönder” ile doğrudan yayınla — veya ASS\'e söyle, aynı sonucu o da alır.';
+      text.innerHTML = `<strong>${drafts.total} taslak değişiklik</strong> bekliyor ` +
+        `(${drafts.products} ürün, ${drafts.customers} müşteri, ${drafts.suppliers} tedarikçi, ${drafts.orders} sipariş) ` +
+        `— ${sourceLabel}, schema v${v}`;
+      hint.innerHTML = 'Yayına almak için sağ üstteki <strong>“Canlıya Gönder ↑”</strong> butonuna bas. ' +
+        'F5 atarsan taslakların bu tarayıcıda kalır ama site eski haliyle görünür.';
     } else {
       banner.classList.add('source-banner--live');
-      text.innerHTML = `MCP verisi yüklendi (${sourceLabel}, schema v${v}, ${exp}) — taslak yok, canlı veri görüntüleniyor`;
-      hint.textContent = 'Düzenlemelerin canlıya yansır. ASS\'e söyleyerek de aynı sonucu alabilirsin — hangisi kolayına gelirse.';
+      text.innerHTML = `Canlı veri görüntüleniyor (${sourceLabel}, schema v${v}, ${exp}) — taslak yok`;
+      hint.textContent = 'Düzenlemelerin önce taslağa düşer; sonra “Canlıya Gönder ↑” ile yayına alırsın.';
     }
   } else {
     banner.classList.add('source-banner--error');
@@ -6306,35 +6345,61 @@ async function saveModal(){
     toast('Bu SKU + renk + boyut + donanım kombinasyonu zaten var: '+p.variation_id, true);
     return;
   }
+  // Host bazlı write stratejisi:
+  // - Lokal (file://, localhost): backend HTTP API çalışıyor olabilir → PATCH dene
+  // - Canlı (cantacigeldi.github.io): backend erişilemez (mixed content) → direkt
+  //   taslağa yaz + "Canlıya Gönder" butonuna yönlendir (PAT akışı)
+  const isLocalHost = location.hostname === 'localhost' || location.hostname === '127.0.0.1' || location.protocol === 'file:';
+
   if(isNew){
     state.products.push(p);
     logActivity('PRODUCT_CREATE', 'product', p.variation_id, `${p.marka} ${p.isim_bilinen||p.isim_resmi||''} eklendi`, { product: {...p, cover: p.cover ? '(image)' : null} });
-    save();  // Yeni ürün → localStorage taslak; API'de henüz yok
+    save();  // Yeni ürün her zaman önce taslak; canlıya alma "Canlıya Gönder" ile
+    toast('Yeni ürün taslak olarak kaydedildi. Sayfanın üstünden “Canlıya Gönder ↑” basarak yayına al.');
   } else {
     logActivity('PRODUCT_UPDATE', 'product', p.variation_id, `${p.marka} ${p.isim_bilinen||p.isim_resmi||''} güncellendi`, { variation_id: p.variation_id });
-    // Mevcut ürün güncellemesi — backend API'ye PATCH dene
-    const apiResult = await window.BotlAPI.patchVariation(p.variation_id, {
-      isim_bilinen: p.isim_bilinen,
-      ana_renk: p.ana_renk, ana_renk_hex: p.ana_renk_hex,
-      ikincil_renk: p.ikincil_renk, ikincil_renk_hex: p.ikincil_renk_hex,
-      desen: p.desen, ana_malzeme: p.ana_malzeme,
-      donanim_rengi: p.donanim_rengi, stil: p.stil, sapli_sapsiz: p.sapli_sapsiz,
-      renk: p.renk, renk_hex: p.renk_hex, boyut: p.boyut, donanim: p.donanim,
-      fiyat_eur: p.fiyat_eur, stok: p.stok,
-      kondisyon: p.kondisyon, aciklama: p.aciklama, sezon: p.sezon,
-      kategori_ust: p.kategori_ust, kategori_alt: p.kategori_alt,
-    });
-    if(apiResult && apiResult.ok){
-      const n = Object.keys(apiResult.changed||{}).length;
-      toast(`Backend: ${n} alan güncellendi · publish ${apiResult.publish?.ok?'OK':'FAIL'}`);
+    if(isLocalHost){
+      // Lokalde backend (localhost:8090) çalışıyorsa anlık PATCH + auto publish
+      const apiResult = await window.BotlAPI.patchVariation(p.variation_id, {
+        isim_bilinen: p.isim_bilinen,
+        ana_renk: p.ana_renk, ana_renk_hex: p.ana_renk_hex,
+        ikincil_renk: p.ikincil_renk, ikincil_renk_hex: p.ikincil_renk_hex,
+        desen: p.desen, ana_malzeme: p.ana_malzeme,
+        donanim_rengi: p.donanim_rengi, stil: p.stil, sapli_sapsiz: p.sapli_sapsiz,
+        renk: p.renk, renk_hex: p.renk_hex, boyut: p.boyut, donanim: p.donanim,
+        fiyat_eur: p.fiyat_eur, stok: p.stok,
+        kondisyon: p.kondisyon, aciklama: p.aciklama, sezon: p.sezon,
+        kategori_ust: p.kategori_ust, kategori_alt: p.kategori_alt,
+      });
+      if(apiResult && apiResult.ok){
+        const n = Object.keys(apiResult.changed||{}).length;
+        toast(`Anında güncellendi: ${n} alan · canlı publish ${apiResult.publish?.ok?'OK':'FAIL'}`);
+      } else {
+        // Backend açıkken hata: 401 ise re-prompt, network ise taslağa düş
+        const reason = apiResult?.status === 401 ? 'admin parola hatalı'
+                     : apiResult?.error === 'network' ? 'backend erişilemez (port 8090 çalışıyor mu?)'
+                     : (apiResult?.detail || apiResult?.error || 'bilinmeyen');
+        toast(`Lokal backend yazamadı (${reason}) — taslak olarak kaydedildi`, true);
+        save();
+      }
     } else {
-      toast('Backend kapalı/erişilemez — taslağa düşüyor', true);
+      // CANLI SAYFADA — backend'e fetch atmak ANLAMSIZ (mixed content).
+      // Doğrudan localStorage taslağa yaz, kullanıcıyı "Canlıya Gönder"'e yönlendir.
       save();
+      toast('Düzenleme taslak olarak kaydedildi. Sayfanın üstünden “Canlıya Gönder ↑” basarak yayına al.');
+      pulsePublishButton();
     }
   }
   closeModal();
   renderAll();
-  if(isNew) toast('Ürün eklendi (taslak)');
+}
+
+// "Canlıya Gönder" butonunu kısa süreliğine vurgula — patron'a "buraya bas" sinyali
+function pulsePublishButton(){
+  const btn = document.getElementById('btn-publish-gh');
+  if(!btn) return;
+  btn.classList.add('btn--pulse');
+  setTimeout(() => btn.classList.remove('btn--pulse'), 4000);
 }
 
 function deleteProduct(id){
@@ -8908,19 +8973,47 @@ function utf8ToBase64(str){
   return btoa(bin);
 }
 
+// HTTP status → Türkçe açıklama (patron için anlaşılır)
+function ghStatusToTurkish(status, raw){
+  if(status === 401) return 'Token yanlış veya süresi dolmuş — yeni PAT oluştur';
+  if(status === 403){
+    // Rate limit mi yetki mi?
+    if(raw && raw.toLowerCase().includes('rate limit')) return 'GitHub rate limit — birkaç dakika bekle';
+    return 'Token yetkisi eksik — PAT scope: "Contents: Read and write" olmalı';
+  }
+  if(status === 404) return 'Repo veya dosya bulunamadı — repo adı (cantacigeldi/cantacigeldi.github.io) ve dosya yolu (data.json) doğru mu?';
+  if(status === 409) return 'SHA conflict — başka biri aynı anda yazdı; otomatik retry edilecek';
+  if(status === 422){
+    if(raw && raw.toLowerCase().includes('sha')) return 'SHA uyuşmazlığı — SHA eski; otomatik retry edilecek';
+    return 'GitHub API: geçersiz veri (422). Detay: ' + (raw || '').slice(0, 150);
+  }
+  if(status >= 500) return `GitHub sunucusu hatası (${status}) — birkaç saniye sonra tekrar dene`;
+  return `Beklenmeyen hata (${status})`;
+}
+
 async function ghGetCurrentSha(token){
   const url = `https://api.github.com/repos/${GH_REPO_OWNER}/${GH_REPO_NAME}/contents/${GH_DATA_PATH}?ref=${GH_BRANCH}`;
-  const r = await fetch(url, {
-    headers: {
-      'Authorization': `Bearer ${token}`,
-      'Accept': 'application/vnd.github+json',
-      'X-GitHub-Api-Version': '2022-11-28',
-    },
-  });
+  let r;
+  try {
+    r = await fetch(url, {
+      headers: {
+        'Authorization': `Bearer ${token}`,
+        'Accept': 'application/vnd.github+json',
+        'X-GitHub-Api-Version': '2022-11-28',
+      },
+    });
+  } catch(e){
+    const err = new Error('Ağ hatası: GitHub API\'ya ulaşılamadı (' + String(e) + ')');
+    err.status = 0;
+    throw err;
+  }
   if(r.status === 404) return null; // dosya yok, yeni commit
   if(!r.ok){
-    const txt = await r.text();
-    throw new Error(`GET contents başarısız (${r.status}): ${txt.slice(0, 200)}`);
+    const txt = await r.text().catch(()=>'');
+    const err = new Error(ghStatusToTurkish(r.status, txt));
+    err.status = r.status;
+    err.raw = txt;
+    throw err;
   }
   const j = await r.json();
   return j.sha;
@@ -8934,23 +9027,60 @@ async function ghPutDataJson(token, content, sha, commitMsg){
     branch: GH_BRANCH,
   };
   if(sha) body.sha = sha;
-  const r = await fetch(url, {
-    method: 'PUT',
-    headers: {
-      'Authorization': `Bearer ${token}`,
-      'Accept': 'application/vnd.github+json',
-      'Content-Type': 'application/json',
-      'X-GitHub-Api-Version': '2022-11-28',
-    },
-    body: JSON.stringify(body),
-  });
+  let r;
+  try {
+    r = await fetch(url, {
+      method: 'PUT',
+      headers: {
+        'Authorization': `Bearer ${token}`,
+        'Accept': 'application/vnd.github+json',
+        'Content-Type': 'application/json',
+        'X-GitHub-Api-Version': '2022-11-28',
+      },
+      body: JSON.stringify(body),
+    });
+  } catch(e){
+    const err = new Error('Ağ hatası: GitHub API\'ya ulaşılamadı (' + String(e) + ')');
+    err.status = 0;
+    throw err;
+  }
   if(!r.ok){
-    const txt = await r.text();
-    const err = new Error(`PUT contents başarısız (${r.status}): ${txt.slice(0, 300)}`);
+    const txt = await r.text().catch(()=>'');
+    const err = new Error(ghStatusToTurkish(r.status, txt));
     err.status = r.status;
+    err.raw = txt;
     throw err;
   }
   return r.json();
+}
+
+// localStorage'da son N commit history (max 10 entry)
+const GH_HISTORY_KEY = 'botl_admin_gh_history';
+function ghHistoryLoad(){
+  try { return JSON.parse(localStorage.getItem(GH_HISTORY_KEY) || '[]') || []; }
+  catch(e){ return []; }
+}
+function ghHistoryAppend(entry){
+  try {
+    const arr = ghHistoryLoad();
+    arr.unshift(entry);
+    while(arr.length > 10) arr.pop();
+    localStorage.setItem(GH_HISTORY_KEY, JSON.stringify(arr));
+  } catch(e){}
+}
+function ghHistoryRender(){
+  const box = document.getElementById('gh-history');
+  const ul = document.getElementById('gh-history-list');
+  if(!box || !ul) return;
+  const arr = ghHistoryLoad();
+  if(!arr.length){ box.hidden = true; return; }
+  box.hidden = false;
+  ul.innerHTML = arr.map(e => {
+    const when = new Date(e.ts).toLocaleString('tr-TR', { dateStyle:'short', timeStyle:'short' });
+    const short = (e.sha || '').slice(0, 7);
+    const url = e.url || '';
+    return `<li>${when} · <a href="${url}" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline">${short}</a> · ${(e.msg||'').replace(/</g,'&lt;').slice(0, 60)}</li>`;
+  }).join('');
 }
 
 function ghBuildDataJsonFromState(){
@@ -9015,6 +9145,9 @@ function ghModalOpen(){
       ? `admin: ${d.total} taslak değişiklik canlıya gönderildi`
       : `admin: data.json güncelle`;
   }
+
+  // History (son 10 commit) render
+  ghHistoryRender();
 }
 
 function ghModalClose(){
@@ -9033,7 +9166,7 @@ async function ghDoPush(){
   let token = (patInput.value || '').trim();
   if(!token) token = ghGetPat();
   if(!token){
-    ghLog('Token girilmedi ve kayıtlı token yok', true);
+    ghLog('Token girilmedi ve kayıtlı token yok. Önce PAT oluştur (link yukarıda).', true);
     return;
   }
   // Sadece form'dan yeni girdiyse + kayıtlı yoksa kaydet
@@ -9041,9 +9174,13 @@ async function ghDoPush(){
     ghSetPat(token);
     ghLog('Token bu tarayıcıya kaydedildi');
   } else if((patInput.value || '').trim()){
-    // Üzerine yazma — yeniden kaydet
     ghSetPat(token);
     ghLog('Token güncellendi');
+  }
+
+  // Token format check (basit sanity)
+  if(!/^(ghp_|github_pat_)/.test(token)){
+    ghLog('Uyarı: token format beklentisi ghp_… veya github_pat_… ile başlamalı. Yine de denenecek.', true);
   }
 
   const commitMsg = (msgInput.value || 'admin: data.json güncelle').trim();
@@ -9053,50 +9190,79 @@ async function ghDoPush(){
   try{
     ghLog('data.json hazırlanıyor…');
     const content = ghBuildDataJsonFromState();
-    ghLog(`Boyut: ${(new Blob([content]).size / 1024).toFixed(1)} KB`);
+    const sizeKB = (new Blob([content]).size / 1024).toFixed(1);
+    ghLog(`Boyut: ${sizeKB} KB`);
 
-    let sha = null;
-    try{
-      sha = await ghGetCurrentSha(token);
-      ghLog(sha ? `Mevcut SHA: ${sha.slice(0,7)}…` : 'data.json yok (ilk commit)');
-    }catch(e){
-      // 401/403 → token sorunu, bilgilendir
-      if(e.message.includes('401') || e.message.includes('403')){
-        ghLog('Token geçersiz veya yetkisiz. PAT scope: "Contents: Read and write" olmalı', true);
-        throw e;
-      }
-      throw e;
+    // GitHub Contents API single-file limit ~1MB (base64 sonrası ~1.33MB istek)
+    if(Number(sizeKB) > 900){
+      ghLog(`Uyarı: data.json ${sizeKB}KB — 1MB üstü Contents API limit aşar. Catalog_sync_data parça parça yazılmalı.`, true);
     }
 
+    ghLog('GitHub repo SHA okunuyor…');
+    let sha = null;
+    sha = await ghGetCurrentSha(token);
+    ghLog(sha ? `Mevcut SHA: ${sha.slice(0,7)}…` : 'data.json yok (ilk commit olacak)');
+
     let attempt = 0;
+    let lastErr = null;
     while(attempt < 3){
       attempt++;
       try{
+        ghLog(`PUT istek gönderiliyor (deneme ${attempt}/3)…`);
         const result = await ghPutDataJson(token, content, sha, commitMsg);
-        ghLog(`Commit: ${result.commit.sha.slice(0,7)}`);
-        ghLog(`URL: ${result.commit.html_url}`);
-        ghLog('Başarılı — GitHub Pages 30-90 saniye içinde yayınlar', false);
+        const commitSha = result.commit.sha;
+        const commitUrl = result.commit.html_url;
+        ghLog(`✓ Commit: ${commitSha.slice(0,7)}`);
+        ghLog(`URL: ${commitUrl}`);
+        ghLog('GitHub Pages rebuild başladı — 30-90 saniye içinde yayında. F5 ile doğrula.');
+
+        // History append
+        ghHistoryAppend({
+          ts: new Date().toISOString(),
+          sha: commitSha,
+          url: commitUrl,
+          msg: commitMsg,
+          size_kb: Number(sizeKB),
+        });
+        ghHistoryRender();
 
         // Taslakları temizle (artık canlıda)
         try{ localStorage.removeItem(STORAGE_KEY); }catch(e){}
         if(typeof updateDataSourceBanner === 'function') updateDataSourceBanner();
-        if(typeof toast === 'function') toast('Canlıya gönderildi. Pages 30-90 sn içinde rebuild.', false);
+        if(typeof toast === 'function'){
+          toast(`✓ Canlıya gönderildi — ${commitSha.slice(0,7)} · 30-90sn içinde yayında`, false);
+        }
 
         btn.textContent = 'Gönderildi ✓';
-        setTimeout(()=>{ ghModalClose(); btn.disabled = false; cancelBtn.disabled = false; btn.textContent = 'Gönder'; }, 1800);
+        setTimeout(()=>{ ghModalClose(); btn.disabled = false; cancelBtn.disabled = false; btn.textContent = 'Gönder'; }, 2400);
         return;
       }catch(e){
-        if(e.status === 409 && attempt < 3){
-          ghLog(`SHA conflict — yeniden okuyup denenecek (${attempt}/3)`);
-          sha = await ghGetCurrentSha(token);
+        lastErr = e;
+        // 409 (SHA conflict) → SHA refresh + retry
+        // 422 with "sha" → aynı şekilde retry
+        const isConflict = e.status === 409 || (e.status === 422 && /sha/i.test(e.raw || ''));
+        if(isConflict && attempt < 3){
+          ghLog(`SHA conflict — yeniden okuyup denenecek (${attempt}/3)`, true);
+          try {
+            sha = await ghGetCurrentSha(token);
+          } catch(reSe){
+            ghLog('SHA yeniden okunamadı: ' + reSe.message, true);
+            throw reSe;
+          }
           continue;
+        }
+        // 401 ise token'i sil — bir sonraki açılışta yeniden istesin
+        if(e.status === 401){
+          ghClearPat();
+          ghLog('Geçersiz token bu tarayıcıdan silindi. Yeni token ile tekrar dene.', true);
         }
         throw e;
       }
     }
+    throw lastErr || new Error('3 deneme başarısız');
   }catch(e){
     ghLog(`HATA: ${e.message}`, true);
-    if(typeof toast === 'function') toast('Push hatası: ' + e.message, true);
+    if(typeof toast === 'function') toast('Gönderim hatası: ' + e.message, true);
     btn.disabled = false; cancelBtn.disabled = false; btn.textContent = 'Tekrar Dene';
   }
 }
