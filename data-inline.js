@@ -6,21 +6,19 @@ window.__BOTL_DATA__ = {
   "counter": 146,
   "products": [
     {
-      "variation_id": "FR-00011-KARISIK-STANDART-GUMUS",
-      "sku": "FR-00011",
+      "variation_id": "CULVMD000001",
+      "sku": "CULVMD000001",
       "no": null,
-      "slug": "lv-bifold-cuzdan-gri-gumus-fr-00011",
-      "cover": "",
+      "cover": "assets/products/CULVMD000001.jpg",
       "isim_resmi": "LV Mekanizmalı Dikey Cüzdan Gri Monogram",
       "isim_bilinen": "LV Mekanizmalı Dikey Cüzdan Gri Monogram",
       "marka": "Louis Vuitton",
-      "kategori": "Bifold Cüzdan",
+      "kategori": "Mekanizmalı Dikey Cüzdan",
       "kategori_ust": "Cüzdan",
-      "kategori_alt": "Bifold Cüzdan",
+      "kategori_alt": "Mekanizmalı Dikey Cüzdan",
       "renk": "GRI",
       "ana_renk": "Gri",
       "ana_renk_hex": "#7d7d7d",
-      "renk_slug": "gri",
       "renk_hex": "#7d7d7d",
       "ikincil_renk": "",
       "ikincil_renk_code": "",
@@ -42,13 +40,13 @@ window.__BOTL_DATA__ = {
       "stok": 1,
       "kondisyon": "Sıfır",
       "kondisyon_label": "Sıfır",
-      "aciklama": "Akıllı kart kabı, üst metal pop-up mekanizması. Patron 2026-05-13 toplu yüklemesi (foto: IMG_8807, IMG_8808).",
+      "aciklama": "Akıllı kartlık, üst metal pop-up mekanizması. Patron 2026-05-13 toplu yüklemesi (foto: IMG_8807, IMG_8808).",
       "tedarikci_id": null,
       "olusturma": "2026-05-13",
       "gorseller": {
-        "cover": "",
+        "cover": "assets/products/CULVMD000001.jpg",
         "gallery": [
-          "assets/products/kart-kabi-1-lutfen-duzenle-karisik-gumus-g1.jpg"
+          "assets/products/CULVMD000001-g1.jpg"
         ]
       },
       "cinsiyet": "ERKEK",
@@ -63,21 +61,19 @@ window.__BOTL_DATA__ = {
       "ic_astar_malzeme": "Deri"
     },
     {
-      "variation_id": "FR-00012-KARISIK-STANDART-GUMUS",
-      "sku": "FR-00012",
+      "variation_id": "CUGUMD000002",
+      "sku": "CUGUMD000002",
       "no": null,
-      "slug": "gucci-bifold-cuzdan-bej-gumus-fr-00012",
-      "cover": "",
+      "cover": "assets/products/CUGUMD000002.jpg",
       "isim_resmi": "Gucci Mekanizmalı Dikey Cüzdan Bej Monogram",
       "isim_bilinen": "Gucci Mekanizmalı Dikey Cüzdan Bej Monogram",
       "marka": "Gucci",
-      "kategori": "Bifold Cüzdan",
+      "kategori": "Mekanizmalı Dikey Cüzdan",
       "kategori_ust": "Cüzdan",
-      "kategori_alt": "Bifold Cüzdan",
+      "kategori_alt": "Mekanizmalı Dikey Cüzdan",
       "renk": "BEJ",
       "ana_renk": "Bej",
       "ana_renk_hex": "#d8c3a3",
-      "renk_slug": "bej",
       "renk_hex": "#d8c3a3",
       "ikincil_renk": "",
       "ikincil_renk_code": "",
@@ -103,9 +99,9 @@ window.__BOTL_DATA__ = {
       "tedarikci_id": null,
       "olusturma": "2026-05-13",
       "gorseller": {
-        "cover": "",
+        "cover": "assets/products/CUGUMD000002.jpg",
         "gallery": [
-          "assets/products/kart-kabi-2-lutfen-duzenle-karisik-gumus-g1.jpg"
+          "assets/products/CUGUMD000002-g1.jpg"
         ]
       },
       "cinsiyet": "ERKEK",
@@ -120,21 +116,19 @@ window.__BOTL_DATA__ = {
       "ic_astar_malzeme": "Deri"
     },
     {
-      "variation_id": "FR-00013-KARISIK-STANDART-GUMUS",
-      "sku": "FR-00013",
+      "variation_id": "CUCOMD000003",
+      "sku": "CUCOMD000003",
       "no": null,
-      "slug": "coach-bifold-cuzdan-bej-gumus-fr-00013",
-      "cover": "",
+      "cover": "assets/products/CUCOMD000003.jpg",
       "isim_resmi": "Coach Mekanizmalı Dikey Cüzdan Bej Monogram",
       "isim_bilinen": "Coach Mekanizmalı Dikey Cüzdan Bej Signature",
       "marka": "Coach",
-      "kategori": "Bifold Cüzdan",
+      "kategori": "Mekanizmalı Dikey Cüzdan",
       "kategori_ust": "Cüzdan",
-      "kategori_alt": "Bifold Cüzdan",
+      "kategori_alt": "Mekanizmalı Dikey Cüzdan",
       "renk": "BEJ",
       "ana_renk": "Bej",
       "ana_renk_hex": "#d8c3a3",
-      "renk_slug": "bej",
       "renk_hex": "#d8c3a3",
       "ikincil_renk": "",
       "ikincil_renk_code": "",
@@ -160,9 +154,9 @@ window.__BOTL_DATA__ = {
       "tedarikci_id": null,
       "olusturma": "2026-05-13",
       "gorseller": {
-        "cover": "",
+        "cover": "assets/products/CUCOMD000003.jpg",
         "gallery": [
-          "assets/products/kart-kabi-3-lutfen-duzenle-karisik-gumus-g1.jpg"
+          "assets/products/CUCOMD000003-g1.jpg"
         ]
       },
       "cinsiyet": "ERKEK",
@@ -177,21 +171,19 @@ window.__BOTL_DATA__ = {
       "ic_astar_malzeme": "Deri"
     },
     {
-      "variation_id": "FR-00014-KARISIK-STANDART-GUMUS",
-      "sku": "FR-00014",
+      "variation_id": "CUGUMD000004",
+      "sku": "CUGUMD000004",
       "no": null,
-      "slug": "gucci-bifold-cuzdan-acik-gri-gumus-fr-00014",
-      "cover": "",
+      "cover": "assets/products/CUGUMD000004.jpg",
       "isim_resmi": "Gucci Mekanizmalı Dikey Cüzdan Açık Gri Monogram",
       "isim_bilinen": "Gucci Mekanizmalı Dikey Cüzdan Açık Gri Monogram",
       "marka": "Gucci",
-      "kategori": "Bifold Cüzdan",
+      "kategori": "Mekanizmalı Dikey Cüzdan",
       "kategori_ust": "Cüzdan",
-      "kategori_alt": "Bifold Cüzdan",
+      "kategori_alt": "Mekanizmalı Dikey Cüzdan",
       "renk": "ACIK GRI",
       "ana_renk": "Açık Gri",
       "ana_renk_hex": "#b8b8b8",
-      "renk_slug": "acik-gri",
       "renk_hex": "#b8b8b8",
       "ikincil_renk": "",
       "ikincil_renk_code": "",
@@ -217,9 +209,9 @@ window.__BOTL_DATA__ = {
       "tedarikci_id": null,
       "olusturma": "2026-05-13",
       "gorseller": {
-        "cover": "",
+        "cover": "assets/products/CUGUMD000004.jpg",
         "gallery": [
-          "assets/products/kart-kabi-4-lutfen-duzenle-karisik-gumus-g1.jpg"
+          "assets/products/CUGUMD000004-g1.jpg"
         ]
       },
       "cinsiyet": "ERKEK",
@@ -234,21 +226,19 @@ window.__BOTL_DATA__ = {
       "ic_astar_malzeme": "Deri"
     },
     {
-      "variation_id": "FR-00015-KARISIK-STANDART-GUMUS",
-      "sku": "FR-00015",
+      "variation_id": "CUCOMD000005",
+      "sku": "CUCOMD000005",
       "no": null,
-      "slug": "coach-bifold-cuzdan-gri-gumus-fr-00015",
-      "cover": "",
+      "cover": "assets/products/CUCOMD000005.jpg",
       "isim_resmi": "Coach Mekanizmalı Dikey Cüzdan Gri Monogram",
       "isim_bilinen": "Coach Mekanizmalı Dikey Cüzdan Gri Signature",
       "marka": "Coach",
-      "kategori": "Bifold Cüzdan",
+      "kategori": "Mekanizmalı Dikey Cüzdan",
       "kategori_ust": "Cüzdan",
-      "kategori_alt": "Bifold Cüzdan",
+      "kategori_alt": "Mekanizmalı Dikey Cüzdan",
       "renk": "GRI",
       "ana_renk": "Gri",
       "ana_renk_hex": "#7d7d7d",
-      "renk_slug": "gri",
       "renk_hex": "#7d7d7d",
       "ikincil_renk": "",
       "ikincil_renk_code": "",
@@ -274,9 +264,9 @@ window.__BOTL_DATA__ = {
       "tedarikci_id": null,
       "olusturma": "2026-05-13",
       "gorseller": {
-        "cover": "",
+        "cover": "assets/products/CUCOMD000005.jpg",
         "gallery": [
-          "assets/products/kart-kabi-5-lutfen-duzenle-karisik-gumus-g1.jpg"
+          "assets/products/CUCOMD000005-g1.jpg"
         ]
       },
       "cinsiyet": "ERKEK",
@@ -291,21 +281,19 @@ window.__BOTL_DATA__ = {
       "ic_astar_malzeme": "Deri"
     },
     {
-      "variation_id": "FR-00016-KARISIK-STANDART-GUMUS",
-      "sku": "FR-00016",
+      "variation_id": "CUGUMD000006",
+      "sku": "CUGUMD000006",
       "no": null,
-      "slug": "gucci-bifold-cuzdan-siyah-gumus-fr-00016",
-      "cover": "",
+      "cover": "assets/products/CUGUMD000006.jpg",
       "isim_resmi": "Gucci Mekanizmalı Dikey Cüzdan Siyah",
       "isim_bilinen": "Gucci Mekanizmalı Dikey Cüzdan Siyah Deri",
       "marka": "Gucci",
-      "kategori": "Bifold Cüzdan",
+      "kategori": "Mekanizmalı Dikey Cüzdan",
       "kategori_ust": "Cüzdan",
-      "kategori_alt": "Bifold Cüzdan",
+      "kategori_alt": "Mekanizmalı Dikey Cüzdan",
       "renk": "SIYAH",
       "ana_renk": "Siyah",
       "ana_renk_hex": "#1a1a1a",
-      "renk_slug": "siyah",
       "renk_hex": "#1a1a1a",
       "ikincil_renk": "",
       "ikincil_renk_code": "",
@@ -331,9 +319,9 @@ window.__BOTL_DATA__ = {
       "tedarikci_id": null,
       "olusturma": "2026-05-13",
       "gorseller": {
-        "cover": "",
+        "cover": "assets/products/CUGUMD000006.jpg",
         "gallery": [
-          "assets/products/kart-kabi-6-lutfen-duzenle-karisik-gumus-g1.jpg"
+          "assets/products/CUGUMD000006-g1.jpg"
         ]
       },
       "cinsiyet": "ERKEK",
@@ -348,21 +336,19 @@ window.__BOTL_DATA__ = {
       "ic_astar_malzeme": "Deri"
     },
     {
-      "variation_id": "FR-00017-KARISIK-STANDART-GUMUS",
-      "sku": "FR-00017",
+      "variation_id": "CUCOMD000007",
+      "sku": "CUCOMD000007",
       "no": null,
-      "slug": "coach-bifold-cuzdan-siyah-gumus-fr-00017",
-      "cover": "",
+      "cover": "assets/products/CUCOMD000007.jpg",
       "isim_resmi": "Coach Mekanizmalı Dikey Cüzdan Siyah Monogram",
       "isim_bilinen": "Coach Mekanizmalı Dikey Cüzdan Siyah Signature",
       "marka": "Coach",
-      "kategori": "Bifold Cüzdan",
+      "kategori": "Mekanizmalı Dikey Cüzdan",
       "kategori_ust": "Cüzdan",
-      "kategori_alt": "Bifold Cüzdan",
+      "kategori_alt": "Mekanizmalı Dikey Cüzdan",
       "renk": "SIYAH",
       "ana_renk": "Siyah",
       "ana_renk_hex": "#1a1a1a",
-      "renk_slug": "siyah",
       "renk_hex": "#1a1a1a",
       "ikincil_renk": "",
       "ikincil_renk_code": "",
@@ -388,9 +374,9 @@ window.__BOTL_DATA__ = {
       "tedarikci_id": null,
       "olusturma": "2026-05-13",
       "gorseller": {
-        "cover": "",
+        "cover": "assets/products/CUCOMD000007.jpg",
         "gallery": [
-          "assets/products/kart-kabi-7-lutfen-duzenle-karisik-gumus-g1.jpg"
+          "assets/products/CUCOMD000007-g1.jpg"
         ]
       },
       "cinsiyet": "ERKEK",
@@ -405,21 +391,19 @@ window.__BOTL_DATA__ = {
       "ic_astar_malzeme": "Deri"
     },
     {
-      "variation_id": "FR-00018-KARISIK-STANDART-GUMUS",
-      "sku": "FR-00018",
+      "variation_id": "CUTOMD000008",
+      "sku": "CUTOMD000008",
       "no": null,
-      "slug": "tommy-hilfiger-bifold-cuzdan-siyah-gumus-fr-00018",
-      "cover": "",
+      "cover": "assets/products/CUTOMD000008.jpg",
       "isim_resmi": "Tommy Hilfiger Mekanizmalı Dikey Cüzdan Siyah",
       "isim_bilinen": "Tommy Hilfiger Mekanizmalı Dikey Cüzdan Siyah Deri",
       "marka": "Tommy Hilfiger",
-      "kategori": "Bifold Cüzdan",
+      "kategori": "Mekanizmalı Dikey Cüzdan",
       "kategori_ust": "Cüzdan",
-      "kategori_alt": "Bifold Cüzdan",
+      "kategori_alt": "Mekanizmalı Dikey Cüzdan",
       "renk": "SIYAH",
       "ana_renk": "Siyah",
       "ana_renk_hex": "#1a1a1a",
-      "renk_slug": "siyah",
       "renk_hex": "#1a1a1a",
       "ikincil_renk": "",
       "ikincil_renk_code": "",
@@ -445,9 +429,9 @@ window.__BOTL_DATA__ = {
       "tedarikci_id": null,
       "olusturma": "2026-05-13",
       "gorseller": {
-        "cover": "",
+        "cover": "assets/products/CUTOMD000008.jpg",
         "gallery": [
-          "assets/products/kart-kabi-8-lutfen-duzenle-karisik-gumus-g1.jpg"
+          "assets/products/CUTOMD000008-g1.jpg"
         ]
       },
       "cinsiyet": "ERKEK",
@@ -462,21 +446,19 @@ window.__BOTL_DATA__ = {
       "ic_astar_malzeme": "Deri"
     },
     {
-      "variation_id": "FR-00019-KARISIK-STANDART-GUMUS",
-      "sku": "FR-00019",
+      "variation_id": "CUCOMD000009",
+      "sku": "CUCOMD000009",
       "no": null,
-      "slug": "coach-bifold-cuzdan-kahve-gumus-fr-00019",
-      "cover": "",
+      "cover": "assets/products/CUCOMD000009.jpg",
       "isim_resmi": "Coach Mekanizmalı Dikey Cüzdan Kahve Monogram",
       "isim_bilinen": "Coach Mekanizmalı Dikey Cüzdan Kahve Signature",
       "marka": "Coach",
-      "kategori": "Bifold Cüzdan",
+      "kategori": "Mekanizmalı Dikey Cüzdan",
       "kategori_ust": "Cüzdan",
-      "kategori_alt": "Bifold Cüzdan",
+      "kategori_alt": "Mekanizmalı Dikey Cüzdan",
       "renk": "KAHVE",
       "ana_renk": "Kahve",
       "ana_renk_hex": "#5a3a25",
-      "renk_slug": "kahve",
       "renk_hex": "#5a3a25",
       "ikincil_renk": "",
       "ikincil_renk_code": "",
@@ -502,9 +484,9 @@ window.__BOTL_DATA__ = {
       "tedarikci_id": null,
       "olusturma": "2026-05-13",
       "gorseller": {
-        "cover": "",
+        "cover": "assets/products/CUCOMD000009.jpg",
         "gallery": [
-          "assets/products/kart-kabi-9-lutfen-duzenle-karisik-gumus-g1.jpg"
+          "assets/products/CUCOMD000009-g1.jpg"
         ]
       },
       "cinsiyet": "ERKEK",
@@ -519,21 +501,19 @@ window.__BOTL_DATA__ = {
       "ic_astar_malzeme": "Deri"
     },
     {
-      "variation_id": "FR-00020-KARISIK-STANDART-GUMUS",
-      "sku": "FR-00020",
+      "variation_id": "CUHUMD000010",
+      "sku": "CUHUMD000010",
       "no": null,
-      "slug": "hugo-boss-bifold-cuzdan-siyah-gumus-fr-00020",
-      "cover": "",
+      "cover": "assets/products/CUHUMD000010.jpg",
       "isim_resmi": "Hugo Boss Mekanizmalı Dikey Cüzdan Siyah",
       "isim_bilinen": "Hugo Boss Mekanizmalı Dikey Cüzdan Siyah Deri",
       "marka": "Hugo Boss",
-      "kategori": "Bifold Cüzdan",
+      "kategori": "Mekanizmalı Dikey Cüzdan",
       "kategori_ust": "Cüzdan",
-      "kategori_alt": "Bifold Cüzdan",
+      "kategori_alt": "Mekanizmalı Dikey Cüzdan",
       "renk": "SIYAH",
       "ana_renk": "Siyah",
       "ana_renk_hex": "#1a1a1a",
-      "renk_slug": "siyah",
       "renk_hex": "#1a1a1a",
       "ikincil_renk": "",
       "ikincil_renk_code": "",
@@ -559,9 +539,9 @@ window.__BOTL_DATA__ = {
       "tedarikci_id": null,
       "olusturma": "2026-05-13",
       "gorseller": {
-        "cover": "",
+        "cover": "assets/products/CUHUMD000010.jpg",
         "gallery": [
-          "assets/products/kart-kabi-10-lutfen-duzenle-karisik-gumus-g1.jpg"
+          "assets/products/CUHUMD000010-g1.jpg"
         ]
       },
       "cinsiyet": "ERKEK",
@@ -576,21 +556,19 @@ window.__BOTL_DATA__ = {
       "ic_astar_malzeme": "Deri"
     },
     {
-      "variation_id": "FR-00021-KARISIK-STANDART-GUMUS",
-      "sku": "FR-00021",
+      "variation_id": "CULVMD000011",
+      "sku": "CULVMD000011",
       "no": null,
-      "slug": "lv-bifold-cuzdan-kahve-gumus-fr-00021",
-      "cover": "",
+      "cover": "assets/products/CULVMD000011.jpg",
       "isim_resmi": "LV Mekanizmalı Dikey Cüzdan Kahve Monogram",
       "isim_bilinen": "LV Mekanizmalı Dikey Cüzdan Kahve Monogram",
       "marka": "Louis Vuitton",
-      "kategori": "Bifold Cüzdan",
+      "kategori": "Mekanizmalı Dikey Cüzdan",
       "kategori_ust": "Cüzdan",
-      "kategori_alt": "Bifold Cüzdan",
+      "kategori_alt": "Mekanizmalı Dikey Cüzdan",
       "renk": "KAHVE",
       "ana_renk": "Kahve",
       "ana_renk_hex": "#5a3a25",
-      "renk_slug": "kahve",
       "renk_hex": "#5a3a25",
       "ikincil_renk": "",
       "ikincil_renk_code": "",
@@ -616,9 +594,9 @@ window.__BOTL_DATA__ = {
       "tedarikci_id": null,
       "olusturma": "2026-05-13",
       "gorseller": {
-        "cover": "",
+        "cover": "assets/products/CULVMD000011.jpg",
         "gallery": [
-          "assets/products/kart-kabi-11-lutfen-duzenle-karisik-gumus-g1.jpg"
+          "assets/products/CULVMD000011-g1.jpg"
         ]
       },
       "cinsiyet": "ERKEK",
@@ -633,21 +611,19 @@ window.__BOTL_DATA__ = {
       "ic_astar_malzeme": "Deri"
     },
     {
-      "variation_id": "FR-00022-KARISIK-STANDART-GUMUS",
-      "sku": "FR-00022",
+      "variation_id": "CULVMD000012",
+      "sku": "CULVMD000012",
       "no": null,
-      "slug": "lv-bifold-cuzdan-siyah-gumus-fr-00022",
-      "cover": "",
+      "cover": "assets/products/CULVMD000012.jpg",
       "isim_resmi": "LV Mekanizmalı Dikey Cüzdan Siyah Monogram",
       "isim_bilinen": "LV Mekanizmalı Dikey Cüzdan Siyah Damier Infini",
       "marka": "Louis Vuitton",
-      "kategori": "Bifold Cüzdan",
+      "kategori": "Mekanizmalı Dikey Cüzdan",
       "kategori_ust": "Cüzdan",
-      "kategori_alt": "Bifold Cüzdan",
+      "kategori_alt": "Mekanizmalı Dikey Cüzdan",
       "renk": "SIYAH",
       "ana_renk": "Siyah",
       "ana_renk_hex": "#1a1a1a",
-      "renk_slug": "siyah",
       "renk_hex": "#1a1a1a",
       "ikincil_renk": "",
       "ikincil_renk_code": "",
@@ -673,9 +649,9 @@ window.__BOTL_DATA__ = {
       "tedarikci_id": null,
       "olusturma": "2026-05-13",
       "gorseller": {
-        "cover": "",
+        "cover": "assets/products/CULVMD000012.jpg",
         "gallery": [
-          "assets/products/kart-kabi-12-lutfen-duzenle-karisik-gumus-g1.jpg"
+          "assets/products/CULVMD000012-g1.jpg"
         ]
       },
       "cinsiyet": "ERKEK",
@@ -690,21 +666,19 @@ window.__BOTL_DATA__ = {
       "ic_astar_malzeme": "Deri"
     },
     {
-      "variation_id": "FR-00023-KARISIK-STANDART-GUMUS",
-      "sku": "FR-00023",
+      "variation_id": "CULVMD000013",
+      "sku": "CULVMD000013",
       "no": null,
-      "slug": "lv-bifold-cuzdan-siyah-gumus-fr-00023",
-      "cover": "",
+      "cover": "assets/products/CULVMD000013.jpg",
       "isim_resmi": "LV Mekanizmalı Dikey Cüzdan Siyah Monogram",
       "isim_bilinen": "LV Mekanizmalı Dikey Cüzdan Siyah Empreinte",
       "marka": "Louis Vuitton",
-      "kategori": "Bifold Cüzdan",
+      "kategori": "Mekanizmalı Dikey Cüzdan",
       "kategori_ust": "Cüzdan",
-      "kategori_alt": "Bifold Cüzdan",
+      "kategori_alt": "Mekanizmalı Dikey Cüzdan",
       "renk": "SIYAH",
       "ana_renk": "Siyah",
       "ana_renk_hex": "#1a1a1a",
-      "renk_slug": "siyah",
       "renk_hex": "#1a1a1a",
       "ikincil_renk": "",
       "ikincil_renk_code": "",
@@ -730,9 +704,9 @@ window.__BOTL_DATA__ = {
       "tedarikci_id": null,
       "olusturma": "2026-05-13",
       "gorseller": {
-        "cover": "",
+        "cover": "assets/products/CULVMD000013.jpg",
         "gallery": [
-          "assets/products/kart-kabi-13-lutfen-duzenle-karisik-gumus-g1.jpg"
+          "assets/products/CULVMD000013-g1.jpg"
         ]
       },
       "cinsiyet": "ERKEK",
@@ -747,21 +721,19 @@ window.__BOTL_DATA__ = {
       "ic_astar_malzeme": "Deri"
     },
     {
-      "variation_id": "FR-00024-KARISIK-STANDART-GUMUS",
-      "sku": "FR-00024",
+      "variation_id": "CULVMD000014",
+      "sku": "CULVMD000014",
       "no": null,
-      "slug": "lv-bifold-cuzdan-siyah-gumus-fr-00024",
-      "cover": "",
+      "cover": "assets/products/CULVMD000014.jpg",
       "isim_resmi": "LV Mekanizmalı Dikey Cüzdan Siyah Monogram",
       "isim_bilinen": "LV Mekanizmalı Dikey Cüzdan Siyah Monogram Eclipse",
       "marka": "Louis Vuitton",
-      "kategori": "Bifold Cüzdan",
+      "kategori": "Mekanizmalı Dikey Cüzdan",
       "kategori_ust": "Cüzdan",
-      "kategori_alt": "Bifold Cüzdan",
+      "kategori_alt": "Mekanizmalı Dikey Cüzdan",
       "renk": "SIYAH",
       "ana_renk": "Siyah",
       "ana_renk_hex": "#1a1a1a",
-      "renk_slug": "siyah",
       "renk_hex": "#1a1a1a",
       "ikincil_renk": "",
       "ikincil_renk_code": "",
@@ -787,9 +759,9 @@ window.__BOTL_DATA__ = {
       "tedarikci_id": null,
       "olusturma": "2026-05-13",
       "gorseller": {
-        "cover": "",
+        "cover": "assets/products/CULVMD000014.jpg",
         "gallery": [
-          "assets/products/kart-kabi-14-lutfen-duzenle-karisik-gumus-g1.jpg"
+          "assets/products/CULVMD000014-g1.jpg"
         ]
       },
       "cinsiyet": "ERKEK",
@@ -804,21 +776,19 @@ window.__BOTL_DATA__ = {
       "ic_astar_malzeme": "Deri"
     },
     {
-      "variation_id": "FR-00025-KARISIK-STANDART-GUMUS",
-      "sku": "FR-00025",
+      "variation_id": "CUGUMD000015",
+      "sku": "CUGUMD000015",
       "no": null,
-      "slug": "gucci-bifold-cuzdan-siyah-gumus-fr-00025",
-      "cover": "",
+      "cover": "assets/products/CUGUMD000015.jpg",
       "isim_resmi": "Gucci Mekanizmalı Dikey Cüzdan Siyah Monogram",
       "isim_bilinen": "Gucci Mekanizmalı Dikey Cüzdan Siyah Monogram",
       "marka": "Gucci",
-      "kategori": "Bifold Cüzdan",
+      "kategori": "Mekanizmalı Dikey Cüzdan",
       "kategori_ust": "Cüzdan",
-      "kategori_alt": "Bifold Cüzdan",
+      "kategori_alt": "Mekanizmalı Dikey Cüzdan",
       "renk": "SIYAH",
       "ana_renk": "Siyah",
       "ana_renk_hex": "#1a1a1a",
-      "renk_slug": "siyah",
       "renk_hex": "#1a1a1a",
       "ikincil_renk": "",
       "ikincil_renk_code": "",
@@ -844,9 +814,9 @@ window.__BOTL_DATA__ = {
       "tedarikci_id": null,
       "olusturma": "2026-05-13",
       "gorseller": {
-        "cover": "",
+        "cover": "assets/products/CUGUMD000015.jpg",
         "gallery": [
-          "assets/products/kart-kabi-15-lutfen-duzenle-karisik-gumus-g1.jpg"
+          "assets/products/CUGUMD000015-g1.jpg"
         ]
       },
       "cinsiyet": "ERKEK",
@@ -861,21 +831,19 @@ window.__BOTL_DATA__ = {
       "ic_astar_malzeme": "Deri"
     },
     {
-      "variation_id": "FR-00026-KARISIK-STANDART-GUMUS",
-      "sku": "FR-00026",
+      "variation_id": "CUCOMD000016",
+      "sku": "CUCOMD000016",
       "no": null,
-      "slug": "coach-bifold-cuzdan-beyaz-gumus-fr-00026",
-      "cover": "",
+      "cover": "assets/products/CUCOMD000016.jpg",
       "isim_resmi": "Coach Mekanizmalı Dikey Cüzdan Beyaz Monogram",
       "isim_bilinen": "Coach Mekanizmalı Dikey Cüzdan Beyaz Signature",
       "marka": "Coach",
-      "kategori": "Bifold Cüzdan",
+      "kategori": "Mekanizmalı Dikey Cüzdan",
       "kategori_ust": "Cüzdan",
-      "kategori_alt": "Bifold Cüzdan",
+      "kategori_alt": "Mekanizmalı Dikey Cüzdan",
       "renk": "BEYAZ",
       "ana_renk": "Beyaz",
       "ana_renk_hex": "#f5f1ea",
-      "renk_slug": "beyaz",
       "renk_hex": "#f5f1ea",
       "ikincil_renk": "",
       "ikincil_renk_code": "",
@@ -901,9 +869,9 @@ window.__BOTL_DATA__ = {
       "tedarikci_id": null,
       "olusturma": "2026-05-13",
       "gorseller": {
-        "cover": "",
+        "cover": "assets/products/CUCOMD000016.jpg",
         "gallery": [
-          "assets/products/kart-kabi-16-lutfen-duzenle-karisik-gumus-g1.jpg"
+          "assets/products/CUCOMD000016-g1.jpg"
         ]
       },
       "cinsiyet": "ERKEK",
@@ -918,21 +886,19 @@ window.__BOTL_DATA__ = {
       "ic_astar_malzeme": "Deri"
     },
     {
-      "variation_id": "FR-00027-KARISIK-STANDART-GUMUS",
-      "sku": "FR-00027",
+      "variation_id": "CUCOMD000017",
+      "sku": "CUCOMD000017",
       "no": null,
-      "slug": "coach-bifold-cuzdan-kahve-gumus-fr-00027",
-      "cover": "",
+      "cover": "assets/products/CUCOMD000017.jpg",
       "isim_resmi": "Coach Mekanizmalı Dikey Cüzdan Kahve Monogram",
       "isim_bilinen": "Coach Mekanizmalı Dikey Cüzdan Kahve Signature",
       "marka": "Coach",
-      "kategori": "Bifold Cüzdan",
+      "kategori": "Mekanizmalı Dikey Cüzdan",
       "kategori_ust": "Cüzdan",
-      "kategori_alt": "Bifold Cüzdan",
+      "kategori_alt": "Mekanizmalı Dikey Cüzdan",
       "renk": "KAHVE",
       "ana_renk": "Kahve",
       "ana_renk_hex": "#5a3a25",
-      "renk_slug": "kahve",
       "renk_hex": "#5a3a25",
       "ikincil_renk": "",
       "ikincil_renk_code": "",
@@ -958,9 +924,9 @@ window.__BOTL_DATA__ = {
       "tedarikci_id": null,
       "olusturma": "2026-05-13",
       "gorseller": {
-        "cover": "",
+        "cover": "assets/products/CUCOMD000017.jpg",
         "gallery": [
-          "assets/products/kart-kabi-17-lutfen-duzenle-karisik-gumus-g1.jpg"
+          "assets/products/CUCOMD000017-g1.jpg"
         ]
       },
       "cinsiyet": "ERKEK",
@@ -975,21 +941,19 @@ window.__BOTL_DATA__ = {
       "ic_astar_malzeme": "Deri"
     },
     {
-      "variation_id": "FR-00028-KARISIK-STANDART-GUMUS",
-      "sku": "FR-00028",
+      "variation_id": "CUARMD000018",
+      "sku": "CUARMD000018",
       "no": null,
-      "slug": "armani-bifold-cuzdan-siyah-gumus-fr-00028",
-      "cover": "",
+      "cover": "assets/products/CUARMD000018.jpg",
       "isim_resmi": "Armani Mekanizmalı Dikey Cüzdan Siyah",
       "isim_bilinen": "Armani Mekanizmalı Dikey Cüzdan Siyah Deri",
       "marka": "Giorgio Armani",
-      "kategori": "Bifold Cüzdan",
+      "kategori": "Mekanizmalı Dikey Cüzdan",
       "kategori_ust": "Cüzdan",
-      "kategori_alt": "Bifold Cüzdan",
+      "kategori_alt": "Mekanizmalı Dikey Cüzdan",
       "renk": "SIYAH",
       "ana_renk": "Siyah",
       "ana_renk_hex": "#1a1a1a",
-      "renk_slug": "siyah",
       "renk_hex": "#1a1a1a",
       "ikincil_renk": "",
       "ikincil_renk_code": "",
@@ -1015,9 +979,9 @@ window.__BOTL_DATA__ = {
       "tedarikci_id": null,
       "olusturma": "2026-05-13",
       "gorseller": {
-        "cover": "",
+        "cover": "assets/products/CUARMD000018.jpg",
         "gallery": [
-          "assets/products/kart-kabi-18-lutfen-duzenle-karisik-gumus-g1.jpg"
+          "assets/products/CUARMD000018-g1.jpg"
         ]
       },
       "cinsiyet": "ERKEK",
@@ -1032,21 +996,19 @@ window.__BOTL_DATA__ = {
       "ic_astar_malzeme": "Deri"
     },
     {
-      "variation_id": "FR-00029-KARISIK-STANDART-GUMUS",
-      "sku": "FR-00029",
+      "variation_id": "KAMCIN000019",
+      "sku": "KAMCIN000019",
       "no": null,
-      "slug": "mcm-kart-kabi-beyaz-gumus-fr-00029",
-      "cover": "",
+      "cover": "assets/products/KAMCIN000019.jpg",
       "isim_resmi": "MCM Kartlık Beyaz Monogram",
-      "isim_bilinen": "MCM Kart Kabi Beyaz Visetos Monogram",
+      "isim_bilinen": "MCM Kartlık Beyaz Visetos Monogram",
       "marka": "MCM",
-      "kategori": "Kart Kabı",
-      "kategori_ust": "Cüzdan",
-      "kategori_alt": "Kart Kabı",
+      "kategori": "Kartlık",
+      "kategori_ust": "Kartlık",
+      "kategori_alt": "Kartlık",
       "renk": "BEYAZ",
       "ana_renk": "Beyaz",
       "ana_renk_hex": "#f5f1ea",
-      "renk_slug": "beyaz",
       "renk_hex": "#f5f1ea",
       "ikincil_renk": "",
       "ikincil_renk_code": "",
@@ -1072,9 +1034,9 @@ window.__BOTL_DATA__ = {
       "tedarikci_id": null,
       "olusturma": "2026-05-13",
       "gorseller": {
-        "cover": "",
+        "cover": "assets/products/KAMCIN000019.jpg",
         "gallery": [
-          "assets/products/kart-kabi-19-lutfen-duzenle-karisik-gumus-g1.jpg"
+          "assets/products/KAMCIN000019-g1.jpg"
         ]
       },
       "cinsiyet": "UNISEX",
@@ -1089,21 +1051,19 @@ window.__BOTL_DATA__ = {
       "ic_astar_malzeme": "Deri"
     },
     {
-      "variation_id": "FR-00030-KARISIK-STANDART-GUMUS",
-      "sku": "FR-00030",
+      "variation_id": "KACOIN000020",
+      "sku": "KACOIN000020",
       "no": null,
-      "slug": "coach-kart-kabi-beyaz-gumus-fr-00030",
-      "cover": "",
+      "cover": "assets/products/KACOIN000020.jpg",
       "isim_resmi": "Coach Kartlık Beyaz",
-      "isim_bilinen": "Coach Kart Kabi Beyaz Siyah Bicolor",
+      "isim_bilinen": "Coach Kartlık Beyaz Siyah Bicolor",
       "marka": "Coach",
-      "kategori": "Kart Kabı",
-      "kategori_ust": "Cüzdan",
-      "kategori_alt": "Kart Kabı",
+      "kategori": "Kartlık",
+      "kategori_ust": "Kartlık",
+      "kategori_alt": "Kartlık",
       "renk": "BEYAZ",
       "ana_renk": "Beyaz",
       "ana_renk_hex": "#f5f1ea",
-      "renk_slug": "beyaz",
       "renk_hex": "#f5f1ea",
       "ikincil_renk": "",
       "ikincil_renk_code": "",
@@ -1129,9 +1089,9 @@ window.__BOTL_DATA__ = {
       "tedarikci_id": null,
       "olusturma": "2026-05-13",
       "gorseller": {
-        "cover": "",
+        "cover": "assets/products/KACOIN000020.jpg",
         "gallery": [
-          "assets/products/kart-kabi-20-lutfen-duzenle-karisik-gumus-g1.jpg"
+          "assets/products/KACOIN000020-g1.jpg"
         ]
       },
       "cinsiyet": "UNISEX",
@@ -1146,21 +1106,19 @@ window.__BOTL_DATA__ = {
       "ic_astar_malzeme": "Deri"
     },
     {
-      "variation_id": "FR-00031-KARISIK-STANDART-GUMUS",
-      "sku": "FR-00031",
+      "variation_id": "KAGOIN000021",
+      "sku": "KAGOIN000021",
       "no": null,
-      "slug": "goyard-kart-kabi-yesil-gumus-fr-00031",
-      "cover": "",
+      "cover": "assets/products/KAGOIN000021.jpg",
       "isim_resmi": "Goyard Kartlık Yesil Cizgili",
-      "isim_bilinen": "Goyard Kart Kabi Yesil Goyardine",
+      "isim_bilinen": "Goyard Kartlık Yesil Goyardine",
       "marka": "Goyard",
-      "kategori": "Kart Kabı",
-      "kategori_ust": "Cüzdan",
-      "kategori_alt": "Kart Kabı",
+      "kategori": "Kartlık",
+      "kategori_ust": "Kartlık",
+      "kategori_alt": "Kartlık",
       "renk": "YESIL",
       "ana_renk": "Yeşil",
       "ana_renk_hex": "#3d5a3d",
-      "renk_slug": "yesil",
       "renk_hex": "#3d5a3d",
       "ikincil_renk": "",
       "ikincil_renk_code": "",
@@ -1186,9 +1144,9 @@ window.__BOTL_DATA__ = {
       "tedarikci_id": null,
       "olusturma": "2026-05-13",
       "gorseller": {
-        "cover": "",
+        "cover": "assets/products/KAGOIN000021.jpg",
         "gallery": [
-          "assets/products/kart-kabi-21-lutfen-duzenle-karisik-gumus-g1.jpg"
+          "assets/products/KAGOIN000021-g1.jpg"
         ]
       },
       "cinsiyet": "UNISEX",
@@ -1203,21 +1161,19 @@ window.__BOTL_DATA__ = {
       "ic_astar_malzeme": "Deri"
     },
     {
-      "variation_id": "FR-00032-KARISIK-STANDART-GUMUS",
-      "sku": "FR-00032",
+      "variation_id": "KALVIN000022",
+      "sku": "KALVIN000022",
       "no": null,
-      "slug": "lv-kart-kabi-krem-gumus-fr-00032",
-      "cover": "",
+      "cover": "assets/products/KALVIN000022.jpg",
       "isim_resmi": "LV Kartlık Krem Monogram",
-      "isim_bilinen": "LV Kart Kabi Krem Monogram",
+      "isim_bilinen": "LV Kartlık Krem Monogram",
       "marka": "Louis Vuitton",
-      "kategori": "Kart Kabı",
-      "kategori_ust": "Cüzdan",
-      "kategori_alt": "Kart Kabı",
+      "kategori": "Kartlık",
+      "kategori_ust": "Kartlık",
+      "kategori_alt": "Kartlık",
       "renk": "KREM",
       "ana_renk": "Krem",
       "ana_renk_hex": "#e8d4b0",
-      "renk_slug": "krem",
       "renk_hex": "#e8d4b0",
       "ikincil_renk": "",
       "ikincil_renk_code": "",
@@ -1243,9 +1199,9 @@ window.__BOTL_DATA__ = {
       "tedarikci_id": null,
       "olusturma": "2026-05-13",
       "gorseller": {
-        "cover": "",
+        "cover": "assets/products/KALVIN000022.jpg",
         "gallery": [
-          "assets/products/kart-kabi-22-lutfen-duzenle-karisik-gumus-g1.jpg"
+          "assets/products/KALVIN000022-g1.jpg"
         ]
       },
       "cinsiyet": "UNISEX",
@@ -1260,21 +1216,19 @@ window.__BOTL_DATA__ = {
       "ic_astar_malzeme": "Deri"
     },
     {
-      "variation_id": "FR-00033-KARISIK-STANDART-GUMUS",
-      "sku": "FR-00033",
+      "variation_id": "KAMCIN000023",
+      "sku": "KAMCIN000023",
       "no": null,
-      "slug": "mcm-kart-kabi-taba-gumus-fr-00033",
-      "cover": "",
+      "cover": "assets/products/KAMCIN000023.jpg",
       "isim_resmi": "MCM Kartlık Taba Monogram",
-      "isim_bilinen": "MCM Kart Kabi Taba Visetos Monogram",
+      "isim_bilinen": "MCM Kartlık Taba Visetos Monogram",
       "marka": "MCM",
-      "kategori": "Kart Kabı",
-      "kategori_ust": "Cüzdan",
-      "kategori_alt": "Kart Kabı",
+      "kategori": "Kartlık",
+      "kategori_ust": "Kartlık",
+      "kategori_alt": "Kartlık",
       "renk": "TABA",
       "ana_renk": "Taba",
       "ana_renk_hex": "#a87842",
-      "renk_slug": "taba",
       "renk_hex": "#a87842",
       "ikincil_renk": "",
       "ikincil_renk_code": "",
@@ -1300,9 +1254,9 @@ window.__BOTL_DATA__ = {
       "tedarikci_id": null,
       "olusturma": "2026-05-13",
       "gorseller": {
-        "cover": "",
+        "cover": "assets/products/KAMCIN000023.jpg",
         "gallery": [
-          "assets/products/kart-kabi-23-lutfen-duzenle-karisik-gumus-g1.jpg"
+          "assets/products/KAMCIN000023-g1.jpg"
         ]
       },
       "cinsiyet": "UNISEX",
@@ -1317,21 +1271,19 @@ window.__BOTL_DATA__ = {
       "ic_astar_malzeme": "Deri"
     },
     {
-      "variation_id": "FR-00034-KARISIK-STANDART-GUMUS",
-      "sku": "FR-00034",
+      "variation_id": "KALVIN000024",
+      "sku": "KALVIN000024",
       "no": null,
-      "slug": "lv-kart-kabi-pembe-gumus-fr-00034",
-      "cover": "",
+      "cover": "assets/products/KALVIN000024.jpg",
       "isim_resmi": "LV Kartlık Pembe Monogram",
-      "isim_bilinen": "LV Kart Kabi Pembe Monogram",
+      "isim_bilinen": "LV Kartlık Pembe Monogram",
       "marka": "Louis Vuitton",
-      "kategori": "Kart Kabı",
-      "kategori_ust": "Cüzdan",
-      "kategori_alt": "Kart Kabı",
+      "kategori": "Kartlık",
+      "kategori_ust": "Kartlık",
+      "kategori_alt": "Kartlık",
       "renk": "PEMBE",
       "ana_renk": "Pembe",
       "ana_renk_hex": "#e08aa0",
-      "renk_slug": "pembe",
       "renk_hex": "#e08aa0",
       "ikincil_renk": "",
       "ikincil_renk_code": "",
@@ -1357,9 +1309,9 @@ window.__BOTL_DATA__ = {
       "tedarikci_id": null,
       "olusturma": "2026-05-13",
       "gorseller": {
-        "cover": "",
+        "cover": "assets/products/KALVIN000024.jpg",
         "gallery": [
-          "assets/products/kart-kabi-24-lutfen-duzenle-karisik-gumus-g1.jpg"
+          "assets/products/KALVIN000024-g1.jpg"
         ]
       },
       "cinsiyet": "UNISEX",
@@ -1374,21 +1326,19 @@ window.__BOTL_DATA__ = {
       "ic_astar_malzeme": "Deri"
     },
     {
-      "variation_id": "FR-00035-KARISIK-STANDART-GUMUS",
-      "sku": "FR-00035",
+      "variation_id": "KAGOIN000025",
+      "sku": "KAGOIN000025",
       "no": null,
-      "slug": "goyard-kart-kabi-beyaz-gumus-fr-00035",
-      "cover": "",
+      "cover": "assets/products/KAGOIN000025.jpg",
       "isim_resmi": "Goyard Kartlık Beyaz Cizgili",
-      "isim_bilinen": "Goyard Kart Kabi Beyaz Goyardine",
+      "isim_bilinen": "Goyard Kartlık Beyaz Goyardine",
       "marka": "Goyard",
-      "kategori": "Kart Kabı",
-      "kategori_ust": "Cüzdan",
-      "kategori_alt": "Kart Kabı",
+      "kategori": "Kartlık",
+      "kategori_ust": "Kartlık",
+      "kategori_alt": "Kartlık",
       "renk": "BEYAZ",
       "ana_renk": "Beyaz",
       "ana_renk_hex": "#f5f1ea",
-      "renk_slug": "beyaz",
       "renk_hex": "#f5f1ea",
       "ikincil_renk": "",
       "ikincil_renk_code": "",
@@ -1414,9 +1364,9 @@ window.__BOTL_DATA__ = {
       "tedarikci_id": null,
       "olusturma": "2026-05-13",
       "gorseller": {
-        "cover": "",
+        "cover": "assets/products/KAGOIN000025.jpg",
         "gallery": [
-          "assets/products/kart-kabi-25-lutfen-duzenle-karisik-gumus-g1.jpg"
+          "assets/products/KAGOIN000025-g1.jpg"
         ]
       },
       "cinsiyet": "UNISEX",
@@ -1431,21 +1381,19 @@ window.__BOTL_DATA__ = {
       "ic_astar_malzeme": "Deri"
     },
     {
-      "variation_id": "FR-00036-KARISIK-STANDART-GUMUS",
-      "sku": "FR-00036",
+      "variation_id": "KAGEIN000026",
+      "sku": "KAGEIN000026",
       "no": null,
-      "slug": "guess-kart-kabi-kahve-gumus-fr-00036",
-      "cover": "",
+      "cover": "assets/products/KAGEIN000026.jpg",
       "isim_resmi": "Guess Kartlık Kahve Monogram",
-      "isim_bilinen": "Guess Kart Kabi Kahve Monogram",
+      "isim_bilinen": "Guess Kartlık Kahve Monogram",
       "marka": "Guess",
-      "kategori": "Kart Kabı",
-      "kategori_ust": "Cüzdan",
-      "kategori_alt": "Kart Kabı",
+      "kategori": "Kartlık",
+      "kategori_ust": "Kartlık",
+      "kategori_alt": "Kartlık",
       "renk": "KAHVE",
       "ana_renk": "Kahve",
       "ana_renk_hex": "#5a3a25",
-      "renk_slug": "kahve",
       "renk_hex": "#5a3a25",
       "ikincil_renk": "",
       "ikincil_renk_code": "",
@@ -1471,9 +1419,9 @@ window.__BOTL_DATA__ = {
       "tedarikci_id": null,
       "olusturma": "2026-05-13",
       "gorseller": {
-        "cover": "",
+        "cover": "assets/products/KAGEIN000026.jpg",
         "gallery": [
-          "assets/products/kart-kabi-26-lutfen-duzenle-karisik-gumus-g1.jpg"
+          "assets/products/KAGEIN000026-g1.jpg"
         ]
       },
       "cinsiyet": "UNISEX",
@@ -1488,21 +1436,19 @@ window.__BOTL_DATA__ = {
       "ic_astar_malzeme": "Deri"
     },
     {
-      "variation_id": "FR-00037-KARISIK-STANDART-GUMUS",
-      "sku": "FR-00037",
+      "variation_id": "KALVIN000027",
+      "sku": "KALVIN000027",
       "no": null,
-      "slug": "lv-kart-kabi-siyah-gumus-fr-00037",
-      "cover": "",
+      "cover": "assets/products/KALVIN000027.jpg",
       "isim_resmi": "LV Kartlık Siyah Damali",
-      "isim_bilinen": "LV Kart Kabi Siyah Damier Graphite",
+      "isim_bilinen": "LV Kartlık Siyah Damier Graphite",
       "marka": "Louis Vuitton",
-      "kategori": "Kart Kabı",
-      "kategori_ust": "Cüzdan",
-      "kategori_alt": "Kart Kabı",
+      "kategori": "Kartlık",
+      "kategori_ust": "Kartlık",
+      "kategori_alt": "Kartlık",
       "renk": "SIYAH",
       "ana_renk": "Siyah",
       "ana_renk_hex": "#1a1a1a",
-      "renk_slug": "siyah",
       "renk_hex": "#1a1a1a",
       "ikincil_renk": "",
       "ikincil_renk_code": "",
@@ -1528,9 +1474,9 @@ window.__BOTL_DATA__ = {
       "tedarikci_id": null,
       "olusturma": "2026-05-13",
       "gorseller": {
-        "cover": "",
+        "cover": "assets/products/KALVIN000027.jpg",
         "gallery": [
-          "assets/products/kart-kabi-27-lutfen-duzenle-karisik-gumus-g1.jpg"
+          "assets/products/KALVIN000027-g1.jpg"
         ]
       },
       "cinsiyet": "UNISEX",
@@ -1545,21 +1491,19 @@ window.__BOTL_DATA__ = {
       "ic_astar_malzeme": "Deri"
     },
     {
-      "variation_id": "FR-00038-KARISIK-STANDART-GUMUS",
-      "sku": "FR-00038",
+      "variation_id": "KALVIN000028",
+      "sku": "KALVIN000028",
       "no": null,
-      "slug": "lv-kart-kabi-kahve-gumus-fr-00038",
-      "cover": "",
+      "cover": "assets/products/KALVIN000028.jpg",
       "isim_resmi": "LV Kartlık Kahve Monogram",
-      "isim_bilinen": "LV Kart Kabi Kahve Monogram",
+      "isim_bilinen": "LV Kartlık Kahve Monogram",
       "marka": "Louis Vuitton",
-      "kategori": "Kart Kabı",
-      "kategori_ust": "Cüzdan",
-      "kategori_alt": "Kart Kabı",
+      "kategori": "Kartlık",
+      "kategori_ust": "Kartlık",
+      "kategori_alt": "Kartlık",
       "renk": "KAHVE",
       "ana_renk": "Kahve",
       "ana_renk_hex": "#5a3a25",
-      "renk_slug": "kahve",
       "renk_hex": "#5a3a25",
       "ikincil_renk": "",
       "ikincil_renk_code": "",
@@ -1585,9 +1529,9 @@ window.__BOTL_DATA__ = {
       "tedarikci_id": null,
       "olusturma": "2026-05-13",
       "gorseller": {
-        "cover": "",
+        "cover": "assets/products/KALVIN000028.jpg",
         "gallery": [
-          "assets/products/kart-kabi-28-lutfen-duzenle-karisik-gumus-g1.jpg"
+          "assets/products/KALVIN000028-g1.jpg"
         ]
       },
       "cinsiyet": "UNISEX",
@@ -1602,21 +1546,19 @@ window.__BOTL_DATA__ = {
       "ic_astar_malzeme": "Deri"
     },
     {
-      "variation_id": "FR-00039-KARISIK-STANDART-GUMUS",
-      "sku": "FR-00039",
+      "variation_id": "KALVIN000029",
+      "sku": "KALVIN000029",
       "no": null,
-      "slug": "lv-kart-kabi-beyaz-gumus-fr-00039",
-      "cover": "",
+      "cover": "assets/products/KALVIN000029.jpg",
       "isim_resmi": "LV Kartlık Beyaz Damali",
-      "isim_bilinen": "LV Kart Kabi Beyaz Damier Azur",
+      "isim_bilinen": "LV Kartlık Beyaz Damier Azur",
       "marka": "Louis Vuitton",
-      "kategori": "Kart Kabı",
-      "kategori_ust": "Cüzdan",
-      "kategori_alt": "Kart Kabı",
+      "kategori": "Kartlık",
+      "kategori_ust": "Kartlık",
+      "kategori_alt": "Kartlık",
       "renk": "BEYAZ",
       "ana_renk": "Beyaz",
       "ana_renk_hex": "#f5f1ea",
-      "renk_slug": "beyaz",
       "renk_hex": "#f5f1ea",
       "ikincil_renk": "",
       "ikincil_renk_code": "",
@@ -1642,9 +1584,9 @@ window.__BOTL_DATA__ = {
       "tedarikci_id": null,
       "olusturma": "2026-05-13",
       "gorseller": {
-        "cover": "",
+        "cover": "assets/products/KALVIN000029.jpg",
         "gallery": [
-          "assets/products/kart-kabi-29-lutfen-duzenle-karisik-gumus-g1.jpg"
+          "assets/products/KALVIN000029-g1.jpg"
         ]
       },
       "cinsiyet": "UNISEX",
@@ -1659,21 +1601,19 @@ window.__BOTL_DATA__ = {
       "ic_astar_malzeme": "Deri"
     },
     {
-      "variation_id": "FR-00040-KARISIK-STANDART-GUMUS",
-      "sku": "FR-00040",
+      "variation_id": "KAGUIN000030",
+      "sku": "KAGUIN000030",
       "no": null,
-      "slug": "gucci-kart-kabi-beyaz-gumus-fr-00040",
-      "cover": "",
+      "cover": "assets/products/KAGUIN000030.jpg",
       "isim_resmi": "Gucci Kartlık Beyaz Monogram",
-      "isim_bilinen": "Gucci Kart Kabi Beyaz Monogram",
+      "isim_bilinen": "Gucci Kartlık Beyaz Monogram",
       "marka": "Gucci",
-      "kategori": "Kart Kabı",
-      "kategori_ust": "Cüzdan",
-      "kategori_alt": "Kart Kabı",
+      "kategori": "Kartlık",
+      "kategori_ust": "Kartlık",
+      "kategori_alt": "Kartlık",
       "renk": "BEYAZ",
       "ana_renk": "Beyaz",
       "ana_renk_hex": "#f5f1ea",
-      "renk_slug": "beyaz",
       "renk_hex": "#f5f1ea",
       "ikincil_renk": "",
       "ikincil_renk_code": "",
@@ -1699,9 +1639,9 @@ window.__BOTL_DATA__ = {
       "tedarikci_id": null,
       "olusturma": "2026-05-13",
       "gorseller": {
-        "cover": "",
+        "cover": "assets/products/KAGUIN000030.jpg",
         "gallery": [
-          "assets/products/kart-kabi-30-lutfen-duzenle-karisik-gumus-g1.jpg"
+          "assets/products/KAGUIN000030-g1.jpg"
         ]
       },
       "cinsiyet": "UNISEX",
@@ -1716,21 +1656,19 @@ window.__BOTL_DATA__ = {
       "ic_astar_malzeme": "Deri"
     },
     {
-      "variation_id": "FR-00041-KARISIK-STANDART-GUMUS",
-      "sku": "FR-00041",
+      "variation_id": "KAGUIN000031",
+      "sku": "KAGUIN000031",
       "no": null,
-      "slug": "gucci-kart-kabi-siyah-gumus-fr-00041",
-      "cover": "",
+      "cover": "assets/products/KAGUIN000031.jpg",
       "isim_resmi": "Gucci Kartlık Siyah Monogram",
-      "isim_bilinen": "Gucci Kart Kabi Siyah Monogram",
+      "isim_bilinen": "Gucci Kartlık Siyah Monogram",
       "marka": "Gucci",
-      "kategori": "Kart Kabı",
-      "kategori_ust": "Cüzdan",
-      "kategori_alt": "Kart Kabı",
+      "kategori": "Kartlık",
+      "kategori_ust": "Kartlık",
+      "kategori_alt": "Kartlık",
       "renk": "SIYAH",
       "ana_renk": "Siyah",
       "ana_renk_hex": "#1a1a1a",
-      "renk_slug": "siyah",
       "renk_hex": "#1a1a1a",
       "ikincil_renk": "",
       "ikincil_renk_code": "",
@@ -1756,9 +1694,9 @@ window.__BOTL_DATA__ = {
       "tedarikci_id": null,
       "olusturma": "2026-05-13",
       "gorseller": {
-        "cover": "",
+        "cover": "assets/products/KAGUIN000031.jpg",
         "gallery": [
-          "assets/products/kart-kabi-31-lutfen-duzenle-karisik-gumus-g1.jpg"
+          "assets/products/KAGUIN000031-g1.jpg"
         ]
       },
       "cinsiyet": "UNISEX",
@@ -1773,21 +1711,19 @@ window.__BOTL_DATA__ = {
       "ic_astar_malzeme": "Deri"
     },
     {
-      "variation_id": "FR-00042-KARISIK-STANDART-GUMUS",
-      "sku": "FR-00042",
+      "variation_id": "KACOIN000032",
+      "sku": "KACOIN000032",
       "no": null,
-      "slug": "coach-kart-kabi-siyah-gumus-fr-00042",
-      "cover": "",
+      "cover": "assets/products/KACOIN000032.jpg",
       "isim_resmi": "Coach Kartlık Siyah",
-      "isim_bilinen": "Coach Kart Kabi Siyah Deri",
+      "isim_bilinen": "Coach Kartlık Siyah Deri",
       "marka": "Coach",
-      "kategori": "Kart Kabı",
-      "kategori_ust": "Cüzdan",
-      "kategori_alt": "Kart Kabı",
+      "kategori": "Kartlık",
+      "kategori_ust": "Kartlık",
+      "kategori_alt": "Kartlık",
       "renk": "SIYAH",
       "ana_renk": "Siyah",
       "ana_renk_hex": "#1a1a1a",
-      "renk_slug": "siyah",
       "renk_hex": "#1a1a1a",
       "ikincil_renk": "",
       "ikincil_renk_code": "",
@@ -1813,9 +1749,9 @@ window.__BOTL_DATA__ = {
       "tedarikci_id": null,
       "olusturma": "2026-05-13",
       "gorseller": {
-        "cover": "",
+        "cover": "assets/products/KACOIN000032.jpg",
         "gallery": [
-          "assets/products/kart-kabi-32-lutfen-duzenle-karisik-gumus-g1.jpg"
+          "assets/products/KACOIN000032-g1.jpg"
         ]
       },
       "cinsiyet": "UNISEX",
@@ -1830,21 +1766,19 @@ window.__BOTL_DATA__ = {
       "ic_astar_malzeme": "Deri"
     },
     {
-      "variation_id": "FR-00043-KARISIK-STANDART-GUMUS",
-      "sku": "FR-00043",
+      "variation_id": "KALVIN000033",
+      "sku": "KALVIN000033",
       "no": null,
-      "slug": "lv-kart-kabi-siyah-gumus-fr-00043",
-      "cover": "",
+      "cover": "assets/products/KALVIN000033.jpg",
       "isim_resmi": "LV Kartlık Siyah Monogram",
-      "isim_bilinen": "LV Kart Kabi Siyah Monogram Eclipse",
+      "isim_bilinen": "LV Kartlık Siyah Monogram Eclipse",
       "marka": "Louis Vuitton",
-      "kategori": "Kart Kabı",
-      "kategori_ust": "Cüzdan",
-      "kategori_alt": "Kart Kabı",
+      "kategori": "Kartlık",
+      "kategori_ust": "Kartlık",
+      "kategori_alt": "Kartlık",
       "renk": "SIYAH",
       "ana_renk": "Siyah",
       "ana_renk_hex": "#1a1a1a",
-      "renk_slug": "siyah",
       "renk_hex": "#1a1a1a",
       "ikincil_renk": "",
       "ikincil_renk_code": "",
@@ -1870,9 +1804,9 @@ window.__BOTL_DATA__ = {
       "tedarikci_id": null,
       "olusturma": "2026-05-13",
       "gorseller": {
-        "cover": "",
+        "cover": "assets/products/KALVIN000033.jpg",
         "gallery": [
-          "assets/products/kart-kabi-33-lutfen-duzenle-karisik-gumus-g1.jpg"
+          "assets/products/KALVIN000033-g1.jpg"
         ]
       },
       "cinsiyet": "UNISEX",
@@ -1887,21 +1821,19 @@ window.__BOTL_DATA__ = {
       "ic_astar_malzeme": "Deri"
     },
     {
-      "variation_id": "FR-00044-KARISIK-STANDART-GUMUS",
-      "sku": "FR-00044",
+      "variation_id": "KALVIN000034",
+      "sku": "KALVIN000034",
       "no": null,
-      "slug": "lv-kart-kabi-vizon-gumus-fr-00044",
-      "cover": "",
+      "cover": "assets/products/KALVIN000034.jpg",
       "isim_resmi": "LV Kartlık Vizon Monogram",
-      "isim_bilinen": "LV Kart Kabi Vizon Empreinte",
+      "isim_bilinen": "LV Kartlık Vizon Empreinte",
       "marka": "Louis Vuitton",
-      "kategori": "Kart Kabı",
-      "kategori_ust": "Cüzdan",
-      "kategori_alt": "Kart Kabı",
+      "kategori": "Kartlık",
+      "kategori_ust": "Kartlık",
+      "kategori_alt": "Kartlık",
       "renk": "VIZON",
       "ana_renk": "Vizon",
       "ana_renk_hex": "#a08570",
-      "renk_slug": "vizon",
       "renk_hex": "#a08570",
       "ikincil_renk": "",
       "ikincil_renk_code": "",
@@ -1927,9 +1859,9 @@ window.__BOTL_DATA__ = {
       "tedarikci_id": null,
       "olusturma": "2026-05-13",
       "gorseller": {
-        "cover": "",
+        "cover": "assets/products/KALVIN000034.jpg",
         "gallery": [
-          "assets/products/kart-kabi-34-lutfen-duzenle-karisik-gumus-g1.jpg"
+          "assets/products/KALVIN000034-g1.jpg"
         ]
       },
       "cinsiyet": "UNISEX",
@@ -1944,21 +1876,19 @@ window.__BOTL_DATA__ = {
       "ic_astar_malzeme": "Deri"
     },
     {
-      "variation_id": "FR-00045-KARISIK-STANDART-GUMUS",
-      "sku": "FR-00045",
+      "variation_id": "KAGEIN000035",
+      "sku": "KAGEIN000035",
       "no": null,
-      "slug": "guess-kart-kabi-bej-gumus-fr-00045",
-      "cover": "",
+      "cover": "assets/products/KAGEIN000035.jpg",
       "isim_resmi": "Guess Kartlık Bej Monogram",
-      "isim_bilinen": "Guess Kart Kabi Bej Monogram",
+      "isim_bilinen": "Guess Kartlık Bej Monogram",
       "marka": "Guess",
-      "kategori": "Kart Kabı",
-      "kategori_ust": "Cüzdan",
-      "kategori_alt": "Kart Kabı",
+      "kategori": "Kartlık",
+      "kategori_ust": "Kartlık",
+      "kategori_alt": "Kartlık",
       "renk": "BEJ",
       "ana_renk": "Bej",
       "ana_renk_hex": "#d8c3a3",
-      "renk_slug": "bej",
       "renk_hex": "#d8c3a3",
       "ikincil_renk": "",
       "ikincil_renk_code": "",
@@ -1984,9 +1914,9 @@ window.__BOTL_DATA__ = {
       "tedarikci_id": null,
       "olusturma": "2026-05-13",
       "gorseller": {
-        "cover": "",
+        "cover": "assets/products/KAGEIN000035.jpg",
         "gallery": [
-          "assets/products/kart-kabi-35-lutfen-duzenle-karisik-gumus-g1.jpg"
+          "assets/products/KAGEIN000035-g1.jpg"
         ]
       },
       "cinsiyet": "UNISEX",
@@ -2001,21 +1931,19 @@ window.__BOTL_DATA__ = {
       "ic_astar_malzeme": "Deri"
     },
     {
-      "variation_id": "FR-00046-KARISIK-STANDART-GUMUS",
-      "sku": "FR-00046",
+      "variation_id": "KAGEIN000036",
+      "sku": "KAGEIN000036",
       "no": null,
-      "slug": "guess-kart-kabi-gri-gumus-fr-00046",
-      "cover": "",
+      "cover": "assets/products/KAGEIN000036.jpg",
       "isim_resmi": "Guess Kartlık Gri Monogram",
-      "isim_bilinen": "Guess Kart Kabi Gri Monogram",
+      "isim_bilinen": "Guess Kartlık Gri Monogram",
       "marka": "Guess",
-      "kategori": "Kart Kabı",
-      "kategori_ust": "Cüzdan",
-      "kategori_alt": "Kart Kabı",
+      "kategori": "Kartlık",
+      "kategori_ust": "Kartlık",
+      "kategori_alt": "Kartlık",
       "renk": "GRI",
       "ana_renk": "Gri",
       "ana_renk_hex": "#7d7d7d",
-      "renk_slug": "gri",
       "renk_hex": "#7d7d7d",
       "ikincil_renk": "",
       "ikincil_renk_code": "",
@@ -2041,9 +1969,9 @@ window.__BOTL_DATA__ = {
       "tedarikci_id": null,
       "olusturma": "2026-05-13",
       "gorseller": {
-        "cover": "",
+        "cover": "assets/products/KAGEIN000036.jpg",
         "gallery": [
-          "assets/products/kart-kabi-36-lutfen-duzenle-karisik-gumus-g1.jpg"
+          "assets/products/KAGEIN000036-g1.jpg"
         ]
       },
       "cinsiyet": "UNISEX",
@@ -2058,21 +1986,19 @@ window.__BOTL_DATA__ = {
       "ic_astar_malzeme": "Deri"
     },
     {
-      "variation_id": "FR-00047-KARISIK-STANDART-GUMUS",
-      "sku": "FR-00047",
+      "variation_id": "KAGEIN000037",
+      "sku": "KAGEIN000037",
       "no": null,
-      "slug": "guess-kart-kabi-siyah-gumus-fr-00047",
-      "cover": "",
+      "cover": "assets/products/KAGEIN000037.jpg",
       "isim_resmi": "Guess Kartlık Siyah Monogram",
-      "isim_bilinen": "Guess Kart Kabi Siyah Monogram",
+      "isim_bilinen": "Guess Kartlık Siyah Monogram",
       "marka": "Guess",
-      "kategori": "Kart Kabı",
-      "kategori_ust": "Cüzdan",
-      "kategori_alt": "Kart Kabı",
+      "kategori": "Kartlık",
+      "kategori_ust": "Kartlık",
+      "kategori_alt": "Kartlık",
       "renk": "SIYAH",
       "ana_renk": "Siyah",
       "ana_renk_hex": "#1a1a1a",
-      "renk_slug": "siyah",
       "renk_hex": "#1a1a1a",
       "ikincil_renk": "",
       "ikincil_renk_code": "",
@@ -2098,9 +2024,9 @@ window.__BOTL_DATA__ = {
       "tedarikci_id": null,
       "olusturma": "2026-05-13",
       "gorseller": {
-        "cover": "",
+        "cover": "assets/products/KAGEIN000037.jpg",
         "gallery": [
-          "assets/products/kart-kabi-37-lutfen-duzenle-karisik-gumus-g1.jpg"
+          "assets/products/KAGEIN000037-g1.jpg"
         ]
       },
       "cinsiyet": "UNISEX",
@@ -2115,21 +2041,19 @@ window.__BOTL_DATA__ = {
       "ic_astar_malzeme": "Deri"
     },
     {
-      "variation_id": "FR-00048-KARISIK-STANDART-GUMUS",
-      "sku": "FR-00048",
+      "variation_id": "KAGOIN000038",
+      "sku": "KAGOIN000038",
       "no": null,
-      "slug": "goyard-kart-kabi-lacivert-gumus-fr-00048",
-      "cover": "",
+      "cover": "assets/products/KAGOIN000038.jpg",
       "isim_resmi": "Goyard Kartlık Lacivert Cizgili",
-      "isim_bilinen": "Goyard Kart Kabi Lacivert Goyardine",
+      "isim_bilinen": "Goyard Kartlık Lacivert Goyardine",
       "marka": "Goyard",
-      "kategori": "Kart Kabı",
-      "kategori_ust": "Cüzdan",
-      "kategori_alt": "Kart Kabı",
+      "kategori": "Kartlık",
+      "kategori_ust": "Kartlık",
+      "kategori_alt": "Kartlık",
       "renk": "LACIVERT",
       "ana_renk": "Lacivert",
       "ana_renk_hex": "#1a2238",
-      "renk_slug": "lacivert",
       "renk_hex": "#1a2238",
       "ikincil_renk": "",
       "ikincil_renk_code": "",
@@ -2155,9 +2079,9 @@ window.__BOTL_DATA__ = {
       "tedarikci_id": null,
       "olusturma": "2026-05-13",
       "gorseller": {
-        "cover": "",
+        "cover": "assets/products/KAGOIN000038.jpg",
         "gallery": [
-          "assets/products/kart-kabi-38-lutfen-duzenle-karisik-gumus-g1.jpg"
+          "assets/products/KAGOIN000038-g1.jpg"
         ]
       },
       "cinsiyet": "UNISEX",
@@ -2172,21 +2096,19 @@ window.__BOTL_DATA__ = {
       "ic_astar_malzeme": "Deri"
     },
     {
-      "variation_id": "FR-00049-KARISIK-STANDART-GUMUS",
-      "sku": "FR-00049",
+      "variation_id": "KACOIN000039",
+      "sku": "KACOIN000039",
       "no": null,
-      "slug": "coach-kart-kabi-kahve-gumus-fr-00049",
-      "cover": "",
+      "cover": "assets/products/KACOIN000039.jpg",
       "isim_resmi": "Coach Kartlık Kahve Monogram",
-      "isim_bilinen": "Coach Kart Kabi Kahve Signature",
+      "isim_bilinen": "Coach Kartlık Kahve Signature",
       "marka": "Coach",
-      "kategori": "Kart Kabı",
-      "kategori_ust": "Cüzdan",
-      "kategori_alt": "Kart Kabı",
+      "kategori": "Kartlık",
+      "kategori_ust": "Kartlık",
+      "kategori_alt": "Kartlık",
       "renk": "KAHVE",
       "ana_renk": "Kahve",
       "ana_renk_hex": "#5a3a25",
-      "renk_slug": "kahve",
       "renk_hex": "#5a3a25",
       "ikincil_renk": "",
       "ikincil_renk_code": "",
@@ -2212,9 +2134,9 @@ window.__BOTL_DATA__ = {
       "tedarikci_id": null,
       "olusturma": "2026-05-13",
       "gorseller": {
-        "cover": "",
+        "cover": "assets/products/KACOIN000039.jpg",
         "gallery": [
-          "assets/products/kart-kabi-39-lutfen-duzenle-karisik-gumus-g1.jpg"
+          "assets/products/KACOIN000039-g1.jpg"
         ]
       },
       "cinsiyet": "UNISEX",
@@ -2229,21 +2151,19 @@ window.__BOTL_DATA__ = {
       "ic_astar_malzeme": "Deri"
     },
     {
-      "variation_id": "FR-00050-KARISIK-STANDART-GUMUS",
-      "sku": "FR-00050",
+      "variation_id": "KACOIN000040",
+      "sku": "KACOIN000040",
       "no": null,
-      "slug": "coach-kart-kabi-kahve-gumus-fr-00050",
-      "cover": "",
+      "cover": "assets/products/KACOIN000040.jpg",
       "isim_resmi": "Coach Kartlık Kahve Monogram",
-      "isim_bilinen": "Coach Kart Kabi Kahve Signature Koyu",
+      "isim_bilinen": "Coach Kartlık Kahve Signature Koyu",
       "marka": "Coach",
-      "kategori": "Kart Kabı",
-      "kategori_ust": "Cüzdan",
-      "kategori_alt": "Kart Kabı",
+      "kategori": "Kartlık",
+      "kategori_ust": "Kartlık",
+      "kategori_alt": "Kartlık",
       "renk": "KAHVE",
       "ana_renk": "Kahve",
       "ana_renk_hex": "#5a3a25",
-      "renk_slug": "kahve",
       "renk_hex": "#5a3a25",
       "ikincil_renk": "",
       "ikincil_renk_code": "",
@@ -2269,9 +2189,9 @@ window.__BOTL_DATA__ = {
       "tedarikci_id": null,
       "olusturma": "2026-05-13",
       "gorseller": {
-        "cover": "",
+        "cover": "assets/products/KACOIN000040.jpg",
         "gallery": [
-          "assets/products/kart-kabi-40-lutfen-duzenle-karisik-gumus-g1.jpg"
+          "assets/products/KACOIN000040-g1.jpg"
         ]
       },
       "cinsiyet": "UNISEX",
@@ -2286,21 +2206,19 @@ window.__BOTL_DATA__ = {
       "ic_astar_malzeme": "Deri"
     },
     {
-      "variation_id": "FR-00051-KARISIK-STANDART-GUMUS",
-      "sku": "FR-00051",
+      "variation_id": "KAGEIN000041",
+      "sku": "KAGEIN000041",
       "no": null,
-      "slug": "guess-kart-kabi-siyah-gumus-fr-00051",
-      "cover": "",
+      "cover": "assets/products/KAGEIN000041.jpg",
       "isim_resmi": "Guess Kartlık Siyah Monogram",
-      "isim_bilinen": "Guess Kart Kabi Siyah Monogram Koyu",
+      "isim_bilinen": "Guess Kartlık Siyah Monogram Koyu",
       "marka": "Guess",
-      "kategori": "Kart Kabı",
-      "kategori_ust": "Cüzdan",
-      "kategori_alt": "Kart Kabı",
+      "kategori": "Kartlık",
+      "kategori_ust": "Kartlık",
+      "kategori_alt": "Kartlık",
       "renk": "SIYAH",
       "ana_renk": "Siyah",
       "ana_renk_hex": "#1a1a1a",
-      "renk_slug": "siyah",
       "renk_hex": "#1a1a1a",
       "ikincil_renk": "",
       "ikincil_renk_code": "",
@@ -2326,9 +2244,9 @@ window.__BOTL_DATA__ = {
       "tedarikci_id": null,
       "olusturma": "2026-05-13",
       "gorseller": {
-        "cover": "",
+        "cover": "assets/products/KAGEIN000041.jpg",
         "gallery": [
-          "assets/products/kart-kabi-41-lutfen-duzenle-karisik-gumus-g1.jpg"
+          "assets/products/KAGEIN000041-g1.jpg"
         ]
       },
       "cinsiyet": "UNISEX",
@@ -2343,21 +2261,19 @@ window.__BOTL_DATA__ = {
       "ic_astar_malzeme": "Deri"
     },
     {
-      "variation_id": "FR-00052-KARISIK-STANDART-GUMUS",
-      "sku": "FR-00052",
+      "variation_id": "KAGOIN000042",
+      "sku": "KAGOIN000042",
       "no": null,
-      "slug": "goyard-kart-kabi-siyah-gumus-fr-00052",
-      "cover": "",
+      "cover": "assets/products/KAGOIN000042.jpg",
       "isim_resmi": "Goyard Kartlık Siyah Cizgili",
-      "isim_bilinen": "Goyard Kart Kabi Siyah Goyardine",
+      "isim_bilinen": "Goyard Kartlık Siyah Goyardine",
       "marka": "Goyard",
-      "kategori": "Kart Kabı",
-      "kategori_ust": "Cüzdan",
-      "kategori_alt": "Kart Kabı",
+      "kategori": "Kartlık",
+      "kategori_ust": "Kartlık",
+      "kategori_alt": "Kartlık",
       "renk": "SIYAH",
       "ana_renk": "Siyah",
       "ana_renk_hex": "#1a1a1a",
-      "renk_slug": "siyah",
       "renk_hex": "#1a1a1a",
       "ikincil_renk": "",
       "ikincil_renk_code": "",
@@ -2383,9 +2299,9 @@ window.__BOTL_DATA__ = {
       "tedarikci_id": null,
       "olusturma": "2026-05-13",
       "gorseller": {
-        "cover": "",
+        "cover": "assets/products/KAGOIN000042.jpg",
         "gallery": [
-          "assets/products/kart-kabi-42-lutfen-duzenle-karisik-gumus-g1.jpg"
+          "assets/products/KAGOIN000042-g1.jpg"
         ]
       },
       "cinsiyet": "UNISEX",
@@ -2400,21 +2316,19 @@ window.__BOTL_DATA__ = {
       "ic_astar_malzeme": "Deri"
     },
     {
-      "variation_id": "FR-00053-KARISIK-STANDART-GUMUS",
-      "sku": "FR-00053",
+      "variation_id": "KAGOIN000043",
+      "sku": "KAGOIN000043",
       "no": null,
-      "slug": "goyard-kart-kabi-pembe-gumus-fr-00053",
-      "cover": "",
+      "cover": "assets/products/KAGOIN000043.jpg",
       "isim_resmi": "Goyard Kartlık Pembe Cizgili",
-      "isim_bilinen": "Goyard Kart Kabi Pembe Goyardine",
+      "isim_bilinen": "Goyard Kartlık Pembe Goyardine",
       "marka": "Goyard",
-      "kategori": "Kart Kabı",
-      "kategori_ust": "Cüzdan",
-      "kategori_alt": "Kart Kabı",
+      "kategori": "Kartlık",
+      "kategori_ust": "Kartlık",
+      "kategori_alt": "Kartlık",
       "renk": "PEMBE",
       "ana_renk": "Pembe",
       "ana_renk_hex": "#e08aa0",
-      "renk_slug": "pembe",
       "renk_hex": "#e08aa0",
       "ikincil_renk": "",
       "ikincil_renk_code": "",
@@ -2440,9 +2354,9 @@ window.__BOTL_DATA__ = {
       "tedarikci_id": null,
       "olusturma": "2026-05-13",
       "gorseller": {
-        "cover": "",
+        "cover": "assets/products/KAGOIN000043.jpg",
         "gallery": [
-          "assets/products/kart-kabi-43-lutfen-duzenle-karisik-gumus-g1.jpg"
+          "assets/products/KAGOIN000043-g1.jpg"
         ]
       },
       "cinsiyet": "UNISEX",
@@ -2457,21 +2371,19 @@ window.__BOTL_DATA__ = {
       "ic_astar_malzeme": "Deri"
     },
     {
-      "variation_id": "FR-00054-KARISIK-STANDART-GUMUS",
-      "sku": "FR-00054",
+      "variation_id": "KALVIN000044",
+      "sku": "KALVIN000044",
       "no": null,
-      "slug": "lv-kart-kabi-gri-gumus-fr-00054",
-      "cover": "",
+      "cover": "assets/products/KALVIN000044.jpg",
       "isim_resmi": "LV Kartlık Gri Monogram",
-      "isim_bilinen": "LV Kart Kabi Gri Monogram Eclipse Reverse",
+      "isim_bilinen": "LV Kartlık Gri Monogram Eclipse Reverse",
       "marka": "Louis Vuitton",
-      "kategori": "Kart Kabı",
-      "kategori_ust": "Cüzdan",
-      "kategori_alt": "Kart Kabı",
+      "kategori": "Kartlık",
+      "kategori_ust": "Kartlık",
+      "kategori_alt": "Kartlık",
       "renk": "GRI",
       "ana_renk": "Gri",
       "ana_renk_hex": "#7d7d7d",
-      "renk_slug": "gri",
       "renk_hex": "#7d7d7d",
       "ikincil_renk": "",
       "ikincil_renk_code": "",
@@ -2497,9 +2409,9 @@ window.__BOTL_DATA__ = {
       "tedarikci_id": null,
       "olusturma": "2026-05-13",
       "gorseller": {
-        "cover": "",
+        "cover": "assets/products/KALVIN000044.jpg",
         "gallery": [
-          "assets/products/kart-kabi-44-lutfen-duzenle-karisik-gumus-g1.jpg"
+          "assets/products/KALVIN000044-g1.jpg"
         ]
       },
       "cinsiyet": "UNISEX",
@@ -2514,21 +2426,19 @@ window.__BOTL_DATA__ = {
       "ic_astar_malzeme": "Deri"
     },
     {
-      "variation_id": "FR-00055-KARISIK-STANDART-GUMUS",
-      "sku": "FR-00055",
+      "variation_id": "KAGUIN000045",
+      "sku": "KAGUIN000045",
       "no": null,
-      "slug": "gucci-kart-kabi-bej-gumus-fr-00055",
-      "cover": "",
+      "cover": "assets/products/KAGUIN000045.jpg",
       "isim_resmi": "Gucci Kartlık Bej Monogram",
-      "isim_bilinen": "Gucci Kart Kabi Bej Monogram",
+      "isim_bilinen": "Gucci Kartlık Bej Monogram",
       "marka": "Gucci",
-      "kategori": "Kart Kabı",
-      "kategori_ust": "Cüzdan",
-      "kategori_alt": "Kart Kabı",
+      "kategori": "Kartlık",
+      "kategori_ust": "Kartlık",
+      "kategori_alt": "Kartlık",
       "renk": "BEJ",
       "ana_renk": "Bej",
       "ana_renk_hex": "#d8c3a3",
-      "renk_slug": "bej",
       "renk_hex": "#d8c3a3",
       "ikincil_renk": "",
       "ikincil_renk_code": "",
@@ -2554,9 +2464,9 @@ window.__BOTL_DATA__ = {
       "tedarikci_id": null,
       "olusturma": "2026-05-13",
       "gorseller": {
-        "cover": "",
+        "cover": "assets/products/KAGUIN000045.jpg",
         "gallery": [
-          "assets/products/kart-kabi-45-lutfen-duzenle-karisik-gumus-g1.jpg"
+          "assets/products/KAGUIN000045-g1.jpg"
         ]
       },
       "cinsiyet": "UNISEX",
@@ -2571,21 +2481,19 @@ window.__BOTL_DATA__ = {
       "ic_astar_malzeme": "Deri"
     },
     {
-      "variation_id": "FR-00056-KARISIK-STANDART-GUMUS",
-      "sku": "FR-00056",
+      "variation_id": "KAGOIN000046",
+      "sku": "KAGOIN000046",
       "no": null,
-      "slug": "goyard-kart-kabi-bordo-gumus-fr-00056",
-      "cover": "",
+      "cover": "assets/products/KAGOIN000046.jpg",
       "isim_resmi": "Goyard Kartlık Bordo Cizgili",
-      "isim_bilinen": "Goyard Kart Kabi Bordo Goyardine",
+      "isim_bilinen": "Goyard Kartlık Bordo Goyardine",
       "marka": "Goyard",
-      "kategori": "Kart Kabı",
-      "kategori_ust": "Cüzdan",
-      "kategori_alt": "Kart Kabı",
+      "kategori": "Kartlık",
+      "kategori_ust": "Kartlık",
+      "kategori_alt": "Kartlık",
       "renk": "BORDO",
       "ana_renk": "Bordo",
       "ana_renk_hex": "#4a1c20",
-      "renk_slug": "bordo",
       "renk_hex": "#4a1c20",
       "ikincil_renk": "",
       "ikincil_renk_code": "",
@@ -2611,9 +2519,9 @@ window.__BOTL_DATA__ = {
       "tedarikci_id": null,
       "olusturma": "2026-05-13",
       "gorseller": {
-        "cover": "",
+        "cover": "assets/products/KAGOIN000046.jpg",
         "gallery": [
-          "assets/products/kart-kabi-46-lutfen-duzenle-karisik-gumus-g1.jpg"
+          "assets/products/KAGOIN000046-g1.jpg"
         ]
       },
       "cinsiyet": "UNISEX",
@@ -2628,21 +2536,19 @@ window.__BOTL_DATA__ = {
       "ic_astar_malzeme": "Deri"
     },
     {
-      "variation_id": "FR-00057-KARISIK-STANDART-GUMUS",
-      "sku": "FR-00057",
+      "variation_id": "KAGOIN000047",
+      "sku": "KAGOIN000047",
       "no": null,
-      "slug": "goyard-kart-kabi-mavi-gumus-fr-00057",
-      "cover": "",
+      "cover": "assets/products/KAGOIN000047.jpg",
       "isim_resmi": "Goyard Kartlık Mavi Cizgili",
-      "isim_bilinen": "Goyard Kart Kabi Mavi Goyardine",
+      "isim_bilinen": "Goyard Kartlık Mavi Goyardine",
       "marka": "Goyard",
-      "kategori": "Kart Kabı",
-      "kategori_ust": "Cüzdan",
-      "kategori_alt": "Kart Kabı",
+      "kategori": "Kartlık",
+      "kategori_ust": "Kartlık",
+      "kategori_alt": "Kartlık",
       "renk": "MAVI",
       "ana_renk": "Mavi",
       "ana_renk_hex": "#2d3e58",
-      "renk_slug": "mavi",
       "renk_hex": "#2d3e58",
       "ikincil_renk": "",
       "ikincil_renk_code": "",
@@ -2668,9 +2574,9 @@ window.__BOTL_DATA__ = {
       "tedarikci_id": null,
       "olusturma": "2026-05-13",
       "gorseller": {
-        "cover": "",
+        "cover": "assets/products/KAGOIN000047.jpg",
         "gallery": [
-          "assets/products/kart-kabi-47-lutfen-duzenle-karisik-gumus-g1.jpg"
+          "assets/products/KAGOIN000047-g1.jpg"
         ]
       },
       "cinsiyet": "UNISEX",
@@ -2685,21 +2591,19 @@ window.__BOTL_DATA__ = {
       "ic_astar_malzeme": "Deri"
     },
     {
-      "variation_id": "FR-00058-KARISIK-STANDART-GUMUS",
-      "sku": "FR-00058",
+      "variation_id": "KACOIN000048",
+      "sku": "KACOIN000048",
       "no": null,
-      "slug": "coach-kart-kabi-bej-gumus-fr-00058",
-      "cover": "",
+      "cover": "assets/products/KACOIN000048.jpg",
       "isim_resmi": "Coach Kartlık Bej Monogram",
-      "isim_bilinen": "Coach Kart Kabi Bej Signature",
+      "isim_bilinen": "Coach Kartlık Bej Signature",
       "marka": "Coach",
-      "kategori": "Kart Kabı",
-      "kategori_ust": "Cüzdan",
-      "kategori_alt": "Kart Kabı",
+      "kategori": "Kartlık",
+      "kategori_ust": "Kartlık",
+      "kategori_alt": "Kartlık",
       "renk": "BEJ",
       "ana_renk": "Bej",
       "ana_renk_hex": "#d8c3a3",
-      "renk_slug": "bej",
       "renk_hex": "#d8c3a3",
       "ikincil_renk": "",
       "ikincil_renk_code": "",
@@ -2725,9 +2629,9 @@ window.__BOTL_DATA__ = {
       "tedarikci_id": null,
       "olusturma": "2026-05-13",
       "gorseller": {
-        "cover": "",
+        "cover": "assets/products/KACOIN000048.jpg",
         "gallery": [
-          "assets/products/kart-kabi-48-lutfen-duzenle-karisik-gumus-g1.jpg"
+          "assets/products/KACOIN000048-g1.jpg"
         ]
       },
       "cinsiyet": "UNISEX",
@@ -2742,21 +2646,19 @@ window.__BOTL_DATA__ = {
       "ic_astar_malzeme": "Deri"
     },
     {
-      "variation_id": "FR-00059-KARISIK-STANDART-GUMUS",
-      "sku": "FR-00059",
+      "variation_id": "KACOIN000049",
+      "sku": "KACOIN000049",
       "no": null,
-      "slug": "coach-kart-kabi-acik-pembe-gumus-fr-00059",
-      "cover": "",
+      "cover": "assets/products/KACOIN000049.jpg",
       "isim_resmi": "Coach Kartlık Açık Pembe",
-      "isim_bilinen": "Coach Kart Kabi Açık Pembe Deri",
+      "isim_bilinen": "Coach Kartlık Açık Pembe Deri",
       "marka": "Coach",
-      "kategori": "Kart Kabı",
-      "kategori_ust": "Cüzdan",
-      "kategori_alt": "Kart Kabı",
+      "kategori": "Kartlık",
+      "kategori_ust": "Kartlık",
+      "kategori_alt": "Kartlık",
       "renk": "ACIK PEMBE",
       "ana_renk": "Açık Pembe",
       "ana_renk_hex": "#e8c4cc",
-      "renk_slug": "acik-pembe",
       "renk_hex": "#e8c4cc",
       "ikincil_renk": "",
       "ikincil_renk_code": "",
@@ -2782,9 +2684,9 @@ window.__BOTL_DATA__ = {
       "tedarikci_id": null,
       "olusturma": "2026-05-13",
       "gorseller": {
-        "cover": "",
+        "cover": "assets/products/KACOIN000049.jpg",
         "gallery": [
-          "assets/products/kart-kabi-49-lutfen-duzenle-karisik-gumus-g1.jpg"
+          "assets/products/KACOIN000049-g1.jpg"
         ]
       },
       "cinsiyet": "UNISEX",
@@ -2799,21 +2701,19 @@ window.__BOTL_DATA__ = {
       "ic_astar_malzeme": "Deri"
     },
     {
-      "variation_id": "FR-00060-KARISIK-STANDART-GUMUS",
-      "sku": "FR-00060",
+      "variation_id": "KALVIN000050",
+      "sku": "KALVIN000050",
       "no": null,
-      "slug": "lv-kart-kabi-siyah-gumus-fr-00060",
-      "cover": "",
+      "cover": "assets/products/KALVIN000050.jpg",
       "isim_resmi": "LV Kartlık Siyah Damali",
-      "isim_bilinen": "LV Kart Kabi Siyah Damier Graphite",
+      "isim_bilinen": "LV Kartlık Siyah Damier Graphite",
       "marka": "Louis Vuitton",
-      "kategori": "Kart Kabı",
-      "kategori_ust": "Cüzdan",
-      "kategori_alt": "Kart Kabı",
+      "kategori": "Kartlık",
+      "kategori_ust": "Kartlık",
+      "kategori_alt": "Kartlık",
       "renk": "SIYAH",
       "ana_renk": "Siyah",
       "ana_renk_hex": "#1a1a1a",
-      "renk_slug": "siyah",
       "renk_hex": "#1a1a1a",
       "ikincil_renk": "",
       "ikincil_renk_code": "",
@@ -2839,9 +2739,9 @@ window.__BOTL_DATA__ = {
       "tedarikci_id": null,
       "olusturma": "2026-05-13",
       "gorseller": {
-        "cover": "",
+        "cover": "assets/products/KALVIN000050.jpg",
         "gallery": [
-          "assets/products/kart-kabi-50-lutfen-duzenle-karisik-gumus-g1.jpg"
+          "assets/products/KALVIN000050-g1.jpg"
         ]
       },
       "cinsiyet": "UNISEX",
@@ -2856,21 +2756,19 @@ window.__BOTL_DATA__ = {
       "ic_astar_malzeme": "Deri"
     },
     {
-      "variation_id": "FR-00061-KARISIK-STANDART-GUMUS",
-      "sku": "FR-00061",
+      "variation_id": "KAGUIN000051",
+      "sku": "KAGUIN000051",
       "no": null,
-      "slug": "gucci-kart-kabi-gri-gumus-fr-00061",
-      "cover": "",
+      "cover": "assets/products/KAGUIN000051.jpg",
       "isim_resmi": "Gucci Kartlık Gri Monogram",
-      "isim_bilinen": "Gucci Kart Kabi Gri Monogram",
+      "isim_bilinen": "Gucci Kartlık Gri Monogram",
       "marka": "Gucci",
-      "kategori": "Kart Kabı",
-      "kategori_ust": "Cüzdan",
-      "kategori_alt": "Kart Kabı",
+      "kategori": "Kartlık",
+      "kategori_ust": "Kartlık",
+      "kategori_alt": "Kartlık",
       "renk": "GRI",
       "ana_renk": "Gri",
       "ana_renk_hex": "#7d7d7d",
-      "renk_slug": "gri",
       "renk_hex": "#7d7d7d",
       "ikincil_renk": "",
       "ikincil_renk_code": "",
@@ -2896,9 +2794,9 @@ window.__BOTL_DATA__ = {
       "tedarikci_id": null,
       "olusturma": "2026-05-13",
       "gorseller": {
-        "cover": "",
+        "cover": "assets/products/KAGUIN000051.jpg",
         "gallery": [
-          "assets/products/kart-kabi-51-lutfen-duzenle-karisik-gumus-g1.jpg"
+          "assets/products/KAGUIN000051-g1.jpg"
         ]
       },
       "cinsiyet": "UNISEX",
@@ -2913,21 +2811,19 @@ window.__BOTL_DATA__ = {
       "ic_astar_malzeme": "Deri"
     },
     {
-      "variation_id": "FR-00062-KARISIK-STANDART-GUMUS",
-      "sku": "FR-00062",
+      "variation_id": "KALVIN000052",
+      "sku": "KALVIN000052",
       "no": null,
-      "slug": "lv-kart-kabi-siyah-gumus-fr-00062",
-      "cover": "",
+      "cover": "assets/products/KALVIN000052.jpg",
       "isim_resmi": "LV Kartlık Siyah Damali",
-      "isim_bilinen": "LV Kart Kabi Siyah Damier Infini",
+      "isim_bilinen": "LV Kartlık Siyah Damier Infini",
       "marka": "Louis Vuitton",
-      "kategori": "Kart Kabı",
-      "kategori_ust": "Cüzdan",
-      "kategori_alt": "Kart Kabı",
+      "kategori": "Kartlık",
+      "kategori_ust": "Kartlık",
+      "kategori_alt": "Kartlık",
       "renk": "SIYAH",
       "ana_renk": "Siyah",
       "ana_renk_hex": "#1a1a1a",
-      "renk_slug": "siyah",
       "renk_hex": "#1a1a1a",
       "ikincil_renk": "",
       "ikincil_renk_code": "",
@@ -2953,9 +2849,9 @@ window.__BOTL_DATA__ = {
       "tedarikci_id": null,
       "olusturma": "2026-05-13",
       "gorseller": {
-        "cover": "",
+        "cover": "assets/products/KALVIN000052.jpg",
         "gallery": [
-          "assets/products/kart-kabi-52-lutfen-duzenle-karisik-gumus-g1.jpg"
+          "assets/products/KALVIN000052-g1.jpg"
         ]
       },
       "cinsiyet": "UNISEX",
@@ -2970,21 +2866,19 @@ window.__BOTL_DATA__ = {
       "ic_astar_malzeme": "Deri"
     },
     {
-      "variation_id": "FR-00063-KARISIK-STANDART-GUMUS",
-      "sku": "FR-00063",
+      "variation_id": "CUGEKL000053",
+      "sku": "CUGEKL000053",
       "no": null,
-      "slug": "guess-kart-kabi-bej-gumus-fr-00063",
-      "cover": "",
+      "cover": "assets/products/CUGEKL000053.jpg",
       "isim_resmi": "Guess Kartlık Bej Monogram",
-      "isim_bilinen": "Guess Kart Kabi Bej Monogram Klasik",
+      "isim_bilinen": "Guess Kartlık Bej Monogram Klasik",
       "marka": "Guess",
-      "kategori": "Kart Kabı",
+      "kategori": "Klasik Cüzdan",
       "kategori_ust": "Cüzdan",
-      "kategori_alt": "Kart Kabı",
+      "kategori_alt": "Klasik Cüzdan",
       "renk": "BEJ",
       "ana_renk": "Bej",
       "ana_renk_hex": "#d8c3a3",
-      "renk_slug": "bej",
       "renk_hex": "#d8c3a3",
       "ikincil_renk": "",
       "ikincil_renk_code": "",
@@ -3010,9 +2904,9 @@ window.__BOTL_DATA__ = {
       "tedarikci_id": null,
       "olusturma": "2026-05-13",
       "gorseller": {
-        "cover": "",
+        "cover": "assets/products/CUGEKL000053.jpg",
         "gallery": [
-          "assets/products/kart-kabi-53-lutfen-duzenle-karisik-gumus-g1.jpg"
+          "assets/products/CUGEKL000053-g1.jpg"
         ]
       },
       "cinsiyet": "UNISEX",
@@ -3027,21 +2921,19 @@ window.__BOTL_DATA__ = {
       "ic_astar_malzeme": "Deri"
     },
     {
-      "variation_id": "FR-00064-KARISIK-STANDART-GUMUS",
-      "sku": "FR-00064",
+      "variation_id": "KALVIN000054",
+      "sku": "KALVIN000054",
       "no": null,
-      "slug": "lv-kart-kabi-beyaz-gumus-fr-00064",
-      "cover": "",
+      "cover": "assets/products/KALVIN000054.jpg",
       "isim_resmi": "LV Kartlık Beyaz Monogram",
-      "isim_bilinen": "LV Kart Kabi Beyaz Monogram",
+      "isim_bilinen": "LV Kartlık Beyaz Monogram",
       "marka": "Louis Vuitton",
-      "kategori": "Kart Kabı",
-      "kategori_ust": "Cüzdan",
-      "kategori_alt": "Kart Kabı",
+      "kategori": "Kartlık",
+      "kategori_ust": "Kartlık",
+      "kategori_alt": "Kartlık",
       "renk": "BEYAZ",
       "ana_renk": "Beyaz",
       "ana_renk_hex": "#f5f1ea",
-      "renk_slug": "beyaz",
       "renk_hex": "#f5f1ea",
       "ikincil_renk": "",
       "ikincil_renk_code": "",
@@ -3067,9 +2959,9 @@ window.__BOTL_DATA__ = {
       "tedarikci_id": null,
       "olusturma": "2026-05-13",
       "gorseller": {
-        "cover": "",
+        "cover": "assets/products/KALVIN000054.jpg",
         "gallery": [
-          "assets/products/kart-kabi-54-lutfen-duzenle-karisik-gumus-g1.jpg"
+          "assets/products/KALVIN000054-g1.jpg"
         ]
       },
       "cinsiyet": "UNISEX",
@@ -3084,21 +2976,19 @@ window.__BOTL_DATA__ = {
       "ic_astar_malzeme": "Deri"
     },
     {
-      "variation_id": "FR-00065-KARISIK-STANDART-GUMUS",
-      "sku": "FR-00065",
+      "variation_id": "KAGEIN000055",
+      "sku": "KAGEIN000055",
       "no": null,
-      "slug": "guess-kart-kabi-beyaz-gumus-fr-00065",
-      "cover": "",
+      "cover": "assets/products/KAGEIN000055.jpg",
       "isim_resmi": "Guess Kartlık Beyaz Monogram",
-      "isim_bilinen": "Guess Kart Kabi Beyaz Monogram",
+      "isim_bilinen": "Guess Kartlık Beyaz Monogram",
       "marka": "Guess",
-      "kategori": "Kart Kabı",
-      "kategori_ust": "Cüzdan",
-      "kategori_alt": "Kart Kabı",
+      "kategori": "Kartlık",
+      "kategori_ust": "Kartlık",
+      "kategori_alt": "Kartlık",
       "renk": "BEYAZ",
       "ana_renk": "Beyaz",
       "ana_renk_hex": "#f5f1ea",
-      "renk_slug": "beyaz",
       "renk_hex": "#f5f1ea",
       "ikincil_renk": "",
       "ikincil_renk_code": "",
@@ -3124,9 +3014,9 @@ window.__BOTL_DATA__ = {
       "tedarikci_id": null,
       "olusturma": "2026-05-13",
       "gorseller": {
-        "cover": "",
+        "cover": "assets/products/KAGEIN000055.jpg",
         "gallery": [
-          "assets/products/kart-kabi-55-lutfen-duzenle-karisik-gumus-g1.jpg"
+          "assets/products/KAGEIN000055-g1.jpg"
         ]
       },
       "cinsiyet": "UNISEX",
@@ -3141,21 +3031,19 @@ window.__BOTL_DATA__ = {
       "ic_astar_malzeme": "Deri"
     },
     {
-      "variation_id": "FR-00066-KARISIK-STANDART-GUMUS",
-      "sku": "FR-00066",
+      "variation_id": "KALVIN000056",
+      "sku": "KALVIN000056",
       "no": null,
-      "slug": "lv-kart-kabi-lacivert-gumus-fr-00066",
-      "cover": "",
+      "cover": "assets/products/KALVIN000056.jpg",
       "isim_resmi": "LV Kartlık Lacivert Monogram",
-      "isim_bilinen": "LV Kart Kabi Lacivert Empreinte",
+      "isim_bilinen": "LV Kartlık Lacivert Empreinte",
       "marka": "Louis Vuitton",
-      "kategori": "Kart Kabı",
-      "kategori_ust": "Cüzdan",
-      "kategori_alt": "Kart Kabı",
+      "kategori": "Kartlık",
+      "kategori_ust": "Kartlık",
+      "kategori_alt": "Kartlık",
       "renk": "LACIVERT",
       "ana_renk": "Lacivert",
       "ana_renk_hex": "#1a2238",
-      "renk_slug": "lacivert",
       "renk_hex": "#1a2238",
       "ikincil_renk": "",
       "ikincil_renk_code": "",
@@ -3181,9 +3069,9 @@ window.__BOTL_DATA__ = {
       "tedarikci_id": null,
       "olusturma": "2026-05-13",
       "gorseller": {
-        "cover": "",
+        "cover": "assets/products/KALVIN000056.jpg",
         "gallery": [
-          "assets/products/kart-kabi-56-lutfen-duzenle-karisik-gumus-g1.jpg"
+          "assets/products/KALVIN000056-g1.jpg"
         ]
       },
       "cinsiyet": "UNISEX",
@@ -3198,21 +3086,19 @@ window.__BOTL_DATA__ = {
       "ic_astar_malzeme": "Deri"
     },
     {
-      "variation_id": "FR-00067-KARISIK-STANDART-GUMUS",
-      "sku": "FR-00067",
+      "variation_id": "KALVIN000057",
+      "sku": "KALVIN000057",
       "no": null,
-      "slug": "lv-kart-kabi-siyah-gumus-fr-00067",
-      "cover": "",
+      "cover": "assets/products/KALVIN000057.jpg",
       "isim_resmi": "LV Kartlık Siyah Monogram",
-      "isim_bilinen": "LV Kart Kabi Siyah Monogram Denim",
+      "isim_bilinen": "LV Kartlık Siyah Monogram Denim",
       "marka": "Louis Vuitton",
-      "kategori": "Kart Kabı",
-      "kategori_ust": "Cüzdan",
-      "kategori_alt": "Kart Kabı",
+      "kategori": "Kartlık",
+      "kategori_ust": "Kartlık",
+      "kategori_alt": "Kartlık",
       "renk": "SIYAH",
       "ana_renk": "Siyah",
       "ana_renk_hex": "#1a1a1a",
-      "renk_slug": "siyah",
       "renk_hex": "#1a1a1a",
       "ikincil_renk": "",
       "ikincil_renk_code": "",
@@ -3238,9 +3124,9 @@ window.__BOTL_DATA__ = {
       "tedarikci_id": null,
       "olusturma": "2026-05-13",
       "gorseller": {
-        "cover": "",
+        "cover": "assets/products/KALVIN000057.jpg",
         "gallery": [
-          "assets/products/kart-kabi-57-lutfen-duzenle-karisik-gumus-g1.jpg"
+          "assets/products/KALVIN000057-g1.jpg"
         ]
       },
       "cinsiyet": "UNISEX",
@@ -3255,21 +3141,19 @@ window.__BOTL_DATA__ = {
       "ic_astar_malzeme": "Deri"
     },
     {
-      "variation_id": "FR-00068-KARISIK-STANDART-GUMUS",
-      "sku": "FR-00068",
+      "variation_id": "KALVIN000058",
+      "sku": "KALVIN000058",
       "no": null,
-      "slug": "lv-kart-kabi-kahve-gumus-fr-00068",
-      "cover": "",
+      "cover": "assets/products/KALVIN000058.jpg",
       "isim_resmi": "LV Kartlık Kahve Damali",
-      "isim_bilinen": "LV Kart Kabi Kahve Damier Ebene",
+      "isim_bilinen": "LV Kartlık Kahve Damier Ebene",
       "marka": "Louis Vuitton",
-      "kategori": "Kart Kabı",
-      "kategori_ust": "Cüzdan",
-      "kategori_alt": "Kart Kabı",
+      "kategori": "Kartlık",
+      "kategori_ust": "Kartlık",
+      "kategori_alt": "Kartlık",
       "renk": "KAHVE",
       "ana_renk": "Kahve",
       "ana_renk_hex": "#5a3a25",
-      "renk_slug": "kahve",
       "renk_hex": "#5a3a25",
       "ikincil_renk": "",
       "ikincil_renk_code": "",
@@ -3295,9 +3179,9 @@ window.__BOTL_DATA__ = {
       "tedarikci_id": null,
       "olusturma": "2026-05-13",
       "gorseller": {
-        "cover": "",
+        "cover": "assets/products/KALVIN000058.jpg",
         "gallery": [
-          "assets/products/kart-kabi-58-lutfen-duzenle-karisik-gumus-g1.jpg"
+          "assets/products/KALVIN000058-g1.jpg"
         ]
       },
       "cinsiyet": "UNISEX",
@@ -3312,21 +3196,19 @@ window.__BOTL_DATA__ = {
       "ic_astar_malzeme": "Deri"
     },
     {
-      "variation_id": "FR-00069-KARISIK-STANDART-GUMUS",
-      "sku": "FR-00069",
+      "variation_id": "CULVKL000059",
+      "sku": "CULVKL000059",
       "no": null,
-      "slug": "lv-kart-kabi-kahve-gumus-fr-00069",
-      "cover": "",
+      "cover": "assets/products/CULVKL000059.jpg",
       "isim_resmi": "LV Kartlık Kahve Monogram",
-      "isim_bilinen": "LV Kart Kabi Kahve Monogram Klasik",
+      "isim_bilinen": "LV Kartlık Kahve Monogram Klasik",
       "marka": "Louis Vuitton",
-      "kategori": "Kart Kabı",
+      "kategori": "Klasik Cüzdan",
       "kategori_ust": "Cüzdan",
-      "kategori_alt": "Kart Kabı",
+      "kategori_alt": "Klasik Cüzdan",
       "renk": "KAHVE",
       "ana_renk": "Kahve",
       "ana_renk_hex": "#5a3a25",
-      "renk_slug": "kahve",
       "renk_hex": "#5a3a25",
       "ikincil_renk": "",
       "ikincil_renk_code": "",
@@ -3352,9 +3234,9 @@ window.__BOTL_DATA__ = {
       "tedarikci_id": null,
       "olusturma": "2026-05-13",
       "gorseller": {
-        "cover": "",
+        "cover": "assets/products/CULVKL000059.jpg",
         "gallery": [
-          "assets/products/kart-kabi-59-lutfen-duzenle-karisik-gumus-g1.jpg"
+          "assets/products/CULVKL000059-g1.jpg"
         ]
       },
       "cinsiyet": "UNISEX",
@@ -3369,21 +3251,19 @@ window.__BOTL_DATA__ = {
       "ic_astar_malzeme": "Deri"
     },
     {
-      "variation_id": "FR-00070-KARISIK-STANDART-GUMUS",
-      "sku": "FR-00070",
+      "variation_id": "KACOIN000060",
+      "sku": "KACOIN000060",
       "no": null,
-      "slug": "coach-kart-kabi-beyaz-gumus-fr-00070",
-      "cover": "",
+      "cover": "assets/products/KACOIN000060.jpg",
       "isim_resmi": "Coach Kartlık Beyaz Monogram",
-      "isim_bilinen": "Coach Kart Kabi Beyaz Signature",
+      "isim_bilinen": "Coach Kartlık Beyaz Signature",
       "marka": "Coach",
-      "kategori": "Kart Kabı",
-      "kategori_ust": "Cüzdan",
-      "kategori_alt": "Kart Kabı",
+      "kategori": "Kartlık",
+      "kategori_ust": "Kartlık",
+      "kategori_alt": "Kartlık",
       "renk": "BEYAZ",
       "ana_renk": "Beyaz",
       "ana_renk_hex": "#f5f1ea",
-      "renk_slug": "beyaz",
       "renk_hex": "#f5f1ea",
       "ikincil_renk": "",
       "ikincil_renk_code": "",
@@ -3409,9 +3289,9 @@ window.__BOTL_DATA__ = {
       "tedarikci_id": null,
       "olusturma": "2026-05-13",
       "gorseller": {
-        "cover": "",
+        "cover": "assets/products/KACOIN000060.jpg",
         "gallery": [
-          "assets/products/kart-kabi-60-lutfen-duzenle-karisik-gumus-g1.jpg"
+          "assets/products/KACOIN000060-g1.jpg"
         ]
       },
       "cinsiyet": "UNISEX",
@@ -3426,21 +3306,19 @@ window.__BOTL_DATA__ = {
       "ic_astar_malzeme": "Deri"
     },
     {
-      "variation_id": "FR-00071-KARISIK-STANDART-GUMUS",
-      "sku": "FR-00071",
+      "variation_id": "KALVIN000061",
+      "sku": "KALVIN000061",
       "no": null,
-      "slug": "lv-kart-kabi-siyah-gumus-fr-00071",
-      "cover": "",
+      "cover": "assets/products/KALVIN000061.jpg",
       "isim_resmi": "LV Kartlık Siyah Monogram",
-      "isim_bilinen": "LV Kart Kabi Siyah Empreinte",
+      "isim_bilinen": "LV Kartlık Siyah Empreinte",
       "marka": "Louis Vuitton",
-      "kategori": "Kart Kabı",
-      "kategori_ust": "Cüzdan",
-      "kategori_alt": "Kart Kabı",
+      "kategori": "Kartlık",
+      "kategori_ust": "Kartlık",
+      "kategori_alt": "Kartlık",
       "renk": "SIYAH",
       "ana_renk": "Siyah",
       "ana_renk_hex": "#1a1a1a",
-      "renk_slug": "siyah",
       "renk_hex": "#1a1a1a",
       "ikincil_renk": "",
       "ikincil_renk_code": "",
@@ -3466,9 +3344,9 @@ window.__BOTL_DATA__ = {
       "tedarikci_id": null,
       "olusturma": "2026-05-13",
       "gorseller": {
-        "cover": "",
+        "cover": "assets/products/KALVIN000061.jpg",
         "gallery": [
-          "assets/products/kart-kabi-61-lutfen-duzenle-karisik-gumus-g1.jpg"
+          "assets/products/KALVIN000061-g1.jpg"
         ]
       },
       "cinsiyet": "UNISEX",
@@ -3483,21 +3361,19 @@ window.__BOTL_DATA__ = {
       "ic_astar_malzeme": "Deri"
     },
     {
-      "variation_id": "FR-00072-KARISIK-STANDART-GUMUS",
-      "sku": "FR-00072",
+      "variation_id": "KAGUIN000062",
+      "sku": "KAGUIN000062",
       "no": null,
-      "slug": "gucci-kart-kabi-pembe-gumus-fr-00072",
-      "cover": "",
+      "cover": "assets/products/KAGUIN000062.jpg",
       "isim_resmi": "Gucci Kartlık Pembe Monogram",
-      "isim_bilinen": "Gucci Kart Kabi Pembe Monogram",
+      "isim_bilinen": "Gucci Kartlık Pembe Monogram",
       "marka": "Gucci",
-      "kategori": "Kart Kabı",
-      "kategori_ust": "Cüzdan",
-      "kategori_alt": "Kart Kabı",
+      "kategori": "Kartlık",
+      "kategori_ust": "Kartlık",
+      "kategori_alt": "Kartlık",
       "renk": "PEMBE",
       "ana_renk": "Pembe",
       "ana_renk_hex": "#e08aa0",
-      "renk_slug": "pembe",
       "renk_hex": "#e08aa0",
       "ikincil_renk": "",
       "ikincil_renk_code": "",
@@ -3523,9 +3399,9 @@ window.__BOTL_DATA__ = {
       "tedarikci_id": null,
       "olusturma": "2026-05-13",
       "gorseller": {
-        "cover": "",
+        "cover": "assets/products/KAGUIN000062.jpg",
         "gallery": [
-          "assets/products/kart-kabi-62-lutfen-duzenle-karisik-gumus-g1.jpg"
+          "assets/products/KAGUIN000062-g1.jpg"
         ]
       },
       "cinsiyet": "UNISEX",
@@ -3540,21 +3416,19 @@ window.__BOTL_DATA__ = {
       "ic_astar_malzeme": "Deri"
     },
     {
-      "variation_id": "FR-00073-KARISIK-STANDART-GUMUS",
-      "sku": "FR-00073",
+      "variation_id": "KAMCIN000063",
+      "sku": "KAMCIN000063",
       "no": null,
-      "slug": "mcm-kart-kabi-beyaz-gumus-fr-00073",
-      "cover": "",
+      "cover": "assets/products/KAMCIN000063.jpg",
       "isim_resmi": "MCM Kartlık Beyaz Monogram",
-      "isim_bilinen": "MCM Kart Kabi Beyaz Visetos",
+      "isim_bilinen": "MCM Kartlık Beyaz Visetos",
       "marka": "MCM",
-      "kategori": "Kart Kabı",
-      "kategori_ust": "Cüzdan",
-      "kategori_alt": "Kart Kabı",
+      "kategori": "Kartlık",
+      "kategori_ust": "Kartlık",
+      "kategori_alt": "Kartlık",
       "renk": "BEYAZ",
       "ana_renk": "Beyaz",
       "ana_renk_hex": "#f5f1ea",
-      "renk_slug": "beyaz",
       "renk_hex": "#f5f1ea",
       "ikincil_renk": "",
       "ikincil_renk_code": "",
@@ -3580,9 +3454,9 @@ window.__BOTL_DATA__ = {
       "tedarikci_id": null,
       "olusturma": "2026-05-13",
       "gorseller": {
-        "cover": "",
+        "cover": "assets/products/KAMCIN000063.jpg",
         "gallery": [
-          "assets/products/kart-kabi-63-lutfen-duzenle-karisik-gumus-g1.jpg"
+          "assets/products/KAMCIN000063-g1.jpg"
         ]
       },
       "cinsiyet": "UNISEX",
@@ -3597,21 +3471,19 @@ window.__BOTL_DATA__ = {
       "ic_astar_malzeme": "Deri"
     },
     {
-      "variation_id": "FR-00074-KARISIK-STANDART-GUMUS",
-      "sku": "FR-00074",
+      "variation_id": "KAGOIN000064",
+      "sku": "KAGOIN000064",
       "no": null,
-      "slug": "goyard-kart-kabi-siyah-gumus-fr-00074",
-      "cover": "",
+      "cover": "assets/products/KAGOIN000064.jpg",
       "isim_resmi": "Goyard Kartlık Siyah Cizgili",
-      "isim_bilinen": "Goyard Kart Kabi Siyah Goyardine V2",
+      "isim_bilinen": "Goyard Kartlık Siyah Goyardine V2",
       "marka": "Goyard",
-      "kategori": "Kart Kabı",
-      "kategori_ust": "Cüzdan",
-      "kategori_alt": "Kart Kabı",
+      "kategori": "Kartlık",
+      "kategori_ust": "Kartlık",
+      "kategori_alt": "Kartlık",
       "renk": "SIYAH",
       "ana_renk": "Siyah",
       "ana_renk_hex": "#1a1a1a",
-      "renk_slug": "siyah",
       "renk_hex": "#1a1a1a",
       "ikincil_renk": "",
       "ikincil_renk_code": "",
@@ -3637,9 +3509,9 @@ window.__BOTL_DATA__ = {
       "tedarikci_id": null,
       "olusturma": "2026-05-13",
       "gorseller": {
-        "cover": "",
+        "cover": "assets/products/KAGOIN000064.jpg",
         "gallery": [
-          "assets/products/kart-kabi-64-lutfen-duzenle-karisik-gumus-g1.jpg"
+          "assets/products/KAGOIN000064-g1.jpg"
         ]
       },
       "cinsiyet": "UNISEX",
@@ -3654,21 +3526,19 @@ window.__BOTL_DATA__ = {
       "ic_astar_malzeme": "Deri"
     },
     {
-      "variation_id": "FR-00075-KARISIK-STANDART-GUMUS",
-      "sku": "FR-00075",
+      "variation_id": "KAGOIN000065",
+      "sku": "KAGOIN000065",
       "no": null,
-      "slug": "goyard-kart-kabi-pembe-gumus-fr-00075",
-      "cover": "",
+      "cover": "assets/products/KAGOIN000065.jpg",
       "isim_resmi": "Goyard Kartlık Pembe Goyardine",
-      "isim_bilinen": "Goyard Kart Kabi Pembe",
+      "isim_bilinen": "Goyard Kartlık Pembe",
       "marka": "Goyard",
-      "kategori": "Kart Kabı",
-      "kategori_ust": "Cüzdan",
-      "kategori_alt": "Kart Kabı",
+      "kategori": "Kartlık",
+      "kategori_ust": "Kartlık",
+      "kategori_alt": "Kartlık",
       "renk": "PEMBE",
       "ana_renk": "Pembe",
       "ana_renk_hex": "#e08aa0",
-      "renk_slug": "pembe",
       "renk_hex": "#e08aa0",
       "ikincil_renk": "",
       "ikincil_renk_code": "",
@@ -3694,9 +3564,9 @@ window.__BOTL_DATA__ = {
       "tedarikci_id": null,
       "olusturma": "2026-05-13",
       "gorseller": {
-        "cover": "",
+        "cover": "assets/products/KAGOIN000065.jpg",
         "gallery": [
-          "assets/products/kart-kabi-65-lutfen-duzenle-karisik-gumus-g1.jpg"
+          "assets/products/KAGOIN000065-g1.jpg"
         ]
       },
       "cinsiyet": "UNISEX",
@@ -3711,21 +3581,19 @@ window.__BOTL_DATA__ = {
       "ic_astar_malzeme": "Deri"
     },
     {
-      "variation_id": "FR-00076-KARISIK-STANDART-GUMUS",
-      "sku": "FR-00076",
+      "variation_id": "KACOIN000066",
+      "sku": "KACOIN000066",
       "no": null,
-      "slug": "coach-kart-kabi-gri-gumus-fr-00076",
-      "cover": "",
+      "cover": "assets/products/KACOIN000066.jpg",
       "isim_resmi": "Coach Kartlık Gri Signature",
-      "isim_bilinen": "Coach Kart Kabi Gri Signature",
+      "isim_bilinen": "Coach Kartlık Gri Signature",
       "marka": "Coach",
-      "kategori": "Kart Kabı",
-      "kategori_ust": "Cüzdan",
-      "kategori_alt": "Kart Kabı",
+      "kategori": "Kartlık",
+      "kategori_ust": "Kartlık",
+      "kategori_alt": "Kartlık",
       "renk": "GRI",
       "ana_renk": "Gri",
       "ana_renk_hex": "#7d7d7d",
-      "renk_slug": "gri",
       "renk_hex": "#7d7d7d",
       "ikincil_renk": "",
       "ikincil_renk_code": "",
@@ -3751,9 +3619,9 @@ window.__BOTL_DATA__ = {
       "tedarikci_id": null,
       "olusturma": "2026-05-13",
       "gorseller": {
-        "cover": "",
+        "cover": "assets/products/KACOIN000066.jpg",
         "gallery": [
-          "assets/products/kart-kabi-66-lutfen-duzenle-karisik-gumus-g1.jpg"
+          "assets/products/KACOIN000066-g1.jpg"
         ]
       },
       "cinsiyet": "UNISEX",
@@ -3768,21 +3636,19 @@ window.__BOTL_DATA__ = {
       "ic_astar_malzeme": "Deri"
     },
     {
-      "variation_id": "FR-00077-KARISIK-STANDART-GUMUS",
-      "sku": "FR-00077",
+      "variation_id": "KAGEIN000067",
+      "sku": "KAGEIN000067",
       "no": null,
-      "slug": "guess-kart-kabi-gri-gumus-fr-00077",
-      "cover": "",
+      "cover": "assets/products/KAGEIN000067.jpg",
       "isim_resmi": "Guess Kartlık Gri Monogram",
-      "isim_bilinen": "Guess Kart Kabi Gri 4G Monogram",
+      "isim_bilinen": "Guess Kartlık Gri 4G Monogram",
       "marka": "Guess",
-      "kategori": "Kart Kabı",
-      "kategori_ust": "Cüzdan",
-      "kategori_alt": "Kart Kabı",
+      "kategori": "Kartlık",
+      "kategori_ust": "Kartlık",
+      "kategori_alt": "Kartlık",
       "renk": "GRI",
       "ana_renk": "Gri",
       "ana_renk_hex": "#7d7d7d",
-      "renk_slug": "gri",
       "renk_hex": "#7d7d7d",
       "ikincil_renk": "",
       "ikincil_renk_code": "",
@@ -3808,9 +3674,9 @@ window.__BOTL_DATA__ = {
       "tedarikci_id": null,
       "olusturma": "2026-05-13",
       "gorseller": {
-        "cover": "",
+        "cover": "assets/products/KAGEIN000067.jpg",
         "gallery": [
-          "assets/products/kart-kabi-67-lutfen-duzenle-karisik-gumus-g1.jpg"
+          "assets/products/KAGEIN000067-g1.jpg"
         ]
       },
       "cinsiyet": "UNISEX",
@@ -3825,21 +3691,19 @@ window.__BOTL_DATA__ = {
       "ic_astar_malzeme": "Deri"
     },
     {
-      "variation_id": "FR-00078-KARISIK-STANDART-GUMUS",
-      "sku": "FR-00078",
+      "variation_id": "KAGUIN000068",
+      "sku": "KAGUIN000068",
       "no": null,
-      "slug": "gucci-kart-kabi-siyah-gumus-fr-00078",
-      "cover": "",
+      "cover": "assets/products/KAGUIN000068.jpg",
       "isim_resmi": "Gucci Kartlık Siyah Monogram",
-      "isim_bilinen": "Gucci Kart Kabi Siyah GG Monogram",
+      "isim_bilinen": "Gucci Kartlık Siyah GG Monogram",
       "marka": "Gucci",
-      "kategori": "Kart Kabı",
-      "kategori_ust": "Cüzdan",
-      "kategori_alt": "Kart Kabı",
+      "kategori": "Kartlık",
+      "kategori_ust": "Kartlık",
+      "kategori_alt": "Kartlık",
       "renk": "SIYAH",
       "ana_renk": "Siyah",
       "ana_renk_hex": "#1a1a1a",
-      "renk_slug": "siyah",
       "renk_hex": "#1a1a1a",
       "ikincil_renk": "",
       "ikincil_renk_code": "",
@@ -3865,9 +3729,9 @@ window.__BOTL_DATA__ = {
       "tedarikci_id": null,
       "olusturma": "2026-05-13",
       "gorseller": {
-        "cover": "",
+        "cover": "assets/products/KAGUIN000068.jpg",
         "gallery": [
-          "assets/products/kart-kabi-68-lutfen-duzenle-karisik-gumus-g1.jpg"
+          "assets/products/KAGUIN000068-g1.jpg"
         ]
       },
       "cinsiyet": "UNISEX",
@@ -3882,21 +3746,19 @@ window.__BOTL_DATA__ = {
       "ic_astar_malzeme": "Deri"
     },
     {
-      "variation_id": "FR-00079-KARISIK-STANDART-GUMUS",
-      "sku": "FR-00079",
+      "variation_id": "KAGOIN000069",
+      "sku": "KAGOIN000069",
       "no": null,
-      "slug": "goyard-kart-kabi-kirmizi-gumus-fr-00079",
-      "cover": "",
+      "cover": "assets/products/KAGOIN000069.jpg",
       "isim_resmi": "Goyard Kartlık Kirmizi Goyardine",
-      "isim_bilinen": "Goyard Kart Kabi Kirmizi",
+      "isim_bilinen": "Goyard Kartlık Kirmizi",
       "marka": "Goyard",
-      "kategori": "Kart Kabı",
-      "kategori_ust": "Cüzdan",
-      "kategori_alt": "Kart Kabı",
+      "kategori": "Kartlık",
+      "kategori_ust": "Kartlık",
+      "kategori_alt": "Kartlık",
       "renk": "KIRMIZI",
       "ana_renk": "Kırmızı",
       "ana_renk_hex": "#9c2a2a",
-      "renk_slug": "kirmizi",
       "renk_hex": "#9c2a2a",
       "ikincil_renk": "",
       "ikincil_renk_code": "",
@@ -3922,9 +3784,9 @@ window.__BOTL_DATA__ = {
       "tedarikci_id": null,
       "olusturma": "2026-05-13",
       "gorseller": {
-        "cover": "",
+        "cover": "assets/products/KAGOIN000069.jpg",
         "gallery": [
-          "assets/products/kart-kabi-69-lutfen-duzenle-karisik-gumus-g1.jpg"
+          "assets/products/KAGOIN000069-g1.jpg"
         ]
       },
       "cinsiyet": "UNISEX",
@@ -3939,21 +3801,19 @@ window.__BOTL_DATA__ = {
       "ic_astar_malzeme": "Deri"
     },
     {
-      "variation_id": "FR-00080-KARISIK-STANDART-GUMUS",
-      "sku": "FR-00080",
+      "variation_id": "KALVIN000070",
+      "sku": "KALVIN000070",
       "no": null,
-      "slug": "lv-kart-kabi-yesil-gumus-fr-00080",
-      "cover": "",
+      "cover": "assets/products/KALVIN000070.jpg",
       "isim_resmi": "LV Kartlık Yesil Monogram",
-      "isim_bilinen": "LV Kart Kabi Yesil Monogram",
+      "isim_bilinen": "LV Kartlık Yesil Monogram",
       "marka": "Louis Vuitton",
-      "kategori": "Kart Kabı",
-      "kategori_ust": "Cüzdan",
-      "kategori_alt": "Kart Kabı",
+      "kategori": "Kartlık",
+      "kategori_ust": "Kartlık",
+      "kategori_alt": "Kartlık",
       "renk": "YESIL",
       "ana_renk": "Yeşil",
       "ana_renk_hex": "#3d5a3d",
-      "renk_slug": "yesil",
       "renk_hex": "#3d5a3d",
       "ikincil_renk": "",
       "ikincil_renk_code": "",
@@ -3979,9 +3839,9 @@ window.__BOTL_DATA__ = {
       "tedarikci_id": null,
       "olusturma": "2026-05-13",
       "gorseller": {
-        "cover": "",
+        "cover": "assets/products/KALVIN000070.jpg",
         "gallery": [
-          "assets/products/kart-kabi-70-lutfen-duzenle-karisik-gumus-g1.jpg"
+          "assets/products/KALVIN000070-g1.jpg"
         ]
       },
       "cinsiyet": "UNISEX",
@@ -3996,21 +3856,19 @@ window.__BOTL_DATA__ = {
       "ic_astar_malzeme": "Deri"
     },
     {
-      "variation_id": "FR-00081-KARISIK-STANDART-GUMUS",
-      "sku": "FR-00081",
+      "variation_id": "KAGOIN000071",
+      "sku": "KAGOIN000071",
       "no": null,
-      "slug": "goyard-kart-kabi-krem-gumus-fr-00081",
-      "cover": "",
+      "cover": "assets/products/KAGOIN000071.jpg",
       "isim_resmi": "Goyard Kartlık Krem Goyardine",
-      "isim_bilinen": "Goyard Kart Kabi Krem",
+      "isim_bilinen": "Goyard Kartlık Krem",
       "marka": "Goyard",
-      "kategori": "Kart Kabı",
-      "kategori_ust": "Cüzdan",
-      "kategori_alt": "Kart Kabı",
+      "kategori": "Kartlık",
+      "kategori_ust": "Kartlık",
+      "kategori_alt": "Kartlık",
       "renk": "KREM",
       "ana_renk": "Krem",
       "ana_renk_hex": "#e8d4b0",
-      "renk_slug": "krem",
       "renk_hex": "#e8d4b0",
       "ikincil_renk": "",
       "ikincil_renk_code": "",
@@ -4036,9 +3894,9 @@ window.__BOTL_DATA__ = {
       "tedarikci_id": null,
       "olusturma": "2026-05-13",
       "gorseller": {
-        "cover": "",
+        "cover": "assets/products/KAGOIN000071.jpg",
         "gallery": [
-          "assets/products/kart-kabi-71-lutfen-duzenle-karisik-gumus-g1.jpg"
+          "assets/products/KAGOIN000071-g1.jpg"
         ]
       },
       "cinsiyet": "UNISEX",
@@ -4053,21 +3911,19 @@ window.__BOTL_DATA__ = {
       "ic_astar_malzeme": "Deri"
     },
     {
-      "variation_id": "FR-00082-KARISIK-STANDART-GUMUS",
-      "sku": "FR-00082",
+      "variation_id": "CUGOMY000072",
+      "sku": "CUGOMY000072",
       "no": null,
-      "slug": "goyard-bifold-cuzdan-siyah-gumus-fr-00082",
-      "cover": "",
+      "cover": "assets/products/CUGOMY000072.jpg",
       "isim_resmi": "Goyard Mekanizmalı Yatay Cüzdan Siyah Goyardine",
       "isim_bilinen": "Goyard Klasik Cüzdan Siyah",
       "marka": "Goyard",
-      "kategori": "Bifold Cüzdan",
+      "kategori": "Klasik Cüzdan",
       "kategori_ust": "Cüzdan",
-      "kategori_alt": "Bifold Cüzdan",
+      "kategori_alt": "Klasik Cüzdan",
       "renk": "SIYAH",
       "ana_renk": "Siyah",
       "ana_renk_hex": "#1a1a1a",
-      "renk_slug": "siyah",
       "renk_hex": "#1a1a1a",
       "ikincil_renk": "",
       "ikincil_renk_code": "",
@@ -4093,9 +3949,9 @@ window.__BOTL_DATA__ = {
       "tedarikci_id": null,
       "olusturma": "2026-05-13",
       "gorseller": {
-        "cover": "",
+        "cover": "assets/products/CUGOMY000072.jpg",
         "gallery": [
-          "assets/products/kart-kabi-72-lutfen-duzenle-karisik-gumus-g1.jpg"
+          "assets/products/CUGOMY000072-g1.jpg"
         ]
       },
       "cinsiyet": "KADIN",
@@ -4110,21 +3966,19 @@ window.__BOTL_DATA__ = {
       "ic_astar_malzeme": "Deri"
     },
     {
-      "variation_id": "FR-00083-KARISIK-STANDART-GUMUS",
-      "sku": "FR-00083",
+      "variation_id": "CULVAN000073",
+      "sku": "CULVAN000073",
       "no": null,
-      "slug": "lv-bozukluk-cuzdani-mavi-gumus-fr-00083",
-      "cover": "",
+      "cover": "assets/products/CULVAN000073.jpg",
       "isim_resmi": "LV Anahtarlıklı Cüzdan Mavi Monogram",
       "isim_bilinen": "LV Anahtarlıklı Mini Cüzdan Mavi Denim Monogram",
       "marka": "Louis Vuitton",
-      "kategori": "Bozukluk Cüzdanı",
+      "kategori": "Anahtarlıklı Cüzdan",
       "kategori_ust": "Cüzdan",
-      "kategori_alt": "Bozukluk Cüzdanı",
+      "kategori_alt": "Anahtarlıklı Cüzdan",
       "renk": "MAVI",
       "ana_renk": "Mavi",
       "ana_renk_hex": "#2d3e58",
-      "renk_slug": "mavi",
       "renk_hex": "#2d3e58",
       "ikincil_renk": "",
       "ikincil_renk_code": "",
@@ -4150,9 +4004,9 @@ window.__BOTL_DATA__ = {
       "tedarikci_id": null,
       "olusturma": "2026-05-13",
       "gorseller": {
-        "cover": "",
+        "cover": "assets/products/CULVAN000073.jpg",
         "gallery": [
-          "assets/products/kart-kabi-73-lutfen-duzenle-karisik-gumus-g1.jpg"
+          "assets/products/CULVAN000073-g1.jpg"
         ]
       },
       "cinsiyet": "KADIN",
@@ -4168,21 +4022,19 @@ window.__BOTL_DATA__ = {
       "ic_astar_malzeme": "Deri"
     },
     {
-      "variation_id": "FR-00084-KARISIK-STANDART-GUMUS",
-      "sku": "FR-00084",
+      "variation_id": "CUGOMY000074",
+      "sku": "CUGOMY000074",
       "no": null,
-      "slug": "goyard-bifold-cuzdan-yesil-gumus-fr-00084",
-      "cover": "",
+      "cover": "assets/products/CUGOMY000074.jpg",
       "isim_resmi": "Goyard Mekanizmalı Yatay Cüzdan Yesil Goyardine",
       "isim_bilinen": "Goyard Klasik Cüzdan Yesil",
       "marka": "Goyard",
-      "kategori": "Bifold Cüzdan",
+      "kategori": "Klasik Cüzdan",
       "kategori_ust": "Cüzdan",
-      "kategori_alt": "Bifold Cüzdan",
+      "kategori_alt": "Klasik Cüzdan",
       "renk": "YESIL",
       "ana_renk": "Yeşil",
       "ana_renk_hex": "#3d5a3d",
-      "renk_slug": "yesil",
       "renk_hex": "#3d5a3d",
       "ikincil_renk": "",
       "ikincil_renk_code": "",
@@ -4208,9 +4060,9 @@ window.__BOTL_DATA__ = {
       "tedarikci_id": null,
       "olusturma": "2026-05-13",
       "gorseller": {
-        "cover": "",
+        "cover": "assets/products/CUGOMY000074.jpg",
         "gallery": [
-          "assets/products/kart-kabi-74-lutfen-duzenle-karisik-gumus-g1.jpg"
+          "assets/products/CUGOMY000074-g1.jpg"
         ]
       },
       "cinsiyet": "KADIN",
@@ -4225,21 +4077,19 @@ window.__BOTL_DATA__ = {
       "ic_astar_malzeme": "Deri"
     },
     {
-      "variation_id": "FR-00085-KARISIK-STANDART-GUMUS",
-      "sku": "FR-00085",
+      "variation_id": "CUGOMY000075",
+      "sku": "CUGOMY000075",
       "no": null,
-      "slug": "goyard-bifold-cuzdan-siyah-gumus-fr-00085",
-      "cover": "",
+      "cover": "assets/products/CUGOMY000075.jpg",
       "isim_resmi": "Goyard Mekanizmalı Yatay Cüzdan Siyah Goyardine",
       "isim_bilinen": "Goyard Klasik Cüzdan Siyah",
       "marka": "Goyard",
-      "kategori": "Bifold Cüzdan",
+      "kategori": "Klasik Cüzdan",
       "kategori_ust": "Cüzdan",
-      "kategori_alt": "Bifold Cüzdan",
+      "kategori_alt": "Klasik Cüzdan",
       "renk": "SIYAH",
       "ana_renk": "Siyah",
       "ana_renk_hex": "#1a1a1a",
-      "renk_slug": "siyah",
       "renk_hex": "#1a1a1a",
       "ikincil_renk": "",
       "ikincil_renk_code": "",
@@ -4265,9 +4115,9 @@ window.__BOTL_DATA__ = {
       "tedarikci_id": null,
       "olusturma": "2026-05-13",
       "gorseller": {
-        "cover": "",
+        "cover": "assets/products/CUGOMY000075.jpg",
         "gallery": [
-          "assets/products/kart-kabi-75-lutfen-duzenle-karisik-gumus-g1.jpg"
+          "assets/products/CUGOMY000075-g1.jpg"
         ]
       },
       "cinsiyet": "KADIN",
@@ -4282,21 +4132,19 @@ window.__BOTL_DATA__ = {
       "ic_astar_malzeme": "Deri"
     },
     {
-      "variation_id": "FR-00086-KARISIK-STANDART-GUMUS",
-      "sku": "FR-00086",
+      "variation_id": "CUGEAN000076",
+      "sku": "CUGEAN000076",
       "no": null,
-      "slug": "guess-bozukluk-cuzdani-bej-gumus-fr-00086",
-      "cover": "",
+      "cover": "assets/products/CUGEAN000076.jpg",
       "isim_resmi": "Guess Anahtarlıklı Cüzdan Bej Monogram",
       "isim_bilinen": "Guess Anahtarlıklı Mini Cüzdan Bej 4G Monogram",
       "marka": "Guess",
-      "kategori": "Bozukluk Cüzdanı",
+      "kategori": "Anahtarlıklı Cüzdan",
       "kategori_ust": "Cüzdan",
-      "kategori_alt": "Bozukluk Cüzdanı",
+      "kategori_alt": "Anahtarlıklı Cüzdan",
       "renk": "BEJ",
       "ana_renk": "Bej",
       "ana_renk_hex": "#d8c3a3",
-      "renk_slug": "bej",
       "renk_hex": "#d8c3a3",
       "ikincil_renk": "",
       "ikincil_renk_code": "",
@@ -4322,9 +4170,9 @@ window.__BOTL_DATA__ = {
       "tedarikci_id": null,
       "olusturma": "2026-05-13",
       "gorseller": {
-        "cover": "",
+        "cover": "assets/products/CUGEAN000076.jpg",
         "gallery": [
-          "assets/products/kart-kabi-76-lutfen-duzenle-karisik-gumus-g1.jpg"
+          "assets/products/CUGEAN000076-g1.jpg"
         ]
       },
       "cinsiyet": "KADIN",
@@ -4340,21 +4188,19 @@ window.__BOTL_DATA__ = {
       "ic_astar_malzeme": "Deri"
     },
     {
-      "variation_id": "FR-00087-KARISIK-STANDART-GUMUS",
-      "sku": "FR-00087",
+      "variation_id": "CUGEAN000077",
+      "sku": "CUGEAN000077",
       "no": null,
-      "slug": "guess-bozukluk-cuzdani-gri-gumus-fr-00087",
-      "cover": "",
+      "cover": "assets/products/CUGEAN000077.jpg",
       "isim_resmi": "Guess Anahtarlıklı Cüzdan Gri Monogram",
       "isim_bilinen": "Guess Anahtarlıklı Mini Cüzdan Gri 4G Monogram",
       "marka": "Guess",
-      "kategori": "Bozukluk Cüzdanı",
+      "kategori": "Anahtarlıklı Cüzdan",
       "kategori_ust": "Cüzdan",
-      "kategori_alt": "Bozukluk Cüzdanı",
+      "kategori_alt": "Anahtarlıklı Cüzdan",
       "renk": "GRI",
       "ana_renk": "Gri",
       "ana_renk_hex": "#7d7d7d",
-      "renk_slug": "gri",
       "renk_hex": "#7d7d7d",
       "ikincil_renk": "",
       "ikincil_renk_code": "",
@@ -4380,9 +4226,9 @@ window.__BOTL_DATA__ = {
       "tedarikci_id": null,
       "olusturma": "2026-05-13",
       "gorseller": {
-        "cover": "",
+        "cover": "assets/products/CUGEAN000077.jpg",
         "gallery": [
-          "assets/products/kart-kabi-77-lutfen-duzenle-karisik-gumus-g1.jpg"
+          "assets/products/CUGEAN000077-g1.jpg"
         ]
       },
       "cinsiyet": "KADIN",
@@ -4398,21 +4244,19 @@ window.__BOTL_DATA__ = {
       "ic_astar_malzeme": "Deri"
     },
     {
-      "variation_id": "FR-00088-KARISIK-STANDART-GUMUS",
-      "sku": "FR-00088",
+      "variation_id": "CUGEAN000078",
+      "sku": "CUGEAN000078",
       "no": null,
-      "slug": "guess-bozukluk-cuzdani-kahve-gumus-fr-00088",
-      "cover": "",
+      "cover": "assets/products/CUGEAN000078.jpg",
       "isim_resmi": "Guess Anahtarlıklı Cüzdan Kahve Monogram",
       "isim_bilinen": "Guess Anahtarlıklı Mini Cüzdan Kahve 4G Monogram",
       "marka": "Guess",
-      "kategori": "Bozukluk Cüzdanı",
+      "kategori": "Anahtarlıklı Cüzdan",
       "kategori_ust": "Cüzdan",
-      "kategori_alt": "Bozukluk Cüzdanı",
+      "kategori_alt": "Anahtarlıklı Cüzdan",
       "renk": "KAHVE",
       "ana_renk": "Kahve",
       "ana_renk_hex": "#5a3a25",
-      "renk_slug": "kahve",
       "renk_hex": "#5a3a25",
       "ikincil_renk": "",
       "ikincil_renk_code": "",
@@ -4438,9 +4282,9 @@ window.__BOTL_DATA__ = {
       "tedarikci_id": null,
       "olusturma": "2026-05-13",
       "gorseller": {
-        "cover": "",
+        "cover": "assets/products/CUGEAN000078.jpg",
         "gallery": [
-          "assets/products/kart-kabi-78-lutfen-duzenle-karisik-gumus-g1.jpg"
+          "assets/products/CUGEAN000078-g1.jpg"
         ]
       },
       "cinsiyet": "KADIN",
@@ -4456,21 +4300,19 @@ window.__BOTL_DATA__ = {
       "ic_astar_malzeme": "Deri"
     },
     {
-      "variation_id": "FR-00089-KARISIK-STANDART-GUMUS",
-      "sku": "FR-00089",
+      "variation_id": "CULVAN000079",
+      "sku": "CULVAN000079",
       "no": null,
-      "slug": "lv-bozukluk-cuzdani-beyaz-gumus-fr-00089",
-      "cover": "",
+      "cover": "assets/products/CULVAN000079.jpg",
       "isim_resmi": "LV Anahtarlıklı Cüzdan Beyaz Monogram",
       "isim_bilinen": "LV Anahtarlıklı Mini Cüzdan Beyaz Multicolor Monogram",
       "marka": "Louis Vuitton",
-      "kategori": "Bozukluk Cüzdanı",
+      "kategori": "Anahtarlıklı Cüzdan",
       "kategori_ust": "Cüzdan",
-      "kategori_alt": "Bozukluk Cüzdanı",
+      "kategori_alt": "Anahtarlıklı Cüzdan",
       "renk": "BEYAZ",
       "ana_renk": "Beyaz",
       "ana_renk_hex": "#f5f1ea",
-      "renk_slug": "beyaz",
       "renk_hex": "#f5f1ea",
       "ikincil_renk": "",
       "ikincil_renk_code": "",
@@ -4496,9 +4338,9 @@ window.__BOTL_DATA__ = {
       "tedarikci_id": null,
       "olusturma": "2026-05-13",
       "gorseller": {
-        "cover": "",
+        "cover": "assets/products/CULVAN000079.jpg",
         "gallery": [
-          "assets/products/kart-kabi-79-lutfen-duzenle-karisik-gumus-g1.jpg"
+          "assets/products/CULVAN000079-g1.jpg"
         ]
       },
       "cinsiyet": "KADIN",
@@ -4514,21 +4356,19 @@ window.__BOTL_DATA__ = {
       "ic_astar_malzeme": "Deri"
     },
     {
-      "variation_id": "FR-00090-KARISIK-STANDART-GUMUS",
-      "sku": "FR-00090",
+      "variation_id": "CULVAN000080",
+      "sku": "CULVAN000080",
       "no": null,
-      "slug": "lv-bozukluk-cuzdani-pembe-gumus-fr-00090",
-      "cover": "",
+      "cover": "assets/products/CULVAN000080.jpg",
       "isim_resmi": "LV Anahtarlıklı Cüzdan Pembe Monogram",
       "isim_bilinen": "LV Anahtarlıklı Mini Cüzdan Pembe Monogram",
       "marka": "Louis Vuitton",
-      "kategori": "Bozukluk Cüzdanı",
+      "kategori": "Anahtarlıklı Cüzdan",
       "kategori_ust": "Cüzdan",
-      "kategori_alt": "Bozukluk Cüzdanı",
+      "kategori_alt": "Anahtarlıklı Cüzdan",
       "renk": "PEMBE",
       "ana_renk": "Pembe",
       "ana_renk_hex": "#e08aa0",
-      "renk_slug": "pembe",
       "renk_hex": "#e08aa0",
       "ikincil_renk": "",
       "ikincil_renk_code": "",
@@ -4554,9 +4394,9 @@ window.__BOTL_DATA__ = {
       "tedarikci_id": null,
       "olusturma": "2026-05-13",
       "gorseller": {
-        "cover": "",
+        "cover": "assets/products/CULVAN000080.jpg",
         "gallery": [
-          "assets/products/kart-kabi-80-lutfen-duzenle-karisik-gumus-g1.jpg"
+          "assets/products/CULVAN000080-g1.jpg"
         ]
       },
       "cinsiyet": "KADIN",
@@ -4572,21 +4412,19 @@ window.__BOTL_DATA__ = {
       "ic_astar_malzeme": "Deri"
     },
     {
-      "variation_id": "FR-00091-KARISIK-STANDART-GUMUS",
-      "sku": "FR-00091",
+      "variation_id": "CUGEAN000081",
+      "sku": "CUGEAN000081",
       "no": null,
-      "slug": "guess-bozukluk-cuzdani-siyah-gumus-fr-00091",
-      "cover": "",
+      "cover": "assets/products/CUGEAN000081.jpg",
       "isim_resmi": "Guess Anahtarlıklı Cüzdan Siyah Monogram",
       "isim_bilinen": "Guess Anahtarlıklı Mini Cüzdan Siyah 4G Monogram",
       "marka": "Guess",
-      "kategori": "Bozukluk Cüzdanı",
+      "kategori": "Anahtarlıklı Cüzdan",
       "kategori_ust": "Cüzdan",
-      "kategori_alt": "Bozukluk Cüzdanı",
+      "kategori_alt": "Anahtarlıklı Cüzdan",
       "renk": "SIYAH",
       "ana_renk": "Siyah",
       "ana_renk_hex": "#1a1a1a",
-      "renk_slug": "siyah",
       "renk_hex": "#1a1a1a",
       "ikincil_renk": "",
       "ikincil_renk_code": "",
@@ -4612,9 +4450,9 @@ window.__BOTL_DATA__ = {
       "tedarikci_id": null,
       "olusturma": "2026-05-13",
       "gorseller": {
-        "cover": "",
+        "cover": "assets/products/CUGEAN000081.jpg",
         "gallery": [
-          "assets/products/kart-kabi-81-lutfen-duzenle-karisik-gumus-g1.jpg"
+          "assets/products/CUGEAN000081-g1.jpg"
         ]
       },
       "cinsiyet": "KADIN",
@@ -4630,21 +4468,19 @@ window.__BOTL_DATA__ = {
       "ic_astar_malzeme": "Deri"
     },
     {
-      "variation_id": "FR-00092-KARISIK-STANDART-GUMUS",
-      "sku": "FR-00092",
+      "variation_id": "CUCOMD000082",
+      "sku": "CUCOMD000082",
       "no": null,
-      "slug": "coach-bifold-cuzdan-bej-gumus-fr-00092",
-      "cover": "",
+      "cover": "assets/products/CUCOMD000082.jpg",
       "isim_resmi": "Coach Mekanizmalı Dikey Cüzdan Bej Monogram",
       "isim_bilinen": "Coach Mekanizmalı Dikey Cüzdan Bej Signature",
       "marka": "Coach",
-      "kategori": "Bifold Cüzdan",
+      "kategori": "Mekanizmalı Dikey Cüzdan",
       "kategori_ust": "Cüzdan",
-      "kategori_alt": "Bifold Cüzdan",
+      "kategori_alt": "Mekanizmalı Dikey Cüzdan",
       "renk": "BEJ",
       "ana_renk": "Bej",
       "ana_renk_hex": "#d8c3a3",
-      "renk_slug": "bej",
       "renk_hex": "#d8c3a3",
       "ikincil_renk": "",
       "ikincil_renk_code": "",
@@ -4670,9 +4506,9 @@ window.__BOTL_DATA__ = {
       "tedarikci_id": null,
       "olusturma": "2026-05-13",
       "gorseller": {
-        "cover": "",
+        "cover": "assets/products/CUCOMD000082.jpg",
         "gallery": [
-          "assets/products/kart-kabi-82-lutfen-duzenle-karisik-gumus-g1.jpg"
+          "assets/products/CUCOMD000082-g1.jpg"
         ]
       },
       "cinsiyet": "ERKEK",
@@ -4687,21 +4523,19 @@ window.__BOTL_DATA__ = {
       "ic_astar_malzeme": "Deri"
     },
     {
-      "variation_id": "FR-00093-KARISIK-STANDART-GUMUS",
-      "sku": "FR-00093",
+      "variation_id": "CUCOMD000083",
+      "sku": "CUCOMD000083",
       "no": null,
-      "slug": "coach-bifold-cuzdan-bej-gumus-fr-00093",
-      "cover": "",
+      "cover": "assets/products/CUCOMD000083.jpg",
       "isim_resmi": "Coach Mekanizmalı Dikey Cüzdan Bej Monogram",
       "isim_bilinen": "Coach Mekanizmalı Dikey Cüzdan Bej Signature",
       "marka": "Coach",
-      "kategori": "Bifold Cüzdan",
+      "kategori": "Mekanizmalı Dikey Cüzdan",
       "kategori_ust": "Cüzdan",
-      "kategori_alt": "Bifold Cüzdan",
+      "kategori_alt": "Mekanizmalı Dikey Cüzdan",
       "renk": "BEJ",
       "ana_renk": "Bej",
       "ana_renk_hex": "#d8c3a3",
-      "renk_slug": "bej",
       "renk_hex": "#d8c3a3",
       "ikincil_renk": "",
       "ikincil_renk_code": "",
@@ -4727,9 +4561,9 @@ window.__BOTL_DATA__ = {
       "tedarikci_id": null,
       "olusturma": "2026-05-13",
       "gorseller": {
-        "cover": "",
+        "cover": "assets/products/CUCOMD000083.jpg",
         "gallery": [
-          "assets/products/kart-kabi-83-lutfen-duzenle-karisik-gumus-g1.jpg"
+          "assets/products/CUCOMD000083-g1.jpg"
         ]
       },
       "cinsiyet": "ERKEK",
@@ -4744,21 +4578,19 @@ window.__BOTL_DATA__ = {
       "ic_astar_malzeme": "Deri"
     },
     {
-      "variation_id": "FR-00094-KARISIK-STANDART-GUMUS",
-      "sku": "FR-00094",
+      "variation_id": "CULVAN000084",
+      "sku": "CULVAN000084",
       "no": null,
-      "slug": "lv-bozukluk-cuzdani-bej-gumus-fr-00094",
-      "cover": "",
+      "cover": "assets/products/CULVAN000084.jpg",
       "isim_resmi": "LV Anahtarlıklı Cüzdan Bej Monogram",
       "isim_bilinen": "LV Anahtarlıklı Mini Cüzdan Bej Reverse Monogram",
       "marka": "Louis Vuitton",
-      "kategori": "Bozukluk Cüzdanı",
+      "kategori": "Anahtarlıklı Cüzdan",
       "kategori_ust": "Cüzdan",
-      "kategori_alt": "Bozukluk Cüzdanı",
+      "kategori_alt": "Anahtarlıklı Cüzdan",
       "renk": "BEJ",
       "ana_renk": "Bej",
       "ana_renk_hex": "#d8c3a3",
-      "renk_slug": "bej",
       "renk_hex": "#d8c3a3",
       "ikincil_renk": "",
       "ikincil_renk_code": "",
@@ -4784,9 +4616,9 @@ window.__BOTL_DATA__ = {
       "tedarikci_id": null,
       "olusturma": "2026-05-13",
       "gorseller": {
-        "cover": "",
+        "cover": "assets/products/CULVAN000084.jpg",
         "gallery": [
-          "assets/products/kart-kabi-84-lutfen-duzenle-karisik-gumus-g1.jpg"
+          "assets/products/CULVAN000084-g1.jpg"
         ]
       },
       "cinsiyet": "KADIN",
@@ -4802,21 +4634,19 @@ window.__BOTL_DATA__ = {
       "ic_astar_malzeme": "Deri"
     },
     {
-      "variation_id": "FR-00095-KARISIK-STANDART-GUMUS",
-      "sku": "FR-00095",
+      "variation_id": "CUGUMD000085",
+      "sku": "CUGUMD000085",
       "no": null,
-      "slug": "gucci-bifold-cuzdan-siyah-gumus-fr-00095",
-      "cover": "",
+      "cover": "assets/products/CUGUMD000085.jpg",
       "isim_resmi": "Gucci Mekanizmalı Dikey Cüzdan Siyah Monogram",
       "isim_bilinen": "Gucci Mekanizmalı Dikey Cüzdan Siyah GG Monogram",
       "marka": "Gucci",
-      "kategori": "Bifold Cüzdan",
+      "kategori": "Mekanizmalı Dikey Cüzdan",
       "kategori_ust": "Cüzdan",
-      "kategori_alt": "Bifold Cüzdan",
+      "kategori_alt": "Mekanizmalı Dikey Cüzdan",
       "renk": "SIYAH",
       "ana_renk": "Siyah",
       "ana_renk_hex": "#1a1a1a",
-      "renk_slug": "siyah",
       "renk_hex": "#1a1a1a",
       "ikincil_renk": "",
       "ikincil_renk_code": "",
@@ -4842,9 +4672,9 @@ window.__BOTL_DATA__ = {
       "tedarikci_id": null,
       "olusturma": "2026-05-13",
       "gorseller": {
-        "cover": "",
+        "cover": "assets/products/CUGUMD000085.jpg",
         "gallery": [
-          "assets/products/kart-kabi-85-lutfen-duzenle-karisik-gumus-g1.jpg"
+          "assets/products/CUGUMD000085-g1.jpg"
         ]
       },
       "cinsiyet": "ERKEK",
@@ -4859,21 +4689,19 @@ window.__BOTL_DATA__ = {
       "ic_astar_malzeme": "Deri"
     },
     {
-      "variation_id": "FR-00096-KARISIK-STANDART-GUMUS",
-      "sku": "FR-00096",
+      "variation_id": "CUCOMD000086",
+      "sku": "CUCOMD000086",
       "no": null,
-      "slug": "coach-bifold-cuzdan-bej-gumus-fr-00096",
-      "cover": "",
+      "cover": "assets/products/CUCOMD000086.jpg",
       "isim_resmi": "Coach Mekanizmalı Dikey Cüzdan Bej Monogram",
       "isim_bilinen": "Coach Mekanizmalı Dikey Cüzdan Bej Signature",
       "marka": "Coach",
-      "kategori": "Bifold Cüzdan",
+      "kategori": "Mekanizmalı Dikey Cüzdan",
       "kategori_ust": "Cüzdan",
-      "kategori_alt": "Bifold Cüzdan",
+      "kategori_alt": "Mekanizmalı Dikey Cüzdan",
       "renk": "BEJ",
       "ana_renk": "Bej",
       "ana_renk_hex": "#d8c3a3",
-      "renk_slug": "bej",
       "renk_hex": "#d8c3a3",
       "ikincil_renk": "",
       "ikincil_renk_code": "",
@@ -4899,9 +4727,9 @@ window.__BOTL_DATA__ = {
       "tedarikci_id": null,
       "olusturma": "2026-05-13",
       "gorseller": {
-        "cover": "",
+        "cover": "assets/products/CUCOMD000086.jpg",
         "gallery": [
-          "assets/products/kart-kabi-86-lutfen-duzenle-karisik-gumus-g1.jpg"
+          "assets/products/CUCOMD000086-g1.jpg"
         ]
       },
       "cinsiyet": "ERKEK",
@@ -4916,21 +4744,19 @@ window.__BOTL_DATA__ = {
       "ic_astar_malzeme": "Deri"
     },
     {
-      "variation_id": "FR-00097-KARISIK-STANDART-GUMUS",
-      "sku": "FR-00097",
+      "variation_id": "CUGEAN000087",
+      "sku": "CUGEAN000087",
       "no": null,
-      "slug": "guess-bozukluk-cuzdani-mavi-gumus-fr-00097",
-      "cover": "",
+      "cover": "assets/products/CUGEAN000087.jpg",
       "isim_resmi": "Guess Anahtarlıklı Cüzdan Mavi Monogram",
       "isim_bilinen": "Guess Anahtarlıklı Mini Cüzdan Mavi Denim 4G Monogram",
       "marka": "Guess",
-      "kategori": "Bozukluk Cüzdanı",
+      "kategori": "Anahtarlıklı Cüzdan",
       "kategori_ust": "Cüzdan",
-      "kategori_alt": "Bozukluk Cüzdanı",
+      "kategori_alt": "Anahtarlıklı Cüzdan",
       "renk": "MAVI",
       "ana_renk": "Mavi",
       "ana_renk_hex": "#2d3e58",
-      "renk_slug": "mavi",
       "renk_hex": "#2d3e58",
       "ikincil_renk": "",
       "ikincil_renk_code": "",
@@ -4956,9 +4782,9 @@ window.__BOTL_DATA__ = {
       "tedarikci_id": null,
       "olusturma": "2026-05-13",
       "gorseller": {
-        "cover": "",
+        "cover": "assets/products/CUGEAN000087.jpg",
         "gallery": [
-          "assets/products/kart-kabi-87-lutfen-duzenle-karisik-gumus-g1.jpg"
+          "assets/products/CUGEAN000087-g1.jpg"
         ]
       },
       "cinsiyet": "KADIN",
@@ -4974,21 +4800,19 @@ window.__BOTL_DATA__ = {
       "ic_astar_malzeme": "Deri"
     },
     {
-      "variation_id": "FR-00098-KARISIK-STANDART-GUMUS",
-      "sku": "FR-00098",
+      "variation_id": "CULVMY000088",
+      "sku": "CULVMY000088",
       "no": null,
-      "slug": "lv-bifold-cuzdan-kahve-gumus-fr-00098",
-      "cover": "",
+      "cover": "assets/products/CULVMY000088.jpg",
       "isim_resmi": "LV Mekanizmalı Yatay Cüzdan Kahve Damier",
       "isim_bilinen": "LV Klasik Cüzdan Kahve Damier Ebene",
       "marka": "Louis Vuitton",
-      "kategori": "Bifold Cüzdan",
+      "kategori": "Klasik Cüzdan",
       "kategori_ust": "Cüzdan",
-      "kategori_alt": "Bifold Cüzdan",
+      "kategori_alt": "Klasik Cüzdan",
       "renk": "KAHVE",
       "ana_renk": "Kahve",
       "ana_renk_hex": "#5a3a25",
-      "renk_slug": "kahve",
       "renk_hex": "#5a3a25",
       "ikincil_renk": "",
       "ikincil_renk_code": "",
@@ -5014,9 +4838,9 @@ window.__BOTL_DATA__ = {
       "tedarikci_id": null,
       "olusturma": "2026-05-13",
       "gorseller": {
-        "cover": "",
+        "cover": "assets/products/CULVMY000088.jpg",
         "gallery": [
-          "assets/products/kart-kabi-88-lutfen-duzenle-karisik-gumus-g1.jpg"
+          "assets/products/CULVMY000088-g1.jpg"
         ]
       },
       "cinsiyet": "KADIN",
@@ -5031,21 +4855,19 @@ window.__BOTL_DATA__ = {
       "ic_astar_malzeme": "Deri"
     },
     {
-      "variation_id": "FR-00099-KARISIK-STANDART-GUMUS",
-      "sku": "FR-00099",
+      "variation_id": "CUCOMD000089",
+      "sku": "CUCOMD000089",
       "no": null,
-      "slug": "coach-bifold-cuzdan-kahve-gumus-fr-00099",
-      "cover": "",
+      "cover": "assets/products/CUCOMD000089.jpg",
       "isim_resmi": "Coach Mekanizmalı Dikey Cüzdan Kahve Monogram",
       "isim_bilinen": "Coach Mekanizmalı Dikey Cüzdan Kahve Signature",
       "marka": "Coach",
-      "kategori": "Bifold Cüzdan",
+      "kategori": "Mekanizmalı Dikey Cüzdan",
       "kategori_ust": "Cüzdan",
-      "kategori_alt": "Bifold Cüzdan",
+      "kategori_alt": "Mekanizmalı Dikey Cüzdan",
       "renk": "KAHVE",
       "ana_renk": "Kahve",
       "ana_renk_hex": "#5a3a25",
-      "renk_slug": "kahve",
       "renk_hex": "#5a3a25",
       "ikincil_renk": "",
       "ikincil_renk_code": "",
@@ -5071,9 +4893,9 @@ window.__BOTL_DATA__ = {
       "tedarikci_id": null,
       "olusturma": "2026-05-13",
       "gorseller": {
-        "cover": "",
+        "cover": "assets/products/CUCOMD000089.jpg",
         "gallery": [
-          "assets/products/kart-kabi-89-lutfen-duzenle-karisik-gumus-g1.jpg"
+          "assets/products/CUCOMD000089-g1.jpg"
         ]
       },
       "cinsiyet": "ERKEK",
@@ -5088,21 +4910,19 @@ window.__BOTL_DATA__ = {
       "ic_astar_malzeme": "Deri"
     },
     {
-      "variation_id": "FR-00100-KARISIK-STANDART-GUMUS",
-      "sku": "FR-00100",
+      "variation_id": "CUCOMD000090",
+      "sku": "CUCOMD000090",
       "no": null,
-      "slug": "coach-bifold-cuzdan-siyah-gumus-fr-00100",
-      "cover": "",
+      "cover": "assets/products/CUCOMD000090.jpg",
       "isim_resmi": "Coach Mekanizmalı Dikey Cüzdan Siyah Monogram",
       "isim_bilinen": "Coach Mekanizmalı Dikey Cüzdan Siyah Signature",
       "marka": "Coach",
-      "kategori": "Bifold Cüzdan",
+      "kategori": "Mekanizmalı Dikey Cüzdan",
       "kategori_ust": "Cüzdan",
-      "kategori_alt": "Bifold Cüzdan",
+      "kategori_alt": "Mekanizmalı Dikey Cüzdan",
       "renk": "SIYAH",
       "ana_renk": "Siyah",
       "ana_renk_hex": "#1a1a1a",
-      "renk_slug": "siyah",
       "renk_hex": "#1a1a1a",
       "ikincil_renk": "",
       "ikincil_renk_code": "",
@@ -5128,9 +4948,9 @@ window.__BOTL_DATA__ = {
       "tedarikci_id": null,
       "olusturma": "2026-05-13",
       "gorseller": {
-        "cover": "",
+        "cover": "assets/products/CUCOMD000090.jpg",
         "gallery": [
-          "assets/products/kart-kabi-90-lutfen-duzenle-karisik-gumus-g1.jpg"
+          "assets/products/CUCOMD000090-g1.jpg"
         ]
       },
       "cinsiyet": "ERKEK",
@@ -5145,21 +4965,19 @@ window.__BOTL_DATA__ = {
       "ic_astar_malzeme": "Deri"
     },
     {
-      "variation_id": "FR-00101-KARISIK-STANDART-GUMUS",
-      "sku": "FR-00101",
+      "variation_id": "CULVMY000091",
+      "sku": "CULVMY000091",
       "no": null,
-      "slug": "lv-bifold-cuzdan-siyah-gumus-fr-00101",
-      "cover": "",
+      "cover": "assets/products/CULVMY000091.jpg",
       "isim_resmi": "LV Mekanizmalı Yatay Cüzdan Siyah Damier",
       "isim_bilinen": "LV Klasik Cüzdan Siyah Damier Graphite",
       "marka": "Louis Vuitton",
-      "kategori": "Bifold Cüzdan",
+      "kategori": "Klasik Cüzdan",
       "kategori_ust": "Cüzdan",
-      "kategori_alt": "Bifold Cüzdan",
+      "kategori_alt": "Klasik Cüzdan",
       "renk": "SIYAH",
       "ana_renk": "Siyah",
       "ana_renk_hex": "#1a1a1a",
-      "renk_slug": "siyah",
       "renk_hex": "#1a1a1a",
       "ikincil_renk": "",
       "ikincil_renk_code": "",
@@ -5185,9 +5003,9 @@ window.__BOTL_DATA__ = {
       "tedarikci_id": null,
       "olusturma": "2026-05-13",
       "gorseller": {
-        "cover": "",
+        "cover": "assets/products/CULVMY000091.jpg",
         "gallery": [
-          "assets/products/kart-kabi-91-lutfen-duzenle-karisik-gumus-g1.jpg"
+          "assets/products/CULVMY000091-g1.jpg"
         ]
       },
       "cinsiyet": "KADIN",
@@ -5202,21 +5020,19 @@ window.__BOTL_DATA__ = {
       "ic_astar_malzeme": "Deri"
     },
     {
-      "variation_id": "FR-00102-KARISIK-STANDART-GUMUS",
-      "sku": "FR-00102",
+      "variation_id": "CUHUMD000092",
+      "sku": "CUHUMD000092",
       "no": null,
-      "slug": "hugo-boss-bifold-cuzdan-siyah-gumus-fr-00102",
-      "cover": "",
+      "cover": "assets/products/CUHUMD000092.jpg",
       "isim_resmi": "Hugo Boss Mekanizmalı Dikey Cüzdan Siyah",
       "isim_bilinen": "Hugo Boss Mekanizmalı Dikey Cüzdan Siyah",
       "marka": "Hugo Boss",
-      "kategori": "Bifold Cüzdan",
+      "kategori": "Mekanizmalı Dikey Cüzdan",
       "kategori_ust": "Cüzdan",
-      "kategori_alt": "Bifold Cüzdan",
+      "kategori_alt": "Mekanizmalı Dikey Cüzdan",
       "renk": "SIYAH",
       "ana_renk": "Siyah",
       "ana_renk_hex": "#1a1a1a",
-      "renk_slug": "siyah",
       "renk_hex": "#1a1a1a",
       "ikincil_renk": "",
       "ikincil_renk_code": "",
@@ -5242,9 +5058,9 @@ window.__BOTL_DATA__ = {
       "tedarikci_id": null,
       "olusturma": "2026-05-13",
       "gorseller": {
-        "cover": "",
+        "cover": "assets/products/CUHUMD000092.jpg",
         "gallery": [
-          "assets/products/kart-kabi-92-lutfen-duzenle-karisik-gumus-g1.jpg"
+          "assets/products/CUHUMD000092-g1.jpg"
         ]
       },
       "cinsiyet": "ERKEK",
@@ -5259,21 +5075,19 @@ window.__BOTL_DATA__ = {
       "ic_astar_malzeme": "Deri"
     },
     {
-      "variation_id": "FR-00103-KARISIK-STANDART-GUMUS",
-      "sku": "FR-00103",
+      "variation_id": "CUGEAN000093",
+      "sku": "CUGEAN000093",
       "no": null,
-      "slug": "guess-bozukluk-cuzdani-siyah-gumus-fr-00103",
-      "cover": "",
+      "cover": "assets/products/CUGEAN000093.jpg",
       "isim_resmi": "Guess Anahtarlıklı Cüzdan Siyah Monogram",
       "isim_bilinen": "Guess Anahtarlıklı Mini Cüzdan Siyah Embossed 4G",
       "marka": "Guess",
-      "kategori": "Bozukluk Cüzdanı",
+      "kategori": "Anahtarlıklı Cüzdan",
       "kategori_ust": "Cüzdan",
-      "kategori_alt": "Bozukluk Cüzdanı",
+      "kategori_alt": "Anahtarlıklı Cüzdan",
       "renk": "SIYAH",
       "ana_renk": "Siyah",
       "ana_renk_hex": "#1a1a1a",
-      "renk_slug": "siyah",
       "renk_hex": "#1a1a1a",
       "ikincil_renk": "",
       "ikincil_renk_code": "",
@@ -5299,9 +5113,9 @@ window.__BOTL_DATA__ = {
       "tedarikci_id": null,
       "olusturma": "2026-05-13",
       "gorseller": {
-        "cover": "",
+        "cover": "assets/products/CUGEAN000093.jpg",
         "gallery": [
-          "assets/products/kart-kabi-93-lutfen-duzenle-karisik-gumus-g1.jpg"
+          "assets/products/CUGEAN000093-g1.jpg"
         ]
       },
       "cinsiyet": "KADIN",
@@ -5317,21 +5131,19 @@ window.__BOTL_DATA__ = {
       "ic_astar_malzeme": "Deri"
     },
     {
-      "variation_id": "FR-00104-KARISIK-STANDART-GUMUS",
-      "sku": "FR-00104",
+      "variation_id": "CUGUMD000094",
+      "sku": "CUGUMD000094",
       "no": null,
-      "slug": "gucci-bifold-cuzdan-siyah-gumus-fr-00104",
-      "cover": "",
+      "cover": "assets/products/CUGUMD000094.jpg",
       "isim_resmi": "Gucci Mekanizmalı Dikey Cüzdan Siyah Monogram",
       "isim_bilinen": "Gucci Mekanizmalı Dikey Cüzdan Siyah Embossed GG",
       "marka": "Gucci",
-      "kategori": "Bifold Cüzdan",
+      "kategori": "Mekanizmalı Dikey Cüzdan",
       "kategori_ust": "Cüzdan",
-      "kategori_alt": "Bifold Cüzdan",
+      "kategori_alt": "Mekanizmalı Dikey Cüzdan",
       "renk": "SIYAH",
       "ana_renk": "Siyah",
       "ana_renk_hex": "#1a1a1a",
-      "renk_slug": "siyah",
       "renk_hex": "#1a1a1a",
       "ikincil_renk": "",
       "ikincil_renk_code": "",
@@ -5357,9 +5169,9 @@ window.__BOTL_DATA__ = {
       "tedarikci_id": null,
       "olusturma": "2026-05-13",
       "gorseller": {
-        "cover": "",
+        "cover": "assets/products/CUGUMD000094.jpg",
         "gallery": [
-          "assets/products/kart-kabi-94-lutfen-duzenle-karisik-gumus-g1.jpg"
+          "assets/products/CUGUMD000094-g1.jpg"
         ]
       },
       "cinsiyet": "ERKEK",
@@ -5374,21 +5186,19 @@ window.__BOTL_DATA__ = {
       "ic_astar_malzeme": "Deri"
     },
     {
-      "variation_id": "FR-00105-KARISIK-STANDART-GUMUS",
-      "sku": "FR-00105",
+      "variation_id": "CULVAN000095",
+      "sku": "CULVAN000095",
       "no": null,
-      "slug": "lv-bozukluk-cuzdani-beyaz-gumus-fr-00105",
-      "cover": "",
+      "cover": "assets/products/CULVAN000095.jpg",
       "isim_resmi": "LV Anahtarlıklı Cüzdan Beyaz Damier",
       "isim_bilinen": "LV Anahtarlıklı Mini Cüzdan Beyaz Damier Azur",
       "marka": "Louis Vuitton",
-      "kategori": "Bozukluk Cüzdanı",
+      "kategori": "Anahtarlıklı Cüzdan",
       "kategori_ust": "Cüzdan",
-      "kategori_alt": "Bozukluk Cüzdanı",
+      "kategori_alt": "Anahtarlıklı Cüzdan",
       "renk": "BEYAZ",
       "ana_renk": "Beyaz",
       "ana_renk_hex": "#f5f1ea",
-      "renk_slug": "beyaz",
       "renk_hex": "#f5f1ea",
       "ikincil_renk": "",
       "ikincil_renk_code": "",
@@ -5414,9 +5224,9 @@ window.__BOTL_DATA__ = {
       "tedarikci_id": null,
       "olusturma": "2026-05-13",
       "gorseller": {
-        "cover": "",
+        "cover": "assets/products/CULVAN000095.jpg",
         "gallery": [
-          "assets/products/kart-kabi-95-lutfen-duzenle-karisik-gumus-g1.jpg"
+          "assets/products/CULVAN000095-g1.jpg"
         ]
       },
       "cinsiyet": "KADIN",
@@ -5432,21 +5242,19 @@ window.__BOTL_DATA__ = {
       "ic_astar_malzeme": "Deri"
     },
     {
-      "variation_id": "FR-00106-KARISIK-STANDART-GUMUS",
-      "sku": "FR-00106",
+      "variation_id": "CULVMY000096",
+      "sku": "CULVMY000096",
       "no": null,
-      "slug": "lv-bifold-cuzdan-kahve-gumus-fr-00106",
-      "cover": "",
+      "cover": "assets/products/CULVMY000096.jpg",
       "isim_resmi": "LV Mekanizmalı Yatay Cüzdan Kahve Monogram",
       "isim_bilinen": "LV Mekanizmalı Yatay Cüzdan Kahve Monogram",
       "marka": "Louis Vuitton",
-      "kategori": "Bifold Cüzdan",
+      "kategori": "Mekanizmalı Yatay Cüzdan",
       "kategori_ust": "Cüzdan",
-      "kategori_alt": "Bifold Cüzdan",
+      "kategori_alt": "Mekanizmalı Yatay Cüzdan",
       "renk": "KAHVE",
       "ana_renk": "Kahve",
       "ana_renk_hex": "#5a3a25",
-      "renk_slug": "kahve",
       "renk_hex": "#5a3a25",
       "ikincil_renk": "",
       "ikincil_renk_code": "",
@@ -5472,9 +5280,9 @@ window.__BOTL_DATA__ = {
       "tedarikci_id": null,
       "olusturma": "2026-05-13",
       "gorseller": {
-        "cover": "",
+        "cover": "assets/products/CULVMY000096.jpg",
         "gallery": [
-          "assets/products/kart-kabi-96-lutfen-duzenle-karisik-gumus-g1.jpg"
+          "assets/products/CULVMY000096-g1.jpg"
         ]
       },
       "cinsiyet": "KADIN",
@@ -5489,21 +5297,19 @@ window.__BOTL_DATA__ = {
       "ic_astar_malzeme": "Deri"
     },
     {
-      "variation_id": "FR-00107-KARISIK-STANDART-GUMUS",
-      "sku": "FR-00107",
+      "variation_id": "CUGUMD000097",
+      "sku": "CUGUMD000097",
       "no": null,
-      "slug": "gucci-bifold-cuzdan-bej-gumus-fr-00107",
-      "cover": "",
+      "cover": "assets/products/CUGUMD000097.jpg",
       "isim_resmi": "Gucci Mekanizmalı Dikey Cüzdan Bej Monogram",
       "isim_bilinen": "Gucci Mekanizmalı Dikey Cüzdan Bej GG Monogram",
       "marka": "Gucci",
-      "kategori": "Bifold Cüzdan",
+      "kategori": "Mekanizmalı Dikey Cüzdan",
       "kategori_ust": "Cüzdan",
-      "kategori_alt": "Bifold Cüzdan",
+      "kategori_alt": "Mekanizmalı Dikey Cüzdan",
       "renk": "BEJ",
       "ana_renk": "Bej",
       "ana_renk_hex": "#d8c3a3",
-      "renk_slug": "bej",
       "renk_hex": "#d8c3a3",
       "ikincil_renk": "",
       "ikincil_renk_code": "",
@@ -5529,9 +5335,9 @@ window.__BOTL_DATA__ = {
       "tedarikci_id": null,
       "olusturma": "2026-05-13",
       "gorseller": {
-        "cover": "",
+        "cover": "assets/products/CUGUMD000097.jpg",
         "gallery": [
-          "assets/products/kart-kabi-97-lutfen-duzenle-karisik-gumus-g1.jpg"
+          "assets/products/CUGUMD000097-g1.jpg"
         ]
       },
       "cinsiyet": "ERKEK",
@@ -5546,21 +5352,19 @@ window.__BOTL_DATA__ = {
       "ic_astar_malzeme": "Deri"
     },
     {
-      "variation_id": "FR-00108-KARISIK-STANDART-GUMUS",
-      "sku": "FR-00108",
+      "variation_id": "CUCOMD000098",
+      "sku": "CUCOMD000098",
       "no": null,
-      "slug": "coach-bifold-cuzdan-acik-gri-gumus-fr-00108",
-      "cover": "",
+      "cover": "assets/products/CUCOMD000098.jpg",
       "isim_resmi": "Coach Mekanizmalı Dikey Cüzdan Açık Gri Monogram",
       "isim_bilinen": "Coach Mekanizmalı Dikey Cüzdan Açık Gri Signature",
       "marka": "Coach",
-      "kategori": "Bifold Cüzdan",
+      "kategori": "Mekanizmalı Dikey Cüzdan",
       "kategori_ust": "Cüzdan",
-      "kategori_alt": "Bifold Cüzdan",
+      "kategori_alt": "Mekanizmalı Dikey Cüzdan",
       "renk": "ACIK GRI",
       "ana_renk": "Açık Gri",
       "ana_renk_hex": "#b8b8b8",
-      "renk_slug": "acik-gri",
       "renk_hex": "#b8b8b8",
       "ikincil_renk": "",
       "ikincil_renk_code": "",
@@ -5586,9 +5390,9 @@ window.__BOTL_DATA__ = {
       "tedarikci_id": null,
       "olusturma": "2026-05-13",
       "gorseller": {
-        "cover": "",
+        "cover": "assets/products/CUCOMD000098.jpg",
         "gallery": [
-          "assets/products/kart-kabi-98-lutfen-duzenle-karisik-gumus-g1.jpg"
+          "assets/products/CUCOMD000098-g1.jpg"
         ]
       },
       "cinsiyet": "ERKEK",
@@ -5603,21 +5407,19 @@ window.__BOTL_DATA__ = {
       "ic_astar_malzeme": "Deri"
     },
     {
-      "variation_id": "FR-00109-KARISIK-STANDART-GUMUS",
-      "sku": "FR-00109",
+      "variation_id": "CULVMY000099",
+      "sku": "CULVMY000099",
       "no": null,
-      "slug": "lv-bifold-cuzdan-siyah-gumus-fr-00109",
-      "cover": "",
+      "cover": "assets/products/CULVMY000099.jpg",
       "isim_resmi": "LV Mekanizmalı Yatay Cüzdan Siyah Monogram",
       "isim_bilinen": "LV Klasik Cüzdan Siyah Embossed Monogram",
       "marka": "Louis Vuitton",
-      "kategori": "Bifold Cüzdan",
+      "kategori": "Klasik Cüzdan",
       "kategori_ust": "Cüzdan",
-      "kategori_alt": "Bifold Cüzdan",
+      "kategori_alt": "Klasik Cüzdan",
       "renk": "SIYAH",
       "ana_renk": "Siyah",
       "ana_renk_hex": "#1a1a1a",
-      "renk_slug": "siyah",
       "renk_hex": "#1a1a1a",
       "ikincil_renk": "",
       "ikincil_renk_code": "",
@@ -5643,9 +5445,9 @@ window.__BOTL_DATA__ = {
       "tedarikci_id": null,
       "olusturma": "2026-05-13",
       "gorseller": {
-        "cover": "",
+        "cover": "assets/products/CULVMY000099.jpg",
         "gallery": [
-          "assets/products/kart-kabi-99-lutfen-duzenle-karisik-gumus-g1.jpg"
+          "assets/products/CULVMY000099-g1.jpg"
         ]
       },
       "cinsiyet": "KADIN",
@@ -5660,21 +5462,19 @@ window.__BOTL_DATA__ = {
       "ic_astar_malzeme": "Deri"
     },
     {
-      "variation_id": "FR-00110-KARISIK-STANDART-GUMUS",
-      "sku": "FR-00110",
+      "variation_id": "CULVMD000100",
+      "sku": "CULVMD000100",
       "no": null,
-      "slug": "lv-bifold-cuzdan-koyu-gri-gumus-fr-00110",
-      "cover": "",
+      "cover": "assets/products/CULVMD000100.jpg",
       "isim_resmi": "LV Mekanizmalı Dikey Cüzdan Koyu Gri Monogram",
       "isim_bilinen": "LV Mekanizmalı Dikey Cüzdan Koyu Gri Denim Monogram",
       "marka": "Louis Vuitton",
-      "kategori": "Bifold Cüzdan",
+      "kategori": "Mekanizmalı Dikey Cüzdan",
       "kategori_ust": "Cüzdan",
-      "kategori_alt": "Bifold Cüzdan",
+      "kategori_alt": "Mekanizmalı Dikey Cüzdan",
       "renk": "KOYU GRI",
       "ana_renk": "Koyu Gri",
       "ana_renk_hex": "#4a4a4a",
-      "renk_slug": "koyu-gri",
       "renk_hex": "#4a4a4a",
       "ikincil_renk": "",
       "ikincil_renk_code": "",
@@ -5700,9 +5500,9 @@ window.__BOTL_DATA__ = {
       "tedarikci_id": null,
       "olusturma": "2026-05-13",
       "gorseller": {
-        "cover": "",
+        "cover": "assets/products/CULVMD000100.jpg",
         "gallery": [
-          "assets/products/kart-kabi-100-lutfen-duzenle-karisik-gumus-g1.jpg"
+          "assets/products/CULVMD000100-g1.jpg"
         ]
       },
       "cinsiyet": "ERKEK",
@@ -5717,21 +5517,19 @@ window.__BOTL_DATA__ = {
       "ic_astar_malzeme": "Deri"
     },
     {
-      "variation_id": "FR-00111-KARISIK-STANDART-GUMUS",
-      "sku": "FR-00111",
+      "variation_id": "CULVMD000101",
+      "sku": "CULVMD000101",
       "no": null,
-      "slug": "lv-bifold-cuzdan-kahve-gumus-fr-00111",
-      "cover": "",
+      "cover": "assets/products/CULVMD000101.jpg",
       "isim_resmi": "LV Mekanizmalı Dikey Cüzdan Kahve Monogram",
       "isim_bilinen": "LV Mekanizmalı Dikey Cüzdan Kahve Monogram",
       "marka": "Louis Vuitton",
-      "kategori": "Bifold Cüzdan",
+      "kategori": "Mekanizmalı Dikey Cüzdan",
       "kategori_ust": "Cüzdan",
-      "kategori_alt": "Bifold Cüzdan",
+      "kategori_alt": "Mekanizmalı Dikey Cüzdan",
       "renk": "KAHVE",
       "ana_renk": "Kahve",
       "ana_renk_hex": "#5a3a25",
-      "renk_slug": "kahve",
       "renk_hex": "#5a3a25",
       "ikincil_renk": "",
       "ikincil_renk_code": "",
@@ -5757,9 +5555,9 @@ window.__BOTL_DATA__ = {
       "tedarikci_id": null,
       "olusturma": "2026-05-13",
       "gorseller": {
-        "cover": "",
+        "cover": "assets/products/CULVMD000101.jpg",
         "gallery": [
-          "assets/products/kart-kabi-101-lutfen-duzenle-karisik-gumus-g1.jpg"
+          "assets/products/CULVMD000101-g1.jpg"
         ]
       },
       "cinsiyet": "ERKEK",
@@ -5774,21 +5572,19 @@ window.__BOTL_DATA__ = {
       "ic_astar_malzeme": "Deri"
     },
     {
-      "variation_id": "FR-00112-KARISIK-STANDART-GUMUS",
-      "sku": "FR-00112",
+      "variation_id": "CUMCAN000102",
+      "sku": "CUMCAN000102",
       "no": null,
-      "slug": "mcm-bozukluk-cuzdani-kahve-gumus-fr-00112",
-      "cover": "",
+      "cover": "assets/products/CUMCAN000102.jpg",
       "isim_resmi": "MCM Anahtarlıklı Cüzdan Kahve Monogram",
       "isim_bilinen": "MCM Anahtarlıklı Mini Cüzdan Kahve Visetos",
       "marka": "MCM",
-      "kategori": "Bozukluk Cüzdanı",
+      "kategori": "Anahtarlıklı Cüzdan",
       "kategori_ust": "Cüzdan",
-      "kategori_alt": "Bozukluk Cüzdanı",
+      "kategori_alt": "Anahtarlıklı Cüzdan",
       "renk": "KAHVE",
       "ana_renk": "Kahve",
       "ana_renk_hex": "#5a3a25",
-      "renk_slug": "kahve",
       "renk_hex": "#5a3a25",
       "ikincil_renk": "",
       "ikincil_renk_code": "",
@@ -5814,9 +5610,9 @@ window.__BOTL_DATA__ = {
       "tedarikci_id": null,
       "olusturma": "2026-05-13",
       "gorseller": {
-        "cover": "",
+        "cover": "assets/products/CUMCAN000102.jpg",
         "gallery": [
-          "assets/products/kart-kabi-102-lutfen-duzenle-karisik-gumus-g1.jpg"
+          "assets/products/CUMCAN000102-g1.jpg"
         ]
       },
       "cinsiyet": "KADIN",
@@ -5832,21 +5628,19 @@ window.__BOTL_DATA__ = {
       "ic_astar_malzeme": "Deri"
     },
     {
-      "variation_id": "FR-00113-KARISIK-STANDART-GUMUS",
-      "sku": "FR-00113",
+      "variation_id": "CULVMY000103",
+      "sku": "CULVMY000103",
       "no": null,
-      "slug": "lv-bifold-cuzdan-kahve-gumus-fr-00113",
-      "cover": "",
+      "cover": "assets/products/CULVMY000103.jpg",
       "isim_resmi": "LV Mekanizmalı Yatay Cüzdan Kahve Damier",
       "isim_bilinen": "LV Mekanizmalı Yatay Cüzdan Kahve Damier Ebene",
       "marka": "Louis Vuitton",
-      "kategori": "Bifold Cüzdan",
+      "kategori": "Mekanizmalı Yatay Cüzdan",
       "kategori_ust": "Cüzdan",
-      "kategori_alt": "Bifold Cüzdan",
+      "kategori_alt": "Mekanizmalı Yatay Cüzdan",
       "renk": "KAHVE",
       "ana_renk": "Kahve",
       "ana_renk_hex": "#5a3a25",
-      "renk_slug": "kahve",
       "renk_hex": "#5a3a25",
       "ikincil_renk": "",
       "ikincil_renk_code": "",
@@ -5872,9 +5666,9 @@ window.__BOTL_DATA__ = {
       "tedarikci_id": null,
       "olusturma": "2026-05-13",
       "gorseller": {
-        "cover": "",
+        "cover": "assets/products/CULVMY000103.jpg",
         "gallery": [
-          "assets/products/kart-kabi-103-lutfen-duzenle-karisik-gumus-g1.jpg"
+          "assets/products/CULVMY000103-g1.jpg"
         ]
       },
       "cinsiyet": "KADIN",
@@ -5889,21 +5683,19 @@ window.__BOTL_DATA__ = {
       "ic_astar_malzeme": "Deri"
     },
     {
-      "variation_id": "FR-00114-KARISIK-STANDART-GUMUS",
-      "sku": "FR-00114",
+      "variation_id": "CUARMY000104",
+      "sku": "CUARMY000104",
       "no": null,
-      "slug": "armani-bifold-cuzdan-siyah-gumus-fr-00114",
-      "cover": "",
+      "cover": "assets/products/CUARMY000104.jpg",
       "isim_resmi": "Armani Mekanizmalı Yatay Cüzdan Siyah Monogram",
       "isim_bilinen": "Armani Mekanizmalı Yatay Cüzdan Siyah Embossed",
       "marka": "Giorgio Armani",
-      "kategori": "Bifold Cüzdan",
+      "kategori": "Mekanizmalı Yatay Cüzdan",
       "kategori_ust": "Cüzdan",
-      "kategori_alt": "Bifold Cüzdan",
+      "kategori_alt": "Mekanizmalı Yatay Cüzdan",
       "renk": "SIYAH",
       "ana_renk": "Siyah",
       "ana_renk_hex": "#1a1a1a",
-      "renk_slug": "siyah",
       "renk_hex": "#1a1a1a",
       "ikincil_renk": "",
       "ikincil_renk_code": "",
@@ -5929,9 +5721,9 @@ window.__BOTL_DATA__ = {
       "tedarikci_id": null,
       "olusturma": "2026-05-13",
       "gorseller": {
-        "cover": "",
+        "cover": "assets/products/CUARMY000104.jpg",
         "gallery": [
-          "assets/products/kart-kabi-104-lutfen-duzenle-karisik-gumus-g1.jpg"
+          "assets/products/CUARMY000104-g1.jpg"
         ]
       },
       "cinsiyet": "ERKEK",
@@ -5946,21 +5738,19 @@ window.__BOTL_DATA__ = {
       "ic_astar_malzeme": "Deri"
     },
     {
-      "variation_id": "FR-00115-KARISIK-STANDART-GUMUS",
-      "sku": "FR-00115",
+      "variation_id": "CUCOMY000105",
+      "sku": "CUCOMY000105",
       "no": null,
-      "slug": "coach-bifold-cuzdan-bej-gumus-fr-00115",
-      "cover": "",
+      "cover": "assets/products/CUCOMY000105.jpg",
       "isim_resmi": "Coach Mekanizmalı Yatay Cüzdan Bej Monogram",
       "isim_bilinen": "Coach Mekanizmalı Yatay Cüzdan Bej Signature",
       "marka": "Coach",
-      "kategori": "Bifold Cüzdan",
+      "kategori": "Mekanizmalı Yatay Cüzdan",
       "kategori_ust": "Cüzdan",
-      "kategori_alt": "Bifold Cüzdan",
+      "kategori_alt": "Mekanizmalı Yatay Cüzdan",
       "renk": "BEJ",
       "ana_renk": "Bej",
       "ana_renk_hex": "#d8c3a3",
-      "renk_slug": "bej",
       "renk_hex": "#d8c3a3",
       "ikincil_renk": "",
       "ikincil_renk_code": "",
@@ -5986,9 +5776,9 @@ window.__BOTL_DATA__ = {
       "tedarikci_id": null,
       "olusturma": "2026-05-13",
       "gorseller": {
-        "cover": "",
+        "cover": "assets/products/CUCOMY000105.jpg",
         "gallery": [
-          "assets/products/kart-kabi-105-lutfen-duzenle-karisik-gumus-g1.jpg"
+          "assets/products/CUCOMY000105-g1.jpg"
         ]
       },
       "cinsiyet": "KADIN",
@@ -6003,21 +5793,19 @@ window.__BOTL_DATA__ = {
       "ic_astar_malzeme": "Deri"
     },
     {
-      "variation_id": "FR-00116-KARISIK-STANDART-GUMUS",
-      "sku": "FR-00116",
+      "variation_id": "CUCOMY000106",
+      "sku": "CUCOMY000106",
       "no": null,
-      "slug": "coach-bifold-cuzdan-gri-gumus-fr-00116",
-      "cover": "",
+      "cover": "assets/products/CUCOMY000106.jpg",
       "isim_resmi": "Coach Mekanizmalı Yatay Cüzdan Gri Monogram",
       "isim_bilinen": "Coach Mekanizmalı Yatay Cüzdan Gri Signature",
       "marka": "Coach",
-      "kategori": "Bifold Cüzdan",
+      "kategori": "Mekanizmalı Yatay Cüzdan",
       "kategori_ust": "Cüzdan",
-      "kategori_alt": "Bifold Cüzdan",
+      "kategori_alt": "Mekanizmalı Yatay Cüzdan",
       "renk": "GRI",
       "ana_renk": "Gri",
       "ana_renk_hex": "#7d7d7d",
-      "renk_slug": "gri",
       "renk_hex": "#7d7d7d",
       "ikincil_renk": "",
       "ikincil_renk_code": "",
@@ -6043,9 +5831,9 @@ window.__BOTL_DATA__ = {
       "tedarikci_id": null,
       "olusturma": "2026-05-13",
       "gorseller": {
-        "cover": "",
+        "cover": "assets/products/CUCOMY000106.jpg",
         "gallery": [
-          "assets/products/kart-kabi-106-lutfen-duzenle-karisik-gumus-g1.jpg"
+          "assets/products/CUCOMY000106-g1.jpg"
         ]
       },
       "cinsiyet": "KADIN",
@@ -6060,21 +5848,19 @@ window.__BOTL_DATA__ = {
       "ic_astar_malzeme": "Deri"
     },
     {
-      "variation_id": "FR-00117-KARISIK-STANDART-GUMUS",
-      "sku": "FR-00117",
+      "variation_id": "CULVMY000107",
+      "sku": "CULVMY000107",
       "no": null,
-      "slug": "lv-bifold-cuzdan-siyah-gumus-fr-00117",
-      "cover": "",
+      "cover": "assets/products/CULVMY000107.jpg",
       "isim_resmi": "LV Mekanizmalı Yatay Cüzdan Siyah Damier",
       "isim_bilinen": "LV Mekanizmalı Yatay Cüzdan Siyah Damier Graphite",
       "marka": "Louis Vuitton",
-      "kategori": "Bifold Cüzdan",
+      "kategori": "Mekanizmalı Yatay Cüzdan",
       "kategori_ust": "Cüzdan",
-      "kategori_alt": "Bifold Cüzdan",
+      "kategori_alt": "Mekanizmalı Yatay Cüzdan",
       "renk": "SIYAH",
       "ana_renk": "Siyah",
       "ana_renk_hex": "#1a1a1a",
-      "renk_slug": "siyah",
       "renk_hex": "#1a1a1a",
       "ikincil_renk": "",
       "ikincil_renk_code": "",
@@ -6100,9 +5886,9 @@ window.__BOTL_DATA__ = {
       "tedarikci_id": null,
       "olusturma": "2026-05-13",
       "gorseller": {
-        "cover": "",
+        "cover": "assets/products/CULVMY000107.jpg",
         "gallery": [
-          "assets/products/kart-kabi-107-lutfen-duzenle-karisik-gumus-g1.jpg"
+          "assets/products/CULVMY000107-g1.jpg"
         ]
       },
       "cinsiyet": "KADIN",
@@ -6117,21 +5903,19 @@ window.__BOTL_DATA__ = {
       "ic_astar_malzeme": "Deri"
     },
     {
-      "variation_id": "FR-00118-KARISIK-STANDART-GUMUS",
-      "sku": "FR-00118",
+      "variation_id": "CULVMY000108",
+      "sku": "CULVMY000108",
       "no": null,
-      "slug": "lv-bifold-cuzdan-siyah-gumus-fr-00118",
-      "cover": "",
+      "cover": "assets/products/CULVMY000108.jpg",
       "isim_resmi": "LV Mekanizmalı Yatay Cüzdan Siyah Damier",
       "isim_bilinen": "LV Klasik Cüzdan Siyah Damier Graphite",
       "marka": "Louis Vuitton",
-      "kategori": "Bifold Cüzdan",
+      "kategori": "Klasik Cüzdan",
       "kategori_ust": "Cüzdan",
-      "kategori_alt": "Bifold Cüzdan",
+      "kategori_alt": "Klasik Cüzdan",
       "renk": "SIYAH",
       "ana_renk": "Siyah",
       "ana_renk_hex": "#1a1a1a",
-      "renk_slug": "siyah",
       "renk_hex": "#1a1a1a",
       "ikincil_renk": "",
       "ikincil_renk_code": "",
@@ -6157,9 +5941,9 @@ window.__BOTL_DATA__ = {
       "tedarikci_id": null,
       "olusturma": "2026-05-13",
       "gorseller": {
-        "cover": "",
+        "cover": "assets/products/CULVMY000108.jpg",
         "gallery": [
-          "assets/products/kart-kabi-108-lutfen-duzenle-karisik-gumus-g1.jpg"
+          "assets/products/CULVMY000108-g1.jpg"
         ]
       },
       "cinsiyet": "KADIN",
@@ -6174,21 +5958,19 @@ window.__BOTL_DATA__ = {
       "ic_astar_malzeme": "Deri"
     },
     {
-      "variation_id": "FR-00119-KARISIK-STANDART-GUMUS",
-      "sku": "FR-00119",
+      "variation_id": "CULVMY000109",
+      "sku": "CULVMY000109",
       "no": null,
-      "slug": "lv-bifold-cuzdan-kahve-gumus-fr-00119",
-      "cover": "",
+      "cover": "assets/products/CULVMY000109.jpg",
       "isim_resmi": "LV Mekanizmalı Yatay Cüzdan Kahve Damier",
       "isim_bilinen": "LV Mekanizmalı Yatay Cüzdan Kahve Damier Ebene",
       "marka": "Louis Vuitton",
-      "kategori": "Bifold Cüzdan",
+      "kategori": "Mekanizmalı Yatay Cüzdan",
       "kategori_ust": "Cüzdan",
-      "kategori_alt": "Bifold Cüzdan",
+      "kategori_alt": "Mekanizmalı Yatay Cüzdan",
       "renk": "KAHVE",
       "ana_renk": "Kahve",
       "ana_renk_hex": "#5a3a25",
-      "renk_slug": "kahve",
       "renk_hex": "#5a3a25",
       "ikincil_renk": "",
       "ikincil_renk_code": "",
@@ -6214,9 +5996,9 @@ window.__BOTL_DATA__ = {
       "tedarikci_id": null,
       "olusturma": "2026-05-13",
       "gorseller": {
-        "cover": "",
+        "cover": "assets/products/CULVMY000109.jpg",
         "gallery": [
-          "assets/products/kart-kabi-109-lutfen-duzenle-karisik-gumus-g1.jpg"
+          "assets/products/CULVMY000109-g1.jpg"
         ]
       },
       "cinsiyet": "KADIN",
@@ -6231,21 +6013,19 @@ window.__BOTL_DATA__ = {
       "ic_astar_malzeme": "Deri"
     },
     {
-      "variation_id": "FR-00120-KARISIK-STANDART-GUMUS",
-      "sku": "FR-00120",
+      "variation_id": "CULVMY000110",
+      "sku": "CULVMY000110",
       "no": null,
-      "slug": "lv-bifold-cuzdan-siyah-gumus-fr-00120",
-      "cover": "",
+      "cover": "assets/products/CULVMY000110.jpg",
       "isim_resmi": "LV Mekanizmalı Yatay Cüzdan Siyah Monogram",
       "isim_bilinen": "LV Mekanizmalı Yatay Cüzdan Siyah Monogram Eclipse",
       "marka": "Louis Vuitton",
-      "kategori": "Bifold Cüzdan",
+      "kategori": "Mekanizmalı Yatay Cüzdan",
       "kategori_ust": "Cüzdan",
-      "kategori_alt": "Bifold Cüzdan",
+      "kategori_alt": "Mekanizmalı Yatay Cüzdan",
       "renk": "SIYAH",
       "ana_renk": "Siyah",
       "ana_renk_hex": "#1a1a1a",
-      "renk_slug": "siyah",
       "renk_hex": "#1a1a1a",
       "ikincil_renk": "",
       "ikincil_renk_code": "",
@@ -6271,9 +6051,9 @@ window.__BOTL_DATA__ = {
       "tedarikci_id": null,
       "olusturma": "2026-05-13",
       "gorseller": {
-        "cover": "",
+        "cover": "assets/products/CULVMY000110.jpg",
         "gallery": [
-          "assets/products/kart-kabi-110-lutfen-duzenle-karisik-gumus-g1.jpg"
+          "assets/products/CULVMY000110-g1.jpg"
         ]
       },
       "cinsiyet": "KADIN",
@@ -6288,21 +6068,19 @@ window.__BOTL_DATA__ = {
       "ic_astar_malzeme": "Deri"
     },
     {
-      "variation_id": "FR-00121-KARISIK-STANDART-GUMUS",
-      "sku": "FR-00121",
+      "variation_id": "CULVAN000111",
+      "sku": "CULVAN000111",
       "no": null,
-      "slug": "lv-bozukluk-cuzdani-mavi-gumus-fr-00121",
-      "cover": "",
+      "cover": "assets/products/CULVAN000111.jpg",
       "isim_resmi": "LV Anahtarlıklı Cüzdan Mavi Monogram",
       "isim_bilinen": "LV Anahtarlıklı Mini Cüzdan Mavi Denim Monogram",
       "marka": "Louis Vuitton",
-      "kategori": "Bozukluk Cüzdanı",
+      "kategori": "Anahtarlıklı Cüzdan",
       "kategori_ust": "Cüzdan",
-      "kategori_alt": "Bozukluk Cüzdanı",
+      "kategori_alt": "Anahtarlıklı Cüzdan",
       "renk": "MAVI",
       "ana_renk": "Mavi",
       "ana_renk_hex": "#2d3e58",
-      "renk_slug": "mavi",
       "renk_hex": "#2d3e58",
       "ikincil_renk": "",
       "ikincil_renk_code": "",
@@ -6328,9 +6106,9 @@ window.__BOTL_DATA__ = {
       "tedarikci_id": null,
       "olusturma": "2026-05-13",
       "gorseller": {
-        "cover": "",
+        "cover": "assets/products/CULVAN000111.jpg",
         "gallery": [
-          "assets/products/kart-kabi-111-lutfen-duzenle-karisik-gumus-g1.jpg"
+          "assets/products/CULVAN000111-g1.jpg"
         ]
       },
       "cinsiyet": "KADIN",
@@ -6346,21 +6124,19 @@ window.__BOTL_DATA__ = {
       "ic_astar_malzeme": "Deri"
     },
     {
-      "variation_id": "FR-00122-KARISIK-STANDART-GUMUS",
-      "sku": "FR-00122",
+      "variation_id": "CUCOMD000112",
+      "sku": "CUCOMD000112",
       "no": null,
-      "slug": "coach-bifold-cuzdan-koyu-kahve-gumus-fr-00122",
-      "cover": "",
+      "cover": "assets/products/CUCOMD000112.jpg",
       "isim_resmi": "Coach Mekanizmalı Dikey Cüzdan Koyu Kahve Monogram",
       "isim_bilinen": "Coach Mekanizmalı Dikey Cüzdan Koyu Kahve Signature",
       "marka": "Coach",
-      "kategori": "Bifold Cüzdan",
+      "kategori": "Mekanizmalı Dikey Cüzdan",
       "kategori_ust": "Cüzdan",
-      "kategori_alt": "Bifold Cüzdan",
+      "kategori_alt": "Mekanizmalı Dikey Cüzdan",
       "renk": "KOYU KAHVE",
       "ana_renk": "Koyu Kahve",
       "ana_renk_hex": "#3d2817",
-      "renk_slug": "koyu-kahve",
       "renk_hex": "#3d2817",
       "ikincil_renk": "",
       "ikincil_renk_code": "",
@@ -6386,9 +6162,9 @@ window.__BOTL_DATA__ = {
       "tedarikci_id": null,
       "olusturma": "2026-05-13",
       "gorseller": {
-        "cover": "",
+        "cover": "assets/products/CUCOMD000112.jpg",
         "gallery": [
-          "assets/products/kart-kabi-112-lutfen-duzenle-karisik-gumus-g1.jpg"
+          "assets/products/CUCOMD000112-g1.jpg"
         ]
       },
       "cinsiyet": "ERKEK",
@@ -6403,21 +6179,19 @@ window.__BOTL_DATA__ = {
       "ic_astar_malzeme": "Deri"
     },
     {
-      "variation_id": "FR-00123-KARISIK-STANDART-GUMUS",
-      "sku": "FR-00123",
+      "variation_id": "CUCOMD000113",
+      "sku": "CUCOMD000113",
       "no": null,
-      "slug": "coach-bifold-cuzdan-siyah-gumus-fr-00123",
-      "cover": "",
+      "cover": "assets/products/CUCOMD000113.jpg",
       "isim_resmi": "Coach Mekanizmalı Dikey Cüzdan Siyah Monogram",
       "isim_bilinen": "Coach Mekanizmalı Dikey Cüzdan Siyah Signature",
       "marka": "Coach",
-      "kategori": "Bifold Cüzdan",
+      "kategori": "Mekanizmalı Dikey Cüzdan",
       "kategori_ust": "Cüzdan",
-      "kategori_alt": "Bifold Cüzdan",
+      "kategori_alt": "Mekanizmalı Dikey Cüzdan",
       "renk": "SIYAH",
       "ana_renk": "Siyah",
       "ana_renk_hex": "#1a1a1a",
-      "renk_slug": "siyah",
       "renk_hex": "#1a1a1a",
       "ikincil_renk": "",
       "ikincil_renk_code": "",
@@ -6443,9 +6217,9 @@ window.__BOTL_DATA__ = {
       "tedarikci_id": null,
       "olusturma": "2026-05-13",
       "gorseller": {
-        "cover": "",
+        "cover": "assets/products/CUCOMD000113.jpg",
         "gallery": [
-          "assets/products/kart-kabi-113-lutfen-duzenle-karisik-gumus-g1.jpg"
+          "assets/products/CUCOMD000113-g1.jpg"
         ]
       },
       "cinsiyet": "ERKEK",
@@ -6460,21 +6234,19 @@ window.__BOTL_DATA__ = {
       "ic_astar_malzeme": "Deri"
     },
     {
-      "variation_id": "FR-00124-KARISIK-STANDART-GUMUS",
-      "sku": "FR-00124",
+      "variation_id": "CUCOMD000114",
+      "sku": "CUCOMD000114",
       "no": null,
-      "slug": "coach-bifold-cuzdan-beyaz-gumus-fr-00124",
-      "cover": "",
+      "cover": "assets/products/CUCOMD000114.jpg",
       "isim_resmi": "Coach Mekanizmalı Dikey Cüzdan Beyaz Monogram",
       "isim_bilinen": "Coach Mekanizmalı Dikey Cüzdan Beyaz Signature",
       "marka": "Coach",
-      "kategori": "Bifold Cüzdan",
+      "kategori": "Mekanizmalı Dikey Cüzdan",
       "kategori_ust": "Cüzdan",
-      "kategori_alt": "Bifold Cüzdan",
+      "kategori_alt": "Mekanizmalı Dikey Cüzdan",
       "renk": "BEYAZ",
       "ana_renk": "Beyaz",
       "ana_renk_hex": "#f5f1ea",
-      "renk_slug": "beyaz",
       "renk_hex": "#f5f1ea",
       "ikincil_renk": "",
       "ikincil_renk_code": "",
@@ -6500,9 +6272,9 @@ window.__BOTL_DATA__ = {
       "tedarikci_id": null,
       "olusturma": "2026-05-13",
       "gorseller": {
-        "cover": "",
+        "cover": "assets/products/CUCOMD000114.jpg",
         "gallery": [
-          "assets/products/kart-kabi-114-lutfen-duzenle-karisik-gumus-g1.jpg"
+          "assets/products/CUCOMD000114-g1.jpg"
         ]
       },
       "cinsiyet": "ERKEK",
@@ -6517,21 +6289,19 @@ window.__BOTL_DATA__ = {
       "ic_astar_malzeme": "Deri"
     },
     {
-      "variation_id": "FR-00125-KARISIK-STANDART-GUMUS",
-      "sku": "FR-00125",
+      "variation_id": "CUGUMY000115",
+      "sku": "CUGUMY000115",
       "no": null,
-      "slug": "gucci-bifold-cuzdan-acik-gri-gumus-fr-00125",
-      "cover": "",
+      "cover": "assets/products/CUGUMY000115.jpg",
       "isim_resmi": "Gucci Mekanizmalı Yatay Cüzdan Açık Gri Monogram",
       "isim_bilinen": "Gucci Mekanizmalı Yatay Cüzdan Açık Gri GG Monogram",
       "marka": "Gucci",
-      "kategori": "Bifold Cüzdan",
+      "kategori": "Mekanizmalı Yatay Cüzdan",
       "kategori_ust": "Cüzdan",
-      "kategori_alt": "Bifold Cüzdan",
+      "kategori_alt": "Mekanizmalı Yatay Cüzdan",
       "renk": "ACIK GRI",
       "ana_renk": "Açık Gri",
       "ana_renk_hex": "#b8b8b8",
-      "renk_slug": "acik-gri",
       "renk_hex": "#b8b8b8",
       "ikincil_renk": "",
       "ikincil_renk_code": "",
@@ -6557,9 +6327,9 @@ window.__BOTL_DATA__ = {
       "tedarikci_id": null,
       "olusturma": "2026-05-13",
       "gorseller": {
-        "cover": "",
+        "cover": "assets/products/CUGUMY000115.jpg",
         "gallery": [
-          "assets/products/kart-kabi-115-lutfen-duzenle-karisik-gumus-g1.jpg"
+          "assets/products/CUGUMY000115-g1.jpg"
         ]
       },
       "cinsiyet": "KADIN",
@@ -6574,21 +6344,19 @@ window.__BOTL_DATA__ = {
       "ic_astar_malzeme": "Deri"
     },
     {
-      "variation_id": "FR-00126-KARISIK-STANDART-GUMUS",
-      "sku": "FR-00126",
+      "variation_id": "CULVMY000116",
+      "sku": "CULVMY000116",
       "no": null,
-      "slug": "lv-bifold-cuzdan-siyah-gumus-fr-00126",
-      "cover": "",
+      "cover": "assets/products/CULVMY000116.jpg",
       "isim_resmi": "LV Mekanizmalı Yatay Cüzdan Siyah Monogram",
       "isim_bilinen": "LV Mekanizmalı Yatay Cüzdan Siyah Embossed Monogram",
       "marka": "Louis Vuitton",
-      "kategori": "Bifold Cüzdan",
+      "kategori": "Mekanizmalı Yatay Cüzdan",
       "kategori_ust": "Cüzdan",
-      "kategori_alt": "Bifold Cüzdan",
+      "kategori_alt": "Mekanizmalı Yatay Cüzdan",
       "renk": "SIYAH",
       "ana_renk": "Siyah",
       "ana_renk_hex": "#1a1a1a",
-      "renk_slug": "siyah",
       "renk_hex": "#1a1a1a",
       "ikincil_renk": "",
       "ikincil_renk_code": "",
@@ -6614,9 +6382,9 @@ window.__BOTL_DATA__ = {
       "tedarikci_id": null,
       "olusturma": "2026-05-13",
       "gorseller": {
-        "cover": "",
+        "cover": "assets/products/CULVMY000116.jpg",
         "gallery": [
-          "assets/products/kart-kabi-116-lutfen-duzenle-karisik-gumus-g1.jpg"
+          "assets/products/CULVMY000116-g1.jpg"
         ]
       },
       "cinsiyet": "KADIN",
@@ -6631,21 +6399,19 @@ window.__BOTL_DATA__ = {
       "ic_astar_malzeme": "Deri"
     },
     {
-      "variation_id": "FR-00127-KARISIK-STANDART-GUMUS",
-      "sku": "FR-00127",
+      "variation_id": "CULVAN000117",
+      "sku": "CULVAN000117",
       "no": null,
-      "slug": "lv-bozukluk-cuzdani-kahve-gumus-fr-00127",
-      "cover": "",
+      "cover": "assets/products/CULVAN000117.jpg",
       "isim_resmi": "LV Anahtarlıklı Cüzdan Kahve Monogram",
       "isim_bilinen": "LV Anahtarlıklı Mini Cüzdan Kahve Monogram",
       "marka": "Louis Vuitton",
-      "kategori": "Bozukluk Cüzdanı",
+      "kategori": "Anahtarlıklı Cüzdan",
       "kategori_ust": "Cüzdan",
-      "kategori_alt": "Bozukluk Cüzdanı",
+      "kategori_alt": "Anahtarlıklı Cüzdan",
       "renk": "KAHVE",
       "ana_renk": "Kahve",
       "ana_renk_hex": "#5a3a25",
-      "renk_slug": "kahve",
       "renk_hex": "#5a3a25",
       "ikincil_renk": "",
       "ikincil_renk_code": "",
@@ -6671,9 +6437,9 @@ window.__BOTL_DATA__ = {
       "tedarikci_id": null,
       "olusturma": "2026-05-13",
       "gorseller": {
-        "cover": "",
+        "cover": "assets/products/CULVAN000117.jpg",
         "gallery": [
-          "assets/products/kart-kabi-117-lutfen-duzenle-karisik-gumus-g1.jpg"
+          "assets/products/CULVAN000117-g1.jpg"
         ]
       },
       "cinsiyet": "KADIN",
@@ -6689,21 +6455,19 @@ window.__BOTL_DATA__ = {
       "ic_astar_malzeme": "Deri"
     },
     {
-      "variation_id": "FR-00128-KARISIK-STANDART-GUMUS",
-      "sku": "FR-00128",
+      "variation_id": "CUCOMD000118",
+      "sku": "CUCOMD000118",
       "no": null,
-      "slug": "coach-bifold-cuzdan-gri-gumus-fr-00128",
-      "cover": "",
+      "cover": "assets/products/CUCOMD000118.jpg",
       "isim_resmi": "Coach Mekanizmalı Dikey Cüzdan Gri Monogram",
       "isim_bilinen": "Coach Mekanizmalı Dikey Cüzdan Gri Signature",
       "marka": "Coach",
-      "kategori": "Bifold Cüzdan",
+      "kategori": "Mekanizmalı Dikey Cüzdan",
       "kategori_ust": "Cüzdan",
-      "kategori_alt": "Bifold Cüzdan",
+      "kategori_alt": "Mekanizmalı Dikey Cüzdan",
       "renk": "GRI",
       "ana_renk": "Gri",
       "ana_renk_hex": "#7d7d7d",
-      "renk_slug": "gri",
       "renk_hex": "#7d7d7d",
       "ikincil_renk": "",
       "ikincil_renk_code": "",
@@ -6729,9 +6493,9 @@ window.__BOTL_DATA__ = {
       "tedarikci_id": null,
       "olusturma": "2026-05-13",
       "gorseller": {
-        "cover": "",
+        "cover": "assets/products/CUCOMD000118.jpg",
         "gallery": [
-          "assets/products/kart-kabi-118-lutfen-duzenle-karisik-gumus-g1.jpg"
+          "assets/products/CUCOMD000118-g1.jpg"
         ]
       },
       "cinsiyet": "ERKEK",
@@ -6746,21 +6510,19 @@ window.__BOTL_DATA__ = {
       "ic_astar_malzeme": "Deri"
     },
     {
-      "variation_id": "FR-00129-KARISIK-STANDART-GUMUS",
-      "sku": "FR-00129",
+      "variation_id": "CULVMY000119",
+      "sku": "CULVMY000119",
       "no": null,
-      "slug": "lv-bifold-cuzdan-kahve-gumus-fr-00129",
-      "cover": "",
+      "cover": "assets/products/CULVMY000119.jpg",
       "isim_resmi": "LV Mekanizmalı Yatay Cüzdan Kahve Monogram",
       "isim_bilinen": "LV Klasik Cüzdan Kahve Monogram",
       "marka": "Louis Vuitton",
-      "kategori": "Bifold Cüzdan",
+      "kategori": "Klasik Cüzdan",
       "kategori_ust": "Cüzdan",
-      "kategori_alt": "Bifold Cüzdan",
+      "kategori_alt": "Klasik Cüzdan",
       "renk": "KAHVE",
       "ana_renk": "Kahve",
       "ana_renk_hex": "#5a3a25",
-      "renk_slug": "kahve",
       "renk_hex": "#5a3a25",
       "ikincil_renk": "",
       "ikincil_renk_code": "",
@@ -6786,9 +6548,9 @@ window.__BOTL_DATA__ = {
       "tedarikci_id": null,
       "olusturma": "2026-05-13",
       "gorseller": {
-        "cover": "",
+        "cover": "assets/products/CULVMY000119.jpg",
         "gallery": [
-          "assets/products/kart-kabi-119-lutfen-duzenle-karisik-gumus-g1.jpg"
+          "assets/products/CULVMY000119-g1.jpg"
         ]
       },
       "cinsiyet": "KADIN",
@@ -6803,21 +6565,19 @@ window.__BOTL_DATA__ = {
       "ic_astar_malzeme": "Deri"
     },
     {
-      "variation_id": "FR-00130-KARISIK-STANDART-GUMUS",
-      "sku": "FR-00130",
+      "variation_id": "KAGOIN000120",
+      "sku": "KAGOIN000120",
       "no": null,
-      "slug": "goyard-kart-kabi-sari-gumus-fr-00130",
-      "cover": "",
+      "cover": "assets/products/KAGOIN000120.jpg",
       "isim_resmi": "Goyard Kartlık Sari Goyardine",
-      "isim_bilinen": "Goyard Kart Kabi Sari",
+      "isim_bilinen": "Goyard Kartlık Sari",
       "marka": "Goyard",
-      "kategori": "Kart Kabı",
-      "kategori_ust": "Cüzdan",
-      "kategori_alt": "Kart Kabı",
+      "kategori": "Kartlık",
+      "kategori_ust": "Kartlık",
+      "kategori_alt": "Kartlık",
       "renk": "SARI",
       "ana_renk": "Sarı",
       "ana_renk_hex": "#e8c840",
-      "renk_slug": "sari",
       "renk_hex": "#e8c840",
       "ikincil_renk": "",
       "ikincil_renk_code": "",
@@ -6843,9 +6603,9 @@ window.__BOTL_DATA__ = {
       "tedarikci_id": null,
       "olusturma": "2026-05-13",
       "gorseller": {
-        "cover": "",
+        "cover": "assets/products/KAGOIN000120.jpg",
         "gallery": [
-          "assets/products/kart-kabi-120-lutfen-duzenle-karisik-gumus-g1.jpg"
+          "assets/products/KAGOIN000120-g1.jpg"
         ]
       },
       "cinsiyet": "UNISEX",
@@ -6860,21 +6620,19 @@ window.__BOTL_DATA__ = {
       "ic_astar_malzeme": "Deri"
     },
     {
-      "variation_id": "FR-00131-KARISIK-STANDART-GUMUS",
-      "sku": "FR-00131",
+      "variation_id": "CUHUMD000121",
+      "sku": "CUHUMD000121",
       "no": null,
-      "slug": "hugo-boss-bifold-cuzdan-siyah-gumus-fr-00131",
-      "cover": "",
+      "cover": "assets/products/CUHUMD000121.jpg",
       "isim_resmi": "Hugo Boss Mekanizmalı Dikey Cüzdan Siyah",
       "isim_bilinen": "Hugo Boss Mekanizmalı Dikey Cüzdan Siyah",
       "marka": "Hugo Boss",
-      "kategori": "Bifold Cüzdan",
+      "kategori": "Mekanizmalı Dikey Cüzdan",
       "kategori_ust": "Cüzdan",
-      "kategori_alt": "Bifold Cüzdan",
+      "kategori_alt": "Mekanizmalı Dikey Cüzdan",
       "renk": "SIYAH",
       "ana_renk": "Siyah",
       "ana_renk_hex": "#1a1a1a",
-      "renk_slug": "siyah",
       "renk_hex": "#1a1a1a",
       "ikincil_renk": "",
       "ikincil_renk_code": "",
@@ -6900,9 +6658,9 @@ window.__BOTL_DATA__ = {
       "tedarikci_id": null,
       "olusturma": "2026-05-13",
       "gorseller": {
-        "cover": "",
+        "cover": "assets/products/CUHUMD000121.jpg",
         "gallery": [
-          "assets/products/kart-kabi-121-lutfen-duzenle-karisik-gumus-g1.jpg"
+          "assets/products/CUHUMD000121-g1.jpg"
         ]
       },
       "cinsiyet": "ERKEK",
@@ -6917,21 +6675,19 @@ window.__BOTL_DATA__ = {
       "ic_astar_malzeme": "Deri"
     },
     {
-      "variation_id": "FR-00132-KARISIK-STANDART-GUMUS",
-      "sku": "FR-00132",
+      "variation_id": "CULVMY000122",
+      "sku": "CULVMY000122",
       "no": null,
-      "slug": "lv-bifold-cuzdan-siyah-gumus-fr-00132",
-      "cover": "",
+      "cover": "assets/products/CULVMY000122.jpg",
       "isim_resmi": "LV Mekanizmalı Yatay Cüzdan Siyah Damier",
       "isim_bilinen": "LV Mekanizmalı Yatay Cüzdan Siyah Damier Infini",
       "marka": "Louis Vuitton",
-      "kategori": "Bifold Cüzdan",
+      "kategori": "Mekanizmalı Yatay Cüzdan",
       "kategori_ust": "Cüzdan",
-      "kategori_alt": "Bifold Cüzdan",
+      "kategori_alt": "Mekanizmalı Yatay Cüzdan",
       "renk": "SIYAH",
       "ana_renk": "Siyah",
       "ana_renk_hex": "#1a1a1a",
-      "renk_slug": "siyah",
       "renk_hex": "#1a1a1a",
       "ikincil_renk": "",
       "ikincil_renk_code": "",
@@ -6957,9 +6713,9 @@ window.__BOTL_DATA__ = {
       "tedarikci_id": null,
       "olusturma": "2026-05-13",
       "gorseller": {
-        "cover": "",
+        "cover": "assets/products/CULVMY000122.jpg",
         "gallery": [
-          "assets/products/kart-kabi-122-lutfen-duzenle-karisik-gumus-g1.jpg"
+          "assets/products/CULVMY000122-g1.jpg"
         ]
       },
       "cinsiyet": "KADIN",
@@ -6974,21 +6730,19 @@ window.__BOTL_DATA__ = {
       "ic_astar_malzeme": "Deri"
     },
     {
-      "variation_id": "FR-00133-KARISIK-STANDART-GUMUS",
-      "sku": "FR-00133",
+      "variation_id": "CULVMY000123",
+      "sku": "CULVMY000123",
       "no": null,
-      "slug": "lv-bifold-cuzdan-siyah-gumus-fr-00133",
-      "cover": "",
+      "cover": "assets/products/CULVMY000123.jpg",
       "isim_resmi": "LV Mekanizmalı Yatay Cüzdan Siyah Monogram",
       "isim_bilinen": "LV Mekanizmalı Yatay Cüzdan Siyah Monogram Eclipse",
       "marka": "Louis Vuitton",
-      "kategori": "Bifold Cüzdan",
+      "kategori": "Mekanizmalı Yatay Cüzdan",
       "kategori_ust": "Cüzdan",
-      "kategori_alt": "Bifold Cüzdan",
+      "kategori_alt": "Mekanizmalı Yatay Cüzdan",
       "renk": "SIYAH",
       "ana_renk": "Siyah",
       "ana_renk_hex": "#1a1a1a",
-      "renk_slug": "siyah",
       "renk_hex": "#1a1a1a",
       "ikincil_renk": "",
       "ikincil_renk_code": "",
@@ -7014,9 +6768,9 @@ window.__BOTL_DATA__ = {
       "tedarikci_id": null,
       "olusturma": "2026-05-13",
       "gorseller": {
-        "cover": "",
+        "cover": "assets/products/CULVMY000123.jpg",
         "gallery": [
-          "assets/products/kart-kabi-123-lutfen-duzenle-karisik-gumus-g1.jpg"
+          "assets/products/CULVMY000123-g1.jpg"
         ]
       },
       "cinsiyet": "KADIN",
@@ -7031,21 +6785,19 @@ window.__BOTL_DATA__ = {
       "ic_astar_malzeme": "Deri"
     },
     {
-      "variation_id": "FR-00134-KARISIK-STANDART-GUMUS",
-      "sku": "FR-00134",
+      "variation_id": "CUARMY000124",
+      "sku": "CUARMY000124",
       "no": null,
-      "slug": "armani-bifold-cuzdan-siyah-gumus-fr-00134",
-      "cover": "",
+      "cover": "assets/products/CUARMY000124.jpg",
       "isim_resmi": "Armani Mekanizmalı Yatay Cüzdan Siyah",
       "isim_bilinen": "Armani Klasik Cüzdan Siyah",
       "marka": "Giorgio Armani",
-      "kategori": "Bifold Cüzdan",
+      "kategori": "Klasik Cüzdan",
       "kategori_ust": "Cüzdan",
-      "kategori_alt": "Bifold Cüzdan",
+      "kategori_alt": "Klasik Cüzdan",
       "renk": "SIYAH",
       "ana_renk": "Siyah",
       "ana_renk_hex": "#1a1a1a",
-      "renk_slug": "siyah",
       "renk_hex": "#1a1a1a",
       "ikincil_renk": "",
       "ikincil_renk_code": "",
@@ -7071,9 +6823,9 @@ window.__BOTL_DATA__ = {
       "tedarikci_id": null,
       "olusturma": "2026-05-13",
       "gorseller": {
-        "cover": "",
+        "cover": "assets/products/CUARMY000124.jpg",
         "gallery": [
-          "assets/products/kart-kabi-124-lutfen-duzenle-karisik-gumus-g1.jpg"
+          "assets/products/CUARMY000124-g1.jpg"
         ]
       },
       "cinsiyet": "ERKEK",
@@ -7088,21 +6840,19 @@ window.__BOTL_DATA__ = {
       "ic_astar_malzeme": "Deri"
     },
     {
-      "variation_id": "FR-00135-KARISIK-STANDART-GUMUS",
-      "sku": "FR-00135",
+      "variation_id": "CUCOMY000125",
+      "sku": "CUCOMY000125",
       "no": null,
-      "slug": "coach-bifold-cuzdan-kahve-gumus-fr-00135",
-      "cover": "",
+      "cover": "assets/products/CUCOMY000125.jpg",
       "isim_resmi": "Coach Mekanizmalı Yatay Cüzdan Kahve Monogram",
       "isim_bilinen": "Coach Mekanizmalı Yatay Cüzdan Kahve Signature",
       "marka": "Coach",
-      "kategori": "Bifold Cüzdan",
+      "kategori": "Mekanizmalı Yatay Cüzdan",
       "kategori_ust": "Cüzdan",
-      "kategori_alt": "Bifold Cüzdan",
+      "kategori_alt": "Mekanizmalı Yatay Cüzdan",
       "renk": "KAHVE",
       "ana_renk": "Kahve",
       "ana_renk_hex": "#5a3a25",
-      "renk_slug": "kahve",
       "renk_hex": "#5a3a25",
       "ikincil_renk": "",
       "ikincil_renk_code": "",
@@ -7128,9 +6878,9 @@ window.__BOTL_DATA__ = {
       "tedarikci_id": null,
       "olusturma": "2026-05-13",
       "gorseller": {
-        "cover": "",
+        "cover": "assets/products/CUCOMY000125.jpg",
         "gallery": [
-          "assets/products/kart-kabi-125-lutfen-duzenle-karisik-gumus-g1.jpg"
+          "assets/products/CUCOMY000125-g1.jpg"
         ]
       },
       "cinsiyet": "KADIN",
@@ -7145,21 +6895,19 @@ window.__BOTL_DATA__ = {
       "ic_astar_malzeme": "Deri"
     },
     {
-      "variation_id": "FR-00136-KARISIK-STANDART-GUMUS",
-      "sku": "FR-00136",
+      "variation_id": "CUGUMY000126",
+      "sku": "CUGUMY000126",
       "no": null,
-      "slug": "gucci-bifold-cuzdan-bej-gumus-fr-00136",
-      "cover": "",
+      "cover": "assets/products/CUGUMY000126.jpg",
       "isim_resmi": "Gucci Mekanizmalı Yatay Cüzdan Bej Monogram",
       "isim_bilinen": "Gucci Mekanizmalı Yatay Cüzdan Bej GG Monogram",
       "marka": "Gucci",
-      "kategori": "Bifold Cüzdan",
+      "kategori": "Mekanizmalı Yatay Cüzdan",
       "kategori_ust": "Cüzdan",
-      "kategori_alt": "Bifold Cüzdan",
+      "kategori_alt": "Mekanizmalı Yatay Cüzdan",
       "renk": "BEJ",
       "ana_renk": "Bej",
       "ana_renk_hex": "#d8c3a3",
-      "renk_slug": "bej",
       "renk_hex": "#d8c3a3",
       "ikincil_renk": "",
       "ikincil_renk_code": "",
@@ -7185,9 +6933,9 @@ window.__BOTL_DATA__ = {
       "tedarikci_id": null,
       "olusturma": "2026-05-13",
       "gorseller": {
-        "cover": "",
+        "cover": "assets/products/CUGUMY000126.jpg",
         "gallery": [
-          "assets/products/kart-kabi-126-lutfen-duzenle-karisik-gumus-g1.jpg"
+          "assets/products/CUGUMY000126-g1.jpg"
         ]
       },
       "cinsiyet": "KADIN",
@@ -7202,21 +6950,19 @@ window.__BOTL_DATA__ = {
       "ic_astar_malzeme": "Deri"
     },
     {
-      "variation_id": "FR-00137-KARISIK-STANDART-GUMUS",
-      "sku": "FR-00137",
+      "variation_id": "CULVMY000127",
+      "sku": "CULVMY000127",
       "no": null,
-      "slug": "lv-bifold-cuzdan-kahve-gumus-fr-00137",
-      "cover": "",
+      "cover": "assets/products/CULVMY000127.jpg",
       "isim_resmi": "LV Mekanizmalı Yatay Cüzdan Kahve Monogram",
       "isim_bilinen": "LV Mekanizmalı Yatay Cüzdan Kahve Monogram",
       "marka": "Louis Vuitton",
-      "kategori": "Bifold Cüzdan",
+      "kategori": "Mekanizmalı Yatay Cüzdan",
       "kategori_ust": "Cüzdan",
-      "kategori_alt": "Bifold Cüzdan",
+      "kategori_alt": "Mekanizmalı Yatay Cüzdan",
       "renk": "KAHVE",
       "ana_renk": "Kahve",
       "ana_renk_hex": "#5a3a25",
-      "renk_slug": "kahve",
       "renk_hex": "#5a3a25",
       "ikincil_renk": "",
       "ikincil_renk_code": "",
@@ -7242,9 +6988,9 @@ window.__BOTL_DATA__ = {
       "tedarikci_id": null,
       "olusturma": "2026-05-13",
       "gorseller": {
-        "cover": "",
+        "cover": "assets/products/CULVMY000127.jpg",
         "gallery": [
-          "assets/products/kart-kabi-127-lutfen-duzenle-karisik-gumus-g1.jpg"
+          "assets/products/CULVMY000127-g1.jpg"
         ]
       },
       "cinsiyet": "KADIN",
@@ -7259,21 +7005,19 @@ window.__BOTL_DATA__ = {
       "ic_astar_malzeme": "Deri"
     },
     {
-      "variation_id": "FR-00138-KARISIK-STANDART-GUMUS",
-      "sku": "FR-00138",
+      "variation_id": "CUCOMD000128",
+      "sku": "CUCOMD000128",
       "no": null,
-      "slug": "coach-bifold-cuzdan-gri-gumus-fr-00138",
-      "cover": "",
+      "cover": "assets/products/CUCOMD000128.jpg",
       "isim_resmi": "Coach Mekanizmalı Dikey Cüzdan Gri Monogram",
       "isim_bilinen": "Coach Mekanizmalı Dikey Cüzdan Gri Signature",
       "marka": "Coach",
-      "kategori": "Bifold Cüzdan",
+      "kategori": "Mekanizmalı Dikey Cüzdan",
       "kategori_ust": "Cüzdan",
-      "kategori_alt": "Bifold Cüzdan",
+      "kategori_alt": "Mekanizmalı Dikey Cüzdan",
       "renk": "GRI",
       "ana_renk": "Gri",
       "ana_renk_hex": "#7d7d7d",
-      "renk_slug": "gri",
       "renk_hex": "#7d7d7d",
       "ikincil_renk": "",
       "ikincil_renk_code": "",
@@ -7299,9 +7043,9 @@ window.__BOTL_DATA__ = {
       "tedarikci_id": null,
       "olusturma": "2026-05-13",
       "gorseller": {
-        "cover": "",
+        "cover": "assets/products/CUCOMD000128.jpg",
         "gallery": [
-          "assets/products/kart-kabi-128-lutfen-duzenle-karisik-gumus-g1.jpg"
+          "assets/products/CUCOMD000128-g1.jpg"
         ]
       },
       "cinsiyet": "ERKEK",
@@ -7316,21 +7060,19 @@ window.__BOTL_DATA__ = {
       "ic_astar_malzeme": "Deri"
     },
     {
-      "variation_id": "FR-00139-KARISIK-STANDART-GUMUS",
-      "sku": "FR-00139",
+      "variation_id": "CUCOMY000129",
+      "sku": "CUCOMY000129",
       "no": null,
-      "slug": "coach-bifold-cuzdan-gri-gumus-fr-00139",
-      "cover": "",
+      "cover": "assets/products/CUCOMY000129.jpg",
       "isim_resmi": "Coach Mekanizmalı Yatay Cüzdan Gri Monogram",
       "isim_bilinen": "Coach Mekanizmalı Yatay Cüzdan Gri Signature",
       "marka": "Coach",
-      "kategori": "Bifold Cüzdan",
+      "kategori": "Mekanizmalı Yatay Cüzdan",
       "kategori_ust": "Cüzdan",
-      "kategori_alt": "Bifold Cüzdan",
+      "kategori_alt": "Mekanizmalı Yatay Cüzdan",
       "renk": "GRI",
       "ana_renk": "Gri",
       "ana_renk_hex": "#7d7d7d",
-      "renk_slug": "gri",
       "renk_hex": "#7d7d7d",
       "ikincil_renk": "",
       "ikincil_renk_code": "",
@@ -7356,9 +7098,9 @@ window.__BOTL_DATA__ = {
       "tedarikci_id": null,
       "olusturma": "2026-05-13",
       "gorseller": {
-        "cover": "",
+        "cover": "assets/products/CUCOMY000129.jpg",
         "gallery": [
-          "assets/products/kart-kabi-129-lutfen-duzenle-karisik-gumus-g1.jpg"
+          "assets/products/CUCOMY000129-g1.jpg"
         ]
       },
       "cinsiyet": "KADIN",
@@ -7373,21 +7115,19 @@ window.__BOTL_DATA__ = {
       "ic_astar_malzeme": "Deri"
     },
     {
-      "variation_id": "FR-00140-KARISIK-STANDART-GUMUS",
-      "sku": "FR-00140",
+      "variation_id": "CUCOMY000130",
+      "sku": "CUCOMY000130",
       "no": null,
-      "slug": "coach-bifold-cuzdan-beyaz-gumus-fr-00140",
-      "cover": "",
+      "cover": "assets/products/CUCOMY000130.jpg",
       "isim_resmi": "Coach Mekanizmalı Yatay Cüzdan Beyaz Monogram",
       "isim_bilinen": "Coach Mekanizmalı Yatay Cüzdan Beyaz Signature",
       "marka": "Coach",
-      "kategori": "Bifold Cüzdan",
+      "kategori": "Mekanizmalı Yatay Cüzdan",
       "kategori_ust": "Cüzdan",
-      "kategori_alt": "Bifold Cüzdan",
+      "kategori_alt": "Mekanizmalı Yatay Cüzdan",
       "renk": "BEYAZ",
       "ana_renk": "Beyaz",
       "ana_renk_hex": "#f5f1ea",
-      "renk_slug": "beyaz",
       "renk_hex": "#f5f1ea",
       "ikincil_renk": "",
       "ikincil_renk_code": "",
@@ -7413,9 +7153,9 @@ window.__BOTL_DATA__ = {
       "tedarikci_id": null,
       "olusturma": "2026-05-13",
       "gorseller": {
-        "cover": "",
+        "cover": "assets/products/CUCOMY000130.jpg",
         "gallery": [
-          "assets/products/kart-kabi-130-lutfen-duzenle-karisik-gumus-g1.jpg"
+          "assets/products/CUCOMY000130-g1.jpg"
         ]
       },
       "cinsiyet": "KADIN",
@@ -7430,21 +7170,19 @@ window.__BOTL_DATA__ = {
       "ic_astar_malzeme": "Deri"
     },
     {
-      "variation_id": "FR-00141-KARISIK-STANDART-GUMUS",
-      "sku": "FR-00141",
+      "variation_id": "CUGEAN000131",
+      "sku": "CUGEAN000131",
       "no": null,
-      "slug": "guess-bozukluk-cuzdani-bej-gumus-fr-00141",
-      "cover": "",
+      "cover": "assets/products/CUGEAN000131.jpg",
       "isim_resmi": "Guess Anahtarlıklı Cüzdan Bej Monogram",
       "isim_bilinen": "Guess Anahtarlıklı Mini Cüzdan Bej 4G Kanvas",
       "marka": "Guess",
-      "kategori": "Bozukluk Cüzdanı",
+      "kategori": "Anahtarlıklı Cüzdan",
       "kategori_ust": "Cüzdan",
-      "kategori_alt": "Bozukluk Cüzdanı",
+      "kategori_alt": "Anahtarlıklı Cüzdan",
       "renk": "BEJ",
       "ana_renk": "Bej",
       "ana_renk_hex": "#d8c3a3",
-      "renk_slug": "bej",
       "renk_hex": "#d8c3a3",
       "ikincil_renk": "",
       "ikincil_renk_code": "",
@@ -7470,9 +7208,9 @@ window.__BOTL_DATA__ = {
       "tedarikci_id": null,
       "olusturma": "2026-05-13",
       "gorseller": {
-        "cover": "",
+        "cover": "assets/products/CUGEAN000131.jpg",
         "gallery": [
-          "assets/products/kart-kabi-131-lutfen-duzenle-karisik-gumus-g1.jpg"
+          "assets/products/CUGEAN000131-g1.jpg"
         ]
       },
       "cinsiyet": "KADIN",
@@ -7488,21 +7226,19 @@ window.__BOTL_DATA__ = {
       "ic_astar_malzeme": "Deri"
     },
     {
-      "variation_id": "FR-00142-KARISIK-STANDART-GUMUS",
-      "sku": "FR-00142",
+      "variation_id": "CUGUMY000132",
+      "sku": "CUGUMY000132",
       "no": null,
-      "slug": "gucci-bifold-cuzdan-bej-gumus-fr-00142",
-      "cover": "",
+      "cover": "assets/products/CUGUMY000132.jpg",
       "isim_resmi": "Gucci Mekanizmalı Yatay Cüzdan Bej Monogram",
       "isim_bilinen": "Gucci Mekanizmalı Yatay Cüzdan Bej GG Monogram",
       "marka": "Gucci",
-      "kategori": "Bifold Cüzdan",
+      "kategori": "Mekanizmalı Yatay Cüzdan",
       "kategori_ust": "Cüzdan",
-      "kategori_alt": "Bifold Cüzdan",
+      "kategori_alt": "Mekanizmalı Yatay Cüzdan",
       "renk": "BEJ",
       "ana_renk": "Bej",
       "ana_renk_hex": "#d8c3a3",
-      "renk_slug": "bej",
       "renk_hex": "#d8c3a3",
       "ikincil_renk": "",
       "ikincil_renk_code": "",
@@ -7528,9 +7264,9 @@ window.__BOTL_DATA__ = {
       "tedarikci_id": null,
       "olusturma": "2026-05-13",
       "gorseller": {
-        "cover": "",
+        "cover": "assets/products/CUGUMY000132.jpg",
         "gallery": [
-          "assets/products/kart-kabi-132-lutfen-duzenle-karisik-gumus-g1.jpg"
+          "assets/products/CUGUMY000132-g1.jpg"
         ]
       },
       "cinsiyet": "KADIN",
@@ -7545,21 +7281,19 @@ window.__BOTL_DATA__ = {
       "ic_astar_malzeme": "Deri"
     },
     {
-      "variation_id": "FR-00143-KARISIK-STANDART-GUMUS",
-      "sku": "FR-00143",
+      "variation_id": "CULVMY000133",
+      "sku": "CULVMY000133",
       "no": null,
-      "slug": "lv-bifold-cuzdan-koyu-gri-gumus-fr-00143",
-      "cover": "",
+      "cover": "assets/products/CULVMY000133.jpg",
       "isim_resmi": "LV Mekanizmalı Yatay Cüzdan Koyu Gri Monogram",
       "isim_bilinen": "LV Mekanizmalı Yatay Cüzdan Koyu Gri Denim Monogram",
       "marka": "Louis Vuitton",
-      "kategori": "Bifold Cüzdan",
+      "kategori": "Mekanizmalı Yatay Cüzdan",
       "kategori_ust": "Cüzdan",
-      "kategori_alt": "Bifold Cüzdan",
+      "kategori_alt": "Mekanizmalı Yatay Cüzdan",
       "renk": "KOYU GRI",
       "ana_renk": "Koyu Gri",
       "ana_renk_hex": "#4a4a4a",
-      "renk_slug": "koyu-gri",
       "renk_hex": "#4a4a4a",
       "ikincil_renk": "",
       "ikincil_renk_code": "",
@@ -7585,9 +7319,9 @@ window.__BOTL_DATA__ = {
       "tedarikci_id": null,
       "olusturma": "2026-05-13",
       "gorseller": {
-        "cover": "",
+        "cover": "assets/products/CULVMY000133.jpg",
         "gallery": [
-          "assets/products/kart-kabi-133-lutfen-duzenle-karisik-gumus-g1.jpg"
+          "assets/products/CULVMY000133-g1.jpg"
         ]
       },
       "cinsiyet": "KADIN",
@@ -7602,21 +7336,19 @@ window.__BOTL_DATA__ = {
       "ic_astar_malzeme": "Deri"
     },
     {
-      "variation_id": "FR-00144-KARISIK-STANDART-GUMUS",
-      "sku": "FR-00144",
+      "variation_id": "CUHUMY000134",
+      "sku": "CUHUMY000134",
       "no": null,
-      "slug": "hugo-boss-bifold-cuzdan-siyah-gumus-fr-00144",
-      "cover": "",
+      "cover": "assets/products/CUHUMY000134.jpg",
       "isim_resmi": "Hugo Boss Mekanizmalı Yatay Cüzdan Siyah",
       "isim_bilinen": "Hugo Boss Mekanizmalı Yatay Cüzdan Siyah",
       "marka": "Hugo Boss",
-      "kategori": "Bifold Cüzdan",
+      "kategori": "Mekanizmalı Yatay Cüzdan",
       "kategori_ust": "Cüzdan",
-      "kategori_alt": "Bifold Cüzdan",
+      "kategori_alt": "Mekanizmalı Yatay Cüzdan",
       "renk": "SIYAH",
       "ana_renk": "Siyah",
       "ana_renk_hex": "#1a1a1a",
-      "renk_slug": "siyah",
       "renk_hex": "#1a1a1a",
       "ikincil_renk": "",
       "ikincil_renk_code": "",
@@ -7642,9 +7374,9 @@ window.__BOTL_DATA__ = {
       "tedarikci_id": null,
       "olusturma": "2026-05-13",
       "gorseller": {
-        "cover": "",
+        "cover": "assets/products/CUHUMY000134.jpg",
         "gallery": [
-          "assets/products/kart-kabi-134-lutfen-duzenle-karisik-gumus-g1.jpg"
+          "assets/products/CUHUMY000134-g1.jpg"
         ]
       },
       "cinsiyet": "ERKEK",
@@ -7659,21 +7391,19 @@ window.__BOTL_DATA__ = {
       "ic_astar_malzeme": "Deri"
     },
     {
-      "variation_id": "FR-00145-KARISIK-STANDART-GUMUS",
-      "sku": "FR-00145",
+      "variation_id": "CULVMY000135",
+      "sku": "CULVMY000135",
       "no": null,
-      "slug": "lv-bifold-cuzdan-siyah-gumus-fr-00145",
-      "cover": "",
+      "cover": "assets/products/CULVMY000135.jpg",
       "isim_resmi": "LV Mekanizmalı Yatay Cüzdan Siyah Damier",
       "isim_bilinen": "LV Mekanizmalı Yatay Cüzdan Siyah Damier Infini",
       "marka": "Louis Vuitton",
-      "kategori": "Bifold Cüzdan",
+      "kategori": "Mekanizmalı Yatay Cüzdan",
       "kategori_ust": "Cüzdan",
-      "kategori_alt": "Bifold Cüzdan",
+      "kategori_alt": "Mekanizmalı Yatay Cüzdan",
       "renk": "SIYAH",
       "ana_renk": "Siyah",
       "ana_renk_hex": "#1a1a1a",
-      "renk_slug": "siyah",
       "renk_hex": "#1a1a1a",
       "ikincil_renk": "",
       "ikincil_renk_code": "",
@@ -7699,9 +7429,9 @@ window.__BOTL_DATA__ = {
       "tedarikci_id": null,
       "olusturma": "2026-05-13",
       "gorseller": {
-        "cover": "",
+        "cover": "assets/products/CULVMY000135.jpg",
         "gallery": [
-          "assets/products/kart-kabi-135-lutfen-duzenle-karisik-gumus-g1.jpg"
+          "assets/products/CULVMY000135-g1.jpg"
         ]
       },
       "cinsiyet": "KADIN",
@@ -7716,21 +7446,19 @@ window.__BOTL_DATA__ = {
       "ic_astar_malzeme": "Deri"
     },
     {
-      "variation_id": "FR-00146-KARISIK-STANDART-GUMUS",
-      "sku": "FR-00146",
+      "variation_id": "CULVAN000136",
+      "sku": "CULVAN000136",
       "no": null,
-      "slug": "lv-bozukluk-cuzdani-kahve-gumus-fr-00146",
-      "cover": "",
+      "cover": "assets/products/CULVAN000136.jpg",
       "isim_resmi": "LV Anahtarlıklı Cüzdan Kahve Monogram",
       "isim_bilinen": "LV Anahtarlıklı Mini Cüzdan Kahve Monogram",
       "marka": "Louis Vuitton",
-      "kategori": "Bozukluk Cüzdanı",
+      "kategori": "Anahtarlıklı Cüzdan",
       "kategori_ust": "Cüzdan",
-      "kategori_alt": "Bozukluk Cüzdanı",
+      "kategori_alt": "Anahtarlıklı Cüzdan",
       "renk": "KAHVE",
       "ana_renk": "Kahve",
       "ana_renk_hex": "#5a3a25",
-      "renk_slug": "kahve",
       "renk_hex": "#5a3a25",
       "ikincil_renk": "",
       "ikincil_renk_code": "",
@@ -7756,9 +7484,9 @@ window.__BOTL_DATA__ = {
       "tedarikci_id": null,
       "olusturma": "2026-05-13",
       "gorseller": {
-        "cover": "",
+        "cover": "assets/products/CULVAN000136.jpg",
         "gallery": [
-          "assets/products/kart-kabi-136-lutfen-duzenle-karisik-gumus-g1.jpg"
+          "assets/products/CULVAN000136-g1.jpg"
         ]
       },
       "cinsiyet": "KADIN",
@@ -7774,21 +7502,19 @@ window.__BOTL_DATA__ = {
       "ic_astar_malzeme": "Deri"
     },
     {
-      "variation_id": "FR-00147-KARISIK-STANDART-GUMUS",
-      "sku": "FR-00147",
+      "variation_id": "CUGEAN000137",
+      "sku": "CUGEAN000137",
       "no": null,
-      "slug": "guess-bozukluk-cuzdani-gri-gumus-fr-00147",
-      "cover": "",
+      "cover": "assets/products/CUGEAN000137.jpg",
       "isim_resmi": "Guess Anahtarlıklı Cüzdan Gri Monogram",
       "isim_bilinen": "Guess Anahtarlıklı Mini Cüzdan Gri 4G Kanvas",
       "marka": "Guess",
-      "kategori": "Bozukluk Cüzdanı",
+      "kategori": "Anahtarlıklı Cüzdan",
       "kategori_ust": "Cüzdan",
-      "kategori_alt": "Bozukluk Cüzdanı",
+      "kategori_alt": "Anahtarlıklı Cüzdan",
       "renk": "GRI",
       "ana_renk": "Gri",
       "ana_renk_hex": "#7d7d7d",
-      "renk_slug": "gri",
       "renk_hex": "#7d7d7d",
       "ikincil_renk": "",
       "ikincil_renk_code": "",
@@ -7814,9 +7540,9 @@ window.__BOTL_DATA__ = {
       "tedarikci_id": null,
       "olusturma": "2026-05-13",
       "gorseller": {
-        "cover": "",
+        "cover": "assets/products/CUGEAN000137.jpg",
         "gallery": [
-          "assets/products/kart-kabi-137-lutfen-duzenle-karisik-gumus-g1.jpg"
+          "assets/products/CUGEAN000137-g1.jpg"
         ]
       },
       "cinsiyet": "KADIN",
@@ -7832,21 +7558,19 @@ window.__BOTL_DATA__ = {
       "ic_astar_malzeme": "Deri"
     },
     {
-      "variation_id": "FR-00148-KARISIK-STANDART-GUMUS",
-      "sku": "FR-00148",
+      "variation_id": "CUCOMD000138",
+      "sku": "CUCOMD000138",
       "no": null,
-      "slug": "coach-bifold-cuzdan-siyah-gumus-fr-00148",
-      "cover": "",
+      "cover": "assets/products/CUCOMD000138.jpg",
       "isim_resmi": "Coach Mekanizmalı Dikey Cüzdan Siyah Monogram",
       "isim_bilinen": "Coach Mekanizmalı Dikey Cüzdan Siyah Signature",
       "marka": "Coach",
-      "kategori": "Bifold Cüzdan",
+      "kategori": "Mekanizmalı Dikey Cüzdan",
       "kategori_ust": "Cüzdan",
-      "kategori_alt": "Bifold Cüzdan",
+      "kategori_alt": "Mekanizmalı Dikey Cüzdan",
       "renk": "SIYAH",
       "ana_renk": "Siyah",
       "ana_renk_hex": "#1a1a1a",
-      "renk_slug": "siyah",
       "renk_hex": "#1a1a1a",
       "ikincil_renk": "",
       "ikincil_renk_code": "",
@@ -7872,9 +7596,9 @@ window.__BOTL_DATA__ = {
       "tedarikci_id": null,
       "olusturma": "2026-05-13",
       "gorseller": {
-        "cover": "",
+        "cover": "assets/products/CUCOMD000138.jpg",
         "gallery": [
-          "assets/products/kart-kabi-138-lutfen-duzenle-karisik-gumus-g1.jpg"
+          "assets/products/CUCOMD000138-g1.jpg"
         ]
       },
       "cinsiyet": "ERKEK",
@@ -7889,21 +7613,19 @@ window.__BOTL_DATA__ = {
       "ic_astar_malzeme": "Deri"
     },
     {
-      "variation_id": "FR-00149-KARISIK-STANDART-GUMUS",
-      "sku": "FR-00149",
+      "variation_id": "CUGUMY000139",
+      "sku": "CUGUMY000139",
       "no": null,
-      "slug": "gucci-bifold-cuzdan-acik-gri-gumus-fr-00149",
-      "cover": "",
+      "cover": "assets/products/CUGUMY000139.jpg",
       "isim_resmi": "Gucci Mekanizmalı Yatay Cüzdan Açık Gri Monogram",
       "isim_bilinen": "Gucci Mekanizmalı Yatay Cüzdan Açık Gri GG Monogram",
       "marka": "Gucci",
-      "kategori": "Bifold Cüzdan",
+      "kategori": "Mekanizmalı Yatay Cüzdan",
       "kategori_ust": "Cüzdan",
-      "kategori_alt": "Bifold Cüzdan",
+      "kategori_alt": "Mekanizmalı Yatay Cüzdan",
       "renk": "ACIK GRI",
       "ana_renk": "Açık Gri",
       "ana_renk_hex": "#b8b8b8",
-      "renk_slug": "acik-gri",
       "renk_hex": "#b8b8b8",
       "ikincil_renk": "",
       "ikincil_renk_code": "",
@@ -7929,9 +7651,9 @@ window.__BOTL_DATA__ = {
       "tedarikci_id": null,
       "olusturma": "2026-05-13",
       "gorseller": {
-        "cover": "",
+        "cover": "assets/products/CUGUMY000139.jpg",
         "gallery": [
-          "assets/products/kart-kabi-139-lutfen-duzenle-karisik-gumus-g1.jpg"
+          "assets/products/CUGUMY000139-g1.jpg"
         ]
       },
       "cinsiyet": "KADIN",
@@ -7946,21 +7668,19 @@ window.__BOTL_DATA__ = {
       "ic_astar_malzeme": "Deri"
     },
     {
-      "variation_id": "FR-00150-KARISIK-STANDART-GUMUS",
-      "sku": "FR-00150",
+      "variation_id": "CUGUMD000140",
+      "sku": "CUGUMD000140",
       "no": null,
-      "slug": "gucci-bifold-cuzdan-acik-gri-gumus-fr-00150",
-      "cover": "",
+      "cover": "assets/products/CUGUMD000140.jpg",
       "isim_resmi": "Gucci Mekanizmalı Dikey Cüzdan Açık Gri Monogram",
       "isim_bilinen": "Gucci Mekanizmalı Dikey Cüzdan Açık Gri GG Monogram",
       "marka": "Gucci",
-      "kategori": "Bifold Cüzdan",
+      "kategori": "Mekanizmalı Dikey Cüzdan",
       "kategori_ust": "Cüzdan",
-      "kategori_alt": "Bifold Cüzdan",
+      "kategori_alt": "Mekanizmalı Dikey Cüzdan",
       "renk": "ACIK GRI",
       "ana_renk": "Açık Gri",
       "ana_renk_hex": "#b8b8b8",
-      "renk_slug": "acik-gri",
       "renk_hex": "#b8b8b8",
       "ikincil_renk": "",
       "ikincil_renk_code": "",
@@ -7986,9 +7706,9 @@ window.__BOTL_DATA__ = {
       "tedarikci_id": null,
       "olusturma": "2026-05-13",
       "gorseller": {
-        "cover": "",
+        "cover": "assets/products/CUGUMD000140.jpg",
         "gallery": [
-          "assets/products/kart-kabi-140-lutfen-duzenle-karisik-gumus-g1.jpg"
+          "assets/products/CUGUMD000140-g1.jpg"
         ]
       },
       "cinsiyet": "ERKEK",
@@ -8003,21 +7723,19 @@ window.__BOTL_DATA__ = {
       "ic_astar_malzeme": "Deri"
     },
     {
-      "variation_id": "FR-00151-KARISIK-STANDART-GUMUS",
-      "sku": "FR-00151",
+      "variation_id": "CUGUMY000141",
+      "sku": "CUGUMY000141",
       "no": null,
-      "slug": "gucci-bifold-cuzdan-siyah-gumus-fr-00151",
-      "cover": "",
+      "cover": "assets/products/CUGUMY000141.jpg",
       "isim_resmi": "Gucci Mekanizmalı Yatay Cüzdan Siyah Monogram",
       "isim_bilinen": "Gucci Mekanizmalı Yatay Cüzdan Siyah GG Monogram",
       "marka": "Gucci",
-      "kategori": "Bifold Cüzdan",
+      "kategori": "Mekanizmalı Yatay Cüzdan",
       "kategori_ust": "Cüzdan",
-      "kategori_alt": "Bifold Cüzdan",
+      "kategori_alt": "Mekanizmalı Yatay Cüzdan",
       "renk": "SIYAH",
       "ana_renk": "Siyah",
       "ana_renk_hex": "#1a1a1a",
-      "renk_slug": "siyah",
       "renk_hex": "#1a1a1a",
       "ikincil_renk": "",
       "ikincil_renk_code": "",
@@ -8043,9 +7761,9 @@ window.__BOTL_DATA__ = {
       "tedarikci_id": null,
       "olusturma": "2026-05-13",
       "gorseller": {
-        "cover": "",
+        "cover": "assets/products/CUGUMY000141.jpg",
         "gallery": [
-          "assets/products/kart-kabi-141-lutfen-duzenle-karisik-gumus-g1.jpg"
+          "assets/products/CUGUMY000141-g1.jpg"
         ]
       },
       "cinsiyet": "KADIN",
@@ -8060,21 +7778,19 @@ window.__BOTL_DATA__ = {
       "ic_astar_malzeme": "Deri"
     },
     {
-      "variation_id": "FR-00152-KARISIK-STANDART-GUMUS",
-      "sku": "FR-00152",
+      "variation_id": "CUCOMY000142",
+      "sku": "CUCOMY000142",
       "no": null,
-      "slug": "coach-bifold-cuzdan-kahve-gumus-fr-00152",
-      "cover": "",
+      "cover": "assets/products/CUCOMY000142.jpg",
       "isim_resmi": "Coach Mekanizmalı Yatay Cüzdan Kahve Monogram",
       "isim_bilinen": "Coach Mekanizmalı Yatay Cüzdan Kahve Signature",
       "marka": "Coach",
-      "kategori": "Bifold Cüzdan",
+      "kategori": "Mekanizmalı Yatay Cüzdan",
       "kategori_ust": "Cüzdan",
-      "kategori_alt": "Bifold Cüzdan",
+      "kategori_alt": "Mekanizmalı Yatay Cüzdan",
       "renk": "KAHVE",
       "ana_renk": "Kahve",
       "ana_renk_hex": "#5a3a25",
-      "renk_slug": "kahve",
       "renk_hex": "#5a3a25",
       "ikincil_renk": "",
       "ikincil_renk_code": "",
@@ -8100,9 +7816,9 @@ window.__BOTL_DATA__ = {
       "tedarikci_id": null,
       "olusturma": "2026-05-13",
       "gorseller": {
-        "cover": "",
+        "cover": "assets/products/CUCOMY000142.jpg",
         "gallery": [
-          "assets/products/kart-kabi-142-lutfen-duzenle-karisik-gumus-g1.jpg"
+          "assets/products/CUCOMY000142-g1.jpg"
         ]
       },
       "cinsiyet": "KADIN",
@@ -8117,21 +7833,19 @@ window.__BOTL_DATA__ = {
       "ic_astar_malzeme": "Deri"
     },
     {
-      "variation_id": "FR-00153-KARISIK-STANDART-GUMUS",
-      "sku": "FR-00153",
+      "variation_id": "CUHUMY000143",
+      "sku": "CUHUMY000143",
       "no": null,
-      "slug": "hugo-boss-bifold-cuzdan-siyah-gumus-fr-00153",
-      "cover": "",
+      "cover": "assets/products/CUHUMY000143.jpg",
       "isim_resmi": "Hugo Boss Mekanizmalı Yatay Cüzdan Siyah",
       "isim_bilinen": "Hugo Boss Klasik Cüzdan Siyah",
       "marka": "Hugo Boss",
-      "kategori": "Bifold Cüzdan",
+      "kategori": "Klasik Cüzdan",
       "kategori_ust": "Cüzdan",
-      "kategori_alt": "Bifold Cüzdan",
+      "kategori_alt": "Klasik Cüzdan",
       "renk": "SIYAH",
       "ana_renk": "Siyah",
       "ana_renk_hex": "#1a1a1a",
-      "renk_slug": "siyah",
       "renk_hex": "#1a1a1a",
       "ikincil_renk": "",
       "ikincil_renk_code": "",
@@ -8157,9 +7871,9 @@ window.__BOTL_DATA__ = {
       "tedarikci_id": null,
       "olusturma": "2026-05-13",
       "gorseller": {
-        "cover": "",
+        "cover": "assets/products/CUHUMY000143.jpg",
         "gallery": [
-          "assets/products/kart-kabi-143-lutfen-duzenle-karisik-gumus-g1.jpg"
+          "assets/products/CUHUMY000143-g1.jpg"
         ]
       },
       "cinsiyet": "ERKEK",
@@ -8174,21 +7888,19 @@ window.__BOTL_DATA__ = {
       "ic_astar_malzeme": "Deri"
     },
     {
-      "variation_id": "FR-00154-KARISIK-STANDART-GUMUS",
-      "sku": "FR-00154",
+      "variation_id": "CUHUMY000144",
+      "sku": "CUHUMY000144",
       "no": null,
-      "slug": "hugo-boss-bifold-cuzdan-siyah-gumus-fr-00154",
-      "cover": "",
+      "cover": "assets/products/CUHUMY000144.jpg",
       "isim_resmi": "Hugo Boss Mekanizmalı Yatay Cüzdan Siyah Monogram",
       "isim_bilinen": "Hugo Boss Mekanizmalı Yatay Cüzdan Siyah Embossed",
       "marka": "Hugo Boss",
-      "kategori": "Bifold Cüzdan",
+      "kategori": "Mekanizmalı Yatay Cüzdan",
       "kategori_ust": "Cüzdan",
-      "kategori_alt": "Bifold Cüzdan",
+      "kategori_alt": "Mekanizmalı Yatay Cüzdan",
       "renk": "SIYAH",
       "ana_renk": "Siyah",
       "ana_renk_hex": "#1a1a1a",
-      "renk_slug": "siyah",
       "renk_hex": "#1a1a1a",
       "ikincil_renk": "",
       "ikincil_renk_code": "",
@@ -8214,9 +7926,9 @@ window.__BOTL_DATA__ = {
       "tedarikci_id": null,
       "olusturma": "2026-05-13",
       "gorseller": {
-        "cover": "",
+        "cover": "assets/products/CUHUMY000144.jpg",
         "gallery": [
-          "assets/products/kart-kabi-144-lutfen-duzenle-karisik-gumus-g1.jpg"
+          "assets/products/CUHUMY000144-g1.jpg"
         ]
       },
       "cinsiyet": "ERKEK",
@@ -8231,21 +7943,19 @@ window.__BOTL_DATA__ = {
       "ic_astar_malzeme": "Deri"
     },
     {
-      "variation_id": "FR-00155-KARISIK-STANDART-GUMUS",
-      "sku": "FR-00155",
+      "variation_id": "CUARMY000145",
+      "sku": "CUARMY000145",
       "no": null,
-      "slug": "armani-bifold-cuzdan-siyah-gumus-fr-00155",
-      "cover": "",
+      "cover": "assets/products/CUARMY000145.jpg",
       "isim_resmi": "Armani Mekanizmalı Yatay Cüzdan Siyah",
       "isim_bilinen": "Armani Klasik Cüzdan Siyah",
       "marka": "Giorgio Armani",
-      "kategori": "Bifold Cüzdan",
+      "kategori": "Klasik Cüzdan",
       "kategori_ust": "Cüzdan",
-      "kategori_alt": "Bifold Cüzdan",
+      "kategori_alt": "Klasik Cüzdan",
       "renk": "SIYAH",
       "ana_renk": "Siyah",
       "ana_renk_hex": "#1a1a1a",
-      "renk_slug": "siyah",
       "renk_hex": "#1a1a1a",
       "ikincil_renk": "",
       "ikincil_renk_code": "",
@@ -8271,9 +7981,9 @@ window.__BOTL_DATA__ = {
       "tedarikci_id": null,
       "olusturma": "2026-05-13",
       "gorseller": {
-        "cover": "",
+        "cover": "assets/products/CUARMY000145.jpg",
         "gallery": [
-          "assets/products/kart-kabi-145-lutfen-duzenle-karisik-gumus-g1.jpg"
+          "assets/products/CUARMY000145-g1.jpg"
         ]
       },
       "cinsiyet": "ERKEK",
@@ -8288,21 +7998,19 @@ window.__BOTL_DATA__ = {
       "ic_astar_malzeme": "Deri"
     },
     {
-      "variation_id": "FR-00156-KARISIK-STANDART-GUMUS",
-      "sku": "FR-00156",
+      "variation_id": "CUHUMY000146",
+      "sku": "CUHUMY000146",
       "no": null,
-      "slug": "hugo-boss-bifold-cuzdan-siyah-gumus-fr-00156",
-      "cover": "",
+      "cover": "assets/products/CUHUMY000146.jpg",
       "isim_resmi": "Hugo Boss Mekanizmalı Yatay Cüzdan Siyah",
       "isim_bilinen": "Hugo Boss Mekanizmalı Yatay Cüzdan Siyah",
       "marka": "Hugo Boss",
-      "kategori": "Bifold Cüzdan",
+      "kategori": "Mekanizmalı Yatay Cüzdan",
       "kategori_ust": "Cüzdan",
-      "kategori_alt": "Bifold Cüzdan",
+      "kategori_alt": "Mekanizmalı Yatay Cüzdan",
       "renk": "SIYAH",
       "ana_renk": "Siyah",
       "ana_renk_hex": "#1a1a1a",
-      "renk_slug": "siyah",
       "renk_hex": "#1a1a1a",
       "ikincil_renk": "",
       "ikincil_renk_code": "",
@@ -8328,9 +8036,9 @@ window.__BOTL_DATA__ = {
       "tedarikci_id": null,
       "olusturma": "2026-05-13",
       "gorseller": {
-        "cover": "",
+        "cover": "assets/products/CUHUMY000146.jpg",
         "gallery": [
-          "assets/products/kart-kabi-146-lutfen-duzenle-karisik-gumus-g1.jpg"
+          "assets/products/CUHUMY000146-g1.jpg"
         ]
       },
       "cinsiyet": "ERKEK",
@@ -8398,10 +8106,11 @@ window.__BOTL_DATA__ = {
     "CUZDAN": {
       "label": "Cüzdan",
       "alt": {
-        "LONG_WALLET": "Uzun Cüzdan",
-        "BIFOLD": "Bifold",
-        "CARDHOLDER": "Kart Kabı",
-        "COIN_PURSE": "Bozukluk"
+        "KARTLIK": "Kartlık",
+        "KLASIK": "Klasik Cüzdan",
+        "MEK_DIKEY": "Mekanizmalı Dikey Cüzdan",
+        "MEK_YATAY": "Mekanizmalı Yatay Cüzdan",
+        "ANAHTARLIKLI": "Anahtarlıklı Cüzdan"
       }
     },
     "AKSESUAR": {
@@ -8433,6 +8142,12 @@ window.__BOTL_DATA__ = {
       "label": "Gözlük",
       "alt": {
         "SUNGLASSES": "Güneş Gözlüğü"
+      }
+    },
+    "KARTLIK": {
+      "label": "Kartlık",
+      "alt": {
+        "KARTLIK": "Kartlık"
       }
     }
   },
@@ -8696,22 +8411,11 @@ window.__BOTL_DATA__ = {
     }
   ],
   "kanonik_kategoriler": [
-    "Bifold Cüzdan",
-    "Bozukluk Cüzdanı",
-    "CANTA",
-    "CROSSBODY",
-    "Cüzdan",
-    "Erkek Evrak",
-    "Kart Kabı",
-    "MINI",
-    "Mini Çanta",
-    "Omuz Çantası",
-    "SATCHEL",
-    "SHOULDER",
-    "TOTE",
-    "Tote Çanta",
-    "Çanta",
-    "Çapraz Çanta"
+    "Anahtarlıklı Cüzdan",
+    "Kartlık",
+    "Klasik Cüzdan",
+    "Mekanizmalı Dikey Cüzdan",
+    "Mekanizmalı Yatay Cüzdan"
   ],
   "kanonik_malzemeler": [
     "Denim",
