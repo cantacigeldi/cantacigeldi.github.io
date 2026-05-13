@@ -1620,7 +1620,7 @@ tr.row--re-onay td:first-child{box-shadow:inset 3px 0 0 #C77A17}
           <h3 class="form-section__title">Ürün Bilgisi</h3>
           <div class="field">
             <label class="field__label">Marka<span class="req">*</span></label>
-            <input class="field__input" name="marka" required placeholder="Hermès, Chanel, BV, ...">
+            <input class="field__input" name="marka" required list="dl-markalar" placeholder="Hermès, Chanel, BV, ..." autocomplete="off">
           </div>
           <div class="field">
             <label class="field__label">Resmi Ad<span class="req">*</span></label>
@@ -1634,11 +1634,11 @@ tr.row--re-onay td:first-child{box-shadow:inset 3px 0 0 #C77A17}
           </div>
           <div class="field">
             <label class="field__label">Üst Kategori<span class="req">*</span></label>
-            <input class="field__input" name="kategori_ust" id="form-kategori-ust" required placeholder="CANTA, CUZDAN, AKSESUAR, ...">
+            <input class="field__input" name="kategori_ust" id="form-kategori-ust" required list="dl-kategoriler" placeholder="CANTA, CUZDAN, AKSESUAR, ..." autocomplete="off">
           </div>
           <div class="field">
             <label class="field__label">Alt Kategori<span class="req">*</span></label>
-            <input class="field__input" name="kategori_alt" id="form-kategori-alt" required placeholder="TOTE, SHOULDER, LONG_WALLET, ...">
+            <input class="field__input" name="kategori_alt" id="form-kategori-alt" required list="dl-kategoriler" placeholder="TOTE, SHOULDER, LONG_WALLET, ..." autocomplete="off">
             <!-- Eski tek-kategori alanı geriye uyumluluk için gizli; export'ta alt değeri yazılır -->
             <input type="hidden" name="kategori" id="form-kategori-legacy">
           </div>
@@ -1684,20 +1684,15 @@ tr.row--re-onay td:first-child{box-shadow:inset 3px 0 0 #C77A17}
             <div class="field">
               <label class="field__label">Birincil Renk<span class="req">*</span></label>
               <div class="color-row">
-                <select class="field__input" name="ana_renk" required data-renk-select="primary">
-                  <option value="">— SSOT'tan seç —</option>
-                  <!-- Options runtime'da kanonik_renkler'den doldurulur -->
-                </select>
+                <input class="field__input" name="ana_renk" required data-renk-combo="primary" list="dl-renkler" placeholder="Siyah · yaz veya öner listesinden seç" autocomplete="off">
                 <span class="renk-swatch" data-renk-swatch="primary" style="width:24px;height:24px;border-radius:4px;border:1px solid var(--border);background:#ccc;display:inline-block;flex-shrink:0"></span>
               </div>
-              <span class="field__hint" data-renk-hint="primary">SSOT: renk-paleti.md (22 kanonik renk)</span>
+              <span class="field__hint" data-renk-hint="primary">Mevcut renkler önerilir; yeni renk de yazabilirsin (otomatik kayda alınır).</span>
             </div>
             <div class="field">
               <label class="field__label">İkincil Renk</label>
               <div class="color-row">
-                <select class="field__input" name="ikincil_renk" data-renk-select="secondary">
-                  <option value="">— yok —</option>
-                </select>
+                <input class="field__input" name="ikincil_renk" data-renk-combo="secondary" list="dl-renkler" placeholder="(opsiyonel)" autocomplete="off">
                 <span class="renk-swatch" data-renk-swatch="secondary" style="width:24px;height:24px;border-radius:4px;border:1px solid var(--border);background:transparent;display:inline-block;flex-shrink:0"></span>
               </div>
             </div>
@@ -1706,22 +1701,22 @@ tr.row--re-onay td:first-child{box-shadow:inset 3px 0 0 #C77A17}
           <div class="field--inline">
             <div class="field">
               <label class="field__label">Ana Malzeme<span class="req">*</span></label>
-              <input class="field__input" name="ana_malzeme" required placeholder="Kanvas, Deri, Hasır, Örme, Denim">
+              <input class="field__input" name="ana_malzeme" required list="dl-malzemeler" placeholder="Kanvas, Deri, Hasır, Örme, Denim" autocomplete="off">
             </div>
             <div class="field">
               <label class="field__label">Desen</label>
-              <input class="field__input" name="desen" placeholder="Monogram, Damier, Düz, Kapitone, Baskılı">
+              <input class="field__input" name="desen" list="dl-desenler" placeholder="Monogram, Damier, Düz, Kapitone, Baskılı" autocomplete="off">
             </div>
           </div>
 
           <div class="field--inline">
             <div class="field">
               <label class="field__label">Donanım Rengi</label>
-              <input class="field__input" name="donanim_rengi" placeholder="Altın, Gümüş">
+              <input class="field__input" name="donanim_rengi" list="dl-donanim-renkleri" placeholder="Altın, Gümüş, Paladyum" autocomplete="off">
             </div>
             <div class="field">
               <label class="field__label">Stil</label>
-              <input class="field__input" name="stil" placeholder="Mini, Tote, Omuz, Çapraz, Portföy">
+              <input class="field__input" name="stil" list="dl-stiller" placeholder="Mini, Tote, Omuz, Çapraz, Portföy" autocomplete="off">
             </div>
           </div>
 
@@ -1735,9 +1730,21 @@ tr.row--re-onay td:first-child{box-shadow:inset 3px 0 0 #C77A17}
             </div>
             <div class="field">
               <label class="field__label">Kondisyon</label>
-              <input class="field__input" name="kondisyon" placeholder="BNIB, VGC, GC, ...">
+              <input class="field__input" name="kondisyon" list="dl-kondisyonlar" placeholder="BNIB, VGC, GC, ..." autocomplete="off">
             </div>
           </div>
+
+          <!-- Datalist'ler runtime'da populateTaxonomyDatalists()'tan doldurulur -->
+          <datalist id="dl-renkler"></datalist>
+          <datalist id="dl-malzemeler"></datalist>
+          <datalist id="dl-desenler"></datalist>
+          <datalist id="dl-donanim-renkleri"></datalist>
+          <datalist id="dl-stiller"></datalist>
+          <datalist id="dl-kondisyonlar"></datalist>
+          <datalist id="dl-boyutlar"></datalist>
+          <datalist id="dl-donanimlar"></datalist>
+          <datalist id="dl-markalar"></datalist>
+          <datalist id="dl-kategoriler"></datalist>
 
           <details class="legacy-fields" style="margin-top:8px">
             <summary style="font-size:11px;color:var(--text-muted);cursor:pointer;padding:6px 0">SSOT alanlar (otomatik — değiştirilemez)</summary>
@@ -1768,11 +1775,11 @@ tr.row--re-onay td:first-child{box-shadow:inset 3px 0 0 #C77A17}
             <div class="field--inline">
               <div class="field">
                 <label class="field__label">Boyut Kodu</label>
-                <input class="field__input" name="boyut" placeholder="NANO, PM, STANDART, ...">
+                <input class="field__input" name="boyut" list="dl-boyutlar" placeholder="NANO, PM, STANDART, ..." autocomplete="off">
               </div>
               <div class="field">
                 <label class="field__label">Donanım Kodu</label>
-                <input class="field__input" name="donanim" placeholder="GOLD, SILVER, PALLADIUM">
+                <input class="field__input" name="donanim" list="dl-donanimlar" placeholder="GOLD, SILVER, PALLADIUM" autocomplete="off">
               </div>
             </div>
           </details>
@@ -2353,7 +2360,7 @@ tr.row--re-onay td:first-child{box-shadow:inset 3px 0 0 #C77A17}
 <!-- BOTL_INLINE_DATA_START — catalog_sync_data tarafından yenilenir, elle düzenleme -->
 <script>window.__BOTL_DATA__ = {
   "schema_version": 5,
-  "exported_at": "2026-05-13T07:38:11.167420+00:00",
+  "exported_at": "2026-05-13T07:46:46.389139+00:00",
   "counter": 46,
   "products": [
     {
@@ -4425,11 +4432,11 @@ tr.row--re-onay td:first-child{box-shadow:inset 3px 0 0 #C77A17}
   },
   "kanonik_renkler": [
     {
-      "code": "NOIR",
-      "tr": "Siyah",
-      "en": "Black",
-      "slug": "black",
-      "hex": "#1a1a1a"
+      "code": "BEIGE",
+      "tr": "Bej",
+      "en": "Beige",
+      "slug": "beige",
+      "hex": "#d8c3a3"
     },
     {
       "code": "BLANC",
@@ -4439,109 +4446,11 @@ tr.row--re-onay td:first-child{box-shadow:inset 3px 0 0 #C77A17}
       "hex": "#f5f1ea"
     },
     {
-      "code": "CREME",
-      "tr": "Krem",
-      "en": "Cream",
-      "slug": "cream",
-      "hex": "#e8d4b0"
-    },
-    {
-      "code": "NATUREL",
-      "tr": "Doğal",
-      "en": "Natural",
-      "slug": "natural",
-      "hex": "#d4b896"
-    },
-    {
-      "code": "GRIS",
-      "tr": "Gri",
-      "en": "Gray",
-      "slug": "gray",
-      "hex": "#7d7d7d"
-    },
-    {
-      "code": "GRIS_FUME",
-      "tr": "Füme",
-      "en": "Smoke Gray",
-      "slug": "smoke-gray",
-      "hex": "#4a4a4a"
-    },
-    {
-      "code": "MARRON_FONCE",
-      "tr": "Koyu Kahve",
-      "en": "Dark Brown",
-      "slug": "dark-brown",
-      "hex": "#3d2817"
-    },
-    {
-      "code": "MARRON_CLAIR",
-      "tr": "Açık Kahve",
-      "en": "Light Brown",
-      "slug": "light-brown",
-      "hex": "#7b5a3a"
-    },
-    {
-      "code": "TABA",
-      "tr": "Taba",
-      "en": "Tan",
-      "slug": "tan",
-      "hex": "#a87842"
-    },
-    {
-      "code": "TABA_FONCE",
-      "tr": "Koyu Taba",
-      "en": "Dark Tan",
-      "slug": "dark-tan",
-      "hex": "#7a4d28"
-    },
-    {
-      "code": "BEIGE",
-      "tr": "Bej",
-      "en": "Beige",
-      "slug": "beige",
-      "hex": "#d8c3a3"
-    },
-    {
-      "code": "VIZON_CLAIR",
-      "tr": "Açık Vizon",
-      "en": "Light Mink",
-      "slug": "light-mink",
-      "hex": "#b8a690"
-    },
-    {
-      "code": "VIZON_FONCE",
-      "tr": "Koyu Vizon",
-      "en": "Dark Mink",
-      "slug": "dark-mink",
-      "hex": "#8a7560"
-    },
-    {
-      "code": "BORDEAUX",
-      "tr": "Bordo",
-      "en": "Burgundy",
-      "slug": "burgundy",
-      "hex": "#4a1c20"
-    },
-    {
-      "code": "ROUGE",
-      "tr": "Kırmızı",
-      "en": "Red",
-      "slug": "red",
-      "hex": "#9c2a2a"
-    },
-    {
-      "code": "ROSE_CLAIR",
-      "tr": "Açık Pembe",
-      "en": "Light Pink",
-      "slug": "light-pink",
-      "hex": "#e8c4cc"
-    },
-    {
-      "code": "BLEU_NUIT",
-      "tr": "Lacivert",
-      "en": "Navy",
-      "slug": "navy",
-      "hex": "#1a2238"
+      "code": "BLEU_CLAIR",
+      "tr": "Açık Mavi",
+      "en": "Light Blue",
+      "slug": "light-blue",
+      "hex": "#7a96b8"
     },
     {
       "code": "BLEU_FRANCE",
@@ -4551,33 +4460,196 @@ tr.row--re-onay td:first-child{box-shadow:inset 3px 0 0 #C77A17}
       "hex": "#2d3e58"
     },
     {
-      "code": "BLEU_CLAIR",
-      "tr": "Açık Mavi",
-      "en": "Light Blue",
-      "slug": "light-blue",
-      "hex": "#7a96b8"
+      "code": "BLEU_NUIT",
+      "tr": "Lacivert",
+      "en": "Navy",
+      "slug": "navy",
+      "hex": "#1a2238"
+    },
+    {
+      "code": "BORDEAUX",
+      "tr": "Bordo",
+      "en": "Burgundy",
+      "slug": "burgundy",
+      "hex": "#4a1c20"
+    },
+    {
+      "code": "CREME",
+      "tr": "Krem",
+      "en": "Cream",
+      "slug": "cream",
+      "hex": "#e8d4b0"
+    },
+    {
+      "code": "GRIS_FUME",
+      "tr": "Füme",
+      "en": "Smoke Gray",
+      "slug": "smoke-gray",
+      "hex": "#4a4a4a"
+    },
+    {
+      "code": "MARRON_CLAIR",
+      "tr": "Açık Kahve",
+      "en": "Light Brown",
+      "slug": "light-brown",
+      "hex": "#7b5a3a"
+    },
+    {
+      "code": "MARRON_FONCE",
+      "tr": "Koyu Kahve",
+      "en": "Dark Brown",
+      "slug": "dark-brown",
+      "hex": "#3d2817"
+    },
+    {
+      "code": "NATUREL",
+      "tr": "Doğal",
+      "en": "Natural",
+      "slug": "natural",
+      "hex": "#d4b896"
+    },
+    {
+      "code": "NOIR",
+      "tr": "Siyah",
+      "en": "Black",
+      "slug": "black",
+      "hex": "#1a1a1a"
+    },
+    {
+      "code": "ROSE_CLAIR",
+      "tr": "Açık Pembe",
+      "en": "Light Pink",
+      "slug": "light-pink",
+      "hex": "#e8c4cc"
+    },
+    {
+      "code": "TABA",
+      "tr": "Taba",
+      "en": "Tan",
+      "slug": "tan",
+      "hex": "#a87842"
+    },
+    {
+      "code": "VIZON_CLAIR",
+      "tr": "Açık Vizon",
+      "en": "Light Mink",
+      "slug": "light-mink",
+      "hex": "#b8a690"
+    },
+    {
+      "code": "GRIS",
+      "tr": "Gri",
+      "en": "Gray",
+      "slug": "gray",
+      "hex": "#7d7d7d",
+      "kaynak": "rehber"
+    },
+    {
+      "code": "TABA_FONCE",
+      "tr": "Koyu Taba",
+      "en": "Dark Tan",
+      "slug": "dark-tan",
+      "hex": "#7a4d28",
+      "kaynak": "rehber"
+    },
+    {
+      "code": "VIZON_FONCE",
+      "tr": "Koyu Vizon",
+      "en": "Dark Mink",
+      "slug": "dark-mink",
+      "hex": "#8a7560",
+      "kaynak": "rehber"
+    },
+    {
+      "code": "ROUGE",
+      "tr": "Kırmızı",
+      "en": "Red",
+      "slug": "red",
+      "hex": "#9c2a2a",
+      "kaynak": "rehber"
     },
     {
       "code": "VERT_ANGLAIS",
       "tr": "Yeşil",
       "en": "English Green",
       "slug": "green",
-      "hex": "#3d5a3d"
+      "hex": "#3d5a3d",
+      "kaynak": "rehber"
     },
     {
       "code": "MONOGRAM_NOIR",
       "tr": "Monogram Siyah",
       "en": "Monogram Black",
       "slug": "monogram-black",
-      "hex": "#1a1a1a"
+      "hex": "#1a1a1a",
+      "kaynak": "rehber"
     },
     {
       "code": "DAMIER_AZUR",
       "tr": "Damier Mavi",
       "en": "Damier Azure",
       "slug": "damier-azure",
-      "hex": "#d4d8e0"
+      "hex": "#d4d8e0",
+      "kaynak": "rehber"
     }
+  ],
+  "kanonik_kategoriler": [
+    "CANTA",
+    "CROSSBODY",
+    "MENS_BRIEFCASE",
+    "MINI",
+    "SHOULDER",
+    "TOTE"
+  ],
+  "kanonik_malzemeler": [
+    "Denim",
+    "Deri",
+    "Hasır",
+    "Kanvas",
+    "Örme"
+  ],
+  "kanonik_markalar": [
+    "Giorgio Armani",
+    "Gucci",
+    "Hermès",
+    "Hugo Boss",
+    "Louis Vuitton",
+    "Miu Miu",
+    "Prada",
+    "Yves Saint Laurent"
+  ],
+  "kanonik_donanimlar": [
+    "GOLD",
+    "PALLADIUM",
+    "SILVER"
+  ],
+  "kanonik_donanim_renkleri": [
+    "Altın",
+    "Gümüş"
+  ],
+  "kanonik_kondisyonlar": [
+    "BNIB"
+  ],
+  "kanonik_boyutlar": [
+    "MAXI",
+    "MINI",
+    "NANO",
+    "PM",
+    "STANDART"
+  ],
+  "kanonik_desenler": [
+    "Baskılı",
+    "Damier",
+    "Düz",
+    "Kapitone",
+    "Monogram"
+  ],
+  "kanonik_stiller": [
+    "Mini",
+    "Omuz",
+    "Portföy",
+    "Tote",
+    "Çapraz"
   ]
 };</script>
 <!-- BOTL_INLINE_DATA_END -->
@@ -5293,32 +5365,99 @@ function makeVarId(sku, renk, boyut, donanim){
   return `${sku}-${(renk||'').toUpperCase().replace(/\s+/g,'_')}-${(boyut||'').toUpperCase()}-${(donanim||'').toUpperCase()}`;
 }
 
-// === SSOT RENK PALETİ — data.json'dan beslenir (kanonik_renkler array) ===
-// Backend SSOT: botl_mcp/state/colors.py + workflow/bible/renk-paleti.md
+// === DERIVED TAXONOMY — data.json'dan beslenir, combobox autocomplete ===
+// Backend mimari: botl_mcp/state/taxonomy.py (SSOT = patron'un girdiği ürünler)
+// Backend rehber: botl_mcp/state/colors.py (sadece renk için TR/EN/hex/slug enrichment)
 function getKanonikRenkler(){
   return (window.__BOTL_DATA__ && window.__BOTL_DATA__.kanonik_renkler) ||
          (state.kanonikRenkler) || [];
 }
+function getTaxonomyArray(key){
+  return (window.__BOTL_DATA__ && window.__BOTL_DATA__[key]) || [];
+}
 function findRenkByCode(code){
-  return getKanonikRenkler().find(r => r.code === code) || null;
+  if(!code) return null;
+  const norm = String(code).trim().toUpperCase().replace(/[\s\-]+/g,'_');
+  return getKanonikRenkler().find(r => r.code === norm) || null;
 }
 function findRenkByTr(tr){
-  return getKanonikRenkler().find(r => r.tr === tr) || null;
+  if(!tr) return null;
+  const v = String(tr).trim();
+  return getKanonikRenkler().find(r => r.tr === v) || null;
+}
+function findRenkBySlug(slug){
+  if(!slug) return null;
+  return getKanonikRenkler().find(r => r.slug === String(slug).trim().toLowerCase()) || null;
+}
+
+// JS derive_renk — backend colors.derive_renk() ile aynı mantık
+// Patron rehberde olmayan renk yazarsa otomatik kabul + humanize derive et
+function normalizeCodeJS(v){
+  if(!v) return '';
+  // Türkçe → ASCII fold
+  const trMap = {ş:'s',Ş:'S',ç:'c',Ç:'C',ğ:'g',Ğ:'G',ü:'u',Ü:'U',ö:'o',Ö:'O',ı:'i',İ:'I',â:'a',î:'i',û:'u'};
+  let s = String(v).split('').map(c => trMap[c] || c).join('');
+  s = s.normalize('NFD').replace(/[̀-ͯ]/g, '');
+  s = s.trim().replace(/[\s\-]+/g, '_').replace(/[^A-Za-z0-9_]/g, '').replace(/_+/g, '_').replace(/^_|_$/g,'');
+  return s.toUpperCase();
+}
+function deriveRenkJS(value){
+  if(!value) return null;
+  const raw = String(value).trim();
+  if(!raw) return null;
+  // 1) Doğrudan kod
+  let r = findRenkByCode(raw);
+  if(r) return r;
+  // 2) TR label
+  r = findRenkByTr(raw);
+  if(r) return r;
+  // 3) slug
+  r = findRenkBySlug(raw);
+  if(r) return r;
+  // 4) yeni renk — derive
+  const code = normalizeCodeJS(raw);
+  if(!code) return null;
+  // Tekrar rehberde var mı (normalize sonrası)
+  r = findRenkByCode(code);
+  if(r) return r;
+  // Yeni — humanize
+  const humanize = code.replace(/_/g,' ').toLowerCase().split(' ')
+                       .map(p => p ? p[0].toUpperCase()+p.slice(1) : '').join(' ');
+  return {
+    code,
+    tr: humanize,
+    en: humanize,
+    slug: code.toLowerCase().replace(/_/g,'-'),
+    hex: '#9c9794',  // nötr gri
+    kaynak: 'yeni',
+  };
 }
 
 function populateRenkSelects(){
+  // Geriye uyum için tutuldu — gerçekte populateTaxonomyDatalists çağrılır
+  populateTaxonomyDatalists();
+}
+
+function populateTaxonomyDatalists(){
   const renkler = getKanonikRenkler();
-  if(!renkler.length) return;
-  const primary = document.querySelector('[data-renk-select="primary"]');
-  const secondary = document.querySelector('[data-renk-select="secondary"]');
-  if(primary && primary.options.length <= 1){
-    primary.innerHTML = '<option value="">— SSOT\'tan seç —</option>' +
-      renkler.map(r => `<option value="${r.tr}" data-code="${r.code}" data-hex="${r.hex}" data-en="${r.en}" data-slug="${r.slug}">${r.tr} (${r.en})</option>`).join('');
+  const fillDL = (id, items, fn) => {
+    const dl = document.getElementById(id);
+    if(!dl) return;
+    dl.innerHTML = items.map(fn).join('');
+  };
+  // Renkler — TR label primary, EN parantezde
+  if(renkler.length){
+    fillDL('dl-renkler', renkler, r => `<option value="${r.tr}" label="${r.code} · ${r.en||''}"></option>`);
   }
-  if(secondary && secondary.options.length <= 1){
-    secondary.innerHTML = '<option value="">— yok —</option>' +
-      renkler.map(r => `<option value="${r.tr}" data-code="${r.code}" data-hex="${r.hex}">${r.tr}</option>`).join('');
-  }
+  fillDL('dl-malzemeler', getTaxonomyArray('kanonik_malzemeler'), v => `<option value="${v}"></option>`);
+  fillDL('dl-desenler', getTaxonomyArray('kanonik_desenler'), v => `<option value="${v}"></option>`);
+  fillDL('dl-stiller', getTaxonomyArray('kanonik_stiller'), v => `<option value="${v}"></option>`);
+  fillDL('dl-kondisyonlar', getTaxonomyArray('kanonik_kondisyonlar'), v => `<option value="${v}"></option>`);
+  fillDL('dl-boyutlar', getTaxonomyArray('kanonik_boyutlar'), v => `<option value="${v}"></option>`);
+  fillDL('dl-donanimlar', getTaxonomyArray('kanonik_donanimlar'), v => `<option value="${v}"></option>`);
+  fillDL('dl-donanim-renkleri', getTaxonomyArray('kanonik_donanim_renkleri'), v => `<option value="${v}"></option>`);
+  fillDL('dl-markalar', getTaxonomyArray('kanonik_markalar'), v => `<option value="${v}"></option>`);
+  fillDL('dl-kategoriler', getTaxonomyArray('kanonik_kategoriler'), v => `<option value="${v}"></option>`);
 }
 
 function syncRenkSsotFields(){
@@ -5327,37 +5466,43 @@ function syncRenkSsotFields(){
   const primary = f.elements['ana_renk'];
   const secondary = f.elements['ikincil_renk'];
   if(!primary) return;
-  const primOpt = primary.selectedOptions[0];
-  if(primOpt && primOpt.value){
-    const code = primOpt.dataset.code || '';
-    const hex = primOpt.dataset.hex || '#9c9794';
-    const en = primOpt.dataset.en || '';
-    const slug = primOpt.dataset.slug || '';
-    if(f.elements['renk']) f.elements['renk'].value = code;
-    if(f.elements['renk_hex']) f.elements['renk_hex'].value = hex;
-    if(f.elements['ana_renk_en']) f.elements['ana_renk_en'].value = en;
-    if(f.elements['renk_slug']) f.elements['renk_slug'].value = slug;
-    if(f.elements['ana_renk_hex']) f.elements['ana_renk_hex'].value = hex;
-    const sw = document.querySelector('[data-renk-swatch="primary"]');
-    if(sw) sw.style.background = hex;
-    const hint = document.querySelector('[data-renk-hint="primary"]');
-    if(hint) hint.textContent = `SSOT: ${code} · slug=${slug} · hex=${hex}`;
+  // Combobox: input value'sunu derive et
+  const primVal = (primary.value || '').trim();
+  if(primVal){
+    const r = deriveRenkJS(primVal);
+    if(r){
+      if(f.elements['renk']) f.elements['renk'].value = r.code;
+      if(f.elements['renk_hex']) f.elements['renk_hex'].value = r.hex;
+      if(f.elements['ana_renk_en']) f.elements['ana_renk_en'].value = r.en;
+      if(f.elements['renk_slug']) f.elements['renk_slug'].value = r.slug;
+      if(f.elements['ana_renk_hex']) f.elements['ana_renk_hex'].value = r.hex;
+      const sw = document.querySelector('[data-renk-swatch="primary"]');
+      if(sw) sw.style.background = r.hex;
+      const hint = document.querySelector('[data-renk-hint="primary"]');
+      if(hint){
+        const tag = r.kaynak === 'yeni' ? '(YENİ)' : '';
+        hint.textContent = `Türev ${tag}: ${r.code} · slug=${r.slug} · hex=${r.hex}`;
+      }
+    }
   } else {
     if(f.elements['renk']) f.elements['renk'].value = '';
     if(f.elements['renk_hex']) f.elements['renk_hex'].value = '';
     if(f.elements['ana_renk_en']) f.elements['ana_renk_en'].value = '';
     if(f.elements['renk_slug']) f.elements['renk_slug'].value = '';
     if(f.elements['ana_renk_hex']) f.elements['ana_renk_hex'].value = '';
+    const sw = document.querySelector('[data-renk-swatch="primary"]');
+    if(sw) sw.style.background = '#ccc';
   }
   if(secondary){
-    const secOpt = secondary.selectedOptions[0];
-    if(secOpt && secOpt.value){
-      const code = secOpt.dataset.code || '';
-      const hex = secOpt.dataset.hex || '#cccccc';
-      if(f.elements['ikincil_renk_code']) f.elements['ikincil_renk_code'].value = code;
-      if(f.elements['ikincil_renk_hex']) f.elements['ikincil_renk_hex'].value = hex;
-      const sw = document.querySelector('[data-renk-swatch="secondary"]');
-      if(sw) sw.style.background = hex;
+    const secVal = (secondary.value || '').trim();
+    if(secVal){
+      const ik = deriveRenkJS(secVal);
+      if(ik){
+        if(f.elements['ikincil_renk_code']) f.elements['ikincil_renk_code'].value = ik.code;
+        if(f.elements['ikincil_renk_hex']) f.elements['ikincil_renk_hex'].value = ik.hex;
+        const sw = document.querySelector('[data-renk-swatch="secondary"]');
+        if(sw) sw.style.background = ik.hex;
+      }
     } else {
       if(f.elements['ikincil_renk_code']) f.elements['ikincil_renk_code'].value = '';
       if(f.elements['ikincil_renk_hex']) f.elements['ikincil_renk_hex'].value = '';
@@ -5371,8 +5516,8 @@ function syncRenkSsotFields(){
 }
 
 function autoSlug(p){
-  // SSOT renk slug — palette'ten gelir
-  const r = findRenkByCode(p.renk) || findRenkByTr(p.ana_renk);
+  // Renk slug — rehberde varsa rehber'den, yoksa derive
+  const r = deriveRenkJS(p.renk || p.ana_renk || '');
   const renk_slug = r ? r.slug : slugify(p.renk || p.ana_renk || '');
   const base = slugify(`${p.isim_resmi || p.marka+' '+p.isim_bilinen}`);
   const donanim_slug = (p.donanim || '').toLowerCase() === 'gold' ? '' : slugify(p.donanim || '');
@@ -6216,12 +6361,18 @@ function openModal(id){
     refreshKategoriAltOptions('', '');
     syncRenkSsotFields();
   }
-  // SSOT renk select change bind (idempotent — bir kere bağlanır)
+  // Combobox renk bind (idempotent) — hem 'input' hem 'change' (datalist seçim için)
   if(!f._renkSsotBound){
     const prim = f.elements['ana_renk'];
     const sec = f.elements['ikincil_renk'];
-    if(prim) prim.addEventListener('change', syncRenkSsotFields);
-    if(sec) sec.addEventListener('change', syncRenkSsotFields);
+    if(prim){
+      prim.addEventListener('input', syncRenkSsotFields);
+      prim.addEventListener('change', syncRenkSsotFields);
+    }
+    if(sec){
+      sec.addEventListener('input', syncRenkSsotFields);
+      sec.addEventListener('change', syncRenkSsotFields);
+    }
     f._renkSsotBound = true;
   }
   refreshIdPreview();
@@ -6286,12 +6437,16 @@ async function saveModal(){
   p.deri_tipi = fd.deri_tipi.value.trim();
   p.sezon = fd.sezon.value.trim();
   p.aciklama = fd.aciklama.value.trim();
-  // SSOT RENK — kanonik palette'ten doldur
+  // RENK — combobox derive: rehberde varsa enrichment, yoksa yeni renk olarak kabul
   syncRenkSsotFields();
-  const anaRenkTr = (fd.ana_renk?.value || '').trim();
-  const renkKanonik = findRenkByTr(anaRenkTr);
+  const anaRenkInput = (fd.ana_renk?.value || '').trim();
+  if(!anaRenkInput){
+    toast('Birincil renk boş bırakılamaz.', true);
+    return;
+  }
+  const renkKanonik = deriveRenkJS(anaRenkInput);
   if(!renkKanonik){
-    toast('Birincil renk SSOT\'tan seçilmeli (kanonik palette).', true);
+    toast('Birincil renk değeri geçersiz (boş, sadece noktalama veya alfanümerik içermiyor).', true);
     return;
   }
   p.renk = renkKanonik.code;            // CODE — varyasyon ID için
@@ -6303,22 +6458,25 @@ async function saveModal(){
   // İkincil opsiyonel
   const ikTr = (fd.ikincil_renk?.value || '').trim();
   if(ikTr){
-    const ik = findRenkByTr(ikTr);
-    if(!ik){
-      toast('İkincil renk SSOT\'tan seçilmeli.', true);
-      return;
+    const ik = deriveRenkJS(ikTr);
+    if(ik){
+      p.ikincil_renk = ik.tr;
+      p.ikincil_renk_code = ik.code;
+      p.ikincil_renk_hex = ik.hex;
+    } else {
+      p.ikincil_renk = '';
+      p.ikincil_renk_code = '';
+      p.ikincil_renk_hex = '';
     }
-    p.ikincil_renk = ik.tr;
-    p.ikincil_renk_code = ik.code;
-    p.ikincil_renk_hex = ik.hex;
   } else {
     p.ikincil_renk = '';
     p.ikincil_renk_code = '';
     p.ikincil_renk_hex = '';
   }
-  p.boyut = fd.boyut.value.trim().toUpperCase();
-  p.donanim = (fd.donanim.value || '').trim().toUpperCase();
-  p.kondisyon = (fd.kondisyon.value || '').trim().toUpperCase();
+  // Diğer alanlar — normalize (UPPER_SNAKE)
+  p.boyut = normalizeCodeJS(fd.boyut.value || '') || 'STANDART';
+  p.donanim = normalizeCodeJS(fd.donanim.value || '') || 'GOLD';
+  p.kondisyon = normalizeCodeJS(fd.kondisyon.value || '') || 'BNIB';
   p.fiyat_eur = Number(fd.fiyat_eur.value);
   p.stok = Number(fd.stok.value);
   p.durum = fd.durum_aktif.checked ? 'AKTIF' : 'ARSIVLENDI';
@@ -8520,6 +8678,7 @@ async function init(){
   safeStep('renderAll', () => renderAll());
   safeStep('setSaveStatus', () => setSaveStatus('saved'));
   safeStep('updateDataSourceBanner', () => updateDataSourceBanner());
+  safeStep('populateTaxonomyDatalists', () => populateTaxonomyDatalists());
   safeStep('attachFormComboboxes', () => attachFormComboboxes());
 
   // Header / global controls

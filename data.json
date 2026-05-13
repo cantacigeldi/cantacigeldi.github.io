@@ -1,6 +1,6 @@
 {
   "schema_version": 5,
-  "exported_at": "2026-05-13T07:38:11.167420+00:00",
+  "exported_at": "2026-05-13T07:46:46.389139+00:00",
   "counter": 46,
   "products": [
     {
@@ -2072,11 +2072,11 @@
   },
   "kanonik_renkler": [
     {
-      "code": "NOIR",
-      "tr": "Siyah",
-      "en": "Black",
-      "slug": "black",
-      "hex": "#1a1a1a"
+      "code": "BEIGE",
+      "tr": "Bej",
+      "en": "Beige",
+      "slug": "beige",
+      "hex": "#d8c3a3"
     },
     {
       "code": "BLANC",
@@ -2086,109 +2086,11 @@
       "hex": "#f5f1ea"
     },
     {
-      "code": "CREME",
-      "tr": "Krem",
-      "en": "Cream",
-      "slug": "cream",
-      "hex": "#e8d4b0"
-    },
-    {
-      "code": "NATUREL",
-      "tr": "Doğal",
-      "en": "Natural",
-      "slug": "natural",
-      "hex": "#d4b896"
-    },
-    {
-      "code": "GRIS",
-      "tr": "Gri",
-      "en": "Gray",
-      "slug": "gray",
-      "hex": "#7d7d7d"
-    },
-    {
-      "code": "GRIS_FUME",
-      "tr": "Füme",
-      "en": "Smoke Gray",
-      "slug": "smoke-gray",
-      "hex": "#4a4a4a"
-    },
-    {
-      "code": "MARRON_FONCE",
-      "tr": "Koyu Kahve",
-      "en": "Dark Brown",
-      "slug": "dark-brown",
-      "hex": "#3d2817"
-    },
-    {
-      "code": "MARRON_CLAIR",
-      "tr": "Açık Kahve",
-      "en": "Light Brown",
-      "slug": "light-brown",
-      "hex": "#7b5a3a"
-    },
-    {
-      "code": "TABA",
-      "tr": "Taba",
-      "en": "Tan",
-      "slug": "tan",
-      "hex": "#a87842"
-    },
-    {
-      "code": "TABA_FONCE",
-      "tr": "Koyu Taba",
-      "en": "Dark Tan",
-      "slug": "dark-tan",
-      "hex": "#7a4d28"
-    },
-    {
-      "code": "BEIGE",
-      "tr": "Bej",
-      "en": "Beige",
-      "slug": "beige",
-      "hex": "#d8c3a3"
-    },
-    {
-      "code": "VIZON_CLAIR",
-      "tr": "Açık Vizon",
-      "en": "Light Mink",
-      "slug": "light-mink",
-      "hex": "#b8a690"
-    },
-    {
-      "code": "VIZON_FONCE",
-      "tr": "Koyu Vizon",
-      "en": "Dark Mink",
-      "slug": "dark-mink",
-      "hex": "#8a7560"
-    },
-    {
-      "code": "BORDEAUX",
-      "tr": "Bordo",
-      "en": "Burgundy",
-      "slug": "burgundy",
-      "hex": "#4a1c20"
-    },
-    {
-      "code": "ROUGE",
-      "tr": "Kırmızı",
-      "en": "Red",
-      "slug": "red",
-      "hex": "#9c2a2a"
-    },
-    {
-      "code": "ROSE_CLAIR",
-      "tr": "Açık Pembe",
-      "en": "Light Pink",
-      "slug": "light-pink",
-      "hex": "#e8c4cc"
-    },
-    {
-      "code": "BLEU_NUIT",
-      "tr": "Lacivert",
-      "en": "Navy",
-      "slug": "navy",
-      "hex": "#1a2238"
+      "code": "BLEU_CLAIR",
+      "tr": "Açık Mavi",
+      "en": "Light Blue",
+      "slug": "light-blue",
+      "hex": "#7a96b8"
     },
     {
       "code": "BLEU_FRANCE",
@@ -2198,32 +2100,195 @@
       "hex": "#2d3e58"
     },
     {
-      "code": "BLEU_CLAIR",
-      "tr": "Açık Mavi",
-      "en": "Light Blue",
-      "slug": "light-blue",
-      "hex": "#7a96b8"
+      "code": "BLEU_NUIT",
+      "tr": "Lacivert",
+      "en": "Navy",
+      "slug": "navy",
+      "hex": "#1a2238"
+    },
+    {
+      "code": "BORDEAUX",
+      "tr": "Bordo",
+      "en": "Burgundy",
+      "slug": "burgundy",
+      "hex": "#4a1c20"
+    },
+    {
+      "code": "CREME",
+      "tr": "Krem",
+      "en": "Cream",
+      "slug": "cream",
+      "hex": "#e8d4b0"
+    },
+    {
+      "code": "GRIS_FUME",
+      "tr": "Füme",
+      "en": "Smoke Gray",
+      "slug": "smoke-gray",
+      "hex": "#4a4a4a"
+    },
+    {
+      "code": "MARRON_CLAIR",
+      "tr": "Açık Kahve",
+      "en": "Light Brown",
+      "slug": "light-brown",
+      "hex": "#7b5a3a"
+    },
+    {
+      "code": "MARRON_FONCE",
+      "tr": "Koyu Kahve",
+      "en": "Dark Brown",
+      "slug": "dark-brown",
+      "hex": "#3d2817"
+    },
+    {
+      "code": "NATUREL",
+      "tr": "Doğal",
+      "en": "Natural",
+      "slug": "natural",
+      "hex": "#d4b896"
+    },
+    {
+      "code": "NOIR",
+      "tr": "Siyah",
+      "en": "Black",
+      "slug": "black",
+      "hex": "#1a1a1a"
+    },
+    {
+      "code": "ROSE_CLAIR",
+      "tr": "Açık Pembe",
+      "en": "Light Pink",
+      "slug": "light-pink",
+      "hex": "#e8c4cc"
+    },
+    {
+      "code": "TABA",
+      "tr": "Taba",
+      "en": "Tan",
+      "slug": "tan",
+      "hex": "#a87842"
+    },
+    {
+      "code": "VIZON_CLAIR",
+      "tr": "Açık Vizon",
+      "en": "Light Mink",
+      "slug": "light-mink",
+      "hex": "#b8a690"
+    },
+    {
+      "code": "GRIS",
+      "tr": "Gri",
+      "en": "Gray",
+      "slug": "gray",
+      "hex": "#7d7d7d",
+      "kaynak": "rehber"
+    },
+    {
+      "code": "TABA_FONCE",
+      "tr": "Koyu Taba",
+      "en": "Dark Tan",
+      "slug": "dark-tan",
+      "hex": "#7a4d28",
+      "kaynak": "rehber"
+    },
+    {
+      "code": "VIZON_FONCE",
+      "tr": "Koyu Vizon",
+      "en": "Dark Mink",
+      "slug": "dark-mink",
+      "hex": "#8a7560",
+      "kaynak": "rehber"
+    },
+    {
+      "code": "ROUGE",
+      "tr": "Kırmızı",
+      "en": "Red",
+      "slug": "red",
+      "hex": "#9c2a2a",
+      "kaynak": "rehber"
     },
     {
       "code": "VERT_ANGLAIS",
       "tr": "Yeşil",
       "en": "English Green",
       "slug": "green",
-      "hex": "#3d5a3d"
+      "hex": "#3d5a3d",
+      "kaynak": "rehber"
     },
     {
       "code": "MONOGRAM_NOIR",
       "tr": "Monogram Siyah",
       "en": "Monogram Black",
       "slug": "monogram-black",
-      "hex": "#1a1a1a"
+      "hex": "#1a1a1a",
+      "kaynak": "rehber"
     },
     {
       "code": "DAMIER_AZUR",
       "tr": "Damier Mavi",
       "en": "Damier Azure",
       "slug": "damier-azure",
-      "hex": "#d4d8e0"
+      "hex": "#d4d8e0",
+      "kaynak": "rehber"
     }
+  ],
+  "kanonik_kategoriler": [
+    "CANTA",
+    "CROSSBODY",
+    "MENS_BRIEFCASE",
+    "MINI",
+    "SHOULDER",
+    "TOTE"
+  ],
+  "kanonik_malzemeler": [
+    "Denim",
+    "Deri",
+    "Hasır",
+    "Kanvas",
+    "Örme"
+  ],
+  "kanonik_markalar": [
+    "Giorgio Armani",
+    "Gucci",
+    "Hermès",
+    "Hugo Boss",
+    "Louis Vuitton",
+    "Miu Miu",
+    "Prada",
+    "Yves Saint Laurent"
+  ],
+  "kanonik_donanimlar": [
+    "GOLD",
+    "PALLADIUM",
+    "SILVER"
+  ],
+  "kanonik_donanim_renkleri": [
+    "Altın",
+    "Gümüş"
+  ],
+  "kanonik_kondisyonlar": [
+    "BNIB"
+  ],
+  "kanonik_boyutlar": [
+    "MAXI",
+    "MINI",
+    "NANO",
+    "PM",
+    "STANDART"
+  ],
+  "kanonik_desenler": [
+    "Baskılı",
+    "Damier",
+    "Düz",
+    "Kapitone",
+    "Monogram"
+  ],
+  "kanonik_stiller": [
+    "Mini",
+    "Omuz",
+    "Portföy",
+    "Tote",
+    "Çapraz"
   ]
 }
