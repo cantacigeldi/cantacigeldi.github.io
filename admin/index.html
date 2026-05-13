@@ -11031,6 +11031,7 @@ window.BotlAPI = (function(){
     patchVariation: (vid, payload) => call('PATCH', '/api/admin/variations/' + encodeURIComponent(vid), payload),
     patchProduct: (sku, payload) => call('PATCH', '/api/admin/products/' + encodeURIComponent(sku), payload),
     listCustomers: () => call('GET', '/api/admin/customers'),
+    createCustomer: (payload) => call('POST', '/api/admin/customers', payload),
     patchCustomer: (cid, payload) => call('PATCH', '/api/admin/customers/' + encodeURIComponent(cid), payload),
     setCustomerCreds: (cid, kullanici_adi, sifre_plain) =>
       call('POST', '/api/admin/customers/' + encodeURIComponent(cid) + '/credentials',
@@ -13944,12 +13945,47 @@ async function saveCustomer(){
       // boş şifre → mevcut hash korunur (yeni yazma)
     }
     saveCustomersStore();
-    logActivity('CUSTOMER_UPDATE', 'customer', c.customer_id, `${adSoyad} güncellendi`, { eski, yeni: data, cred_updated: !!(usernameRaw && newCredHash) });
+    // ── Backend push (PATCH profil + opsiyonel credentials POST) ──
+    let backendErr = null;
+    try {
+      if(api && api.patchCustomer){
+        await api.patchCustomer(c.customer_id, data);
+        if(usernameRaw && passwordRaw){
+          await api.setCustomerCreds(c.customer_id, usernameRaw, passwordRaw);
+        }
+      }
+    } catch(e){ backendErr = e; console.error('backend patch customer', e); }
+    logActivity('CUSTOMER_UPDATE', 'customer', c.customer_id, `${adSoyad} güncellendi`, { eski, yeni: data, cred_updated: !!(usernameRaw && newCredHash), backend_ok: !backendErr });
     closeCustomerModal();
     renderAll();
-    toast(`${c.customer_id} güncellendi${newCredHash ? ' (parola güncellendi)' : ''}`);
+    if(backendErr){
+      toast(`${c.customer_id} lokal güncellendi ama backend hatası: ${backendErr.message || backendErr}`, true);
+    } else {
+      toast(`${c.customer_id} güncellendi${newCredHash ? ' (parola güncellendi)' : ''}`);
+    }
   } else {
-    const customer = {
+    // ── Yeni müşteri: önce backend POST (id + credentials atomik) ──
+    let backendCustomer = null;
+    let backendErr = null;
+    try {
+      if(api && api.createCustomer){
+        const createPayload = { ...data };
+        if(usernameRaw && passwordRaw){
+          createPayload.kullanici_adi = usernameRaw;
+          createPayload.sifre_plain = passwordRaw;
+        }
+        const resp = await api.createCustomer(createPayload);
+        backendCustomer = resp && resp.customer ? resp.customer : null;
+      }
+    } catch(e){ backendErr = e; console.error('backend create customer', e); }
+
+    if(backendErr){
+      toast(`Müşteri oluşturulamadı (backend): ${backendErr.message || backendErr}`, true);
+      return;
+    }
+
+    // Backend customer_id varsa onu kullan; fallback (offline mod) → local makeCustomerId
+    const customer = backendCustomer ? { ...backendCustomer } : {
       customer_id: makeCustomerId(),
       ...data,
       toplam_alisveris_eur: 0,
@@ -13957,7 +13993,7 @@ async function saveCustomer(){
       olusturma: now,
       guncelleme: now,
     };
-    if(usernameRaw){
+    if(usernameRaw && !customer.kullanici_adi){
       customer._draft_kullanici_adi = usernameRaw;
       customer.kullanici_adi = usernameRaw;
       if(newCredHash){
@@ -13968,10 +14004,10 @@ async function saveCustomer(){
     }
     state.customers.unshift(customer);
     saveCustomersStore();
-    logActivity('CUSTOMER_CREATE', 'customer', customer.customer_id, `Yeni müşteri: ${adSoyad}`, { ...customer, _has_cred: !!newCredHash });
+    logActivity('CUSTOMER_CREATE', 'customer', customer.customer_id, `Yeni müşteri: ${adSoyad}`, { ...customer, _has_cred: !!(usernameRaw && passwordRaw), backend_ok: !!backendCustomer });
     closeCustomerModal();
     renderAll();
-    toast(`${customer.customer_id} eklendi${newCredHash ? ' (giriş bilgisi atandı)' : ''}`);
+    toast(`${customer.customer_id} eklendi${(usernameRaw && passwordRaw) ? ' (giriş bilgisi atandı — login hazır)' : ''}`);
   }
 }
 // ─── Profil drafts (catalog'dan gelen müşteri profil değişiklikleri) ───
