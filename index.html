@@ -2104,10 +2104,25 @@ body.auth-gate-active > footer{display:none!important}
 .acct-order__status--REDDEDILDI{color:var(--status-iptal, #B71C1C);border-color:rgba(183,28,28,.4);background:rgba(183,28,28,.08)}
 
 @media (max-width:640px){
-  .acct-order__item{flex-wrap:wrap}
-  .acct-order__qty-stepper{height:38px;order:5;margin-top:6px}
-  .acct-order__qty-btn{width:38px;height:38px}
-  .acct-order__qty-val{height:38px;width:50px}
+  .acct-order__item{
+    display:grid;
+    grid-template-columns:56px 1fr auto;
+    grid-template-areas:
+      "img info remove"
+      "actions actions actions";
+    column-gap:10px;
+    row-gap:8px;
+    align-items:start;
+  }
+  .acct-order__item-img{grid-area:img;width:56px;height:56px}
+  .acct-order__item-info{grid-area:info;min-width:0}
+  .acct-order__item-name{white-space:normal;line-height:1.3}
+  .acct-order__item-remove{grid-area:remove;align-self:start}
+  .acct-order__qty-stepper{grid-column:1 / -1;justify-self:start;height:36px;margin:0}
+  .acct-order__qty-btn{width:36px;height:36px}
+  .acct-order__qty-val{height:36px;width:48px}
+  .acct-order__qty-static{grid-column:1 / -1;justify-self:start}
+  .iade-modal-trigger{grid-column:1 / -1;justify-self:start}
 }
 
 .auth-modal__close{
