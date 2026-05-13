@@ -1240,6 +1240,11 @@ a{color:inherit;text-decoration:none}
 .col-check{width:36px;text-align:center}
 .master-row{cursor:pointer}
 .master-row:hover{background:var(--bg-alt)}
+/* ─── Cinsiyet Pill ──────────────────────────────────── */
+.cinsiyet-pill{display:inline-block;font-size:9px;letter-spacing:.06em;text-transform:uppercase;padding:1px 6px;border-radius:8px;margin-left:4px;border:1px solid var(--border);background:var(--bg-alt);color:var(--text-muted)}
+.cinsiyet-pill--kadin{color:#a8478a;border-color:rgba(168,71,138,.3);background:rgba(168,71,138,.08)}
+.cinsiyet-pill--erkek{color:#3a6f9c;border-color:rgba(58,111,156,.3);background:rgba(58,111,156,.08)}
+.cinsiyet-pill--unisex{color:#5a6f3a;border-color:rgba(90,111,58,.3);background:rgba(90,111,58,.08)}
 /* ─── Image Upload (legacy) ────────────────────────── */
 .image-upload{
   display:flex;flex-direction:column;gap:10px;
@@ -1869,6 +1874,15 @@ tr.row--re-onay td:first-child{box-shadow:inset 3px 0 0 #C77A17}
             <input class="field__input" name="kategori_alt" id="form-kategori-alt" required list="dl-kategoriler" placeholder="TOTE, SHOULDER, LONG_WALLET, ..." autocomplete="off">
             <!-- Eski tek-kategori alanı geriye uyumluluk için gizli; export'ta alt değeri yazılır -->
             <input type="hidden" name="kategori" id="form-kategori-legacy">
+          </div>
+          <div class="field">
+            <label class="field__label">Cinsiyet<span class="req">*</span></label>
+            <select class="field__input" name="cinsiyet" id="form-cinsiyet" required>
+              <option value="">Seçiniz...</option>
+              <option value="KADIN">Kadın</option>
+              <option value="ERKEK">Erkek</option>
+              <option value="UNISEX">Unisex</option>
+            </select>
           </div>
           <div class="field">
             <label class="field__label">Deri Tipi</label>
@@ -12408,7 +12422,7 @@ function groupByMaster(variations){
   const map = {};
   for(const v of variations){
     const sku = v.sku || v.variation_id.split('-').slice(0,2).join('-');
-    if(!map[sku]) map[sku] = { sku, marka: v.marka, isim_bilinen: v.isim_bilinen, isim_resmi: v.isim_resmi, kategori_ust: v.kategori_ust, kategori_alt: v.kategori_alt || v.kategori, deri_tipi: v.deri_tipi, variations: [] };
+    if(!map[sku]) map[sku] = { sku, marka: v.marka, isim_bilinen: v.isim_bilinen, isim_resmi: v.isim_resmi, kategori_ust: v.kategori_ust, kategori_alt: v.kategori_alt || v.kategori, cinsiyet: v.cinsiyet, deri_tipi: v.deri_tipi, variations: [] };
     map[sku].variations.push(v);
   }
   return Object.values(map).map(m => {
@@ -12500,7 +12514,7 @@ function filtered(){
   if(state.filter.categories.size) arr = arr.filter(p=>state.filter.categories.has(p.kategori_alt||p.kategori));
   if(state.filter.search){
     const q = state.filter.search.toLowerCase();
-    arr = arr.filter(p=>(`${p.marka} ${p.isim_resmi||''} ${p.isim_bilinen||''} ${p.sku} ${p.variation_id} ${p.slug||''} ${p.deri_tipi||''} ${p.renk||''} ${p.ana_renk||''}`).toLowerCase().includes(q));
+    arr = arr.filter(p=>(`${p.marka} ${p.isim_resmi||''} ${p.isim_bilinen||''} ${p.sku} ${p.variation_id} ${p.slug||''} ${p.deri_tipi||''} ${p.renk||''} ${p.ana_renk||''} ${p.cinsiyet||''}`).toLowerCase().includes(q));
   }
   return arr;
 }
@@ -12552,7 +12566,7 @@ function masterRowHTML(m){
         <div class="table__name">${cardName}</div>
         <span class="table__resmi">${m.isim_resmi||''}</span>
       </td>
-      <td class="col-meta">${m.kategori_alt || m.kategori_ust || '—'}</td>
+      <td class="col-meta">${m.kategori_alt || m.kategori_ust || '—'}${m.cinsiyet ? ` <span class="cinsiyet-pill cinsiyet-pill--${m.cinsiyet.toLowerCase()}">${m.cinsiyet === 'KADIN' ? 'Kadın' : m.cinsiyet === 'ERKEK' ? 'Erkek' : 'Unisex'}</span>` : ''}</td>
       <td class="col-meta col-vars">${m.variations.length} renk <div style="display:flex;gap:3px;margin-top:3px;flex-wrap:wrap">${colorDots}</div></td>
       <td class="table__price col-price">${priceDisplay}</td>
       <td class="table__stok col-stok ${stokCls}">${m.availStok}</td>
@@ -12653,7 +12667,7 @@ function openModal(id, masterSku){
     const p = state.products.find(x=>x.variation_id===id);
     if(!p) return;
     // Tüm alanlar — legacy + sade custom + SSOT readonly fields
-    ['marka','isim_resmi','isim_bilinen','deri_tipi','sezon','aciklama',
+    ['marka','isim_resmi','isim_bilinen','deri_tipi','sezon','aciklama','cinsiyet',
      'renk','renk_hex','renk_slug','boyut','donanim','kondisyon','fiyat_eur','stok','slug',
      'ana_renk','ana_renk_en','ana_renk_hex','ikincil_renk','ikincil_renk_code','ikincil_renk_hex',
      'ana_malzeme','desen','donanim_rengi','sapli_sapsiz']
@@ -12696,7 +12710,7 @@ function openModal(id, masterSku){
     if(masterSku){
       const ref = state.products.find(p => (p.sku||'') === masterSku);
       if(ref){
-        ['marka','isim_resmi','isim_bilinen','deri_tipi','sezon','kategori_ust','kategori_alt','boyut','donanim','ana_malzeme','desen','donanim_rengi','sapli_sapsiz'].forEach(k => {
+        ['marka','isim_resmi','isim_bilinen','deri_tipi','sezon','kategori_ust','kategori_alt','cinsiyet','boyut','donanim','ana_malzeme','desen','donanim_rengi','sapli_sapsiz'].forEach(k => {
           if(f.elements[k] && ref[k]) f.elements[k].value = ref[k];
         });
         if(f.elements.kategori_ust) refreshKategoriAltOptions(ref.kategori_ust||'', ref.kategori_alt||'');
@@ -12776,6 +12790,12 @@ async function saveModal(){
   p.kategori_ust = ust;
   p.kategori_alt = alt;
   p.kategori = alt;
+  const cinsiyet = fd.cinsiyet ? fd.cinsiyet.value.trim() : '';
+  if(!cinsiyet){
+    toast('Cinsiyet zorunludur', true);
+    return;
+  }
+  p.cinsiyet = cinsiyet;
   p.deri_tipi = fd.deri_tipi.value.trim();
   p.sezon = fd.sezon.value.trim();
   p.aciklama = fd.aciklama.value.trim();
@@ -12904,6 +12924,7 @@ function openMasterDetail(sku){
       <dt>Marka</dt><dd>${m.marka}</dd>
       <dt>Model</dt><dd>${cardName}</dd>
       <dt>Kategori</dt><dd>${m.kategori_ust||'—'} / ${m.kategori_alt||m.kategori||'—'}</dd>
+      <dt>Cinsiyet</dt><dd>${m.cinsiyet === 'KADIN' ? 'Kadın' : m.cinsiyet === 'ERKEK' ? 'Erkek' : m.cinsiyet === 'UNISEX' ? 'Unisex' : '—'}</dd>
       <dt>Deri</dt><dd>${m.deri_tipi||'—'}</dd>
       <dt>SKU</dt><dd>${sku}</dd>
       <dt>Toplam Stok</dt><dd>${totalStok}</dd>
@@ -12991,6 +13012,8 @@ function openBulkPriceModal(){
       <select id="bp-model"><option value="all">Tümü</option>${allModels.map(m=>`<option value="${m}">${m}</option>`).join('')}</select>
       <label>Kategori</label>
       <select id="bp-kat"><option value="all">Tümü</option>${allCats.map(c=>`<option value="${c}">${c}</option>`).join('')}</select>
+      <label>Cinsiyet</label>
+      <select id="bp-cins"><option value="all">Tümü</option><option value="KADIN">Kadın</option><option value="ERKEK">Erkek</option><option value="UNISEX">Unisex</option></select>
       <label for="bp-mode">Mod</label>
       <select id="bp-mode">
         <option value="set">Sabit Fiyat Ata</option>
@@ -13010,10 +13033,12 @@ function openBulkPriceModal(){
     const marka = $('#bp-marka').value;
     const model = $('#bp-model').value;
     const kat = $('#bp-kat').value;
+    const cins = $('#bp-cins').value;
     return state.products.filter(p => {
       if(marka !== 'all' && p.marka !== marka) return false;
       if(model !== 'all' && (p.isim_bilinen||p.isim_resmi||'').split(',')[0].trim() !== model) return false;
       if(kat !== 'all' && (p.kategori_alt||p.kategori) !== kat) return false;
+      if(cins !== 'all' && (p.cinsiyet||'') !== cins) return false;
       return true;
     });
   }
@@ -13036,7 +13061,7 @@ function openBulkPriceModal(){
     const header = `<strong>${masters.length} ürün, ${targets.length} varyasyon</strong><br>`;
     preview.innerHTML = header + (lines.length ? lines.join('<br>') : '<em>Değişiklik yok</em>');
   }
-  ['bp-marka','bp-model','bp-kat','bp-mode'].forEach(id => $('#'+id).addEventListener('change', updatePreview));
+  ['bp-marka','bp-model','bp-kat','bp-cins','bp-mode'].forEach(id => $('#'+id).addEventListener('change', updatePreview));
   $('#bp-value').addEventListener('input', updatePreview);
   updatePreview();
   $('#bp-cancel').addEventListener('click', () => { modal.classList.remove('open'); });

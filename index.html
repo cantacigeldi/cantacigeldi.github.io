@@ -11425,6 +11425,7 @@ const state = {
     marka:new Set(),
     kategori_ust:new Set(),
     kategori_alt:new Set(),
+    cinsiyet:new Set(),
     ana_renk:new Set(),
     ikincil_renk:new Set(),
     desen:new Set(),
@@ -11466,6 +11467,7 @@ const countBy = (arr,key) => arr.reduce((acc,p)=>{const v=p[key];acc[v]=(acc[v]|
 const SECTIONS = [
   {key:'marka',label:'Marka',type:'check',open:true},
   {key:'kategori',label:'Kategori',type:'tree',open:true},
+  {key:'cinsiyet',label:'Cinsiyet',type:'check',open:true},
   {key:'fiyat',label:'Fiyat (EUR)',type:'price',open:true},
   {key:'ana_renk',label:'Birincil Renk',type:'swatch_ana',open:false},
   {key:'ikincil_renk',label:'İkincil Renk',type:'swatch_ikincil',open:false},
@@ -11481,12 +11483,13 @@ function applyFilters(){
   let result = window.PRODUCTS.filter(p=>{
     if(state.search){
       const q = state.search.toLowerCase();
-      const blob = `${p.marka} ${p.isim_resmi||''} ${p.isim_bilinen||''} ${p.sku} ${p.variation_id} ${p.slug||''} ${p.deri_tipi||''} ${p.renk}`.toLowerCase();
+      const blob = `${p.marka} ${p.isim_resmi||''} ${p.isim_bilinen||''} ${p.sku} ${p.variation_id} ${p.slug||''} ${p.deri_tipi||''} ${p.renk} ${p.cinsiyet||''}`.toLowerCase();
       if(!blob.includes(q)) return false;
     }
     if(f.marka.size && !f.marka.has(p.marka)) return false;
     if(f.kategori_ust.size && !f.kategori_ust.has(p.kategori_ust||'')) return false;
     if(f.kategori_alt.size && !f.kategori_alt.has(p.kategori_alt||p.kategori||'')) return false;
+    if(f.cinsiyet.size && !f.cinsiyet.has(p.cinsiyet||'')) return false;
     if(f.ana_renk.size && !f.ana_renk.has(p.ana_renk||'')) return false;
     if(f.ikincil_renk.size && !f.ikincil_renk.has(p.ikincil_renk||'')) return false;
     if(f.desen.size && !f.desen.has(p.desen||'')) return false;
@@ -11540,7 +11543,9 @@ function renderFilters(){
       const dataKey = (sec.key === 'sapli_sapsiz') ? 'sapli_sapsiz_label' :
                       (sec.key === 'kondisyon') ? 'kondisyon_label' : sec.key;
       const counts = countBy(pool, dataKey);
-      const labelOf = v => (sec.key==='kategori_ust'||sec.key==='kategori_alt') ? (KATEGORI_LABEL[v]||v) : v;
+      const labelOf = v => (sec.key==='kategori_ust'||sec.key==='kategori_alt') ? (KATEGORI_LABEL[v]||v)
+                          : (sec.key==='cinsiyet') ? (v==='KADIN'?'Kadın':v==='ERKEK'?'Erkek':v==='UNISEX'?'Unisex':v)
+                          : v;
       const values = uniq(pool.map(p=>p[dataKey]).filter(Boolean));
       // kategori_ust için sabit sıra (popülerlik), diğerleri için alfabetik
       if(sec.key === 'kategori_ust'){
