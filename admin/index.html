@@ -1223,8 +1223,10 @@ a{color:inherit;text-decoration:none}
 .var-card__actions button.btn--danger{color:var(--danger);border-color:var(--danger)}
 .var-section-title{padding:16px 24px 8px;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--text-faint);font-weight:600}
 /* ─── Bulk Bar ───────────────────────────────────────── */
-.bulk-bar{display:flex;align-items:center;gap:12px;padding:10px 16px;background:var(--accent);color:#fff;border-radius:6px;font-size:13px;position:fixed;bottom:16px;left:50%;transform:translateX(-50%);z-index:900;box-shadow:0 4px 20px rgba(0,0,0,.5);white-space:nowrap;max-width:calc(100% - 32px)}
-.bulk-bar .btn{color:#fff;border-color:rgba(255,255,255,.4);font-size:12px;padding:5px 12px}
+.bulk-bar{display:flex;flex-direction:column;align-items:center;gap:6px;padding:10px 20px 12px;background:var(--accent);color:#fff;border-radius:10px;font-size:13px;position:fixed;bottom:16px;left:50%;transform:translateX(-50%);z-index:900;box-shadow:0 4px 20px rgba(0,0,0,.5);width:auto;max-width:calc(100% - 32px);box-sizing:border-box}
+.bulk-bar .bulk-bar-actions{display:flex;gap:8px;width:100%}
+.bulk-bar .bulk-bar-actions .btn{flex:1;white-space:nowrap;text-align:center}
+.bulk-bar .btn{color:#fff;border-color:rgba(255,255,255,.4);font-size:12px;padding:6px 14px}
 .bulk-bar .btn--primary{background:rgba(255,255,255,.2);border-color:rgba(255,255,255,.5)}
 /* ─── Bulk Price Modal ───────────────────────────────── */
 .bulk-modal{position:fixed;inset:0;z-index:1000;background:var(--overlay);display:flex;align-items:center;justify-content:center;padding:20px}
@@ -6626,8 +6628,10 @@ function updateBulkBar(){
   bar.hidden = false;
   bar.innerHTML = `
     <span><strong>${state.selectedMasters.size}</strong> ürün seçili</span>
-    <button class="btn btn--primary" id="bulk-price-btn">Toplu Fiyat Değiştir</button>
-    <button class="btn" id="bulk-clear-btn">Seçimi Temizle</button>
+    <div class="bulk-bar-actions">
+      <button class="btn btn--primary" id="bulk-price-btn">Toplu Fiyat Değiştir</button>
+      <button class="btn" id="bulk-clear-btn">Seçimi Temizle</button>
+    </div>
   `;
   $('#bulk-price-btn').addEventListener('click', openBulkPriceModal);
   $('#bulk-clear-btn').addEventListener('click', () => { state.selectedMasters.clear(); renderTable(); });
