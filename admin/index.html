@@ -3210,9 +3210,10 @@ function saveActivity(){ saveActivityCache(); }
 // 2026-05-13 refactor: tüm save* fonksiyonları artık /api/admin/* endpoint'ine yazar.
 // localStorage sadece read-cache (UI hızlı render için). Restart-after-refresh'te
 // backend canonical kabul edilir.
-const CUSTOMERS_KEY = 'botl_customers_v1';
-const SUPPLIERS_KEY = 'botl_suppliers_v1';
-const SUPPLIER_ORDERS_KEY = 'botl_supplier_orders_v1';
+// NOT: CUSTOMERS_KEY, SUPPLIERS_KEY, SUPPLIER_ORDERS_KEY const'ları line 3103-3106
+// bloğunda zaten tanımlı — burada tekrar const ettiğimizde "Identifier already declared"
+// parse-time SyntaxError ile tüm ana script execution bloklanıyordu (admin UI hiç render
+// edilmiyordu). 2026-05-13 ASS render-bug fix: redeclaration kaldırıldı.
 
 async function loadCustomers(){
   // 1) Birincil: backend /api/admin/customers
