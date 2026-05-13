@@ -186,7 +186,11 @@ body{
   line-height:1.45;
   -webkit-font-smoothing:antialiased;
   max-width:100vw;
+  overflow-wrap:break-word;
+  word-break:break-word;
 }
+/* Defansif — uzun string (SKU, slug) tablo/kart hücrelerini taşırmasın */
+.table__sku,.table__resmi,code{overflow-wrap:anywhere;word-break:break-word}
 code{background:var(--code-bg);padding:1px 6px;border-radius:3px;font-size:11px;font-family:'Menlo','Monaco',monospace;color:var(--code-fg);letter-spacing:0}
 button{font-family:inherit;cursor:pointer;border:none;background:none;color:inherit;padding:0;font-size:inherit}
 input,select,textarea{font-family:inherit;font-size:inherit;color:inherit}
@@ -203,7 +207,10 @@ a{color:inherit;text-decoration:none}
   display:flex;align-items:center;gap:16px;
   padding:14px 24px;
   max-width:1800px;margin:0 auto;
+  flex-wrap:wrap;
+  min-width:0;
 }
+.hdr__wrap > *{min-width:0}
 .hdr__logo{
   display:inline-flex;align-items:center;gap:10px;
   font-family:var(--serif);
@@ -548,7 +555,10 @@ a{color:inherit;text-decoration:none}
 .table-wrap{
   padding:0 24px 80px;
   max-width:1800px;margin:0 auto;
+  overflow-x:auto;
+  -webkit-overflow-scrolling:touch;
 }
+.table-wrap > .table{min-width:0}
 .table{
   width:100%;
   border-collapse:collapse;
@@ -624,10 +634,20 @@ a{color:inherit;text-decoration:none}
 }
 .table__stok--low{color:var(--warn)}
 .table__stok--out{color:var(--danger)}
+/* Aksiyon hücresi: td table-cell olarak kalır (satır yüksekliği eşitlensin).
+   Butonlar inline-flex'le hem dikey hem yatay ortalanır. */
 .table__actions{
-  display:flex;gap:4px;
   white-space:nowrap;
+  vertical-align:middle;
+  text-align:right;
+  padding:6px 8px;
 }
+.table__actions .row-action{
+  display:inline-flex;align-items:center;justify-content:center;
+  vertical-align:middle;
+  margin-left:4px;
+}
+.table__actions .row-action:first-child{margin-left:0}
 
 /* Inline edit */
 .editable{
@@ -984,6 +1004,51 @@ a{color:inherit;text-decoration:none}
 .activity-tip-badge--customer{background:var(--tip-customer-bg);color:var(--tip-customer-fg);border-color:var(--tip-customer-border)}
 .activity-tip-badge--supplier{background:var(--tip-supplier-bg);color:var(--tip-supplier-fg);border-color:var(--tip-supplier-border)}
 .activity-tip-badge--stock{background:var(--tip-stock-bg);color:var(--tip-stock-fg);border-color:var(--tip-stock-border)}
+
+/* ─── Activity detail (expandable row) ──────────── */
+.activity-row{cursor:pointer;transition:background .12s}
+.activity-row:hover{background:var(--surface-hover, rgba(0,0,0,.03))}
+.activity-row.expanded{background:var(--surface-hover, rgba(0,0,0,.03))}
+.activity-detail-row td{padding:0 !important;border-top:none !important}
+.activity-detail{
+  overflow:hidden;max-height:0;transition:max-height .25s ease,padding .25s ease;
+  padding:0 16px;font-size:11px;
+}
+.activity-detail.open{max-height:600px;padding:10px 16px 14px}
+.activity-detail__grid{
+  display:grid;grid-template-columns:max-content 1fr;gap:3px 14px;
+  font-family:'Menlo','Monaco',monospace;font-size:10px;line-height:1.5;
+}
+.activity-detail__key{color:var(--text-muted);font-weight:600;white-space:nowrap}
+.activity-detail__val{color:var(--text);word-break:break-word;white-space:pre-wrap}
+.activity-detail__empty{color:var(--text-faint);font-style:italic;padding:4px 0}
+.activity-row td:first-child::before{
+  content:'';display:inline-block;width:0;height:0;
+  border-top:4px solid transparent;border-bottom:4px solid transparent;
+  border-left:5px solid var(--text-faint);
+  margin-right:6px;vertical-align:middle;
+  transition:transform .2s ease;
+}
+.activity-row.expanded td:first-child::before{transform:rotate(90deg)}
+
+/* ─── Activity date filter ──────────────────────── */
+.activity-date-filter{
+  display:flex;align-items:center;gap:8px;
+  padding:4px 0 2px;flex-wrap:wrap;
+}
+.activity-date-filter label{font-size:11px;color:var(--text-muted);white-space:nowrap}
+.activity-date-filter input[type="date"]{
+  font-size:11px;padding:3px 6px;
+  border:1px solid var(--border);border-radius:3px;
+  background:var(--surface);color:var(--text);
+  font-family:inherit;
+}
+.activity-date-filter .btn--clear-dates{
+  font-size:10px;padding:2px 8px;
+  border:1px solid var(--border);border-radius:3px;
+  background:transparent;color:var(--text-muted);cursor:pointer;
+}
+.activity-date-filter .btn--clear-dates:hover{background:var(--surface-hover, rgba(0,0,0,.03))}
 
 /* ─── Supplier order list (nested in supplier modal) ─── */
 .supplier-orders-list{
@@ -2087,6 +2152,13 @@ tr.row--re-onay td:first-child{box-shadow:inset 3px 0 0 #C77A17}
       <button class="chip" data-activity-tip="supplier">Tedarikçi/Alım <span class="chip__count" id="ac-supplier">0</span></button>
       <button class="chip" data-activity-tip="stock">Stok değişim <span class="chip__count" id="ac-stock">0</span></button>
     </div>
+    <div class="activity-date-filter">
+      <label>Tarih:</label>
+      <input type="date" id="activity-date-from" title="Başlangıç">
+      <span style="color:var(--text-faint);font-size:11px">—</span>
+      <input type="date" id="activity-date-to" title="Bitiş">
+      <button class="btn--clear-dates" id="activity-date-clear" title="Tarih filtresini temizle">Temizle</button>
+    </div>
   </div>
   <div class="stats">
     <span class="stat"><strong id="astat-count">0</strong> kayıt</span>
@@ -2360,29 +2432,29 @@ tr.row--re-onay td:first-child{box-shadow:inset 3px 0 0 #C77A17}
 <!-- BOTL_INLINE_DATA_START — catalog_sync_data tarafından yenilenir, elle düzenleme -->
 <script>window.__BOTL_DATA__ = {
   "schema_version": 5,
-  "exported_at": "2026-05-13T07:51:56.130778+00:00",
+  "exported_at": "2026-05-13T08:04:08.184063+00:00",
   "counter": 46,
   "products": [
     {
-      "variation_id": "FR-00001-MARRON_FONCE-NANO-GOLD",
+      "variation_id": "FR-00001-KOYU_KAHVE-NANO-GOLD",
       "sku": "FR-00001",
       "no": 1,
-      "slug": "lv-speedy-nano-monogram-dark-brown",
-      "cover": "assets/products/lv-speedy-nano-monogram-dark-brown.jpg",
+      "slug": "lv-speedy-nano-koyu-kahve-gold",
+      "cover": "assets/products/lv-speedy-nano-koyu-kahve-gold.jpg",
       "isim_resmi": "",
       "isim_bilinen": "LV Speedy Nano",
       "marka": "Louis Vuitton",
       "kategori": "MINI",
       "kategori_ust": "CANTA",
       "kategori_alt": "MINI",
-      "renk": "MARRON_FONCE",
+      "renk": "KOYU KAHVE",
       "ana_renk": "Koyu Kahve",
       "ana_renk_en": "Dark Brown",
       "ana_renk_hex": "#3d2817",
-      "renk_slug": "dark-brown",
+      "renk_slug": "koyu-kahve",
       "renk_hex": "#3d2817",
       "ikincil_renk": "Bej",
-      "ikincil_renk_code": "BEIGE",
+      "ikincil_renk_code": "BEJ",
       "ikincil_renk_hex": "#d8c3a3",
       "ana_malzeme": "Kanvas",
       "desen": "Monogram",
@@ -2407,25 +2479,25 @@ tr.row--re-onay td:first-child{box-shadow:inset 3px 0 0 #C77A17}
       "olusturma": "2026-05-13"
     },
     {
-      "variation_id": "FR-00001-MARRON_CLAIR-NANO-GOLD",
+      "variation_id": "FR-00001-ACIK_KAHVE-NANO-GOLD",
       "sku": "FR-00001",
       "no": 2,
-      "slug": "lv-speedy-nano-monogram-light-brown",
-      "cover": "assets/products/lv-speedy-nano-monogram-light-brown.jpg",
+      "slug": "lv-speedy-nano-acik-kahve-gold",
+      "cover": "assets/products/lv-speedy-nano-acik-kahve-gold.jpg",
       "isim_resmi": "",
       "isim_bilinen": "LV Speedy Nano",
       "marka": "Louis Vuitton",
       "kategori": "MINI",
       "kategori_ust": "CANTA",
       "kategori_alt": "MINI",
-      "renk": "MARRON_CLAIR",
+      "renk": "ACIK KAHVE",
       "ana_renk": "Açık Kahve",
       "ana_renk_en": "Light Brown",
       "ana_renk_hex": "#7b5a3a",
-      "renk_slug": "light-brown",
+      "renk_slug": "acik-kahve",
       "renk_hex": "#7b5a3a",
       "ikincil_renk": "Krem",
-      "ikincil_renk_code": "CREME",
+      "ikincil_renk_code": "KREM",
       "ikincil_renk_hex": "#e8d4b0",
       "ana_malzeme": "Kanvas",
       "desen": "Monogram",
@@ -2450,25 +2522,25 @@ tr.row--re-onay td:first-child{box-shadow:inset 3px 0 0 #C77A17}
       "olusturma": "2026-05-13"
     },
     {
-      "variation_id": "FR-00001-BLEU_FRANCE-NANO-GOLD",
+      "variation_id": "FR-00001-MAVI-NANO-GOLD",
       "sku": "FR-00001",
       "no": 3,
-      "slug": "lv-speedy-nano-monogram-blue",
-      "cover": "assets/products/lv-speedy-nano-monogram-blue.jpg",
+      "slug": "lv-speedy-nano-mavi-gold",
+      "cover": "assets/products/lv-speedy-nano-mavi-gold.jpg",
       "isim_resmi": "",
       "isim_bilinen": "LV Speedy Nano",
       "marka": "Louis Vuitton",
       "kategori": "MINI",
       "kategori_ust": "CANTA",
       "kategori_alt": "MINI",
-      "renk": "BLEU_FRANCE",
+      "renk": "MAVI",
       "ana_renk": "Mavi",
       "ana_renk_en": "Blue",
       "ana_renk_hex": "#2d3e58",
-      "renk_slug": "blue",
+      "renk_slug": "mavi",
       "renk_hex": "#2d3e58",
       "ikincil_renk": "Krem",
-      "ikincil_renk_code": "CREME",
+      "ikincil_renk_code": "KREM",
       "ikincil_renk_hex": "#e8d4b0",
       "ana_malzeme": "Denim",
       "desen": "Monogram",
@@ -2493,25 +2565,25 @@ tr.row--re-onay td:first-child{box-shadow:inset 3px 0 0 #C77A17}
       "olusturma": "2026-05-13"
     },
     {
-      "variation_id": "FR-00001-BLEU_CLAIR-NANO-GOLD",
+      "variation_id": "FR-00001-ACIK_MAVI-NANO-GOLD",
       "sku": "FR-00001",
       "no": 4,
-      "slug": "lv-speedy-nano-monogram-light-blue",
-      "cover": "assets/products/lv-speedy-nano-monogram-light-blue.jpg",
+      "slug": "lv-speedy-nano-acik-mavi-gold",
+      "cover": "assets/products/lv-speedy-nano-acik-mavi-gold.jpg",
       "isim_resmi": "",
       "isim_bilinen": "LV Speedy Nano",
       "marka": "Louis Vuitton",
       "kategori": "MINI",
       "kategori_ust": "CANTA",
       "kategori_alt": "MINI",
-      "renk": "BLEU_CLAIR",
+      "renk": "ACIK MAVI",
       "ana_renk": "Açık Mavi",
       "ana_renk_en": "Light Blue",
       "ana_renk_hex": "#7a96b8",
-      "renk_slug": "light-blue",
+      "renk_slug": "acik-mavi",
       "renk_hex": "#7a96b8",
       "ikincil_renk": "Krem",
-      "ikincil_renk_code": "CREME",
+      "ikincil_renk_code": "KREM",
       "ikincil_renk_hex": "#e8d4b0",
       "ana_malzeme": "Denim",
       "desen": "Monogram",
@@ -2536,25 +2608,25 @@ tr.row--re-onay td:first-child{box-shadow:inset 3px 0 0 #C77A17}
       "olusturma": "2026-05-13"
     },
     {
-      "variation_id": "FR-00001-NOIR-NANO-SILVER",
+      "variation_id": "FR-00001-SIYAH-NANO-SILVER",
       "sku": "FR-00001",
       "no": 5,
-      "slug": "lv-speedy-nano-damier-black",
-      "cover": "assets/products/lv-speedy-nano-damier-black.jpg",
+      "slug": "lv-speedy-nano-siyah-silver",
+      "cover": "assets/products/lv-speedy-nano-siyah-silver.jpg",
       "isim_resmi": "",
       "isim_bilinen": "LV Speedy Nano",
       "marka": "Louis Vuitton",
       "kategori": "MINI",
       "kategori_ust": "CANTA",
       "kategori_alt": "MINI",
-      "renk": "NOIR",
+      "renk": "SIYAH",
       "ana_renk": "Siyah",
       "ana_renk_en": "Black",
       "ana_renk_hex": "#1a1a1a",
-      "renk_slug": "black",
+      "renk_slug": "siyah",
       "renk_hex": "#1a1a1a",
       "ikincil_renk": "Gri",
-      "ikincil_renk_code": "GRIS",
+      "ikincil_renk_code": "GRI",
       "ikincil_renk_hex": "#7d7d7d",
       "ana_malzeme": "Kanvas",
       "desen": "Damier",
@@ -2579,25 +2651,25 @@ tr.row--re-onay td:first-child{box-shadow:inset 3px 0 0 #C77A17}
       "olusturma": "2026-05-13"
     },
     {
-      "variation_id": "FR-00001-CREME-NANO-GOLD",
+      "variation_id": "FR-00001-KREM-NANO-GOLD",
       "sku": "FR-00001",
       "no": 6,
-      "slug": "lv-speedy-nano-beige-damier",
-      "cover": "assets/products/lv-speedy-nano-beige-damier.jpg",
+      "slug": "lv-speedy-nano-krem-gold",
+      "cover": "assets/products/lv-speedy-nano-krem-gold.jpg",
       "isim_resmi": "",
       "isim_bilinen": "LV Speedy Nano",
       "marka": "Louis Vuitton",
       "kategori": "MINI",
       "kategori_ust": "CANTA",
       "kategori_alt": "MINI",
-      "renk": "CREME",
+      "renk": "KREM",
       "ana_renk": "Krem",
       "ana_renk_en": "Cream",
       "ana_renk_hex": "#e8d4b0",
-      "renk_slug": "cream",
+      "renk_slug": "krem",
       "renk_hex": "#e8d4b0",
       "ikincil_renk": "Beyaz",
-      "ikincil_renk_code": "BLANC",
+      "ikincil_renk_code": "BEYAZ",
       "ikincil_renk_hex": "#f5f1ea",
       "ana_malzeme": "Kanvas",
       "desen": "Damier",
@@ -2622,25 +2694,25 @@ tr.row--re-onay td:first-child{box-shadow:inset 3px 0 0 #C77A17}
       "olusturma": "2026-05-13"
     },
     {
-      "variation_id": "FR-00001-NOIR-NANO-GOLD",
+      "variation_id": "FR-00001-SIYAH-NANO-GOLD-MONOGR",
       "sku": "FR-00001",
       "no": 7,
-      "slug": "lv-speedy-nano-monogram-black",
-      "cover": "assets/products/lv-speedy-nano-monogram-black.jpg",
+      "slug": "lv-speedy-nano-siyah-gold-monogr",
+      "cover": "assets/products/lv-speedy-nano-siyah-gold-monogr.jpg",
       "isim_resmi": "",
       "isim_bilinen": "LV Speedy Nano",
       "marka": "Louis Vuitton",
       "kategori": "MINI",
       "kategori_ust": "CANTA",
       "kategori_alt": "MINI",
-      "renk": "NOIR",
+      "renk": "SIYAH",
       "ana_renk": "Siyah",
       "ana_renk_en": "Black",
       "ana_renk_hex": "#1a1a1a",
-      "renk_slug": "black",
+      "renk_slug": "siyah",
       "renk_hex": "#1a1a1a",
       "ikincil_renk": "Krem",
-      "ikincil_renk_code": "CREME",
+      "ikincil_renk_code": "KREM",
       "ikincil_renk_hex": "#e8d4b0",
       "ana_malzeme": "Denim",
       "desen": "Monogram",
@@ -2665,65 +2737,22 @@ tr.row--re-onay td:first-child{box-shadow:inset 3px 0 0 #C77A17}
       "olusturma": "2026-05-13"
     },
     {
-      "variation_id": "FR-00001-BLANC-NANO-GOLD",
-      "sku": "FR-00001",
-      "no": 8,
-      "slug": "lv-speedy-nano-monogram-white",
-      "cover": "assets/products/lv-speedy-nano-monogram-white.jpg",
-      "isim_resmi": "",
-      "isim_bilinen": "LV Speedy Nano",
-      "marka": "Louis Vuitton",
-      "kategori": "MINI",
-      "kategori_ust": "CANTA",
-      "kategori_alt": "MINI",
-      "renk": "BLANC",
-      "ana_renk": "Beyaz",
-      "ana_renk_en": "White",
-      "ana_renk_hex": "#f5f1ea",
-      "renk_slug": "white",
-      "renk_hex": "#f5f1ea",
-      "ikincil_renk": "Krem",
-      "ikincil_renk_code": "CREME",
-      "ikincil_renk_hex": "#e8d4b0",
-      "ana_malzeme": "Kanvas",
-      "desen": "Monogram",
-      "donanim_rengi": "Altın",
-      "stil": "Mini",
-      "sapli_sapsiz": "Saplı",
-      "boyut": "NANO",
-      "donanim": "GOLD",
-      "deri_tipi": "Kanvas",
-      "sezon": "SS26",
-      "fiyat_eur": 2100.0,
-      "ek_ucret_eur": 150.0,
-      "maliyet_eur": 0.0,
-      "total_stok": 1,
-      "occupied_stok": 0,
-      "available_stok": 1,
-      "stok": 1,
-      "kondisyon": "BNIB",
-      "kondisyon_label": "Sıfır",
-      "aciklama": "",
-      "tedarikci_id": null,
-      "olusturma": "2026-05-13"
-    },
-    {
-      "variation_id": "FR-00001-NOIR-NANO-GOLD-PRT",
+      "variation_id": "FR-00001-SIYAH-NANO-GOLD-BASKIL",
       "sku": "FR-00001",
       "no": 9,
-      "slug": "lv-speedy-nano-printed-black",
-      "cover": "assets/products/lv-speedy-nano-printed-black.jpg",
+      "slug": "lv-speedy-nano-siyah-gold-baskil",
+      "cover": "assets/products/lv-speedy-nano-siyah-gold-baskil.jpg",
       "isim_resmi": "",
       "isim_bilinen": "LV Speedy Nano",
       "marka": "Louis Vuitton",
       "kategori": "MINI",
       "kategori_ust": "CANTA",
       "kategori_alt": "MINI",
-      "renk": "NOIR",
+      "renk": "SIYAH",
       "ana_renk": "Siyah",
       "ana_renk_en": "Black",
       "ana_renk_hex": "#1a1a1a",
-      "renk_slug": "black",
+      "renk_slug": "siyah",
       "renk_hex": "#1a1a1a",
       "ikincil_renk": "",
       "ikincil_renk_code": "",
@@ -2751,25 +2780,68 @@ tr.row--re-onay td:first-child{box-shadow:inset 3px 0 0 #C77A17}
       "olusturma": "2026-05-13"
     },
     {
-      "variation_id": "FR-00002-MARRON_FONCE-STANDART-GOLD",
+      "variation_id": "FR-00001-BEYAZ-NANO-GOLD",
+      "sku": "FR-00001",
+      "no": 8,
+      "slug": "lv-speedy-nano-beyaz-gold",
+      "cover": "assets/products/lv-speedy-nano-beyaz-gold.jpg",
+      "isim_resmi": "",
+      "isim_bilinen": "LV Speedy Nano",
+      "marka": "Louis Vuitton",
+      "kategori": "MINI",
+      "kategori_ust": "CANTA",
+      "kategori_alt": "MINI",
+      "renk": "BEYAZ",
+      "ana_renk": "Beyaz",
+      "ana_renk_en": "White",
+      "ana_renk_hex": "#f5f1ea",
+      "renk_slug": "beyaz",
+      "renk_hex": "#f5f1ea",
+      "ikincil_renk": "Krem",
+      "ikincil_renk_code": "KREM",
+      "ikincil_renk_hex": "#e8d4b0",
+      "ana_malzeme": "Kanvas",
+      "desen": "Monogram",
+      "donanim_rengi": "Altın",
+      "stil": "Mini",
+      "sapli_sapsiz": "Saplı",
+      "boyut": "NANO",
+      "donanim": "GOLD",
+      "deri_tipi": "Kanvas",
+      "sezon": "SS26",
+      "fiyat_eur": 2100.0,
+      "ek_ucret_eur": 150.0,
+      "maliyet_eur": 0.0,
+      "total_stok": 1,
+      "occupied_stok": 0,
+      "available_stok": 1,
+      "stok": 1,
+      "kondisyon": "BNIB",
+      "kondisyon_label": "Sıfır",
+      "aciklama": "",
+      "tedarikci_id": null,
+      "olusturma": "2026-05-13"
+    },
+    {
+      "variation_id": "FR-00002-KOYU_KAHVE-STANDART-GOLD",
       "sku": "FR-00002",
       "no": 10,
-      "slug": "gucci-ophidia-kayik-monogram-dark-brown",
-      "cover": "assets/products/gucci-ophidia-kayik-monogram-dark-brown.jpg",
+      "slug": "gucci-ophidia-koyu-kahve-gold",
+      "cover": "assets/products/gucci-ophidia-koyu-kahve-gold.jpg",
       "isim_resmi": "",
       "isim_bilinen": "Gucci Ophidia",
       "marka": "Gucci",
       "kategori": "SHOULDER",
       "kategori_ust": "CANTA",
       "kategori_alt": "SHOULDER",
-      "renk": "MARRON_FONCE",
+      "renk": "KOYU KAHVE",
       "ana_renk": "Koyu Kahve",
       "ana_renk_en": "Dark Brown",
       "ana_renk_hex": "#3d2817",
-      "renk_slug": "dark-brown",
+      "renk_slug": "koyu-kahve",
       "renk_hex": "#3d2817",
       "ikincil_renk": "Koyu Kahve",
-      "ikincil_renk_code": "MARRON_FONCE",
+      "ikincil_renk_code": "KOYU KAHVE",
       "ikincil_renk_hex": "#3d2817",
       "ana_malzeme": "Kanvas",
       "desen": "Monogram",
@@ -2797,8 +2869,8 @@ tr.row--re-onay td:first-child{box-shadow:inset 3px 0 0 #C77A17}
       "variation_id": "FR-00002-TABA-STANDART-GOLD",
       "sku": "FR-00002",
       "no": 11,
-      "slug": "gucci-ophidia-kayik-monogram-tan",
-      "cover": "assets/products/gucci-ophidia-kayik-monogram-tan.jpg",
+      "slug": "gucci-ophidia-taba-gold",
+      "cover": "assets/products/gucci-ophidia-taba-gold.jpg",
       "isim_resmi": "",
       "isim_bilinen": "Gucci Ophidia",
       "marka": "Gucci",
@@ -2809,10 +2881,10 @@ tr.row--re-onay td:first-child{box-shadow:inset 3px 0 0 #C77A17}
       "ana_renk": "Taba",
       "ana_renk_en": "Tan",
       "ana_renk_hex": "#a87842",
-      "renk_slug": "tan",
+      "renk_slug": "taba",
       "renk_hex": "#a87842",
       "ikincil_renk": "Bej",
-      "ikincil_renk_code": "BEIGE",
+      "ikincil_renk_code": "BEJ",
       "ikincil_renk_hex": "#d8c3a3",
       "ana_malzeme": "Kanvas",
       "desen": "Monogram",
@@ -2837,25 +2909,25 @@ tr.row--re-onay td:first-child{box-shadow:inset 3px 0 0 #C77A17}
       "olusturma": "2026-05-13"
     },
     {
-      "variation_id": "FR-00002-BEIGE-STANDART-GOLD",
+      "variation_id": "FR-00002-BEJ-STANDART-GOLD",
       "sku": "FR-00002",
       "no": 12,
-      "slug": "gucci-ophidia-kayik-monogram-beige",
-      "cover": "assets/products/gucci-ophidia-kayik-monogram-beige.jpg",
+      "slug": "gucci-ophidia-bej-gold",
+      "cover": "assets/products/gucci-ophidia-bej-gold.jpg",
       "isim_resmi": "",
       "isim_bilinen": "Gucci Ophidia",
       "marka": "Gucci",
       "kategori": "SHOULDER",
       "kategori_ust": "CANTA",
       "kategori_alt": "SHOULDER",
-      "renk": "BEIGE",
+      "renk": "BEJ",
       "ana_renk": "Bej",
       "ana_renk_en": "Beige",
       "ana_renk_hex": "#d8c3a3",
-      "renk_slug": "beige",
+      "renk_slug": "bej",
       "renk_hex": "#d8c3a3",
       "ikincil_renk": "Siyah",
-      "ikincil_renk_code": "NOIR",
+      "ikincil_renk_code": "SIYAH",
       "ikincil_renk_hex": "#1a1a1a",
       "ana_malzeme": "Kanvas",
       "desen": "Monogram",
@@ -2880,25 +2952,25 @@ tr.row--re-onay td:first-child{box-shadow:inset 3px 0 0 #C77A17}
       "olusturma": "2026-05-13"
     },
     {
-      "variation_id": "FR-00002-VIZON_CLAIR-STANDART-GOLD",
+      "variation_id": "FR-00002-ACIK_VIZON-STANDART-GOLD",
       "sku": "FR-00002",
       "no": 13,
-      "slug": "gucci-ophidia-kayik-monogram-light-mink",
-      "cover": "assets/products/gucci-ophidia-kayik-monogram-light-mink.jpg",
+      "slug": "gucci-ophidia-acik-vizon-gold",
+      "cover": "assets/products/gucci-ophidia-acik-vizon-gold.jpg",
       "isim_resmi": "",
       "isim_bilinen": "Gucci Ophidia",
       "marka": "Gucci",
       "kategori": "SHOULDER",
       "kategori_ust": "CANTA",
       "kategori_alt": "SHOULDER",
-      "renk": "VIZON_CLAIR",
+      "renk": "ACIK VIZON",
       "ana_renk": "Açık Vizon",
       "ana_renk_en": "Light Mink",
       "ana_renk_hex": "#b8a690",
-      "renk_slug": "light-mink",
+      "renk_slug": "acik-vizon",
       "renk_hex": "#b8a690",
       "ikincil_renk": "Krem",
-      "ikincil_renk_code": "CREME",
+      "ikincil_renk_code": "KREM",
       "ikincil_renk_hex": "#e8d4b0",
       "ana_malzeme": "Kanvas",
       "desen": "Monogram",
@@ -2923,25 +2995,25 @@ tr.row--re-onay td:first-child{box-shadow:inset 3px 0 0 #C77A17}
       "olusturma": "2026-05-13"
     },
     {
-      "variation_id": "FR-00002-ROSE_CLAIR-STANDART-GOLD",
+      "variation_id": "FR-00002-ACIK_PEMBE-STANDART-GOLD",
       "sku": "FR-00002",
       "no": 14,
-      "slug": "gucci-ophidia-kayik-light-pink",
-      "cover": "assets/products/gucci-ophidia-kayik-light-pink.jpg",
+      "slug": "gucci-ophidia-acik-pembe-gold",
+      "cover": "assets/products/gucci-ophidia-acik-pembe-gold.jpg",
       "isim_resmi": "",
       "isim_bilinen": "Gucci Ophidia",
       "marka": "Gucci",
       "kategori": "SHOULDER",
       "kategori_ust": "CANTA",
       "kategori_alt": "SHOULDER",
-      "renk": "ROSE_CLAIR",
+      "renk": "ACIK PEMBE",
       "ana_renk": "Açık Pembe",
       "ana_renk_en": "Light Pink",
       "ana_renk_hex": "#e8c4cc",
-      "renk_slug": "light-pink",
+      "renk_slug": "acik-pembe",
       "renk_hex": "#e8c4cc",
       "ikincil_renk": "Krem",
-      "ikincil_renk_code": "CREME",
+      "ikincil_renk_code": "KREM",
       "ikincil_renk_hex": "#e8d4b0",
       "ana_malzeme": "Deri",
       "desen": "Kapitone",
@@ -2966,25 +3038,25 @@ tr.row--re-onay td:first-child{box-shadow:inset 3px 0 0 #C77A17}
       "olusturma": "2026-05-13"
     },
     {
-      "variation_id": "FR-00002-NOIR-STANDART-GOLD",
+      "variation_id": "FR-00002-SIYAH-STANDART-GOLD",
       "sku": "FR-00002",
       "no": 15,
-      "slug": "gucci-ophidia-kayik-black",
-      "cover": "assets/products/gucci-ophidia-kayik-black.jpg",
+      "slug": "gucci-ophidia-siyah-gold",
+      "cover": "assets/products/gucci-ophidia-siyah-gold.jpg",
       "isim_resmi": "",
       "isim_bilinen": "Gucci Ophidia",
       "marka": "Gucci",
       "kategori": "SHOULDER",
       "kategori_ust": "CANTA",
       "kategori_alt": "SHOULDER",
-      "renk": "NOIR",
+      "renk": "SIYAH",
       "ana_renk": "Siyah",
       "ana_renk_en": "Black",
       "ana_renk_hex": "#1a1a1a",
-      "renk_slug": "black",
+      "renk_slug": "siyah",
       "renk_hex": "#1a1a1a",
       "ikincil_renk": "Siyah",
-      "ikincil_renk_code": "NOIR",
+      "ikincil_renk_code": "SIYAH",
       "ikincil_renk_hex": "#1a1a1a",
       "ana_malzeme": "Deri",
       "desen": "Kapitone",
@@ -3009,25 +3081,25 @@ tr.row--re-onay td:first-child{box-shadow:inset 3px 0 0 #C77A17}
       "olusturma": "2026-05-13"
     },
     {
-      "variation_id": "FR-00002-BLANC-STANDART-GOLD",
+      "variation_id": "FR-00002-BEYAZ-STANDART-GOLD",
       "sku": "FR-00002",
       "no": 16,
-      "slug": "gucci-ophidia-kayik-white",
-      "cover": "assets/products/gucci-ophidia-kayik-white.jpg",
+      "slug": "gucci-ophidia-beyaz-gold",
+      "cover": "assets/products/gucci-ophidia-beyaz-gold.jpg",
       "isim_resmi": "",
       "isim_bilinen": "Gucci Ophidia",
       "marka": "Gucci",
       "kategori": "SHOULDER",
       "kategori_ust": "CANTA",
       "kategori_alt": "SHOULDER",
-      "renk": "BLANC",
+      "renk": "BEYAZ",
       "ana_renk": "Beyaz",
       "ana_renk_en": "White",
       "ana_renk_hex": "#f5f1ea",
-      "renk_slug": "white",
+      "renk_slug": "beyaz",
       "renk_hex": "#f5f1ea",
       "ikincil_renk": "Beyaz",
-      "ikincil_renk_code": "BLANC",
+      "ikincil_renk_code": "BEYAZ",
       "ikincil_renk_hex": "#f5f1ea",
       "ana_malzeme": "Deri",
       "desen": "Kapitone",
@@ -3052,25 +3124,25 @@ tr.row--re-onay td:first-child{box-shadow:inset 3px 0 0 #C77A17}
       "olusturma": "2026-05-13"
     },
     {
-      "variation_id": "FR-00003-MARRON_FONCE-PM-PALLADIUM",
+      "variation_id": "FR-00003-KOYU_KAHVE-PM-PALLADIUM-DUZ",
       "sku": "FR-00003",
       "no": 17,
-      "slug": "hermes-straw-hasir-dark-brown-deri-sap",
-      "cover": "assets/products/hermes-straw-hasir-dark-brown-deri-sap.jpg",
+      "slug": "hermes-picotin-koyu-kahve-palladium-duz",
+      "cover": "assets/products/hermes-picotin-koyu-kahve-palladium-duz.jpg",
       "isim_resmi": "",
       "isim_bilinen": "Hermès Picotin",
       "marka": "Hermès",
       "kategori": "TOTE",
       "kategori_ust": "CANTA",
       "kategori_alt": "TOTE",
-      "renk": "MARRON_FONCE",
+      "renk": "KOYU KAHVE",
       "ana_renk": "Koyu Kahve",
       "ana_renk_en": "Dark Brown",
       "ana_renk_hex": "#3d2817",
-      "renk_slug": "dark-brown",
+      "renk_slug": "koyu-kahve",
       "renk_hex": "#3d2817",
       "ikincil_renk": "Doğal",
-      "ikincil_renk_code": "NATUREL",
+      "ikincil_renk_code": "DOGAL",
       "ikincil_renk_hex": "#d4b896",
       "ana_malzeme": "Hasır",
       "desen": "Düz",
@@ -3095,25 +3167,68 @@ tr.row--re-onay td:first-child{box-shadow:inset 3px 0 0 #C77A17}
       "olusturma": "2026-05-13"
     },
     {
-      "variation_id": "FR-00003-NATUREL-PM-PALLADIUM",
+      "variation_id": "FR-00003-KOYU_KAHVE-PM-PALLADIUM-DUZ-21",
       "sku": "FR-00003",
-      "no": 18,
-      "slug": "hermes-straw-hasir-beige-deri-sap",
-      "cover": "assets/products/hermes-straw-hasir-beige-deri-sap.jpg",
+      "no": 21,
+      "slug": "hermes-picotin-koyu-kahve-palladium-duz-21",
+      "cover": "assets/products/hermes-picotin-koyu-kahve-palladium-duz-21.jpg",
       "isim_resmi": "",
       "isim_bilinen": "Hermès Picotin",
       "marka": "Hermès",
       "kategori": "TOTE",
       "kategori_ust": "CANTA",
       "kategori_alt": "TOTE",
-      "renk": "NATUREL",
+      "renk": "KOYU KAHVE",
+      "ana_renk": "Koyu Kahve",
+      "ana_renk_en": "Dark Brown",
+      "ana_renk_hex": "#3d2817",
+      "renk_slug": "koyu-kahve",
+      "renk_hex": "#3d2817",
+      "ikincil_renk": "Doğal",
+      "ikincil_renk_code": "DOGAL",
+      "ikincil_renk_hex": "#d4b896",
+      "ana_malzeme": "Hasır",
+      "desen": "Düz",
+      "donanim_rengi": "Gümüş",
+      "stil": "Tote",
+      "sapli_sapsiz": "Saplı",
+      "boyut": "PM",
+      "donanim": "PALLADIUM",
+      "deri_tipi": "Hasır",
+      "sezon": "SS26",
+      "fiyat_eur": 7200.0,
+      "ek_ucret_eur": 0.0,
+      "maliyet_eur": 0.0,
+      "total_stok": 1,
+      "occupied_stok": 0,
+      "available_stok": 1,
+      "stok": 1,
+      "kondisyon": "BNIB",
+      "kondisyon_label": "Sıfır",
+      "aciklama": "",
+      "tedarikci_id": null,
+      "olusturma": "2026-05-13"
+    },
+    {
+      "variation_id": "FR-00003-DOGAL-PM-PALLADIUM",
+      "sku": "FR-00003",
+      "no": 18,
+      "slug": "hermes-picotin-dogal-palladium",
+      "cover": "assets/products/hermes-picotin-dogal-palladium.jpg",
+      "isim_resmi": "",
+      "isim_bilinen": "Hermès Picotin",
+      "marka": "Hermès",
+      "kategori": "TOTE",
+      "kategori_ust": "CANTA",
+      "kategori_alt": "TOTE",
+      "renk": "DOGAL",
       "ana_renk": "Doğal",
       "ana_renk_en": "Natural",
       "ana_renk_hex": "#d4b896",
-      "renk_slug": "natural",
+      "renk_slug": "dogal",
       "renk_hex": "#d4b896",
       "ikincil_renk": "Siyah",
-      "ikincil_renk_code": "NOIR",
+      "ikincil_renk_code": "SIYAH",
       "ikincil_renk_hex": "#1a1a1a",
       "ana_malzeme": "Hasır",
       "desen": "Düz",
@@ -3138,25 +3253,25 @@ tr.row--re-onay td:first-child{box-shadow:inset 3px 0 0 #C77A17}
       "olusturma": "2026-05-13"
     },
     {
-      "variation_id": "FR-00003-NOIR-PM-PALLADIUM",
+      "variation_id": "FR-00003-SIYAH-PM-PALLADIUM",
       "sku": "FR-00003",
       "no": 19,
-      "slug": "hermes-straw-hasir-black-deri-sap",
-      "cover": "assets/products/hermes-straw-hasir-black-deri-sap.jpg",
+      "slug": "hermes-picotin-siyah-palladium",
+      "cover": "assets/products/hermes-picotin-siyah-palladium.jpg",
       "isim_resmi": "",
       "isim_bilinen": "Hermès Picotin",
       "marka": "Hermès",
       "kategori": "TOTE",
       "kategori_ust": "CANTA",
       "kategori_alt": "TOTE",
-      "renk": "NOIR",
+      "renk": "SIYAH",
       "ana_renk": "Siyah",
       "ana_renk_en": "Black",
       "ana_renk_hex": "#1a1a1a",
-      "renk_slug": "black",
+      "renk_slug": "siyah",
       "renk_hex": "#1a1a1a",
       "ikincil_renk": "Siyah",
-      "ikincil_renk_code": "NOIR",
+      "ikincil_renk_code": "SIYAH",
       "ikincil_renk_hex": "#1a1a1a",
       "ana_malzeme": "Hasır",
       "desen": "Düz",
@@ -3184,8 +3299,8 @@ tr.row--re-onay td:first-child{box-shadow:inset 3px 0 0 #C77A17}
       "variation_id": "FR-00003-TABA-PM-PALLADIUM",
       "sku": "FR-00003",
       "no": 20,
-      "slug": "hermes-straw-hasir-tan-deri-sap",
-      "cover": "assets/products/hermes-straw-hasir-tan-deri-sap.jpg",
+      "slug": "hermes-picotin-taba-palladium",
+      "cover": "assets/products/hermes-picotin-taba-palladium.jpg",
       "isim_resmi": "",
       "isim_bilinen": "Hermès Picotin",
       "marka": "Hermès",
@@ -3196,10 +3311,10 @@ tr.row--re-onay td:first-child{box-shadow:inset 3px 0 0 #C77A17}
       "ana_renk": "Taba",
       "ana_renk_en": "Tan",
       "ana_renk_hex": "#a87842",
-      "renk_slug": "tan",
+      "renk_slug": "taba",
       "renk_hex": "#a87842",
       "ikincil_renk": "Doğal",
-      "ikincil_renk_code": "NATUREL",
+      "ikincil_renk_code": "DOGAL",
       "ikincil_renk_hex": "#d4b896",
       "ana_malzeme": "Hasır",
       "desen": "Düz",
@@ -3224,68 +3339,25 @@ tr.row--re-onay td:first-child{box-shadow:inset 3px 0 0 #C77A17}
       "olusturma": "2026-05-13"
     },
     {
-      "variation_id": "FR-00003-MARRON_FONCE-PM-PALLADIUM-ALT",
-      "sku": "FR-00003",
-      "no": 21,
-      "slug": "hermes-straw-hasir-dark-brown-deri-sap-alt",
-      "cover": "assets/products/hermes-straw-hasir-dark-brown-deri-sap-alt.jpg",
-      "isim_resmi": "",
-      "isim_bilinen": "Hermès Picotin",
-      "marka": "Hermès",
-      "kategori": "TOTE",
-      "kategori_ust": "CANTA",
-      "kategori_alt": "TOTE",
-      "renk": "MARRON_FONCE",
-      "ana_renk": "Koyu Kahve",
-      "ana_renk_en": "Dark Brown",
-      "ana_renk_hex": "#3d2817",
-      "renk_slug": "dark-brown",
-      "renk_hex": "#3d2817",
-      "ikincil_renk": "Doğal",
-      "ikincil_renk_code": "NATUREL",
-      "ikincil_renk_hex": "#d4b896",
-      "ana_malzeme": "Hasır",
-      "desen": "Düz",
-      "donanim_rengi": "Gümüş",
-      "stil": "Tote",
-      "sapli_sapsiz": "Saplı",
-      "boyut": "PM",
-      "donanim": "PALLADIUM",
-      "deri_tipi": "Hasır",
-      "sezon": "SS26",
-      "fiyat_eur": 7200.0,
-      "ek_ucret_eur": 0.0,
-      "maliyet_eur": 0.0,
-      "total_stok": 1,
-      "occupied_stok": 0,
-      "available_stok": 1,
-      "stok": 1,
-      "kondisyon": "BNIB",
-      "kondisyon_label": "Sıfır",
-      "aciklama": "",
-      "tedarikci_id": null,
-      "olusturma": "2026-05-13"
-    },
-    {
-      "variation_id": "FR-00004-NATUREL-STANDART-GOLD",
+      "variation_id": "FR-00004-DOGAL-STANDART-GOLD-DUZ",
       "sku": "FR-00004",
       "no": 22,
-      "slug": "ysl-deri-siyah-sap-kemerli-hasir",
-      "cover": "assets/products/ysl-deri-siyah-sap-kemerli-hasir.jpg",
+      "slug": "ysl-kemerli-hasir-dogal-gold-duz",
+      "cover": "assets/products/ysl-kemerli-hasir-dogal-gold-duz.jpg",
       "isim_resmi": "",
       "isim_bilinen": "YSL Kemerli Hasır",
       "marka": "Yves Saint Laurent",
       "kategori": "TOTE",
       "kategori_ust": "CANTA",
       "kategori_alt": "TOTE",
-      "renk": "NATUREL",
+      "renk": "DOGAL",
       "ana_renk": "Doğal",
       "ana_renk_en": "Natural",
       "ana_renk_hex": "#d4b896",
-      "renk_slug": "natural",
+      "renk_slug": "dogal",
       "renk_hex": "#d4b896",
       "ikincil_renk": "Siyah",
-      "ikincil_renk_code": "NOIR",
+      "ikincil_renk_code": "SIYAH",
       "ikincil_renk_hex": "#1a1a1a",
       "ana_malzeme": "Hasır",
       "desen": "Düz",
@@ -3310,25 +3382,25 @@ tr.row--re-onay td:first-child{box-shadow:inset 3px 0 0 #C77A17}
       "olusturma": "2026-05-13"
     },
     {
-      "variation_id": "FR-00004-NATUREL-STANDART-GOLD-ALT",
+      "variation_id": "FR-00004-DOGAL-STANDART-GOLD-DUZ-23",
       "sku": "FR-00004",
       "no": 23,
-      "slug": "ysl-deri-acik-kahve-sap-kemerli-hasir",
-      "cover": "assets/products/ysl-deri-acik-kahve-sap-kemerli-hasir.jpg",
+      "slug": "ysl-kemerli-hasir-dogal-gold-duz-23",
+      "cover": "assets/products/ysl-kemerli-hasir-dogal-gold-duz-23.jpg",
       "isim_resmi": "",
       "isim_bilinen": "YSL Kemerli Hasır",
       "marka": "Yves Saint Laurent",
       "kategori": "TOTE",
       "kategori_ust": "CANTA",
       "kategori_alt": "TOTE",
-      "renk": "NATUREL",
+      "renk": "DOGAL",
       "ana_renk": "Doğal",
       "ana_renk_en": "Natural",
       "ana_renk_hex": "#d4b896",
-      "renk_slug": "natural",
+      "renk_slug": "dogal",
       "renk_hex": "#d4b896",
       "ikincil_renk": "Açık Kahve",
-      "ikincil_renk_code": "MARRON_CLAIR",
+      "ikincil_renk_code": "ACIK KAHVE",
       "ikincil_renk_hex": "#7b5a3a",
       "ana_malzeme": "Hasır",
       "desen": "Düz",
@@ -3353,25 +3425,25 @@ tr.row--re-onay td:first-child{box-shadow:inset 3px 0 0 #C77A17}
       "olusturma": "2026-05-13"
     },
     {
-      "variation_id": "FR-00004-NATUREL-STANDART-GOLD-ALT2",
+      "variation_id": "FR-00004-DOGAL-STANDART-GOLD-DUZ-24",
       "sku": "FR-00004",
       "no": 24,
-      "slug": "ysl-deri-koyu-kahve-sap-kemerli-hasir",
-      "cover": "assets/products/ysl-deri-koyu-kahve-sap-kemerli-hasir.jpg",
+      "slug": "ysl-kemerli-hasir-dogal-gold-duz-24",
+      "cover": "assets/products/ysl-kemerli-hasir-dogal-gold-duz-24.jpg",
       "isim_resmi": "",
       "isim_bilinen": "YSL Kemerli Hasır",
       "marka": "Yves Saint Laurent",
       "kategori": "TOTE",
       "kategori_ust": "CANTA",
       "kategori_alt": "TOTE",
-      "renk": "NATUREL",
+      "renk": "DOGAL",
       "ana_renk": "Doğal",
       "ana_renk_en": "Natural",
       "ana_renk_hex": "#d4b896",
-      "renk_slug": "natural",
+      "renk_slug": "dogal",
       "renk_hex": "#d4b896",
       "ikincil_renk": "Koyu Kahve",
-      "ikincil_renk_code": "MARRON_FONCE",
+      "ikincil_renk_code": "KOYU KAHVE",
       "ikincil_renk_hex": "#3d2817",
       "ana_malzeme": "Hasır",
       "desen": "Düz",
@@ -3396,25 +3468,25 @@ tr.row--re-onay td:first-child{box-shadow:inset 3px 0 0 #C77A17}
       "olusturma": "2026-05-13"
     },
     {
-      "variation_id": "FR-00005-BLEU_NUIT-STANDART-GOLD",
+      "variation_id": "FR-00005-LACIVERT-STANDART-GOLD",
       "sku": "FR-00005",
       "no": 25,
-      "slug": "ysl-orme-lacivert",
-      "cover": "assets/products/ysl-orme-lacivert.jpg",
+      "slug": "ysl-orme-tote-lacivert-gold",
+      "cover": "assets/products/ysl-orme-tote-lacivert-gold.jpg",
       "isim_resmi": "",
       "isim_bilinen": "YSL Örme Tote",
       "marka": "Yves Saint Laurent",
       "kategori": "TOTE",
       "kategori_ust": "CANTA",
       "kategori_alt": "TOTE",
-      "renk": "BLEU_NUIT",
+      "renk": "LACIVERT",
       "ana_renk": "Lacivert",
       "ana_renk_en": "Navy",
       "ana_renk_hex": "#1a2238",
-      "renk_slug": "navy",
+      "renk_slug": "lacivert",
       "renk_hex": "#1a2238",
       "ikincil_renk": "Lacivert",
-      "ikincil_renk_code": "BLEU_NUIT",
+      "ikincil_renk_code": "LACIVERT",
       "ikincil_renk_hex": "#1a2238",
       "ana_malzeme": "Örme",
       "desen": "Düz",
@@ -3439,25 +3511,25 @@ tr.row--re-onay td:first-child{box-shadow:inset 3px 0 0 #C77A17}
       "olusturma": "2026-05-13"
     },
     {
-      "variation_id": "FR-00005-BEIGE-STANDART-GOLD",
+      "variation_id": "FR-00005-BEJ-STANDART-GOLD",
       "sku": "FR-00005",
       "no": 26,
-      "slug": "ysl-orme-bej",
-      "cover": "assets/products/ysl-orme-bej.jpg",
+      "slug": "ysl-orme-tote-bej-gold",
+      "cover": "assets/products/ysl-orme-tote-bej-gold.jpg",
       "isim_resmi": "",
       "isim_bilinen": "YSL Örme Tote",
       "marka": "Yves Saint Laurent",
       "kategori": "TOTE",
       "kategori_ust": "CANTA",
       "kategori_alt": "TOTE",
-      "renk": "BEIGE",
+      "renk": "BEJ",
       "ana_renk": "Bej",
       "ana_renk_en": "Beige",
       "ana_renk_hex": "#d8c3a3",
-      "renk_slug": "beige",
+      "renk_slug": "bej",
       "renk_hex": "#d8c3a3",
       "ikincil_renk": "Krem",
-      "ikincil_renk_code": "CREME",
+      "ikincil_renk_code": "KREM",
       "ikincil_renk_hex": "#e8d4b0",
       "ana_malzeme": "Örme",
       "desen": "Düz",
@@ -3485,8 +3557,8 @@ tr.row--re-onay td:first-child{box-shadow:inset 3px 0 0 #C77A17}
       "variation_id": "FR-00005-TABA-STANDART-GOLD",
       "sku": "FR-00005",
       "no": 27,
-      "slug": "ysl-orme-taba-acik-kahve",
-      "cover": "assets/products/ysl-orme-taba-acik-kahve.jpg",
+      "slug": "ysl-orme-tote-taba-gold",
+      "cover": "assets/products/ysl-orme-tote-taba-gold.jpg",
       "isim_resmi": "",
       "isim_bilinen": "YSL Örme Tote",
       "marka": "Yves Saint Laurent",
@@ -3497,10 +3569,10 @@ tr.row--re-onay td:first-child{box-shadow:inset 3px 0 0 #C77A17}
       "ana_renk": "Taba",
       "ana_renk_en": "Tan",
       "ana_renk_hex": "#a87842",
-      "renk_slug": "tan",
+      "renk_slug": "taba",
       "renk_hex": "#a87842",
       "ikincil_renk": "Bej",
-      "ikincil_renk_code": "BEIGE",
+      "ikincil_renk_code": "BEJ",
       "ikincil_renk_hex": "#d8c3a3",
       "ana_malzeme": "Örme",
       "desen": "Düz",
@@ -3528,8 +3600,8 @@ tr.row--re-onay td:first-child{box-shadow:inset 3px 0 0 #C77A17}
       "variation_id": "FR-00006-TABA-STANDART-GOLD",
       "sku": "FR-00006",
       "no": 28,
-      "slug": "miumiu-orme-taba-logo",
-      "cover": "assets/products/miumiu-orme-taba-logo.jpg",
+      "slug": "miu-miu-woven-taba-gold",
+      "cover": "assets/products/miu-miu-woven-taba-gold.jpg",
       "isim_resmi": "",
       "isim_bilinen": "Miu Miu Woven",
       "marka": "Miu Miu",
@@ -3540,10 +3612,10 @@ tr.row--re-onay td:first-child{box-shadow:inset 3px 0 0 #C77A17}
       "ana_renk": "Taba",
       "ana_renk_en": "Tan",
       "ana_renk_hex": "#a87842",
-      "renk_slug": "tan",
+      "renk_slug": "taba",
       "renk_hex": "#a87842",
       "ikincil_renk": "Bej",
-      "ikincil_renk_code": "BEIGE",
+      "ikincil_renk_code": "BEJ",
       "ikincil_renk_hex": "#d8c3a3",
       "ana_malzeme": "Hasır",
       "desen": "Düz",
@@ -3568,25 +3640,25 @@ tr.row--re-onay td:first-child{box-shadow:inset 3px 0 0 #C77A17}
       "olusturma": "2026-05-13"
     },
     {
-      "variation_id": "FR-00006-MARRON_FONCE-STANDART-GOLD",
+      "variation_id": "FR-00006-KOYU_KAHVE-STANDART-GOLD",
       "sku": "FR-00006",
       "no": 29,
-      "slug": "miumiu-orme-koyu-kahve-logo",
-      "cover": "assets/products/miumiu-orme-koyu-kahve-logo.jpg",
+      "slug": "miu-miu-woven-koyu-kahve-gold",
+      "cover": "assets/products/miu-miu-woven-koyu-kahve-gold.jpg",
       "isim_resmi": "",
       "isim_bilinen": "Miu Miu Woven",
       "marka": "Miu Miu",
       "kategori": "SHOULDER",
       "kategori_ust": "CANTA",
       "kategori_alt": "SHOULDER",
-      "renk": "MARRON_FONCE",
+      "renk": "KOYU KAHVE",
       "ana_renk": "Koyu Kahve",
       "ana_renk_en": "Dark Brown",
       "ana_renk_hex": "#3d2817",
-      "renk_slug": "dark-brown",
+      "renk_slug": "koyu-kahve",
       "renk_hex": "#3d2817",
       "ikincil_renk": "Koyu Kahve",
-      "ikincil_renk_code": "MARRON_FONCE",
+      "ikincil_renk_code": "KOYU KAHVE",
       "ikincil_renk_hex": "#3d2817",
       "ana_malzeme": "Hasır",
       "desen": "Düz",
@@ -3611,25 +3683,25 @@ tr.row--re-onay td:first-child{box-shadow:inset 3px 0 0 #C77A17}
       "olusturma": "2026-05-13"
     },
     {
-      "variation_id": "FR-00006-NOIR-STANDART-GOLD",
+      "variation_id": "FR-00006-SIYAH-STANDART-GOLD",
       "sku": "FR-00006",
       "no": 30,
-      "slug": "miumiu-orme-siyah-logo",
-      "cover": "assets/products/miumiu-orme-siyah-logo.jpg",
+      "slug": "miu-miu-woven-siyah-gold",
+      "cover": "assets/products/miu-miu-woven-siyah-gold.jpg",
       "isim_resmi": "",
       "isim_bilinen": "Miu Miu Woven",
       "marka": "Miu Miu",
       "kategori": "SHOULDER",
       "kategori_ust": "CANTA",
       "kategori_alt": "SHOULDER",
-      "renk": "NOIR",
+      "renk": "SIYAH",
       "ana_renk": "Siyah",
       "ana_renk_en": "Black",
       "ana_renk_hex": "#1a1a1a",
-      "renk_slug": "black",
+      "renk_slug": "siyah",
       "renk_hex": "#1a1a1a",
       "ikincil_renk": "Siyah",
-      "ikincil_renk_code": "NOIR",
+      "ikincil_renk_code": "SIYAH",
       "ikincil_renk_hex": "#1a1a1a",
       "ana_malzeme": "Hasır",
       "desen": "Düz",
@@ -3654,25 +3726,25 @@ tr.row--re-onay td:first-child{box-shadow:inset 3px 0 0 #C77A17}
       "olusturma": "2026-05-13"
     },
     {
-      "variation_id": "FR-00006-BLANC-STANDART-GOLD",
+      "variation_id": "FR-00006-BEYAZ-STANDART-GOLD",
       "sku": "FR-00006",
       "no": 31,
-      "slug": "miumiu-orme-beyaz-logo",
-      "cover": "assets/products/miumiu-orme-beyaz-logo.jpg",
+      "slug": "miu-miu-woven-beyaz-gold",
+      "cover": "assets/products/miu-miu-woven-beyaz-gold.jpg",
       "isim_resmi": "",
       "isim_bilinen": "Miu Miu Woven",
       "marka": "Miu Miu",
       "kategori": "SHOULDER",
       "kategori_ust": "CANTA",
       "kategori_alt": "SHOULDER",
-      "renk": "BLANC",
+      "renk": "BEYAZ",
       "ana_renk": "Beyaz",
       "ana_renk_en": "White",
       "ana_renk_hex": "#f5f1ea",
-      "renk_slug": "white",
+      "renk_slug": "beyaz",
       "renk_hex": "#f5f1ea",
       "ikincil_renk": "Beyaz",
-      "ikincil_renk_code": "BLANC",
+      "ikincil_renk_code": "BEYAZ",
       "ikincil_renk_hex": "#f5f1ea",
       "ana_malzeme": "Hasır",
       "desen": "Düz",
@@ -3697,25 +3769,25 @@ tr.row--re-onay td:first-child{box-shadow:inset 3px 0 0 #C77A17}
       "olusturma": "2026-05-13"
     },
     {
-      "variation_id": "FR-00007-GRIS_FUME-MINI-GOLD",
+      "variation_id": "FR-00007-KOYU_GRI-MINI-GOLD",
       "sku": "FR-00007",
       "no": 32,
-      "slug": "ysl-kucuk-orme-siyah-sap-fume-govde",
-      "cover": "assets/products/ysl-kucuk-orme-siyah-sap-fume-govde.jpg",
+      "slug": "ysl-kucuk-orme-koyu-gri-gold",
+      "cover": "assets/products/ysl-kucuk-orme-koyu-gri-gold.jpg",
       "isim_resmi": "",
       "isim_bilinen": "YSL Küçük Örme",
       "marka": "Yves Saint Laurent",
       "kategori": "CROSSBODY",
       "kategori_ust": "CANTA",
       "kategori_alt": "CROSSBODY",
-      "renk": "GRIS_FUME",
-      "ana_renk": "Füme",
-      "ana_renk_en": "Smoke Gray",
+      "renk": "KOYU GRI",
+      "ana_renk": "Koyu Gri",
+      "ana_renk_en": "Dark Gray",
       "ana_renk_hex": "#4a4a4a",
-      "renk_slug": "smoke-gray",
+      "renk_slug": "koyu-gri",
       "renk_hex": "#4a4a4a",
       "ikincil_renk": "Siyah",
-      "ikincil_renk_code": "NOIR",
+      "ikincil_renk_code": "SIYAH",
       "ikincil_renk_hex": "#1a1a1a",
       "ana_malzeme": "Örme",
       "desen": "Düz",
@@ -3740,25 +3812,25 @@ tr.row--re-onay td:first-child{box-shadow:inset 3px 0 0 #C77A17}
       "olusturma": "2026-05-13"
     },
     {
-      "variation_id": "FR-00007-BLANC-MINI-GOLD",
+      "variation_id": "FR-00007-BEYAZ-MINI-GOLD",
       "sku": "FR-00007",
       "no": 33,
-      "slug": "ysl-kucuk-orme-gri-sap-beyaz-govde",
-      "cover": "assets/products/ysl-kucuk-orme-gri-sap-beyaz-govde.jpg",
+      "slug": "ysl-kucuk-orme-beyaz-gold",
+      "cover": "assets/products/ysl-kucuk-orme-beyaz-gold.jpg",
       "isim_resmi": "",
       "isim_bilinen": "YSL Küçük Örme",
       "marka": "Yves Saint Laurent",
       "kategori": "CROSSBODY",
       "kategori_ust": "CANTA",
       "kategori_alt": "CROSSBODY",
-      "renk": "BLANC",
+      "renk": "BEYAZ",
       "ana_renk": "Beyaz",
       "ana_renk_en": "White",
       "ana_renk_hex": "#f5f1ea",
-      "renk_slug": "white",
+      "renk_slug": "beyaz",
       "renk_hex": "#f5f1ea",
       "ikincil_renk": "Gri",
-      "ikincil_renk_code": "GRIS",
+      "ikincil_renk_code": "GRI",
       "ikincil_renk_hex": "#7d7d7d",
       "ana_malzeme": "Örme",
       "desen": "Düz",
@@ -3786,8 +3858,8 @@ tr.row--re-onay td:first-child{box-shadow:inset 3px 0 0 #C77A17}
       "variation_id": "FR-00007-TABA-MINI-GOLD",
       "sku": "FR-00007",
       "no": 34,
-      "slug": "ysl-kucuk-orme-vizon-sap-taba-govde",
-      "cover": "assets/products/ysl-kucuk-orme-vizon-sap-taba-govde.jpg",
+      "slug": "ysl-kucuk-orme-taba-gold",
+      "cover": "assets/products/ysl-kucuk-orme-taba-gold.jpg",
       "isim_resmi": "",
       "isim_bilinen": "YSL Küçük Örme",
       "marka": "Yves Saint Laurent",
@@ -3798,10 +3870,10 @@ tr.row--re-onay td:first-child{box-shadow:inset 3px 0 0 #C77A17}
       "ana_renk": "Taba",
       "ana_renk_en": "Tan",
       "ana_renk_hex": "#a87842",
-      "renk_slug": "tan",
+      "renk_slug": "taba",
       "renk_hex": "#a87842",
       "ikincil_renk": "Açık Vizon",
-      "ikincil_renk_code": "VIZON_CLAIR",
+      "ikincil_renk_code": "ACIK VIZON",
       "ikincil_renk_hex": "#b8a690",
       "ana_malzeme": "Örme",
       "desen": "Düz",
@@ -3826,22 +3898,22 @@ tr.row--re-onay td:first-child{box-shadow:inset 3px 0 0 #C77A17}
       "olusturma": "2026-05-13"
     },
     {
-      "variation_id": "FR-00007-BEIGE-MINI-GOLD",
+      "variation_id": "FR-00007-BEJ-MINI-GOLD-DUZ",
       "sku": "FR-00007",
       "no": 35,
-      "slug": "ysl-kucuk-orme-taba-sap-bej-govde",
-      "cover": "assets/products/ysl-kucuk-orme-taba-sap-bej-govde.jpg",
+      "slug": "ysl-kucuk-orme-bej-gold-duz",
+      "cover": "assets/products/ysl-kucuk-orme-bej-gold-duz.jpg",
       "isim_resmi": "",
       "isim_bilinen": "YSL Küçük Örme",
       "marka": "Yves Saint Laurent",
       "kategori": "CROSSBODY",
       "kategori_ust": "CANTA",
       "kategori_alt": "CROSSBODY",
-      "renk": "BEIGE",
+      "renk": "BEJ",
       "ana_renk": "Bej",
       "ana_renk_en": "Beige",
       "ana_renk_hex": "#d8c3a3",
-      "renk_slug": "beige",
+      "renk_slug": "bej",
       "renk_hex": "#d8c3a3",
       "ikincil_renk": "Taba",
       "ikincil_renk_code": "TABA",
@@ -3869,25 +3941,68 @@ tr.row--re-onay td:first-child{box-shadow:inset 3px 0 0 #C77A17}
       "olusturma": "2026-05-13"
     },
     {
-      "variation_id": "FR-00007-NATUREL-MINI-GOLD",
+      "variation_id": "FR-00007-BEJ-MINI-GOLD-DUZ-39",
       "sku": "FR-00007",
-      "no": 36,
-      "slug": "ysl-kucuk-orme-siyah-sap-hasir-govde",
-      "cover": "assets/products/ysl-kucuk-orme-siyah-sap-hasir-govde.jpg",
+      "no": 39,
+      "slug": "ysl-kucuk-orme-bej-gold-duz-39",
+      "cover": "assets/products/ysl-kucuk-orme-bej-gold-duz-39.jpg",
       "isim_resmi": "",
       "isim_bilinen": "YSL Küçük Örme",
       "marka": "Yves Saint Laurent",
       "kategori": "CROSSBODY",
       "kategori_ust": "CANTA",
       "kategori_alt": "CROSSBODY",
-      "renk": "NATUREL",
+      "renk": "BEJ",
+      "ana_renk": "Bej",
+      "ana_renk_en": "Beige",
+      "ana_renk_hex": "#d8c3a3",
+      "renk_slug": "bej",
+      "renk_hex": "#d8c3a3",
+      "ikincil_renk": "Koyu Kahve",
+      "ikincil_renk_code": "KOYU KAHVE",
+      "ikincil_renk_hex": "#3d2817",
+      "ana_malzeme": "Örme",
+      "desen": "Düz",
+      "donanim_rengi": "Altın",
+      "stil": "Çapraz",
+      "sapli_sapsiz": "Saplı",
+      "boyut": "MINI",
+      "donanim": "GOLD",
+      "deri_tipi": "Örme",
+      "sezon": "SS26",
+      "fiyat_eur": 1250.0,
+      "ek_ucret_eur": 0.0,
+      "maliyet_eur": 0.0,
+      "total_stok": 1,
+      "occupied_stok": 0,
+      "available_stok": 1,
+      "stok": 1,
+      "kondisyon": "BNIB",
+      "kondisyon_label": "Sıfır",
+      "aciklama": "",
+      "tedarikci_id": null,
+      "olusturma": "2026-05-13"
+    },
+    {
+      "variation_id": "FR-00007-DOGAL-MINI-GOLD",
+      "sku": "FR-00007",
+      "no": 36,
+      "slug": "ysl-kucuk-orme-dogal-gold",
+      "cover": "assets/products/ysl-kucuk-orme-dogal-gold.jpg",
+      "isim_resmi": "",
+      "isim_bilinen": "YSL Küçük Örme",
+      "marka": "Yves Saint Laurent",
+      "kategori": "CROSSBODY",
+      "kategori_ust": "CANTA",
+      "kategori_alt": "CROSSBODY",
+      "renk": "DOGAL",
       "ana_renk": "Doğal",
       "ana_renk_en": "Natural",
       "ana_renk_hex": "#d4b896",
-      "renk_slug": "natural",
+      "renk_slug": "dogal",
       "renk_hex": "#d4b896",
       "ikincil_renk": "Siyah",
-      "ikincil_renk_code": "NOIR",
+      "ikincil_renk_code": "SIYAH",
       "ikincil_renk_hex": "#1a1a1a",
       "ana_malzeme": "Hasır",
       "desen": "Düz",
@@ -3912,25 +4027,25 @@ tr.row--re-onay td:first-child{box-shadow:inset 3px 0 0 #C77A17}
       "olusturma": "2026-05-13"
     },
     {
-      "variation_id": "FR-00007-BORDEAUX-MINI-GOLD",
+      "variation_id": "FR-00007-BORDO-MINI-GOLD",
       "sku": "FR-00007",
       "no": 37,
-      "slug": "ysl-kucuk-orme-sap-full-bordo",
-      "cover": "assets/products/ysl-kucuk-orme-sap-full-bordo.jpg",
+      "slug": "ysl-kucuk-orme-bordo-gold",
+      "cover": "assets/products/ysl-kucuk-orme-bordo-gold.jpg",
       "isim_resmi": "",
       "isim_bilinen": "YSL Küçük Örme",
       "marka": "Yves Saint Laurent",
       "kategori": "CROSSBODY",
       "kategori_ust": "CANTA",
       "kategori_alt": "CROSSBODY",
-      "renk": "BORDEAUX",
+      "renk": "BORDO",
       "ana_renk": "Bordo",
       "ana_renk_en": "Burgundy",
       "ana_renk_hex": "#4a1c20",
-      "renk_slug": "burgundy",
+      "renk_slug": "bordo",
       "renk_hex": "#4a1c20",
       "ikincil_renk": "Bordo",
-      "ikincil_renk_code": "BORDEAUX",
+      "ikincil_renk_code": "BORDO",
       "ikincil_renk_hex": "#4a1c20",
       "ana_malzeme": "Örme",
       "desen": "Düz",
@@ -3955,68 +4070,25 @@ tr.row--re-onay td:first-child{box-shadow:inset 3px 0 0 #C77A17}
       "olusturma": "2026-05-13"
     },
     {
-      "variation_id": "FR-00007-BEIGE-MINI-GOLD-ALT",
-      "sku": "FR-00007",
-      "no": 39,
-      "slug": "ysl-kucuk-orme-koyu-kahve-sap",
-      "cover": "assets/products/ysl-kucuk-orme-koyu-kahve-sap.jpg",
-      "isim_resmi": "",
-      "isim_bilinen": "YSL Küçük Örme",
-      "marka": "Yves Saint Laurent",
-      "kategori": "CROSSBODY",
-      "kategori_ust": "CANTA",
-      "kategori_alt": "CROSSBODY",
-      "renk": "BEIGE",
-      "ana_renk": "Bej",
-      "ana_renk_en": "Beige",
-      "ana_renk_hex": "#d8c3a3",
-      "renk_slug": "beige",
-      "renk_hex": "#d8c3a3",
-      "ikincil_renk": "Koyu Kahve",
-      "ikincil_renk_code": "MARRON_FONCE",
-      "ikincil_renk_hex": "#3d2817",
-      "ana_malzeme": "Örme",
-      "desen": "Düz",
-      "donanim_rengi": "Altın",
-      "stil": "Çapraz",
-      "sapli_sapsiz": "Saplı",
-      "boyut": "MINI",
-      "donanim": "GOLD",
-      "deri_tipi": "Örme",
-      "sezon": "SS26",
-      "fiyat_eur": 1250.0,
-      "ek_ucret_eur": 0.0,
-      "maliyet_eur": 0.0,
-      "total_stok": 1,
-      "occupied_stok": 0,
-      "available_stok": 1,
-      "stok": 1,
-      "kondisyon": "BNIB",
-      "kondisyon_label": "Sıfır",
-      "aciklama": "",
-      "tedarikci_id": null,
-      "olusturma": "2026-05-13"
-    },
-    {
-      "variation_id": "FR-00007-CREME-MINI-GOLD",
+      "variation_id": "FR-00007-KREM-MINI-GOLD",
       "sku": "FR-00007",
       "no": 41,
-      "slug": "ysl-kucuk-orme-koyu-kahve-krem-govde",
-      "cover": "assets/products/ysl-kucuk-orme-koyu-kahve-krem-govde.jpg",
+      "slug": "ysl-kucuk-orme-krem-gold",
+      "cover": "assets/products/ysl-kucuk-orme-krem-gold.jpg",
       "isim_resmi": "",
       "isim_bilinen": "YSL Küçük Örme",
       "marka": "Yves Saint Laurent",
       "kategori": "CROSSBODY",
       "kategori_ust": "CANTA",
       "kategori_alt": "CROSSBODY",
-      "renk": "CREME",
+      "renk": "KREM",
       "ana_renk": "Krem",
       "ana_renk_en": "Cream",
       "ana_renk_hex": "#e8d4b0",
-      "renk_slug": "cream",
+      "renk_slug": "krem",
       "renk_hex": "#e8d4b0",
       "ikincil_renk": "Koyu Kahve",
-      "ikincil_renk_code": "MARRON_FONCE",
+      "ikincil_renk_code": "KOYU KAHVE",
       "ikincil_renk_hex": "#3d2817",
       "ana_malzeme": "Örme",
       "desen": "Düz",
@@ -4041,25 +4113,25 @@ tr.row--re-onay td:first-child{box-shadow:inset 3px 0 0 #C77A17}
       "olusturma": "2026-05-13"
     },
     {
-      "variation_id": "FR-00008-NATUREL-STANDART-SILVER",
+      "variation_id": "FR-00008-DOGAL-STANDART-SILVER-DUZ",
       "sku": "FR-00008",
       "no": 38,
-      "slug": "prada-siyah-deri-kapak-capraz-hasir",
-      "cover": "assets/products/prada-siyah-deri-kapak-capraz-hasir.jpg",
+      "slug": "prada-ucgen-hasir-dogal-silver-duz",
+      "cover": "assets/products/prada-ucgen-hasir-dogal-silver-duz.jpg",
       "isim_resmi": "",
       "isim_bilinen": "Prada Üçgen Hasır",
       "marka": "Prada",
       "kategori": "CROSSBODY",
       "kategori_ust": "CANTA",
       "kategori_alt": "CROSSBODY",
-      "renk": "NATUREL",
+      "renk": "DOGAL",
       "ana_renk": "Doğal",
       "ana_renk_en": "Natural",
       "ana_renk_hex": "#d4b896",
-      "renk_slug": "natural",
+      "renk_slug": "dogal",
       "renk_hex": "#d4b896",
       "ikincil_renk": "Siyah",
-      "ikincil_renk_code": "NOIR",
+      "ikincil_renk_code": "SIYAH",
       "ikincil_renk_hex": "#1a1a1a",
       "ana_malzeme": "Hasır",
       "desen": "Düz",
@@ -4084,25 +4156,25 @@ tr.row--re-onay td:first-child{box-shadow:inset 3px 0 0 #C77A17}
       "olusturma": "2026-05-13"
     },
     {
-      "variation_id": "FR-00008-NATUREL-STANDART-SILVER-ALT",
+      "variation_id": "FR-00008-DOGAL-STANDART-SILVER-DUZ-40",
       "sku": "FR-00008",
       "no": 40,
-      "slug": "prada-koyu-kahve-deri-kapak-capraz-hasir",
-      "cover": "assets/products/prada-koyu-kahve-deri-kapak-capraz-hasir.jpg",
+      "slug": "prada-ucgen-hasir-dogal-silver-duz-40",
+      "cover": "assets/products/prada-ucgen-hasir-dogal-silver-duz-40.jpg",
       "isim_resmi": "",
       "isim_bilinen": "Prada Üçgen Hasır",
       "marka": "Prada",
       "kategori": "CROSSBODY",
       "kategori_ust": "CANTA",
       "kategori_alt": "CROSSBODY",
-      "renk": "NATUREL",
+      "renk": "DOGAL",
       "ana_renk": "Doğal",
       "ana_renk_en": "Natural",
       "ana_renk_hex": "#d4b896",
-      "renk_slug": "natural",
+      "renk_slug": "dogal",
       "renk_hex": "#d4b896",
       "ikincil_renk": "Koyu Kahve",
-      "ikincil_renk_code": "MARRON_FONCE",
+      "ikincil_renk_code": "KOYU KAHVE",
       "ikincil_renk_hex": "#3d2817",
       "ana_malzeme": "Hasır",
       "desen": "Düz",
@@ -4127,22 +4199,22 @@ tr.row--re-onay td:first-child{box-shadow:inset 3px 0 0 #C77A17}
       "olusturma": "2026-05-13"
     },
     {
-      "variation_id": "FR-00008-NATUREL-STANDART-SILVER-ALT2",
+      "variation_id": "FR-00008-DOGAL-STANDART-SILVER-DUZ-42",
       "sku": "FR-00008",
       "no": 42,
-      "slug": "prada-taba-deri-kapak-capraz-hasir",
-      "cover": "assets/products/prada-taba-deri-kapak-capraz-hasir.jpg",
+      "slug": "prada-ucgen-hasir-dogal-silver-duz-42",
+      "cover": "assets/products/prada-ucgen-hasir-dogal-silver-duz-42.jpg",
       "isim_resmi": "",
       "isim_bilinen": "Prada Üçgen Hasır",
       "marka": "Prada",
       "kategori": "CROSSBODY",
       "kategori_ust": "CANTA",
       "kategori_alt": "CROSSBODY",
-      "renk": "NATUREL",
+      "renk": "DOGAL",
       "ana_renk": "Doğal",
       "ana_renk_en": "Natural",
       "ana_renk_hex": "#d4b896",
-      "renk_slug": "natural",
+      "renk_slug": "dogal",
       "renk_hex": "#d4b896",
       "ikincil_renk": "Taba",
       "ikincil_renk_code": "TABA",
@@ -4170,25 +4242,25 @@ tr.row--re-onay td:first-child{box-shadow:inset 3px 0 0 #C77A17}
       "olusturma": "2026-05-13"
     },
     {
-      "variation_id": "FR-00009-NOIR-MINI-SILVER",
+      "variation_id": "FR-00009-SIYAH-MINI-SILVER",
       "sku": "FR-00009",
       "no": 43,
-      "slug": "armani-erkek-deri-siyah-kucuk",
-      "cover": "assets/products/armani-erkek-deri-siyah-kucuk.jpg",
+      "slug": "armani-erkek-siyah-silver",
+      "cover": "assets/products/armani-erkek-siyah-silver.jpg",
       "isim_resmi": "",
       "isim_bilinen": "Armani Erkek",
       "marka": "Giorgio Armani",
       "kategori": "MENS_BRIEFCASE",
       "kategori_ust": "CANTA",
       "kategori_alt": "MENS_BRIEFCASE",
-      "renk": "NOIR",
+      "renk": "SIYAH",
       "ana_renk": "Siyah",
       "ana_renk_en": "Black",
       "ana_renk_hex": "#1a1a1a",
-      "renk_slug": "black",
+      "renk_slug": "siyah",
       "renk_hex": "#1a1a1a",
       "ikincil_renk": "Siyah",
-      "ikincil_renk_code": "NOIR",
+      "ikincil_renk_code": "SIYAH",
       "ikincil_renk_hex": "#1a1a1a",
       "ana_malzeme": "Deri",
       "desen": "Düz",
@@ -4213,25 +4285,25 @@ tr.row--re-onay td:first-child{box-shadow:inset 3px 0 0 #C77A17}
       "olusturma": "2026-05-13"
     },
     {
-      "variation_id": "FR-00009-NOIR-MAXI-SILVER",
+      "variation_id": "FR-00009-SIYAH-MAXI-SILVER",
       "sku": "FR-00009",
       "no": 44,
-      "slug": "armani-erkek-deri-siyah-buyuk",
-      "cover": "assets/products/armani-erkek-deri-siyah-buyuk.jpg",
+      "slug": "armani-erkek-siyah-silver-alt2",
+      "cover": "assets/products/armani-erkek-siyah-silver-alt2.jpg",
       "isim_resmi": "",
       "isim_bilinen": "Armani Erkek",
       "marka": "Giorgio Armani",
       "kategori": "MENS_BRIEFCASE",
       "kategori_ust": "CANTA",
       "kategori_alt": "MENS_BRIEFCASE",
-      "renk": "NOIR",
+      "renk": "SIYAH",
       "ana_renk": "Siyah",
       "ana_renk_en": "Black",
       "ana_renk_hex": "#1a1a1a",
-      "renk_slug": "black",
+      "renk_slug": "siyah",
       "renk_hex": "#1a1a1a",
       "ikincil_renk": "Siyah",
-      "ikincil_renk_code": "NOIR",
+      "ikincil_renk_code": "SIYAH",
       "ikincil_renk_hex": "#1a1a1a",
       "ana_malzeme": "Deri",
       "desen": "Düz",
@@ -4256,25 +4328,25 @@ tr.row--re-onay td:first-child{box-shadow:inset 3px 0 0 #C77A17}
       "olusturma": "2026-05-13"
     },
     {
-      "variation_id": "FR-00010-NOIR-MINI-SILVER",
+      "variation_id": "FR-00010-SIYAH-MINI-SILVER",
       "sku": "FR-00010",
       "no": 45,
-      "slug": "hugo-boss-erkek-deri-siyah-kucuk",
-      "cover": "assets/products/hugo-boss-erkek-deri-siyah-kucuk.jpg",
+      "slug": "hugo-boss-erkek-siyah-silver",
+      "cover": "assets/products/hugo-boss-erkek-siyah-silver.jpg",
       "isim_resmi": "",
       "isim_bilinen": "Hugo Boss Erkek",
       "marka": "Hugo Boss",
       "kategori": "MENS_BRIEFCASE",
       "kategori_ust": "CANTA",
       "kategori_alt": "MENS_BRIEFCASE",
-      "renk": "NOIR",
+      "renk": "SIYAH",
       "ana_renk": "Siyah",
       "ana_renk_en": "Black",
       "ana_renk_hex": "#1a1a1a",
-      "renk_slug": "black",
+      "renk_slug": "siyah",
       "renk_hex": "#1a1a1a",
       "ikincil_renk": "Siyah",
-      "ikincil_renk_code": "NOIR",
+      "ikincil_renk_code": "SIYAH",
       "ikincil_renk_hex": "#1a1a1a",
       "ana_malzeme": "Deri",
       "desen": "Düz",
@@ -4299,25 +4371,25 @@ tr.row--re-onay td:first-child{box-shadow:inset 3px 0 0 #C77A17}
       "olusturma": "2026-05-13"
     },
     {
-      "variation_id": "FR-00010-NOIR-MAXI-SILVER",
+      "variation_id": "FR-00010-SIYAH-MAXI-SILVER",
       "sku": "FR-00010",
       "no": 46,
-      "slug": "hugo-boss-erkek-deri-siyah-buyuk",
-      "cover": "assets/products/hugo-boss-erkek-deri-siyah-buyuk.jpg",
+      "slug": "hugo-boss-erkek-siyah-silver-alt2",
+      "cover": "assets/products/hugo-boss-erkek-siyah-silver-alt2.jpg",
       "isim_resmi": "",
       "isim_bilinen": "Hugo Boss Erkek",
       "marka": "Hugo Boss",
       "kategori": "MENS_BRIEFCASE",
       "kategori_ust": "CANTA",
       "kategori_alt": "MENS_BRIEFCASE",
-      "renk": "NOIR",
+      "renk": "SIYAH",
       "ana_renk": "Siyah",
       "ana_renk_en": "Black",
       "ana_renk_hex": "#1a1a1a",
-      "renk_slug": "black",
+      "renk_slug": "siyah",
       "renk_hex": "#1a1a1a",
       "ikincil_renk": "Siyah",
-      "ikincil_renk_code": "NOIR",
+      "ikincil_renk_code": "SIYAH",
       "ikincil_renk_hex": "#1a1a1a",
       "ana_malzeme": "Deri",
       "desen": "Düz",
@@ -4432,164 +4504,268 @@ tr.row--re-onay td:first-child{box-shadow:inset 3px 0 0 #C77A17}
   },
   "kanonik_renkler": [
     {
-      "code": "BEIGE",
-      "tr": "Bej",
-      "en": "Beige",
-      "slug": "beige",
-      "hex": "#d8c3a3"
-    },
-    {
-      "code": "BLANC",
-      "tr": "Beyaz",
-      "en": "White",
-      "slug": "white",
-      "hex": "#f5f1ea"
-    },
-    {
-      "code": "BLEU_CLAIR",
-      "tr": "Açık Mavi",
-      "en": "Light Blue",
-      "slug": "light-blue",
-      "hex": "#7a96b8"
-    },
-    {
-      "code": "BLEU_FRANCE",
-      "tr": "Mavi",
-      "en": "Blue",
-      "slug": "blue",
-      "hex": "#2d3e58"
-    },
-    {
-      "code": "BLEU_NUIT",
-      "tr": "Lacivert",
-      "en": "Navy",
-      "slug": "navy",
-      "hex": "#1a2238"
-    },
-    {
-      "code": "BORDEAUX",
-      "tr": "Bordo",
-      "en": "Burgundy",
-      "slug": "burgundy",
-      "hex": "#4a1c20"
-    },
-    {
-      "code": "CREME",
-      "tr": "Krem",
-      "en": "Cream",
-      "slug": "cream",
-      "hex": "#e8d4b0"
-    },
-    {
-      "code": "GRIS_FUME",
-      "tr": "Füme",
-      "en": "Smoke Gray",
-      "slug": "smoke-gray",
-      "hex": "#4a4a4a"
-    },
-    {
-      "code": "MARRON_CLAIR",
+      "code": "ACIK KAHVE",
       "tr": "Açık Kahve",
       "en": "Light Brown",
-      "slug": "light-brown",
+      "slug": "acik-kahve",
       "hex": "#7b5a3a"
     },
     {
-      "code": "MARRON_FONCE",
-      "tr": "Koyu Kahve",
-      "en": "Dark Brown",
-      "slug": "dark-brown",
-      "hex": "#3d2817"
+      "code": "ACIK MAVI",
+      "tr": "Açık Mavi",
+      "en": "Light Blue",
+      "slug": "acik-mavi",
+      "hex": "#7a96b8"
     },
     {
-      "code": "NATUREL",
+      "code": "ACIK PEMBE",
+      "tr": "Açık Pembe",
+      "en": "Light Pink",
+      "slug": "acik-pembe",
+      "hex": "#e8c4cc"
+    },
+    {
+      "code": "ACIK VIZON",
+      "tr": "Açık Vizon",
+      "en": "Light Mink",
+      "slug": "acik-vizon",
+      "hex": "#b8a690"
+    },
+    {
+      "code": "BEJ",
+      "tr": "Bej",
+      "en": "Beige",
+      "slug": "bej",
+      "hex": "#d8c3a3"
+    },
+    {
+      "code": "BEYAZ",
+      "tr": "Beyaz",
+      "en": "White",
+      "slug": "beyaz",
+      "hex": "#f5f1ea"
+    },
+    {
+      "code": "BORDO",
+      "tr": "Bordo",
+      "en": "Burgundy",
+      "slug": "bordo",
+      "hex": "#4a1c20"
+    },
+    {
+      "code": "DOGAL",
       "tr": "Doğal",
       "en": "Natural",
-      "slug": "natural",
+      "slug": "dogal",
       "hex": "#d4b896"
     },
     {
-      "code": "NOIR",
-      "tr": "Siyah",
-      "en": "Black",
-      "slug": "black",
-      "hex": "#1a1a1a"
+      "code": "KOYU GRI",
+      "tr": "Koyu Gri",
+      "en": "Dark Gray",
+      "slug": "koyu-gri",
+      "hex": "#4a4a4a"
     },
     {
-      "code": "ROSE_CLAIR",
-      "tr": "Açık Pembe",
-      "en": "Light Pink",
-      "slug": "light-pink",
-      "hex": "#e8c4cc"
+      "code": "KOYU KAHVE",
+      "tr": "Koyu Kahve",
+      "en": "Dark Brown",
+      "slug": "koyu-kahve",
+      "hex": "#3d2817"
+    },
+    {
+      "code": "KREM",
+      "tr": "Krem",
+      "en": "Cream",
+      "slug": "krem",
+      "hex": "#e8d4b0"
+    },
+    {
+      "code": "LACIVERT",
+      "tr": "Lacivert",
+      "en": "Navy",
+      "slug": "lacivert",
+      "hex": "#1a2238"
+    },
+    {
+      "code": "MAVI",
+      "tr": "Mavi",
+      "en": "Blue",
+      "slug": "mavi",
+      "hex": "#2d3e58"
+    },
+    {
+      "code": "SIYAH",
+      "tr": "Siyah",
+      "en": "Black",
+      "slug": "siyah",
+      "hex": "#1a1a1a"
     },
     {
       "code": "TABA",
       "tr": "Taba",
       "en": "Tan",
-      "slug": "tan",
+      "slug": "taba",
       "hex": "#a87842"
     },
     {
-      "code": "VIZON_CLAIR",
-      "tr": "Açık Vizon",
-      "en": "Light Mink",
-      "slug": "light-mink",
-      "hex": "#b8a690"
-    },
-    {
-      "code": "GRIS",
+      "code": "GRI",
       "tr": "Gri",
       "en": "Gray",
-      "slug": "gray",
+      "slug": "gri",
       "hex": "#7d7d7d",
       "kaynak": "rehber"
     },
     {
-      "code": "TABA_FONCE",
+      "code": "ACIK GRI",
+      "tr": "Açık Gri",
+      "en": "Light Gray",
+      "slug": "acik-gri",
+      "hex": "#b8b8b8",
+      "kaynak": "rehber"
+    },
+    {
+      "code": "KAHVE",
+      "tr": "Kahve",
+      "en": "Brown",
+      "slug": "kahve",
+      "hex": "#5a3a25",
+      "kaynak": "rehber"
+    },
+    {
+      "code": "KOYU TABA",
       "tr": "Koyu Taba",
       "en": "Dark Tan",
-      "slug": "dark-tan",
+      "slug": "koyu-taba",
       "hex": "#7a4d28",
       "kaynak": "rehber"
     },
     {
-      "code": "VIZON_FONCE",
+      "code": "ACIK BEJ",
+      "tr": "Açık Bej",
+      "en": "Light Beige",
+      "slug": "acik-bej",
+      "hex": "#e8d8bc",
+      "kaynak": "rehber"
+    },
+    {
+      "code": "KOYU BEJ",
+      "tr": "Koyu Bej",
+      "en": "Dark Beige",
+      "slug": "koyu-bej",
+      "hex": "#b89a72",
+      "kaynak": "rehber"
+    },
+    {
+      "code": "VIZON",
+      "tr": "Vizon",
+      "en": "Mink",
+      "slug": "vizon",
+      "hex": "#a08570",
+      "kaynak": "rehber"
+    },
+    {
+      "code": "KOYU VIZON",
       "tr": "Koyu Vizon",
       "en": "Dark Mink",
-      "slug": "dark-mink",
+      "slug": "koyu-vizon",
       "hex": "#8a7560",
       "kaynak": "rehber"
     },
     {
-      "code": "ROUGE",
+      "code": "KIRMIZI",
       "tr": "Kırmızı",
       "en": "Red",
-      "slug": "red",
+      "slug": "kirmizi",
       "hex": "#9c2a2a",
       "kaynak": "rehber"
     },
     {
-      "code": "VERT_ANGLAIS",
+      "code": "PEMBE",
+      "tr": "Pembe",
+      "en": "Pink",
+      "slug": "pembe",
+      "hex": "#e08aa0",
+      "kaynak": "rehber"
+    },
+    {
+      "code": "KOYU PEMBE",
+      "tr": "Koyu Pembe",
+      "en": "Dark Pink",
+      "slug": "koyu-pembe",
+      "hex": "#b85878",
+      "kaynak": "rehber"
+    },
+    {
+      "code": "TURUNCU",
+      "tr": "Turuncu",
+      "en": "Orange",
+      "slug": "turuncu",
+      "hex": "#e08840",
+      "kaynak": "rehber"
+    },
+    {
+      "code": "SARI",
+      "tr": "Sarı",
+      "en": "Yellow",
+      "slug": "sari",
+      "hex": "#e8c840",
+      "kaynak": "rehber"
+    },
+    {
+      "code": "KOYU MAVI",
+      "tr": "Koyu Mavi",
+      "en": "Dark Blue",
+      "slug": "koyu-mavi",
+      "hex": "#1a2840",
+      "kaynak": "rehber"
+    },
+    {
+      "code": "YESIL",
       "tr": "Yeşil",
-      "en": "English Green",
-      "slug": "green",
+      "en": "Green",
+      "slug": "yesil",
       "hex": "#3d5a3d",
       "kaynak": "rehber"
     },
     {
-      "code": "MONOGRAM_NOIR",
-      "tr": "Monogram Siyah",
-      "en": "Monogram Black",
-      "slug": "monogram-black",
-      "hex": "#1a1a1a",
+      "code": "ACIK YESIL",
+      "tr": "Açık Yeşil",
+      "en": "Light Green",
+      "slug": "acik-yesil",
+      "hex": "#7aa478",
       "kaynak": "rehber"
     },
     {
-      "code": "DAMIER_AZUR",
-      "tr": "Damier Mavi",
-      "en": "Damier Azure",
-      "slug": "damier-azure",
-      "hex": "#d4d8e0",
+      "code": "KOYU YESIL",
+      "tr": "Koyu Yeşil",
+      "en": "Dark Green",
+      "slug": "koyu-yesil",
+      "hex": "#1f3a25",
+      "kaynak": "rehber"
+    },
+    {
+      "code": "MOR",
+      "tr": "Mor",
+      "en": "Purple",
+      "slug": "mor",
+      "hex": "#6a3d8a",
+      "kaynak": "rehber"
+    },
+    {
+      "code": "ALTIN",
+      "tr": "Altın",
+      "en": "Gold",
+      "slug": "altin",
+      "hex": "#d4a548",
+      "kaynak": "rehber"
+    },
+    {
+      "code": "GUMUS",
+      "tr": "Gümüş",
+      "en": "Silver",
+      "slug": "gumus",
+      "hex": "#c0c0c0",
       "kaynak": "rehber"
     }
   ],
@@ -5066,7 +5242,7 @@ let state = {
   supplierFilter: { search:'' },
   purchaseFilter: { search:'', durum:'all' },
   returnFilter: { search:'', durum:'all' },
-  activityFilter: { search:'', tip:'all' },
+  activityFilter: { search:'', tip:'all', dateFrom:'', dateTo:'' },
   sort: { key:'fiyat_eur', dir:'desc' },
   orderSort: { key:'olusturma', dir:'desc' },
   customerSort: { key:'olusturma', dir:'desc' },
@@ -5377,8 +5553,13 @@ function getTaxonomyArray(key){
 }
 function findRenkByCode(code){
   if(!code) return null;
-  const norm = String(code).trim().toUpperCase().replace(/[\s\-]+/g,'_');
-  return getKanonikRenkler().find(r => r.code === norm) || null;
+  // Sade-TR mimari: boşluklu format ("ACIK KAHVE"), underscore yok.
+  // Hem boşluklu hem underscore'lu girdiyi normalize et + her ikisini de dene.
+  const cleaned = String(code).trim().toUpperCase();
+  const spaced = cleaned.replace(/[\-_]+/g, ' ').replace(/\s+/g, ' ');
+  return getKanonikRenkler().find(r => r.code === spaced) ||
+         getKanonikRenkler().find(r => r.code === cleaned.replace(/[\s\-]+/g,'_')) ||
+         null;
 }
 function findRenkByTr(tr){
   if(!tr) return null;
@@ -5391,21 +5572,26 @@ function findRenkBySlug(slug){
 }
 
 // JS derive_renk — backend colors.derive_renk() ile aynı mantık
-// Patron rehberde olmayan renk yazarsa otomatik kabul + humanize derive et
-function normalizeCodeJS(v){
+// SADE TR mimari: tek kelime VEYA "ACIK X"/"KOYU X" iki kelime; underscore yasak.
+function normalizeRenkJS(v){
   if(!v) return '';
-  // Türkçe → ASCII fold
+  // Türkçe → ASCII fold (kullanıcı 'kırmızı' yazarsa)
   const trMap = {ş:'s',Ş:'S',ç:'c',Ç:'C',ğ:'g',Ğ:'G',ü:'u',Ü:'U',ö:'o',Ö:'O',ı:'i',İ:'I',â:'a',î:'i',û:'u'};
   let s = String(v).split('').map(c => trMap[c] || c).join('');
   s = s.normalize('NFD').replace(/[̀-ͯ]/g, '');
-  s = s.trim().replace(/[\s\-]+/g, '_').replace(/[^A-Za-z0-9_]/g, '').replace(/_+/g, '_').replace(/^_|_$/g,'');
+  // Tire + underscore → boşluk; çoklu boşluk → tek; sadece harf+boşluk
+  s = s.replace(/[\-_]+/g, ' ').replace(/\s+/g, ' ').trim();
+  s = s.replace(/[^A-Za-z ]/g, '');
   return s.toUpperCase();
 }
+// Geriye uyum (eski çağrılar normalizeCodeJS bekleyebilir)
+const normalizeCodeJS = normalizeRenkJS;
+
 function deriveRenkJS(value){
   if(!value) return null;
   const raw = String(value).trim();
   if(!raw) return null;
-  // 1) Doğrudan kod
+  // 1) Doğrudan kod (boşluklu sade TR veya legacy underscore — findRenkByCode iki yolu da dener)
   let r = findRenkByCode(raw);
   if(r) return r;
   // 2) TR label
@@ -5414,23 +5600,60 @@ function deriveRenkJS(value){
   // 3) slug
   r = findRenkBySlug(raw);
   if(r) return r;
-  // 4) yeni renk — derive
-  const code = normalizeCodeJS(raw);
+  // 4) yeni renk — sade TR normalize (boşluklu format)
+  const code = normalizeRenkJS(raw);
   if(!code) return null;
   // Tekrar rehberde var mı (normalize sonrası)
   r = findRenkByCode(code);
   if(r) return r;
-  // Yeni — humanize
-  const humanize = code.replace(/_/g,' ').toLowerCase().split(' ')
+  // Yeni renk — humanize (Türkçe karakter ekleme YOK; rehberde yoksa düz)
+  const humanize = code.toLowerCase().split(' ')
                        .map(p => p ? p[0].toUpperCase()+p.slice(1) : '').join(' ');
   return {
     code,
     tr: humanize,
     en: humanize,
-    slug: code.toLowerCase().replace(/_/g,'-'),
+    slug: code.toLowerCase().replace(/\s+/g,'-'),
     hex: '#9c9794',  // nötr gri
     kaynak: 'yeni',
   };
+}
+
+// Eski Fransızca/İngilizce humanize map'i KALDIRILDI (patron direktifi 2026-05-13).
+// Sade TR formatta tek kelime ya da "Açık X"/"Koyu X" geçerli.
+const RENK_AKSAN_MAP = {};
+// SSOT renk human label — her yerden çağrılacak tek fonksiyon
+// Öncelik: p.ana_renk (TR) → kanonik palette TR → deriveRenkJS humanize → fallback split
+function renkLabel(p){
+  if(!p) return '';
+  // 1) Eğer p obje değilse, doğrudan değer
+  if(typeof p === 'string') return renkLabelFromValue(p);
+  // 2) ana_renk TR human (en güvenilir — backend SSOT)
+  if(p.ana_renk && /[A-Z][a-zığüşöç]/.test(p.ana_renk)) return p.ana_renk;
+  // 3) renk_label varsa
+  if(p.renk_label) return p.renk_label;
+  // 4) renk teknik kod → humanize
+  if(p.renk) return renkLabelFromValue(p.renk);
+  // 5) son çare ana_renk (her formatta)
+  if(p.ana_renk) return p.ana_renk;
+  return '';
+}
+function renkLabelFromValue(v){
+  if(!v) return '';
+  const s = String(v).trim();
+  if(!s) return '';
+  // Önce rehberden TR ara (hem "SIYAH" hem "ACIK KAHVE" hem "Açık Kahve" rehberdeyse aynı obje)
+  const found = (typeof findRenkByCode === 'function') ? findRenkByCode(s) : null;
+  if(found && found.tr) return found.tr;
+  const foundTr = (typeof findRenkByTr === 'function') ? findRenkByTr(s) : null;
+  if(foundTr && foundTr.tr) return foundTr.tr;
+  // Zaten Türkçe karakter / küçük harf → aynen
+  if(/[a-zığüşöç]/.test(s)) return s;
+  // UPPER sade TR humanize — title case, ek aksan eklenmez
+  const parts = s.replace(/[_\-]+/g, ' ').toLowerCase().split(/\s+/).filter(Boolean);
+  if(parts.length === 0) return s;
+  const titled = parts.map(w => w[0].toUpperCase() + w.slice(1));
+  return titled.join(' ');
 }
 
 function populateRenkSelects(){
@@ -6200,7 +6423,7 @@ function rowHTML(p){
       </td>
       <td class="col-meta col-kat-ust">${p.kategori_ust || KATEGORI_LEGACY_FALLBACK[p.kategori] || '—'}</td>
       <td class="col-meta col-kat-alt">${p.kategori_alt || p.kategori || '—'}</td>
-      <td class="col-meta col-renk"><span style="display:inline-block;width:10px;height:10px;border-radius:50%;background:${p.renk_hex||'#ccc'};vertical-align:middle;margin-right:6px;border:1px solid var(--border-strong)"></span>${p.renk}</td>
+      <td class="col-meta col-renk"><span style="display:inline-block;width:10px;height:10px;border-radius:50%;background:${p.renk_hex||p.ana_renk_hex||'#ccc'};vertical-align:middle;margin-right:6px;border:1px solid var(--border-strong)"></span>${renkLabel(p)}</td>
       <td class="col-meta col-boyut">${p.boyut}</td>
       <td class="col-meta col-donanim">${p.donanim}</td>
       <td class="col-meta col-deri">${p.deri_tipi||'—'}</td>
@@ -6952,7 +7175,7 @@ function refreshOrderProductPicker(){
   sorted.forEach(p => {
     const name = (p.isim_bilinen || p.isim_resmi || '').split(',')[0].trim();
     const stk = p.stok > 0 ? `stok ${p.stok}` : 'TÜKENDI';
-    opts.push(`<option value="${p.variation_id}">${p.marka} · ${name} · ${p.renk} · ${p.boyut} · ${p.donanim} · ${fmt(p.fiyat_eur)} · ${stk}</option>`);
+    opts.push(`<option value="${p.variation_id}">${p.marka} · ${name} · ${renkLabel(p)} · ${p.boyut} · ${p.donanim} · ${fmt(p.fiyat_eur)} · ${stk}</option>`);
   });
   sel.innerHTML = opts.join('');
 }
@@ -8159,7 +8382,7 @@ function refreshSoProductPicker(){
     .sort((a,b)=>(a.marka+a.isim_bilinen).localeCompare(b.marka+b.isim_bilinen,'tr'))
     .forEach(p => {
       const name = (p.isim_bilinen || p.isim_resmi || '').split(',')[0].trim();
-      opts.push(`<option value="${p.variation_id}">${p.marka} · ${name} · ${p.renk} · ${p.boyut} · ${p.donanim} · stok ${p.stok}</option>`);
+      opts.push(`<option value="${p.variation_id}">${p.marka} · ${name} · ${renkLabel(p)} · ${p.boyut} · ${p.donanim} · stok ${p.stok}</option>`);
     });
   sel.innerHTML = opts.join('');
 }
@@ -8373,14 +8596,26 @@ function filteredActivity(){
     const q = f.search.toLowerCase();
     arr = arr.filter(e => `${e.tip} ${e.entity_id} ${e.entity_type} ${e.detay}`.toLowerCase().includes(q));
   }
+  if(f.dateFrom){
+    const from = new Date(f.dateFrom);
+    from.setHours(0,0,0,0);
+    arr = arr.filter(e => new Date(e.ts) >= from);
+  }
+  if(f.dateTo){
+    const to = new Date(f.dateTo);
+    to.setHours(23,59,59,999);
+    arr = arr.filter(e => new Date(e.ts) <= to);
+  }
   return arr;
 }
 function renderActivityStats(){
   const all = state.activity;
+  const filtered = filteredActivity();
   const now = Date.now();
   const today = all.filter(e => (now - new Date(e.ts).getTime()) < 86400000).length;
   const week = all.filter(e => (now - new Date(e.ts).getTime()) < 7*86400000).length;
-  $('#astat-count').textContent = all.length;
+  const hasDateFilter = state.activityFilter.dateFrom || state.activityFilter.dateTo;
+  $('#astat-count').textContent = hasDateFilter ? `${filtered.length}/${all.length}` : all.length;
   $('#astat-today').textContent = today;
   $('#astat-week').textContent = week;
   $('#ac-all').textContent = all.length;
@@ -8389,36 +8624,73 @@ function renderActivityStats(){
     if(el) el.textContent = all.filter(e => ACTIVITY_TIP_CATEGORY[e.tip] === cat).length;
   });
 }
+function _activityMetaHTML(meta){
+  if(!meta || typeof meta !== 'object') return '<div class="activity-detail__empty">Detay bilgisi yok</div>';
+  const keys = Object.keys(meta);
+  if(keys.length === 0) return '<div class="activity-detail__empty">Detay bilgisi yok</div>';
+  const esc = s => String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+  let html = '<div class="activity-detail__grid">';
+  keys.forEach(k => {
+    let v = meta[k];
+    if(v === null || v === undefined) v = '—';
+    else if(typeof v === 'object') v = JSON.stringify(v, null, 2);
+    else v = String(v);
+    html += `<span class="activity-detail__key">${esc(k)}</span><span class="activity-detail__val">${esc(v)}</span>`;
+  });
+  html += '</div>';
+  return html;
+}
 function renderActivityTable(){
   const arr = filteredActivity();
   const tbody = $('#activity-tbody'), empty = $('#activity-empty');
   if(arr.length === 0){ tbody.innerHTML = ''; empty.hidden = false; return; }
   empty.hidden = true;
-  // Performans: en çok 500 satır göster
   const cap = 500;
   const sliced = arr.slice(0, cap);
-  tbody.innerHTML = sliced.map(e => {
+  tbody.innerHTML = sliced.map((e, i) => {
     const cat = ACTIVITY_TIP_CATEGORY[e.tip] || 'other';
-    const badgeClass = {
-      product:'order-status-badge--BEKLIYOR',
-      order:'order-status-badge--ONAYLANDI',
-      customer:'order-status-badge--IPTAL_EDILDI',
-      supplier:'order-status-badge--REDDEDILDI',
-      stock:'',
-    }[cat] || '';
     const tipLabel = ACTIVITY_TIP_LABEL[e.tip] || e.tip;
     return `
-      <tr>
+      <tr class="activity-row" data-act-idx="${i}">
         <td style="font-family:'Menlo','Monaco',monospace;font-size:10px;color:var(--text-muted);white-space:nowrap">${fmtDateTime(e.ts, true)}</td>
         <td><span class="activity-tip-badge activity-tip-badge--${cat}">${tipLabel}</span></td>
         <td style="font-family:'Menlo','Monaco',monospace;font-size:10px;color:var(--text-muted)">${e.entity_id}</td>
         <td style="font-size:12px">${e.detay || ''}</td>
+      </tr>
+      <tr class="activity-detail-row" data-act-detail="${i}" hidden>
+        <td colspan="4">
+          <div class="activity-detail">${_activityMetaHTML(e.meta)}</div>
+        </td>
       </tr>
     `;
   }).join('');
   if(arr.length > cap){
     tbody.innerHTML += `<tr><td colspan="4" style="text-align:center;padding:14px;color:var(--text-muted);font-size:11px">+${arr.length - cap} eski kayıt daha (görünmüyor) — filtreyi daralt</td></tr>`;
   }
+  // Accordion click delegation
+  tbody.querySelectorAll('.activity-row').forEach(row => {
+    row.addEventListener('click', () => {
+      const idx = row.dataset.actIdx;
+      const detailRow = tbody.querySelector(`.activity-detail-row[data-act-detail="${idx}"]`);
+      if(!detailRow) return;
+      const isOpen = !detailRow.hidden;
+      // Close all others
+      tbody.querySelectorAll('.activity-row.expanded').forEach(r => r.classList.remove('expanded'));
+      tbody.querySelectorAll('.activity-detail-row').forEach(r => {
+        r.hidden = true;
+        const d = r.querySelector('.activity-detail');
+        if(d) d.classList.remove('open');
+      });
+      if(!isOpen){
+        row.classList.add('expanded');
+        detailRow.hidden = false;
+        requestAnimationFrame(() => {
+          const d = detailRow.querySelector('.activity-detail');
+          if(d) d.classList.add('open');
+        });
+      }
+    });
+  });
 }
 
 // ─── Render all ─────────────────────────────────────
@@ -8951,6 +9223,20 @@ async function init(){
       document.querySelectorAll('.chip[data-activity-tip]').forEach(x => x.classList.remove('active'));
       c.classList.add('active');
       state.activityFilter.tip = c.dataset.activityTip;
+      renderActivityTable();
+    });
+  });
+  safeStep('activity-date-filter', () => {
+    const dfrom = $('#activity-date-from');
+    const dto = $('#activity-date-to');
+    const dclear = $('#activity-date-clear');
+    if(dfrom) dfrom.addEventListener('change', () => { state.activityFilter.dateFrom = dfrom.value; renderActivityTable(); });
+    if(dto) dto.addEventListener('change', () => { state.activityFilter.dateTo = dto.value; renderActivityTable(); });
+    if(dclear) dclear.addEventListener('click', () => {
+      state.activityFilter.dateFrom = '';
+      state.activityFilter.dateTo = '';
+      if(dfrom) dfrom.value = '';
+      if(dto) dto.value = '';
       renderActivityTable();
     });
   });
