@@ -9975,8 +9975,11 @@ tr.row--re-onay td:first-child{box-shadow:inset 3px 0 0 #C77A17}
 // Basic Auth credential'ları sessionStorage'da base64 olarak tutulur.
 window.BotlAPI = (function(){
   const STORAGE_AUTH = 'botl_admin_auth_b64';
+  // Same-origin: panel hem localhost:8090/admin/ (backend static mount)
+  // hem cantacigeldi.github.io/admin/ (vitrin, backend yok) altında
+  // aynı kodla çalışır. Canlıda /api/admin/* 404 → UI offline.
+  const API_BASE = '';
   const isLocal = location.hostname === 'localhost' || location.hostname === '127.0.0.1' || location.protocol === 'file:';
-  const API_BASE = isLocal ? '' : 'http://localhost:8090';  // file:// için tam URL şart
 
   function getAuth(){
     let v = sessionStorage.getItem(STORAGE_AUTH);

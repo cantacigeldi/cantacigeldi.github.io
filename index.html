@@ -10968,11 +10968,18 @@ function clearSession(){
 }
 
 // ─── BOTL Customer API client ─────────────────────────
-// Backend (localhost:8090 veya prod CF Workers) reachable ise profil
-// CRUD + parola değiştir oraya gider; offline ise client-side fallback.
+// Backend, patron'un kendi makinesinde Starlette üzerinden çalışır
+// (localhost:8090). Site BU backend'in static mount'undan da servis
+// edilir → same-origin → mixed content yok. GH Pages'teki canlı kopya
+// vitrin moddur (backend internet'te değil); login ping başarısız
+// olunca UI offline notice gösterir.
 window.BotlCustomerAPI = (function(){
+  // Same-origin: lokalde de canlıda da API_BASE boş bırakılır.
+  // Lokal: Starlette `Mount("/", StaticFiles(...))` ile site'ı serve
+  // ediyor → /api/* same-origin OK. Canlı (GH Pages): /api/* 404
+  // dönüyor, login UI offline mode'a düşüyor.
+  const API_BASE = '';
   const isLocal = location.hostname === 'localhost' || location.hostname === '127.0.0.1' || location.protocol === 'file:';
-  const API_BASE = isLocal ? '' : 'http://localhost:8090';  // prod için CF Workers'a değiştirilir
 
   function _token(){
     try {
@@ -11060,8 +11067,18 @@ async function tryLogin(username, password){
     return { ok:true, customer:{ customer_id:r.customer_id, kullanici_adi:r.kullanici_adi, isim:r.isim } };
   }
   if(r.status === 401) return { ok:false, error:'Kullanıcı adı veya şifre hatalı' };
-  if(r.error === 'network'){
-    return { ok:false, error:'Sunucuya ulaşılamadı. İnternet bağlantını veya VPN ayarlarını kontrol et.' };
+  if(r.error === 'network' || r.status === 404){
+    // Backend yok: GH Pages canlı vitrin modu veya lokal backend kapalı.
+    const onGhPages = /github\.io$/i.test(location.hostname) ||
+                      /bagsoftheloom\.com$/i.test(location.hostname);
+    if(onGhPages){
+      return { ok:false, error:
+        'Bu sayfa BOTL vitrinidir — canlı operasyon backend\'i internet üzerinden açık değil. ' +
+        'Müşteri panelin için danışmanınla iletişime geç.' };
+    }
+    return { ok:false, error:
+      'BOTL backend\'e ulaşılamıyor. Patron için: localhost:8090 servisi kapalı olabilir ' +
+      '(scripts/start-api.sh çalıştır).' };
   }
   return { ok:false, error: r.error || 'Giriş başarısız' };
 }
@@ -12269,6 +12286,23 @@ function openAuthModal(){
   m.classList.add('open');
   document.body.style.overflow = 'hidden';
   setTimeout(() => { const u = $('#auth-username'); if(u) u.focus(); }, 50);
+  // Backend ping → erişilemezse modal'a vitrin notice koy
+  (async () => {
+    try {
+      const ok = await window.BotlCustomerAPI.ping();
+      const err = $('#auth-error');
+      if(!err) return;
+      if(!ok){
+        const onGhPages = /github\.io$/i.test(location.hostname) ||
+                          /bagsoftheloom\.com$/i.test(location.hostname);
+        err.textContent = onGhPages
+          ? 'Bu sayfa BOTL vitrinidir — operasyon backend\'i internet üzerinden açık değil. Üyelik için danışmanınla iletişime geç.'
+          : 'BOTL backend offline — localhost:8090 servisi kapalı (scripts/start-api.sh çalıştır).';
+      } else {
+        err.textContent = '';
+      }
+    } catch(_) {}
+  })();
 }
 function closeAuthModal(){
   const m = $('#auth-modal');
@@ -12288,6 +12322,21 @@ function showAuthGate(){
   document.body.classList.add('auth-gate-active');
   const err = document.getElementById('auth-gate-err'); if(err) err.hidden = true;
   setTimeout(() => { const u = document.getElementById('auth-gate-username'); if(u) u.focus(); }, 80);
+  // Backend reachable mi? Değilse notice göster (form yine deneyebilir, ama
+  // kullanıcı sebebi görsün).
+  (async () => {
+    try {
+      const ok = await window.BotlCustomerAPI.ping();
+      const err = document.getElementById('auth-gate-err');
+      if(!err || ok) return;
+      const onGhPages = /github\.io$/i.test(location.hostname) ||
+                        /bagsoftheloom\.com$/i.test(location.hostname);
+      err.textContent = onGhPages
+        ? 'Bu sayfa BOTL vitrinidir — operasyon backend\'i internet üzerinden açık değil. Üyelik için danışmanınla iletişime geç.'
+        : 'BOTL backend offline — localhost:8090 servisi kapalı (scripts/start-api.sh çalıştır).';
+      err.hidden = false;
+    } catch(_) {}
+  })();
 }
 function hideAuthGate(){
   const gate = document.getElementById('auth-gate');
@@ -13453,6 +13502,14 @@ function initAuthBindings(){
   if(authBtn) authBtn.addEventListener('click', openAuthModal);
 
   $$('[data-auth-close]').forEach(el => el.addEventListener('click', closeAuthModal));
+
+  // ?login=1 URL parametresi → modal otomatik aç (giris.html alias'tan gelen).
+  try {
+    const qs = new URLSearchParams(location.search);
+    if(qs.get('login') === '1' && !readSession()){
+      setTimeout(openAuthModal, 60);
+    }
+  } catch(_) {}
 
   const form = $('#auth-form');
   if(form){
