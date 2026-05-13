@@ -1180,7 +1180,22 @@ a{color:inherit;text-decoration:none}
 .supplier-order-item:last-child{border-bottom:none}
 .supplier-order-item:hover{background:var(--bg-alt)}
 
-/* ─── Image Upload ─────────────────────────────────── */
+/* ─── Gallery Grid (5-slot) ────────────────────────── */
+.gallery-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.gallery-slot{position:relative;aspect-ratio:4/5;background:var(--bg-alt);border:1px dashed var(--border-strong);display:flex;align-items:center;justify-content:center;overflow:hidden;cursor:pointer;transition:border-color .15s,background .15s}
+.gallery-slot:first-child{grid-row:1/3;border-width:2px}
+.gallery-slot:hover{border-color:var(--accent);background:var(--imgprev-hover-bg)}
+.gallery-slot.drag-over{border-color:var(--accent);background:var(--imgprev-hover-bg)}
+.gallery-slot.has-img{border-style:solid}
+.gallery-slot img{width:100%;height:100%;object-fit:cover;display:block}
+.gallery-slot__placeholder{font-size:10px;color:var(--text-faint);text-align:center;padding:8px;letter-spacing:.06em;text-transform:uppercase;pointer-events:none}
+.gallery-slot__placeholder strong{display:block;font-size:20px;margin-bottom:2px;font-family:var(--serif);letter-spacing:.16em}
+.gallery-slot__badge{position:absolute;top:4px;left:4px;background:var(--accent);color:#fff;font-size:9px;font-weight:600;padding:2px 6px;border-radius:3px;letter-spacing:.06em;pointer-events:none}
+.gallery-slot__remove{position:absolute;top:4px;right:4px;width:22px;height:22px;background:rgba(0,0,0,.6);color:#fff;border:none;border-radius:50%;cursor:pointer;font-size:14px;display:none;align-items:center;justify-content:center;line-height:1}
+.gallery-slot:hover .gallery-slot__remove{display:flex}
+.gallery-slot__loading{position:absolute;inset:0;background:var(--overlay-light);display:flex;align-items:center;justify-content:center;font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--text)}
+@media(max-width:500px){.gallery-grid{grid-template-columns:1fr 1fr;gap:6px}.gallery-slot:first-child{grid-row:auto}}
+/* ─── Image Upload (legacy) ────────────────────────── */
 .image-upload{
   display:flex;flex-direction:column;gap:10px;
 }
@@ -1836,24 +1851,10 @@ tr.row--re-onay td:first-child{box-shadow:inset 3px 0 0 #C77A17}
         </div>
 
         <div class="form-section">
-          <h3 class="form-section__title">Görsel</h3>
-          <div class="image-upload">
-            <div class="image-preview" id="image-preview" tabindex="0">
-              <div class="image-preview__placeholder" id="image-placeholder">
-                <strong id="image-initials">+</strong>
-                Tıkla veya sürükle
-              </div>
-              <img id="image-img" hidden>
-              <div class="image-preview__loading" id="image-loading" hidden>İşleniyor…</div>
-            </div>
-            <input type="file" id="image-file" accept="image/jpeg,image/png,image/webp" hidden>
-            <div class="image-actions">
-              <button type="button" class="btn" id="btn-img-pick">Görsel Yükle</button>
-              <button type="button" class="btn btn--danger" id="btn-img-remove" hidden>Kaldır</button>
-            </div>
-            <div class="image-meta" id="image-meta"></div>
-            <span class="field__hint">JPG/PNG/WebP. Otomatik 4:5 oranına ölçeklenir, sıkıştırılır (~150 KB). Galeri için sonra geliştireceğiz.</span>
-          </div>
+          <h3 class="form-section__title">Görseller <small style="font-weight:400;color:var(--text-faint);font-size:10px;letter-spacing:.04em">(maks. 5)</small></h3>
+          <div class="gallery-grid" id="gallery-grid"></div>
+          <input type="file" id="gallery-file" accept="image/jpeg,image/png,image/webp" hidden>
+          <span class="field__hint">JPG/PNG/WebP. 4:5 oranına ölçeklenir, ~150 KB sıkıştırılır. İlk görsel = kapak.</span>
         </div>
 
         <div class="form-section">
@@ -1894,19 +1895,15 @@ tr.row--re-onay td:first-child{box-shadow:inset 3px 0 0 #C77A17}
               <input class="field__input" name="donanim_rengi" list="dl-donanim-renkleri" placeholder="Altın, Gümüş, Paladyum" autocomplete="off">
             </div>
             <div class="field">
-              <label class="field__label">Stil</label>
-              <input class="field__input" name="stil" list="dl-stiller" placeholder="Mini, Tote, Omuz, Çapraz, Portföy" autocomplete="off">
-            </div>
-          </div>
-
-          <div class="field--inline">
-            <div class="field">
               <label class="field__label">Sap</label>
               <select class="field__input" name="sapli_sapsiz">
                 <option value="Saplı">Saplı</option>
                 <option value="Sapsız">Sapsız</option>
               </select>
             </div>
+          </div>
+
+          <div class="field--inline">
             <div class="field">
               <label class="field__label">Kondisyon</label>
               <input class="field__input" name="kondisyon" list="dl-kondisyonlar" placeholder="BNIB, VGC, GC, ..." autocomplete="off">
@@ -1914,11 +1911,11 @@ tr.row--re-onay td:first-child{box-shadow:inset 3px 0 0 #C77A17}
           </div>
 
           <!-- Datalist'ler runtime'da populateTaxonomyDatalists()'tan doldurulur -->
+          <!-- NOT: "stil" alani kaldirildi (2026-05-13) — kategori_alt + boyut yeterli. -->
           <datalist id="dl-renkler"></datalist>
           <datalist id="dl-malzemeler"></datalist>
           <datalist id="dl-desenler"></datalist>
           <datalist id="dl-donanim-renkleri"></datalist>
-          <datalist id="dl-stiller"></datalist>
           <datalist id="dl-kondisyonlar"></datalist>
           <datalist id="dl-boyutlar"></datalist>
           <datalist id="dl-donanimlar"></datalist>
@@ -1930,7 +1927,7 @@ tr.row--re-onay td:first-child{box-shadow:inset 3px 0 0 #C77A17}
             <div class="field--inline" style="margin-top:6px">
               <div class="field">
                 <label class="field__label">Renk Kodu (SSOT)</label>
-                <input class="field__input" name="renk" readonly data-renk-ssot="code" placeholder="Birincil renk seçildiğinde otomatik (NOIR, MARRON_FONCE...)" style="background:var(--bg-alt);color:var(--text-muted);cursor:not-allowed">
+                <input class="field__input" name="renk" readonly data-renk-ssot="code" placeholder="Birincil renk seçildiğinde otomatik (Siyah, Koyu Kahve...)" style="background:var(--bg-alt);color:var(--text-muted);cursor:not-allowed">
               </div>
               <div class="field">
                 <label class="field__label">Hex (SSOT)</label>
@@ -2624,7 +2621,7 @@ tr.row--re-onay td:first-child{box-shadow:inset 3px 0 0 #C77A17}
 <!-- BOTL_INLINE_DATA_START — catalog_sync_data tarafından yenilenir, elle düzenleme -->
 <script>window.__BOTL_DATA__ = {
   "schema_version": 5,
-  "exported_at": "2026-05-13T10:11:09.346905+00:00",
+  "exported_at": "2026-05-13T10:19:39.598259+00:00",
   "counter": 46,
   "products": [
     {
@@ -2651,7 +2648,6 @@ tr.row--re-onay td:first-child{box-shadow:inset 3px 0 0 #C77A17}
       "ana_malzeme": "Kanvas",
       "desen": "Monogram",
       "donanim_rengi": "Altın",
-      "stil": "Mini",
       "sapli_sapsiz": "Saplı",
       "boyut": "NANO",
       "donanim": "Altın",
@@ -2694,7 +2690,6 @@ tr.row--re-onay td:first-child{box-shadow:inset 3px 0 0 #C77A17}
       "ana_malzeme": "Kanvas",
       "desen": "Monogram",
       "donanim_rengi": "Altın",
-      "stil": "Mini",
       "sapli_sapsiz": "Saplı",
       "boyut": "NANO",
       "donanim": "Altın",
@@ -2737,7 +2732,6 @@ tr.row--re-onay td:first-child{box-shadow:inset 3px 0 0 #C77A17}
       "ana_malzeme": "Denim",
       "desen": "Monogram",
       "donanim_rengi": "Altın",
-      "stil": "Mini",
       "sapli_sapsiz": "Saplı",
       "boyut": "NANO",
       "donanim": "Altın",
@@ -2780,7 +2774,6 @@ tr.row--re-onay td:first-child{box-shadow:inset 3px 0 0 #C77A17}
       "ana_malzeme": "Denim",
       "desen": "Monogram",
       "donanim_rengi": "Altın",
-      "stil": "Mini",
       "sapli_sapsiz": "Saplı",
       "boyut": "NANO",
       "donanim": "Altın",
@@ -2823,7 +2816,6 @@ tr.row--re-onay td:first-child{box-shadow:inset 3px 0 0 #C77A17}
       "ana_malzeme": "Kanvas",
       "desen": "Damier",
       "donanim_rengi": "Gümüş",
-      "stil": "Mini",
       "sapli_sapsiz": "Saplı",
       "boyut": "NANO",
       "donanim": "Gümüş",
@@ -2866,7 +2858,6 @@ tr.row--re-onay td:first-child{box-shadow:inset 3px 0 0 #C77A17}
       "ana_malzeme": "Kanvas",
       "desen": "Damier",
       "donanim_rengi": "Altın",
-      "stil": "Mini",
       "sapli_sapsiz": "Saplı",
       "boyut": "NANO",
       "donanim": "Altın",
@@ -2909,7 +2900,6 @@ tr.row--re-onay td:first-child{box-shadow:inset 3px 0 0 #C77A17}
       "ana_malzeme": "Denim",
       "desen": "Monogram",
       "donanim_rengi": "Altın",
-      "stil": "Mini",
       "sapli_sapsiz": "Saplı",
       "boyut": "NANO",
       "donanim": "Altın",
@@ -2952,7 +2942,6 @@ tr.row--re-onay td:first-child{box-shadow:inset 3px 0 0 #C77A17}
       "ana_malzeme": "Kanvas",
       "desen": "Baskılı",
       "donanim_rengi": "Altın",
-      "stil": "Mini",
       "sapli_sapsiz": "Saplı",
       "boyut": "NANO",
       "donanim": "Altın",
@@ -2995,7 +2984,6 @@ tr.row--re-onay td:first-child{box-shadow:inset 3px 0 0 #C77A17}
       "ana_malzeme": "Kanvas",
       "desen": "Monogram",
       "donanim_rengi": "Altın",
-      "stil": "Mini",
       "sapli_sapsiz": "Saplı",
       "boyut": "NANO",
       "donanim": "Altın",
@@ -3038,7 +3026,6 @@ tr.row--re-onay td:first-child{box-shadow:inset 3px 0 0 #C77A17}
       "ana_malzeme": "Kanvas",
       "desen": "Monogram",
       "donanim_rengi": "Altın",
-      "stil": "Omuz",
       "sapli_sapsiz": "Saplı",
       "boyut": "STANDART",
       "donanim": "Altın",
@@ -3081,7 +3068,6 @@ tr.row--re-onay td:first-child{box-shadow:inset 3px 0 0 #C77A17}
       "ana_malzeme": "Kanvas",
       "desen": "Monogram",
       "donanim_rengi": "Altın",
-      "stil": "Omuz",
       "sapli_sapsiz": "Saplı",
       "boyut": "STANDART",
       "donanim": "Altın",
@@ -3124,7 +3110,6 @@ tr.row--re-onay td:first-child{box-shadow:inset 3px 0 0 #C77A17}
       "ana_malzeme": "Kanvas",
       "desen": "Monogram",
       "donanim_rengi": "Altın",
-      "stil": "Omuz",
       "sapli_sapsiz": "Saplı",
       "boyut": "STANDART",
       "donanim": "Altın",
@@ -3167,7 +3152,6 @@ tr.row--re-onay td:first-child{box-shadow:inset 3px 0 0 #C77A17}
       "ana_malzeme": "Kanvas",
       "desen": "Monogram",
       "donanim_rengi": "Altın",
-      "stil": "Omuz",
       "sapli_sapsiz": "Saplı",
       "boyut": "STANDART",
       "donanim": "Altın",
@@ -3210,7 +3194,6 @@ tr.row--re-onay td:first-child{box-shadow:inset 3px 0 0 #C77A17}
       "ana_malzeme": "Deri",
       "desen": "Kapitone",
       "donanim_rengi": "Altın",
-      "stil": "Omuz",
       "sapli_sapsiz": "Saplı",
       "boyut": "STANDART",
       "donanim": "Altın",
@@ -3253,7 +3236,6 @@ tr.row--re-onay td:first-child{box-shadow:inset 3px 0 0 #C77A17}
       "ana_malzeme": "Deri",
       "desen": "Kapitone",
       "donanim_rengi": "Altın",
-      "stil": "Omuz",
       "sapli_sapsiz": "Saplı",
       "boyut": "STANDART",
       "donanim": "Altın",
@@ -3296,7 +3278,6 @@ tr.row--re-onay td:first-child{box-shadow:inset 3px 0 0 #C77A17}
       "ana_malzeme": "Deri",
       "desen": "Kapitone",
       "donanim_rengi": "Altın",
-      "stil": "Omuz",
       "sapli_sapsiz": "Saplı",
       "boyut": "STANDART",
       "donanim": "Altın",
@@ -3339,7 +3320,6 @@ tr.row--re-onay td:first-child{box-shadow:inset 3px 0 0 #C77A17}
       "ana_malzeme": "Hasır",
       "desen": "Düz",
       "donanim_rengi": "Paladyum",
-      "stil": "Tote",
       "sapli_sapsiz": "Saplı",
       "boyut": "PM",
       "donanim": "Paladyum",
@@ -3382,7 +3362,6 @@ tr.row--re-onay td:first-child{box-shadow:inset 3px 0 0 #C77A17}
       "ana_malzeme": "Hasır",
       "desen": "Düz",
       "donanim_rengi": "Paladyum",
-      "stil": "Tote",
       "sapli_sapsiz": "Saplı",
       "boyut": "PM",
       "donanim": "Paladyum",
@@ -3425,7 +3404,6 @@ tr.row--re-onay td:first-child{box-shadow:inset 3px 0 0 #C77A17}
       "ana_malzeme": "Hasır",
       "desen": "Düz",
       "donanim_rengi": "Paladyum",
-      "stil": "Tote",
       "sapli_sapsiz": "Saplı",
       "boyut": "PM",
       "donanim": "Paladyum",
@@ -3468,7 +3446,6 @@ tr.row--re-onay td:first-child{box-shadow:inset 3px 0 0 #C77A17}
       "ana_malzeme": "Hasır",
       "desen": "Düz",
       "donanim_rengi": "Paladyum",
-      "stil": "Tote",
       "sapli_sapsiz": "Saplı",
       "boyut": "PM",
       "donanim": "Paladyum",
@@ -3511,7 +3488,6 @@ tr.row--re-onay td:first-child{box-shadow:inset 3px 0 0 #C77A17}
       "ana_malzeme": "Hasır",
       "desen": "Düz",
       "donanim_rengi": "Paladyum",
-      "stil": "Tote",
       "sapli_sapsiz": "Saplı",
       "boyut": "PM",
       "donanim": "Paladyum",
@@ -3554,7 +3530,6 @@ tr.row--re-onay td:first-child{box-shadow:inset 3px 0 0 #C77A17}
       "ana_malzeme": "Hasır",
       "desen": "Düz",
       "donanim_rengi": "Altın",
-      "stil": "Tote",
       "sapli_sapsiz": "Saplı",
       "boyut": "STANDART",
       "donanim": "Altın",
@@ -3597,7 +3572,6 @@ tr.row--re-onay td:first-child{box-shadow:inset 3px 0 0 #C77A17}
       "ana_malzeme": "Hasır",
       "desen": "Düz",
       "donanim_rengi": "Altın",
-      "stil": "Tote",
       "sapli_sapsiz": "Saplı",
       "boyut": "STANDART",
       "donanim": "Altın",
@@ -3640,7 +3614,6 @@ tr.row--re-onay td:first-child{box-shadow:inset 3px 0 0 #C77A17}
       "ana_malzeme": "Hasır",
       "desen": "Düz",
       "donanim_rengi": "Altın",
-      "stil": "Tote",
       "sapli_sapsiz": "Saplı",
       "boyut": "STANDART",
       "donanim": "Altın",
@@ -3683,7 +3656,6 @@ tr.row--re-onay td:first-child{box-shadow:inset 3px 0 0 #C77A17}
       "ana_malzeme": "Örme",
       "desen": "Düz",
       "donanim_rengi": "Altın",
-      "stil": "Tote",
       "sapli_sapsiz": "Saplı",
       "boyut": "STANDART",
       "donanim": "Altın",
@@ -3726,7 +3698,6 @@ tr.row--re-onay td:first-child{box-shadow:inset 3px 0 0 #C77A17}
       "ana_malzeme": "Örme",
       "desen": "Düz",
       "donanim_rengi": "Altın",
-      "stil": "Tote",
       "sapli_sapsiz": "Saplı",
       "boyut": "STANDART",
       "donanim": "Altın",
@@ -3769,7 +3740,6 @@ tr.row--re-onay td:first-child{box-shadow:inset 3px 0 0 #C77A17}
       "ana_malzeme": "Örme",
       "desen": "Düz",
       "donanim_rengi": "Altın",
-      "stil": "Tote",
       "sapli_sapsiz": "Saplı",
       "boyut": "STANDART",
       "donanim": "Altın",
@@ -3812,7 +3782,6 @@ tr.row--re-onay td:first-child{box-shadow:inset 3px 0 0 #C77A17}
       "ana_malzeme": "Hasır",
       "desen": "Düz",
       "donanim_rengi": "Altın",
-      "stil": "Omuz",
       "sapli_sapsiz": "Saplı",
       "boyut": "STANDART",
       "donanim": "Altın",
@@ -3855,7 +3824,6 @@ tr.row--re-onay td:first-child{box-shadow:inset 3px 0 0 #C77A17}
       "ana_malzeme": "Hasır",
       "desen": "Düz",
       "donanim_rengi": "Altın",
-      "stil": "Omuz",
       "sapli_sapsiz": "Saplı",
       "boyut": "STANDART",
       "donanim": "Altın",
@@ -3898,7 +3866,6 @@ tr.row--re-onay td:first-child{box-shadow:inset 3px 0 0 #C77A17}
       "ana_malzeme": "Hasır",
       "desen": "Düz",
       "donanim_rengi": "Altın",
-      "stil": "Omuz",
       "sapli_sapsiz": "Saplı",
       "boyut": "STANDART",
       "donanim": "Altın",
@@ -3941,7 +3908,6 @@ tr.row--re-onay td:first-child{box-shadow:inset 3px 0 0 #C77A17}
       "ana_malzeme": "Hasır",
       "desen": "Düz",
       "donanim_rengi": "Altın",
-      "stil": "Omuz",
       "sapli_sapsiz": "Saplı",
       "boyut": "STANDART",
       "donanim": "Altın",
@@ -3984,7 +3950,6 @@ tr.row--re-onay td:first-child{box-shadow:inset 3px 0 0 #C77A17}
       "ana_malzeme": "Örme",
       "desen": "Düz",
       "donanim_rengi": "Altın",
-      "stil": "Çapraz",
       "sapli_sapsiz": "Saplı",
       "boyut": "MINI",
       "donanim": "Altın",
@@ -4027,7 +3992,6 @@ tr.row--re-onay td:first-child{box-shadow:inset 3px 0 0 #C77A17}
       "ana_malzeme": "Örme",
       "desen": "Düz",
       "donanim_rengi": "Altın",
-      "stil": "Çapraz",
       "sapli_sapsiz": "Saplı",
       "boyut": "MINI",
       "donanim": "Altın",
@@ -4070,7 +4034,6 @@ tr.row--re-onay td:first-child{box-shadow:inset 3px 0 0 #C77A17}
       "ana_malzeme": "Örme",
       "desen": "Düz",
       "donanim_rengi": "Altın",
-      "stil": "Çapraz",
       "sapli_sapsiz": "Saplı",
       "boyut": "MINI",
       "donanim": "Altın",
@@ -4113,7 +4076,6 @@ tr.row--re-onay td:first-child{box-shadow:inset 3px 0 0 #C77A17}
       "ana_malzeme": "Örme",
       "desen": "Düz",
       "donanim_rengi": "Altın",
-      "stil": "Çapraz",
       "sapli_sapsiz": "Saplı",
       "boyut": "MINI",
       "donanim": "Altın",
@@ -4156,7 +4118,6 @@ tr.row--re-onay td:first-child{box-shadow:inset 3px 0 0 #C77A17}
       "ana_malzeme": "Örme",
       "desen": "Düz",
       "donanim_rengi": "Altın",
-      "stil": "Çapraz",
       "sapli_sapsiz": "Saplı",
       "boyut": "MINI",
       "donanim": "Altın",
@@ -4199,7 +4160,6 @@ tr.row--re-onay td:first-child{box-shadow:inset 3px 0 0 #C77A17}
       "ana_malzeme": "Hasır",
       "desen": "Düz",
       "donanim_rengi": "Altın",
-      "stil": "Çapraz",
       "sapli_sapsiz": "Saplı",
       "boyut": "MINI",
       "donanim": "Altın",
@@ -4242,7 +4202,6 @@ tr.row--re-onay td:first-child{box-shadow:inset 3px 0 0 #C77A17}
       "ana_malzeme": "Örme",
       "desen": "Düz",
       "donanim_rengi": "Altın",
-      "stil": "Çapraz",
       "sapli_sapsiz": "Saplı",
       "boyut": "MINI",
       "donanim": "Altın",
@@ -4285,7 +4244,6 @@ tr.row--re-onay td:first-child{box-shadow:inset 3px 0 0 #C77A17}
       "ana_malzeme": "Örme",
       "desen": "Düz",
       "donanim_rengi": "Altın",
-      "stil": "Çapraz",
       "sapli_sapsiz": "Saplı",
       "boyut": "MINI",
       "donanim": "Altın",
@@ -4328,7 +4286,6 @@ tr.row--re-onay td:first-child{box-shadow:inset 3px 0 0 #C77A17}
       "ana_malzeme": "Hasır",
       "desen": "Düz",
       "donanim_rengi": "Gümüş",
-      "stil": "Çapraz",
       "sapli_sapsiz": "Saplı",
       "boyut": "STANDART",
       "donanim": "Gümüş",
@@ -4371,7 +4328,6 @@ tr.row--re-onay td:first-child{box-shadow:inset 3px 0 0 #C77A17}
       "ana_malzeme": "Hasır",
       "desen": "Düz",
       "donanim_rengi": "Gümüş",
-      "stil": "Çapraz",
       "sapli_sapsiz": "Saplı",
       "boyut": "STANDART",
       "donanim": "Gümüş",
@@ -4414,7 +4370,6 @@ tr.row--re-onay td:first-child{box-shadow:inset 3px 0 0 #C77A17}
       "ana_malzeme": "Hasır",
       "desen": "Düz",
       "donanim_rengi": "Gümüş",
-      "stil": "Çapraz",
       "sapli_sapsiz": "Saplı",
       "boyut": "STANDART",
       "donanim": "Gümüş",
@@ -4457,7 +4412,6 @@ tr.row--re-onay td:first-child{box-shadow:inset 3px 0 0 #C77A17}
       "ana_malzeme": "Deri",
       "desen": "Düz",
       "donanim_rengi": "Gümüş",
-      "stil": "Portföy",
       "sapli_sapsiz": "Saplı",
       "boyut": "MINI",
       "donanim": "Gümüş",
@@ -4500,7 +4454,6 @@ tr.row--re-onay td:first-child{box-shadow:inset 3px 0 0 #C77A17}
       "ana_malzeme": "Deri",
       "desen": "Düz",
       "donanim_rengi": "Gümüş",
-      "stil": "Portföy",
       "sapli_sapsiz": "Saplı",
       "boyut": "MAXI",
       "donanim": "Gümüş",
@@ -4543,7 +4496,6 @@ tr.row--re-onay td:first-child{box-shadow:inset 3px 0 0 #C77A17}
       "ana_malzeme": "Deri",
       "desen": "Düz",
       "donanim_rengi": "Gümüş",
-      "stil": "Portföy",
       "sapli_sapsiz": "Saplı",
       "boyut": "MINI",
       "donanim": "Gümüş",
@@ -4586,7 +4538,6 @@ tr.row--re-onay td:first-child{box-shadow:inset 3px 0 0 #C77A17}
       "ana_malzeme": "Deri",
       "desen": "Düz",
       "donanim_rengi": "Gümüş",
-      "stil": "Portföy",
       "sapli_sapsiz": "Saplı",
       "boyut": "MAXI",
       "donanim": "Gümüş",
@@ -5012,13 +4963,6 @@ tr.row--re-onay td:first-child{box-shadow:inset 3px 0 0 #C77A17}
     "Düz",
     "Kapitone",
     "Monogram"
-  ],
-  "kanonik_stiller": [
-    "Mini",
-    "Omuz",
-    "Portföy",
-    "Tote",
-    "Çapraz"
   ]
 };</script>
 <!-- BOTL_INLINE_DATA_END -->
@@ -5382,28 +5326,28 @@ function updateDataSourceBanner(){
 
 // ─── Sample (ilk yüklemede) ─────────────────────────
 const SAMPLE_PRODUCTS = [
-  {variation_id:"FR-00001-NOIR-25-GOLD",sku:"FR-00001",slug:"hermes-birkin-25-togo-noir-gold",isim_resmi:"Hermès Birkin 25 Togo",isim_bilinen:"Birkin 25",marka:"Hermès",kategori:"TOTE",renk:"NOIR",renk_hex:"#1a1a1a",boyut:"25",donanim:"GOLD",deri_tipi:"Togo",sezon:"SS26",fiyat_eur:45000,stok:1,kondisyon:"BNIB",aciklama:"Togo deri, palladyum hardware. Box + dustbag + receipt.",olusturma:"2026-05-01",durum:"AKTIF"},
-  {variation_id:"FR-00002-ETOUPE-28-PALLADIUM",sku:"FR-00002",slug:"hermes-kelly-sellier-28-epsom-etoupe-palladium",isim_resmi:"Hermès Kelly Sellier 28 Epsom",isim_bilinen:"Kelly Sellier 28",marka:"Hermès",kategori:"SATCHEL",renk:"ETOUPE",renk_hex:"#9c8c75",boyut:"28",donanim:"PALLADIUM",deri_tipi:"Epsom",sezon:"SS26",fiyat_eur:52000,stok:1,kondisyon:"BNIB",aciklama:"Epsom Sellier yapım.",olusturma:"2026-05-02",durum:"AKTIF"},
-  {variation_id:"FR-00003-ROUGE_H-25-GOLD",sku:"FR-00003",slug:"hermes-birkin-25-togo-rouge-h-gold",isim_resmi:"Hermès Birkin 25 Togo",isim_bilinen:"Birkin 25, BK25",marka:"Hermès",kategori:"TOTE",renk:"ROUGE H",renk_hex:"#7b1f23",boyut:"25",donanim:"GOLD",deri_tipi:"Togo",sezon:"FW25",fiyat_eur:48000,stok:0,kondisyon:"BNIB",aciklama:"Klasik Rouge H — yatırım nesnesi.",olusturma:"2026-04-15",durum:"AKTIF"},
-  {variation_id:"FR-00004-NOIR-MEDIUM-GOLD",sku:"FR-00004",slug:"chanel-classic-flap-medium-lambskin-noir-gold",isim_resmi:"Chanel Classic Flap Medium Lambskin",isim_bilinen:"Classic Flap",marka:"Chanel",kategori:"SHOULDER",renk:"NOIR",renk_hex:"#1a1a1a",boyut:"MEDIUM",donanim:"GOLD",deri_tipi:"Lambskin",sezon:"FW25",fiyat_eur:12500,stok:2,kondisyon:"BNIB",aciklama:"Lambskin, altın CC hardware.",olusturma:"2026-05-03",durum:"AKTIF"},
+  {variation_id:"FR-00001-SIYAH-25-GOLD",sku:"FR-00001",slug:"hermes-birkin-25-togo-siyah-gold",isim_resmi:"Hermès Birkin 25 Togo",isim_bilinen:"Birkin 25",marka:"Hermès",kategori:"TOTE",renk:"Siyah",renk_hex:"#1a1a1a",boyut:"25",donanim:"GOLD",deri_tipi:"Togo",sezon:"SS26",fiyat_eur:45000,stok:1,kondisyon:"BNIB",aciklama:"Togo deri, palladyum hardware. Box + dustbag + receipt.",olusturma:"2026-05-01",durum:"AKTIF"},
+  {variation_id:"FR-00002-SICAN_GRISI-28-PALLADIUM",sku:"FR-00002",slug:"hermes-kelly-sellier-28-epsom-sican-grisi-palladium",isim_resmi:"Hermès Kelly Sellier 28 Epsom",isim_bilinen:"Kelly Sellier 28",marka:"Hermès",kategori:"SATCHEL",renk:"Sıçan Grisi",renk_hex:"#9c8c75",boyut:"28",donanim:"PALLADIUM",deri_tipi:"Epsom",sezon:"SS26",fiyat_eur:52000,stok:1,kondisyon:"BNIB",aciklama:"Epsom Sellier yapım.",olusturma:"2026-05-02",durum:"AKTIF"},
+  {variation_id:"FR-00003-H_KIRMIZISI-25-GOLD",sku:"FR-00003",slug:"hermes-birkin-25-togo-h-kirmizisi-gold",isim_resmi:"Hermès Birkin 25 Togo",isim_bilinen:"Birkin 25, BK25",marka:"Hermès",kategori:"TOTE",renk:"H Kırmızısı",renk_hex:"#7b1f23",boyut:"25",donanim:"GOLD",deri_tipi:"Togo",sezon:"FW25",fiyat_eur:48000,stok:0,kondisyon:"BNIB",aciklama:"Klasik H Kırmızısı — yatırım nesnesi.",olusturma:"2026-04-15",durum:"AKTIF"},
+  {variation_id:"FR-00004-SIYAH-MEDIUM-GOLD",sku:"FR-00004",slug:"chanel-classic-flap-medium-lambskin-siyah-gold",isim_resmi:"Chanel Classic Flap Medium Lambskin",isim_bilinen:"Classic Flap",marka:"Chanel",kategori:"SHOULDER",renk:"Siyah",renk_hex:"#1a1a1a",boyut:"MEDIUM",donanim:"GOLD",deri_tipi:"Lambskin",sezon:"FW25",fiyat_eur:12500,stok:2,kondisyon:"BNIB",aciklama:"Lambskin, altın CC hardware.",olusturma:"2026-05-03",durum:"AKTIF"},
   {variation_id:"FR-00005-BEIGE-MEDIUM-GOLD",sku:"FR-00005",slug:"chanel-classic-flap-medium-caviar-beige-clair-gold",isim_resmi:"Chanel Classic Flap Medium Caviar",isim_bilinen:"Classic Flap, CF Medium",marka:"Chanel",kategori:"SHOULDER",renk:"BEIGE CLAIR",renk_hex:"#d8c3a3",boyut:"MEDIUM",donanim:"GOLD",deri_tipi:"Caviar",sezon:"SS26",fiyat_eur:13200,stok:1,kondisyon:"BNIB",aciklama:"Caviar deri, beige clair.",olusturma:"2026-05-04",durum:"AKTIF"},
-  {variation_id:"FR-00006-NOIR-MEDIUM-RUTHENIUM",sku:"FR-00006",slug:"chanel-boy-bag-medium-caviar-noir-ruthenium",isim_resmi:"Chanel Boy Bag Medium Caviar",isim_bilinen:"Boy Bag",marka:"Chanel",kategori:"SHOULDER",renk:"NOIR",renk_hex:"#1a1a1a",boyut:"MEDIUM",donanim:"RUTHENIUM",deri_tipi:"Caviar",sezon:"FW24",fiyat_eur:8500,stok:1,kondisyon:"VGC",aciklama:"Pre-owned VGC.",olusturma:"2026-04-20",durum:"AKTIF"},
-  {variation_id:"FR-00007-MAGNOLIA-BB-GOLD",sku:"FR-00007",slug:"louis-vuitton-capucines-bb-taurillon-magnolia-gold",isim_resmi:"Louis Vuitton Capucines BB Taurillon",isim_bilinen:"Capucines BB",marka:"Louis Vuitton",kategori:"SATCHEL",renk:"MAGNOLIA",renk_hex:"#e8c5cc",boyut:"BB",donanim:"GOLD",deri_tipi:"Taurillon",sezon:"SS26",fiyat_eur:7200,stok:2,kondisyon:"BNIB",aciklama:"Taurillon deri.",olusturma:"2026-05-05",durum:"AKTIF"},
-  {variation_id:"FR-00008-NERO-MINI-BRUSHED_GOLD",sku:"FR-00008",slug:"bottega-veneta-cassette-mini-intrecciato-nero-brushed-gold",isim_resmi:"Bottega Veneta Cassette Mini Intrecciato",isim_bilinen:"Cassette Mini, BV Cassette",marka:"Bottega Veneta",kategori:"CROSSBODY",renk:"NERO",renk_hex:"#1a1a1a",boyut:"MINI",donanim:"BRUSHED_GOLD",deri_tipi:"Intrecciato Lambskin",sezon:"SS26",fiyat_eur:3900,stok:3,kondisyon:"BNIB",aciklama:"Intrecciato weave.",olusturma:"2026-05-06",durum:"AKTIF"},
+  {variation_id:"FR-00006-SIYAH-MEDIUM-RUTHENIUM",sku:"FR-00006",slug:"chanel-boy-bag-medium-caviar-siyah-ruthenium",isim_resmi:"Chanel Boy Bag Medium Caviar",isim_bilinen:"Boy Bag",marka:"Chanel",kategori:"SHOULDER",renk:"Siyah",renk_hex:"#1a1a1a",boyut:"MEDIUM",donanim:"RUTHENIUM",deri_tipi:"Caviar",sezon:"FW24",fiyat_eur:8500,stok:1,kondisyon:"VGC",aciklama:"Pre-owned VGC.",olusturma:"2026-04-20",durum:"AKTIF"},
+  {variation_id:"FR-00007-MANOLYA-BB-GOLD",sku:"FR-00007",slug:"louis-vuitton-capucines-bb-taurillon-manolya-gold",isim_resmi:"Louis Vuitton Capucines BB Taurillon",isim_bilinen:"Capucines BB",marka:"Louis Vuitton",kategori:"SATCHEL",renk:"Manolya",renk_hex:"#e8c5cc",boyut:"BB",donanim:"GOLD",deri_tipi:"Taurillon",sezon:"SS26",fiyat_eur:7200,stok:2,kondisyon:"BNIB",aciklama:"Taurillon deri.",olusturma:"2026-05-05",durum:"AKTIF"},
+  {variation_id:"FR-00008-SIYAH-MINI-BRUSHED_GOLD",sku:"FR-00008",slug:"bottega-veneta-cassette-mini-intrecciato-siyah-brushed-gold",isim_resmi:"Bottega Veneta Cassette Mini Intrecciato",isim_bilinen:"Cassette Mini, BV Cassette",marka:"Bottega Veneta",kategori:"CROSSBODY",renk:"Siyah",renk_hex:"#1a1a1a",boyut:"MINI",donanim:"BRUSHED_GOLD",deri_tipi:"Intrecciato Lambskin",sezon:"SS26",fiyat_eur:3900,stok:3,kondisyon:"BNIB",aciklama:"Intrecciato weave.",olusturma:"2026-05-06",durum:"AKTIF"},
   {variation_id:"FR-00009-TAN-SMALL-GOLD",sku:"FR-00009",slug:"loewe-puzzle-small-calfskin-tan-gold",isim_resmi:"Loewe Puzzle Small Calfskin",isim_bilinen:"Puzzle Small",marka:"Loewe",kategori:"CROSSBODY",renk:"TAN",renk_hex:"#c5996b",boyut:"SMALL",donanim:"GOLD",deri_tipi:"Calfskin",sezon:"SS26",fiyat_eur:3400,stok:1,kondisyon:"BNIB",aciklama:"Geometric construction.",olusturma:"2026-05-07",durum:"AKTIF"},
-  {variation_id:"FR-00010-NOIR-MEDIUM-BRUSHED_GOLD",sku:"FR-00010",slug:"saint-laurent-le-5-a-7-smooth-leather-noir-brushed-gold",isim_resmi:"Saint Laurent Le 5 à 7 Smooth Leather",isim_bilinen:"Le 5 à 7, SL Hobo",marka:"Saint Laurent",kategori:"SHOULDER",renk:"NOIR",renk_hex:"#1a1a1a",boyut:"MEDIUM",donanim:"BRUSHED_GOLD",deri_tipi:"Smooth Leather",sezon:"FW25",fiyat_eur:2750,stok:4,kondisyon:"BNIB",aciklama:"Hobo silhouette.",olusturma:"2026-05-08",durum:"AKTIF"},
+  {variation_id:"FR-00010-SIYAH-MEDIUM-BRUSHED_GOLD",sku:"FR-00010",slug:"saint-laurent-le-5-a-7-smooth-leather-siyah-brushed-gold",isim_resmi:"Saint Laurent Le 5 à 7 Smooth Leather",isim_bilinen:"Le 5 à 7, SL Hobo",marka:"Saint Laurent",kategori:"SHOULDER",renk:"Siyah",renk_hex:"#1a1a1a",boyut:"MEDIUM",donanim:"BRUSHED_GOLD",deri_tipi:"Smooth Leather",sezon:"FW25",fiyat_eur:2750,stok:4,kondisyon:"BNIB",aciklama:"Hobo silhouette.",olusturma:"2026-05-08",durum:"AKTIF"},
   {variation_id:"FR-00011-MULTI-GM-GOLD",sku:"FR-00011",slug:"goyard-saint-louis-gm-coated-canvas-multi-gold",isim_resmi:"Goyard Saint Louis GM Coated Canvas",isim_bilinen:"St. Louis GM, Goyard tote",marka:"Goyard",kategori:"TOTE",renk:"MULTI",renk_hex:"#7a5d3a",boyut:"GM",donanim:"GOLD",deri_tipi:"Coated Canvas",sezon:"-",fiyat_eur:1800,stok:1,kondisyon:"VGC",aciklama:"Chevron canvas tote.",olusturma:"2026-04-25",durum:"AKTIF"},
   {variation_id:"FR-00012-BLACK-15-GOLD",sku:"FR-00012",slug:"the-row-margaux-15-calfskin-black-gold",isim_resmi:"The Row Margaux 15 Calfskin",isim_bilinen:"Margaux 15",marka:"The Row",kategori:"SATCHEL",renk:"BLACK",renk_hex:"#1a1a1a",boyut:"15",donanim:"GOLD",deri_tipi:"Calfskin",sezon:"FW25",fiyat_eur:5900,stok:1,kondisyon:"BNIB",aciklama:"Discreet top-handle.",olusturma:"2026-05-09",durum:"AKTIF"},
-  {variation_id:"FR-00013-ETOUPE-LONG-GOLD",sku:"FR-00013",slug:"hermes-bearn-long-wallet-epsom-etoupe-gold",isim_resmi:"Hermès Bearn Long Wallet Epsom",isim_bilinen:"Bearn Wallet, Bearn",marka:"Hermès",kategori:"WALLET",renk:"ETOUPE",renk_hex:"#9c8c75",boyut:"LONG",donanim:"GOLD",deri_tipi:"Epsom",sezon:"SS26",fiyat_eur:3800,stok:2,kondisyon:"BNIB",aciklama:"H clasp altın kaplama.",olusturma:"2026-05-10",durum:"AKTIF"},
-  {variation_id:"FR-00014-NOIR-LONG-GOLD",sku:"FR-00014",slug:"chanel-classic-long-wallet-caviar-noir-gold",isim_resmi:"Chanel Classic Long Wallet Caviar",isim_bilinen:"Classic Wallet, CC Wallet",marka:"Chanel",kategori:"WALLET",renk:"NOIR",renk_hex:"#1a1a1a",boyut:"LONG",donanim:"GOLD",deri_tipi:"Caviar",sezon:"SS26",fiyat_eur:1850,stok:3,kondisyon:"BNIB",aciklama:"Caviar deri, altın CC.",olusturma:"2026-05-10",durum:"AKTIF"},
-  {variation_id:"FR-00015-NOIR-COMPACT-BRUSHED_GOLD",sku:"FR-00015",slug:"saint-laurent-monogram-compact-wallet-grain-noir-brushed-gold",isim_resmi:"Saint Laurent Monogram Compact Wallet Grain",isim_bilinen:"Monogram Wallet, YSL Wallet",marka:"Saint Laurent",kategori:"WALLET",renk:"NOIR",renk_hex:"#1a1a1a",boyut:"COMPACT",donanim:"BRUSHED_GOLD",deri_tipi:"Grain Leather",sezon:"FW25",fiyat_eur:750,stok:5,kondisyon:"BNIB",aciklama:"Embossed YSL monogram.",olusturma:"2026-05-10",durum:"AKTIF"},
-  {variation_id:"FR-00016-ROUGE_H-STANDART-GOLD",sku:"FR-00016",slug:"hermes-bastia-cardholder-chevre-rouge-h-gold",isim_resmi:"Hermès Bastia Cardholder Chèvre",isim_bilinen:"Bastia",marka:"Hermès",kategori:"CARDHOLDER",renk:"ROUGE H",renk_hex:"#7b1f23",boyut:"STANDART",donanim:"GOLD",deri_tipi:"Chèvre Mysore",sezon:"SS26",fiyat_eur:480,stok:6,kondisyon:"BNIB",aciklama:"Chèvre Mysore deri.",olusturma:"2026-05-10",durum:"AKTIF"},
-  {variation_id:"FR-00017-NOIR-STANDART-GOLD",sku:"FR-00017",slug:"chanel-classic-cardholder-caviar-noir-gold",isim_resmi:"Chanel Classic Cardholder Caviar",isim_bilinen:"CC Cardholder",marka:"Chanel",kategori:"CARDHOLDER",renk:"NOIR",renk_hex:"#1a1a1a",boyut:"STANDART",donanim:"GOLD",deri_tipi:"Caviar",sezon:"SS26",fiyat_eur:650,stok:4,kondisyon:"BNIB",aciklama:"Caviar, altın CC.",olusturma:"2026-05-10",durum:"AKTIF"},
-  {variation_id:"FR-00018-NERO-STANDART-BRUSHED_GOLD",sku:"FR-00018",slug:"bottega-veneta-intrecciato-cardholder-nappa-nero-brushed-gold",isim_resmi:"Bottega Veneta Intrecciato Cardholder Nappa",isim_bilinen:"BV Cardholder",marka:"Bottega Veneta",kategori:"CARDHOLDER",renk:"NERO",renk_hex:"#1a1a1a",boyut:"STANDART",donanim:"BRUSHED_GOLD",deri_tipi:"Intrecciato Nappa",sezon:"SS26",fiyat_eur:450,stok:7,kondisyon:"BNIB",aciklama:"Klasik intrecciato.",olusturma:"2026-05-10",durum:"AKTIF"},
+  {variation_id:"FR-00013-SICAN_GRISI-LONG-GOLD",sku:"FR-00013",slug:"hermes-bearn-long-wallet-epsom-sican-grisi-gold",isim_resmi:"Hermès Bearn Long Wallet Epsom",isim_bilinen:"Bearn Wallet, Bearn",marka:"Hermès",kategori:"WALLET",renk:"Sıçan Grisi",renk_hex:"#9c8c75",boyut:"LONG",donanim:"GOLD",deri_tipi:"Epsom",sezon:"SS26",fiyat_eur:3800,stok:2,kondisyon:"BNIB",aciklama:"H clasp altın kaplama.",olusturma:"2026-05-10",durum:"AKTIF"},
+  {variation_id:"FR-00014-SIYAH-LONG-GOLD",sku:"FR-00014",slug:"chanel-classic-long-wallet-caviar-siyah-gold",isim_resmi:"Chanel Classic Long Wallet Caviar",isim_bilinen:"Classic Wallet, CC Wallet",marka:"Chanel",kategori:"WALLET",renk:"Siyah",renk_hex:"#1a1a1a",boyut:"LONG",donanim:"GOLD",deri_tipi:"Caviar",sezon:"SS26",fiyat_eur:1850,stok:3,kondisyon:"BNIB",aciklama:"Caviar deri, altın CC.",olusturma:"2026-05-10",durum:"AKTIF"},
+  {variation_id:"FR-00015-SIYAH-COMPACT-BRUSHED_GOLD",sku:"FR-00015",slug:"saint-laurent-monogram-compact-wallet-grain-siyah-brushed-gold",isim_resmi:"Saint Laurent Monogram Compact Wallet Grain",isim_bilinen:"Monogram Wallet, YSL Wallet",marka:"Saint Laurent",kategori:"WALLET",renk:"Siyah",renk_hex:"#1a1a1a",boyut:"COMPACT",donanim:"BRUSHED_GOLD",deri_tipi:"Grain Leather",sezon:"FW25",fiyat_eur:750,stok:5,kondisyon:"BNIB",aciklama:"Embossed YSL monogram.",olusturma:"2026-05-10",durum:"AKTIF"},
+  {variation_id:"FR-00016-H_KIRMIZISI-STANDART-GOLD",sku:"FR-00016",slug:"hermes-bastia-cardholder-chevre-h-kirmizisi-gold",isim_resmi:"Hermès Bastia Cardholder Chèvre",isim_bilinen:"Bastia",marka:"Hermès",kategori:"CARDHOLDER",renk:"H Kırmızısı",renk_hex:"#7b1f23",boyut:"STANDART",donanim:"GOLD",deri_tipi:"Chèvre Mysore",sezon:"SS26",fiyat_eur:480,stok:6,kondisyon:"BNIB",aciklama:"Chèvre Mysore deri.",olusturma:"2026-05-10",durum:"AKTIF"},
+  {variation_id:"FR-00017-SIYAH-STANDART-GOLD",sku:"FR-00017",slug:"chanel-classic-cardholder-caviar-siyah-gold",isim_resmi:"Chanel Classic Cardholder Caviar",isim_bilinen:"CC Cardholder",marka:"Chanel",kategori:"CARDHOLDER",renk:"Siyah",renk_hex:"#1a1a1a",boyut:"STANDART",donanim:"GOLD",deri_tipi:"Caviar",sezon:"SS26",fiyat_eur:650,stok:4,kondisyon:"BNIB",aciklama:"Caviar, altın CC.",olusturma:"2026-05-10",durum:"AKTIF"},
+  {variation_id:"FR-00018-SIYAH-STANDART-BRUSHED_GOLD",sku:"FR-00018",slug:"bottega-veneta-intrecciato-cardholder-nappa-siyah-brushed-gold",isim_resmi:"Bottega Veneta Intrecciato Cardholder Nappa",isim_bilinen:"BV Cardholder",marka:"Bottega Veneta",kategori:"CARDHOLDER",renk:"Siyah",renk_hex:"#1a1a1a",boyut:"STANDART",donanim:"BRUSHED_GOLD",deri_tipi:"Intrecciato Nappa",sezon:"SS26",fiyat_eur:450,stok:7,kondisyon:"BNIB",aciklama:"Klasik intrecciato.",olusturma:"2026-05-10",durum:"AKTIF"},
   {variation_id:"FR-00019-ROUGE-90-SILK",sku:"FR-00019",slug:"hermes-carre-90-silk-scarf-rouge",isim_resmi:"Hermès Carré 90 Silk Scarf",isim_bilinen:"Carré 90, Hermès eşarp",marka:"Hermès",kategori:"SCARF",renk:"ROUGE",renk_hex:"#c4242f",boyut:"90",donanim:"SILK",deri_tipi:"Twill Silk",sezon:"SS26",fiyat_eur:480,stok:5,kondisyon:"BNIB",aciklama:"90x90cm twill ipek.",olusturma:"2026-05-10",durum:"AKTIF"},
-  {variation_id:"FR-00020-NOIR-80-GOLD",sku:"FR-00020",slug:"hermes-constance-h-belt-box-calf-noir-gold",isim_resmi:"Hermès Constance H Belt Box Calf",isim_bilinen:"Constance H, H Belt",marka:"Hermès",kategori:"BELT",renk:"NOIR",renk_hex:"#1a1a1a",boyut:"80",donanim:"GOLD",deri_tipi:"Box Calf",sezon:"SS26",fiyat_eur:1100,stok:4,kondisyon:"BNIB",aciklama:"Çift yüzlü deri, H tokalı.",olusturma:"2026-05-10",durum:"AKTIF"},
+  {variation_id:"FR-00020-SIYAH-80-GOLD",sku:"FR-00020",slug:"hermes-constance-h-belt-box-calf-siyah-gold",isim_resmi:"Hermès Constance H Belt Box Calf",isim_bilinen:"Constance H, H Belt",marka:"Hermès",kategori:"BELT",renk:"Siyah",renk_hex:"#1a1a1a",boyut:"80",donanim:"GOLD",deri_tipi:"Box Calf",sezon:"SS26",fiyat_eur:1100,stok:4,kondisyon:"BNIB",aciklama:"Çift yüzlü deri, H tokalı.",olusturma:"2026-05-10",durum:"AKTIF"},
   {variation_id:"FR-00021-ROUGE-PM-GOLD",sku:"FR-00021",slug:"hermes-clic-h-bracelet-enamel-rouge-gold",isim_resmi:"Hermès Clic H Bracelet Enamel",isim_bilinen:"Clic H, Hermès bilezik",marka:"Hermès",kategori:"JEWELRY",renk:"ROUGE",renk_hex:"#c4242f",boyut:"PM",donanim:"GOLD",deri_tipi:"Lake Enamel",sezon:"SS26",fiyat_eur:720,stok:3,kondisyon:"BNIB",aciklama:"Lake mineli.",olusturma:"2026-05-10",durum:"AKTIF"},
-  {variation_id:"FR-00022-NOIR-STANDART-GOLD",sku:"FR-00022",slug:"chanel-square-sunglasses-acetate-noir-gold",isim_resmi:"Chanel Square Sunglasses Acetate",isim_bilinen:"Chanel gözlük",marka:"Chanel",kategori:"SUNGLASSES",renk:"NOIR",renk_hex:"#1a1a1a",boyut:"STANDART",donanim:"GOLD",deri_tipi:"Acetate",sezon:"SS26",fiyat_eur:580,stok:5,kondisyon:"BNIB",aciklama:"Kare çerçeve, UV protection.",olusturma:"2026-05-10",durum:"AKTIF"},
+  {variation_id:"FR-00022-SIYAH-STANDART-GOLD",sku:"FR-00022",slug:"chanel-square-sunglasses-acetate-siyah-gold",isim_resmi:"Chanel Square Sunglasses Acetate",isim_bilinen:"Chanel gözlük",marka:"Chanel",kategori:"SUNGLASSES",renk:"Siyah",renk_hex:"#1a1a1a",boyut:"STANDART",donanim:"GOLD",deri_tipi:"Acetate",sezon:"SS26",fiyat_eur:580,stok:5,kondisyon:"BNIB",aciklama:"Kare çerçeve, UV protection.",olusturma:"2026-05-10",durum:"AKTIF"},
 ];
 
 // ─── State ──────────────────────────────────────────
@@ -5446,7 +5390,14 @@ let state = {
   editingSupplier: null,
   editingSupplierOrder: null,
   editingImage: null,
+  editingImages: [],
 };
+
+function adminImgSrc(path){
+  if(!path) return '';
+  if(path.startsWith('data:') || path.startsWith('http') || path.startsWith('blob:')) return path;
+  return '../' + path;
+}
 
 // ─── Activity Log ──────────────────────────────────
 function logActivity(tip, entity_type, entity_id, detay, meta = {}){
@@ -5620,87 +5571,83 @@ function fmtBytes(n){
   return (n/1024/1024).toFixed(2) + ' MB';
 }
 
-function updateImagePreview(dataUrl, meta = ''){
-  const img = $('#image-img');
-  const placeholder = $('#image-placeholder');
-  const removeBtn = $('#btn-img-remove');
-  const metaEl = $('#image-meta');
-  if(dataUrl){
-    img.src = dataUrl;
-    img.hidden = false;
-    placeholder.hidden = true;
-    removeBtn.hidden = false;
-    metaEl.textContent = meta || '';
-  } else {
-    img.removeAttribute('src');
-    img.hidden = true;
-    placeholder.hidden = false;
-    removeBtn.hidden = true;
-    metaEl.textContent = '';
-  }
-}
+let _galleryUploadSlot = 0;
 
-async function handleImageFile(file){
-  if(!file) return;
-  if(!file.type.startsWith('image/')){
-    toast('Sadece görsel dosyası yükleyebilirsin', true);
-    return;
+function renderGallerySlots(){
+  const grid = $('#gallery-grid');
+  if(!grid) return;
+  const imgs = state.editingImages;
+  let html = '';
+  for(let i = 0; i < 5; i++){
+    const src = imgs[i] ? adminImgSrc(imgs[i]) : '';
+    const hasImg = !!src;
+    const badge = i === 0 ? '<span class="gallery-slot__badge">Kapak</span>' : '';
+    const remove = hasImg ? `<button type="button" class="gallery-slot__remove" data-gallery-remove="${i}" title="Kaldır">&times;</button>` : '';
+    const content = hasImg
+      ? `<img src="${src}" alt="" draggable="false">${badge}${remove}`
+      : `<div class="gallery-slot__placeholder"><strong>+</strong>${i===0?'Kapak':''}</div>`;
+    html += `<div class="gallery-slot${hasImg?' has-img':''}" data-gallery-slot="${i}">${content}</div>`;
   }
-  if(file.size > 20 * 1024 * 1024){
-    toast('Dosya 20MB üstü — daha küçük dene', true);
-    return;
-  }
-  const loading = $('#image-loading');
-  loading.hidden = false;
-  try {
-    const { dataUrl, w, h } = await resizeImage(file);
-    state.editingImage = dataUrl;
-    const bytes = Math.round(dataUrl.length * 3 / 4);  // base64 size approximation
-    updateImagePreview(dataUrl, `${w}×${h} · ${fmtBytes(bytes)}`);
-  } catch(e){
-    toast('Görsel işlenemedi: ' + e.message, true);
-  } finally {
-    loading.hidden = true;
-  }
-}
-
-function bindImageUpload(){
-  const preview = $('#image-preview');
-  const fileInput = $('#image-file');
-  const pickBtn = $('#btn-img-pick');
-  const removeBtn = $('#btn-img-remove');
-  if(!preview || !fileInput){ return; } // image upload UI yoksa sessiz geç
-
-  if(pickBtn) pickBtn.addEventListener('click', () => fileInput.click());
-  preview.addEventListener('click', () => fileInput.click());
-  preview.addEventListener('keydown', (e) => {
-    if(e.key === 'Enter' || e.key === ' '){ e.preventDefault(); fileInput.click(); }
+  grid.innerHTML = html;
+  grid.querySelectorAll('.gallery-slot').forEach(slot => {
+    const idx = Number(slot.dataset.gallerySlot);
+    slot.addEventListener('click', (e) => {
+      if(e.target.closest('.gallery-slot__remove')) return;
+      _galleryUploadSlot = idx;
+      $('#gallery-file')?.click();
+    });
+    ['dragenter','dragover'].forEach(ev => slot.addEventListener(ev, (e) => {
+      e.preventDefault(); e.stopPropagation(); slot.classList.add('drag-over');
+    }));
+    ['dragleave','drop'].forEach(ev => slot.addEventListener(ev, (e) => {
+      e.preventDefault(); e.stopPropagation(); slot.classList.remove('drag-over');
+    }));
+    slot.addEventListener('drop', (e) => {
+      const file = e.dataTransfer.files[0];
+      if(file) handleGalleryFile(file, idx);
+    });
   });
+  grid.querySelectorAll('[data-gallery-remove]').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const idx = Number(btn.dataset.galleryRemove);
+      state.editingImages.splice(idx, 1);
+      state.editingImage = state.editingImages[0] || null;
+      renderGallerySlots();
+    });
+  });
+}
 
+async function handleGalleryFile(file, slotIdx){
+  if(!file) return;
+  if(!file.type.startsWith('image/')){ toast('Sadece görsel dosyası', true); return; }
+  if(file.size > 20*1024*1024){ toast('Dosya 20MB üstü', true); return; }
+  try {
+    const { dataUrl } = await resizeImage(file);
+    while(state.editingImages.length < slotIdx) state.editingImages.push(null);
+    if(slotIdx < state.editingImages.length){
+      state.editingImages[slotIdx] = dataUrl;
+    } else {
+      state.editingImages.push(dataUrl);
+    }
+    state.editingImages = state.editingImages.filter(Boolean);
+    state.editingImage = state.editingImages[0] || null;
+    renderGallerySlots();
+  } catch(e){ toast('Görsel işlenemedi: '+e.message, true); }
+}
+
+function bindGalleryUpload(){
+  const fileInput = $('#gallery-file');
+  if(!fileInput) return;
   fileInput.addEventListener('change', (e) => {
-    handleImageFile(e.target.files[0]);
+    const file = e.target.files[0];
+    if(file) handleGalleryFile(file, _galleryUploadSlot);
     e.target.value = '';
   });
-
-  // Drag & drop
-  ['dragenter','dragover'].forEach(ev => preview.addEventListener(ev, (e) => {
-    e.preventDefault(); e.stopPropagation();
-    preview.classList.add('drag-over');
-  }));
-  ['dragleave','drop'].forEach(ev => preview.addEventListener(ev, (e) => {
-    e.preventDefault(); e.stopPropagation();
-    preview.classList.remove('drag-over');
-  }));
-  preview.addEventListener('drop', (e) => {
-    const file = e.dataTransfer.files[0];
-    if(file) handleImageFile(file);
-  });
-
-  if(removeBtn) removeBtn.addEventListener('click', () => {
-    state.editingImage = null;
-    updateImagePreview(null);
-  });
 }
+
+function updateImagePreview(){}
+function bindImageUpload(){ bindGalleryUpload(); }
 
 // ─── Helpers ────────────────────────────────────────
 const $ = s => document.querySelector(s);
@@ -5867,7 +5814,7 @@ function populateTaxonomyDatalists(){
   }
   fillDL('dl-malzemeler', getTaxonomyArray('kanonik_malzemeler'), v => `<option value="${v}"></option>`);
   fillDL('dl-desenler', getTaxonomyArray('kanonik_desenler'), v => `<option value="${v}"></option>`);
-  fillDL('dl-stiller', getTaxonomyArray('kanonik_stiller'), v => `<option value="${v}"></option>`);
+  // NOT: dl-stiller kaldirildi (2026-05-13) — kategori_alt + boyut yeterli.
   fillDL('dl-kondisyonlar', getTaxonomyArray('kanonik_kondisyonlar'), v => `<option value="${v}"></option>`);
   fillDL('dl-boyutlar', getTaxonomyArray('kanonik_boyutlar'), v => `<option value="${v}"></option>`);
   fillDL('dl-donanimlar', getTaxonomyArray('kanonik_donanimlar'), v => `<option value="${v}"></option>`);
@@ -6598,9 +6545,10 @@ function rowHTML(p){
   const stokTitle = `Toplam: ${_total} · Rezerve: ${_occ} · Satışa açık: ${_avail}`;
   const kondOpts = KONDISYON.map(k=>`<option value="${k}" ${p.kondisyon===k?'selected':''}>${k}</option>`).join('');
   const isArchived = p.durum==='ARSIVLENDI';
-  const cover = p.cover || (p.gorseller && p.gorseller.cover);
-  const imgCell = cover
-    ? `<div class="table__img"><span class="table__img-placeholder">${initials}</span><img src="${cover}" alt="" loading="lazy" onerror="this.classList.add('is-failed')"></div>`
+  const cover = p.cover || (p.images && p.images[0]) || (p.gorseller && p.gorseller.cover);
+  const coverSrc = adminImgSrc(cover);
+  const imgCell = coverSrc
+    ? `<div class="table__img"><span class="table__img-placeholder">${initials}</span><img src="${coverSrc}" alt="" loading="lazy" onerror="this.classList.add('is-failed')"></div>`
     : `<div class="table__img"><span class="table__img-placeholder">${initials}</span></div>`;
   const draftCls = p._draft ? 'row--draft' : '';
   const draftBadge = p._draft
@@ -6738,7 +6686,8 @@ function openModal(id){
     ['marka','isim_resmi','isim_bilinen','deri_tipi','sezon','aciklama',
      'renk','renk_hex','renk_slug','boyut','donanim','kondisyon','fiyat_eur','stok','slug',
      'ana_renk','ana_renk_en','ana_renk_hex','ikincil_renk','ikincil_renk_code','ikincil_renk_hex',
-     'ana_malzeme','desen','donanim_rengi','stil','sapli_sapsiz']
+     'ana_malzeme','desen','donanim_rengi','sapli_sapsiz']
+     // NOT: 'stil' kaldirildi (2026-05-13) — kategori_alt + boyut yeterli.
       .forEach(k=>{ if(f.elements[k]) f.elements[k].value = p[k] ?? '' });
     // ana_renk SSOT cinsten select'e set et (TR label match) + SSOT field'ları senkronize et
     if(f.elements['ana_renk'] && p.ana_renk){
@@ -6756,16 +6705,15 @@ function openModal(id){
     if(f.elements.kategori_alt){ f.elements.kategori_alt.value = altVal; }
     refreshKategoriAltOptions(ustVal, altVal);
     f.elements.durum_aktif.checked = p.durum!=='ARSIVLENDI';
-    // mevcut görsel
-    const cover = p.cover || (p.gorseller && p.gorseller.cover);
-    if(cover){
-      state.editingImage = cover;
-      updateImagePreview(cover, cover.startsWith('data:') ? '(önceden yüklenmiş)' : cover);
-    } else {
-      const initials = (p.marka || '').split(/\s+/).map(w=>w[0]||'').join('').slice(0,2).toUpperCase();
-      $('#image-initials').textContent = initials || '+';
-    }
+    // mevcut görseller (5'li galeri)
+    const pImages = p.images || (p.cover ? [p.cover] : []);
+    state.editingImages = pImages.map(x => x); // shallow copy
+    state.editingImage = pImages[0] || null;
+    renderGallerySlots();
   } else {
+    state.editingImages = [];
+    state.editingImage = null;
+    renderGallerySlots();
     if(f.elements.renk_hex) f.elements.renk_hex.value = '';
     f.elements.stok.value = 1;
     f.elements.kondisyon.value = 'BNIB';
@@ -6899,15 +6847,19 @@ async function saveModal(){
   p.ana_malzeme = (fd.ana_malzeme?.value || '').trim();
   p.desen = (fd.desen?.value || '').trim();
   p.donanim_rengi = (fd.donanim_rengi?.value || '').trim();
-  p.stil = (fd.stil?.value || '').trim();
+  // NOT: 'stil' kaldirildi (2026-05-13) — kategori_alt + boyut yeterli.
   p.sapli_sapsiz = (fd.sapli_sapsiz?.value || 'Saplı');
-  // Görsel
-  if(state.editingImage){
-    p.cover = state.editingImage;
+  // Görseller (5'li galeri)
+  const imgs = state.editingImages.filter(Boolean);
+  if(imgs.length > 0){
+    p.images = imgs;
+    p.cover = imgs[0];
   } else {
+    p.images = [];
     delete p.cover;
     if(p.gorseller) delete p.gorseller.cover;
   }
+  state.editingImage = imgs[0] || null;
   // variation_id (composite)
   p.variation_id = makeVarId(p.sku, p.renk, p.boyut, p.donanim);
   // slug
@@ -6939,7 +6891,7 @@ async function saveModal(){
         ana_renk: p.ana_renk, ana_renk_hex: p.ana_renk_hex,
         ikincil_renk: p.ikincil_renk, ikincil_renk_hex: p.ikincil_renk_hex,
         desen: p.desen, ana_malzeme: p.ana_malzeme,
-        donanim_rengi: p.donanim_rengi, stil: p.stil, sapli_sapsiz: p.sapli_sapsiz,
+        donanim_rengi: p.donanim_rengi, sapli_sapsiz: p.sapli_sapsiz,
         renk: p.renk, renk_hex: p.renk_hex, boyut: p.boyut, donanim: p.donanim,
         fiyat_eur: p.fiyat_eur, stok: p.stok,
         kondisyon: p.kondisyon, aciklama: p.aciklama, sezon: p.sezon,
@@ -9418,8 +9370,6 @@ async function init(){
     bindEl('#btn-order-cancel', 'click', () => { if(state.editingOrder) cancelApprovedOrder(state.editingOrder); closeOrderModal(); });
     bindEl('#btn-order-delete', 'click', () => { if(state.editingOrder) deleteOrder(state.editingOrder); });
     bindEl('#btn-add-line', 'click', addLineFromPicker);
-    // parseAndAddFromWa eski WhatsApp paste parser (kullanılmıyor) — orphan binding kaldırıldı.
-    // bindEl('#btn-parse-wa', 'click', parseAndAddFromWa);  // ReferenceError, defensive disable
     bindEl('#btn-empty-new-order', 'click', () => openOrderModal(null));
     bindEl('#order-modal', 'click', e => { if(e.target === document.querySelector('#order-modal')) closeOrderModal(); });
   });
@@ -9695,8 +9645,14 @@ const ADMIN_SESSION_KEY = 'botl_admin_session';
 const ADMIN_SESSION_TTL_MS = 24 * 60 * 60 * 1000; // 24 saat
 const GH_PAT_KEY = 'botl_admin_gh_pat';
 const GH_REPO_OWNER = 'cantacigeldi';
+// Mirror = canlı GH Pages sitesi (zorunlu, ana hedef)
 const GH_REPO_NAME = 'cantacigeldi.github.io';
 const GH_DATA_PATH = 'data.json';
+// Kaynak = MCP repo (opsiyonel, varsa eşzamanlı yazılır). dist/catalog/data.json
+// .gitignore'da olduğu için kaynak repo'da data.json yok — dual-write skip edilir
+// ama audit jsonl append'i kaynak repo'da yapılır (B6). Path'i hazır bekleyelim.
+const GH_SOURCE_REPO_NAME = 'bags-of-the-loom-katalog';
+const GH_SOURCE_DATA_PATH = 'dist/catalog/data.json';
 const GH_BRANCH = 'main';
 
 async function adminHashPassword(plain){
@@ -9799,6 +9755,16 @@ function utf8ToBase64(str){
   return btoa(bin);
 }
 
+function base64ToUtf8(b64){
+  // atob → byte → TextDecoder. GitHub content blob'ları için.
+  // GitHub base64 satır satır gelir (\n ile bölünmüş) — temizle.
+  const clean = String(b64 || '').replace(/\s+/g, '');
+  const bin = atob(clean);
+  const bytes = new Uint8Array(bin.length);
+  for(let i = 0; i < bin.length; i++) bytes[i] = bin.charCodeAt(i);
+  return new TextDecoder('utf-8').decode(bytes);
+}
+
 // HTTP status → Türkçe açıklama (patron için anlaşılır)
 function ghStatusToTurkish(status, raw){
   if(status === 401) return 'Token yanlış veya süresi dolmuş — yeni PAT oluştur';
@@ -9817,8 +9783,11 @@ function ghStatusToTurkish(status, raw){
   return `Beklenmeyen hata (${status})`;
 }
 
-async function ghGetCurrentSha(token){
-  const url = `https://api.github.com/repos/${GH_REPO_OWNER}/${GH_REPO_NAME}/contents/${GH_DATA_PATH}?ref=${GH_BRANCH}`;
+// Dual-write desteği: repoName + path opsiyonel parametre. Default = mirror (GH Pages).
+async function ghGetCurrentSha(token, repoName, path){
+  const _repo = repoName || GH_REPO_NAME;
+  const _path = path || GH_DATA_PATH;
+  const url = `https://api.github.com/repos/${GH_REPO_OWNER}/${_repo}/contents/${_path}?ref=${GH_BRANCH}`;
   let r;
   try {
     r = await fetch(url, {
@@ -9845,8 +9814,10 @@ async function ghGetCurrentSha(token){
   return j.sha;
 }
 
-async function ghPutDataJson(token, content, sha, commitMsg){
-  const url = `https://api.github.com/repos/${GH_REPO_OWNER}/${GH_REPO_NAME}/contents/${GH_DATA_PATH}`;
+async function ghPutDataJson(token, content, sha, commitMsg, repoName, path){
+  const _repo = repoName || GH_REPO_NAME;
+  const _path = path || GH_DATA_PATH;
+  const url = `https://api.github.com/repos/${GH_REPO_OWNER}/${_repo}/contents/${_path}`;
   const body = {
     message: commitMsg,
     content: utf8ToBase64(content),
@@ -9878,6 +9849,125 @@ async function ghPutDataJson(token, content, sha, commitMsg){
     throw err;
   }
   return r.json();
+}
+
+// Tek hedefe (mirror veya kaynak) data.json yazma — SHA okuma + 3x retry içerir.
+// Returns {sha, url, msg, repo, status:'ok'|'skip'|'fail', error?}
+async function ghPutWithRetry(token, content, commitMsg, repoName, path, label){
+  const _repo = repoName || GH_REPO_NAME;
+  const _path = path || GH_DATA_PATH;
+  const _label = label || _repo;
+  let sha = null;
+  let lastErr = null;
+  // SHA okuma
+  try {
+    sha = await ghGetCurrentSha(token, _repo, _path);
+  } catch(e){
+    // 404 ile karıştırma: ghGetCurrentSha 404'te null döner. Diğer hatalar throw.
+    lastErr = e;
+    if(e.status === 404){
+      sha = null; // yeni commit olarak değerlendir
+    } else {
+      return { repo: _repo, path: _path, label: _label, status: 'fail', error: e };
+    }
+  }
+  // PUT 3x retry (SHA conflict için)
+  let attempt = 0;
+  while(attempt < 3){
+    attempt++;
+    try {
+      const result = await ghPutDataJson(token, content, sha, commitMsg, _repo, _path);
+      return {
+        repo: _repo,
+        path: _path,
+        label: _label,
+        status: 'ok',
+        sha: result.commit.sha,
+        url: result.commit.html_url,
+        attempt,
+      };
+    } catch(e){
+      lastErr = e;
+      const isConflict = e.status === 409 || (e.status === 422 && /sha/i.test(e.raw || ''));
+      if(isConflict && attempt < 3){
+        try { sha = await ghGetCurrentSha(token, _repo, _path); } catch(_){}
+        continue;
+      }
+      return { repo: _repo, path: _path, label: _label, status: 'fail', error: e, attempt };
+    }
+  }
+  return { repo: _repo, path: _path, label: _label, status: 'fail', error: lastErr };
+}
+
+// ── Admin publish audit log → kaynak repo workflow/audit/YYYY/MM.jsonl append ──
+// yetki-mimari.md: "admin panel commit'i audit'e exported_by:admin-panel ile düşer"
+// Bu fonksiyon GET → decode → append → encode → PUT pattern'i ile çalışır.
+// Best-effort: fail edersse ana publish flow'u bozmaz (catch ile yutulur).
+async function ghAuditAppend(token, entry){
+  if(!token || !entry) return { status: 'skip', reason: 'no token or entry' };
+  const now = new Date();
+  const yyyy = now.getUTCFullYear();
+  const mm = String(now.getUTCMonth() + 1).padStart(2, '0');
+  const auditPath = `workflow/audit/${yyyy}/${mm}.jsonl`;
+  const repoName = GH_SOURCE_REPO_NAME;
+  // 1) Mevcut SHA + content (jsonl)
+  let sha = null;
+  let existing = '';
+  try {
+    const url = `https://api.github.com/repos/${GH_REPO_OWNER}/${repoName}/contents/${auditPath}?ref=${GH_BRANCH}`;
+    const r = await fetch(url, {
+      headers: {
+        'Authorization': `Bearer ${token}`,
+        'Accept': 'application/vnd.github+json',
+        'X-GitHub-Api-Version': '2022-11-28',
+      },
+    });
+    if(r.ok){
+      const j = await r.json();
+      sha = j.sha;
+      existing = base64ToUtf8(j.content || '');
+    } else if(r.status === 404){
+      // Yeni dosya — sha null, content boş
+    } else {
+      const txt = await r.text().catch(()=>'');
+      return { status: 'fail', reason: 'audit GET ' + r.status + ' ' + txt.slice(0, 200) };
+    }
+  } catch(e){
+    return { status: 'fail', reason: 'audit GET network: ' + e.message };
+  }
+  // 2) Append entry as new jsonl line
+  const line = JSON.stringify(entry);
+  const newContent = existing.endsWith('\n') || existing === ''
+    ? existing + line + '\n'
+    : existing + '\n' + line + '\n';
+  // 3) PUT
+  try {
+    const putUrl = `https://api.github.com/repos/${GH_REPO_OWNER}/${repoName}/contents/${auditPath}`;
+    const body = {
+      message: `audit(admin): ${entry.action || 'event'} — ${entry.commit_mirror ? entry.commit_mirror.slice(0,7) : 'manual'}`,
+      content: utf8ToBase64(newContent),
+      branch: GH_BRANCH,
+    };
+    if(sha) body.sha = sha;
+    const r = await fetch(putUrl, {
+      method: 'PUT',
+      headers: {
+        'Authorization': `Bearer ${token}`,
+        'Accept': 'application/vnd.github+json',
+        'Content-Type': 'application/json',
+        'X-GitHub-Api-Version': '2022-11-28',
+      },
+      body: JSON.stringify(body),
+    });
+    if(!r.ok){
+      const txt = await r.text().catch(()=>'');
+      return { status: 'fail', reason: 'audit PUT ' + r.status + ' ' + txt.slice(0, 200) };
+    }
+    const j = await r.json();
+    return { status: 'ok', sha: j.commit && j.commit.sha, url: j.commit && j.commit.html_url, path: auditPath };
+  } catch(e){
+    return { status: 'fail', reason: 'audit PUT network: ' + e.message };
+  }
 }
 
 // localStorage'da son N commit history (max 10 entry)
@@ -10024,68 +10114,82 @@ async function ghDoPush(){
       ghLog(`Uyarı: data.json ${sizeKB}KB — 1MB üstü Contents API limit aşar. Catalog_sync_data parça parça yazılmalı.`, true);
     }
 
-    ghLog('GitHub repo SHA okunuyor…');
-    let sha = null;
-    sha = await ghGetCurrentSha(token);
-    ghLog(sha ? `Mevcut SHA: ${sha.slice(0,7)}…` : 'data.json yok (ilk commit olacak)');
+    // ── DUAL-WRITE: mirror (canlı GH Pages) + kaynak (MCP repo) eşzamanlı ──
+    // Mirror = zorunlu (canlı yayın). Kaynak = opsiyonel (dosya yoksa skip).
+    ghLog('Dual-write: mirror + kaynak repo paralel yazım hazırlanıyor…');
 
-    let attempt = 0;
-    let lastErr = null;
-    while(attempt < 3){
-      attempt++;
-      try{
-        ghLog(`PUT istek gönderiliyor (deneme ${attempt}/3)…`);
-        const result = await ghPutDataJson(token, content, sha, commitMsg);
-        const commitSha = result.commit.sha;
-        const commitUrl = result.commit.html_url;
-        ghLog(`✓ Commit: ${commitSha.slice(0,7)}`);
-        ghLog(`URL: ${commitUrl}`);
-        ghLog('GitHub Pages rebuild başladı — 30-90 saniye içinde yayında. F5 ile doğrula.');
+    const mirrorP = ghPutWithRetry(token, content, commitMsg, GH_REPO_NAME, GH_DATA_PATH, 'mirror (GH Pages)');
+    const kaynakP = ghPutWithRetry(token, content, commitMsg, GH_SOURCE_REPO_NAME, GH_SOURCE_DATA_PATH, 'kaynak (MCP repo)');
 
-        // History append
-        ghHistoryAppend({
-          ts: new Date().toISOString(),
-          sha: commitSha,
-          url: commitUrl,
-          msg: commitMsg,
-          size_kb: Number(sizeKB),
-        });
-        ghHistoryRender();
+    const [mirrorRes, kaynakRes] = await Promise.all([mirrorP, kaynakP]);
 
-        // Taslakları temizle (artık canlıda)
-        try{ localStorage.removeItem(STORAGE_KEY); }catch(e){}
-        if(typeof updateDataSourceBanner === 'function') updateDataSourceBanner();
-        if(typeof toast === 'function'){
-          toast(`✓ Canlıya gönderildi — ${commitSha.slice(0,7)} · 30-90sn içinde yayında`, false);
-        }
+    // Mirror sonucu
+    if(mirrorRes.status === 'ok'){
+      ghLog(`✓ mirror commit: ${mirrorRes.sha.slice(0,7)} · ${mirrorRes.url}`);
+    } else {
+      const err = mirrorRes.error || new Error('mirror push başarısız');
+      // 401 ise token'i sil
+      if(err.status === 401){
+        ghClearPat();
+        ghLog('Geçersiz token bu tarayıcıdan silindi. Yeni token ile tekrar dene.', true);
+      }
+      ghLog(`✗ mirror HATA: ${err.message}`, true);
+      throw new Error('mirror (canlı GH Pages) yazılamadı: ' + err.message);
+    }
 
-        btn.textContent = 'Gönderildi ✓';
-        setTimeout(()=>{ ghModalClose(); btn.disabled = false; cancelBtn.disabled = false; btn.textContent = 'Gönder'; }, 2400);
-        return;
-      }catch(e){
-        lastErr = e;
-        // 409 (SHA conflict) → SHA refresh + retry
-        // 422 with "sha" → aynı şekilde retry
-        const isConflict = e.status === 409 || (e.status === 422 && /sha/i.test(e.raw || ''));
-        if(isConflict && attempt < 3){
-          ghLog(`SHA conflict — yeniden okuyup denenecek (${attempt}/3)`, true);
-          try {
-            sha = await ghGetCurrentSha(token);
-          } catch(reSe){
-            ghLog('SHA yeniden okunamadı: ' + reSe.message, true);
-            throw reSe;
-          }
-          continue;
-        }
-        // 401 ise token'i sil — bir sonraki açılışta yeniden istesin
-        if(e.status === 401){
-          ghClearPat();
-          ghLog('Geçersiz token bu tarayıcıdan silindi. Yeni token ile tekrar dene.', true);
-        }
-        throw e;
+    // Kaynak sonucu — fail'i ölümcül sayma, çünkü data.json kaynak repo'da .gitignore'da olabilir
+    if(kaynakRes.status === 'ok'){
+      ghLog(`✓ kaynak commit: ${kaynakRes.sha.slice(0,7)} · ${kaynakRes.url}`);
+    } else {
+      const err = kaynakRes.error || new Error('kaynak push başarısız');
+      if(err.status === 404){
+        ghLog('ℹ kaynak repo\'da bu dosya yok (data.json gitignored) — sadece mirror güncellendi', false);
+      } else {
+        ghLog(`⚠ kaynak yazımı atlandı: ${err.message} (mirror başarılı, sistem etkilenmedi)`, true);
       }
     }
-    throw lastErr || new Error('3 deneme başarısız');
+
+    ghLog('GitHub Pages rebuild başladı — 30-90 saniye içinde yayında. F5 ile doğrula.');
+
+    // History append (mirror SHA esas)
+    ghHistoryAppend({
+      ts: new Date().toISOString(),
+      sha: mirrorRes.sha,
+      url: mirrorRes.url,
+      msg: commitMsg,
+      size_kb: Number(sizeKB),
+      kaynak_status: kaynakRes.status,
+      kaynak_sha: kaynakRes.sha || null,
+    });
+    ghHistoryRender();
+
+    // Audit endpoint (B6): admin publish event'i kaynak repo audit jsonl'a append.
+    // Kaynak repo'ya audit yazımı ghAuditAppend ile yapılır (commit 4'te tanımlandı).
+    if(typeof ghAuditAppend === 'function'){
+      ghAuditAppend(token, {
+        ts: new Date().toISOString(),
+        source: 'admin_panel',
+        actor: 'patron',
+        action: 'data_publish',
+        commit_mirror: mirrorRes.sha,
+        commit_kaynak: kaynakRes.sha || null,
+        kaynak_status: kaynakRes.status,
+        diff_summary: commitMsg,
+        size_kb: Number(sizeKB),
+      }).catch(e => ghLog('Audit log yazılamadı (kritik değil): ' + e.message, true));
+    }
+
+    // Taslakları temizle (artık canlıda)
+    try{ localStorage.removeItem(STORAGE_KEY); }catch(e){}
+    if(typeof updateDataSourceBanner === 'function') updateDataSourceBanner();
+    if(typeof toast === 'function'){
+      const kSuffix = kaynakRes.status === 'ok' ? ' (kaynak+mirror)' : ' (sadece mirror)';
+      toast(`✓ Canlıya gönderildi — ${mirrorRes.sha.slice(0,7)}${kSuffix} · 30-90sn`, false);
+    }
+
+    btn.textContent = 'Gönderildi ✓';
+    setTimeout(()=>{ ghModalClose(); btn.disabled = false; cancelBtn.disabled = false; btn.textContent = 'Gönder'; }, 2400);
+    return;
   }catch(e){
     ghLog(`HATA: ${e.message}`, true);
     if(typeof toast === 'function') toast('Gönderim hatası: ' + e.message, true);
