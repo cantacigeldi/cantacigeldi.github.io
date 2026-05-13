@@ -1989,14 +1989,15 @@ body.auth-gate-active > footer{display:none!important}
   display:none;
 }
 .acct-order.open .acct-order__detail{display:block}
+#page-orders .acct-order__detail{display:block}
 .acct-order__item{
   display:flex;align-items:center;gap:10px;
   padding:8px 0;border-bottom:1px solid var(--border);
 }
 .acct-order__item:last-child{border-bottom:0}
 .acct-order__item-img{
-  width:50px;height:50px;background:var(--bg-alt);
-  border:1px solid var(--border);object-fit:cover;
+  width:64px;height:64px;background:var(--bg-alt);
+  border:1px solid var(--border);object-fit:cover;border-radius:6px;
   flex:0 0 auto;
 }
 .acct-order__item-info{flex:1;min-width:0}
@@ -6623,6 +6624,7 @@ function buildOrderObject(items, session, totalEur){
       renk: p.renk || null,
       boyut: p.boyut || null,
       donanim: p.donanim || null,
+      cover: p.cover || null,
       qty,
       birim_fiyat_eur: fiyat,
       satir_toplam_eur: fiyat * qty,
@@ -7384,27 +7386,30 @@ async function saveAccountProfile(e){
     // Diğer hatalar → draft fallback
   }
 
-  // Fallback: localStorage draft (backend kapalı / network yok)
-  const draft = Object.assign({ customer_id: s.customer_id, _updated_at: new Date().toISOString() }, vals);
-  saveProfileDraft(draft);
+  // Backend kapalı — localStorage'a kaydet
   const sess = getSession();
   if(sess){
     sess.isim = vals.isim;
     sess.kullanici_adi = vals.kullanici_adi;
     sess.email = vals.email;
+    sess.telefon = vals.telefon;
+    sess.adres = vals.adres;
+    sess.posta_kodu = vals.posta_kodu;
+    sess.sehir = vals.sehir;
+    sess.ulke = vals.ulke;
     setSession(sess);
   }
   refreshAuthUI();
   renderAccountProfile();
-  toast('Çevrimdışı — değişiklik taslakta. Sunucu açıldığında uygulanır.');
+  toast('Bilgileriniz güncellendi.');
 }
 
 function resetAccountProfile(){
-  if(!confirm('Bekleyen değişiklikleri iptal etmek istiyor musunuz?')) return;
+  if(!confirm('Değişiklikleri sıfırlamak istiyor musunuz?')) return;
   clearProfileDraft();
   refreshAuthUI();
   renderAccountProfile();
-  toast('Taslak değişiklikler silindi.');
+  toast('Bilgiler sıfırlandı.');
 }
 
 // ─── ACCombobox: reusable autocomplete ──────────────
@@ -7548,6 +7553,24 @@ function findProductByVariation(vid){
   const products = (window.__BOTL_DATA__ && window.__BOTL_DATA__.products) || (window.PRODUCTS || []);
   return products.find(p => p.variation_id === vid) || null;
 }
+function findProductFuzzy(it){
+  if(!it) return null;
+  const products = (window.__BOTL_DATA__ && window.__BOTL_DATA__.products) || (window.PRODUCTS || []);
+  const exact = products.find(p => p.variation_id === it.variation_id);
+  if(exact) return exact;
+  const sku = it.sku_master || it.sku;
+  if(sku){
+    const bySku = products.filter(p => p.sku === sku);
+    if(bySku.length === 1) return bySku[0];
+    if(bySku.length > 1 && it.renk){
+      const r = String(it.renk).toUpperCase().replace(/\s+/g,'_');
+      const byRenk = bySku.find(p => String(p.renk).toUpperCase().replace(/\s+/g,'_') === r);
+      if(byRenk) return byRenk;
+    }
+    if(bySku.length > 0) return bySku[0];
+  }
+  return null;
+}
 
 // Sipariş v2 — durum label/etiket sözlüğü
 const ORDER_DURUM_LABEL = {
@@ -7608,12 +7631,12 @@ function renderAccountOrders(){
     const cancellable = ORDER_CANCELLABLE_STATES.includes(status);
     const closed = ORDER_CLOSED_STATES.includes(status);
     const itemRows = items.map((it, idx) => {
-      const p = findProductByVariation(it.variation_id) || it;
+      const p = findProductFuzzy(it) || it;
       const name = _orderItemName(it, p);
       const fiyat = _orderItemFiyat(it) || Number(p.fiyat_eur || 0);
       const adet = _orderItemQty(it);
       const availMax = (typeof availableOf === 'function' && p && p.variation_id) ? Math.max(adet, availableOf(p)) : adet;
-      const cover = p.cover || '';
+      const cover = p.cover || it.cover || '';
       const lineTotal = fiyat * adet;
       const stepperHtml = editable
         ? `<div class="acct-order__qty-stepper" role="group" aria-label="Adet seç">
@@ -7775,7 +7798,7 @@ function updateOrderItemQty(orderId, itemIdx, value, mode){
   const it = (o.items || [])[itemIdx];
   if(!it) return;
   const oldQty = _orderItemQty(it);
-  const p = findProductByVariation(it.variation_id);
+  const p = findProductFuzzy(it);
   const availMax = (p && typeof availableOf === 'function') ? Math.max(oldQty, availableOf(p)) : 99;
   let newQty;
   if(mode === 'delta') newQty = oldQty + value;
@@ -7847,7 +7870,7 @@ function renderReturnsTable(){
       const fiyat = Number(it.fiyat_eur) || 0;
       const lineTotal = adet * fiyat;
       const vid = it.variation_id || '';
-      const p = findProductByVariation(vid) || it;
+      const p = findProductFuzzy(it) || it;
       const name = it.isim || p.isim_bilinen || p.isim_resmi || vid || '—';
       const renk = it.renk || p.renk || '';
       const boyut = it.boyut || p.boyut || '';
@@ -7920,7 +7943,7 @@ function openIadeModal(orderId, itemIdx){
   const item = (o.items || [])[itemIdx];
   if(!item){ toast('Kalem bulunamadı'); return; }
   pendingIadeContext = { order: o, item, itemIdx };
-  const p = findProductByVariation(item.variation_id) || item;
+  const p = findProductFuzzy(item) || item;
   const name = item.isim || p.isim_bilinen || p.isim_resmi || item.variation_id || '—';
   const sub = $('#iade-modal-sub');
   if(sub){
