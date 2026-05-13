@@ -1226,10 +1226,12 @@ a{color:inherit;text-decoration:none}
 .bulk-bar{display:flex;flex-direction:column;align-items:center;gap:6px;padding:10px 20px 12px;background:var(--accent);color:#fff;border-radius:10px;font-size:13px;position:fixed;bottom:16px;left:50%;transform:translateX(-50%);z-index:900;box-shadow:0 4px 20px rgba(0,0,0,.5);width:auto;max-width:calc(100% - 32px);box-sizing:border-box}
 .bulk-bar .bulk-bar-actions{display:flex;gap:8px;width:100%}
 .bulk-bar .bulk-bar-actions .btn{flex:1;white-space:nowrap;text-align:center}
-.bulk-bar .btn{color:#fff;border-color:rgba(255,255,255,.4);font-size:12px;padding:6px 14px}
-.bulk-bar .btn--primary{background:rgba(255,255,255,.2);border-color:rgba(255,255,255,.5)}
+.bulk-bar .btn{background:rgba(255,255,255,.14);color:#fff;border-color:rgba(255,255,255,.45);font-size:12px;padding:6px 14px}
+.bulk-bar .btn:hover{background:rgba(255,255,255,.24);border-color:rgba(255,255,255,.6)}
+.bulk-bar .btn--primary{background:#fff;color:var(--accent);border-color:#fff;font-weight:600}
+.bulk-bar .btn--primary:hover{opacity:.92;background:#fff}
 /* ─── Bulk Price Modal ───────────────────────────────── */
-.bulk-modal{position:fixed;inset:0;z-index:1000;background:var(--overlay);display:none;align-items:center;justify-content:center;padding:20px}
+.bulk-modal{position:fixed;inset:0;z-index:1000;background:rgba(0,0,0,.55);display:none;align-items:center;justify-content:center;padding:20px}
 .bulk-modal.open{display:flex}
 .bulk-modal__panel{background:var(--bg);border:1px solid var(--border);border-radius:10px;padding:28px;width:100%;max-width:420px}
 .bulk-modal__title{font-family:var(--serif);font-size:18px;margin-bottom:16px;letter-spacing:.08em}
