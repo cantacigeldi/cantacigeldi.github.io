@@ -1229,7 +1229,8 @@ a{color:inherit;text-decoration:none}
 .bulk-bar .btn{color:#fff;border-color:rgba(255,255,255,.4);font-size:12px;padding:6px 14px}
 .bulk-bar .btn--primary{background:rgba(255,255,255,.2);border-color:rgba(255,255,255,.5)}
 /* ─── Bulk Price Modal ───────────────────────────────── */
-.bulk-modal{position:fixed;inset:0;z-index:1000;background:var(--overlay);display:flex;align-items:center;justify-content:center;padding:20px}
+.bulk-modal{position:fixed;inset:0;z-index:1000;background:var(--overlay);display:none;align-items:center;justify-content:center;padding:20px}
+.bulk-modal.open{display:flex}
 .bulk-modal__panel{background:var(--bg);border:1px solid var(--border);border-radius:10px;padding:28px;width:100%;max-width:420px}
 .bulk-modal__title{font-family:var(--serif);font-size:18px;margin-bottom:16px;letter-spacing:.08em}
 .bulk-modal label{display:block;font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--text-faint);margin-bottom:4px;margin-top:14px}
@@ -6982,7 +6983,7 @@ function openBulkPriceModal(){
   const allBrands = [...new Set(allMasters.map(m=>m.marka))].sort();
   const allModels = [...new Set(allMasters.map(m=>(m.isim_bilinen||m.isim_resmi||'').split(',')[0].trim()))].filter(Boolean).sort();
   const allCats = [...new Set(state.products.map(p=>p.kategori_alt||p.kategori).filter(Boolean))].sort();
-  modal.hidden = false;
+  modal.classList.add('open');
   modal.innerHTML = `
     <div class="bulk-modal__panel">
       <div class="bulk-modal__title">Toplu Fiyat Değiştir</div>
@@ -7040,7 +7041,7 @@ function openBulkPriceModal(){
   ['bp-marka','bp-model','bp-kat','bp-mode'].forEach(id => $('#'+id).addEventListener('change', updatePreview));
   $('#bp-value').addEventListener('input', updatePreview);
   updatePreview();
-  $('#bp-cancel').addEventListener('click', () => { modal.hidden = true; });
+  $('#bp-cancel').addEventListener('click', () => { modal.classList.remove('open'); });
   $('#bp-apply').addEventListener('click', () => {
     const mode = $('#bp-mode').value;
     const val = Number($('#bp-value').value) || 0;
@@ -7062,7 +7063,7 @@ function openBulkPriceModal(){
       }
     }
     save();
-    modal.hidden = true;
+    modal.classList.remove('open');
     state.selectedMasters.clear();
     renderAll();
     toast(`${changed} varyasyonda fiyat güncellendi`);
