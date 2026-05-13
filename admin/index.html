@@ -1195,6 +1195,48 @@ a{color:inherit;text-decoration:none}
 .gallery-slot:hover .gallery-slot__remove{display:flex}
 .gallery-slot__loading{position:absolute;inset:0;background:var(--overlay-light);display:flex;align-items:center;justify-content:center;font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--text)}
 @media(max-width:500px){.gallery-grid{grid-template-columns:1fr 1fr;gap:6px}.gallery-slot:first-child{grid-row:auto}}
+/* ─── Master Detail View ─────────────────────────────── */
+.master-detail{position:fixed;inset:0;z-index:900;background:var(--bg);overflow-y:auto;padding:0 0 60px}
+.master-detail__header{display:flex;align-items:center;gap:16px;padding:20px 24px 12px;border-bottom:1px solid var(--border);position:sticky;top:0;background:var(--bg);z-index:2}
+.master-detail__back{background:none;border:1px solid var(--border-strong);color:var(--text);padding:6px 14px;border-radius:6px;cursor:pointer;font-size:13px;letter-spacing:.04em}
+.master-detail__back:hover{background:var(--bg-alt)}
+.master-detail__title{font-family:var(--serif);font-size:18px;letter-spacing:.04em;flex:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0}
+.master-detail__info{padding:20px 24px;display:grid;grid-template-columns:auto 1fr;gap:8px 20px;font-size:13px;max-width:600px}
+.master-detail__info dt{color:var(--text-faint);text-transform:uppercase;font-size:10px;letter-spacing:.08em}
+.master-detail__info dd{margin:0;font-weight:500}
+.var-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:16px;padding:0 24px 24px}
+.var-card{background:var(--bg-alt);border:1px solid var(--border);border-radius:8px;overflow:hidden;transition:border-color .15s}
+.var-card:hover{border-color:var(--accent)}
+.var-card__img{aspect-ratio:4/5;background:var(--bg);overflow:hidden}
+.var-card__img img{width:100%;height:100%;object-fit:cover;display:block}
+.var-card__img-placeholder{width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-size:28px;color:var(--text-faint);letter-spacing:.16em}
+.var-card__body{padding:12px 14px}
+.var-card__color{display:flex;align-items:center;gap:8px;font-weight:600;font-size:14px;margin-bottom:6px}
+.var-card__color span{width:14px;height:14px;border-radius:50%;border:1px solid var(--border-strong);flex-shrink:0}
+.var-card__meta{font-size:12px;color:var(--text-faint);line-height:1.6}
+.var-card__row{display:flex;justify-content:space-between;align-items:center;margin-top:8px}
+.var-card__price{font-weight:600;font-size:15px}
+.var-card__stok{font-size:12px;color:var(--text-faint)}
+.var-card__actions{display:flex;gap:6px;margin-top:10px}
+.var-card__actions button{flex:1;padding:6px 0;border:1px solid var(--border-strong);background:none;color:var(--text);border-radius:5px;cursor:pointer;font-size:11px;letter-spacing:.04em;transition:background .15s}
+.var-card__actions button:hover{background:var(--bg)}
+.var-card__actions button.btn--danger{color:var(--danger);border-color:var(--danger)}
+.var-section-title{padding:16px 24px 8px;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--text-faint);font-weight:600}
+/* ─── Bulk Bar ───────────────────────────────────────── */
+.bulk-bar{display:flex;align-items:center;gap:12px;padding:10px 16px;background:var(--accent);color:#fff;border-radius:6px;font-size:13px;position:fixed;bottom:16px;left:50%;transform:translateX(-50%);z-index:900;box-shadow:0 4px 20px rgba(0,0,0,.5);white-space:nowrap;max-width:calc(100% - 32px)}
+.bulk-bar .btn{color:#fff;border-color:rgba(255,255,255,.4);font-size:12px;padding:5px 12px}
+.bulk-bar .btn--primary{background:rgba(255,255,255,.2);border-color:rgba(255,255,255,.5)}
+/* ─── Bulk Price Modal ───────────────────────────────── */
+.bulk-modal{position:fixed;inset:0;z-index:1000;background:var(--overlay);display:flex;align-items:center;justify-content:center;padding:20px}
+.bulk-modal__panel{background:var(--bg);border:1px solid var(--border);border-radius:10px;padding:28px;width:100%;max-width:420px}
+.bulk-modal__title{font-family:var(--serif);font-size:18px;margin-bottom:16px;letter-spacing:.08em}
+.bulk-modal label{display:block;font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--text-faint);margin-bottom:4px;margin-top:14px}
+.bulk-modal select,.bulk-modal input{width:100%;padding:8px 10px;background:var(--bg-alt);border:1px solid var(--border-strong);color:var(--text);border-radius:5px;font-size:14px}
+.bulk-modal__preview{margin-top:16px;padding:12px;background:var(--bg-alt);border-radius:6px;font-size:12px;line-height:1.7;max-height:200px;overflow-y:auto}
+.bulk-modal__row{display:flex;gap:8px;margin-top:20px;justify-content:flex-end}
+.col-check{width:36px;text-align:center}
+.master-row{cursor:pointer}
+.master-row:hover{background:var(--bg-alt)}
 /* ─── Image Upload (legacy) ────────────────────────── */
 .image-upload{
   display:flex;flex-direction:column;gap:10px;
@@ -1682,7 +1724,6 @@ tr.row--re-onay td:first-child{box-shadow:inset 3px 0 0 #C77A17}
       </svg>
     </button>
     <button class="btn btn--primary" id="btn-new">+ Yeni Ürün</button>
-    <button class="btn" id="btn-publish-gh" title="data.json'u GitHub'a commit'le, canlıya yansıt">Canlıya Gönder ↑</button>
     <button class="btn" id="btn-export">Dışa Aktar</button>
     <button class="btn" id="btn-import">İçe Aktar</button>
     <a class="btn" href="../index.html" target="_blank" rel="noopener">Önizleme ↗</a>
@@ -1690,11 +1731,6 @@ tr.row--re-onay td:first-child{box-shadow:inset 3px 0 0 #C77A17}
   </div>
 </header>
 
-<div id="source-banner" class="source-banner" hidden>
-  <span class="source-banner__dot"></span>
-  <span id="source-banner-text">Hazırlanıyor…</span>
-  <span class="source-banner__hint" id="source-banner-hint"></span>
-</div>
 
 <nav class="view-nav" role="tablist">
   <button class="view-nav__tab active" data-view="products" role="tab">Ürünler <span class="view-nav__count" id="nav-count-products">0</span></button>
@@ -1733,19 +1769,14 @@ tr.row--re-onay td:first-child{box-shadow:inset 3px 0 0 #C77A17}
   <table class="table" id="table">
     <thead>
       <tr>
+        <th data-nosort class="col-check"><input type="checkbox" id="check-all" title="Tümünü seç"></th>
         <th data-nosort>Görsel</th>
         <th data-sort="marka">Marka</th>
-        <th data-sort="isim_bilinen">Bilinen Ad</th>
-        <th data-sort="kategori_ust">Üst</th>
-        <th data-sort="kategori_alt">Alt</th>
-        <th data-sort="renk">Renk</th>
-        <th data-sort="boyut">Boyut</th>
-        <th data-sort="donanim">Donanım</th>
-        <th data-sort="deri_tipi">Deri</th>
-        <th data-sort="kondisyon">Kond.</th>
+        <th data-sort="isim_bilinen">Model</th>
+        <th data-sort="kategori_alt">Kategori</th>
+        <th data-nosort>Varyasyonlar</th>
         <th data-sort="fiyat_eur" class="sort-desc">Fiyat €</th>
         <th data-sort="stok">Stok</th>
-        <th data-sort="durum">Durum</th>
         <th data-nosort>Aksiyon</th>
       </tr>
     </thead>
@@ -5338,6 +5369,8 @@ let state = {
   orderSort: { key:'olusturma', dir:'desc' },
   customerSort: { key:'olusturma', dir:'desc' },
   supplierSort: { key:'olusturma', dir:'desc' },
+  selectedMasters: new Set(),
+  currentMasterSku: null,
   editing: null,
   editingOrder: null,
   editingCustomer: null,
@@ -5848,56 +5881,35 @@ function autoSlug(p){
 function save(){
   setSaveStatus('saving');
   try{
-    // Düzenlenen ürünleri _draft=true ile işaretle (mevcut MCP kopyasından farklılaşmış olabilir)
-    const sanitized = state.products.map(p => ({...p, _draft: true, _source: undefined}));
+    const sanitized = state.products.map(({_draft, _source, ...rest}) => rest);
     localStorage.setItem(STORAGE_KEY, JSON.stringify({
       products: sanitized,
       counter: state.counter,
       lastSaved: new Date().toISOString(),
     }));
-    setTimeout(()=>{
-      setSaveStatus('saved');
-      // Banner refresh — taslak sayısı artmış olabilir
-      if(typeof updateDataSourceBanner === 'function') updateDataSourceBanner();
-    }, 250);
+    setTimeout(()=> setSaveStatus('saved'), 250);
   } catch(e){
     setSaveStatus('error');
-    toast('Taslak kaydı başarısız: '+e.message, true);
+    toast('Kayıt başarısız: '+e.message, true);
   }
 }
 
 async function load(){
-  // 1) data.json BİRİNCİL veri kaynağı (MCP catalog_sync_data ile yazar)
   await loadDataJson();
   if(dataJsonCache.loaded && dataJsonCache.products.length){
     state.products = dataJsonCache.products.slice();
     state.counter = Number(dataJsonCache.counters?.sku_counter) ||
                     Number(dataJsonCache.products.length) || 22;
   } else {
-    // 2) Embedded sample (offline / ilk açış)
     state.products = SAMPLE_PRODUCTS.slice();
     state.counter = 22;
   }
-  // 3) localStorage taslak overlay — taslak (PENDING) değişiklikler varsa
   try {
     const raw = localStorage.getItem(STORAGE_KEY);
     if(raw){
       const d = JSON.parse(raw);
       if(d && Array.isArray(d.products) && d.products.length){
-        // Taslak data.json'dan farklıysa overlay et + her ürüne _draft=true işareti
-        const liveIds = new Set(state.products.map(p=>p.variation_id));
-        const draftIds = new Set(d.products.map(p=>p.variation_id));
-        const merged = [];
-        for(const p of d.products){
-          const live = state.products.find(x=>x.variation_id===p.variation_id);
-          const isDraft = !live || JSON.stringify(live) !== JSON.stringify({...p, _draft:undefined});
-          merged.push(isDraft ? {...p, _draft:true} : p);
-        }
-        // data.json'da olup taslakta olmayan ürünler de korunur
-        for(const p of state.products){
-          if(!draftIds.has(p.variation_id)) merged.push(p);
-        }
-        state.products = merged;
+        state.products = d.products;
         state.counter = Number(d.counter) || state.products.length;
       }
     }
@@ -6390,15 +6402,36 @@ function setSaveStatus(s){
   else el.textContent = 'Hazır';
 }
 
+// ─── Master Grouping ───────────────────────────────
+function groupByMaster(variations){
+  const map = {};
+  for(const v of variations){
+    const sku = v.sku || v.variation_id.split('-').slice(0,2).join('-');
+    if(!map[sku]) map[sku] = { sku, marka: v.marka, isim_bilinen: v.isim_bilinen, isim_resmi: v.isim_resmi, kategori_ust: v.kategori_ust, kategori_alt: v.kategori_alt || v.kategori, deri_tipi: v.deri_tipi, variations: [] };
+    map[sku].variations.push(v);
+  }
+  return Object.values(map).map(m => {
+    const vars = m.variations;
+    m.totalStok = vars.reduce((s,v) => s + _totalOfP(v), 0);
+    m.availStok = vars.reduce((s,v) => s + _availableOfP(v), 0);
+    m.minPrice = Math.min(...vars.map(v => Number(v.fiyat_eur)||0));
+    m.maxPrice = Math.max(...vars.map(v => Number(v.fiyat_eur)||0));
+    m.cover = vars[0]?.cover || (vars[0]?.images && vars[0].images[0]) || '';
+    m.colorCount = new Set(vars.map(v => v.renk || v.ana_renk || '')).size;
+    return m;
+  });
+}
+
 // ─── Render: Filters ────────────────────────────────
 function renderChips(){
   const brands = [...new Set(state.products.map(p=>p.marka))].sort();
-  const cats = [...new Set(state.products.map(p=>p.kategori))].sort();
+  const cats = [...new Set(state.products.map(p=>p.kategori_alt || p.kategori))].filter(Boolean).sort();
   const bWrap = $('#brand-chips'); bWrap.innerHTML = '';
   brands.forEach(b=>{
     const btn = document.createElement('button');
     btn.className = 'chip' + (state.filter.brands.has(b)?' active':'');
-    btn.innerHTML = `${b} <span class="chip__count">${state.products.filter(p=>p.marka===b).length}</span>`;
+    const masterCount = groupByMaster(state.products.filter(p=>p.marka===b)).length;
+    btn.innerHTML = `${b} <span class="chip__count">${masterCount}</span>`;
     btn.onclick = ()=>{ state.filter.brands.has(b)?state.filter.brands.delete(b):state.filter.brands.add(b); renderAll(); };
     bWrap.appendChild(btn);
   });
@@ -6406,7 +6439,8 @@ function renderChips(){
   cats.forEach(c=>{
     const btn = document.createElement('button');
     btn.className = 'chip' + (state.filter.categories.has(c)?' active':'');
-    btn.innerHTML = `${c} <span class="chip__count">${state.products.filter(p=>p.kategori===c).length}</span>`;
+    const masterCount = groupByMaster(state.products.filter(p=>(p.kategori_alt||p.kategori)===c)).length;
+    btn.innerHTML = `${c} <span class="chip__count">${masterCount}</span>`;
     btn.onclick = ()=>{ state.filter.categories.has(c)?state.filter.categories.delete(c):state.filter.categories.add(c); renderAll(); };
     cWrap.appendChild(btn);
   });
@@ -6432,199 +6466,178 @@ function _occupiedOfP(p){
 
 // ─── Render: Stats ──────────────────────────────────
 function renderStats(){
-  const active = state.products.filter(p=>p.durum!=='ARSIVLENDI');
-  const total = active.reduce((s,p)=>s+_totalOfP(p),0);
-  const occ = active.reduce((s,p)=>s+_occupiedOfP(p),0);
-  const avail = Math.max(0, total - occ);
-  // Fiyat değeri available bazında — rezerve olanlar varlık ama satışa açık değil
+  const active = state.products;
+  const masters = groupByMaster(active);
+  const totalStok = active.reduce((s,p)=>s+_totalOfP(p),0);
+  const availStok = active.reduce((s,p)=>s+_availableOfP(p),0);
   const value = active.reduce((s,p)=>s+(Number(p.fiyat_eur)||0)*_availableOfP(p),0);
-  $('#stat-count').textContent = active.length;
-  // Stat-stok: total / available göster (rezerve görsel olarak gözüksün)
+  $('#stat-count').textContent = masters.length;
   const stokEl = $('#stat-stok');
   if(stokEl){
-    stokEl.textContent = total === avail ? String(total) : `${avail}/${total}`;
-    stokEl.title = `Toplam: ${total} · Rezerve: ${occ} · Satışa açık: ${avail}`;
+    stokEl.textContent = totalStok === availStok ? String(totalStok) : `${availStok}/${totalStok}`;
+    stokEl.title = `Toplam: ${totalStok} · Satışa açık: ${availStok}`;
   }
   $('#stat-value').textContent = fmt(value);
   $('#stat-brands').textContent = new Set(active.map(p=>p.marka)).size;
-  $('#stat-cats').textContent = new Set(active.map(p=>p.kategori)).size;
-  $('#c-all').textContent = state.products.length;
-  $('#c-stocked').textContent = state.products.filter(p=>p.durum!=='ARSIVLENDI' && _availableOfP(p)>0).length;
-  $('#c-out').textContent = state.products.filter(p=>p.durum!=='ARSIVLENDI' && _availableOfP(p)===0).length;
-  $('#c-archived').textContent = state.products.filter(p=>p.durum==='ARSIVLENDI').length;
+  $('#stat-cats').textContent = new Set(active.map(p=>p.kategori_alt||p.kategori)).size;
+  const mastersFiltered = groupByMaster(filtered());
+  $('#c-all').textContent = masters.length;
+  $('#c-stocked').textContent = groupByMaster(state.products.filter(p=>_availableOfP(p)>0)).length;
+  $('#c-out').textContent = groupByMaster(state.products.filter(p=>_availableOfP(p)===0)).length;
+  // Arşiv konsepti kaldırıldı — chip gizle
+  const archEl = $('[data-status="archived"]');
+  if(archEl) archEl.hidden = true;
 }
 
-// ─── Render: Table ──────────────────────────────────
+// ─── Render: Table (Master Product Grouped) ─────────
 function filtered(){
   let arr = state.products.slice();
   const s = state.filter.status;
-  if(s==='stocked') arr = arr.filter(p=>p.durum!=='ARSIVLENDI' && _availableOfP(p)>0);
-  else if(s==='out') arr = arr.filter(p=>p.durum!=='ARSIVLENDI' && _availableOfP(p)===0);
-  else if(s==='archived') arr = arr.filter(p=>p.durum==='ARSIVLENDI');
+  if(s==='stocked') arr = arr.filter(p=>_availableOfP(p)>0);
+  else if(s==='out') arr = arr.filter(p=>_availableOfP(p)===0);
   if(state.filter.brands.size) arr = arr.filter(p=>state.filter.brands.has(p.marka));
-  if(state.filter.categories.size) arr = arr.filter(p=>state.filter.categories.has(p.kategori));
+  if(state.filter.categories.size) arr = arr.filter(p=>state.filter.categories.has(p.kategori_alt||p.kategori));
   if(state.filter.search){
     const q = state.filter.search.toLowerCase();
-    arr = arr.filter(p=>(`${p.marka} ${p.isim_resmi||''} ${p.isim_bilinen||''} ${p.sku} ${p.variation_id} ${p.slug||''} ${p.deri_tipi||''}`).toLowerCase().includes(q));
+    arr = arr.filter(p=>(`${p.marka} ${p.isim_resmi||''} ${p.isim_bilinen||''} ${p.sku} ${p.variation_id} ${p.slug||''} ${p.deri_tipi||''} ${p.renk||''} ${p.ana_renk||''}`).toLowerCase().includes(q));
   }
-  const {key,dir} = state.sort;
-  const mult = dir==='asc' ? 1 : -1;
-  arr.sort((a,b)=>{
-    let av = a[key], bv = b[key];
-    // undefined/null en sona
-    const aNull = av===undefined || av===null || av==='';
-    const bNull = bv===undefined || bv===null || bv==='';
-    if(aNull && bNull) return 0;
-    if(aNull) return 1;
-    if(bNull) return -1;
-    // sayı vs string
-    if(typeof av === 'number' && typeof bv === 'number') return (av-bv) * mult;
-    av = String(av).toLowerCase();
-    bv = String(bv).toLowerCase();
-    return av.localeCompare(bv,'tr') * mult;
-  });
   return arr;
 }
 
-const KONDISYON = ['BNIB','BNWT','VGC','GC','FC','WORN'];
-function rowHTML(p){
-  const initials = (p.marka||'').split(/\s+/).map(w=>w[0]||'').join('').slice(0,2).toUpperCase();
-  const cardName = (p.isim_bilinen||p.isim_resmi||'').split(',')[0].trim();
-  const _avail = _availableOfP(p);
-  const _total = _totalOfP(p);
-  const _occ = _occupiedOfP(p);
-  const stokCls = _avail===0?'table__stok--out':_avail<=2?'table__stok--low':'';
-  // Stok hücresinde inline edit hala TOTAL'i ifade eder (depocu fiziki sayıyı tutar)
-  const stokDisplay = _occ > 0 ? `${_avail}<span style="color:var(--text-faint);font-size:10px"> /${_total}</span>` : `${_avail}`;
-  const stokTitle = `Toplam: ${_total} · Rezerve: ${_occ} · Satışa açık: ${_avail}`;
-  const kondOpts = KONDISYON.map(k=>`<option value="${k}" ${p.kondisyon===k?'selected':''}>${k}</option>`).join('');
-  const isArchived = p.durum==='ARSIVLENDI';
-  const cover = p.cover || (p.images && p.images[0]) || (p.gorseller && p.gorseller.cover);
-  const coverSrc = adminImgSrc(cover);
+function filteredMasters(){
+  const arr = filtered();
+  const masters = groupByMaster(arr);
+  const {key,dir} = state.sort;
+  const mult = dir==='asc' ? 1 : -1;
+  masters.sort((a,b)=>{
+    let av, bv;
+    if(key==='fiyat_eur'){ av = a.maxPrice; bv = b.maxPrice; }
+    else if(key==='stok'){ av = a.totalStok; bv = b.totalStok; }
+    else { av = a[key] || a.variations[0]?.[key]; bv = b[key] || b.variations[0]?.[key]; }
+    const aNull = av===undefined||av===null||av==='';
+    const bNull = bv===undefined||bv===null||bv==='';
+    if(aNull && bNull) return 0;
+    if(aNull) return 1;
+    if(bNull) return -1;
+    if(typeof av==='number' && typeof bv==='number') return (av-bv)*mult;
+    return String(av||'').localeCompare(String(bv||''),'tr')*mult;
+  });
+  return masters;
+}
+
+function masterRowHTML(m){
+  const initials = (m.marka||'').split(/\s+/).map(w=>w[0]||'').join('').slice(0,2).toUpperCase();
+  const cardName = (m.isim_bilinen||m.isim_resmi||'').split(',')[0].trim();
+  const coverSrc = adminImgSrc(m.cover);
   const imgCell = coverSrc
     ? `<div class="table__img"><span class="table__img-placeholder">${initials}</span><img src="${coverSrc}" alt="" loading="lazy" onerror="this.classList.add('is-failed')"></div>`
     : `<div class="table__img"><span class="table__img-placeholder">${initials}</span></div>`;
-  const draftCls = p._draft ? 'row--draft' : '';
-  const draftBadge = p._draft
-    ? ' <span class="draft-badge">taslak</span>'
-    : '';
+  const stokCls = m.availStok===0?'table__stok--out':m.availStok<=2?'table__stok--low':'';
+  const priceDisplay = m.minPrice === m.maxPrice
+    ? fmt(m.minPrice)
+    : `${fmt(m.minPrice)} – ${fmt(m.maxPrice)}`;
+  const colorDots = m.variations.map(v => {
+    const hex = v.ana_renk_hex || v.renk_hex || '#ccc';
+    const label = v.ana_renk || v.renk || '?';
+    return `<span title="${label}" style="display:inline-block;width:12px;height:12px;border-radius:50%;background:${hex};border:1px solid var(--border-strong);cursor:default"></span>`;
+  }).join('');
+  const isChecked = state.selectedMasters?.has(m.sku) ? 'checked' : '';
   return `
-    <tr data-id="${p.variation_id}" class="${isArchived?'archived':''} ${draftCls}">
+    <tr data-sku="${m.sku}" class="master-row">
+      <td class="col-check"><input type="checkbox" class="master-check" value="${m.sku}" ${isChecked}></td>
       <td class="col-thumb">${imgCell}</td>
-      <td class="col-brand"><span class="table__brand">${p.marka}</span></td>
+      <td class="col-brand"><span class="table__brand">${m.marka}</span></td>
       <td class="col-name">
-        <div class="table__name">${cardName}${draftBadge}</div>
-        <span class="table__resmi">${p.isim_resmi||''}</span>
+        <div class="table__name">${cardName}</div>
+        <span class="table__resmi">${m.isim_resmi||''}</span>
       </td>
-      <td class="col-meta col-kat-ust">${p.kategori_ust || KATEGORI_LEGACY_FALLBACK[p.kategori] || '—'}</td>
-      <td class="col-meta col-kat-alt">${p.kategori_alt || p.kategori || '—'}</td>
-      <td class="col-meta col-renk"><span style="display:inline-block;width:10px;height:10px;border-radius:50%;background:${p.renk_hex||p.ana_renk_hex||'#ccc'};vertical-align:middle;margin-right:6px;border:1px solid var(--border-strong)"></span>${renkLabel(p)}</td>
-      <td class="col-meta col-boyut">${p.boyut}</td>
-      <td class="col-meta col-donanim">${p.donanim}</td>
-      <td class="col-meta col-deri">${p.deri_tipi||'—'}</td>
-      <td class="col-meta col-kond">
-        <select class="cell-select" data-field="kondisyon">${kondOpts}</select>
-      </td>
-      <td class="table__price col-price">
-        <span class="editable" data-field="fiyat_eur">${(p.fiyat_eur||0).toLocaleString('tr-TR')}</span>
-      </td>
-      <td class="table__stok col-stok ${stokCls}" title="${stokTitle}">
-        <span class="editable" data-field="stok">${stokDisplay}</span>
-      </td>
-      <td class="col-meta col-durum">
-        <select class="cell-select" data-field="durum">
-          <option value="AKTIF" ${p.durum==='AKTIF'?'selected':''}>AKTIF</option>
-          <option value="ARSIVLENDI" ${p.durum==='ARSIVLENDI'?'selected':''}>ARŞİV</option>
-        </select>
-      </td>
+      <td class="col-meta">${m.kategori_alt || m.kategori_ust || '—'}</td>
+      <td class="col-meta col-vars">${m.variations.length} renk <div style="display:flex;gap:3px;margin-top:3px;flex-wrap:wrap">${colorDots}</div></td>
+      <td class="table__price col-price">${priceDisplay}</td>
+      <td class="table__stok col-stok ${stokCls}">${m.availStok}</td>
       <td class="table__actions col-actions">
-        <button class="row-action" data-action="edit" title="Düzenle" aria-label="Düzenle">
+        <button class="row-action" data-action="detail" title="Detay" aria-label="Detay">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 1 1 3 3L7 19l-4 1 1-4z"/></svg>
-        </button>
-        <button class="row-action row-action--danger" data-action="delete" title="Sil" aria-label="Sil">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18"/><path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/><path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6"/><path d="M10 11v6"/><path d="M14 11v6"/></svg>
         </button>
       </td>
     </tr>`;
 }
 
 function renderTable(){
-  const arr = filtered();
+  const masters = filteredMasters();
   const tbody = $('#tbody');
-  if(arr.length===0){
+  if(masters.length===0){
     tbody.innerHTML = '';
     $('#empty').hidden = false;
   } else {
     $('#empty').hidden = true;
-    tbody.innerHTML = arr.map(rowHTML).join('');
-    bindRowEvents();
+    tbody.innerHTML = masters.map(masterRowHTML).join('');
+    bindMasterRowEvents();
   }
-  // sort indicators
   $$('.table th[data-sort]').forEach(th=>{
     th.classList.remove('sort-asc','sort-desc');
     if(th.dataset.sort===state.sort.key) th.classList.add('sort-'+state.sort.dir);
   });
+  updateBulkBar();
 }
 
-function bindRowEvents(){
-  $$('#tbody tr').forEach(tr=>{
-    const id = tr.dataset.id;
-    tr.querySelectorAll('.editable').forEach(el=>{
-      el.addEventListener('click',e=>startEdit(el, id));
+function bindMasterRowEvents(){
+  if(!state.selectedMasters) state.selectedMasters = new Set();
+  const checkAll = $('#check-all');
+  if(checkAll){
+    checkAll.addEventListener('change', () => {
+      const masters = filteredMasters();
+      if(checkAll.checked) masters.forEach(m => state.selectedMasters.add(m.sku));
+      else state.selectedMasters.clear();
+      renderTable();
     });
-    tr.querySelectorAll('.cell-select').forEach(sel=>{
-      sel.addEventListener('change',e=>{
-        const p = state.products.find(x=>x.variation_id===id);
-        if(!p) return;
-        const field = sel.dataset.field;
-        const eski = p[field];
-        const yeni = sel.value;
-        p[field] = yeni;
-        logActivity('PRODUCT_FIELD_UPDATE', 'product', id, `${field}: ${eski} → ${yeni}`, { field, eski, yeni });
-        save();
-        renderAll();
-      });
-    });
-    tr.querySelector('[data-action="edit"]').addEventListener('click',()=>openModal(id));
-    tr.querySelector('[data-action="delete"]').addEventListener('click',()=>deleteProduct(id));
-  });
-}
-
-function startEdit(el, id){
-  if(el.classList.contains('editable--editing')) return;
-  const original = el.textContent;
-  const field = el.dataset.field;
-  const p = state.products.find(x=>x.variation_id===id);
-  if(!p) return;
-  const val = p[field];
-  el.classList.add('editable--editing');
-  el.innerHTML = `<input type="number" value="${val}" min="0" step="${field==='stok'?'1':'0.01'}">`;
-  const input = el.querySelector('input');
-  input.focus(); input.select();
-  function finish(commit){
-    if(commit){
-      const v = Number(input.value);
-      if(!isNaN(v) && v>=0 && v !== val){
-        p[field] = v;
-        logActivity('PRODUCT_FIELD_UPDATE', 'product', id, `${field}: ${val} → ${v}`, { field, eski: val, yeni: v });
-        save();
-      }
-    }
-    el.classList.remove('editable--editing');
-    renderAll();
   }
-  input.addEventListener('blur',()=>finish(true));
-  input.addEventListener('keydown',e=>{
-    if(e.key==='Enter'){ e.preventDefault(); finish(true); }
-    if(e.key==='Escape'){ e.preventDefault(); el.textContent = original; el.classList.remove('editable--editing'); }
+  $$('#tbody tr.master-row').forEach(tr=>{
+    const sku = tr.dataset.sku;
+    const check = tr.querySelector('.master-check');
+    if(check){
+      check.addEventListener('change', () => {
+        if(check.checked) state.selectedMasters.add(sku);
+        else state.selectedMasters.delete(sku);
+        updateBulkBar();
+      });
+    }
+    tr.querySelector('[data-action="detail"]')?.addEventListener('click',()=>openMasterDetail(sku));
+    tr.addEventListener('click', (e) => {
+      if(e.target.closest('input,button,.row-action')) return;
+      openMasterDetail(sku);
+    });
   });
+}
+
+function updateBulkBar(){
+  if(!state.selectedMasters) state.selectedMasters = new Set();
+  let bar = $('#bulk-bar');
+  if(state.selectedMasters.size === 0){
+    if(bar) bar.hidden = true;
+    return;
+  }
+  if(!bar){
+    bar = document.createElement('div');
+    bar.id = 'bulk-bar';
+    bar.className = 'bulk-bar';
+    document.querySelector('.view--products')?.prepend(bar);
+  }
+  bar.hidden = false;
+  bar.innerHTML = `
+    <span><strong>${state.selectedMasters.size}</strong> ürün seçili</span>
+    <button class="btn btn--primary" id="bulk-price-btn">Toplu Fiyat Değiştir</button>
+    <button class="btn" id="bulk-clear-btn">Seçimi Temizle</button>
+  `;
+  $('#bulk-price-btn').addEventListener('click', openBulkPriceModal);
+  $('#bulk-clear-btn').addEventListener('click', () => { state.selectedMasters.clear(); renderTable(); });
 }
 
 // ─── Modal: Add/Edit ────────────────────────────────
-function openModal(id){
+function openModal(id, masterSku){
   state.editing = id || null;
   state.editingImage = null;
-  $('#modal-title').textContent = id ? 'Ürünü Düzenle' : 'Yeni Ürün';
+  $('#modal-title').textContent = id ? 'Varyasyonu Düzenle' : (masterSku ? 'Yeni Varyasyon' : 'Yeni Ürün');
   $('#btn-delete').hidden = !id;
   const f = $('#form');
   f.reset();
@@ -6673,11 +6686,19 @@ function openModal(id){
     f.elements.kondisyon.value = 'BNIB';
     f.elements.donanim.value = 'GOLD';
     f.elements.durum_aktif.checked = true;
-    // Yeni ürün: kategori input'larını sıfırla
     if(f.elements.kategori_ust){ f.elements.kategori_ust.value = ''; }
     if(f.elements.kategori_alt){ f.elements.kategori_alt.value = ''; }
     refreshKategoriAltOptions('', '');
     syncRenkSsotFields();
+    if(masterSku){
+      const ref = state.products.find(p => (p.sku||'') === masterSku);
+      if(ref){
+        ['marka','isim_resmi','isim_bilinen','deri_tipi','sezon','kategori_ust','kategori_alt','boyut','donanim','ana_malzeme','desen','donanim_rengi','sapli_sapsiz'].forEach(k => {
+          if(f.elements[k] && ref[k]) f.elements[k].value = ref[k];
+        });
+        if(f.elements.kategori_ust) refreshKategoriAltOptions(ref.kategori_ust||'', ref.kategori_alt||'');
+      }
+    }
   }
   // Combobox renk bind (idempotent) — hem 'input' hem 'change' (datalist seçim için)
   if(!f._renkSsotBound){
@@ -6797,7 +6818,7 @@ async function saveModal(){
   p.kondisyon = normalizeCodeJS(fd.kondisyon.value || '') || 'BNIB';
   p.fiyat_eur = Number(fd.fiyat_eur.value);
   p.stok = Number(fd.stok.value);
-  p.durum = fd.durum_aktif.checked ? 'AKTIF' : 'ARSIVLENDI';
+  p.durum = 'AKTIF';
   p.ana_malzeme = (fd.ana_malzeme?.value || '').trim();
   p.desen = (fd.desen?.value || '').trim();
   p.donanim_rengi = (fd.donanim_rengi?.value || '').trim();
@@ -6825,61 +6846,16 @@ async function saveModal(){
     toast('Bu SKU + renk + boyut + donanım kombinasyonu zaten var: '+p.variation_id, true);
     return;
   }
-  // Host bazlı write stratejisi:
-  // - Lokal (file://, localhost): backend HTTP API çalışıyor olabilir → PATCH dene
-  // - Canlı (cantacigeldi.github.io): backend erişilemez (mixed content) → direkt
-  //   taslağa yaz + "Canlıya Gönder" butonuna yönlendir (PAT akışı)
-  const isLocalHost = location.hostname === 'localhost' || location.hostname === '127.0.0.1' || location.protocol === 'file:';
-
   if(isNew){
     state.products.push(p);
     logActivity('PRODUCT_CREATE', 'product', p.variation_id, `${p.marka} ${p.isim_bilinen||p.isim_resmi||''} eklendi`, { product: {...p, cover: p.cover ? '(image)' : null} });
-    save();  // Yeni ürün her zaman önce taslak; canlıya alma "Canlıya Gönder" ile
-    toast('Yeni ürün taslak olarak kaydedildi. Sayfanın üstünden “Canlıya Gönder ↑” basarak yayına al.');
   } else {
     logActivity('PRODUCT_UPDATE', 'product', p.variation_id, `${p.marka} ${p.isim_bilinen||p.isim_resmi||''} güncellendi`, { variation_id: p.variation_id });
-    if(isLocalHost){
-      // Lokalde backend (localhost:8090) çalışıyorsa anlık PATCH + auto publish
-      const apiResult = await window.BotlAPI.patchVariation(p.variation_id, {
-        isim_bilinen: p.isim_bilinen,
-        ana_renk: p.ana_renk, ana_renk_hex: p.ana_renk_hex,
-        ikincil_renk: p.ikincil_renk, ikincil_renk_hex: p.ikincil_renk_hex,
-        desen: p.desen, ana_malzeme: p.ana_malzeme,
-        donanim_rengi: p.donanim_rengi, sapli_sapsiz: p.sapli_sapsiz,
-        renk: p.renk, renk_hex: p.renk_hex, boyut: p.boyut, donanim: p.donanim,
-        fiyat_eur: p.fiyat_eur, stok: p.stok,
-        kondisyon: p.kondisyon, aciklama: p.aciklama, sezon: p.sezon,
-        kategori_ust: p.kategori_ust, kategori_alt: p.kategori_alt,
-      });
-      if(apiResult && apiResult.ok){
-        const n = Object.keys(apiResult.changed||{}).length;
-        toast(`Anında güncellendi: ${n} alan · canlı publish ${apiResult.publish?.ok?'OK':'FAIL'}`);
-      } else {
-        // Backend açıkken hata: 401 ise re-prompt, network ise taslağa düş
-        const reason = apiResult?.status === 401 ? 'admin parola hatalı'
-                     : apiResult?.error === 'network' ? 'backend erişilemez (port 8090 çalışıyor mu?)'
-                     : (apiResult?.detail || apiResult?.error || 'bilinmeyen');
-        toast(`Lokal backend yazamadı (${reason}) — taslak olarak kaydedildi`, true);
-        save();
-      }
-    } else {
-      // CANLI SAYFADA — backend'e fetch atmak ANLAMSIZ (mixed content).
-      // Doğrudan localStorage taslağa yaz, kullanıcıyı "Canlıya Gönder"'e yönlendir.
-      save();
-      toast('Düzenleme taslak olarak kaydedildi. Sayfanın üstünden “Canlıya Gönder ↑” basarak yayına al.');
-      pulsePublishButton();
-    }
   }
+  save();
+  toast(isNew ? 'Ürün kaydedildi' : 'Güncellendi');
   closeModal();
   renderAll();
-}
-
-// "Canlıya Gönder" butonunu kısa süreliğine vurgula — patron'a "buraya bas" sinyali
-function pulsePublishButton(){
-  const btn = document.getElementById('btn-publish-gh');
-  if(!btn) return;
-  btn.classList.add('btn--pulse');
-  setTimeout(() => btn.classList.remove('btn--pulse'), 4000);
 }
 
 function deleteProduct(id){
@@ -6896,6 +6872,197 @@ function deleteProduct(id){
 
 function deleteFromModal(){
   if(state.editing) deleteProduct(state.editing);
+}
+
+// ─── Master Detail View ────────────────────────────
+function openMasterDetail(sku){
+  const vars = state.products.filter(p => (p.sku || p.variation_id.split('-').slice(0,2).join('-')) === sku);
+  if(!vars.length) return;
+  const m = vars[0];
+  state.currentMasterSku = sku;
+  let existing = $('#master-detail');
+  if(!existing){
+    existing = document.createElement('div');
+    existing.id = 'master-detail';
+    existing.className = 'master-detail';
+    document.body.appendChild(existing);
+  }
+  const cardName = (m.isim_bilinen||m.isim_resmi||'').split(',')[0].trim();
+  const totalStok = vars.reduce((s,v) => s + _availableOfP(v), 0);
+  const prices = vars.map(v => Number(v.fiyat_eur)||0);
+  const priceRange = Math.min(...prices) === Math.max(...prices) ? fmt(prices[0]) : `${fmt(Math.min(...prices))} – ${fmt(Math.max(...prices))}`;
+  existing.innerHTML = `
+    <div class="master-detail__header">
+      <button class="master-detail__back" id="md-back">&larr; Geri</button>
+      <div class="master-detail__title">${m.marka} — ${cardName}</div>
+      <button class="btn btn--primary" id="md-add-var">+ Yeni Varyasyon</button>
+    </div>
+    <dl class="master-detail__info">
+      <dt>Marka</dt><dd>${m.marka}</dd>
+      <dt>Model</dt><dd>${cardName}</dd>
+      <dt>Kategori</dt><dd>${m.kategori_ust||'—'} / ${m.kategori_alt||m.kategori||'—'}</dd>
+      <dt>Deri</dt><dd>${m.deri_tipi||'—'}</dd>
+      <dt>SKU</dt><dd>${sku}</dd>
+      <dt>Toplam Stok</dt><dd>${totalStok}</dd>
+      <dt>Fiyat Aralığı</dt><dd>${priceRange}</dd>
+    </dl>
+    <div class="var-section-title">Varyasyonlar (${vars.length})</div>
+    <div class="var-grid" id="var-grid"></div>
+  `;
+  existing.hidden = false;
+  const grid = existing.querySelector('#var-grid');
+  grid.innerHTML = vars.map(v => {
+    const cover = v.cover || (v.images && v.images[0]) || '';
+    const src = adminImgSrc(cover);
+    const initials = (v.marka||'').split(/\s+/).map(w=>w[0]||'').join('').slice(0,2).toUpperCase();
+    const imgContent = src
+      ? `<img src="${src}" alt="" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">`
+      : '';
+    const renkName = v.ana_renk || v.renk || '?';
+    const renkHex = v.ana_renk_hex || v.renk_hex || '#ccc';
+    return `
+      <div class="var-card" data-vid="${v.variation_id}">
+        <div class="var-card__img">
+          ${imgContent}
+          <div class="var-card__img-placeholder" ${src?'style="display:none"':''}>${initials}</div>
+        </div>
+        <div class="var-card__body">
+          <div class="var-card__color"><span style="background:${renkHex}"></span>${renkName}</div>
+          <div class="var-card__meta">
+            ${v.boyut||'—'} · ${v.donanim||'—'} · ${v.kondisyon||'—'}
+          </div>
+          <div class="var-card__row">
+            <span class="var-card__price">${fmt(v.fiyat_eur)}</span>
+            <span class="var-card__stok ${_availableOfP(v)===0?'table__stok--out':''}">Stok: ${_availableOfP(v)}</span>
+          </div>
+          <div class="var-card__actions">
+            <button data-action="edit-var" data-vid="${v.variation_id}">Düzenle</button>
+            <button data-action="del-var" data-vid="${v.variation_id}" class="btn--danger">Sil</button>
+          </div>
+        </div>
+      </div>`;
+  }).join('');
+  existing.querySelector('#md-back').addEventListener('click', closeMasterDetail);
+  existing.querySelector('#md-add-var')?.addEventListener('click', () => {
+    closeMasterDetail();
+    openModal(null, sku);
+  });
+  grid.querySelectorAll('[data-action="edit-var"]').forEach(btn => {
+    btn.addEventListener('click', () => { closeMasterDetail(); openModal(btn.dataset.vid); });
+  });
+  grid.querySelectorAll('[data-action="del-var"]').forEach(btn => {
+    btn.addEventListener('click', () => {
+      deleteProduct(btn.dataset.vid);
+      openMasterDetail(sku);
+    });
+  });
+}
+
+function closeMasterDetail(){
+  const el = $('#master-detail');
+  if(el) el.hidden = true;
+  state.currentMasterSku = null;
+}
+
+// ─── Bulk Price Modal ──────────────────────────────
+function openBulkPriceModal(){
+  if(!state.selectedMasters?.size) return;
+  let modal = $('#bulk-modal');
+  if(!modal){
+    modal = document.createElement('div');
+    modal.id = 'bulk-modal';
+    modal.className = 'bulk-modal';
+    document.body.appendChild(modal);
+  }
+  const allMasters = groupByMaster(state.products);
+  const allBrands = [...new Set(allMasters.map(m=>m.marka))].sort();
+  const allModels = [...new Set(allMasters.map(m=>(m.isim_bilinen||m.isim_resmi||'').split(',')[0].trim()))].filter(Boolean).sort();
+  const allCats = [...new Set(state.products.map(p=>p.kategori_alt||p.kategori).filter(Boolean))].sort();
+  modal.hidden = false;
+  modal.innerHTML = `
+    <div class="bulk-modal__panel">
+      <div class="bulk-modal__title">Toplu Fiyat Değiştir</div>
+      <label>Marka</label>
+      <select id="bp-marka"><option value="all">Tümü</option>${allBrands.map(b=>`<option value="${b}">${b}</option>`).join('')}</select>
+      <label>Model</label>
+      <select id="bp-model"><option value="all">Tümü</option>${allModels.map(m=>`<option value="${m}">${m}</option>`).join('')}</select>
+      <label>Kategori</label>
+      <select id="bp-kat"><option value="all">Tümü</option>${allCats.map(c=>`<option value="${c}">${c}</option>`).join('')}</select>
+      <label for="bp-mode">Mod</label>
+      <select id="bp-mode">
+        <option value="set">Sabit Fiyat Ata</option>
+        <option value="percent">Yüzde Değiştir</option>
+        <option value="add">Tutar Ekle/Çıkar</option>
+      </select>
+      <label for="bp-value">Değer (EUR)</label>
+      <input id="bp-value" type="number" step="0.01" placeholder="ör. 1500 veya -10">
+      <div class="bulk-modal__preview" id="bp-preview"></div>
+      <div class="bulk-modal__row">
+        <button class="btn" id="bp-cancel">İptal</button>
+        <button class="btn btn--primary" id="bp-apply">Uygula</button>
+      </div>
+    </div>
+  `;
+  function getTargetVars(){
+    const marka = $('#bp-marka').value;
+    const model = $('#bp-model').value;
+    const kat = $('#bp-kat').value;
+    return state.products.filter(p => {
+      if(marka !== 'all' && p.marka !== marka) return false;
+      if(model !== 'all' && (p.isim_bilinen||p.isim_resmi||'').split(',')[0].trim() !== model) return false;
+      if(kat !== 'all' && (p.kategori_alt||p.kategori) !== kat) return false;
+      return true;
+    });
+  }
+  function updatePreview(){
+    const mode = $('#bp-mode').value;
+    const val = Number($('#bp-value').value) || 0;
+    const targets = getTargetVars();
+    const preview = $('#bp-preview');
+    let lines = [];
+    for(const v of targets){
+      const old = Number(v.fiyat_eur)||0;
+      let nw;
+      if(mode==='set') nw = val;
+      else if(mode==='percent') nw = Math.round(old * (1 + val/100));
+      else nw = old + val;
+      nw = Math.max(0, nw);
+      if(nw !== old){ const name = (v.isim_bilinen||v.isim_resmi||'').split(',')[0].trim(); const label = name.toLowerCase().startsWith(v.marka.toLowerCase()) ? name : v.marka+' '+name; lines.push(`${label} ${v.ana_renk||v.renk}: ${fmt(old)} → ${fmt(nw)}`); }
+    }
+    const masters = groupByMaster(targets);
+    const header = `<strong>${masters.length} ürün, ${targets.length} varyasyon</strong><br>`;
+    preview.innerHTML = header + (lines.length ? lines.join('<br>') : '<em>Değişiklik yok</em>');
+  }
+  ['bp-marka','bp-model','bp-kat','bp-mode'].forEach(id => $('#'+id).addEventListener('change', updatePreview));
+  $('#bp-value').addEventListener('input', updatePreview);
+  updatePreview();
+  $('#bp-cancel').addEventListener('click', () => { modal.hidden = true; });
+  $('#bp-apply').addEventListener('click', () => {
+    const mode = $('#bp-mode').value;
+    const val = Number($('#bp-value').value) || 0;
+    const targets = getTargetVars();
+    let changed = 0;
+    for(const v of targets){
+      const p = state.products.find(x=>x.variation_id===v.variation_id);
+      if(!p) continue;
+      const old = Number(p.fiyat_eur)||0;
+      let nw;
+      if(mode==='set') nw = val;
+      else if(mode==='percent') nw = Math.round(old * (1 + val/100));
+      else nw = old + val;
+      nw = Math.max(0, nw);
+      if(nw !== old){
+        p.fiyat_eur = nw;
+        logActivity('PRODUCT_FIELD_UPDATE','product',p.variation_id,`fiyat_eur: ${old} → ${nw} (toplu)`,{field:'fiyat_eur',eski:old,yeni:nw});
+        changed++;
+      }
+    }
+    save();
+    modal.hidden = true;
+    state.selectedMasters.clear();
+    renderAll();
+    toast(`${changed} varyasyonda fiyat güncellendi`);
+  });
 }
 
 // ─── Export / Import ────────────────────────────────
@@ -8972,18 +9139,14 @@ function renderAll(){
   renderActivityStats();
   renderActivityTable();
   // Tab badges
-  const active = state.products.filter(p => p.durum !== 'ARSIVLENDI').length;
-  $('#nav-count-products').textContent = active;
+  const masters = groupByMaster(state.products);
+  $('#nav-count-products').textContent = masters.length;
   $('#nav-count-orders').textContent = state.orders.filter(o => o.durum === 'BEKLIYOR').length;
   $('#nav-count-customers').textContent = state.customers.length;
   $('#nav-count-suppliers').textContent = state.suppliers.length;
   $('#nav-count-purchases').textContent = (state.supplierOrders || []).filter(o=>o.durum==='BEKLIYOR').length;
   $('#nav-count-returns').textContent = (state.returns || []).filter(r=>r.durum==='YENI').length;
   $('#nav-count-activity').textContent = state.activity.length;
-  // Banner her render sonrası refresh — taslak sayısı değiştiyse renk değişir
-  if(typeof updateDataSourceBanner === 'function') updateDataSourceBanner();
-  // Profil drafts banner
-  if(typeof renderProfileDraftBanner === 'function') renderProfileDraftBanner();
 }
 function refreshMarkaList(){
   // Eski datalist mekanizması artık ACCombobox kullanıyor — no-op.
