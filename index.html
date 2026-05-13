@@ -10098,9 +10098,20 @@ window.BotlCustomerAPI = (function(){
   const isLocal = location.hostname === 'localhost' || location.hostname === '127.0.0.1' || location.protocol === 'file:';
   const API_BASE = isLocal ? '' : 'http://localhost:8090';  // prod için CF Workers'a değiştirilir
 
+  function _token(){
+    try {
+      const raw = localStorage.getItem('botl_session');
+      if(!raw) return null;
+      const s = JSON.parse(raw);
+      return s && s.token ? s.token : null;
+    } catch { return null; }
+  }
+
   async function call(method, path, body){
     try {
       const opts = { method, credentials: 'include', headers: {} };
+      const tok = _token();
+      if(tok) opts.headers['X-Botl-Session'] = tok;
       if(body !== undefined){
         opts.headers['Content-Type'] = 'application/json';
         opts.body = JSON.stringify(body);
@@ -10120,12 +10131,36 @@ window.BotlCustomerAPI = (function(){
 
   return {
     ping,
+    // ─── Auth + profile ──────────────
     login:  (kullanici_adi, sifre) => call('POST', '/api/customer/login', { kullanici_adi, sifre }),
     logout: () => call('POST', '/api/customer/logout'),
     me:     () => call('GET',  '/api/customer/me'),
     patchMe:(payload) => call('PATCH', '/api/customer/me', payload),
     changePassword: (eski_sifre, yeni_sifre) =>
       call('POST', '/api/customer/me/change-password', { eski_sifre, yeni_sifre }),
+    // ─── Cart ─────────────────────────
+    getCart:    () => call('GET',  '/api/customer/cart'),
+    setCart:    (items) => call('PUT', '/api/customer/cart', { items }),
+    addCartItem:(variation_id, qty) => call('POST', '/api/customer/cart/items', { variation_id, qty }),
+    removeCartItem:(vid) => call('DELETE', '/api/customer/cart/items/' + encodeURIComponent(vid)),
+    clearCart:  () => call('DELETE', '/api/customer/cart'),
+    // ─── Wishlist ─────────────────────
+    getWishlist:  () => call('GET', '/api/customer/wishlist'),
+    addWishlist:  (vid) => call('POST', '/api/customer/wishlist/' + encodeURIComponent(vid)),
+    removeWishlist:(vid) => call('DELETE', '/api/customer/wishlist/' + encodeURIComponent(vid)),
+    // ─── Addresses ────────────────────
+    listAddresses:  () => call('GET', '/api/customer/addresses'),
+    createAddress:  (payload) => call('POST', '/api/customer/addresses', payload),
+    patchAddress:   (aid, payload) => call('PATCH', '/api/customer/addresses/' + encodeURIComponent(aid), payload),
+    deleteAddress:  (aid) => call('DELETE', '/api/customer/addresses/' + encodeURIComponent(aid)),
+    // ─── Orders ───────────────────────
+    listOrders:   () => call('GET', '/api/customer/orders'),
+    createOrder:  (payload) => call('POST', '/api/customer/orders', payload),
+    patchOrder:   (oid, payload) => call('PATCH', '/api/customer/orders/' + encodeURIComponent(oid), payload),
+    cancelOrder:  (oid) => call('POST', '/api/customer/orders/' + encodeURIComponent(oid) + '/cancel'),
+    // ─── Returns ──────────────────────
+    listReturns:  () => call('GET', '/api/customer/returns'),
+    createReturn: (payload) => call('POST', '/api/customer/returns', payload),
   };
 })();
 
@@ -10133,38 +10168,26 @@ async function tryLogin(username, password){
   const u = (username || '').trim().toLowerCase();
   if(!u || !password) return { ok:false, error:'Kullanıcı adı ve parola gerekli' };
 
-  // 1) Backend dene (varsa)
-  const backendOk = await window.BotlCustomerAPI.ping();
-  if(backendOk){
-    const r = await window.BotlCustomerAPI.login(u, password);
-    if(r.ok){
-      setSession({
-        customer_id: r.customer_id,
-        kullanici_adi: r.kullanici_adi,
-        isim: r.isim || r.kullanici_adi,
-        expires_at: Date.now() + 1000*60*60*24*7,
-        backend: true,
-      });
-      return { ok:true, customer:{ customer_id:r.customer_id, kullanici_adi:r.kullanici_adi, isim:r.isim } };
-    }
-    if(r.status === 401) return { ok:false, error:'Kullanıcı adı veya şifre hatalı' };
-    // Diğer hatalar → client-side fallback
+  // 2026-05-13 refactor: SSOT BACKEND. Client-side hash fallback KALDIRILDI.
+  // data.json'a sifre_hash artık YAZILMIYOR (BUG #1 fix). Login backend HTTP
+  // API üzerinden zorunlu. Backend ulaşılamazsa kullanıcıyı bilgilendir.
+  const r = await window.BotlCustomerAPI.login(u, password);
+  if(r.ok){
+    setSession({
+      customer_id: r.customer_id,
+      kullanici_adi: r.kullanici_adi,
+      isim: r.isim || r.kullanici_adi,
+      token: r.token || null,
+      expires_at: Date.now() + 1000*60*60*24*7,
+      backend: true,
+    });
+    return { ok:true, customer:{ customer_id:r.customer_id, kullanici_adi:r.kullanici_adi, isim:r.isim } };
   }
-
-  // 2) Client-side fallback (offline / inline data)
-  const customers = (window.__BOTL_DATA__ && window.__BOTL_DATA__.customers) || [];
-  const c = customers.find(x => (x.kullanici_adi || '').toLowerCase() === u);
-  if(!c || !c.sifre_hash) return { ok:false, error:'Kullanıcı adı veya şifre hatalı' };
-  const h = await hashPassword(password);
-  if(h !== c.sifre_hash) return { ok:false, error:'Kullanıcı adı veya şifre hatalı' };
-  setSession({
-    customer_id: c.customer_id || c.id,
-    kullanici_adi: c.kullanici_adi,
-    isim: c.isim || c.ad_soyad || c.kullanici_adi,
-    expires_at: Date.now() + 1000*60*60*24*7,
-    backend: false,
-  });
-  return { ok:true, customer:c };
+  if(r.status === 401) return { ok:false, error:'Kullanıcı adı veya şifre hatalı' };
+  if(r.error === 'network'){
+    return { ok:false, error:'Sunucuya ulaşılamadı. İnternet bağlantını veya VPN ayarlarını kontrol et.' };
+  }
+  return { ok:false, error: r.error || 'Giriş başarısız' };
 }
 
 // ─── Sipariş akışı v2 — nyoworks-aligned ─────────────────────────────
@@ -10441,6 +10464,113 @@ function _normalizeCartItem(raw){
 // addToCart hep buradan okur. PRODUCTS yüklendikten sonra dead-ID purge
 // devreye girer — localStorage'da var ama data.json'da olmayan varyasyonlar
 // sessizce silinir, geri yazılır. Badge ile drawer arasında çelişki olamaz.
+//
+// 2026-05-13 refactor: SSOT BACKEND for logged-in users.
+// Login yoksa localStorage tek kaynak (anonim guest cart). Login varsa backend
+// otoriter; localStorage hot-cache görevi görür. syncCartToBackend her save'de
+// fire-and-forget API call atar. hydrateCartFromBackend login'de bir kez çağrılır.
+// ─── One-shot localStorage → backend migration ────
+// Login sonrası bir kez çalışır. Eski sürümlerden kalmış localStorage verisini
+// backend'e push eder, sonra localStorage'tan siler (idempotent flag).
+const MIGRATED_FLAG = 'botl_migrated_v2_backend';
+async function migrateLocalToBackend(){
+  try {
+    if(localStorage.getItem(MIGRATED_FLAG) === '1') return; // bir kez
+    const sess = getSession();
+    if(!sess || !sess.backend) return; // login + backend şart
+    if(!window.BotlCustomerAPI) return;
+
+    let migratedReturns = 0;
+    let migratedOrders = 0;
+
+    // 1) Returns
+    try {
+      const raw = localStorage.getItem(RETURNS_KEY);
+      if(raw){
+        const arr = JSON.parse(raw);
+        if(Array.isArray(arr) && arr.length > 0){
+          for(const r of arr){
+            if(r.customer_id !== sess.customer_id) continue;
+            try {
+              const result = await window.BotlCustomerAPI.createReturn({
+                order_id: r.order_id,
+                variation_id: r.variation_id,
+                sebep: r.sebep,
+                kondisyon: r.kondisyon,
+                not: r.not || '',
+              });
+              if(result.ok) migratedReturns++;
+              // already_returned ise skip — duplicate guard
+            } catch(e){}
+          }
+          // Migrate sonrası temizleme YOK (backend'den re-read edip refresh cache)
+        }
+      }
+    } catch(e){ console.warn('[migrate-returns]', e); }
+
+    // 2) Pending orders — backend'den çekip karşılaştır, eksik olanları push
+    try {
+      const raw = localStorage.getItem('botl_pending_orders');
+      if(raw){
+        const arr = JSON.parse(raw);
+        if(Array.isArray(arr) && arr.length > 0){
+          const backendList = await window.BotlCustomerAPI.listOrders();
+          const backendIds = new Set(((backendList && backendList.orders) || []).map(o => o.order_id || o.id));
+          for(const o of arr){
+            if((o.musteri_id || o.customer_id) !== sess.customer_id) continue;
+            const oid = o.id || o.order_id;
+            if(backendIds.has(oid)) continue;
+            // Sadece BEKLIYOR/IPTAL siparişleri push et — diğerleri admin canonical
+            const durum = (o.durum || '').toUpperCase();
+            if(durum !== 'BEKLIYOR' && durum !== 'YENI') continue;
+            try {
+              const result = await window.BotlCustomerAPI.createOrder({
+                items: (o.items || []).map(it => ({
+                  variation_id: it.variation_id,
+                  adet: Number(it.qty ?? it.miktar) || 1,
+                })),
+                musteri_notu: o.musteri_notu || '',
+              });
+              if(result.ok) migratedOrders++;
+            } catch(e){}
+          }
+        }
+      }
+    } catch(e){ console.warn('[migrate-orders]', e); }
+
+    localStorage.setItem(MIGRATED_FLAG, '1');
+    if(migratedReturns + migratedOrders > 0){
+      try { toast(`Eski veriler taşındı: ${migratedOrders} sipariş, ${migratedReturns} iade.`); } catch{}
+    }
+  } catch(e){
+    console.warn('[migrate] top-level fail', e);
+  }
+}
+
+async function hydrateCartFromBackend(){
+  const sess = getSession();
+  if(!sess || !sess.backend) return;
+  if(!window.BotlCustomerAPI) return;
+  try {
+    const r = await window.BotlCustomerAPI.getCart();
+    if(r && r.ok && Array.isArray(r.items)){
+      // Backend items → local format
+      const local = r.items.map(it => ({ id: it.variation_id, qty: Math.max(1, Number(it.qty)||1) }));
+      try { localStorage.setItem(CART_KEY, JSON.stringify(local)); } catch{}
+      renderCartBadge();
+    }
+  } catch(e){ console.warn('[cart-hydrate] fail', e); }
+}
+async function syncCartToBackend(cartArr){
+  const sess = getSession();
+  if(!sess || !sess.backend) return;
+  if(!window.BotlCustomerAPI || !window.BotlCustomerAPI.setCart) return;
+  try {
+    const items = cartArr.map(it => ({ variation_id: it.id, qty: it.qty }));
+    await window.BotlCustomerAPI.setCart(items);
+  } catch(e){ console.warn('[cart-sync] fail', e); }
+}
+
 function getCart(){
   let raw;
   try { raw = localStorage.getItem(CART_KEY); }
@@ -10488,6 +10618,8 @@ function saveCart(c){
   const safe = Array.isArray(c) ? c.map(_normalizeCartItem).filter(Boolean) : [];
   try { localStorage.setItem(CART_KEY, JSON.stringify(safe)); } catch {}
   renderCartBadge();
+  // Login'li ise backend canonical update (fire-and-forget)
+  syncCartToBackend(safe);
 }
 function isInCart(id){ return getCart().some(x => x.id === id); }
 function getCartQty(id){
@@ -10821,15 +10953,34 @@ async function placeOrder(){
   const msg = `Sipariş onayı:\n\n${totalItems} adet ürün — toplam ${fmtPrice(total)}\n\nOnaylıyor musun?`;
   if(!confirm(msg)) return;
 
-  const order = buildOrderObject(items, session, total);
-  pushPendingOrder(order);
-
-  // Sepeti temizle
-  localStorage.setItem(CART_KEY, '[]');
-  renderCartBadge();
-  renderCart();
-  closeCart();
-  toast(`Siparişin alındı. Müşteri ID: ${session.customer_id}. Detaylar admin panelinde görünecek.`);
+  // 2026-05-13 refactor: Backend SSOT. POST /api/customer/orders.
+  // Backend ulaşılamazsa localStorage'a fallback yok — kullanıcıyı bilgilendir.
+  if(!window.BotlCustomerAPI || !window.BotlCustomerAPI.createOrder){
+    toast('Sunucu istemcisi yüklenmedi. Sayfayı yenile.', true);
+    return;
+  }
+  const orderPayload = {
+    items: items.map(p => ({ variation_id: p.variation_id, adet: p._qty || 1 })),
+    musteri_notu: '',
+  };
+  try {
+    const r = await window.BotlCustomerAPI.createOrder(orderPayload);
+    if(!r.ok){
+      const err = r.error || r.hint || 'Bilinmeyen hata';
+      toast('Sipariş alınamadı: ' + err, true);
+      return;
+    }
+    // Sepeti temizle (backend zaten kendi cart'ı temizledi, ama local cache de güncellensin)
+    try { localStorage.setItem(CART_KEY, '[]'); } catch{}
+    // pushPendingOrder legacy localStorage uyumu (admin localStorage'tan da okuyabilir geçici süre)
+    if(r.order){ pushPendingOrder(r.order); }
+    renderCartBadge();
+    renderCart();
+    closeCart();
+    toast(`Siparişin alındı. Sipariş No: ${r.order && (r.order.order_id || r.order.id)}. Onay için bekleniyor.`);
+  } catch(e){
+    toast('Ağ hatası: ' + e.message, true);
+  }
 }
 
 // ─── Modal ──────────────────────────────────────────
@@ -11285,6 +11436,18 @@ function initAuthGate(){
       }
       hideAuthGate();
       refreshAuthUI();
+      // Login sonrası backend'den cart/wishlist hydrate + lokal cart varsa backend'e merge
+      try {
+        const localCart = getCart();
+        if(localCart.length > 0){
+          // Anonim cart varsa backend'e push (merge stratejisi: backend boşsa push, doluysa skip)
+          await syncCartToBackend(localCart);
+        } else {
+          await hydrateCartFromBackend();
+        }
+        // Migration trigger (eski botl_orders_v1, botl_returns_v1, botl_pending_orders varsa)
+        if(typeof migrateLocalToBackend === 'function'){ migrateLocalToBackend(); }
+      } catch(e){ console.warn('[post-login-hydrate] fail', e); }
       try { toast(`Hoşgeldin ${res.customer.isim || res.customer.kullanici_adi}!`); } catch {}
     });
   }
@@ -12095,7 +12258,7 @@ function closeIadeModal(){
   document.body.style.overflow = '';
   pendingIadeContext = null;
 }
-function submitIade(e){
+async function submitIade(e){
   if(e) e.preventDefault();
   if(!pendingIadeContext){ closeIadeModal(); return; }
   const sebep = $('#iade-sebep').value;
@@ -12106,13 +12269,45 @@ function submitIade(e){
     return;
   }
   const { order, item } = pendingIadeContext;
+  const payload = {
+    order_id: order.id || order.order_id,
+    variation_id: item.variation_id,
+    sebep,
+    kondisyon,
+    not,
+  };
+  // 2026-05-13 refactor: Backend SSOT — POST /api/customer/returns
+  if(window.BotlCustomerAPI && window.BotlCustomerAPI.createReturn){
+    try {
+      const r = await window.BotlCustomerAPI.createReturn(payload);
+      if(!r.ok){
+        const err = r.error || 'iade kaydedilemedi';
+        if(err === 'already_returned'){
+          toast('Bu ürün için zaten iade talebi var.', true);
+        } else {
+          toast('İade hatası: ' + err, true);
+        }
+        return;
+      }
+      // Cache için localStorage'a da yaz (admin'in geriye dönük okuması için)
+      if(r.return){ pushReturn({...r.return, _local:false}); }
+      closeIadeModal();
+      renderReturnsTable();
+      toast(`İade talebi alındı: ${r.return && r.return.iade_id}. Müşteri hizmetlerimiz değerlendirip dönüş yapacak.`);
+      return;
+    } catch(e){
+      console.warn('[return-submit] network fail', e);
+      toast('Ağ hatası — iade kaydedilemedi.', true);
+      return;
+    }
+  }
+  // Fallback (backend yok): legacy localStorage
   const adet = Number(item.miktar ?? item.qty ?? 1);
   const fiyat = Number(item.fiyat_eur) || 0;
   const iadeRec = {
     iade_id: 'IAD-' + Date.now(),
-    order_id: order.id || order.order_id,
+    ...payload,
     customer_id: order.customer_id,
-    variation_id: item.variation_id,
     sku: item.sku || null,
     marka: item.marka || null,
     isim: item.isim || null,
@@ -12121,17 +12316,14 @@ function submitIade(e){
     donanim: item.donanim || null,
     adet,
     satir_tutar_eur: adet * fiyat,
-    sebep,
-    kondisyon,
-    not,
     tarih_iso: new Date().toISOString(),
-    durum: 'YENI', // admin onay/red verebilir; IAD desk değerlendirir
+    durum: 'YENI',
     _local: true,
   };
   pushReturn(iadeRec);
   closeIadeModal();
   renderReturnsTable();
-  toast(`İade talebi alındı: ${iadeRec.iade_id}. Müşteri hizmetlerimiz değerlendirip dönüş yapacak.`);
+  toast(`İade talebi alındı (offline): ${iadeRec.iade_id}.`);
 }
 
 function cancelOrder(orderId){

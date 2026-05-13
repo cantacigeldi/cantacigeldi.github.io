@@ -9149,12 +9149,34 @@ window.BotlAPI = (function(){
     login: () => call('POST', '/api/admin/login'),
     patchVariation: (vid, payload) => call('PATCH', '/api/admin/variations/' + encodeURIComponent(vid), payload),
     patchProduct: (sku, payload) => call('PATCH', '/api/admin/products/' + encodeURIComponent(sku), payload),
+    // ─── Customers ─────────────────────────
     listCustomers: () => call('GET', '/api/admin/customers'),
     createCustomer: (payload) => call('POST', '/api/admin/customers', payload),
     patchCustomer: (cid, payload) => call('PATCH', '/api/admin/customers/' + encodeURIComponent(cid), payload),
     setCustomerCreds: (cid, kullanici_adi, sifre_plain) =>
       call('POST', '/api/admin/customers/' + encodeURIComponent(cid) + '/credentials',
            { kullanici_adi, sifre_plain }),
+    // ─── Suppliers ─────────────────────────
+    listSuppliers: () => call('GET', '/api/admin/suppliers'),
+    createSupplier: (payload) => call('POST', '/api/admin/suppliers', payload),
+    patchSupplier: (sid, payload) => call('PATCH', '/api/admin/suppliers/' + encodeURIComponent(sid), payload),
+    deleteSupplier: (sid) => call('DELETE', '/api/admin/suppliers/' + encodeURIComponent(sid)),
+    // ─── Supplier Orders (alımlar) ─────────
+    listSupplierOrders: () => call('GET', '/api/admin/supplier-orders'),
+    createSupplierOrder: (payload) => call('POST', '/api/admin/supplier-orders', payload),
+    patchSupplierOrder: (aid, payload) => call('PATCH', '/api/admin/supplier-orders/' + encodeURIComponent(aid), payload),
+    deleteSupplierOrder: (aid) => call('DELETE', '/api/admin/supplier-orders/' + encodeURIComponent(aid)),
+    // ─── Orders (müşteri siparişleri) ──────
+    listOrders: () => call('GET', '/api/admin/orders'),
+    patchOrder: (oid, payload) => call('PATCH', '/api/admin/orders/' + encodeURIComponent(oid), payload),
+    deleteOrder: (oid) => call('DELETE', '/api/admin/orders/' + encodeURIComponent(oid)),
+    // ─── Returns (iadeler) ─────────────────
+    listReturns: () => call('GET', '/api/admin/returns'),
+    patchReturn: (rid, payload) => call('PATCH', '/api/admin/returns/' + encodeURIComponent(rid), payload),
+    // ─── Activity log ──────────────────────
+    listActivity: (limit) => call('GET', '/api/admin/activity?limit=' + (limit || 500)),
+    logActivity: (payload) => call('POST', '/api/admin/activity', payload),
+    clearActivity: () => call('DELETE', '/api/admin/activity'),
   };
 })();
 
@@ -9522,6 +9544,7 @@ function adminImgSrc(path){
 }
 
 // ─── Activity Log ──────────────────────────────────
+// SSOT: backend /api/admin/activity. localStorage SADECE cache (offline ekran).
 function logActivity(tip, entity_type, entity_id, detay, meta = {}){
   const entry = {
     ts: new Date().toISOString(),  // ms hassasiyetinde
@@ -9536,9 +9559,25 @@ function logActivity(tip, entity_type, entity_id, detay, meta = {}){
   if(state.activity.length > ACTIVITY_MAX){
     state.activity = state.activity.slice(0, ACTIVITY_MAX);
   }
-  saveActivity();
+  // Backend'e fire-and-forget POST (UI bloklamasın)
+  if(window.BotlAPI && BotlAPI.logActivity){
+    BotlAPI.logActivity({ tip, entity_type, entity_id, detay, meta }).catch(()=>{});
+  }
+  saveActivityCache();
 }
-function loadActivity(){
+async function loadActivity(){
+  // Birincil: backend
+  if(window.BotlAPI && BotlAPI.listActivity){
+    try {
+      const r = await BotlAPI.listActivity(500);
+      if(r && r.ok && Array.isArray(r.entries)){
+        state.activity = r.entries;
+        saveActivityCache();
+        return;
+      }
+    } catch(e){}
+  }
+  // İkincil: localStorage cache (offline)
   try {
     const raw = localStorage.getItem(ACTIVITY_KEY);
     if(raw){
@@ -9549,90 +9588,154 @@ function loadActivity(){
   } catch(e){}
   state.activity = [];
 }
-function saveActivity(){
+function saveActivityCache(){
   try {
-    localStorage.setItem(ACTIVITY_KEY, JSON.stringify({ entries: state.activity }));
+    localStorage.setItem(ACTIVITY_KEY, JSON.stringify({ entries: state.activity, cachedAt: new Date().toISOString() }));
   } catch(e){
     state.activity = state.activity.slice(0, Math.floor(state.activity.length/2));
     try { localStorage.setItem(ACTIVITY_KEY, JSON.stringify({ entries: state.activity })); } catch {}
   }
 }
+// Backward compat
+function saveActivity(){ saveActivityCache(); }
 
-// ─── Müşteri / Tedarikçi / Alım load+save ──────────
-function loadCustomers(){
-  // 1) Birincil: data.json'dan canlı müşteriler (PII filtrelenmiş)
-  state.customers = (dataJsonCache.customers||[]).map(c => ({...c, _source:'mcp'}));
-  // 2) Taslak overlay (localStorage)
+// ─── Müşteri / Tedarikçi / Alım — SSOT BACKEND (localStorage sadece cache) ─────
+// 2026-05-13 refactor: tüm save* fonksiyonları artık /api/admin/* endpoint'ine yazar.
+// localStorage sadece read-cache (UI hızlı render için). Restart-after-refresh'te
+// backend canonical kabul edilir.
+const CUSTOMERS_KEY = 'botl_customers_v1';
+const SUPPLIERS_KEY = 'botl_suppliers_v1';
+const SUPPLIER_ORDERS_KEY = 'botl_supplier_orders_v1';
+
+async function loadCustomers(){
+  // 1) Birincil: backend /api/admin/customers
+  if(window.BotlAPI && BotlAPI.listCustomers){
+    try {
+      const r = await BotlAPI.listCustomers();
+      if(r && r.ok !== false && r.customers){
+        const obj = r.customers;
+        const arr = Array.isArray(obj) ? obj : Object.values(obj);
+        state.customers = arr.map(c => ({...c, _source:'backend'}));
+        state.customerCounter = state.customers.reduce((mx, c) => {
+          const n = Number(String(c.customer_id||'').replace(/[^0-9]/g,''));
+          return n > mx ? n : mx;
+        }, 0);
+        // Cache yaz
+        try { localStorage.setItem(CUSTOMERS_KEY, JSON.stringify({customers:state.customers,counter:state.customerCounter,cachedAt:new Date().toISOString()})); } catch{}
+        return;
+      }
+    } catch(e){ console.warn('[customers] backend fail, falling back to cache', e); }
+  }
+  // 2) Fallback: data.json (PII filtrelenmiş — admin'in açtığı initial liste)
+  state.customers = (dataJsonCache.customers||[]).map(c => ({...c, _source:'data.json'}));
+  // 3) Son çare: localStorage cache
   try {
     const raw = localStorage.getItem(CUSTOMERS_KEY);
-    if(raw){
+    if(raw && state.customers.length === 0){
       const d = JSON.parse(raw);
-      const draft = Array.isArray(d.customers)?d.customers:[];
-      const liveIds = new Set(state.customers.map(c=>c.customer_id));
-      for(const c of draft){
-        if(!liveIds.has(c.customer_id)){
-          state.customers.unshift({...c, _draft:true});
-        }
-      }
-      state.customerCounter = Number(d.counter) ||
-        Number(dataJsonCache.counters?.customer_counter) || state.customers.length;
+      const cached = Array.isArray(d.customers)?d.customers:[];
+      state.customers = cached.map(c => ({...c, _source:'cache'}));
+      state.customerCounter = Number(d.counter) || state.customers.length;
       return;
     }
   } catch(e){}
-  state.customerCounter = Number(dataJsonCache.counters?.customer_counter) || state.customers.length;
+  state.customerCounter = state.customers.reduce((mx, c) => {
+    const n = Number(String(c.customer_id||'').replace(/[^0-9]/g,''));
+    return n > mx ? n : mx;
+  }, 0);
 }
 function saveCustomersStore(){
-  try { localStorage.setItem(CUSTOMERS_KEY, JSON.stringify({customers:state.customers,counter:state.customerCounter,lastSaved:new Date().toISOString()})); } catch(e){ toast('Müşteri kaydı hatası', true); }
+  // Sadece cache — actual persistence saveCustomer() içinde api.createCustomer/patchCustomer ile
+  try { localStorage.setItem(CUSTOMERS_KEY, JSON.stringify({customers:state.customers,counter:state.customerCounter,cachedAt:new Date().toISOString()})); } catch(e){ /* swallow — cache only */ }
 }
 function makeCustomerId(){ state.customerCounter++; return `CST-${String(state.customerCounter).padStart(5,'0')}`; }
 
-function loadSuppliers(){
-  // 1) Birincil: data.json'dan canlı tedarikçiler
-  state.suppliers = (dataJsonCache.suppliers||[]).map(s => ({...s, _source:'mcp'}));
-  // 2) Taslak overlay (localStorage)
+async function loadSuppliers(){
+  // 1) Birincil: backend /api/admin/suppliers
+  if(window.BotlAPI && BotlAPI.listSuppliers){
+    try {
+      const r = await BotlAPI.listSuppliers();
+      if(r && r.ok && Array.isArray(r.suppliers)){
+        state.suppliers = r.suppliers.map(s => ({...s, _source:'backend'}));
+        state.supplierCounter = state.suppliers.reduce((mx, s) => {
+          const n = Number(String(s.supplier_id||'').replace(/[^0-9]/g,''));
+          return n > mx ? n : mx;
+        }, 0);
+        try { localStorage.setItem(SUPPLIERS_KEY, JSON.stringify({suppliers:state.suppliers,counter:state.supplierCounter,cachedAt:new Date().toISOString()})); } catch{}
+        return;
+      }
+    } catch(e){ console.warn('[suppliers] backend fail', e); }
+  }
+  // 2) Fallback data.json
+  state.suppliers = (dataJsonCache.suppliers||[]).map(s => ({...s, _source:'data.json'}));
+  // 3) Cache
   try {
     const raw = localStorage.getItem(SUPPLIERS_KEY);
-    if(raw){
+    if(raw && state.suppliers.length === 0){
       const d = JSON.parse(raw);
-      const draft = Array.isArray(d.suppliers)?d.suppliers:[];
-      const liveIds = new Set(state.suppliers.map(s=>s.supplier_id));
-      for(const s of draft){
-        if(!liveIds.has(s.supplier_id)){
-          state.suppliers.unshift({...s, _draft:true});
-        }
-      }
-      state.supplierCounter = Number(d.counter) ||
-        Number(dataJsonCache.counters?.supplier_counter) || state.suppliers.length;
+      state.suppliers = (d.suppliers||[]).map(s => ({...s, _source:'cache'}));
+      state.supplierCounter = Number(d.counter)||state.suppliers.length;
       return;
     }
   } catch(e){}
-  state.supplierCounter = Number(dataJsonCache.counters?.supplier_counter) || state.suppliers.length;
+  state.supplierCounter = state.suppliers.reduce((mx, s) => {
+    const n = Number(String(s.supplier_id||'').replace(/[^0-9]/g,''));
+    return n > mx ? n : mx;
+  }, 0);
 }
 function saveSuppliersStore(){
-  try { localStorage.setItem(SUPPLIERS_KEY, JSON.stringify({suppliers:state.suppliers,counter:state.supplierCounter,lastSaved:new Date().toISOString()})); } catch(e){ toast('Tedarikçi kaydı hatası', true); }
+  try { localStorage.setItem(SUPPLIERS_KEY, JSON.stringify({suppliers:state.suppliers,counter:state.supplierCounter,cachedAt:new Date().toISOString()})); } catch(e){ /* cache only */ }
 }
 function makeSupplierId(){
-  // MCP backend SUP-XXXXX kullanır — counter MCP'den senkronize (dataJsonCache.counters)
+  // Backend'in döneceği ID kanonik. UI ön-tahmin (henüz POST atmadan).
   const base = Math.max(state.supplierCounter, Number(dataJsonCache.counters?.supplier_counter)||0);
   state.supplierCounter = base + 1;
   return `SUP-${String(state.supplierCounter).padStart(5,'0')}`;
 }
 
-function loadSupplierOrders(){
-  try { const raw = localStorage.getItem(SUPPLIER_ORDERS_KEY); if(raw){ const d = JSON.parse(raw); state.supplierOrders = Array.isArray(d.orders)?d.orders:[]; state.supplierOrderCounter = Number(d.counter)||state.supplierOrders.length; return; } } catch(e){}
+async function loadSupplierOrders(){
+  if(window.BotlAPI && BotlAPI.listSupplierOrders){
+    try {
+      const r = await BotlAPI.listSupplierOrders();
+      if(r && r.ok && Array.isArray(r.supplier_orders)){
+        state.supplierOrders = r.supplier_orders.map(o => ({...o, _source:'backend'}));
+        state.supplierOrderCounter = state.supplierOrders.length;
+        try { localStorage.setItem(SUPPLIER_ORDERS_KEY, JSON.stringify({orders:state.supplierOrders,counter:state.supplierOrderCounter,cachedAt:new Date().toISOString()})); } catch{}
+        return;
+      }
+    } catch(e){ console.warn('[supplier_orders] backend fail', e); }
+  }
+  try {
+    const raw = localStorage.getItem(SUPPLIER_ORDERS_KEY);
+    if(raw){
+      const d = JSON.parse(raw);
+      state.supplierOrders = (Array.isArray(d.orders)?d.orders:[]).map(o => ({...o, _source:'cache'}));
+      state.supplierOrderCounter = Number(d.counter)||state.supplierOrders.length;
+      return;
+    }
+  } catch(e){}
   state.supplierOrders = []; state.supplierOrderCounter = 0;
 }
 function saveSupplierOrdersStore(){
-  try { localStorage.setItem(SUPPLIER_ORDERS_KEY, JSON.stringify({orders:state.supplierOrders,counter:state.supplierOrderCounter,lastSaved:new Date().toISOString()})); } catch(e){ toast('Alım kaydı hatası', true); }
+  try { localStorage.setItem(SUPPLIER_ORDERS_KEY, JSON.stringify({orders:state.supplierOrders,counter:state.supplierOrderCounter,cachedAt:new Date().toISOString()})); } catch(e){ /* cache only */ }
 }
 
-// İade talepleri (müşteri portal'inden gelen) — same-origin localStorage paylaşılır
-function loadReturns(){
+// İade talepleri — SSOT backend /api/admin/returns
+async function loadReturns(){
+  if(window.BotlAPI && BotlAPI.listReturns){
+    try {
+      const r = await BotlAPI.listReturns();
+      if(r && r.ok && Array.isArray(r.returns)){
+        state.returns = r.returns.map(x => ({...x, _source:'backend'}));
+        try { localStorage.setItem(RETURNS_KEY, JSON.stringify(state.returns)); } catch{}
+        return;
+      }
+    } catch(e){ console.warn('[returns] backend fail', e); }
+  }
   try {
     const raw = localStorage.getItem(RETURNS_KEY);
     if(raw){
       const d = JSON.parse(raw);
-      // Format: ya array ya da {returns:[]}
       state.returns = Array.isArray(d) ? d : (Array.isArray(d.returns) ? d.returns : []);
       return;
     }
@@ -9641,7 +9744,7 @@ function loadReturns(){
 }
 function saveReturns(){
   try { localStorage.setItem(RETURNS_KEY, JSON.stringify(state.returns)); }
-  catch(e){ toast('İade kaydı hatası', true); }
+  catch(e){ /* cache only */ }
 }
 function makeSupplierOrderId(){
   state.supplierOrderCounter++;
@@ -10050,10 +10153,73 @@ async function load(){
 }
 
 // ─── Orders load/save ──────────────────────────────
-// Primary: dataJsonCache.orders (MCP'den turevi sipariş listesi)
-// Overlay: localStorage taslak siparişler (henüz commit edilmemiş)
-function loadOrders(){
-  // 1) MCP'den gelen siparişler (data.json) → birincil
+// 2026-05-13 refactor: SSOT backend /api/admin/orders.
+// localStorage 'botl_orders_v1' + 'botl_pending_orders' SADECE legacy migration için okunur.
+// data.json'dan fatura-türevli orders artık secondary; admin canonical state backend'den.
+async function loadOrders(){
+  // 1) Birincil: backend /api/admin/orders
+  if(window.BotlAPI && BotlAPI.listOrders){
+    try {
+      const r = await BotlAPI.listOrders();
+      if(r && r.ok && Array.isArray(r.orders)){
+        state.orders = r.orders.map(o => ({
+          order_id: o.order_id || o.id,
+          schema_version: o.schema_version || 2,
+          version: o.version || 1,
+          durum: o.durum,
+          kaynak: o.kaynak || 'SITE',
+          musteri: {
+            ad_soyad: o.isim || (o.musteri_iletisim && o.musteri_iletisim.isim) || '',
+            telefon: (o.musteri_iletisim && o.musteri_iletisim.telefon) || '',
+            email: (o.musteri_iletisim && o.musteri_iletisim.email) || '',
+            sehir: (o.kargo_adresi && o.kargo_adresi.sehir) || '',
+            ulke: (o.kargo_adresi && o.kargo_adresi.ulke) || '',
+            notlar: `Kullanıcı: ${o.kullanici_adi || '-'} · CST: ${o.customer_id || o.musteri_id || '-'}`,
+            customer_id: o.customer_id || o.musteri_id || null,
+            kullanici_adi: o.kullanici_adi || null,
+          },
+          kargo_adresi: o.kargo_adresi || { adres:'', sehir:'', posta_kodu:'', ulke:'' },
+          musteri_notu: o.musteri_notu || '',
+          patron_notu: o.patron_notu || '',
+          tracking_no: o.tracking_no || null,
+          tracking_url: o.tracking_url || null,
+          items: (o.items || []).map(it => ({
+            variation_id: it.variation_id,
+            sku: it.sku || null,
+            isim_snapshot: it.isim || '',
+            isim_resmi: it.isim || '',
+            marka: it.marka || '',
+            renk: it.renk || '',
+            boyut: it.boyut || '',
+            donanim: it.donanim || '',
+            kondisyon: it.kondisyon || '',
+            qty: Number(it.adet) || 1,
+            fiyat_eur: Number(it.birim_eur) || 0,
+            satir_toplam: Number(it.satir_tutar_eur) || 0,
+          })),
+          ara_toplam_eur: Number(o.ara_toplam_eur) || 0,
+          kargo_eur: Number(o.kargo_eur) || 0,
+          indirim_eur: 0,
+          toplam_eur: Number(o.toplam_eur) || 0,
+          para_birimi: o.para_birimi || 'EUR',
+          notlar: o.patron_notu || '',
+          olusturma: o.olusturma_ts || o.tarih,
+          guncelleme: o.guncelleme_ts || o.olusturma_ts,
+          onay_ts: o.onay_ts || null,
+          kargo_ts: o.kargo_ts || null,
+          teslim_ts: o.teslim_ts || null,
+          iptal_ts: o.iptal_ts || null,
+          guncelleme_gecmisi: Array.isArray(o.guncelleme_gecmisi) ? o.guncelleme_gecmisi : [],
+          re_onay_bekliyor: !!o.re_onay_bekliyor,
+          _source: 'backend',
+        }));
+        state.orderCounter = state.orders.length;
+        try { localStorage.setItem(ORDERS_KEY, JSON.stringify({orders: state.orders, counter: state.orderCounter, cachedAt: new Date().toISOString()})); } catch{}
+        return;
+      }
+    } catch(e){ console.warn('[orders] backend fail, falling back to data.json + cache', e); }
+  }
+  // 2) İkincil: data.json (fatura-türevli — geriye dönük)
   const liveOrders = (dataJsonCache.orders||[]).map(o => ({
     order_id: o.fatura_no,
     musteri_id: o.musteri_id,
@@ -10066,7 +10232,7 @@ function loadOrders(){
     odeme_tipi: o.odeme_tipi,
     durum: o.durum || 'TAMAMLANDI',
     urun_listesi: o.urun_listesi || [],
-    _source: 'mcp',
+    _source: 'data.json',
   }));
   state.orders = liveOrders;
 
@@ -10180,16 +10346,19 @@ function loadOrders(){
 function saveOrders(){
   setSaveStatus('saving');
   try {
+    // Cache (localStorage) — sadece offline okuma için
     localStorage.setItem(ORDERS_KEY, JSON.stringify({
       orders: state.orders,
       counter: state.orderCounter,
-      lastSaved: new Date().toISOString(),
+      cachedAt: new Date().toISOString(),
     }));
     setTimeout(() => setSaveStatus('saved'), 200);
   } catch(e){
     setSaveStatus('error');
-    toast('Sipariş kaydı başarısız: ' + e.message, true);
+    toast('Sipariş kaydı (cache) hatası: ' + e.message, true);
   }
+  // NOT: Backend sync action-specific approveOrder/rejectOrder vb. içinden
+  // _syncOrderToBackend(order) ile yapılır. saveOrders generic cache yazımıdır.
 }
 function makeOrderId(){
   state.orderCounter++;
@@ -10289,6 +10458,32 @@ function syncSiteOrderBack(o){
   } catch(e){ console.error('[orders] site write-back failed', e); }
 }
 
+// ─── Order backend sync helper ────────────────────
+// Tüm order durum değişiklikleri ve patron_notu/tracking güncellemeleri
+// backend'e PATCH atılır. Local state önce update edilir (optimistic UI),
+// sonra backend ile sync. Hata olursa toast + state rollback yapılmaz
+// (UI'da geri çekersek kullanıcı kafası karışır — onun yerine hata toast'la).
+async function _syncOrderToBackend(order, fields){
+  if(!window.BotlAPI || !BotlAPI.patchOrder || !order || !order.order_id) return null;
+  // Yalnızca backend'in tanıdığı alanları gönder
+  const allowed = ['durum','tracking_no','tracking_url','patron_notu','kargo_adresi','musteri_notu'];
+  const payload = {};
+  for(const k of (fields || allowed)){
+    if(allowed.includes(k) && order[k] !== undefined){
+      payload[k] = order[k];
+    }
+  }
+  if(Object.keys(payload).length === 0) return null;
+  try {
+    const r = await BotlAPI.patchOrder(order.order_id, payload);
+    if(!r.ok) console.warn('[order-sync] backend reddetti', order.order_id, r);
+    return r;
+  } catch(e){
+    console.warn('[order-sync] network fail', order.order_id, e);
+    return null;
+  }
+}
+
 // ─── Order actions ─────────────────────────────────
 function approveOrder(orderId){
   const o = state.orders.find(x => x.order_id === orderId);
@@ -10332,6 +10527,7 @@ function approveOrder(orderId){
   if(wasReOnay) _orderAuditPush(o, 'admin', 're_onay_bekliyor', true, false);
   syncSiteOrderBack(o);
   save(); saveOrders();
+  _syncOrderToBackend(o, ['durum']);  // Backend canonical state update
   logActivity('ORDER_APPROVE', 'order', orderId,
     `${orderId}${wasReOnay?' yeniden':''} onaylandı · ${fmt(o.toplam_eur)} · ${o.musteri?.ad_soyad||'müşteri yok'}`,
     { items: o.items, toplam: o.toplam_eur, re_onay_bekliyor_idi: wasReOnay });
@@ -10353,6 +10549,7 @@ function rejectOrder(orderId){
   if(reason) _orderAuditPush(o, 'admin', 'red_sebebi', null, reason);
   syncSiteOrderBack(o);
   saveOrders();
+  _syncOrderToBackend(o, ['durum','patron_notu']);
   logActivity('ORDER_REJECT', 'order', orderId, `${orderId} reddedildi${reason ? ' · ' + reason : ''}`, { red_sebebi: reason, items: o.items });
   renderAll();
   toast(`${orderId} reddedildi`);
@@ -10370,6 +10567,7 @@ function prepareOrder(orderId){
   _orderAuditPush(o, 'admin', 'durum', eskiDurum, 'HAZIRLANIYOR');
   syncSiteOrderBack(o);
   saveOrders();
+  _syncOrderToBackend(o, ['durum']);
   logActivity('ORDER_PREPARE', 'order', orderId, `${orderId} hazırlanıyor`, { eski_durum: eskiDurum });
   renderAll();
   toast(`${orderId} hazırlanmaya alındı`);
@@ -10395,6 +10593,7 @@ function shipOrder(orderId){
   if(o.tracking_no) _orderAuditPush(o, 'admin', 'tracking_no', null, o.tracking_no);
   syncSiteOrderBack(o);
   saveOrders();
+  _syncOrderToBackend(o, ['durum','tracking_no','tracking_url']);
   logActivity('ORDER_SHIP', 'order', orderId, `${orderId} kargoda · ${o.tracking_no || '(takip no yok)'}`, { tracking_no: o.tracking_no, tracking_url: o.tracking_url });
   renderAll();
   toast(`${orderId} kargoya verildi`);
@@ -10437,6 +10636,7 @@ function completeOrder(orderId){
   _orderAuditPush(o, 'admin', 'durum', eskiDurum, 'TESLIM_EDILDI');
   syncSiteOrderBack(o);
   save(); saveOrders();
+  _syncOrderToBackend(o, ['durum']);
   logActivity('ORDER_DELIVERED', 'order', orderId,
     `${orderId} teslim edildi · ${fmt(o.toplam_eur)} · ${o.musteri?.ad_soyad||'müşteri yok'}`,
     { items: o.items, toplam: o.toplam_eur, musteri_id: o.musteri?.customer_id });
@@ -10484,6 +10684,7 @@ function cancelApprovedOrder(orderId){
   _orderAuditPush(o, 'admin', 'durum', eskiDurum, 'IPTAL_EDILDI');
   syncSiteOrderBack(o);
   save(); saveOrders();
+  _syncOrderToBackend(o, ['durum']);
   logActivity('ORDER_CANCEL', 'order', orderId, `${orderId} iptal edildi, occupied stok serbest`, { items: o.items });
   renderAll();
   toast(`${orderId} iptal edildi, occupied serbest`);
@@ -10503,6 +10704,10 @@ function deleteOrder(orderId){
     if(!confirm(`${orderId} kalıcı silinecek (durum: ${o.durum}). Emin misin?`)) return;
   }
   state.orders = state.orders.filter(x => x.order_id !== orderId);
+  // Backend'den de sil
+  if(window.BotlAPI && BotlAPI.deleteOrder){
+    BotlAPI.deleteOrder(orderId).catch(e => console.warn('[order-delete] backend fail', e));
+  }
   // Site-origin order ise botl_pending_orders'tan da temizle
   if(o._local_site_order){
     try {
@@ -12652,6 +12857,9 @@ function renderReturnsAdminTable(){
             save();
           }
           saveReturns();
+          if(window.BotlAPI && BotlAPI.patchReturn){
+            BotlAPI.patchReturn(id, { durum: 'ONAYLANDI', iade_tutari_eur: rec.satir_tutar_eur }).catch(e => console.warn('[return-approve] backend fail', e));
+          }
           logActivity('RETURN_APPROVE', 'return', id, `${id} iade onaylandı · ${rec.customer_id} · ${fmt(rec.satir_tutar_eur||0)}`, { iade: rec });
           renderAll();
           toast(`${id} onaylandı, stok güncellendi`);
@@ -12660,6 +12868,9 @@ function renderReturnsAdminTable(){
           rec.durum = 'REDDEDILDI';
           rec.guncelleme = new Date().toISOString();
           saveReturns();
+          if(window.BotlAPI && BotlAPI.patchReturn){
+            BotlAPI.patchReturn(id, { durum: 'REDDEDILDI' }).catch(e => console.warn('[return-reject] backend fail', e));
+          }
           logActivity('RETURN_REJECT', 'return', id, `${id} iade reddedildi · ${rec.customer_id}`, { iade: rec });
           renderAll();
           toast(`${id} reddedildi`);
@@ -12689,63 +12900,53 @@ function closeSupplierModal(){
   state.editingSupplier = null;
   document.body.style.overflow = '';
 }
-function saveSupplier(){
+async function saveSupplier(){
   const form = $('#supplier-form');
   if(!form){ toast('Form bulunamadı', true); return; }
   if(!form.reportValidity()) return;
   const fd = form.elements;
-  const now = new Date().toISOString();
   const isim = (fd.isim?.value || '').trim();
   if(!isim){ toast('İsim zorunlu', true); return; }
-  const data = {
-    isim,
-    unvan: isim, // MCP schema uyumu
+  const payload = {
+    unvan: isim,
     ulke: (fd.ulke?.value || '').trim().toUpperCase(),
     sehir: (fd.sehir?.value || '').trim(),
-    iletisim_kisi: (fd.iletisim_kisi?.value || '').trim(),
-    telefon: (fd.telefon?.value || '').trim(),
+    contact_name: (fd.iletisim_kisi?.value || '').trim(),
+    phone: (fd.telefon?.value || '').trim(),
     email: (fd.email?.value || '').trim(),
-    iban: (fd.iban?.value || '').trim(),
-    para_birimi: fd.para_birimi?.value || 'EUR',
     notlar: (fd.notlar?.value || '').trim(),
-  };
-  // MCP iletisim block for sync uyumu
-  data.iletisim = {
-    contact_name: data.iletisim_kisi,
-    phone: data.telefon,
-    email: data.email,
+    // marka_listesi formda yoksa boş atla
+    marka_listesi: (fd.marka_listesi?.value || '').split(',').map(m=>m.trim()).filter(Boolean),
   };
   if(state.editingSupplier){
-    const s = state.suppliers.find(x => supId(x) === state.editingSupplier);
-    if(!s){ toast('Düzenlenen tedarikçi bulunamadı', true); return; }
-    const eski = {...s};
-    Object.assign(s, data, { guncelleme: now, _draft: true });
-    saveSuppliersStore();
-    logActivity('SUPPLIER_UPDATE', 'supplier', supId(s), `${supName(s)} güncellendi`, { eski, yeni: data });
-    closeSupplierModal();
-    renderAll();
-    toast(`${supId(s)} güncellendi`);
+    // PATCH
+    if(window.BotlAPI && BotlAPI.patchSupplier){
+      const r = await BotlAPI.patchSupplier(state.editingSupplier, payload);
+      if(!r.ok){ toast('Tedarikçi güncelleme hatası: ' + (r.error || r.status), true); return; }
+      logActivity('SUPPLIER_UPDATE', 'supplier', state.editingSupplier, `${isim} güncellendi`, payload);
+      await loadSuppliers();
+      closeSupplierModal();
+      renderAll();
+      toast(`${state.editingSupplier} güncellendi`);
+    } else {
+      toast('Backend yok — değişiklik kaydedilmedi', true);
+    }
   } else {
-    const newId = makeSupplierId();
-    const supplier = {
-      supplier_id: newId, // MCP schema birincil
-      tedarikci_id: newId, // legacy fallback
-      ...data,
-      toplam_alim_eur: 0,
-      alim_sayisi: 0,
-      olusturma: now,
-      guncelleme: now,
-      _draft: true,
-    };
-    state.suppliers.unshift(supplier);
-    saveSuppliersStore();
-    logActivity('SUPPLIER_CREATE', 'supplier', newId, `Yeni tedarikçi: ${supName(supplier)}`, supplier);
-    closeSupplierModal();
-    renderAll();
-    toast(`${newId} eklendi`);
+    // POST yeni
+    if(window.BotlAPI && BotlAPI.createSupplier){
+      const r = await BotlAPI.createSupplier(payload);
+      if(!r.ok){ toast('Tedarikçi oluşturma hatası: ' + (r.error || r.status), true); return; }
+      logActivity('SUPPLIER_CREATE', 'supplier', r.supplier_id, `Yeni tedarikçi: ${isim}`, r.supplier);
+      await loadSuppliers();
+      closeSupplierModal();
+      renderAll();
+      toast(`${r.supplier_id} eklendi`);
+    } else {
+      toast('Backend yok — kayıt oluşturulamadı', true);
+    }
   }
 }
-function deleteSupplier(id){
+async function deleteSupplier(id){
   const s = state.suppliers.find(x => supId(x) === id);
   if(!s){ console.warn('deleteSupplier: bulunamadı', id); return; }
   const linkedOrders = (state.supplierOrders || []).filter(o => (o.tedarikci_id === id || o.supplier_id === id));
@@ -12754,9 +12955,15 @@ function deleteSupplier(id){
     return;
   }
   if(!confirm(`"${supName(s)}" silinsin mi?`)) return;
-  state.suppliers = state.suppliers.filter(x => supId(x) !== id);
-  saveSuppliersStore();
-  logActivity('SUPPLIER_DELETE', 'supplier', id, `${supName(s)} silindi`, { silinen: s });
+  if(window.BotlAPI && BotlAPI.deleteSupplier){
+    const r = await BotlAPI.deleteSupplier(id);
+    if(!r.ok){ toast('Silme hatası: ' + (r.error || r.status), true); return; }
+    logActivity('SUPPLIER_DELETE', 'supplier', id, `${supName(s)} ${r.action === 'deactivated' ? 'pasifleştirildi' : 'silindi'}`, { silinen: s, action: r.action });
+    await loadSuppliers();
+  } else {
+    toast('Backend yok — silinemedi', true);
+    return;
+  }
   if(state.editingSupplier === id) closeSupplierModal();
   renderAll();
   toast('Tedarikçi silindi');
@@ -13052,7 +13259,7 @@ function updatePoSummary(){
   setText('#po-lines-count', lines);
 }
 
-function savePurchaseOrderPage(){
+async function savePurchaseOrderPage(){
   const tedarikciId = $('#po-tedarikci').value;
   if(!tedarikciId){ toast('Tedarikçi seç', true); return; }
   if(poPageItems.length === 0){ toast('En az bir kalem ekle', true); return; }
@@ -13063,52 +13270,49 @@ function savePurchaseOrderPage(){
     if(!confirm(`${zeroCost.length} kalemde maliyet 0 — yine de kaydet?`)) return;
   }
 
-  const now = new Date().toISOString();
   const total = poPageItems.reduce((s, i) => s + (i.birim_fiyat_eur * i.qty), 0);
-  const items = poPageItems.map(i => ({
-    ...i,
-    satir_toplam: i.birim_fiyat_eur * i.qty,
+  // Backend schema'ya uygun item formatı: {sku?, urun_adi, adet, birim_eur}
+  const backendItems = poPageItems.map(i => ({
+    sku: i.sku || null,
+    variation_id: i.variation_id || null,
+    urun_adi: i.isim_snapshot || i.isim_resmi || i.marka || i.variation_id || '',
+    adet: Number(i.qty) || 1,
+    birim_eur: Number(i.birim_fiyat_eur) || 0,
+    notlar: i.notlar || '',
   }));
+  const payload = {
+    supplier_id: tedarikciId,
+    items: backendItems,
+    durum: 'BEKLIYOR',
+    notlar: ($('#po-notlar').value || '').trim(),
+    tahmini_teslim: $('#po-beklenen').value,
+  };
 
   if(poEditingId){
-    const o = state.supplierOrders.find(x => x.alim_id === poEditingId);
-    if(!o) return;
-    if(o.durum !== 'BEKLIYOR'){ toast('Sadece BEKLIYOR alımlar düzenlenebilir', true); return; }
-    o.tedarikci_id = tedarikciId;
-    o.siparis_tarihi = $('#po-tarih').value;
-    o.beklenen_teslim = $('#po-beklenen').value;
-    o.fatura_no = ($('#po-fatura-no').value || '').trim();
-    o.notlar = ($('#po-notlar').value || '').trim();
-    o.items = items;
-    o.toplam_eur = total;
-    o.guncelleme = now;
-    saveSupplierOrdersStore();
-    logActivity('SUPPLIER_ORDER_UPDATE', 'supplier_order', o.alim_id, `${o.alim_id} güncellendi (${total.toLocaleString('tr-TR')} EUR)`, { tedarikci_id: tedarikciId, items: o.items });
+    if(!window.BotlAPI || !BotlAPI.patchSupplierOrder){
+      toast('Backend yok — güncelleme yapılamadı', true);
+      return;
+    }
+    const r = await BotlAPI.patchSupplierOrder(poEditingId, payload);
+    if(!r.ok){ toast('Alım güncelleme hatası: ' + (r.error || r.status), true); return; }
+    logActivity('SUPPLIER_ORDER_UPDATE', 'supplier_order', poEditingId, `${poEditingId} güncellendi (${total.toLocaleString('tr-TR')} EUR)`, { tedarikci_id: tedarikciId, items: backendItems });
+    await loadSupplierOrders();
     closePurchaseOrderPage();
     renderAll();
-    toast(`${o.alim_id} güncellendi`);
+    toast(`${poEditingId} güncellendi`);
   } else {
-    const order = {
-      alim_id: makeSupplierOrderId(),
-      tedarikci_id: tedarikciId,
-      durum: 'BEKLIYOR',
-      items: items,
-      toplam_eur: total,
-      para_birimi: 'EUR',
-      siparis_tarihi: $('#po-tarih').value,
-      beklenen_teslim: $('#po-beklenen').value,
-      fatura_no: ($('#po-fatura-no').value || '').trim(),
-      notlar: ($('#po-notlar').value || '').trim(),
-      olusturma: now,
-      guncelleme: now,
-    };
-    state.supplierOrders.unshift(order);
-    saveSupplierOrdersStore();
+    if(!window.BotlAPI || !BotlAPI.createSupplierOrder){
+      toast('Backend yok — alım kaydı oluşturulamadı', true);
+      return;
+    }
+    const r = await BotlAPI.createSupplierOrder(payload);
+    if(!r.ok){ toast('Alım oluşturma hatası: ' + (r.error || r.status), true); return; }
     const sup = state.suppliers.find(s => supId(s) === tedarikciId);
-    logActivity('SUPPLIER_ORDER_CREATE', 'supplier_order', order.alim_id, `${supName(sup)||tedarikciId}: ${items.length} kalem · ${fmt(total)}`, { tedarikci_id: tedarikciId, items: order.items, toplam: total });
+    logActivity('SUPPLIER_ORDER_CREATE', 'supplier_order', r.alim_id, `${supName(sup)||tedarikciId}: ${backendItems.length} kalem · ${fmt(total)}`, { tedarikci_id: tedarikciId, items: backendItems, toplam: total });
+    await loadSupplierOrders();
     closePurchaseOrderPage();
     renderAll();
-    toast(`${order.alim_id} oluşturuldu — BEKLIYOR durumunda`);
+    toast(`${r.alim_id} oluşturuldu — BEKLIYOR durumunda`);
   }
 }
 
@@ -13132,10 +13336,13 @@ function receiveSupplierOrder(id){
       logActivity('STOCK_INCREASE', 'product', item.variation_id, `${item.marka} ${item.isim_snapshot}: total ${eskiTotal} → ${yeniTotal} (alım ${o.alim_id})`, { variation_id: item.variation_id, eski_total: eskiTotal, yeni_total: yeniTotal, delta: +item.qty, kaynak_alim: o.alim_id });
     }
   });
-  o.durum = 'TESLIM_ALINDI';
+  o.durum = 'GELDI';  // backend canonical
   o.teslim_tarihi = now;
   o.guncelleme = now;
   save(); saveSupplierOrdersStore();
+  if(window.BotlAPI && BotlAPI.patchSupplierOrder){
+    BotlAPI.patchSupplierOrder(o.alim_id, { durum: 'GELDI', notlar: o.notlar }).catch(e => console.warn('[supplier-order-receive] backend fail', e));
+  }
   const sup = state.suppliers.find(s=>s.tedarikci_id===o.tedarikci_id);
   logActivity('SUPPLIER_ORDER_RECEIVE', 'supplier_order', o.alim_id, `${o.alim_id} teslim alındı · ${sup?.isim||o.tedarikci_id} · ${fmt(o.toplam_eur)}`, { tedarikci_id: o.tedarikci_id, items: o.items });
   renderAll();
@@ -13160,9 +13367,12 @@ function cancelReceivedSupplierOrder(id){
       logActivity('STOCK_DECREASE', 'product', item.variation_id, `${item.marka} ${item.isim_snapshot}: total ${eskiTotal} → ${yeniTotal} (alım ${o.alim_id} iptali)`, { variation_id: item.variation_id, eski_total: eskiTotal, yeni_total: yeniTotal, delta: -item.qty, kaynak_alim: o.alim_id });
     }
   });
-  o.durum = 'IPTAL_EDILDI';
+  o.durum = 'IPTAL';  // backend canonical
   o.guncelleme = now;
   save(); saveSupplierOrdersStore();
+  if(window.BotlAPI && BotlAPI.patchSupplierOrder){
+    BotlAPI.patchSupplierOrder(o.alim_id, { durum: 'IPTAL' }).catch(e => console.warn('[supplier-order-cancel] backend fail', e));
+  }
   logActivity('SUPPLIER_ORDER_CANCEL', 'supplier_order', o.alim_id, `${o.alim_id} iptal edildi, stok geri çekildi`, { tedarikci_id: o.tedarikci_id, items: o.items });
   renderAll();
   toast(`${o.alim_id} iptal edildi`);
@@ -13170,10 +13380,13 @@ function cancelReceivedSupplierOrder(id){
 function deleteSupplierOrder(id){
   const o = state.supplierOrders.find(x=>x.alim_id===id);
   if(!o) return;
-  if(o.durum === 'TESLIM_ALINDI'){ alert('Teslim alınmış sipariş silinemez. Önce iptal et.'); return; }
+  if(o.durum === 'TESLIM_ALINDI' || o.durum === 'GELDI'){ alert('Teslim alınmış sipariş silinemez. Önce iptal et.'); return; }
   if(!confirm(`${o.alim_id} kalıcı silinsin mi?`)) return;
   state.supplierOrders = state.supplierOrders.filter(x=>x.alim_id!==id);
   saveSupplierOrdersStore();
+  if(window.BotlAPI && BotlAPI.deleteSupplierOrder){
+    BotlAPI.deleteSupplierOrder(id).catch(e => console.warn('[supplier-order-delete] backend fail', e));
+  }
   logActivity('SUPPLIER_ORDER_DELETE', 'supplier_order', id, `${id} silindi`, { silinen: o });
   if(poEditingId===id) closePurchaseOrderPage();
   renderAll();
@@ -13543,12 +13756,12 @@ async function init(){
   safeStep('bindThemeToggle', () => bindThemeToggle());
   await safeStepAsync('loadDataJson', () => loadDataJson());
   await safeStepAsync('load', () => load());
-  safeStep('loadOrders', () => loadOrders());
-  safeStep('loadCustomers', () => loadCustomers());
-  safeStep('loadSuppliers', () => loadSuppliers());
-  safeStep('loadSupplierOrders', () => loadSupplierOrders());
-  safeStep('loadReturns', () => loadReturns());
-  safeStep('loadActivity', () => loadActivity());
+  await safeStepAsync('loadOrders', () => loadOrders());
+  await safeStepAsync('loadCustomers', () => loadCustomers());
+  await safeStepAsync('loadSuppliers', () => loadSuppliers());
+  await safeStepAsync('loadSupplierOrders', () => loadSupplierOrders());
+  await safeStepAsync('loadReturns', () => loadReturns());
+  await safeStepAsync('loadActivity', () => loadActivity());
   safeStep('renderAll', () => renderAll());
   safeStep('setSaveStatus', () => setSaveStatus('saved'));
   safeStep('updateDataSourceBanner', () => updateDataSourceBanner());
