@@ -6677,8 +6677,8 @@ function openModal(id){
   // SSOT renk dropdown — her açılışta refresh (data.json değişebilir)
   populateRenkSelects();
   // marka inisyalleri placeholder için
-  $('#image-initials').textContent = '+';
-  updateImagePreview(null);
+  state.editingImages = [];
+  state.editingImage = null;
   if(id){
     const p = state.products.find(x=>x.variation_id===id);
     if(!p) return;
