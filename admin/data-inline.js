@@ -2,2539 +2,9 @@
 // Bu dosya catalog_sync_data tool'u tarafından üretilir; data.json ile birebir aynı içeriği taşır.
 window.__BOTL_DATA__ = {
   "schema_version": 5,
-  "exported_at": "2026-05-13T16:30:34.445068+00:00",
-  "counter": 192,
+  "exported_at": "2026-05-13T16:32:13.751553+00:00",
+  "counter": 146,
   "products": [
-    {
-      "variation_id": "FR-00001-KOYU_KAHVE-NANO-GOLD",
-      "sku": "FR-00001",
-      "no": 1,
-      "slug": "lv-speedy-nano-koyu-kahve-gold",
-      "cover": "assets/products/lv-speedy-nano-koyu-kahve-gold.jpg",
-      "isim_resmi": "Louis Vuitton Speedy Nano",
-      "isim_bilinen": "LV Speedy Nano",
-      "marka": "Louis Vuitton",
-      "kategori": "Mini Çanta",
-      "kategori_ust": "Çanta",
-      "kategori_alt": "Mini Çanta",
-      "renk": "KOYU KAHVE",
-      "ana_renk": "Koyu Kahve",
-      "ana_renk_hex": "#3d2817",
-      "renk_slug": "koyu-kahve",
-      "renk_hex": "#3d2817",
-      "ikincil_renk": "Bej",
-      "ikincil_renk_code": "BEJ",
-      "ikincil_renk_hex": "#d8c3a3",
-      "ana_malzeme": "Kanvas",
-      "desen": "Monogram",
-      "donanim_rengi": "Altın",
-      "sapli_sapsiz": "Saplı",
-      "boyut": "NANO",
-      "donanim": "Altın",
-      "deri_tipi": "Kanvas",
-      "sezon": "SS26",
-      "fiyat_eur": 1950.0,
-      "ek_ucret_eur": 0.0,
-      "maliyet_eur": 0.0,
-      "total_stok": 1,
-      "occupied_stok": 0,
-      "available_stok": 1,
-      "stok": 1,
-      "kondisyon": "Sıfır",
-      "kondisyon_label": "Sıfır",
-      "aciklama": "LV Speedy Nano — Tier 1. 9 varyasyon. SS26 batch girişi.",
-      "tedarikci_id": null,
-      "olusturma": "2026-05-13",
-      "cinsiyet": "",
-      "cuzdan_tipi": "",
-      "kart_yuvasi_sayisi": null,
-      "banknot_bolmesi_sayisi": null,
-      "madeni_para_bolmesi": null,
-      "id_pencere_var_mi": null,
-      "fermuar_var_mi": null,
-      "fermuar_konumu": null,
-      "RFID_korumali": null,
-      "kapama_tipi": null,
-      "gorseller": {
-        "cover": "assets/products/lv-speedy-nano-koyu-kahve-gold.jpg",
-        "gallery": []
-      }
-    },
-    {
-      "variation_id": "FR-00001-ACIK_KAHVE-NANO-GOLD",
-      "sku": "FR-00001",
-      "no": 2,
-      "slug": "lv-speedy-nano-acik-kahve-gold",
-      "cover": "assets/products/lv-speedy-nano-acik-kahve-gold.jpg",
-      "isim_resmi": "Louis Vuitton Speedy Nano",
-      "isim_bilinen": "LV Speedy Nano",
-      "marka": "Louis Vuitton",
-      "kategori": "Mini Çanta",
-      "kategori_ust": "Çanta",
-      "kategori_alt": "Mini Çanta",
-      "renk": "ACIK KAHVE",
-      "ana_renk": "Açık Kahve",
-      "ana_renk_hex": "#7b5a3a",
-      "renk_slug": "acik-kahve",
-      "renk_hex": "#7b5a3a",
-      "ikincil_renk": "Krem",
-      "ikincil_renk_code": "KREM",
-      "ikincil_renk_hex": "#e8d4b0",
-      "ana_malzeme": "Kanvas",
-      "desen": "Monogram",
-      "donanim_rengi": "Altın",
-      "sapli_sapsiz": "Saplı",
-      "boyut": "NANO",
-      "donanim": "Altın",
-      "deri_tipi": "Kanvas",
-      "sezon": "SS26",
-      "fiyat_eur": 1950.0,
-      "ek_ucret_eur": 0.0,
-      "maliyet_eur": 0.0,
-      "total_stok": 1,
-      "occupied_stok": 0,
-      "available_stok": 1,
-      "stok": 1,
-      "kondisyon": "Sıfır",
-      "kondisyon_label": "Sıfır",
-      "aciklama": "LV Speedy Nano — Tier 1. 9 varyasyon. SS26 batch girişi.",
-      "tedarikci_id": null,
-      "olusturma": "2026-05-13",
-      "cinsiyet": "",
-      "cuzdan_tipi": "",
-      "kart_yuvasi_sayisi": null,
-      "banknot_bolmesi_sayisi": null,
-      "madeni_para_bolmesi": null,
-      "id_pencere_var_mi": null,
-      "fermuar_var_mi": null,
-      "fermuar_konumu": null,
-      "RFID_korumali": null,
-      "kapama_tipi": null,
-      "gorseller": {
-        "cover": "assets/products/lv-speedy-nano-acik-kahve-gold.jpg",
-        "gallery": []
-      }
-    },
-    {
-      "variation_id": "FR-00001-MAVI-NANO-GOLD",
-      "sku": "FR-00001",
-      "no": 3,
-      "slug": "lv-speedy-nano-mavi-gold",
-      "cover": "assets/products/lv-speedy-nano-mavi-gold.jpg",
-      "isim_resmi": "Louis Vuitton Speedy Nano",
-      "isim_bilinen": "LV Speedy Nano",
-      "marka": "Louis Vuitton",
-      "kategori": "Mini Çanta",
-      "kategori_ust": "Çanta",
-      "kategori_alt": "Mini Çanta",
-      "renk": "MAVI",
-      "ana_renk": "Mavi",
-      "ana_renk_hex": "#2d3e58",
-      "renk_slug": "mavi",
-      "renk_hex": "#2d3e58",
-      "ikincil_renk": "Krem",
-      "ikincil_renk_code": "KREM",
-      "ikincil_renk_hex": "#e8d4b0",
-      "ana_malzeme": "Denim",
-      "desen": "Monogram",
-      "donanim_rengi": "Altın",
-      "sapli_sapsiz": "Saplı",
-      "boyut": "NANO",
-      "donanim": "Altın",
-      "deri_tipi": "Denim",
-      "sezon": "SS26",
-      "fiyat_eur": 2200.0,
-      "ek_ucret_eur": 250.0,
-      "maliyet_eur": 0.0,
-      "total_stok": 1,
-      "occupied_stok": 0,
-      "available_stok": 1,
-      "stok": 1,
-      "kondisyon": "Sıfır",
-      "kondisyon_label": "Sıfır",
-      "aciklama": "LV Speedy Nano — Tier 1. 9 varyasyon. SS26 batch girişi.",
-      "tedarikci_id": null,
-      "olusturma": "2026-05-13",
-      "cinsiyet": "",
-      "cuzdan_tipi": "",
-      "kart_yuvasi_sayisi": null,
-      "banknot_bolmesi_sayisi": null,
-      "madeni_para_bolmesi": null,
-      "id_pencere_var_mi": null,
-      "fermuar_var_mi": null,
-      "fermuar_konumu": null,
-      "RFID_korumali": null,
-      "kapama_tipi": null,
-      "gorseller": {
-        "cover": "assets/products/lv-speedy-nano-mavi-gold.jpg",
-        "gallery": []
-      }
-    },
-    {
-      "variation_id": "FR-00001-ACIK_MAVI-NANO-GOLD",
-      "sku": "FR-00001",
-      "no": 4,
-      "slug": "lv-speedy-nano-acik-mavi-gold",
-      "cover": "assets/products/lv-speedy-nano-acik-mavi-gold.jpg",
-      "isim_resmi": "Louis Vuitton Speedy Nano",
-      "isim_bilinen": "LV Speedy Nano",
-      "marka": "Louis Vuitton",
-      "kategori": "Mini Çanta",
-      "kategori_ust": "Çanta",
-      "kategori_alt": "Mini Çanta",
-      "renk": "ACIK MAVI",
-      "ana_renk": "Açık Mavi",
-      "ana_renk_hex": "#7a96b8",
-      "renk_slug": "acik-mavi",
-      "renk_hex": "#7a96b8",
-      "ikincil_renk": "Krem",
-      "ikincil_renk_code": "KREM",
-      "ikincil_renk_hex": "#e8d4b0",
-      "ana_malzeme": "Denim",
-      "desen": "Monogram",
-      "donanim_rengi": "Altın",
-      "sapli_sapsiz": "Saplı",
-      "boyut": "NANO",
-      "donanim": "Altın",
-      "deri_tipi": "Denim",
-      "sezon": "SS26",
-      "fiyat_eur": 2200.0,
-      "ek_ucret_eur": 250.0,
-      "maliyet_eur": 0.0,
-      "total_stok": 1,
-      "occupied_stok": 0,
-      "available_stok": 1,
-      "stok": 1,
-      "kondisyon": "Sıfır",
-      "kondisyon_label": "Sıfır",
-      "aciklama": "LV Speedy Nano — Tier 1. 9 varyasyon. SS26 batch girişi.",
-      "tedarikci_id": null,
-      "olusturma": "2026-05-13",
-      "cinsiyet": "",
-      "cuzdan_tipi": "",
-      "kart_yuvasi_sayisi": null,
-      "banknot_bolmesi_sayisi": null,
-      "madeni_para_bolmesi": null,
-      "id_pencere_var_mi": null,
-      "fermuar_var_mi": null,
-      "fermuar_konumu": null,
-      "RFID_korumali": null,
-      "kapama_tipi": null,
-      "gorseller": {
-        "cover": "assets/products/lv-speedy-nano-acik-mavi-gold.jpg",
-        "gallery": []
-      }
-    },
-    {
-      "variation_id": "FR-00001-SIYAH-NANO-SILVER",
-      "sku": "FR-00001",
-      "no": 5,
-      "slug": "lv-speedy-nano-siyah-silver",
-      "cover": "assets/products/lv-speedy-nano-siyah-silver.jpg",
-      "isim_resmi": "Louis Vuitton Speedy Nano",
-      "isim_bilinen": "LV Speedy Nano",
-      "marka": "Louis Vuitton",
-      "kategori": "Mini Çanta",
-      "kategori_ust": "Çanta",
-      "kategori_alt": "Mini Çanta",
-      "renk": "SIYAH",
-      "ana_renk": "Siyah",
-      "ana_renk_hex": "#1a1a1a",
-      "renk_slug": "siyah",
-      "renk_hex": "#1a1a1a",
-      "ikincil_renk": "Gri",
-      "ikincil_renk_code": "GRI",
-      "ikincil_renk_hex": "#7d7d7d",
-      "ana_malzeme": "Kanvas",
-      "desen": "Damier",
-      "donanim_rengi": "Gümüş",
-      "sapli_sapsiz": "Saplı",
-      "boyut": "NANO",
-      "donanim": "Gümüş",
-      "deri_tipi": "Kanvas",
-      "sezon": "SS26",
-      "fiyat_eur": 2000.0,
-      "ek_ucret_eur": 50.0,
-      "maliyet_eur": 0.0,
-      "total_stok": 1,
-      "occupied_stok": 0,
-      "available_stok": 1,
-      "stok": 1,
-      "kondisyon": "Sıfır",
-      "kondisyon_label": "Sıfır",
-      "aciklama": "LV Speedy Nano — Tier 1. 9 varyasyon. SS26 batch girişi.",
-      "tedarikci_id": null,
-      "olusturma": "2026-05-13",
-      "cinsiyet": "",
-      "cuzdan_tipi": "",
-      "kart_yuvasi_sayisi": null,
-      "banknot_bolmesi_sayisi": null,
-      "madeni_para_bolmesi": null,
-      "id_pencere_var_mi": null,
-      "fermuar_var_mi": null,
-      "fermuar_konumu": null,
-      "RFID_korumali": null,
-      "kapama_tipi": null,
-      "gorseller": {
-        "cover": "assets/products/lv-speedy-nano-siyah-silver.jpg",
-        "gallery": []
-      }
-    },
-    {
-      "variation_id": "FR-00001-KREM-NANO-GOLD",
-      "sku": "FR-00001",
-      "no": 6,
-      "slug": "lv-speedy-nano-krem-gold",
-      "cover": "assets/products/lv-speedy-nano-krem-gold.jpg",
-      "isim_resmi": "Louis Vuitton Speedy Nano",
-      "isim_bilinen": "LV Speedy Nano",
-      "marka": "Louis Vuitton",
-      "kategori": "Mini Çanta",
-      "kategori_ust": "Çanta",
-      "kategori_alt": "Mini Çanta",
-      "renk": "KREM",
-      "ana_renk": "Krem",
-      "ana_renk_hex": "#e8d4b0",
-      "renk_slug": "krem",
-      "renk_hex": "#e8d4b0",
-      "ikincil_renk": "Beyaz",
-      "ikincil_renk_code": "BEYAZ",
-      "ikincil_renk_hex": "#f5f1ea",
-      "ana_malzeme": "Kanvas",
-      "desen": "Damier",
-      "donanim_rengi": "Altın",
-      "sapli_sapsiz": "Saplı",
-      "boyut": "NANO",
-      "donanim": "Altın",
-      "deri_tipi": "Kanvas",
-      "sezon": "SS26",
-      "fiyat_eur": 2000.0,
-      "ek_ucret_eur": 50.0,
-      "maliyet_eur": 0.0,
-      "total_stok": 1,
-      "occupied_stok": 0,
-      "available_stok": 1,
-      "stok": 1,
-      "kondisyon": "Sıfır",
-      "kondisyon_label": "Sıfır",
-      "aciklama": "LV Speedy Nano — Tier 1. 9 varyasyon. SS26 batch girişi.",
-      "tedarikci_id": null,
-      "olusturma": "2026-05-13",
-      "cinsiyet": "",
-      "cuzdan_tipi": "",
-      "kart_yuvasi_sayisi": null,
-      "banknot_bolmesi_sayisi": null,
-      "madeni_para_bolmesi": null,
-      "id_pencere_var_mi": null,
-      "fermuar_var_mi": null,
-      "fermuar_konumu": null,
-      "RFID_korumali": null,
-      "kapama_tipi": null,
-      "gorseller": {
-        "cover": "assets/products/lv-speedy-nano-krem-gold.jpg",
-        "gallery": []
-      }
-    },
-    {
-      "variation_id": "FR-00001-SIYAH-NANO-GOLD-MONOGR",
-      "sku": "FR-00001",
-      "no": 7,
-      "slug": "lv-speedy-nano-siyah-gold-monogr",
-      "cover": "assets/products/lv-speedy-nano-siyah-gold-monogr.jpg",
-      "isim_resmi": "Louis Vuitton Speedy Nano",
-      "isim_bilinen": "LV Speedy Nano",
-      "marka": "Louis Vuitton",
-      "kategori": "Mini Çanta",
-      "kategori_ust": "Çanta",
-      "kategori_alt": "Mini Çanta",
-      "renk": "SIYAH",
-      "ana_renk": "Siyah",
-      "ana_renk_hex": "#1a1a1a",
-      "renk_slug": "siyah",
-      "renk_hex": "#1a1a1a",
-      "ikincil_renk": "Krem",
-      "ikincil_renk_code": "KREM",
-      "ikincil_renk_hex": "#e8d4b0",
-      "ana_malzeme": "Denim",
-      "desen": "Monogram",
-      "donanim_rengi": "Altın",
-      "sapli_sapsiz": "Saplı",
-      "boyut": "NANO",
-      "donanim": "Altın",
-      "deri_tipi": "Denim",
-      "sezon": "SS26",
-      "fiyat_eur": 2200.0,
-      "ek_ucret_eur": 250.0,
-      "maliyet_eur": 0.0,
-      "total_stok": 1,
-      "occupied_stok": 0,
-      "available_stok": 1,
-      "stok": 1,
-      "kondisyon": "Sıfır",
-      "kondisyon_label": "Sıfır",
-      "aciklama": "LV Speedy Nano — Tier 1. 9 varyasyon. SS26 batch girişi.",
-      "tedarikci_id": null,
-      "olusturma": "2026-05-13",
-      "cinsiyet": "",
-      "cuzdan_tipi": "",
-      "kart_yuvasi_sayisi": null,
-      "banknot_bolmesi_sayisi": null,
-      "madeni_para_bolmesi": null,
-      "id_pencere_var_mi": null,
-      "fermuar_var_mi": null,
-      "fermuar_konumu": null,
-      "RFID_korumali": null,
-      "kapama_tipi": null,
-      "gorseller": {
-        "cover": "assets/products/lv-speedy-nano-siyah-gold-monogr.jpg",
-        "gallery": []
-      }
-    },
-    {
-      "variation_id": "FR-00001-SIYAH-NANO-GOLD-BASKIL",
-      "sku": "FR-00001",
-      "no": 9,
-      "slug": "lv-speedy-nano-siyah-gold-baskil",
-      "cover": "assets/products/lv-speedy-nano-siyah-gold-baskil.jpg",
-      "isim_resmi": "Louis Vuitton Speedy Nano",
-      "isim_bilinen": "LV Speedy Nano",
-      "marka": "Louis Vuitton",
-      "kategori": "Mini Çanta",
-      "kategori_ust": "Çanta",
-      "kategori_alt": "Mini Çanta",
-      "renk": "SIYAH",
-      "ana_renk": "Siyah",
-      "ana_renk_hex": "#1a1a1a",
-      "renk_slug": "siyah",
-      "renk_hex": "#1a1a1a",
-      "ikincil_renk": "",
-      "ikincil_renk_code": "",
-      "ikincil_renk_hex": "",
-      "ana_malzeme": "Kanvas",
-      "desen": "Baskılı",
-      "donanim_rengi": "Altın",
-      "sapli_sapsiz": "Saplı",
-      "boyut": "NANO",
-      "donanim": "Altın",
-      "deri_tipi": "Kanvas",
-      "sezon": "SS26",
-      "fiyat_eur": 2250.0,
-      "ek_ucret_eur": 300.0,
-      "maliyet_eur": 0.0,
-      "total_stok": 1,
-      "occupied_stok": 0,
-      "available_stok": 1,
-      "stok": 1,
-      "kondisyon": "Sıfır",
-      "kondisyon_label": "Sıfır",
-      "aciklama": "LV Speedy Nano — Tier 1. 9 varyasyon. SS26 batch girişi.",
-      "tedarikci_id": null,
-      "olusturma": "2026-05-13",
-      "cinsiyet": "",
-      "cuzdan_tipi": "",
-      "kart_yuvasi_sayisi": null,
-      "banknot_bolmesi_sayisi": null,
-      "madeni_para_bolmesi": null,
-      "id_pencere_var_mi": null,
-      "fermuar_var_mi": null,
-      "fermuar_konumu": null,
-      "RFID_korumali": null,
-      "kapama_tipi": null,
-      "gorseller": {
-        "cover": "assets/products/lv-speedy-nano-siyah-gold-baskil.jpg",
-        "gallery": []
-      }
-    },
-    {
-      "variation_id": "FR-00001-BEYAZ-NANO-GOLD",
-      "sku": "FR-00001",
-      "no": 8,
-      "slug": "lv-speedy-nano-beyaz-gold",
-      "cover": "assets/products/lv-speedy-nano-beyaz-gold.jpg",
-      "isim_resmi": "Louis Vuitton Speedy Nano",
-      "isim_bilinen": "LV Speedy Nano",
-      "marka": "Louis Vuitton",
-      "kategori": "Mini Çanta",
-      "kategori_ust": "Çanta",
-      "kategori_alt": "Mini Çanta",
-      "renk": "BEYAZ",
-      "ana_renk": "Beyaz",
-      "ana_renk_hex": "#f5f1ea",
-      "renk_slug": "beyaz",
-      "renk_hex": "#f5f1ea",
-      "ikincil_renk": "Krem",
-      "ikincil_renk_code": "KREM",
-      "ikincil_renk_hex": "#e8d4b0",
-      "ana_malzeme": "Kanvas",
-      "desen": "Monogram",
-      "donanim_rengi": "Altın",
-      "sapli_sapsiz": "Saplı",
-      "boyut": "NANO",
-      "donanim": "Altın",
-      "deri_tipi": "Kanvas",
-      "sezon": "SS26",
-      "fiyat_eur": 2100.0,
-      "ek_ucret_eur": 150.0,
-      "maliyet_eur": 0.0,
-      "total_stok": 1,
-      "occupied_stok": 0,
-      "available_stok": 1,
-      "stok": 1,
-      "kondisyon": "Sıfır",
-      "kondisyon_label": "Sıfır",
-      "aciklama": "LV Speedy Nano — Tier 1. 9 varyasyon. SS26 batch girişi.",
-      "tedarikci_id": null,
-      "olusturma": "2026-05-13",
-      "cinsiyet": "",
-      "cuzdan_tipi": "",
-      "kart_yuvasi_sayisi": null,
-      "banknot_bolmesi_sayisi": null,
-      "madeni_para_bolmesi": null,
-      "id_pencere_var_mi": null,
-      "fermuar_var_mi": null,
-      "fermuar_konumu": null,
-      "RFID_korumali": null,
-      "kapama_tipi": null,
-      "gorseller": {
-        "cover": "assets/products/lv-speedy-nano-beyaz-gold.jpg",
-        "gallery": []
-      }
-    },
-    {
-      "variation_id": "FR-00002-KOYU_KAHVE-STANDART-GOLD",
-      "sku": "FR-00002",
-      "no": 10,
-      "slug": "gucci-ophidia-koyu-kahve-gold",
-      "cover": "assets/products/gucci-ophidia-koyu-kahve-gold.jpg",
-      "isim_resmi": "Gucci Ophidia Boat",
-      "isim_bilinen": "Gucci Ophidia",
-      "marka": "Gucci",
-      "kategori": "Omuz Çantası",
-      "kategori_ust": "Çanta",
-      "kategori_alt": "Omuz Çantası",
-      "renk": "KOYU KAHVE",
-      "ana_renk": "Koyu Kahve",
-      "ana_renk_hex": "#3d2817",
-      "renk_slug": "koyu-kahve",
-      "renk_hex": "#3d2817",
-      "ikincil_renk": "Koyu Kahve",
-      "ikincil_renk_code": "KOYU KAHVE",
-      "ikincil_renk_hex": "#3d2817",
-      "ana_malzeme": "Kanvas",
-      "desen": "Monogram",
-      "donanim_rengi": "Altın",
-      "sapli_sapsiz": "Saplı",
-      "boyut": "STANDART",
-      "donanim": "Altın",
-      "deri_tipi": "Kanvas",
-      "sezon": "SS26",
-      "fiyat_eur": 1100.0,
-      "ek_ucret_eur": 0.0,
-      "maliyet_eur": 0.0,
-      "total_stok": 1,
-      "occupied_stok": 0,
-      "available_stok": 1,
-      "stok": 1,
-      "kondisyon": "Sıfır",
-      "kondisyon_label": "Sıfır",
-      "aciklama": "Gucci Ophidia Kayık — Tier 3. 7 varyasyon. SS26 batch girişi.",
-      "tedarikci_id": null,
-      "olusturma": "2026-05-13",
-      "cinsiyet": "",
-      "cuzdan_tipi": "",
-      "kart_yuvasi_sayisi": null,
-      "banknot_bolmesi_sayisi": null,
-      "madeni_para_bolmesi": null,
-      "id_pencere_var_mi": null,
-      "fermuar_var_mi": null,
-      "fermuar_konumu": null,
-      "RFID_korumali": null,
-      "kapama_tipi": null,
-      "gorseller": {
-        "cover": "assets/products/gucci-ophidia-koyu-kahve-gold.jpg",
-        "gallery": []
-      }
-    },
-    {
-      "variation_id": "FR-00002-TABA-STANDART-GOLD",
-      "sku": "FR-00002",
-      "no": 11,
-      "slug": "gucci-ophidia-taba-gold",
-      "cover": "assets/products/gucci-ophidia-taba-gold.jpg",
-      "isim_resmi": "Gucci Ophidia Boat",
-      "isim_bilinen": "Gucci Ophidia",
-      "marka": "Gucci",
-      "kategori": "Omuz Çantası",
-      "kategori_ust": "Çanta",
-      "kategori_alt": "Omuz Çantası",
-      "renk": "TABA",
-      "ana_renk": "Taba",
-      "ana_renk_hex": "#a87842",
-      "renk_slug": "taba",
-      "renk_hex": "#a87842",
-      "ikincil_renk": "Bej",
-      "ikincil_renk_code": "BEJ",
-      "ikincil_renk_hex": "#d8c3a3",
-      "ana_malzeme": "Kanvas",
-      "desen": "Monogram",
-      "donanim_rengi": "Altın",
-      "sapli_sapsiz": "Saplı",
-      "boyut": "STANDART",
-      "donanim": "Altın",
-      "deri_tipi": "Kanvas",
-      "sezon": "SS26",
-      "fiyat_eur": 1100.0,
-      "ek_ucret_eur": 0.0,
-      "maliyet_eur": 0.0,
-      "total_stok": 1,
-      "occupied_stok": 0,
-      "available_stok": 1,
-      "stok": 1,
-      "kondisyon": "Sıfır",
-      "kondisyon_label": "Sıfır",
-      "aciklama": "Gucci Ophidia Kayık — Tier 3. 7 varyasyon. SS26 batch girişi.",
-      "tedarikci_id": null,
-      "olusturma": "2026-05-13",
-      "cinsiyet": "",
-      "cuzdan_tipi": "",
-      "kart_yuvasi_sayisi": null,
-      "banknot_bolmesi_sayisi": null,
-      "madeni_para_bolmesi": null,
-      "id_pencere_var_mi": null,
-      "fermuar_var_mi": null,
-      "fermuar_konumu": null,
-      "RFID_korumali": null,
-      "kapama_tipi": null,
-      "gorseller": {
-        "cover": "assets/products/gucci-ophidia-taba-gold.jpg",
-        "gallery": []
-      }
-    },
-    {
-      "variation_id": "FR-00002-BEJ-STANDART-GOLD",
-      "sku": "FR-00002",
-      "no": 12,
-      "slug": "gucci-ophidia-bej-gold",
-      "cover": "assets/products/gucci-ophidia-bej-gold.jpg",
-      "isim_resmi": "Gucci Ophidia Boat",
-      "isim_bilinen": "Gucci Ophidia",
-      "marka": "Gucci",
-      "kategori": "Omuz Çantası",
-      "kategori_ust": "Çanta",
-      "kategori_alt": "Omuz Çantası",
-      "renk": "BEJ",
-      "ana_renk": "Bej",
-      "ana_renk_hex": "#d8c3a3",
-      "renk_slug": "bej",
-      "renk_hex": "#d8c3a3",
-      "ikincil_renk": "Siyah",
-      "ikincil_renk_code": "SIYAH",
-      "ikincil_renk_hex": "#1a1a1a",
-      "ana_malzeme": "Kanvas",
-      "desen": "Monogram",
-      "donanim_rengi": "Altın",
-      "sapli_sapsiz": "Saplı",
-      "boyut": "STANDART",
-      "donanim": "Altın",
-      "deri_tipi": "Kanvas",
-      "sezon": "SS26",
-      "fiyat_eur": 1150.0,
-      "ek_ucret_eur": 50.0,
-      "maliyet_eur": 0.0,
-      "total_stok": 1,
-      "occupied_stok": 0,
-      "available_stok": 1,
-      "stok": 1,
-      "kondisyon": "Sıfır",
-      "kondisyon_label": "Sıfır",
-      "aciklama": "Gucci Ophidia Kayık — Tier 3. 7 varyasyon. SS26 batch girişi.",
-      "tedarikci_id": null,
-      "olusturma": "2026-05-13",
-      "cinsiyet": "",
-      "cuzdan_tipi": "",
-      "kart_yuvasi_sayisi": null,
-      "banknot_bolmesi_sayisi": null,
-      "madeni_para_bolmesi": null,
-      "id_pencere_var_mi": null,
-      "fermuar_var_mi": null,
-      "fermuar_konumu": null,
-      "RFID_korumali": null,
-      "kapama_tipi": null,
-      "gorseller": {
-        "cover": "assets/products/gucci-ophidia-bej-gold.jpg",
-        "gallery": []
-      }
-    },
-    {
-      "variation_id": "FR-00002-ACIK_VIZON-STANDART-GOLD",
-      "sku": "FR-00002",
-      "no": 13,
-      "slug": "gucci-ophidia-acik-vizon-gold",
-      "cover": "assets/products/gucci-ophidia-acik-vizon-gold.jpg",
-      "isim_resmi": "Gucci Ophidia Boat",
-      "isim_bilinen": "Gucci Ophidia",
-      "marka": "Gucci",
-      "kategori": "Omuz Çantası",
-      "kategori_ust": "Çanta",
-      "kategori_alt": "Omuz Çantası",
-      "renk": "ACIK VIZON",
-      "ana_renk": "Açık Vizon",
-      "ana_renk_hex": "#b8a690",
-      "renk_slug": "acik-vizon",
-      "renk_hex": "#b8a690",
-      "ikincil_renk": "Krem",
-      "ikincil_renk_code": "KREM",
-      "ikincil_renk_hex": "#e8d4b0",
-      "ana_malzeme": "Kanvas",
-      "desen": "Monogram",
-      "donanim_rengi": "Altın",
-      "sapli_sapsiz": "Saplı",
-      "boyut": "STANDART",
-      "donanim": "Altın",
-      "deri_tipi": "Kanvas",
-      "sezon": "SS26",
-      "fiyat_eur": 1200.0,
-      "ek_ucret_eur": 100.0,
-      "maliyet_eur": 0.0,
-      "total_stok": 1,
-      "occupied_stok": 0,
-      "available_stok": 1,
-      "stok": 1,
-      "kondisyon": "Sıfır",
-      "kondisyon_label": "Sıfır",
-      "aciklama": "Gucci Ophidia Kayık — Tier 3. 7 varyasyon. SS26 batch girişi.",
-      "tedarikci_id": null,
-      "olusturma": "2026-05-13",
-      "cinsiyet": "",
-      "cuzdan_tipi": "",
-      "kart_yuvasi_sayisi": null,
-      "banknot_bolmesi_sayisi": null,
-      "madeni_para_bolmesi": null,
-      "id_pencere_var_mi": null,
-      "fermuar_var_mi": null,
-      "fermuar_konumu": null,
-      "RFID_korumali": null,
-      "kapama_tipi": null,
-      "gorseller": {
-        "cover": "assets/products/gucci-ophidia-acik-vizon-gold.jpg",
-        "gallery": []
-      }
-    },
-    {
-      "variation_id": "FR-00002-ACIK_PEMBE-STANDART-GOLD",
-      "sku": "FR-00002",
-      "no": 14,
-      "slug": "gucci-ophidia-acik-pembe-gold",
-      "cover": "assets/products/gucci-ophidia-acik-pembe-gold.jpg",
-      "isim_resmi": "Gucci Ophidia Boat",
-      "isim_bilinen": "Gucci Ophidia",
-      "marka": "Gucci",
-      "kategori": "Omuz Çantası",
-      "kategori_ust": "Çanta",
-      "kategori_alt": "Omuz Çantası",
-      "renk": "ACIK PEMBE",
-      "ana_renk": "Açık Pembe",
-      "ana_renk_hex": "#e8c4cc",
-      "renk_slug": "acik-pembe",
-      "renk_hex": "#e8c4cc",
-      "ikincil_renk": "Krem",
-      "ikincil_renk_code": "KREM",
-      "ikincil_renk_hex": "#e8d4b0",
-      "ana_malzeme": "Deri",
-      "desen": "Kapitone",
-      "donanim_rengi": "Altın",
-      "sapli_sapsiz": "Saplı",
-      "boyut": "STANDART",
-      "donanim": "Altın",
-      "deri_tipi": "Deri",
-      "sezon": "SS26",
-      "fiyat_eur": 1200.0,
-      "ek_ucret_eur": 100.0,
-      "maliyet_eur": 0.0,
-      "total_stok": 1,
-      "occupied_stok": 0,
-      "available_stok": 1,
-      "stok": 1,
-      "kondisyon": "Sıfır",
-      "kondisyon_label": "Sıfır",
-      "aciklama": "Gucci Ophidia Kayık — Tier 3. 7 varyasyon. SS26 batch girişi.",
-      "tedarikci_id": null,
-      "olusturma": "2026-05-13",
-      "cinsiyet": "",
-      "cuzdan_tipi": "",
-      "kart_yuvasi_sayisi": null,
-      "banknot_bolmesi_sayisi": null,
-      "madeni_para_bolmesi": null,
-      "id_pencere_var_mi": null,
-      "fermuar_var_mi": null,
-      "fermuar_konumu": null,
-      "RFID_korumali": null,
-      "kapama_tipi": null,
-      "gorseller": {
-        "cover": "assets/products/gucci-ophidia-acik-pembe-gold.jpg",
-        "gallery": []
-      }
-    },
-    {
-      "variation_id": "FR-00002-SIYAH-STANDART-GOLD",
-      "sku": "FR-00002",
-      "no": 15,
-      "slug": "gucci-ophidia-siyah-gold",
-      "cover": "assets/products/gucci-ophidia-siyah-gold.jpg",
-      "isim_resmi": "Gucci Ophidia Boat",
-      "isim_bilinen": "Gucci Ophidia",
-      "marka": "Gucci",
-      "kategori": "Omuz Çantası",
-      "kategori_ust": "Çanta",
-      "kategori_alt": "Omuz Çantası",
-      "renk": "SIYAH",
-      "ana_renk": "Siyah",
-      "ana_renk_hex": "#1a1a1a",
-      "renk_slug": "siyah",
-      "renk_hex": "#1a1a1a",
-      "ikincil_renk": "Siyah",
-      "ikincil_renk_code": "SIYAH",
-      "ikincil_renk_hex": "#1a1a1a",
-      "ana_malzeme": "Deri",
-      "desen": "Kapitone",
-      "donanim_rengi": "Altın",
-      "sapli_sapsiz": "Saplı",
-      "boyut": "STANDART",
-      "donanim": "Altın",
-      "deri_tipi": "Deri",
-      "sezon": "SS26",
-      "fiyat_eur": 1300.0,
-      "ek_ucret_eur": 200.0,
-      "maliyet_eur": 0.0,
-      "total_stok": 1,
-      "occupied_stok": 0,
-      "available_stok": 1,
-      "stok": 1,
-      "kondisyon": "Sıfır",
-      "kondisyon_label": "Sıfır",
-      "aciklama": "Gucci Ophidia Kayık — Tier 3. 7 varyasyon. SS26 batch girişi.",
-      "tedarikci_id": null,
-      "olusturma": "2026-05-13",
-      "cinsiyet": "",
-      "cuzdan_tipi": "",
-      "kart_yuvasi_sayisi": null,
-      "banknot_bolmesi_sayisi": null,
-      "madeni_para_bolmesi": null,
-      "id_pencere_var_mi": null,
-      "fermuar_var_mi": null,
-      "fermuar_konumu": null,
-      "RFID_korumali": null,
-      "kapama_tipi": null,
-      "gorseller": {
-        "cover": "assets/products/gucci-ophidia-siyah-gold.jpg",
-        "gallery": []
-      }
-    },
-    {
-      "variation_id": "FR-00002-BEYAZ-STANDART-GOLD",
-      "sku": "FR-00002",
-      "no": 16,
-      "slug": "gucci-ophidia-beyaz-gold",
-      "cover": "assets/products/gucci-ophidia-beyaz-gold.jpg",
-      "isim_resmi": "Gucci Ophidia Boat",
-      "isim_bilinen": "Gucci Ophidia",
-      "marka": "Gucci",
-      "kategori": "Omuz Çantası",
-      "kategori_ust": "Çanta",
-      "kategori_alt": "Omuz Çantası",
-      "renk": "BEYAZ",
-      "ana_renk": "Beyaz",
-      "ana_renk_hex": "#f5f1ea",
-      "renk_slug": "beyaz",
-      "renk_hex": "#f5f1ea",
-      "ikincil_renk": "Beyaz",
-      "ikincil_renk_code": "BEYAZ",
-      "ikincil_renk_hex": "#f5f1ea",
-      "ana_malzeme": "Deri",
-      "desen": "Kapitone",
-      "donanim_rengi": "Altın",
-      "sapli_sapsiz": "Saplı",
-      "boyut": "STANDART",
-      "donanim": "Altın",
-      "deri_tipi": "Deri",
-      "sezon": "SS26",
-      "fiyat_eur": 1250.0,
-      "ek_ucret_eur": 150.0,
-      "maliyet_eur": 0.0,
-      "total_stok": 1,
-      "occupied_stok": 0,
-      "available_stok": 1,
-      "stok": 1,
-      "kondisyon": "Sıfır",
-      "kondisyon_label": "Sıfır",
-      "aciklama": "Gucci Ophidia Kayık — Tier 3. 7 varyasyon. SS26 batch girişi.",
-      "tedarikci_id": null,
-      "olusturma": "2026-05-13",
-      "cinsiyet": "",
-      "cuzdan_tipi": "",
-      "kart_yuvasi_sayisi": null,
-      "banknot_bolmesi_sayisi": null,
-      "madeni_para_bolmesi": null,
-      "id_pencere_var_mi": null,
-      "fermuar_var_mi": null,
-      "fermuar_konumu": null,
-      "RFID_korumali": null,
-      "kapama_tipi": null,
-      "gorseller": {
-        "cover": "assets/products/gucci-ophidia-beyaz-gold.jpg",
-        "gallery": []
-      }
-    },
-    {
-      "variation_id": "FR-00003-KOYU_KAHVE-PM-PALLADIUM-DUZ",
-      "sku": "FR-00003",
-      "no": 17,
-      "slug": "hermes-picotin-koyu-kahve-palladium-duz",
-      "cover": "assets/products/hermes-picotin-koyu-kahve-palladium-duz.jpg",
-      "isim_resmi": "Hermès Picnic Picotin Straw",
-      "isim_bilinen": "Hermès Picotin",
-      "marka": "Hermès",
-      "kategori": "Tote Çanta",
-      "kategori_ust": "Çanta",
-      "kategori_alt": "Tote Çanta",
-      "renk": "KOYU KAHVE",
-      "ana_renk": "Koyu Kahve",
-      "ana_renk_hex": "#3d2817",
-      "renk_slug": "koyu-kahve",
-      "renk_hex": "#3d2817",
-      "ikincil_renk": "Doğal",
-      "ikincil_renk_code": "DOGAL",
-      "ikincil_renk_hex": "#d4b896",
-      "ana_malzeme": "Hasır",
-      "desen": "Düz",
-      "donanim_rengi": "Paladyum",
-      "sapli_sapsiz": "Saplı",
-      "boyut": "PM",
-      "donanim": "Paladyum",
-      "deri_tipi": "Hasır",
-      "sezon": "SS26",
-      "fiyat_eur": 7400.0,
-      "ek_ucret_eur": 200.0,
-      "maliyet_eur": 0.0,
-      "total_stok": 1,
-      "occupied_stok": 0,
-      "available_stok": 1,
-      "stok": 1,
-      "kondisyon": "Sıfır",
-      "kondisyon_label": "Sıfır",
-      "aciklama": "Hermès Picnic Picotin (Straw Hasır + Deri Sap) — Tier 1. 5 varyasyon. SS26 batch girişi.",
-      "tedarikci_id": null,
-      "olusturma": "2026-05-13",
-      "cinsiyet": "",
-      "cuzdan_tipi": "",
-      "kart_yuvasi_sayisi": null,
-      "banknot_bolmesi_sayisi": null,
-      "madeni_para_bolmesi": null,
-      "id_pencere_var_mi": null,
-      "fermuar_var_mi": null,
-      "fermuar_konumu": null,
-      "RFID_korumali": null,
-      "kapama_tipi": null,
-      "gorseller": {
-        "cover": "assets/products/hermes-picotin-koyu-kahve-palladium-duz.jpg",
-        "gallery": []
-      }
-    },
-    {
-      "variation_id": "FR-00003-KOYU_KAHVE-PM-PALLADIUM-DUZ-21",
-      "sku": "FR-00003",
-      "no": 21,
-      "slug": "hermes-picotin-koyu-kahve-palladium-duz-21",
-      "cover": "assets/products/hermes-picotin-koyu-kahve-palladium-duz-21.jpg",
-      "isim_resmi": "Hermès Picnic Picotin Straw",
-      "isim_bilinen": "Hermès Picotin",
-      "marka": "Hermès",
-      "kategori": "Tote Çanta",
-      "kategori_ust": "Çanta",
-      "kategori_alt": "Tote Çanta",
-      "renk": "KOYU KAHVE",
-      "ana_renk": "Koyu Kahve",
-      "ana_renk_hex": "#3d2817",
-      "renk_slug": "koyu-kahve",
-      "renk_hex": "#3d2817",
-      "ikincil_renk": "Doğal",
-      "ikincil_renk_code": "DOGAL",
-      "ikincil_renk_hex": "#d4b896",
-      "ana_malzeme": "Hasır",
-      "desen": "Düz",
-      "donanim_rengi": "Paladyum",
-      "sapli_sapsiz": "Saplı",
-      "boyut": "PM",
-      "donanim": "Paladyum",
-      "deri_tipi": "Hasır",
-      "sezon": "SS26",
-      "fiyat_eur": 7200.0,
-      "ek_ucret_eur": 0.0,
-      "maliyet_eur": 0.0,
-      "total_stok": 1,
-      "occupied_stok": 0,
-      "available_stok": 1,
-      "stok": 1,
-      "kondisyon": "Sıfır",
-      "kondisyon_label": "Sıfır",
-      "aciklama": "Hermès Picnic Picotin (Straw Hasır + Deri Sap) — Tier 1. 5 varyasyon. SS26 batch girişi.",
-      "tedarikci_id": null,
-      "olusturma": "2026-05-13",
-      "cinsiyet": "",
-      "cuzdan_tipi": "",
-      "kart_yuvasi_sayisi": null,
-      "banknot_bolmesi_sayisi": null,
-      "madeni_para_bolmesi": null,
-      "id_pencere_var_mi": null,
-      "fermuar_var_mi": null,
-      "fermuar_konumu": null,
-      "RFID_korumali": null,
-      "kapama_tipi": null,
-      "gorseller": {
-        "cover": "assets/products/hermes-picotin-koyu-kahve-palladium-duz-21.jpg",
-        "gallery": []
-      }
-    },
-    {
-      "variation_id": "FR-00003-DOGAL-PM-PALLADIUM",
-      "sku": "FR-00003",
-      "no": 18,
-      "slug": "hermes-picotin-dogal-palladium",
-      "cover": "assets/products/hermes-picotin-dogal-palladium.jpg",
-      "isim_resmi": "Hermès Picnic Picotin Straw",
-      "isim_bilinen": "Hermès Picotin",
-      "marka": "Hermès",
-      "kategori": "Tote Çanta",
-      "kategori_ust": "Çanta",
-      "kategori_alt": "Tote Çanta",
-      "renk": "DOGAL",
-      "ana_renk": "Doğal",
-      "ana_renk_hex": "#d4b896",
-      "renk_slug": "dogal",
-      "renk_hex": "#d4b896",
-      "ikincil_renk": "Siyah",
-      "ikincil_renk_code": "SIYAH",
-      "ikincil_renk_hex": "#1a1a1a",
-      "ana_malzeme": "Hasır",
-      "desen": "Düz",
-      "donanim_rengi": "Paladyum",
-      "sapli_sapsiz": "Saplı",
-      "boyut": "PM",
-      "donanim": "Paladyum",
-      "deri_tipi": "Hasır",
-      "sezon": "SS26",
-      "fiyat_eur": 7800.0,
-      "ek_ucret_eur": 600.0,
-      "maliyet_eur": 0.0,
-      "total_stok": 1,
-      "occupied_stok": 0,
-      "available_stok": 1,
-      "stok": 1,
-      "kondisyon": "Sıfır",
-      "kondisyon_label": "Sıfır",
-      "aciklama": "Hermès Picnic Picotin (Straw Hasır + Deri Sap) — Tier 1. 5 varyasyon. SS26 batch girişi.",
-      "tedarikci_id": null,
-      "olusturma": "2026-05-13",
-      "cinsiyet": "",
-      "cuzdan_tipi": "",
-      "kart_yuvasi_sayisi": null,
-      "banknot_bolmesi_sayisi": null,
-      "madeni_para_bolmesi": null,
-      "id_pencere_var_mi": null,
-      "fermuar_var_mi": null,
-      "fermuar_konumu": null,
-      "RFID_korumali": null,
-      "kapama_tipi": null,
-      "gorseller": {
-        "cover": "assets/products/hermes-picotin-dogal-palladium.jpg",
-        "gallery": []
-      }
-    },
-    {
-      "variation_id": "FR-00003-SIYAH-PM-PALLADIUM",
-      "sku": "FR-00003",
-      "no": 19,
-      "slug": "hermes-picotin-siyah-palladium",
-      "cover": "assets/products/hermes-picotin-siyah-palladium.jpg",
-      "isim_resmi": "Hermès Picnic Picotin Straw",
-      "isim_bilinen": "Hermès Picotin",
-      "marka": "Hermès",
-      "kategori": "Tote Çanta",
-      "kategori_ust": "Çanta",
-      "kategori_alt": "Tote Çanta",
-      "renk": "SIYAH",
-      "ana_renk": "Siyah",
-      "ana_renk_hex": "#1a1a1a",
-      "renk_slug": "siyah",
-      "renk_hex": "#1a1a1a",
-      "ikincil_renk": "Siyah",
-      "ikincil_renk_code": "SIYAH",
-      "ikincil_renk_hex": "#1a1a1a",
-      "ana_malzeme": "Hasır",
-      "desen": "Düz",
-      "donanim_rengi": "Paladyum",
-      "sapli_sapsiz": "Saplı",
-      "boyut": "PM",
-      "donanim": "Paladyum",
-      "deri_tipi": "Hasır",
-      "sezon": "SS26",
-      "fiyat_eur": 7600.0,
-      "ek_ucret_eur": 400.0,
-      "maliyet_eur": 0.0,
-      "total_stok": 1,
-      "occupied_stok": 0,
-      "available_stok": 1,
-      "stok": 1,
-      "kondisyon": "Sıfır",
-      "kondisyon_label": "Sıfır",
-      "aciklama": "Hermès Picnic Picotin (Straw Hasır + Deri Sap) — Tier 1. 5 varyasyon. SS26 batch girişi.",
-      "tedarikci_id": null,
-      "olusturma": "2026-05-13",
-      "cinsiyet": "",
-      "cuzdan_tipi": "",
-      "kart_yuvasi_sayisi": null,
-      "banknot_bolmesi_sayisi": null,
-      "madeni_para_bolmesi": null,
-      "id_pencere_var_mi": null,
-      "fermuar_var_mi": null,
-      "fermuar_konumu": null,
-      "RFID_korumali": null,
-      "kapama_tipi": null,
-      "gorseller": {
-        "cover": "assets/products/hermes-picotin-siyah-palladium.jpg",
-        "gallery": []
-      }
-    },
-    {
-      "variation_id": "FR-00003-TABA-PM-PALLADIUM",
-      "sku": "FR-00003",
-      "no": 20,
-      "slug": "hermes-picotin-taba-palladium",
-      "cover": "assets/products/hermes-picotin-taba-palladium.jpg",
-      "isim_resmi": "Hermès Picnic Picotin Straw",
-      "isim_bilinen": "Hermès Picotin",
-      "marka": "Hermès",
-      "kategori": "Tote Çanta",
-      "kategori_ust": "Çanta",
-      "kategori_alt": "Tote Çanta",
-      "renk": "TABA",
-      "ana_renk": "Taba",
-      "ana_renk_hex": "#a87842",
-      "renk_slug": "taba",
-      "renk_hex": "#a87842",
-      "ikincil_renk": "Doğal",
-      "ikincil_renk_code": "DOGAL",
-      "ikincil_renk_hex": "#d4b896",
-      "ana_malzeme": "Hasır",
-      "desen": "Düz",
-      "donanim_rengi": "Paladyum",
-      "sapli_sapsiz": "Saplı",
-      "boyut": "PM",
-      "donanim": "Paladyum",
-      "deri_tipi": "Hasır",
-      "sezon": "SS26",
-      "fiyat_eur": 7300.0,
-      "ek_ucret_eur": 100.0,
-      "maliyet_eur": 0.0,
-      "total_stok": 1,
-      "occupied_stok": 0,
-      "available_stok": 1,
-      "stok": 1,
-      "kondisyon": "Sıfır",
-      "kondisyon_label": "Sıfır",
-      "aciklama": "Hermès Picnic Picotin (Straw Hasır + Deri Sap) — Tier 1. 5 varyasyon. SS26 batch girişi.",
-      "tedarikci_id": null,
-      "olusturma": "2026-05-13",
-      "cinsiyet": "",
-      "cuzdan_tipi": "",
-      "kart_yuvasi_sayisi": null,
-      "banknot_bolmesi_sayisi": null,
-      "madeni_para_bolmesi": null,
-      "id_pencere_var_mi": null,
-      "fermuar_var_mi": null,
-      "fermuar_konumu": null,
-      "RFID_korumali": null,
-      "kapama_tipi": null,
-      "gorseller": {
-        "cover": "assets/products/hermes-picotin-taba-palladium.jpg",
-        "gallery": []
-      }
-    },
-    {
-      "variation_id": "FR-00004-DOGAL-STANDART-GOLD-DUZ",
-      "sku": "FR-00004",
-      "no": 22,
-      "slug": "ysl-kemerli-hasir-dogal-gold-duz",
-      "cover": "assets/products/ysl-kemerli-hasir-dogal-gold-duz.jpg",
-      "isim_resmi": "Saint Laurent Raffia Belted Tote",
-      "isim_bilinen": "YSL Kemerli Hasır",
-      "marka": "Yves Saint Laurent",
-      "kategori": "Tote Çanta",
-      "kategori_ust": "Çanta",
-      "kategori_alt": "Tote Çanta",
-      "renk": "DOGAL",
-      "ana_renk": "Doğal",
-      "ana_renk_hex": "#d4b896",
-      "renk_slug": "dogal",
-      "renk_hex": "#d4b896",
-      "ikincil_renk": "Siyah",
-      "ikincil_renk_code": "SIYAH",
-      "ikincil_renk_hex": "#1a1a1a",
-      "ana_malzeme": "Hasır",
-      "desen": "Düz",
-      "donanim_rengi": "Altın",
-      "sapli_sapsiz": "Saplı",
-      "boyut": "STANDART",
-      "donanim": "Altın",
-      "deri_tipi": "Hasır",
-      "sezon": "SS26",
-      "fiyat_eur": 1650.0,
-      "ek_ucret_eur": 0.0,
-      "maliyet_eur": 0.0,
-      "total_stok": 1,
-      "occupied_stok": 0,
-      "available_stok": 1,
-      "stok": 1,
-      "kondisyon": "Sıfır",
-      "kondisyon_label": "Sıfır",
-      "aciklama": "YSL Deri Sap Kemerli Hasır Tote — Tier 2. 3 varyasyon. SS26 batch girişi.",
-      "tedarikci_id": null,
-      "olusturma": "2026-05-13",
-      "cinsiyet": "",
-      "cuzdan_tipi": "",
-      "kart_yuvasi_sayisi": null,
-      "banknot_bolmesi_sayisi": null,
-      "madeni_para_bolmesi": null,
-      "id_pencere_var_mi": null,
-      "fermuar_var_mi": null,
-      "fermuar_konumu": null,
-      "RFID_korumali": null,
-      "kapama_tipi": null,
-      "gorseller": {
-        "cover": "assets/products/ysl-kemerli-hasir-dogal-gold-duz.jpg",
-        "gallery": []
-      }
-    },
-    {
-      "variation_id": "FR-00004-DOGAL-STANDART-GOLD-DUZ-23",
-      "sku": "FR-00004",
-      "no": 23,
-      "slug": "ysl-kemerli-hasir-dogal-gold-duz-23",
-      "cover": "assets/products/ysl-kemerli-hasir-dogal-gold-duz-23.jpg",
-      "isim_resmi": "Saint Laurent Raffia Belted Tote",
-      "isim_bilinen": "YSL Kemerli Hasır",
-      "marka": "Yves Saint Laurent",
-      "kategori": "Tote Çanta",
-      "kategori_ust": "Çanta",
-      "kategori_alt": "Tote Çanta",
-      "renk": "DOGAL",
-      "ana_renk": "Doğal",
-      "ana_renk_hex": "#d4b896",
-      "renk_slug": "dogal",
-      "renk_hex": "#d4b896",
-      "ikincil_renk": "Açık Kahve",
-      "ikincil_renk_code": "ACIK KAHVE",
-      "ikincil_renk_hex": "#7b5a3a",
-      "ana_malzeme": "Hasır",
-      "desen": "Düz",
-      "donanim_rengi": "Altın",
-      "sapli_sapsiz": "Saplı",
-      "boyut": "STANDART",
-      "donanim": "Altın",
-      "deri_tipi": "Hasır",
-      "sezon": "SS26",
-      "fiyat_eur": 1650.0,
-      "ek_ucret_eur": 0.0,
-      "maliyet_eur": 0.0,
-      "total_stok": 1,
-      "occupied_stok": 0,
-      "available_stok": 1,
-      "stok": 1,
-      "kondisyon": "Sıfır",
-      "kondisyon_label": "Sıfır",
-      "aciklama": "YSL Deri Sap Kemerli Hasır Tote — Tier 2. 3 varyasyon. SS26 batch girişi.",
-      "tedarikci_id": null,
-      "olusturma": "2026-05-13",
-      "cinsiyet": "",
-      "cuzdan_tipi": "",
-      "kart_yuvasi_sayisi": null,
-      "banknot_bolmesi_sayisi": null,
-      "madeni_para_bolmesi": null,
-      "id_pencere_var_mi": null,
-      "fermuar_var_mi": null,
-      "fermuar_konumu": null,
-      "RFID_korumali": null,
-      "kapama_tipi": null,
-      "gorseller": {
-        "cover": "assets/products/ysl-kemerli-hasir-dogal-gold-duz-23.jpg",
-        "gallery": []
-      }
-    },
-    {
-      "variation_id": "FR-00004-DOGAL-STANDART-GOLD-DUZ-24",
-      "sku": "FR-00004",
-      "no": 24,
-      "slug": "ysl-kemerli-hasir-dogal-gold-duz-24",
-      "cover": "assets/products/ysl-kemerli-hasir-dogal-gold-duz-24.jpg",
-      "isim_resmi": "Saint Laurent Raffia Belted Tote",
-      "isim_bilinen": "YSL Kemerli Hasır",
-      "marka": "Yves Saint Laurent",
-      "kategori": "Tote Çanta",
-      "kategori_ust": "Çanta",
-      "kategori_alt": "Tote Çanta",
-      "renk": "DOGAL",
-      "ana_renk": "Doğal",
-      "ana_renk_hex": "#d4b896",
-      "renk_slug": "dogal",
-      "renk_hex": "#d4b896",
-      "ikincil_renk": "Koyu Kahve",
-      "ikincil_renk_code": "KOYU KAHVE",
-      "ikincil_renk_hex": "#3d2817",
-      "ana_malzeme": "Hasır",
-      "desen": "Düz",
-      "donanim_rengi": "Altın",
-      "sapli_sapsiz": "Saplı",
-      "boyut": "STANDART",
-      "donanim": "Altın",
-      "deri_tipi": "Hasır",
-      "sezon": "SS26",
-      "fiyat_eur": 1650.0,
-      "ek_ucret_eur": 0.0,
-      "maliyet_eur": 0.0,
-      "total_stok": 1,
-      "occupied_stok": 0,
-      "available_stok": 1,
-      "stok": 1,
-      "kondisyon": "Sıfır",
-      "kondisyon_label": "Sıfır",
-      "aciklama": "YSL Deri Sap Kemerli Hasır Tote — Tier 2. 3 varyasyon. SS26 batch girişi.",
-      "tedarikci_id": null,
-      "olusturma": "2026-05-13",
-      "cinsiyet": "",
-      "cuzdan_tipi": "",
-      "kart_yuvasi_sayisi": null,
-      "banknot_bolmesi_sayisi": null,
-      "madeni_para_bolmesi": null,
-      "id_pencere_var_mi": null,
-      "fermuar_var_mi": null,
-      "fermuar_konumu": null,
-      "RFID_korumali": null,
-      "kapama_tipi": null,
-      "gorseller": {
-        "cover": "assets/products/ysl-kemerli-hasir-dogal-gold-duz-24.jpg",
-        "gallery": []
-      }
-    },
-    {
-      "variation_id": "FR-00005-LACIVERT-STANDART-GOLD",
-      "sku": "FR-00005",
-      "no": 25,
-      "slug": "ysl-orme-tote-lacivert-gold",
-      "cover": "assets/products/ysl-orme-tote-lacivert-gold.jpg",
-      "isim_resmi": "Saint Laurent Raffia Crochet Bag",
-      "isim_bilinen": "YSL Örme Tote",
-      "marka": "Yves Saint Laurent",
-      "kategori": "Tote Çanta",
-      "kategori_ust": "Çanta",
-      "kategori_alt": "Tote Çanta",
-      "renk": "LACIVERT",
-      "ana_renk": "Lacivert",
-      "ana_renk_hex": "#1a2238",
-      "renk_slug": "lacivert",
-      "renk_hex": "#1a2238",
-      "ikincil_renk": "Lacivert",
-      "ikincil_renk_code": "LACIVERT",
-      "ikincil_renk_hex": "#1a2238",
-      "ana_malzeme": "Örme",
-      "desen": "Düz",
-      "donanim_rengi": "Altın",
-      "sapli_sapsiz": "Saplı",
-      "boyut": "STANDART",
-      "donanim": "Altın",
-      "deri_tipi": "Örme",
-      "sezon": "SS26",
-      "fiyat_eur": 1450.0,
-      "ek_ucret_eur": 0.0,
-      "maliyet_eur": 0.0,
-      "total_stok": 1,
-      "occupied_stok": 0,
-      "available_stok": 1,
-      "stok": 1,
-      "kondisyon": "Sıfır",
-      "kondisyon_label": "Sıfır",
-      "aciklama": "YSL Örme (Icare Crochet) — Tier 2. 3 varyasyon. SS26 batch girişi.",
-      "tedarikci_id": null,
-      "olusturma": "2026-05-13",
-      "cinsiyet": "",
-      "cuzdan_tipi": "",
-      "kart_yuvasi_sayisi": null,
-      "banknot_bolmesi_sayisi": null,
-      "madeni_para_bolmesi": null,
-      "id_pencere_var_mi": null,
-      "fermuar_var_mi": null,
-      "fermuar_konumu": null,
-      "RFID_korumali": null,
-      "kapama_tipi": null,
-      "gorseller": {
-        "cover": "assets/products/ysl-orme-tote-lacivert-gold.jpg",
-        "gallery": []
-      }
-    },
-    {
-      "variation_id": "FR-00005-BEJ-STANDART-GOLD",
-      "sku": "FR-00005",
-      "no": 26,
-      "slug": "ysl-orme-tote-bej-gold",
-      "cover": "assets/products/ysl-orme-tote-bej-gold.jpg",
-      "isim_resmi": "Saint Laurent Raffia Crochet Bag",
-      "isim_bilinen": "YSL Örme Tote",
-      "marka": "Yves Saint Laurent",
-      "kategori": "Tote Çanta",
-      "kategori_ust": "Çanta",
-      "kategori_alt": "Tote Çanta",
-      "renk": "BEJ",
-      "ana_renk": "Bej",
-      "ana_renk_hex": "#d8c3a3",
-      "renk_slug": "bej",
-      "renk_hex": "#d8c3a3",
-      "ikincil_renk": "Krem",
-      "ikincil_renk_code": "KREM",
-      "ikincil_renk_hex": "#e8d4b0",
-      "ana_malzeme": "Örme",
-      "desen": "Düz",
-      "donanim_rengi": "Altın",
-      "sapli_sapsiz": "Saplı",
-      "boyut": "STANDART",
-      "donanim": "Altın",
-      "deri_tipi": "Örme",
-      "sezon": "SS26",
-      "fiyat_eur": 1450.0,
-      "ek_ucret_eur": 0.0,
-      "maliyet_eur": 0.0,
-      "total_stok": 1,
-      "occupied_stok": 0,
-      "available_stok": 1,
-      "stok": 1,
-      "kondisyon": "Sıfır",
-      "kondisyon_label": "Sıfır",
-      "aciklama": "YSL Örme (Icare Crochet) — Tier 2. 3 varyasyon. SS26 batch girişi.",
-      "tedarikci_id": null,
-      "olusturma": "2026-05-13",
-      "cinsiyet": "",
-      "cuzdan_tipi": "",
-      "kart_yuvasi_sayisi": null,
-      "banknot_bolmesi_sayisi": null,
-      "madeni_para_bolmesi": null,
-      "id_pencere_var_mi": null,
-      "fermuar_var_mi": null,
-      "fermuar_konumu": null,
-      "RFID_korumali": null,
-      "kapama_tipi": null,
-      "gorseller": {
-        "cover": "assets/products/ysl-orme-tote-bej-gold.jpg",
-        "gallery": []
-      }
-    },
-    {
-      "variation_id": "FR-00005-TABA-STANDART-GOLD",
-      "sku": "FR-00005",
-      "no": 27,
-      "slug": "ysl-orme-tote-taba-gold",
-      "cover": "assets/products/ysl-orme-tote-taba-gold.jpg",
-      "isim_resmi": "Saint Laurent Raffia Crochet Bag",
-      "isim_bilinen": "YSL Örme Tote",
-      "marka": "Yves Saint Laurent",
-      "kategori": "Tote Çanta",
-      "kategori_ust": "Çanta",
-      "kategori_alt": "Tote Çanta",
-      "renk": "TABA",
-      "ana_renk": "Taba",
-      "ana_renk_hex": "#a87842",
-      "renk_slug": "taba",
-      "renk_hex": "#a87842",
-      "ikincil_renk": "Bej",
-      "ikincil_renk_code": "BEJ",
-      "ikincil_renk_hex": "#d8c3a3",
-      "ana_malzeme": "Örme",
-      "desen": "Düz",
-      "donanim_rengi": "Altın",
-      "sapli_sapsiz": "Saplı",
-      "boyut": "STANDART",
-      "donanim": "Altın",
-      "deri_tipi": "Örme",
-      "sezon": "SS26",
-      "fiyat_eur": 1450.0,
-      "ek_ucret_eur": 0.0,
-      "maliyet_eur": 0.0,
-      "total_stok": 1,
-      "occupied_stok": 0,
-      "available_stok": 1,
-      "stok": 1,
-      "kondisyon": "Sıfır",
-      "kondisyon_label": "Sıfır",
-      "aciklama": "YSL Örme (Icare Crochet) — Tier 2. 3 varyasyon. SS26 batch girişi.",
-      "tedarikci_id": null,
-      "olusturma": "2026-05-13",
-      "cinsiyet": "",
-      "cuzdan_tipi": "",
-      "kart_yuvasi_sayisi": null,
-      "banknot_bolmesi_sayisi": null,
-      "madeni_para_bolmesi": null,
-      "id_pencere_var_mi": null,
-      "fermuar_var_mi": null,
-      "fermuar_konumu": null,
-      "RFID_korumali": null,
-      "kapama_tipi": null,
-      "gorseller": {
-        "cover": "assets/products/ysl-orme-tote-taba-gold.jpg",
-        "gallery": []
-      }
-    },
-    {
-      "variation_id": "FR-00006-TABA-STANDART-GOLD",
-      "sku": "FR-00006",
-      "no": 28,
-      "slug": "miu-miu-woven-taba-gold",
-      "cover": "assets/products/miu-miu-woven-taba-gold.jpg",
-      "isim_resmi": "Miu Miu Woven Logo Hobo",
-      "isim_bilinen": "Miu Miu Woven",
-      "marka": "Miu Miu",
-      "kategori": "Omuz Çantası",
-      "kategori_ust": "Çanta",
-      "kategori_alt": "Omuz Çantası",
-      "renk": "TABA",
-      "ana_renk": "Taba",
-      "ana_renk_hex": "#a87842",
-      "renk_slug": "taba",
-      "renk_hex": "#a87842",
-      "ikincil_renk": "Bej",
-      "ikincil_renk_code": "BEJ",
-      "ikincil_renk_hex": "#d8c3a3",
-      "ana_malzeme": "Hasır",
-      "desen": "Düz",
-      "donanim_rengi": "Altın",
-      "sapli_sapsiz": "Saplı",
-      "boyut": "STANDART",
-      "donanim": "Altın",
-      "deri_tipi": "Hasır",
-      "sezon": "SS26",
-      "fiyat_eur": 1350.0,
-      "ek_ucret_eur": 0.0,
-      "maliyet_eur": 0.0,
-      "total_stok": 1,
-      "occupied_stok": 0,
-      "available_stok": 1,
-      "stok": 1,
-      "kondisyon": "Sıfır",
-      "kondisyon_label": "Sıfır",
-      "aciklama": "MiuMiu Woven Logo Hobo — Tier 2. 4 varyasyon. SS26 batch girişi.",
-      "tedarikci_id": null,
-      "olusturma": "2026-05-13",
-      "cinsiyet": "",
-      "cuzdan_tipi": "",
-      "kart_yuvasi_sayisi": null,
-      "banknot_bolmesi_sayisi": null,
-      "madeni_para_bolmesi": null,
-      "id_pencere_var_mi": null,
-      "fermuar_var_mi": null,
-      "fermuar_konumu": null,
-      "RFID_korumali": null,
-      "kapama_tipi": null,
-      "gorseller": {
-        "cover": "assets/products/miu-miu-woven-taba-gold.jpg",
-        "gallery": []
-      }
-    },
-    {
-      "variation_id": "FR-00006-KOYU_KAHVE-STANDART-GOLD",
-      "sku": "FR-00006",
-      "no": 29,
-      "slug": "miu-miu-woven-koyu-kahve-gold",
-      "cover": "assets/products/miu-miu-woven-koyu-kahve-gold.jpg",
-      "isim_resmi": "Miu Miu Woven Logo Hobo",
-      "isim_bilinen": "Miu Miu Woven",
-      "marka": "Miu Miu",
-      "kategori": "Omuz Çantası",
-      "kategori_ust": "Çanta",
-      "kategori_alt": "Omuz Çantası",
-      "renk": "KOYU KAHVE",
-      "ana_renk": "Koyu Kahve",
-      "ana_renk_hex": "#3d2817",
-      "renk_slug": "koyu-kahve",
-      "renk_hex": "#3d2817",
-      "ikincil_renk": "Koyu Kahve",
-      "ikincil_renk_code": "KOYU KAHVE",
-      "ikincil_renk_hex": "#3d2817",
-      "ana_malzeme": "Hasır",
-      "desen": "Düz",
-      "donanim_rengi": "Altın",
-      "sapli_sapsiz": "Saplı",
-      "boyut": "STANDART",
-      "donanim": "Altın",
-      "deri_tipi": "Hasır",
-      "sezon": "SS26",
-      "fiyat_eur": 1350.0,
-      "ek_ucret_eur": 0.0,
-      "maliyet_eur": 0.0,
-      "total_stok": 1,
-      "occupied_stok": 0,
-      "available_stok": 1,
-      "stok": 1,
-      "kondisyon": "Sıfır",
-      "kondisyon_label": "Sıfır",
-      "aciklama": "MiuMiu Woven Logo Hobo — Tier 2. 4 varyasyon. SS26 batch girişi.",
-      "tedarikci_id": null,
-      "olusturma": "2026-05-13",
-      "cinsiyet": "",
-      "cuzdan_tipi": "",
-      "kart_yuvasi_sayisi": null,
-      "banknot_bolmesi_sayisi": null,
-      "madeni_para_bolmesi": null,
-      "id_pencere_var_mi": null,
-      "fermuar_var_mi": null,
-      "fermuar_konumu": null,
-      "RFID_korumali": null,
-      "kapama_tipi": null,
-      "gorseller": {
-        "cover": "assets/products/miu-miu-woven-koyu-kahve-gold.jpg",
-        "gallery": []
-      }
-    },
-    {
-      "variation_id": "FR-00006-SIYAH-STANDART-GOLD",
-      "sku": "FR-00006",
-      "no": 30,
-      "slug": "miu-miu-woven-siyah-gold",
-      "cover": "assets/products/miu-miu-woven-siyah-gold.jpg",
-      "isim_resmi": "Miu Miu Woven Logo Hobo",
-      "isim_bilinen": "Miu Miu Woven",
-      "marka": "Miu Miu",
-      "kategori": "Omuz Çantası",
-      "kategori_ust": "Çanta",
-      "kategori_alt": "Omuz Çantası",
-      "renk": "SIYAH",
-      "ana_renk": "Siyah",
-      "ana_renk_hex": "#1a1a1a",
-      "renk_slug": "siyah",
-      "renk_hex": "#1a1a1a",
-      "ikincil_renk": "Siyah",
-      "ikincil_renk_code": "SIYAH",
-      "ikincil_renk_hex": "#1a1a1a",
-      "ana_malzeme": "Hasır",
-      "desen": "Düz",
-      "donanim_rengi": "Altın",
-      "sapli_sapsiz": "Saplı",
-      "boyut": "STANDART",
-      "donanim": "Altın",
-      "deri_tipi": "Hasır",
-      "sezon": "SS26",
-      "fiyat_eur": 1350.0,
-      "ek_ucret_eur": 0.0,
-      "maliyet_eur": 0.0,
-      "total_stok": 1,
-      "occupied_stok": 0,
-      "available_stok": 1,
-      "stok": 1,
-      "kondisyon": "Sıfır",
-      "kondisyon_label": "Sıfır",
-      "aciklama": "MiuMiu Woven Logo Hobo — Tier 2. 4 varyasyon. SS26 batch girişi.",
-      "tedarikci_id": null,
-      "olusturma": "2026-05-13",
-      "cinsiyet": "",
-      "cuzdan_tipi": "",
-      "kart_yuvasi_sayisi": null,
-      "banknot_bolmesi_sayisi": null,
-      "madeni_para_bolmesi": null,
-      "id_pencere_var_mi": null,
-      "fermuar_var_mi": null,
-      "fermuar_konumu": null,
-      "RFID_korumali": null,
-      "kapama_tipi": null,
-      "gorseller": {
-        "cover": "assets/products/miu-miu-woven-siyah-gold.jpg",
-        "gallery": []
-      }
-    },
-    {
-      "variation_id": "FR-00006-BEYAZ-STANDART-GOLD",
-      "sku": "FR-00006",
-      "no": 31,
-      "slug": "miu-miu-woven-beyaz-gold",
-      "cover": "assets/products/miu-miu-woven-beyaz-gold.jpg",
-      "isim_resmi": "Miu Miu Woven Logo Hobo",
-      "isim_bilinen": "Miu Miu Woven",
-      "marka": "Miu Miu",
-      "kategori": "Omuz Çantası",
-      "kategori_ust": "Çanta",
-      "kategori_alt": "Omuz Çantası",
-      "renk": "BEYAZ",
-      "ana_renk": "Beyaz",
-      "ana_renk_hex": "#f5f1ea",
-      "renk_slug": "beyaz",
-      "renk_hex": "#f5f1ea",
-      "ikincil_renk": "Beyaz",
-      "ikincil_renk_code": "BEYAZ",
-      "ikincil_renk_hex": "#f5f1ea",
-      "ana_malzeme": "Hasır",
-      "desen": "Düz",
-      "donanim_rengi": "Altın",
-      "sapli_sapsiz": "Saplı",
-      "boyut": "STANDART",
-      "donanim": "Altın",
-      "deri_tipi": "Hasır",
-      "sezon": "SS26",
-      "fiyat_eur": 1350.0,
-      "ek_ucret_eur": 0.0,
-      "maliyet_eur": 0.0,
-      "total_stok": 1,
-      "occupied_stok": 0,
-      "available_stok": 1,
-      "stok": 1,
-      "kondisyon": "Sıfır",
-      "kondisyon_label": "Sıfır",
-      "aciklama": "MiuMiu Woven Logo Hobo — Tier 2. 4 varyasyon. SS26 batch girişi.",
-      "tedarikci_id": null,
-      "olusturma": "2026-05-13",
-      "cinsiyet": "",
-      "cuzdan_tipi": "",
-      "kart_yuvasi_sayisi": null,
-      "banknot_bolmesi_sayisi": null,
-      "madeni_para_bolmesi": null,
-      "id_pencere_var_mi": null,
-      "fermuar_var_mi": null,
-      "fermuar_konumu": null,
-      "RFID_korumali": null,
-      "kapama_tipi": null,
-      "gorseller": {
-        "cover": "assets/products/miu-miu-woven-beyaz-gold.jpg",
-        "gallery": []
-      }
-    },
-    {
-      "variation_id": "FR-00007-KOYU_GRI-MINI-GOLD",
-      "sku": "FR-00007",
-      "no": 32,
-      "slug": "ysl-kucuk-orme-koyu-gri-gold",
-      "cover": "assets/products/ysl-kucuk-orme-koyu-gri-gold.jpg",
-      "isim_resmi": "Saint Laurent Small Raffia Crossbody",
-      "isim_bilinen": "YSL Küçük Örme",
-      "marka": "Yves Saint Laurent",
-      "kategori": "Çapraz Çanta",
-      "kategori_ust": "Çanta",
-      "kategori_alt": "Çapraz Çanta",
-      "renk": "KOYU GRI",
-      "ana_renk": "Koyu Gri",
-      "ana_renk_hex": "#4a4a4a",
-      "renk_slug": "koyu-gri",
-      "renk_hex": "#4a4a4a",
-      "ikincil_renk": "Siyah",
-      "ikincil_renk_code": "SIYAH",
-      "ikincil_renk_hex": "#1a1a1a",
-      "ana_malzeme": "Örme",
-      "desen": "Düz",
-      "donanim_rengi": "Altın",
-      "sapli_sapsiz": "Saplı",
-      "boyut": "MINI",
-      "donanim": "Altın",
-      "deri_tipi": "Örme",
-      "sezon": "SS26",
-      "fiyat_eur": 1300.0,
-      "ek_ucret_eur": 50.0,
-      "maliyet_eur": 0.0,
-      "total_stok": 1,
-      "occupied_stok": 0,
-      "available_stok": 1,
-      "stok": 1,
-      "kondisyon": "Sıfır",
-      "kondisyon_label": "Sıfır",
-      "aciklama": "YSL Le 5 à 7 Small Crochet Deri — Tier 2. 7 varyasyon. SS26 batch girişi.",
-      "tedarikci_id": null,
-      "olusturma": "2026-05-13",
-      "cinsiyet": "",
-      "cuzdan_tipi": "",
-      "kart_yuvasi_sayisi": null,
-      "banknot_bolmesi_sayisi": null,
-      "madeni_para_bolmesi": null,
-      "id_pencere_var_mi": null,
-      "fermuar_var_mi": null,
-      "fermuar_konumu": null,
-      "RFID_korumali": null,
-      "kapama_tipi": null,
-      "gorseller": {
-        "cover": "assets/products/ysl-kucuk-orme-koyu-gri-gold.jpg",
-        "gallery": []
-      }
-    },
-    {
-      "variation_id": "FR-00007-BEYAZ-MINI-GOLD",
-      "sku": "FR-00007",
-      "no": 33,
-      "slug": "ysl-kucuk-orme-beyaz-gold",
-      "cover": "assets/products/ysl-kucuk-orme-beyaz-gold.jpg",
-      "isim_resmi": "Saint Laurent Small Raffia Crossbody",
-      "isim_bilinen": "YSL Küçük Örme",
-      "marka": "Yves Saint Laurent",
-      "kategori": "Çapraz Çanta",
-      "kategori_ust": "Çanta",
-      "kategori_alt": "Çapraz Çanta",
-      "renk": "BEYAZ",
-      "ana_renk": "Beyaz",
-      "ana_renk_hex": "#f5f1ea",
-      "renk_slug": "beyaz",
-      "renk_hex": "#f5f1ea",
-      "ikincil_renk": "Gri",
-      "ikincil_renk_code": "GRI",
-      "ikincil_renk_hex": "#7d7d7d",
-      "ana_malzeme": "Örme",
-      "desen": "Düz",
-      "donanim_rengi": "Altın",
-      "sapli_sapsiz": "Saplı",
-      "boyut": "MINI",
-      "donanim": "Altın",
-      "deri_tipi": "Örme",
-      "sezon": "SS26",
-      "fiyat_eur": 1300.0,
-      "ek_ucret_eur": 50.0,
-      "maliyet_eur": 0.0,
-      "total_stok": 1,
-      "occupied_stok": 0,
-      "available_stok": 1,
-      "stok": 1,
-      "kondisyon": "Sıfır",
-      "kondisyon_label": "Sıfır",
-      "aciklama": "YSL Le 5 à 7 Small Crochet Deri — Tier 2. 7 varyasyon. SS26 batch girişi.",
-      "tedarikci_id": null,
-      "olusturma": "2026-05-13",
-      "cinsiyet": "",
-      "cuzdan_tipi": "",
-      "kart_yuvasi_sayisi": null,
-      "banknot_bolmesi_sayisi": null,
-      "madeni_para_bolmesi": null,
-      "id_pencere_var_mi": null,
-      "fermuar_var_mi": null,
-      "fermuar_konumu": null,
-      "RFID_korumali": null,
-      "kapama_tipi": null,
-      "gorseller": {
-        "cover": "assets/products/ysl-kucuk-orme-beyaz-gold.jpg",
-        "gallery": []
-      }
-    },
-    {
-      "variation_id": "FR-00007-TABA-MINI-GOLD",
-      "sku": "FR-00007",
-      "no": 34,
-      "slug": "ysl-kucuk-orme-taba-gold",
-      "cover": "assets/products/ysl-kucuk-orme-taba-gold.jpg",
-      "isim_resmi": "Saint Laurent Small Raffia Crossbody",
-      "isim_bilinen": "YSL Küçük Örme",
-      "marka": "Yves Saint Laurent",
-      "kategori": "Çapraz Çanta",
-      "kategori_ust": "Çanta",
-      "kategori_alt": "Çapraz Çanta",
-      "renk": "TABA",
-      "ana_renk": "Taba",
-      "ana_renk_hex": "#a87842",
-      "renk_slug": "taba",
-      "renk_hex": "#a87842",
-      "ikincil_renk": "Açık Vizon",
-      "ikincil_renk_code": "ACIK VIZON",
-      "ikincil_renk_hex": "#b8a690",
-      "ana_malzeme": "Örme",
-      "desen": "Düz",
-      "donanim_rengi": "Altın",
-      "sapli_sapsiz": "Saplı",
-      "boyut": "MINI",
-      "donanim": "Altın",
-      "deri_tipi": "Örme",
-      "sezon": "SS26",
-      "fiyat_eur": 1250.0,
-      "ek_ucret_eur": 0.0,
-      "maliyet_eur": 0.0,
-      "total_stok": 1,
-      "occupied_stok": 0,
-      "available_stok": 1,
-      "stok": 1,
-      "kondisyon": "Sıfır",
-      "kondisyon_label": "Sıfır",
-      "aciklama": "YSL Le 5 à 7 Small Crochet Deri — Tier 2. 7 varyasyon. SS26 batch girişi.",
-      "tedarikci_id": null,
-      "olusturma": "2026-05-13",
-      "cinsiyet": "",
-      "cuzdan_tipi": "",
-      "kart_yuvasi_sayisi": null,
-      "banknot_bolmesi_sayisi": null,
-      "madeni_para_bolmesi": null,
-      "id_pencere_var_mi": null,
-      "fermuar_var_mi": null,
-      "fermuar_konumu": null,
-      "RFID_korumali": null,
-      "kapama_tipi": null,
-      "gorseller": {
-        "cover": "assets/products/ysl-kucuk-orme-taba-gold.jpg",
-        "gallery": []
-      }
-    },
-    {
-      "variation_id": "FR-00007-BEJ-MINI-GOLD-DUZ",
-      "sku": "FR-00007",
-      "no": 35,
-      "slug": "ysl-kucuk-orme-bej-gold-duz",
-      "cover": "assets/products/ysl-kucuk-orme-bej-gold-duz.jpg",
-      "isim_resmi": "Saint Laurent Small Raffia Crossbody",
-      "isim_bilinen": "YSL Küçük Örme",
-      "marka": "Yves Saint Laurent",
-      "kategori": "Çapraz Çanta",
-      "kategori_ust": "Çanta",
-      "kategori_alt": "Çapraz Çanta",
-      "renk": "BEJ",
-      "ana_renk": "Bej",
-      "ana_renk_hex": "#d8c3a3",
-      "renk_slug": "bej",
-      "renk_hex": "#d8c3a3",
-      "ikincil_renk": "Taba",
-      "ikincil_renk_code": "TABA",
-      "ikincil_renk_hex": "#a87842",
-      "ana_malzeme": "Örme",
-      "desen": "Düz",
-      "donanim_rengi": "Altın",
-      "sapli_sapsiz": "Saplı",
-      "boyut": "MINI",
-      "donanim": "Altın",
-      "deri_tipi": "Örme",
-      "sezon": "SS26",
-      "fiyat_eur": 1250.0,
-      "ek_ucret_eur": 0.0,
-      "maliyet_eur": 0.0,
-      "total_stok": 1,
-      "occupied_stok": 0,
-      "available_stok": 1,
-      "stok": 1,
-      "kondisyon": "Sıfır",
-      "kondisyon_label": "Sıfır",
-      "aciklama": "YSL Le 5 à 7 Small Crochet Deri — Tier 2. 7 varyasyon. SS26 batch girişi.",
-      "tedarikci_id": null,
-      "olusturma": "2026-05-13",
-      "cinsiyet": "",
-      "cuzdan_tipi": "",
-      "kart_yuvasi_sayisi": null,
-      "banknot_bolmesi_sayisi": null,
-      "madeni_para_bolmesi": null,
-      "id_pencere_var_mi": null,
-      "fermuar_var_mi": null,
-      "fermuar_konumu": null,
-      "RFID_korumali": null,
-      "kapama_tipi": null,
-      "gorseller": {
-        "cover": "assets/products/ysl-kucuk-orme-bej-gold-duz.jpg",
-        "gallery": []
-      }
-    },
-    {
-      "variation_id": "FR-00007-BEJ-MINI-GOLD-DUZ-39",
-      "sku": "FR-00007",
-      "no": 39,
-      "slug": "ysl-kucuk-orme-bej-gold-duz-39",
-      "cover": "assets/products/ysl-kucuk-orme-bej-gold-duz-39.jpg",
-      "isim_resmi": "Saint Laurent Small Raffia Crossbody",
-      "isim_bilinen": "YSL Küçük Örme",
-      "marka": "Yves Saint Laurent",
-      "kategori": "Çapraz Çanta",
-      "kategori_ust": "Çanta",
-      "kategori_alt": "Çapraz Çanta",
-      "renk": "BEJ",
-      "ana_renk": "Bej",
-      "ana_renk_hex": "#d8c3a3",
-      "renk_slug": "bej",
-      "renk_hex": "#d8c3a3",
-      "ikincil_renk": "Koyu Kahve",
-      "ikincil_renk_code": "KOYU KAHVE",
-      "ikincil_renk_hex": "#3d2817",
-      "ana_malzeme": "Örme",
-      "desen": "Düz",
-      "donanim_rengi": "Altın",
-      "sapli_sapsiz": "Saplı",
-      "boyut": "MINI",
-      "donanim": "Altın",
-      "deri_tipi": "Örme",
-      "sezon": "SS26",
-      "fiyat_eur": 1250.0,
-      "ek_ucret_eur": 0.0,
-      "maliyet_eur": 0.0,
-      "total_stok": 1,
-      "occupied_stok": 0,
-      "available_stok": 1,
-      "stok": 1,
-      "kondisyon": "Sıfır",
-      "kondisyon_label": "Sıfır",
-      "aciklama": "YSL Le 5 à 7 Small Crochet Deri — Tier 2. 7 varyasyon. SS26 batch girişi.",
-      "tedarikci_id": null,
-      "olusturma": "2026-05-13",
-      "cinsiyet": "",
-      "cuzdan_tipi": "",
-      "kart_yuvasi_sayisi": null,
-      "banknot_bolmesi_sayisi": null,
-      "madeni_para_bolmesi": null,
-      "id_pencere_var_mi": null,
-      "fermuar_var_mi": null,
-      "fermuar_konumu": null,
-      "RFID_korumali": null,
-      "kapama_tipi": null,
-      "gorseller": {
-        "cover": "assets/products/ysl-kucuk-orme-bej-gold-duz-39.jpg",
-        "gallery": []
-      }
-    },
-    {
-      "variation_id": "FR-00007-DOGAL-MINI-GOLD",
-      "sku": "FR-00007",
-      "no": 36,
-      "slug": "ysl-kucuk-orme-dogal-gold",
-      "cover": "assets/products/ysl-kucuk-orme-dogal-gold.jpg",
-      "isim_resmi": "Saint Laurent Small Raffia Crossbody",
-      "isim_bilinen": "YSL Küçük Örme",
-      "marka": "Yves Saint Laurent",
-      "kategori": "Çapraz Çanta",
-      "kategori_ust": "Çanta",
-      "kategori_alt": "Çapraz Çanta",
-      "renk": "DOGAL",
-      "ana_renk": "Doğal",
-      "ana_renk_hex": "#d4b896",
-      "renk_slug": "dogal",
-      "renk_hex": "#d4b896",
-      "ikincil_renk": "Siyah",
-      "ikincil_renk_code": "SIYAH",
-      "ikincil_renk_hex": "#1a1a1a",
-      "ana_malzeme": "Hasır",
-      "desen": "Düz",
-      "donanim_rengi": "Altın",
-      "sapli_sapsiz": "Saplı",
-      "boyut": "MINI",
-      "donanim": "Altın",
-      "deri_tipi": "Hasır",
-      "sezon": "SS26",
-      "fiyat_eur": 1250.0,
-      "ek_ucret_eur": 0.0,
-      "maliyet_eur": 0.0,
-      "total_stok": 1,
-      "occupied_stok": 0,
-      "available_stok": 1,
-      "stok": 1,
-      "kondisyon": "Sıfır",
-      "kondisyon_label": "Sıfır",
-      "aciklama": "YSL Le 5 à 7 Small Crochet Deri — Tier 2. 7 varyasyon. SS26 batch girişi.",
-      "tedarikci_id": null,
-      "olusturma": "2026-05-13",
-      "cinsiyet": "",
-      "cuzdan_tipi": "",
-      "kart_yuvasi_sayisi": null,
-      "banknot_bolmesi_sayisi": null,
-      "madeni_para_bolmesi": null,
-      "id_pencere_var_mi": null,
-      "fermuar_var_mi": null,
-      "fermuar_konumu": null,
-      "RFID_korumali": null,
-      "kapama_tipi": null,
-      "gorseller": {
-        "cover": "assets/products/ysl-kucuk-orme-dogal-gold.jpg",
-        "gallery": []
-      }
-    },
-    {
-      "variation_id": "FR-00007-BORDO-MINI-GOLD",
-      "sku": "FR-00007",
-      "no": 37,
-      "slug": "ysl-kucuk-orme-bordo-gold",
-      "cover": "assets/products/ysl-kucuk-orme-bordo-gold.jpg",
-      "isim_resmi": "Saint Laurent Small Raffia Crossbody",
-      "isim_bilinen": "YSL Küçük Örme",
-      "marka": "Yves Saint Laurent",
-      "kategori": "Çapraz Çanta",
-      "kategori_ust": "Çanta",
-      "kategori_alt": "Çapraz Çanta",
-      "renk": "BORDO",
-      "ana_renk": "Bordo",
-      "ana_renk_hex": "#4a1c20",
-      "renk_slug": "bordo",
-      "renk_hex": "#4a1c20",
-      "ikincil_renk": "Bordo",
-      "ikincil_renk_code": "BORDO",
-      "ikincil_renk_hex": "#4a1c20",
-      "ana_malzeme": "Örme",
-      "desen": "Düz",
-      "donanim_rengi": "Altın",
-      "sapli_sapsiz": "Saplı",
-      "boyut": "MINI",
-      "donanim": "Altın",
-      "deri_tipi": "Örme",
-      "sezon": "SS26",
-      "fiyat_eur": 1450.0,
-      "ek_ucret_eur": 200.0,
-      "maliyet_eur": 0.0,
-      "total_stok": 1,
-      "occupied_stok": 0,
-      "available_stok": 1,
-      "stok": 1,
-      "kondisyon": "Sıfır",
-      "kondisyon_label": "Sıfır",
-      "aciklama": "YSL Le 5 à 7 Small Crochet Deri — Tier 2. 7 varyasyon. SS26 batch girişi.",
-      "tedarikci_id": null,
-      "olusturma": "2026-05-13",
-      "cinsiyet": "",
-      "cuzdan_tipi": "",
-      "kart_yuvasi_sayisi": null,
-      "banknot_bolmesi_sayisi": null,
-      "madeni_para_bolmesi": null,
-      "id_pencere_var_mi": null,
-      "fermuar_var_mi": null,
-      "fermuar_konumu": null,
-      "RFID_korumali": null,
-      "kapama_tipi": null,
-      "gorseller": {
-        "cover": "assets/products/ysl-kucuk-orme-bordo-gold.jpg",
-        "gallery": []
-      }
-    },
-    {
-      "variation_id": "FR-00007-KREM-MINI-GOLD",
-      "sku": "FR-00007",
-      "no": 41,
-      "slug": "ysl-kucuk-orme-krem-gold",
-      "cover": "assets/products/ysl-kucuk-orme-krem-gold.jpg",
-      "isim_resmi": "Saint Laurent Small Raffia Crossbody",
-      "isim_bilinen": "YSL Küçük Örme",
-      "marka": "Yves Saint Laurent",
-      "kategori": "Çapraz Çanta",
-      "kategori_ust": "Çanta",
-      "kategori_alt": "Çapraz Çanta",
-      "renk": "KREM",
-      "ana_renk": "Krem",
-      "ana_renk_hex": "#e8d4b0",
-      "renk_slug": "krem",
-      "renk_hex": "#e8d4b0",
-      "ikincil_renk": "Koyu Kahve",
-      "ikincil_renk_code": "KOYU KAHVE",
-      "ikincil_renk_hex": "#3d2817",
-      "ana_malzeme": "Örme",
-      "desen": "Düz",
-      "donanim_rengi": "Altın",
-      "sapli_sapsiz": "Saplı",
-      "boyut": "MINI",
-      "donanim": "Altın",
-      "deri_tipi": "Örme",
-      "sezon": "SS26",
-      "fiyat_eur": 1250.0,
-      "ek_ucret_eur": 0.0,
-      "maliyet_eur": 0.0,
-      "total_stok": 1,
-      "occupied_stok": 0,
-      "available_stok": 1,
-      "stok": 1,
-      "kondisyon": "Sıfır",
-      "kondisyon_label": "Sıfır",
-      "aciklama": "YSL Le 5 à 7 Small Crochet Deri — Tier 2. 7 varyasyon. SS26 batch girişi.",
-      "tedarikci_id": null,
-      "olusturma": "2026-05-13",
-      "cinsiyet": "",
-      "cuzdan_tipi": "",
-      "kart_yuvasi_sayisi": null,
-      "banknot_bolmesi_sayisi": null,
-      "madeni_para_bolmesi": null,
-      "id_pencere_var_mi": null,
-      "fermuar_var_mi": null,
-      "fermuar_konumu": null,
-      "RFID_korumali": null,
-      "kapama_tipi": null,
-      "gorseller": {
-        "cover": "assets/products/ysl-kucuk-orme-krem-gold.jpg",
-        "gallery": []
-      }
-    },
-    {
-      "variation_id": "FR-00008-DOGAL-STANDART-SILVER-DUZ",
-      "sku": "FR-00008",
-      "no": 38,
-      "slug": "prada-ucgen-hasir-dogal-silver-duz",
-      "cover": "assets/products/prada-ucgen-hasir-dogal-silver-duz.jpg",
-      "isim_resmi": "Prada Raffia Flap Crossbody",
-      "isim_bilinen": "Prada Üçgen Hasır",
-      "marka": "Prada",
-      "kategori": "Çapraz Çanta",
-      "kategori_ust": "Çanta",
-      "kategori_alt": "Çapraz Çanta",
-      "renk": "DOGAL",
-      "ana_renk": "Doğal",
-      "ana_renk_hex": "#d4b896",
-      "renk_slug": "dogal",
-      "renk_hex": "#d4b896",
-      "ikincil_renk": "Siyah",
-      "ikincil_renk_code": "SIYAH",
-      "ikincil_renk_hex": "#1a1a1a",
-      "ana_malzeme": "Hasır",
-      "desen": "Düz",
-      "donanim_rengi": "Gümüş",
-      "sapli_sapsiz": "Saplı",
-      "boyut": "STANDART",
-      "donanim": "Gümüş",
-      "deri_tipi": "Hasır",
-      "sezon": "SS26",
-      "fiyat_eur": 1450.0,
-      "ek_ucret_eur": 0.0,
-      "maliyet_eur": 0.0,
-      "total_stok": 1,
-      "occupied_stok": 0,
-      "available_stok": 1,
-      "stok": 1,
-      "kondisyon": "Sıfır",
-      "kondisyon_label": "Sıfır",
-      "aciklama": "Prada Triangle Flap Crochet — Tier 3. 3 varyasyon. SS26 batch girişi.",
-      "tedarikci_id": null,
-      "olusturma": "2026-05-13",
-      "cinsiyet": "",
-      "cuzdan_tipi": "",
-      "kart_yuvasi_sayisi": null,
-      "banknot_bolmesi_sayisi": null,
-      "madeni_para_bolmesi": null,
-      "id_pencere_var_mi": null,
-      "fermuar_var_mi": null,
-      "fermuar_konumu": null,
-      "RFID_korumali": null,
-      "kapama_tipi": null,
-      "gorseller": {
-        "cover": "assets/products/prada-ucgen-hasir-dogal-silver-duz.jpg",
-        "gallery": []
-      }
-    },
-    {
-      "variation_id": "FR-00008-DOGAL-STANDART-SILVER-DUZ-40",
-      "sku": "FR-00008",
-      "no": 40,
-      "slug": "prada-ucgen-hasir-dogal-silver-duz-40",
-      "cover": "assets/products/prada-ucgen-hasir-dogal-silver-duz-40.jpg",
-      "isim_resmi": "Prada Raffia Flap Crossbody",
-      "isim_bilinen": "Prada Üçgen Hasır",
-      "marka": "Prada",
-      "kategori": "Çapraz Çanta",
-      "kategori_ust": "Çanta",
-      "kategori_alt": "Çapraz Çanta",
-      "renk": "DOGAL",
-      "ana_renk": "Doğal",
-      "ana_renk_hex": "#d4b896",
-      "renk_slug": "dogal",
-      "renk_hex": "#d4b896",
-      "ikincil_renk": "Koyu Kahve",
-      "ikincil_renk_code": "KOYU KAHVE",
-      "ikincil_renk_hex": "#3d2817",
-      "ana_malzeme": "Hasır",
-      "desen": "Düz",
-      "donanim_rengi": "Gümüş",
-      "sapli_sapsiz": "Saplı",
-      "boyut": "STANDART",
-      "donanim": "Gümüş",
-      "deri_tipi": "Hasır",
-      "sezon": "SS26",
-      "fiyat_eur": 1450.0,
-      "ek_ucret_eur": 0.0,
-      "maliyet_eur": 0.0,
-      "total_stok": 1,
-      "occupied_stok": 0,
-      "available_stok": 1,
-      "stok": 1,
-      "kondisyon": "Sıfır",
-      "kondisyon_label": "Sıfır",
-      "aciklama": "Prada Triangle Flap Crochet — Tier 3. 3 varyasyon. SS26 batch girişi.",
-      "tedarikci_id": null,
-      "olusturma": "2026-05-13",
-      "cinsiyet": "",
-      "cuzdan_tipi": "",
-      "kart_yuvasi_sayisi": null,
-      "banknot_bolmesi_sayisi": null,
-      "madeni_para_bolmesi": null,
-      "id_pencere_var_mi": null,
-      "fermuar_var_mi": null,
-      "fermuar_konumu": null,
-      "RFID_korumali": null,
-      "kapama_tipi": null,
-      "gorseller": {
-        "cover": "assets/products/prada-ucgen-hasir-dogal-silver-duz-40.jpg",
-        "gallery": []
-      }
-    },
-    {
-      "variation_id": "FR-00008-DOGAL-STANDART-SILVER-DUZ-42",
-      "sku": "FR-00008",
-      "no": 42,
-      "slug": "prada-ucgen-hasir-dogal-silver-duz-42",
-      "cover": "assets/products/prada-ucgen-hasir-dogal-silver-duz-42.jpg",
-      "isim_resmi": "Prada Raffia Flap Crossbody",
-      "isim_bilinen": "Prada Üçgen Hasır",
-      "marka": "Prada",
-      "kategori": "Çapraz Çanta",
-      "kategori_ust": "Çanta",
-      "kategori_alt": "Çapraz Çanta",
-      "renk": "DOGAL",
-      "ana_renk": "Doğal",
-      "ana_renk_hex": "#d4b896",
-      "renk_slug": "dogal",
-      "renk_hex": "#d4b896",
-      "ikincil_renk": "Taba",
-      "ikincil_renk_code": "TABA",
-      "ikincil_renk_hex": "#a87842",
-      "ana_malzeme": "Hasır",
-      "desen": "Düz",
-      "donanim_rengi": "Gümüş",
-      "sapli_sapsiz": "Saplı",
-      "boyut": "STANDART",
-      "donanim": "Gümüş",
-      "deri_tipi": "Hasır",
-      "sezon": "SS26",
-      "fiyat_eur": 1450.0,
-      "ek_ucret_eur": 0.0,
-      "maliyet_eur": 0.0,
-      "total_stok": 1,
-      "occupied_stok": 0,
-      "available_stok": 1,
-      "stok": 1,
-      "kondisyon": "Sıfır",
-      "kondisyon_label": "Sıfır",
-      "aciklama": "Prada Triangle Flap Crochet — Tier 3. 3 varyasyon. SS26 batch girişi.",
-      "tedarikci_id": null,
-      "olusturma": "2026-05-13",
-      "cinsiyet": "",
-      "cuzdan_tipi": "",
-      "kart_yuvasi_sayisi": null,
-      "banknot_bolmesi_sayisi": null,
-      "madeni_para_bolmesi": null,
-      "id_pencere_var_mi": null,
-      "fermuar_var_mi": null,
-      "fermuar_konumu": null,
-      "RFID_korumali": null,
-      "kapama_tipi": null,
-      "gorseller": {
-        "cover": "assets/products/prada-ucgen-hasir-dogal-silver-duz-42.jpg",
-        "gallery": []
-      }
-    },
-    {
-      "variation_id": "FR-00009-SIYAH-MINI-SILVER",
-      "sku": "FR-00009",
-      "no": 43,
-      "slug": "armani-erkek-siyah-silver",
-      "cover": "assets/products/armani-erkek-siyah-silver.jpg",
-      "isim_resmi": "Giorgio Armani Men's Leather Briefcase",
-      "isim_bilinen": "Armani Erkek",
-      "marka": "Giorgio Armani",
-      "kategori": "Erkek Evrak",
-      "kategori_ust": "Çanta",
-      "kategori_alt": "Erkek Evrak",
-      "renk": "SIYAH",
-      "ana_renk": "Siyah",
-      "ana_renk_hex": "#1a1a1a",
-      "renk_slug": "siyah",
-      "renk_hex": "#1a1a1a",
-      "ikincil_renk": "Siyah",
-      "ikincil_renk_code": "SIYAH",
-      "ikincil_renk_hex": "#1a1a1a",
-      "ana_malzeme": "Deri",
-      "desen": "Düz",
-      "donanim_rengi": "Gümüş",
-      "sapli_sapsiz": "Saplı",
-      "boyut": "MINI",
-      "donanim": "Gümüş",
-      "deri_tipi": "Deri",
-      "sezon": "SS26",
-      "fiyat_eur": 650.0,
-      "ek_ucret_eur": 0.0,
-      "maliyet_eur": 0.0,
-      "total_stok": 1,
-      "occupied_stok": 0,
-      "available_stok": 1,
-      "stok": 1,
-      "kondisyon": "Sıfır",
-      "kondisyon_label": "Sıfır",
-      "aciklama": "Armani Erkek Deri Portföy — Tier 3. 2 varyasyon. SS26 batch girişi.",
-      "tedarikci_id": null,
-      "olusturma": "2026-05-13",
-      "cinsiyet": "",
-      "cuzdan_tipi": "",
-      "kart_yuvasi_sayisi": null,
-      "banknot_bolmesi_sayisi": null,
-      "madeni_para_bolmesi": null,
-      "id_pencere_var_mi": null,
-      "fermuar_var_mi": null,
-      "fermuar_konumu": null,
-      "RFID_korumali": null,
-      "kapama_tipi": null,
-      "gorseller": {
-        "cover": "assets/products/armani-erkek-siyah-silver.jpg",
-        "gallery": []
-      }
-    },
-    {
-      "variation_id": "FR-00009-SIYAH-MAXI-SILVER",
-      "sku": "FR-00009",
-      "no": 44,
-      "slug": "armani-erkek-siyah-silver-alt2",
-      "cover": "assets/products/armani-erkek-siyah-silver-alt2.jpg",
-      "isim_resmi": "Giorgio Armani Men's Leather Briefcase",
-      "isim_bilinen": "Armani Erkek",
-      "marka": "Giorgio Armani",
-      "kategori": "Erkek Evrak",
-      "kategori_ust": "Çanta",
-      "kategori_alt": "Erkek Evrak",
-      "renk": "SIYAH",
-      "ana_renk": "Siyah",
-      "ana_renk_hex": "#1a1a1a",
-      "renk_slug": "siyah",
-      "renk_hex": "#1a1a1a",
-      "ikincil_renk": "Siyah",
-      "ikincil_renk_code": "SIYAH",
-      "ikincil_renk_hex": "#1a1a1a",
-      "ana_malzeme": "Deri",
-      "desen": "Düz",
-      "donanim_rengi": "Gümüş",
-      "sapli_sapsiz": "Saplı",
-      "boyut": "MAXI",
-      "donanim": "Gümüş",
-      "deri_tipi": "Deri",
-      "sezon": "SS26",
-      "fiyat_eur": 800.0,
-      "ek_ucret_eur": 150.0,
-      "maliyet_eur": 0.0,
-      "total_stok": 1,
-      "occupied_stok": 0,
-      "available_stok": 1,
-      "stok": 1,
-      "kondisyon": "Sıfır",
-      "kondisyon_label": "Sıfır",
-      "aciklama": "Armani Erkek Deri Portföy — Tier 3. 2 varyasyon. SS26 batch girişi.",
-      "tedarikci_id": null,
-      "olusturma": "2026-05-13",
-      "cinsiyet": "",
-      "cuzdan_tipi": "",
-      "kart_yuvasi_sayisi": null,
-      "banknot_bolmesi_sayisi": null,
-      "madeni_para_bolmesi": null,
-      "id_pencere_var_mi": null,
-      "fermuar_var_mi": null,
-      "fermuar_konumu": null,
-      "RFID_korumali": null,
-      "kapama_tipi": null,
-      "gorseller": {
-        "cover": "assets/products/armani-erkek-siyah-silver-alt2.jpg",
-        "gallery": []
-      }
-    },
-    {
-      "variation_id": "FR-00010-SIYAH-MINI-SILVER",
-      "sku": "FR-00010",
-      "no": 45,
-      "slug": "hugo-boss-erkek-siyah-silver",
-      "cover": "assets/products/hugo-boss-erkek-siyah-silver.jpg",
-      "isim_resmi": "Hugo Boss Men's Leather Bag",
-      "isim_bilinen": "Hugo Boss Erkek",
-      "marka": "Hugo Boss",
-      "kategori": "Erkek Evrak",
-      "kategori_ust": "Çanta",
-      "kategori_alt": "Erkek Evrak",
-      "renk": "SIYAH",
-      "ana_renk": "Siyah",
-      "ana_renk_hex": "#1a1a1a",
-      "renk_slug": "siyah",
-      "renk_hex": "#1a1a1a",
-      "ikincil_renk": "Siyah",
-      "ikincil_renk_code": "SIYAH",
-      "ikincil_renk_hex": "#1a1a1a",
-      "ana_malzeme": "Deri",
-      "desen": "Düz",
-      "donanim_rengi": "Gümüş",
-      "sapli_sapsiz": "Saplı",
-      "boyut": "MINI",
-      "donanim": "Gümüş",
-      "deri_tipi": "Deri",
-      "sezon": "SS26",
-      "fiyat_eur": 550.0,
-      "ek_ucret_eur": 0.0,
-      "maliyet_eur": 0.0,
-      "total_stok": 1,
-      "occupied_stok": 0,
-      "available_stok": 1,
-      "stok": 1,
-      "kondisyon": "Sıfır",
-      "kondisyon_label": "Sıfır",
-      "aciklama": "Hugo Boss Erkek Deri Portföy — Tier 3. 2 varyasyon. SS26 batch girişi.",
-      "tedarikci_id": null,
-      "olusturma": "2026-05-13",
-      "cinsiyet": "",
-      "cuzdan_tipi": "",
-      "kart_yuvasi_sayisi": null,
-      "banknot_bolmesi_sayisi": null,
-      "madeni_para_bolmesi": null,
-      "id_pencere_var_mi": null,
-      "fermuar_var_mi": null,
-      "fermuar_konumu": null,
-      "RFID_korumali": null,
-      "kapama_tipi": null,
-      "gorseller": {
-        "cover": "assets/products/hugo-boss-erkek-siyah-silver.jpg",
-        "gallery": []
-      }
-    },
-    {
-      "variation_id": "FR-00010-SIYAH-MAXI-SILVER",
-      "sku": "FR-00010",
-      "no": 46,
-      "slug": "hugo-boss-erkek-siyah-silver-alt2",
-      "cover": "assets/products/hugo-boss-erkek-siyah-silver-alt2.jpg",
-      "isim_resmi": "Hugo Boss Men's Leather Bag",
-      "isim_bilinen": "Hugo Boss Erkek",
-      "marka": "Hugo Boss",
-      "kategori": "Erkek Evrak",
-      "kategori_ust": "Çanta",
-      "kategori_alt": "Erkek Evrak",
-      "renk": "SIYAH",
-      "ana_renk": "Siyah",
-      "ana_renk_hex": "#1a1a1a",
-      "renk_slug": "siyah",
-      "renk_hex": "#1a1a1a",
-      "ikincil_renk": "Siyah",
-      "ikincil_renk_code": "SIYAH",
-      "ikincil_renk_hex": "#1a1a1a",
-      "ana_malzeme": "Deri",
-      "desen": "Düz",
-      "donanim_rengi": "Gümüş",
-      "sapli_sapsiz": "Saplı",
-      "boyut": "MAXI",
-      "donanim": "Gümüş",
-      "deri_tipi": "Deri",
-      "sezon": "SS26",
-      "fiyat_eur": 700.0,
-      "ek_ucret_eur": 150.0,
-      "maliyet_eur": 0.0,
-      "total_stok": 1,
-      "occupied_stok": 0,
-      "available_stok": 1,
-      "stok": 1,
-      "kondisyon": "Sıfır",
-      "kondisyon_label": "Sıfır",
-      "aciklama": "Hugo Boss Erkek Deri Portföy — Tier 3. 2 varyasyon. SS26 batch girişi.",
-      "tedarikci_id": null,
-      "olusturma": "2026-05-13",
-      "cinsiyet": "",
-      "cuzdan_tipi": "",
-      "kart_yuvasi_sayisi": null,
-      "banknot_bolmesi_sayisi": null,
-      "madeni_para_bolmesi": null,
-      "id_pencere_var_mi": null,
-      "fermuar_var_mi": null,
-      "fermuar_konumu": null,
-      "RFID_korumali": null,
-      "kapama_tipi": null,
-      "gorseller": {
-        "cover": "assets/products/hugo-boss-erkek-siyah-silver-alt2.jpg",
-        "gallery": []
-      }
-    },
     {
       "variation_id": "FR-00011-KARISIK-STANDART-GUMUS",
       "sku": "FR-00011",
@@ -2575,6 +45,12 @@ window.__BOTL_DATA__ = {
       "aciklama": "Akıllı kart kabı, üst metal pop-up mekanizması. Patron 2026-05-13 toplu yüklemesi (foto: IMG_8807, IMG_8808).",
       "tedarikci_id": null,
       "olusturma": "2026-05-13",
+      "gorseller": {
+        "cover": "",
+        "gallery": [
+          "assets/products/kart-kabi-1-lutfen-duzenle-karisik-gumus-g1.jpg"
+        ]
+      },
       "cinsiyet": "ERKEK",
       "cuzdan_tipi": "WALLET_BIFOLD",
       "kart_yuvasi_sayisi": 8,
@@ -2582,15 +58,9 @@ window.__BOTL_DATA__ = {
       "madeni_para_bolmesi": false,
       "id_pencere_var_mi": false,
       "fermuar_var_mi": false,
-      "fermuar_konumu": null,
       "RFID_korumali": false,
       "kapama_tipi": "snap_button",
-      "gorseller": {
-        "cover": "",
-        "gallery": [
-          "assets/products/kart-kabi-1-lutfen-duzenle-karisik-gumus-g1.jpg"
-        ]
-      }
+      "ic_astar_malzeme": "Deri"
     },
     {
       "variation_id": "FR-00012-KARISIK-STANDART-GUMUS",
@@ -2632,6 +102,12 @@ window.__BOTL_DATA__ = {
       "aciklama": "Patron toplu yükleme. Foto: IMG_8809, IMG_8810.",
       "tedarikci_id": null,
       "olusturma": "2026-05-13",
+      "gorseller": {
+        "cover": "",
+        "gallery": [
+          "assets/products/kart-kabi-2-lutfen-duzenle-karisik-gumus-g1.jpg"
+        ]
+      },
       "cinsiyet": "ERKEK",
       "cuzdan_tipi": "WALLET_BIFOLD",
       "kart_yuvasi_sayisi": 8,
@@ -2639,15 +115,9 @@ window.__BOTL_DATA__ = {
       "madeni_para_bolmesi": false,
       "id_pencere_var_mi": false,
       "fermuar_var_mi": false,
-      "fermuar_konumu": null,
       "RFID_korumali": false,
       "kapama_tipi": "snap_button",
-      "gorseller": {
-        "cover": "",
-        "gallery": [
-          "assets/products/kart-kabi-2-lutfen-duzenle-karisik-gumus-g1.jpg"
-        ]
-      }
+      "ic_astar_malzeme": "Deri"
     },
     {
       "variation_id": "FR-00013-KARISIK-STANDART-GUMUS",
@@ -2689,6 +159,12 @@ window.__BOTL_DATA__ = {
       "aciklama": "Patron toplu yükleme. Foto: IMG_8811, IMG_8812.",
       "tedarikci_id": null,
       "olusturma": "2026-05-13",
+      "gorseller": {
+        "cover": "",
+        "gallery": [
+          "assets/products/kart-kabi-3-lutfen-duzenle-karisik-gumus-g1.jpg"
+        ]
+      },
       "cinsiyet": "ERKEK",
       "cuzdan_tipi": "WALLET_BIFOLD",
       "kart_yuvasi_sayisi": 8,
@@ -2696,15 +172,9 @@ window.__BOTL_DATA__ = {
       "madeni_para_bolmesi": false,
       "id_pencere_var_mi": true,
       "fermuar_var_mi": false,
-      "fermuar_konumu": null,
       "RFID_korumali": false,
       "kapama_tipi": "snap_button",
-      "gorseller": {
-        "cover": "",
-        "gallery": [
-          "assets/products/kart-kabi-3-lutfen-duzenle-karisik-gumus-g1.jpg"
-        ]
-      }
+      "ic_astar_malzeme": "Deri"
     },
     {
       "variation_id": "FR-00014-KARISIK-STANDART-GUMUS",
@@ -2746,6 +216,12 @@ window.__BOTL_DATA__ = {
       "aciklama": "Patron toplu yükleme. Foto: IMG_8813, IMG_8814.",
       "tedarikci_id": null,
       "olusturma": "2026-05-13",
+      "gorseller": {
+        "cover": "",
+        "gallery": [
+          "assets/products/kart-kabi-4-lutfen-duzenle-karisik-gumus-g1.jpg"
+        ]
+      },
       "cinsiyet": "ERKEK",
       "cuzdan_tipi": "WALLET_BIFOLD",
       "kart_yuvasi_sayisi": 8,
@@ -2753,15 +229,9 @@ window.__BOTL_DATA__ = {
       "madeni_para_bolmesi": false,
       "id_pencere_var_mi": false,
       "fermuar_var_mi": false,
-      "fermuar_konumu": null,
       "RFID_korumali": false,
       "kapama_tipi": "snap_button",
-      "gorseller": {
-        "cover": "",
-        "gallery": [
-          "assets/products/kart-kabi-4-lutfen-duzenle-karisik-gumus-g1.jpg"
-        ]
-      }
+      "ic_astar_malzeme": "Deri"
     },
     {
       "variation_id": "FR-00015-KARISIK-STANDART-GUMUS",
@@ -2803,6 +273,12 @@ window.__BOTL_DATA__ = {
       "aciklama": "Patron toplu yükleme. Foto: IMG_8815, IMG_8816.",
       "tedarikci_id": null,
       "olusturma": "2026-05-13",
+      "gorseller": {
+        "cover": "",
+        "gallery": [
+          "assets/products/kart-kabi-5-lutfen-duzenle-karisik-gumus-g1.jpg"
+        ]
+      },
       "cinsiyet": "ERKEK",
       "cuzdan_tipi": "WALLET_BIFOLD",
       "kart_yuvasi_sayisi": 8,
@@ -2810,15 +286,9 @@ window.__BOTL_DATA__ = {
       "madeni_para_bolmesi": false,
       "id_pencere_var_mi": true,
       "fermuar_var_mi": false,
-      "fermuar_konumu": null,
       "RFID_korumali": false,
       "kapama_tipi": "snap_button",
-      "gorseller": {
-        "cover": "",
-        "gallery": [
-          "assets/products/kart-kabi-5-lutfen-duzenle-karisik-gumus-g1.jpg"
-        ]
-      }
+      "ic_astar_malzeme": "Deri"
     },
     {
       "variation_id": "FR-00016-KARISIK-STANDART-GUMUS",
@@ -2860,6 +330,12 @@ window.__BOTL_DATA__ = {
       "aciklama": "Patron toplu yükleme. Foto: IMG_8817, IMG_8818.",
       "tedarikci_id": null,
       "olusturma": "2026-05-13",
+      "gorseller": {
+        "cover": "",
+        "gallery": [
+          "assets/products/kart-kabi-6-lutfen-duzenle-karisik-gumus-g1.jpg"
+        ]
+      },
       "cinsiyet": "ERKEK",
       "cuzdan_tipi": "WALLET_BIFOLD",
       "kart_yuvasi_sayisi": 8,
@@ -2867,15 +343,9 @@ window.__BOTL_DATA__ = {
       "madeni_para_bolmesi": false,
       "id_pencere_var_mi": false,
       "fermuar_var_mi": false,
-      "fermuar_konumu": null,
       "RFID_korumali": false,
       "kapama_tipi": "snap_button",
-      "gorseller": {
-        "cover": "",
-        "gallery": [
-          "assets/products/kart-kabi-6-lutfen-duzenle-karisik-gumus-g1.jpg"
-        ]
-      }
+      "ic_astar_malzeme": "Deri"
     },
     {
       "variation_id": "FR-00017-KARISIK-STANDART-GUMUS",
@@ -2917,6 +387,12 @@ window.__BOTL_DATA__ = {
       "aciklama": "Patron toplu yükleme. Foto: IMG_8819, IMG_8820.",
       "tedarikci_id": null,
       "olusturma": "2026-05-13",
+      "gorseller": {
+        "cover": "",
+        "gallery": [
+          "assets/products/kart-kabi-7-lutfen-duzenle-karisik-gumus-g1.jpg"
+        ]
+      },
       "cinsiyet": "ERKEK",
       "cuzdan_tipi": "WALLET_BIFOLD",
       "kart_yuvasi_sayisi": 8,
@@ -2924,15 +400,9 @@ window.__BOTL_DATA__ = {
       "madeni_para_bolmesi": false,
       "id_pencere_var_mi": true,
       "fermuar_var_mi": false,
-      "fermuar_konumu": null,
       "RFID_korumali": false,
       "kapama_tipi": "snap_button",
-      "gorseller": {
-        "cover": "",
-        "gallery": [
-          "assets/products/kart-kabi-7-lutfen-duzenle-karisik-gumus-g1.jpg"
-        ]
-      }
+      "ic_astar_malzeme": "Deri"
     },
     {
       "variation_id": "FR-00018-KARISIK-STANDART-GUMUS",
@@ -2974,6 +444,12 @@ window.__BOTL_DATA__ = {
       "aciklama": "Patron toplu yükleme. Foto: IMG_8821, IMG_8822.",
       "tedarikci_id": null,
       "olusturma": "2026-05-13",
+      "gorseller": {
+        "cover": "",
+        "gallery": [
+          "assets/products/kart-kabi-8-lutfen-duzenle-karisik-gumus-g1.jpg"
+        ]
+      },
       "cinsiyet": "ERKEK",
       "cuzdan_tipi": "WALLET_BIFOLD",
       "kart_yuvasi_sayisi": 8,
@@ -2981,15 +457,9 @@ window.__BOTL_DATA__ = {
       "madeni_para_bolmesi": false,
       "id_pencere_var_mi": true,
       "fermuar_var_mi": false,
-      "fermuar_konumu": null,
       "RFID_korumali": false,
       "kapama_tipi": "snap_button",
-      "gorseller": {
-        "cover": "",
-        "gallery": [
-          "assets/products/kart-kabi-8-lutfen-duzenle-karisik-gumus-g1.jpg"
-        ]
-      }
+      "ic_astar_malzeme": "Deri"
     },
     {
       "variation_id": "FR-00019-KARISIK-STANDART-GUMUS",
@@ -3031,6 +501,12 @@ window.__BOTL_DATA__ = {
       "aciklama": "Patron toplu yükleme. Foto: IMG_8823, IMG_8824.",
       "tedarikci_id": null,
       "olusturma": "2026-05-13",
+      "gorseller": {
+        "cover": "",
+        "gallery": [
+          "assets/products/kart-kabi-9-lutfen-duzenle-karisik-gumus-g1.jpg"
+        ]
+      },
       "cinsiyet": "ERKEK",
       "cuzdan_tipi": "WALLET_BIFOLD",
       "kart_yuvasi_sayisi": 8,
@@ -3038,15 +514,9 @@ window.__BOTL_DATA__ = {
       "madeni_para_bolmesi": false,
       "id_pencere_var_mi": true,
       "fermuar_var_mi": false,
-      "fermuar_konumu": null,
       "RFID_korumali": false,
       "kapama_tipi": "snap_button",
-      "gorseller": {
-        "cover": "",
-        "gallery": [
-          "assets/products/kart-kabi-9-lutfen-duzenle-karisik-gumus-g1.jpg"
-        ]
-      }
+      "ic_astar_malzeme": "Deri"
     },
     {
       "variation_id": "FR-00020-KARISIK-STANDART-GUMUS",
@@ -3088,6 +558,12 @@ window.__BOTL_DATA__ = {
       "aciklama": "Patron toplu yükleme. Foto: IMG_8825, IMG_8826.",
       "tedarikci_id": null,
       "olusturma": "2026-05-13",
+      "gorseller": {
+        "cover": "",
+        "gallery": [
+          "assets/products/kart-kabi-10-lutfen-duzenle-karisik-gumus-g1.jpg"
+        ]
+      },
       "cinsiyet": "ERKEK",
       "cuzdan_tipi": "WALLET_BIFOLD",
       "kart_yuvasi_sayisi": 8,
@@ -3095,15 +571,9 @@ window.__BOTL_DATA__ = {
       "madeni_para_bolmesi": false,
       "id_pencere_var_mi": true,
       "fermuar_var_mi": false,
-      "fermuar_konumu": null,
       "RFID_korumali": false,
       "kapama_tipi": "snap_button",
-      "gorseller": {
-        "cover": "",
-        "gallery": [
-          "assets/products/kart-kabi-10-lutfen-duzenle-karisik-gumus-g1.jpg"
-        ]
-      }
+      "ic_astar_malzeme": "Deri"
     },
     {
       "variation_id": "FR-00021-KARISIK-STANDART-GUMUS",
@@ -3145,6 +615,12 @@ window.__BOTL_DATA__ = {
       "aciklama": "Patron toplu yükleme. Foto: IMG_8827, IMG_8828.",
       "tedarikci_id": null,
       "olusturma": "2026-05-13",
+      "gorseller": {
+        "cover": "",
+        "gallery": [
+          "assets/products/kart-kabi-11-lutfen-duzenle-karisik-gumus-g1.jpg"
+        ]
+      },
       "cinsiyet": "ERKEK",
       "cuzdan_tipi": "WALLET_BIFOLD",
       "kart_yuvasi_sayisi": 8,
@@ -3152,15 +628,9 @@ window.__BOTL_DATA__ = {
       "madeni_para_bolmesi": false,
       "id_pencere_var_mi": false,
       "fermuar_var_mi": false,
-      "fermuar_konumu": null,
       "RFID_korumali": false,
       "kapama_tipi": "snap_button",
-      "gorseller": {
-        "cover": "",
-        "gallery": [
-          "assets/products/kart-kabi-11-lutfen-duzenle-karisik-gumus-g1.jpg"
-        ]
-      }
+      "ic_astar_malzeme": "Deri"
     },
     {
       "variation_id": "FR-00022-KARISIK-STANDART-GUMUS",
@@ -3202,6 +672,12 @@ window.__BOTL_DATA__ = {
       "aciklama": "Patron toplu yükleme. Foto: IMG_8829, IMG_8830.",
       "tedarikci_id": null,
       "olusturma": "2026-05-13",
+      "gorseller": {
+        "cover": "",
+        "gallery": [
+          "assets/products/kart-kabi-12-lutfen-duzenle-karisik-gumus-g1.jpg"
+        ]
+      },
       "cinsiyet": "ERKEK",
       "cuzdan_tipi": "WALLET_BIFOLD",
       "kart_yuvasi_sayisi": 8,
@@ -3209,15 +685,9 @@ window.__BOTL_DATA__ = {
       "madeni_para_bolmesi": false,
       "id_pencere_var_mi": false,
       "fermuar_var_mi": false,
-      "fermuar_konumu": null,
       "RFID_korumali": false,
       "kapama_tipi": "snap_button",
-      "gorseller": {
-        "cover": "",
-        "gallery": [
-          "assets/products/kart-kabi-12-lutfen-duzenle-karisik-gumus-g1.jpg"
-        ]
-      }
+      "ic_astar_malzeme": "Deri"
     },
     {
       "variation_id": "FR-00023-KARISIK-STANDART-GUMUS",
@@ -3259,6 +729,12 @@ window.__BOTL_DATA__ = {
       "aciklama": "Patron toplu yükleme. Foto: IMG_8831.heic, IMG_8832.heic.",
       "tedarikci_id": null,
       "olusturma": "2026-05-13",
+      "gorseller": {
+        "cover": "",
+        "gallery": [
+          "assets/products/kart-kabi-13-lutfen-duzenle-karisik-gumus-g1.jpg"
+        ]
+      },
       "cinsiyet": "ERKEK",
       "cuzdan_tipi": "WALLET_BIFOLD",
       "kart_yuvasi_sayisi": 8,
@@ -3266,15 +742,9 @@ window.__BOTL_DATA__ = {
       "madeni_para_bolmesi": false,
       "id_pencere_var_mi": false,
       "fermuar_var_mi": false,
-      "fermuar_konumu": null,
       "RFID_korumali": false,
       "kapama_tipi": "snap_button",
-      "gorseller": {
-        "cover": "",
-        "gallery": [
-          "assets/products/kart-kabi-13-lutfen-duzenle-karisik-gumus-g1.jpg"
-        ]
-      }
+      "ic_astar_malzeme": "Deri"
     },
     {
       "variation_id": "FR-00024-KARISIK-STANDART-GUMUS",
@@ -3316,6 +786,12 @@ window.__BOTL_DATA__ = {
       "aciklama": "Patron toplu yükleme. Foto: IMG_8833.heic, IMG_8834.heic.",
       "tedarikci_id": null,
       "olusturma": "2026-05-13",
+      "gorseller": {
+        "cover": "",
+        "gallery": [
+          "assets/products/kart-kabi-14-lutfen-duzenle-karisik-gumus-g1.jpg"
+        ]
+      },
       "cinsiyet": "ERKEK",
       "cuzdan_tipi": "WALLET_BIFOLD",
       "kart_yuvasi_sayisi": 8,
@@ -3323,15 +799,9 @@ window.__BOTL_DATA__ = {
       "madeni_para_bolmesi": false,
       "id_pencere_var_mi": false,
       "fermuar_var_mi": false,
-      "fermuar_konumu": null,
       "RFID_korumali": false,
       "kapama_tipi": "snap_button",
-      "gorseller": {
-        "cover": "",
-        "gallery": [
-          "assets/products/kart-kabi-14-lutfen-duzenle-karisik-gumus-g1.jpg"
-        ]
-      }
+      "ic_astar_malzeme": "Deri"
     },
     {
       "variation_id": "FR-00025-KARISIK-STANDART-GUMUS",
@@ -3373,6 +843,12 @@ window.__BOTL_DATA__ = {
       "aciklama": "Patron toplu yükleme. Foto: IMG_8835.heic, IMG_8836.heic.",
       "tedarikci_id": null,
       "olusturma": "2026-05-13",
+      "gorseller": {
+        "cover": "",
+        "gallery": [
+          "assets/products/kart-kabi-15-lutfen-duzenle-karisik-gumus-g1.jpg"
+        ]
+      },
       "cinsiyet": "ERKEK",
       "cuzdan_tipi": "WALLET_BIFOLD",
       "kart_yuvasi_sayisi": 8,
@@ -3380,15 +856,9 @@ window.__BOTL_DATA__ = {
       "madeni_para_bolmesi": false,
       "id_pencere_var_mi": false,
       "fermuar_var_mi": false,
-      "fermuar_konumu": null,
       "RFID_korumali": false,
       "kapama_tipi": "snap_button",
-      "gorseller": {
-        "cover": "",
-        "gallery": [
-          "assets/products/kart-kabi-15-lutfen-duzenle-karisik-gumus-g1.jpg"
-        ]
-      }
+      "ic_astar_malzeme": "Deri"
     },
     {
       "variation_id": "FR-00026-KARISIK-STANDART-GUMUS",
@@ -3430,6 +900,12 @@ window.__BOTL_DATA__ = {
       "aciklama": "Patron toplu yükleme. Foto: IMG_8837.heic, IMG_8838.heic.",
       "tedarikci_id": null,
       "olusturma": "2026-05-13",
+      "gorseller": {
+        "cover": "",
+        "gallery": [
+          "assets/products/kart-kabi-16-lutfen-duzenle-karisik-gumus-g1.jpg"
+        ]
+      },
       "cinsiyet": "ERKEK",
       "cuzdan_tipi": "WALLET_BIFOLD",
       "kart_yuvasi_sayisi": 8,
@@ -3437,15 +913,9 @@ window.__BOTL_DATA__ = {
       "madeni_para_bolmesi": false,
       "id_pencere_var_mi": true,
       "fermuar_var_mi": false,
-      "fermuar_konumu": null,
       "RFID_korumali": false,
       "kapama_tipi": "snap_button",
-      "gorseller": {
-        "cover": "",
-        "gallery": [
-          "assets/products/kart-kabi-16-lutfen-duzenle-karisik-gumus-g1.jpg"
-        ]
-      }
+      "ic_astar_malzeme": "Deri"
     },
     {
       "variation_id": "FR-00027-KARISIK-STANDART-GUMUS",
@@ -3487,6 +957,12 @@ window.__BOTL_DATA__ = {
       "aciklama": "Patron toplu yükleme. Foto: IMG_8839.heic, IMG_8840.heic.",
       "tedarikci_id": null,
       "olusturma": "2026-05-13",
+      "gorseller": {
+        "cover": "",
+        "gallery": [
+          "assets/products/kart-kabi-17-lutfen-duzenle-karisik-gumus-g1.jpg"
+        ]
+      },
       "cinsiyet": "ERKEK",
       "cuzdan_tipi": "WALLET_BIFOLD",
       "kart_yuvasi_sayisi": 8,
@@ -3494,15 +970,9 @@ window.__BOTL_DATA__ = {
       "madeni_para_bolmesi": false,
       "id_pencere_var_mi": true,
       "fermuar_var_mi": false,
-      "fermuar_konumu": null,
       "RFID_korumali": false,
       "kapama_tipi": "snap_button",
-      "gorseller": {
-        "cover": "",
-        "gallery": [
-          "assets/products/kart-kabi-17-lutfen-duzenle-karisik-gumus-g1.jpg"
-        ]
-      }
+      "ic_astar_malzeme": "Deri"
     },
     {
       "variation_id": "FR-00028-KARISIK-STANDART-GUMUS",
@@ -3544,6 +1014,12 @@ window.__BOTL_DATA__ = {
       "aciklama": "Patron toplu yükleme. Foto: IMG_8841.heic, IMG_8842.heic.",
       "tedarikci_id": null,
       "olusturma": "2026-05-13",
+      "gorseller": {
+        "cover": "",
+        "gallery": [
+          "assets/products/kart-kabi-18-lutfen-duzenle-karisik-gumus-g1.jpg"
+        ]
+      },
       "cinsiyet": "ERKEK",
       "cuzdan_tipi": "WALLET_BIFOLD",
       "kart_yuvasi_sayisi": 8,
@@ -3551,15 +1027,9 @@ window.__BOTL_DATA__ = {
       "madeni_para_bolmesi": false,
       "id_pencere_var_mi": false,
       "fermuar_var_mi": false,
-      "fermuar_konumu": null,
       "RFID_korumali": false,
       "kapama_tipi": "snap_button",
-      "gorseller": {
-        "cover": "",
-        "gallery": [
-          "assets/products/kart-kabi-18-lutfen-duzenle-karisik-gumus-g1.jpg"
-        ]
-      }
+      "ic_astar_malzeme": "Deri"
     },
     {
       "variation_id": "FR-00029-KARISIK-STANDART-GUMUS",
@@ -3601,6 +1071,12 @@ window.__BOTL_DATA__ = {
       "aciklama": "Patron toplu yükleme. Foto: IMG_8843.heic, IMG_8844.heic.",
       "tedarikci_id": null,
       "olusturma": "2026-05-13",
+      "gorseller": {
+        "cover": "",
+        "gallery": [
+          "assets/products/kart-kabi-19-lutfen-duzenle-karisik-gumus-g1.jpg"
+        ]
+      },
       "cinsiyet": "UNISEX",
       "cuzdan_tipi": "CARDHOLDER",
       "kart_yuvasi_sayisi": 6,
@@ -3608,15 +1084,9 @@ window.__BOTL_DATA__ = {
       "madeni_para_bolmesi": false,
       "id_pencere_var_mi": false,
       "fermuar_var_mi": false,
-      "fermuar_konumu": null,
       "RFID_korumali": false,
       "kapama_tipi": "acik",
-      "gorseller": {
-        "cover": "",
-        "gallery": [
-          "assets/products/kart-kabi-19-lutfen-duzenle-karisik-gumus-g1.jpg"
-        ]
-      }
+      "ic_astar_malzeme": "Deri"
     },
     {
       "variation_id": "FR-00030-KARISIK-STANDART-GUMUS",
@@ -3658,6 +1128,12 @@ window.__BOTL_DATA__ = {
       "aciklama": "Patron toplu yükleme. Foto: IMG_8845.heic, IMG_8846.heic.",
       "tedarikci_id": null,
       "olusturma": "2026-05-13",
+      "gorseller": {
+        "cover": "",
+        "gallery": [
+          "assets/products/kart-kabi-20-lutfen-duzenle-karisik-gumus-g1.jpg"
+        ]
+      },
       "cinsiyet": "UNISEX",
       "cuzdan_tipi": "CARDHOLDER",
       "kart_yuvasi_sayisi": 6,
@@ -3665,15 +1141,9 @@ window.__BOTL_DATA__ = {
       "madeni_para_bolmesi": false,
       "id_pencere_var_mi": false,
       "fermuar_var_mi": false,
-      "fermuar_konumu": null,
       "RFID_korumali": false,
       "kapama_tipi": "acik",
-      "gorseller": {
-        "cover": "",
-        "gallery": [
-          "assets/products/kart-kabi-20-lutfen-duzenle-karisik-gumus-g1.jpg"
-        ]
-      }
+      "ic_astar_malzeme": "Deri"
     },
     {
       "variation_id": "FR-00031-KARISIK-STANDART-GUMUS",
@@ -3715,6 +1185,12 @@ window.__BOTL_DATA__ = {
       "aciklama": "Patron toplu yükleme. Foto: IMG_8847.heic, IMG_8848.heic.",
       "tedarikci_id": null,
       "olusturma": "2026-05-13",
+      "gorseller": {
+        "cover": "",
+        "gallery": [
+          "assets/products/kart-kabi-21-lutfen-duzenle-karisik-gumus-g1.jpg"
+        ]
+      },
       "cinsiyet": "UNISEX",
       "cuzdan_tipi": "CARDHOLDER",
       "kart_yuvasi_sayisi": 6,
@@ -3722,15 +1198,9 @@ window.__BOTL_DATA__ = {
       "madeni_para_bolmesi": false,
       "id_pencere_var_mi": false,
       "fermuar_var_mi": false,
-      "fermuar_konumu": null,
       "RFID_korumali": false,
       "kapama_tipi": "acik",
-      "gorseller": {
-        "cover": "",
-        "gallery": [
-          "assets/products/kart-kabi-21-lutfen-duzenle-karisik-gumus-g1.jpg"
-        ]
-      }
+      "ic_astar_malzeme": "Deri"
     },
     {
       "variation_id": "FR-00032-KARISIK-STANDART-GUMUS",
@@ -3772,6 +1242,12 @@ window.__BOTL_DATA__ = {
       "aciklama": "Patron toplu yükleme. Foto: IMG_8849.heic, IMG_8850.heic.",
       "tedarikci_id": null,
       "olusturma": "2026-05-13",
+      "gorseller": {
+        "cover": "",
+        "gallery": [
+          "assets/products/kart-kabi-22-lutfen-duzenle-karisik-gumus-g1.jpg"
+        ]
+      },
       "cinsiyet": "UNISEX",
       "cuzdan_tipi": "CARDHOLDER",
       "kart_yuvasi_sayisi": 6,
@@ -3779,15 +1255,9 @@ window.__BOTL_DATA__ = {
       "madeni_para_bolmesi": false,
       "id_pencere_var_mi": false,
       "fermuar_var_mi": false,
-      "fermuar_konumu": null,
       "RFID_korumali": false,
       "kapama_tipi": "acik",
-      "gorseller": {
-        "cover": "",
-        "gallery": [
-          "assets/products/kart-kabi-22-lutfen-duzenle-karisik-gumus-g1.jpg"
-        ]
-      }
+      "ic_astar_malzeme": "Deri"
     },
     {
       "variation_id": "FR-00033-KARISIK-STANDART-GUMUS",
@@ -3829,6 +1299,12 @@ window.__BOTL_DATA__ = {
       "aciklama": "Patron toplu yükleme. Foto: IMG_8851.heic, IMG_8852.heic.",
       "tedarikci_id": null,
       "olusturma": "2026-05-13",
+      "gorseller": {
+        "cover": "",
+        "gallery": [
+          "assets/products/kart-kabi-23-lutfen-duzenle-karisik-gumus-g1.jpg"
+        ]
+      },
       "cinsiyet": "UNISEX",
       "cuzdan_tipi": "CARDHOLDER",
       "kart_yuvasi_sayisi": 6,
@@ -3836,15 +1312,9 @@ window.__BOTL_DATA__ = {
       "madeni_para_bolmesi": false,
       "id_pencere_var_mi": false,
       "fermuar_var_mi": false,
-      "fermuar_konumu": null,
       "RFID_korumali": false,
       "kapama_tipi": "acik",
-      "gorseller": {
-        "cover": "",
-        "gallery": [
-          "assets/products/kart-kabi-23-lutfen-duzenle-karisik-gumus-g1.jpg"
-        ]
-      }
+      "ic_astar_malzeme": "Deri"
     },
     {
       "variation_id": "FR-00034-KARISIK-STANDART-GUMUS",
@@ -3886,6 +1356,12 @@ window.__BOTL_DATA__ = {
       "aciklama": "Patron toplu yükleme. Foto: IMG_8853.heic, IMG_8854.heic.",
       "tedarikci_id": null,
       "olusturma": "2026-05-13",
+      "gorseller": {
+        "cover": "",
+        "gallery": [
+          "assets/products/kart-kabi-24-lutfen-duzenle-karisik-gumus-g1.jpg"
+        ]
+      },
       "cinsiyet": "UNISEX",
       "cuzdan_tipi": "CARDHOLDER",
       "kart_yuvasi_sayisi": 6,
@@ -3893,15 +1369,9 @@ window.__BOTL_DATA__ = {
       "madeni_para_bolmesi": false,
       "id_pencere_var_mi": false,
       "fermuar_var_mi": false,
-      "fermuar_konumu": null,
       "RFID_korumali": false,
       "kapama_tipi": "acik",
-      "gorseller": {
-        "cover": "",
-        "gallery": [
-          "assets/products/kart-kabi-24-lutfen-duzenle-karisik-gumus-g1.jpg"
-        ]
-      }
+      "ic_astar_malzeme": "Deri"
     },
     {
       "variation_id": "FR-00035-KARISIK-STANDART-GUMUS",
@@ -3943,6 +1413,12 @@ window.__BOTL_DATA__ = {
       "aciklama": "Patron toplu yükleme. Foto: IMG_8855.heic, IMG_8856.heic.",
       "tedarikci_id": null,
       "olusturma": "2026-05-13",
+      "gorseller": {
+        "cover": "",
+        "gallery": [
+          "assets/products/kart-kabi-25-lutfen-duzenle-karisik-gumus-g1.jpg"
+        ]
+      },
       "cinsiyet": "UNISEX",
       "cuzdan_tipi": "CARDHOLDER",
       "kart_yuvasi_sayisi": 6,
@@ -3950,15 +1426,9 @@ window.__BOTL_DATA__ = {
       "madeni_para_bolmesi": false,
       "id_pencere_var_mi": false,
       "fermuar_var_mi": false,
-      "fermuar_konumu": null,
       "RFID_korumali": false,
       "kapama_tipi": "acik",
-      "gorseller": {
-        "cover": "",
-        "gallery": [
-          "assets/products/kart-kabi-25-lutfen-duzenle-karisik-gumus-g1.jpg"
-        ]
-      }
+      "ic_astar_malzeme": "Deri"
     },
     {
       "variation_id": "FR-00036-KARISIK-STANDART-GUMUS",
@@ -4000,6 +1470,12 @@ window.__BOTL_DATA__ = {
       "aciklama": "Patron toplu yükleme. Foto: IMG_8857.heic, IMG_8858.heic.",
       "tedarikci_id": null,
       "olusturma": "2026-05-13",
+      "gorseller": {
+        "cover": "",
+        "gallery": [
+          "assets/products/kart-kabi-26-lutfen-duzenle-karisik-gumus-g1.jpg"
+        ]
+      },
       "cinsiyet": "UNISEX",
       "cuzdan_tipi": "CARDHOLDER",
       "kart_yuvasi_sayisi": 6,
@@ -4007,15 +1483,9 @@ window.__BOTL_DATA__ = {
       "madeni_para_bolmesi": false,
       "id_pencere_var_mi": false,
       "fermuar_var_mi": false,
-      "fermuar_konumu": null,
       "RFID_korumali": false,
       "kapama_tipi": "acik",
-      "gorseller": {
-        "cover": "",
-        "gallery": [
-          "assets/products/kart-kabi-26-lutfen-duzenle-karisik-gumus-g1.jpg"
-        ]
-      }
+      "ic_astar_malzeme": "Deri"
     },
     {
       "variation_id": "FR-00037-KARISIK-STANDART-GUMUS",
@@ -4057,6 +1527,12 @@ window.__BOTL_DATA__ = {
       "aciklama": "Patron toplu yükleme. Foto: IMG_8859.heic, IMG_8860.heic.",
       "tedarikci_id": null,
       "olusturma": "2026-05-13",
+      "gorseller": {
+        "cover": "",
+        "gallery": [
+          "assets/products/kart-kabi-27-lutfen-duzenle-karisik-gumus-g1.jpg"
+        ]
+      },
       "cinsiyet": "UNISEX",
       "cuzdan_tipi": "CARDHOLDER",
       "kart_yuvasi_sayisi": 6,
@@ -4064,15 +1540,9 @@ window.__BOTL_DATA__ = {
       "madeni_para_bolmesi": false,
       "id_pencere_var_mi": false,
       "fermuar_var_mi": false,
-      "fermuar_konumu": null,
       "RFID_korumali": false,
       "kapama_tipi": "acik",
-      "gorseller": {
-        "cover": "",
-        "gallery": [
-          "assets/products/kart-kabi-27-lutfen-duzenle-karisik-gumus-g1.jpg"
-        ]
-      }
+      "ic_astar_malzeme": "Deri"
     },
     {
       "variation_id": "FR-00038-KARISIK-STANDART-GUMUS",
@@ -4114,6 +1584,12 @@ window.__BOTL_DATA__ = {
       "aciklama": "Patron toplu yükleme. Foto: IMG_8861.heic, IMG_8862.heic.",
       "tedarikci_id": null,
       "olusturma": "2026-05-13",
+      "gorseller": {
+        "cover": "",
+        "gallery": [
+          "assets/products/kart-kabi-28-lutfen-duzenle-karisik-gumus-g1.jpg"
+        ]
+      },
       "cinsiyet": "UNISEX",
       "cuzdan_tipi": "CARDHOLDER",
       "kart_yuvasi_sayisi": 6,
@@ -4121,15 +1597,9 @@ window.__BOTL_DATA__ = {
       "madeni_para_bolmesi": false,
       "id_pencere_var_mi": false,
       "fermuar_var_mi": false,
-      "fermuar_konumu": null,
       "RFID_korumali": false,
       "kapama_tipi": "acik",
-      "gorseller": {
-        "cover": "",
-        "gallery": [
-          "assets/products/kart-kabi-28-lutfen-duzenle-karisik-gumus-g1.jpg"
-        ]
-      }
+      "ic_astar_malzeme": "Deri"
     },
     {
       "variation_id": "FR-00039-KARISIK-STANDART-GUMUS",
@@ -4171,6 +1641,12 @@ window.__BOTL_DATA__ = {
       "aciklama": "Patron toplu yükleme. Foto: IMG_8863.heic, IMG_8864.heic.",
       "tedarikci_id": null,
       "olusturma": "2026-05-13",
+      "gorseller": {
+        "cover": "",
+        "gallery": [
+          "assets/products/kart-kabi-29-lutfen-duzenle-karisik-gumus-g1.jpg"
+        ]
+      },
       "cinsiyet": "UNISEX",
       "cuzdan_tipi": "CARDHOLDER",
       "kart_yuvasi_sayisi": 6,
@@ -4178,15 +1654,9 @@ window.__BOTL_DATA__ = {
       "madeni_para_bolmesi": false,
       "id_pencere_var_mi": false,
       "fermuar_var_mi": false,
-      "fermuar_konumu": null,
       "RFID_korumali": false,
       "kapama_tipi": "acik",
-      "gorseller": {
-        "cover": "",
-        "gallery": [
-          "assets/products/kart-kabi-29-lutfen-duzenle-karisik-gumus-g1.jpg"
-        ]
-      }
+      "ic_astar_malzeme": "Deri"
     },
     {
       "variation_id": "FR-00040-KARISIK-STANDART-GUMUS",
@@ -4228,6 +1698,12 @@ window.__BOTL_DATA__ = {
       "aciklama": "Patron toplu yükleme. Foto: IMG_8865.heic, IMG_8866.heic.",
       "tedarikci_id": null,
       "olusturma": "2026-05-13",
+      "gorseller": {
+        "cover": "",
+        "gallery": [
+          "assets/products/kart-kabi-30-lutfen-duzenle-karisik-gumus-g1.jpg"
+        ]
+      },
       "cinsiyet": "UNISEX",
       "cuzdan_tipi": "CARDHOLDER",
       "kart_yuvasi_sayisi": 6,
@@ -4235,15 +1711,9 @@ window.__BOTL_DATA__ = {
       "madeni_para_bolmesi": false,
       "id_pencere_var_mi": false,
       "fermuar_var_mi": false,
-      "fermuar_konumu": null,
       "RFID_korumali": false,
       "kapama_tipi": "acik",
-      "gorseller": {
-        "cover": "",
-        "gallery": [
-          "assets/products/kart-kabi-30-lutfen-duzenle-karisik-gumus-g1.jpg"
-        ]
-      }
+      "ic_astar_malzeme": "Deri"
     },
     {
       "variation_id": "FR-00041-KARISIK-STANDART-GUMUS",
@@ -4285,6 +1755,12 @@ window.__BOTL_DATA__ = {
       "aciklama": "Patron toplu yükleme. Foto: IMG_8867.heic, IMG_8868.heic.",
       "tedarikci_id": null,
       "olusturma": "2026-05-13",
+      "gorseller": {
+        "cover": "",
+        "gallery": [
+          "assets/products/kart-kabi-31-lutfen-duzenle-karisik-gumus-g1.jpg"
+        ]
+      },
       "cinsiyet": "UNISEX",
       "cuzdan_tipi": "CARDHOLDER",
       "kart_yuvasi_sayisi": 6,
@@ -4292,15 +1768,9 @@ window.__BOTL_DATA__ = {
       "madeni_para_bolmesi": false,
       "id_pencere_var_mi": false,
       "fermuar_var_mi": false,
-      "fermuar_konumu": null,
       "RFID_korumali": false,
       "kapama_tipi": "acik",
-      "gorseller": {
-        "cover": "",
-        "gallery": [
-          "assets/products/kart-kabi-31-lutfen-duzenle-karisik-gumus-g1.jpg"
-        ]
-      }
+      "ic_astar_malzeme": "Deri"
     },
     {
       "variation_id": "FR-00042-KARISIK-STANDART-GUMUS",
@@ -4342,6 +1812,12 @@ window.__BOTL_DATA__ = {
       "aciklama": "Patron toplu yükleme. Foto: IMG_8869.heic, IMG_8870.heic.",
       "tedarikci_id": null,
       "olusturma": "2026-05-13",
+      "gorseller": {
+        "cover": "",
+        "gallery": [
+          "assets/products/kart-kabi-32-lutfen-duzenle-karisik-gumus-g1.jpg"
+        ]
+      },
       "cinsiyet": "UNISEX",
       "cuzdan_tipi": "CARDHOLDER",
       "kart_yuvasi_sayisi": 6,
@@ -4349,15 +1825,9 @@ window.__BOTL_DATA__ = {
       "madeni_para_bolmesi": false,
       "id_pencere_var_mi": false,
       "fermuar_var_mi": false,
-      "fermuar_konumu": null,
       "RFID_korumali": false,
       "kapama_tipi": "acik",
-      "gorseller": {
-        "cover": "",
-        "gallery": [
-          "assets/products/kart-kabi-32-lutfen-duzenle-karisik-gumus-g1.jpg"
-        ]
-      }
+      "ic_astar_malzeme": "Deri"
     },
     {
       "variation_id": "FR-00043-KARISIK-STANDART-GUMUS",
@@ -4399,6 +1869,12 @@ window.__BOTL_DATA__ = {
       "aciklama": "Patron toplu yükleme. Foto: IMG_8872.heic, IMG_8873.heic.",
       "tedarikci_id": null,
       "olusturma": "2026-05-13",
+      "gorseller": {
+        "cover": "",
+        "gallery": [
+          "assets/products/kart-kabi-33-lutfen-duzenle-karisik-gumus-g1.jpg"
+        ]
+      },
       "cinsiyet": "UNISEX",
       "cuzdan_tipi": "CARDHOLDER",
       "kart_yuvasi_sayisi": 6,
@@ -4406,15 +1882,9 @@ window.__BOTL_DATA__ = {
       "madeni_para_bolmesi": false,
       "id_pencere_var_mi": false,
       "fermuar_var_mi": false,
-      "fermuar_konumu": null,
       "RFID_korumali": false,
       "kapama_tipi": "acik",
-      "gorseller": {
-        "cover": "",
-        "gallery": [
-          "assets/products/kart-kabi-33-lutfen-duzenle-karisik-gumus-g1.jpg"
-        ]
-      }
+      "ic_astar_malzeme": "Deri"
     },
     {
       "variation_id": "FR-00044-KARISIK-STANDART-GUMUS",
@@ -4456,6 +1926,12 @@ window.__BOTL_DATA__ = {
       "aciklama": "Patron toplu yükleme. Foto: IMG_8874.HEIC, IMG_8875.heic.",
       "tedarikci_id": null,
       "olusturma": "2026-05-13",
+      "gorseller": {
+        "cover": "",
+        "gallery": [
+          "assets/products/kart-kabi-34-lutfen-duzenle-karisik-gumus-g1.jpg"
+        ]
+      },
       "cinsiyet": "UNISEX",
       "cuzdan_tipi": "CARDHOLDER",
       "kart_yuvasi_sayisi": 6,
@@ -4463,15 +1939,9 @@ window.__BOTL_DATA__ = {
       "madeni_para_bolmesi": false,
       "id_pencere_var_mi": false,
       "fermuar_var_mi": false,
-      "fermuar_konumu": null,
       "RFID_korumali": false,
       "kapama_tipi": "acik",
-      "gorseller": {
-        "cover": "",
-        "gallery": [
-          "assets/products/kart-kabi-34-lutfen-duzenle-karisik-gumus-g1.jpg"
-        ]
-      }
+      "ic_astar_malzeme": "Deri"
     },
     {
       "variation_id": "FR-00045-KARISIK-STANDART-GUMUS",
@@ -4513,6 +1983,12 @@ window.__BOTL_DATA__ = {
       "aciklama": "Patron toplu yükleme. Foto: IMG_8876.heic, IMG_8877.heic.",
       "tedarikci_id": null,
       "olusturma": "2026-05-13",
+      "gorseller": {
+        "cover": "",
+        "gallery": [
+          "assets/products/kart-kabi-35-lutfen-duzenle-karisik-gumus-g1.jpg"
+        ]
+      },
       "cinsiyet": "UNISEX",
       "cuzdan_tipi": "CARDHOLDER",
       "kart_yuvasi_sayisi": 6,
@@ -4520,15 +1996,9 @@ window.__BOTL_DATA__ = {
       "madeni_para_bolmesi": false,
       "id_pencere_var_mi": false,
       "fermuar_var_mi": false,
-      "fermuar_konumu": null,
       "RFID_korumali": false,
       "kapama_tipi": "acik",
-      "gorseller": {
-        "cover": "",
-        "gallery": [
-          "assets/products/kart-kabi-35-lutfen-duzenle-karisik-gumus-g1.jpg"
-        ]
-      }
+      "ic_astar_malzeme": "Deri"
     },
     {
       "variation_id": "FR-00046-KARISIK-STANDART-GUMUS",
@@ -4570,6 +2040,12 @@ window.__BOTL_DATA__ = {
       "aciklama": "Patron toplu yükleme. Foto: IMG_8878.heic, IMG_8879.heic.",
       "tedarikci_id": null,
       "olusturma": "2026-05-13",
+      "gorseller": {
+        "cover": "",
+        "gallery": [
+          "assets/products/kart-kabi-36-lutfen-duzenle-karisik-gumus-g1.jpg"
+        ]
+      },
       "cinsiyet": "UNISEX",
       "cuzdan_tipi": "CARDHOLDER",
       "kart_yuvasi_sayisi": 6,
@@ -4577,15 +2053,9 @@ window.__BOTL_DATA__ = {
       "madeni_para_bolmesi": false,
       "id_pencere_var_mi": false,
       "fermuar_var_mi": false,
-      "fermuar_konumu": null,
       "RFID_korumali": false,
       "kapama_tipi": "acik",
-      "gorseller": {
-        "cover": "",
-        "gallery": [
-          "assets/products/kart-kabi-36-lutfen-duzenle-karisik-gumus-g1.jpg"
-        ]
-      }
+      "ic_astar_malzeme": "Deri"
     },
     {
       "variation_id": "FR-00047-KARISIK-STANDART-GUMUS",
@@ -4627,6 +2097,12 @@ window.__BOTL_DATA__ = {
       "aciklama": "Patron toplu yükleme. Foto: IMG_8880.heic, IMG_8881.heic.",
       "tedarikci_id": null,
       "olusturma": "2026-05-13",
+      "gorseller": {
+        "cover": "",
+        "gallery": [
+          "assets/products/kart-kabi-37-lutfen-duzenle-karisik-gumus-g1.jpg"
+        ]
+      },
       "cinsiyet": "UNISEX",
       "cuzdan_tipi": "CARDHOLDER",
       "kart_yuvasi_sayisi": 6,
@@ -4634,15 +2110,9 @@ window.__BOTL_DATA__ = {
       "madeni_para_bolmesi": false,
       "id_pencere_var_mi": false,
       "fermuar_var_mi": false,
-      "fermuar_konumu": null,
       "RFID_korumali": false,
       "kapama_tipi": "acik",
-      "gorseller": {
-        "cover": "",
-        "gallery": [
-          "assets/products/kart-kabi-37-lutfen-duzenle-karisik-gumus-g1.jpg"
-        ]
-      }
+      "ic_astar_malzeme": "Deri"
     },
     {
       "variation_id": "FR-00048-KARISIK-STANDART-GUMUS",
@@ -4684,6 +2154,12 @@ window.__BOTL_DATA__ = {
       "aciklama": "Patron toplu yükleme. Foto: IMG_8882.heic, IMG_8883.heic.",
       "tedarikci_id": null,
       "olusturma": "2026-05-13",
+      "gorseller": {
+        "cover": "",
+        "gallery": [
+          "assets/products/kart-kabi-38-lutfen-duzenle-karisik-gumus-g1.jpg"
+        ]
+      },
       "cinsiyet": "UNISEX",
       "cuzdan_tipi": "CARDHOLDER",
       "kart_yuvasi_sayisi": 6,
@@ -4691,15 +2167,9 @@ window.__BOTL_DATA__ = {
       "madeni_para_bolmesi": false,
       "id_pencere_var_mi": false,
       "fermuar_var_mi": false,
-      "fermuar_konumu": null,
       "RFID_korumali": false,
       "kapama_tipi": "acik",
-      "gorseller": {
-        "cover": "",
-        "gallery": [
-          "assets/products/kart-kabi-38-lutfen-duzenle-karisik-gumus-g1.jpg"
-        ]
-      }
+      "ic_astar_malzeme": "Deri"
     },
     {
       "variation_id": "FR-00049-KARISIK-STANDART-GUMUS",
@@ -4741,6 +2211,12 @@ window.__BOTL_DATA__ = {
       "aciklama": "Patron toplu yükleme. Foto: IMG_8884.heic, IMG_8885.heic.",
       "tedarikci_id": null,
       "olusturma": "2026-05-13",
+      "gorseller": {
+        "cover": "",
+        "gallery": [
+          "assets/products/kart-kabi-39-lutfen-duzenle-karisik-gumus-g1.jpg"
+        ]
+      },
       "cinsiyet": "UNISEX",
       "cuzdan_tipi": "CARDHOLDER",
       "kart_yuvasi_sayisi": 6,
@@ -4748,15 +2224,9 @@ window.__BOTL_DATA__ = {
       "madeni_para_bolmesi": false,
       "id_pencere_var_mi": false,
       "fermuar_var_mi": false,
-      "fermuar_konumu": null,
       "RFID_korumali": false,
       "kapama_tipi": "acik",
-      "gorseller": {
-        "cover": "",
-        "gallery": [
-          "assets/products/kart-kabi-39-lutfen-duzenle-karisik-gumus-g1.jpg"
-        ]
-      }
+      "ic_astar_malzeme": "Deri"
     },
     {
       "variation_id": "FR-00050-KARISIK-STANDART-GUMUS",
@@ -4798,6 +2268,12 @@ window.__BOTL_DATA__ = {
       "aciklama": "Patron toplu yükleme. Foto: IMG_8886.heic, IMG_8887.heic.",
       "tedarikci_id": null,
       "olusturma": "2026-05-13",
+      "gorseller": {
+        "cover": "",
+        "gallery": [
+          "assets/products/kart-kabi-40-lutfen-duzenle-karisik-gumus-g1.jpg"
+        ]
+      },
       "cinsiyet": "UNISEX",
       "cuzdan_tipi": "CARDHOLDER",
       "kart_yuvasi_sayisi": 6,
@@ -4805,15 +2281,9 @@ window.__BOTL_DATA__ = {
       "madeni_para_bolmesi": false,
       "id_pencere_var_mi": false,
       "fermuar_var_mi": false,
-      "fermuar_konumu": null,
       "RFID_korumali": false,
       "kapama_tipi": "acik",
-      "gorseller": {
-        "cover": "",
-        "gallery": [
-          "assets/products/kart-kabi-40-lutfen-duzenle-karisik-gumus-g1.jpg"
-        ]
-      }
+      "ic_astar_malzeme": "Deri"
     },
     {
       "variation_id": "FR-00051-KARISIK-STANDART-GUMUS",
@@ -4855,6 +2325,12 @@ window.__BOTL_DATA__ = {
       "aciklama": "Patron toplu yükleme. Foto: IMG_8888.heic, IMG_8889.heic.",
       "tedarikci_id": null,
       "olusturma": "2026-05-13",
+      "gorseller": {
+        "cover": "",
+        "gallery": [
+          "assets/products/kart-kabi-41-lutfen-duzenle-karisik-gumus-g1.jpg"
+        ]
+      },
       "cinsiyet": "UNISEX",
       "cuzdan_tipi": "CARDHOLDER",
       "kart_yuvasi_sayisi": 6,
@@ -4862,15 +2338,9 @@ window.__BOTL_DATA__ = {
       "madeni_para_bolmesi": false,
       "id_pencere_var_mi": false,
       "fermuar_var_mi": false,
-      "fermuar_konumu": null,
       "RFID_korumali": false,
       "kapama_tipi": "acik",
-      "gorseller": {
-        "cover": "",
-        "gallery": [
-          "assets/products/kart-kabi-41-lutfen-duzenle-karisik-gumus-g1.jpg"
-        ]
-      }
+      "ic_astar_malzeme": "Deri"
     },
     {
       "variation_id": "FR-00052-KARISIK-STANDART-GUMUS",
@@ -4912,6 +2382,12 @@ window.__BOTL_DATA__ = {
       "aciklama": "Patron toplu yükleme. Foto: IMG_8890.heic, IMG_8891.heic.",
       "tedarikci_id": null,
       "olusturma": "2026-05-13",
+      "gorseller": {
+        "cover": "",
+        "gallery": [
+          "assets/products/kart-kabi-42-lutfen-duzenle-karisik-gumus-g1.jpg"
+        ]
+      },
       "cinsiyet": "UNISEX",
       "cuzdan_tipi": "CARDHOLDER",
       "kart_yuvasi_sayisi": 6,
@@ -4919,15 +2395,9 @@ window.__BOTL_DATA__ = {
       "madeni_para_bolmesi": false,
       "id_pencere_var_mi": false,
       "fermuar_var_mi": false,
-      "fermuar_konumu": null,
       "RFID_korumali": false,
       "kapama_tipi": "acik",
-      "gorseller": {
-        "cover": "",
-        "gallery": [
-          "assets/products/kart-kabi-42-lutfen-duzenle-karisik-gumus-g1.jpg"
-        ]
-      }
+      "ic_astar_malzeme": "Deri"
     },
     {
       "variation_id": "FR-00053-KARISIK-STANDART-GUMUS",
@@ -4969,6 +2439,12 @@ window.__BOTL_DATA__ = {
       "aciklama": "Patron toplu yükleme. Foto: IMG_8892.heic, IMG_8893.heic.",
       "tedarikci_id": null,
       "olusturma": "2026-05-13",
+      "gorseller": {
+        "cover": "",
+        "gallery": [
+          "assets/products/kart-kabi-43-lutfen-duzenle-karisik-gumus-g1.jpg"
+        ]
+      },
       "cinsiyet": "UNISEX",
       "cuzdan_tipi": "CARDHOLDER",
       "kart_yuvasi_sayisi": 6,
@@ -4976,15 +2452,9 @@ window.__BOTL_DATA__ = {
       "madeni_para_bolmesi": false,
       "id_pencere_var_mi": false,
       "fermuar_var_mi": false,
-      "fermuar_konumu": null,
       "RFID_korumali": false,
       "kapama_tipi": "acik",
-      "gorseller": {
-        "cover": "",
-        "gallery": [
-          "assets/products/kart-kabi-43-lutfen-duzenle-karisik-gumus-g1.jpg"
-        ]
-      }
+      "ic_astar_malzeme": "Deri"
     },
     {
       "variation_id": "FR-00054-KARISIK-STANDART-GUMUS",
@@ -5026,6 +2496,12 @@ window.__BOTL_DATA__ = {
       "aciklama": "Patron toplu yükleme. Foto: IMG_8894.heic, IMG_8895.heic.",
       "tedarikci_id": null,
       "olusturma": "2026-05-13",
+      "gorseller": {
+        "cover": "",
+        "gallery": [
+          "assets/products/kart-kabi-44-lutfen-duzenle-karisik-gumus-g1.jpg"
+        ]
+      },
       "cinsiyet": "UNISEX",
       "cuzdan_tipi": "CARDHOLDER",
       "kart_yuvasi_sayisi": 6,
@@ -5033,15 +2509,9 @@ window.__BOTL_DATA__ = {
       "madeni_para_bolmesi": false,
       "id_pencere_var_mi": false,
       "fermuar_var_mi": false,
-      "fermuar_konumu": null,
       "RFID_korumali": false,
       "kapama_tipi": "acik",
-      "gorseller": {
-        "cover": "",
-        "gallery": [
-          "assets/products/kart-kabi-44-lutfen-duzenle-karisik-gumus-g1.jpg"
-        ]
-      }
+      "ic_astar_malzeme": "Deri"
     },
     {
       "variation_id": "FR-00055-KARISIK-STANDART-GUMUS",
@@ -5083,6 +2553,12 @@ window.__BOTL_DATA__ = {
       "aciklama": "Patron toplu yükleme. Foto: IMG_8896.heic, IMG_8897.heic.",
       "tedarikci_id": null,
       "olusturma": "2026-05-13",
+      "gorseller": {
+        "cover": "",
+        "gallery": [
+          "assets/products/kart-kabi-45-lutfen-duzenle-karisik-gumus-g1.jpg"
+        ]
+      },
       "cinsiyet": "UNISEX",
       "cuzdan_tipi": "CARDHOLDER",
       "kart_yuvasi_sayisi": 6,
@@ -5090,15 +2566,9 @@ window.__BOTL_DATA__ = {
       "madeni_para_bolmesi": false,
       "id_pencere_var_mi": false,
       "fermuar_var_mi": false,
-      "fermuar_konumu": null,
       "RFID_korumali": false,
       "kapama_tipi": "acik",
-      "gorseller": {
-        "cover": "",
-        "gallery": [
-          "assets/products/kart-kabi-45-lutfen-duzenle-karisik-gumus-g1.jpg"
-        ]
-      }
+      "ic_astar_malzeme": "Deri"
     },
     {
       "variation_id": "FR-00056-KARISIK-STANDART-GUMUS",
@@ -5140,6 +2610,12 @@ window.__BOTL_DATA__ = {
       "aciklama": "Patron toplu yükleme. Foto: IMG_8898.heic, IMG_8899.heic.",
       "tedarikci_id": null,
       "olusturma": "2026-05-13",
+      "gorseller": {
+        "cover": "",
+        "gallery": [
+          "assets/products/kart-kabi-46-lutfen-duzenle-karisik-gumus-g1.jpg"
+        ]
+      },
       "cinsiyet": "UNISEX",
       "cuzdan_tipi": "CARDHOLDER",
       "kart_yuvasi_sayisi": 6,
@@ -5147,15 +2623,9 @@ window.__BOTL_DATA__ = {
       "madeni_para_bolmesi": false,
       "id_pencere_var_mi": false,
       "fermuar_var_mi": false,
-      "fermuar_konumu": null,
       "RFID_korumali": false,
       "kapama_tipi": "acik",
-      "gorseller": {
-        "cover": "",
-        "gallery": [
-          "assets/products/kart-kabi-46-lutfen-duzenle-karisik-gumus-g1.jpg"
-        ]
-      }
+      "ic_astar_malzeme": "Deri"
     },
     {
       "variation_id": "FR-00057-KARISIK-STANDART-GUMUS",
@@ -5197,6 +2667,12 @@ window.__BOTL_DATA__ = {
       "aciklama": "Patron toplu yükleme. Foto: IMG_8900.heic, IMG_8901.heic.",
       "tedarikci_id": null,
       "olusturma": "2026-05-13",
+      "gorseller": {
+        "cover": "",
+        "gallery": [
+          "assets/products/kart-kabi-47-lutfen-duzenle-karisik-gumus-g1.jpg"
+        ]
+      },
       "cinsiyet": "UNISEX",
       "cuzdan_tipi": "CARDHOLDER",
       "kart_yuvasi_sayisi": 6,
@@ -5204,15 +2680,9 @@ window.__BOTL_DATA__ = {
       "madeni_para_bolmesi": false,
       "id_pencere_var_mi": false,
       "fermuar_var_mi": false,
-      "fermuar_konumu": null,
       "RFID_korumali": false,
       "kapama_tipi": "acik",
-      "gorseller": {
-        "cover": "",
-        "gallery": [
-          "assets/products/kart-kabi-47-lutfen-duzenle-karisik-gumus-g1.jpg"
-        ]
-      }
+      "ic_astar_malzeme": "Deri"
     },
     {
       "variation_id": "FR-00058-KARISIK-STANDART-GUMUS",
@@ -5254,6 +2724,12 @@ window.__BOTL_DATA__ = {
       "aciklama": "Patron toplu yükleme. Foto: IMG_8902.heic, IMG_8903.heic.",
       "tedarikci_id": null,
       "olusturma": "2026-05-13",
+      "gorseller": {
+        "cover": "",
+        "gallery": [
+          "assets/products/kart-kabi-48-lutfen-duzenle-karisik-gumus-g1.jpg"
+        ]
+      },
       "cinsiyet": "UNISEX",
       "cuzdan_tipi": "CARDHOLDER",
       "kart_yuvasi_sayisi": 6,
@@ -5261,15 +2737,9 @@ window.__BOTL_DATA__ = {
       "madeni_para_bolmesi": false,
       "id_pencere_var_mi": false,
       "fermuar_var_mi": false,
-      "fermuar_konumu": null,
       "RFID_korumali": false,
       "kapama_tipi": "acik",
-      "gorseller": {
-        "cover": "",
-        "gallery": [
-          "assets/products/kart-kabi-48-lutfen-duzenle-karisik-gumus-g1.jpg"
-        ]
-      }
+      "ic_astar_malzeme": "Deri"
     },
     {
       "variation_id": "FR-00059-KARISIK-STANDART-GUMUS",
@@ -5311,6 +2781,12 @@ window.__BOTL_DATA__ = {
       "aciklama": "Patron toplu yükleme. Foto: IMG_8904.heic, IMG_8905.heic.",
       "tedarikci_id": null,
       "olusturma": "2026-05-13",
+      "gorseller": {
+        "cover": "",
+        "gallery": [
+          "assets/products/kart-kabi-49-lutfen-duzenle-karisik-gumus-g1.jpg"
+        ]
+      },
       "cinsiyet": "UNISEX",
       "cuzdan_tipi": "CARDHOLDER",
       "kart_yuvasi_sayisi": 6,
@@ -5318,15 +2794,9 @@ window.__BOTL_DATA__ = {
       "madeni_para_bolmesi": false,
       "id_pencere_var_mi": false,
       "fermuar_var_mi": false,
-      "fermuar_konumu": null,
       "RFID_korumali": false,
       "kapama_tipi": "acik",
-      "gorseller": {
-        "cover": "",
-        "gallery": [
-          "assets/products/kart-kabi-49-lutfen-duzenle-karisik-gumus-g1.jpg"
-        ]
-      }
+      "ic_astar_malzeme": "Deri"
     },
     {
       "variation_id": "FR-00060-KARISIK-STANDART-GUMUS",
@@ -5368,6 +2838,12 @@ window.__BOTL_DATA__ = {
       "aciklama": "Patron toplu yükleme. Foto: IMG_8906.heic, IMG_8907.heic.",
       "tedarikci_id": null,
       "olusturma": "2026-05-13",
+      "gorseller": {
+        "cover": "",
+        "gallery": [
+          "assets/products/kart-kabi-50-lutfen-duzenle-karisik-gumus-g1.jpg"
+        ]
+      },
       "cinsiyet": "UNISEX",
       "cuzdan_tipi": "CARDHOLDER",
       "kart_yuvasi_sayisi": 6,
@@ -5375,15 +2851,9 @@ window.__BOTL_DATA__ = {
       "madeni_para_bolmesi": false,
       "id_pencere_var_mi": false,
       "fermuar_var_mi": false,
-      "fermuar_konumu": null,
       "RFID_korumali": false,
       "kapama_tipi": "acik",
-      "gorseller": {
-        "cover": "",
-        "gallery": [
-          "assets/products/kart-kabi-50-lutfen-duzenle-karisik-gumus-g1.jpg"
-        ]
-      }
+      "ic_astar_malzeme": "Deri"
     },
     {
       "variation_id": "FR-00061-KARISIK-STANDART-GUMUS",
@@ -5425,6 +2895,12 @@ window.__BOTL_DATA__ = {
       "aciklama": "Patron toplu yükleme. Foto: IMG_8908.heic, IMG_8909.HEIC.",
       "tedarikci_id": null,
       "olusturma": "2026-05-13",
+      "gorseller": {
+        "cover": "",
+        "gallery": [
+          "assets/products/kart-kabi-51-lutfen-duzenle-karisik-gumus-g1.jpg"
+        ]
+      },
       "cinsiyet": "UNISEX",
       "cuzdan_tipi": "CARDHOLDER",
       "kart_yuvasi_sayisi": 6,
@@ -5432,15 +2908,9 @@ window.__BOTL_DATA__ = {
       "madeni_para_bolmesi": false,
       "id_pencere_var_mi": false,
       "fermuar_var_mi": false,
-      "fermuar_konumu": null,
       "RFID_korumali": false,
       "kapama_tipi": "acik",
-      "gorseller": {
-        "cover": "",
-        "gallery": [
-          "assets/products/kart-kabi-51-lutfen-duzenle-karisik-gumus-g1.jpg"
-        ]
-      }
+      "ic_astar_malzeme": "Deri"
     },
     {
       "variation_id": "FR-00062-KARISIK-STANDART-GUMUS",
@@ -5482,6 +2952,12 @@ window.__BOTL_DATA__ = {
       "aciklama": "Patron toplu yükleme. Foto: IMG_8910.heic, IMG_8911.heic.",
       "tedarikci_id": null,
       "olusturma": "2026-05-13",
+      "gorseller": {
+        "cover": "",
+        "gallery": [
+          "assets/products/kart-kabi-52-lutfen-duzenle-karisik-gumus-g1.jpg"
+        ]
+      },
       "cinsiyet": "UNISEX",
       "cuzdan_tipi": "CARDHOLDER",
       "kart_yuvasi_sayisi": 6,
@@ -5489,15 +2965,9 @@ window.__BOTL_DATA__ = {
       "madeni_para_bolmesi": false,
       "id_pencere_var_mi": false,
       "fermuar_var_mi": false,
-      "fermuar_konumu": null,
       "RFID_korumali": false,
       "kapama_tipi": "acik",
-      "gorseller": {
-        "cover": "",
-        "gallery": [
-          "assets/products/kart-kabi-52-lutfen-duzenle-karisik-gumus-g1.jpg"
-        ]
-      }
+      "ic_astar_malzeme": "Deri"
     },
     {
       "variation_id": "FR-00063-KARISIK-STANDART-GUMUS",
@@ -5539,6 +3009,12 @@ window.__BOTL_DATA__ = {
       "aciklama": "Patron toplu yükleme. Foto: IMG_8912.heic, IMG_8913.heic.",
       "tedarikci_id": null,
       "olusturma": "2026-05-13",
+      "gorseller": {
+        "cover": "",
+        "gallery": [
+          "assets/products/kart-kabi-53-lutfen-duzenle-karisik-gumus-g1.jpg"
+        ]
+      },
       "cinsiyet": "UNISEX",
       "cuzdan_tipi": "CARDHOLDER",
       "kart_yuvasi_sayisi": 6,
@@ -5546,15 +3022,9 @@ window.__BOTL_DATA__ = {
       "madeni_para_bolmesi": false,
       "id_pencere_var_mi": false,
       "fermuar_var_mi": false,
-      "fermuar_konumu": null,
       "RFID_korumali": false,
       "kapama_tipi": "acik",
-      "gorseller": {
-        "cover": "",
-        "gallery": [
-          "assets/products/kart-kabi-53-lutfen-duzenle-karisik-gumus-g1.jpg"
-        ]
-      }
+      "ic_astar_malzeme": "Deri"
     },
     {
       "variation_id": "FR-00064-KARISIK-STANDART-GUMUS",
@@ -5596,6 +3066,12 @@ window.__BOTL_DATA__ = {
       "aciklama": "Patron toplu yükleme. Foto: IMG_8914.heic, IMG_8915.heic.",
       "tedarikci_id": null,
       "olusturma": "2026-05-13",
+      "gorseller": {
+        "cover": "",
+        "gallery": [
+          "assets/products/kart-kabi-54-lutfen-duzenle-karisik-gumus-g1.jpg"
+        ]
+      },
       "cinsiyet": "UNISEX",
       "cuzdan_tipi": "CARDHOLDER",
       "kart_yuvasi_sayisi": 6,
@@ -5603,15 +3079,9 @@ window.__BOTL_DATA__ = {
       "madeni_para_bolmesi": false,
       "id_pencere_var_mi": false,
       "fermuar_var_mi": false,
-      "fermuar_konumu": null,
       "RFID_korumali": false,
       "kapama_tipi": "acik",
-      "gorseller": {
-        "cover": "",
-        "gallery": [
-          "assets/products/kart-kabi-54-lutfen-duzenle-karisik-gumus-g1.jpg"
-        ]
-      }
+      "ic_astar_malzeme": "Deri"
     },
     {
       "variation_id": "FR-00065-KARISIK-STANDART-GUMUS",
@@ -5653,6 +3123,12 @@ window.__BOTL_DATA__ = {
       "aciklama": "Patron toplu yükleme. Foto: IMG_8916.heic, IMG_8917.heic.",
       "tedarikci_id": null,
       "olusturma": "2026-05-13",
+      "gorseller": {
+        "cover": "",
+        "gallery": [
+          "assets/products/kart-kabi-55-lutfen-duzenle-karisik-gumus-g1.jpg"
+        ]
+      },
       "cinsiyet": "UNISEX",
       "cuzdan_tipi": "CARDHOLDER",
       "kart_yuvasi_sayisi": 6,
@@ -5660,15 +3136,9 @@ window.__BOTL_DATA__ = {
       "madeni_para_bolmesi": false,
       "id_pencere_var_mi": false,
       "fermuar_var_mi": false,
-      "fermuar_konumu": null,
       "RFID_korumali": false,
       "kapama_tipi": "acik",
-      "gorseller": {
-        "cover": "",
-        "gallery": [
-          "assets/products/kart-kabi-55-lutfen-duzenle-karisik-gumus-g1.jpg"
-        ]
-      }
+      "ic_astar_malzeme": "Deri"
     },
     {
       "variation_id": "FR-00066-KARISIK-STANDART-GUMUS",
@@ -5710,6 +3180,12 @@ window.__BOTL_DATA__ = {
       "aciklama": "Patron toplu yükleme. Foto: IMG_8918.heic, IMG_8919.heic.",
       "tedarikci_id": null,
       "olusturma": "2026-05-13",
+      "gorseller": {
+        "cover": "",
+        "gallery": [
+          "assets/products/kart-kabi-56-lutfen-duzenle-karisik-gumus-g1.jpg"
+        ]
+      },
       "cinsiyet": "UNISEX",
       "cuzdan_tipi": "CARDHOLDER",
       "kart_yuvasi_sayisi": 6,
@@ -5717,15 +3193,9 @@ window.__BOTL_DATA__ = {
       "madeni_para_bolmesi": false,
       "id_pencere_var_mi": false,
       "fermuar_var_mi": false,
-      "fermuar_konumu": null,
       "RFID_korumali": false,
       "kapama_tipi": "acik",
-      "gorseller": {
-        "cover": "",
-        "gallery": [
-          "assets/products/kart-kabi-56-lutfen-duzenle-karisik-gumus-g1.jpg"
-        ]
-      }
+      "ic_astar_malzeme": "Deri"
     },
     {
       "variation_id": "FR-00067-KARISIK-STANDART-GUMUS",
@@ -5767,6 +3237,12 @@ window.__BOTL_DATA__ = {
       "aciklama": "Patron toplu yükleme. Foto: IMG_8920.heic, IMG_8921.heic.",
       "tedarikci_id": null,
       "olusturma": "2026-05-13",
+      "gorseller": {
+        "cover": "",
+        "gallery": [
+          "assets/products/kart-kabi-57-lutfen-duzenle-karisik-gumus-g1.jpg"
+        ]
+      },
       "cinsiyet": "UNISEX",
       "cuzdan_tipi": "CARDHOLDER",
       "kart_yuvasi_sayisi": 6,
@@ -5774,15 +3250,9 @@ window.__BOTL_DATA__ = {
       "madeni_para_bolmesi": false,
       "id_pencere_var_mi": false,
       "fermuar_var_mi": false,
-      "fermuar_konumu": null,
       "RFID_korumali": false,
       "kapama_tipi": "acik",
-      "gorseller": {
-        "cover": "",
-        "gallery": [
-          "assets/products/kart-kabi-57-lutfen-duzenle-karisik-gumus-g1.jpg"
-        ]
-      }
+      "ic_astar_malzeme": "Deri"
     },
     {
       "variation_id": "FR-00068-KARISIK-STANDART-GUMUS",
@@ -5824,6 +3294,12 @@ window.__BOTL_DATA__ = {
       "aciklama": "Patron toplu yükleme. Foto: IMG_8922.heic, IMG_8923.heic.",
       "tedarikci_id": null,
       "olusturma": "2026-05-13",
+      "gorseller": {
+        "cover": "",
+        "gallery": [
+          "assets/products/kart-kabi-58-lutfen-duzenle-karisik-gumus-g1.jpg"
+        ]
+      },
       "cinsiyet": "UNISEX",
       "cuzdan_tipi": "CARDHOLDER",
       "kart_yuvasi_sayisi": 6,
@@ -5831,15 +3307,9 @@ window.__BOTL_DATA__ = {
       "madeni_para_bolmesi": false,
       "id_pencere_var_mi": false,
       "fermuar_var_mi": false,
-      "fermuar_konumu": null,
       "RFID_korumali": false,
       "kapama_tipi": "acik",
-      "gorseller": {
-        "cover": "",
-        "gallery": [
-          "assets/products/kart-kabi-58-lutfen-duzenle-karisik-gumus-g1.jpg"
-        ]
-      }
+      "ic_astar_malzeme": "Deri"
     },
     {
       "variation_id": "FR-00069-KARISIK-STANDART-GUMUS",
@@ -5881,6 +3351,12 @@ window.__BOTL_DATA__ = {
       "aciklama": "Patron toplu yükleme. Foto: IMG_8924.heic, IMG_8925.heic.",
       "tedarikci_id": null,
       "olusturma": "2026-05-13",
+      "gorseller": {
+        "cover": "",
+        "gallery": [
+          "assets/products/kart-kabi-59-lutfen-duzenle-karisik-gumus-g1.jpg"
+        ]
+      },
       "cinsiyet": "UNISEX",
       "cuzdan_tipi": "CARDHOLDER",
       "kart_yuvasi_sayisi": 6,
@@ -5888,15 +3364,9 @@ window.__BOTL_DATA__ = {
       "madeni_para_bolmesi": false,
       "id_pencere_var_mi": false,
       "fermuar_var_mi": false,
-      "fermuar_konumu": null,
       "RFID_korumali": false,
       "kapama_tipi": "acik",
-      "gorseller": {
-        "cover": "",
-        "gallery": [
-          "assets/products/kart-kabi-59-lutfen-duzenle-karisik-gumus-g1.jpg"
-        ]
-      }
+      "ic_astar_malzeme": "Deri"
     },
     {
       "variation_id": "FR-00070-KARISIK-STANDART-GUMUS",
@@ -5938,6 +3408,12 @@ window.__BOTL_DATA__ = {
       "aciklama": "Patron toplu yükleme. Foto: IMG_8926.heic, IMG_8927.heic.",
       "tedarikci_id": null,
       "olusturma": "2026-05-13",
+      "gorseller": {
+        "cover": "",
+        "gallery": [
+          "assets/products/kart-kabi-60-lutfen-duzenle-karisik-gumus-g1.jpg"
+        ]
+      },
       "cinsiyet": "UNISEX",
       "cuzdan_tipi": "CARDHOLDER",
       "kart_yuvasi_sayisi": 6,
@@ -5945,15 +3421,9 @@ window.__BOTL_DATA__ = {
       "madeni_para_bolmesi": false,
       "id_pencere_var_mi": false,
       "fermuar_var_mi": false,
-      "fermuar_konumu": null,
       "RFID_korumali": false,
       "kapama_tipi": "acik",
-      "gorseller": {
-        "cover": "",
-        "gallery": [
-          "assets/products/kart-kabi-60-lutfen-duzenle-karisik-gumus-g1.jpg"
-        ]
-      }
+      "ic_astar_malzeme": "Deri"
     },
     {
       "variation_id": "FR-00071-KARISIK-STANDART-GUMUS",
@@ -5995,6 +3465,12 @@ window.__BOTL_DATA__ = {
       "aciklama": "Patron toplu yükleme. Foto: IMG_8928.heic, IMG_8929.heic.",
       "tedarikci_id": null,
       "olusturma": "2026-05-13",
+      "gorseller": {
+        "cover": "",
+        "gallery": [
+          "assets/products/kart-kabi-61-lutfen-duzenle-karisik-gumus-g1.jpg"
+        ]
+      },
       "cinsiyet": "UNISEX",
       "cuzdan_tipi": "CARDHOLDER",
       "kart_yuvasi_sayisi": 6,
@@ -6002,15 +3478,9 @@ window.__BOTL_DATA__ = {
       "madeni_para_bolmesi": false,
       "id_pencere_var_mi": false,
       "fermuar_var_mi": false,
-      "fermuar_konumu": null,
       "RFID_korumali": false,
       "kapama_tipi": "acik",
-      "gorseller": {
-        "cover": "",
-        "gallery": [
-          "assets/products/kart-kabi-61-lutfen-duzenle-karisik-gumus-g1.jpg"
-        ]
-      }
+      "ic_astar_malzeme": "Deri"
     },
     {
       "variation_id": "FR-00072-KARISIK-STANDART-GUMUS",
@@ -6052,6 +3522,12 @@ window.__BOTL_DATA__ = {
       "aciklama": "Patron toplu yükleme. Foto: IMG_8930.heic, IMG_8931.heic.",
       "tedarikci_id": null,
       "olusturma": "2026-05-13",
+      "gorseller": {
+        "cover": "",
+        "gallery": [
+          "assets/products/kart-kabi-62-lutfen-duzenle-karisik-gumus-g1.jpg"
+        ]
+      },
       "cinsiyet": "UNISEX",
       "cuzdan_tipi": "CARDHOLDER",
       "kart_yuvasi_sayisi": 6,
@@ -6059,15 +3535,9 @@ window.__BOTL_DATA__ = {
       "madeni_para_bolmesi": false,
       "id_pencere_var_mi": false,
       "fermuar_var_mi": false,
-      "fermuar_konumu": null,
       "RFID_korumali": false,
       "kapama_tipi": "acik",
-      "gorseller": {
-        "cover": "",
-        "gallery": [
-          "assets/products/kart-kabi-62-lutfen-duzenle-karisik-gumus-g1.jpg"
-        ]
-      }
+      "ic_astar_malzeme": "Deri"
     },
     {
       "variation_id": "FR-00073-KARISIK-STANDART-GUMUS",
@@ -6109,6 +3579,12 @@ window.__BOTL_DATA__ = {
       "aciklama": "Patron toplu yükleme. Foto: IMG_8932.heic, IMG_8933.heic.",
       "tedarikci_id": null,
       "olusturma": "2026-05-13",
+      "gorseller": {
+        "cover": "",
+        "gallery": [
+          "assets/products/kart-kabi-63-lutfen-duzenle-karisik-gumus-g1.jpg"
+        ]
+      },
       "cinsiyet": "UNISEX",
       "cuzdan_tipi": "CARDHOLDER",
       "kart_yuvasi_sayisi": 6,
@@ -6116,15 +3592,9 @@ window.__BOTL_DATA__ = {
       "madeni_para_bolmesi": false,
       "id_pencere_var_mi": false,
       "fermuar_var_mi": false,
-      "fermuar_konumu": null,
       "RFID_korumali": false,
       "kapama_tipi": "acik",
-      "gorseller": {
-        "cover": "",
-        "gallery": [
-          "assets/products/kart-kabi-63-lutfen-duzenle-karisik-gumus-g1.jpg"
-        ]
-      }
+      "ic_astar_malzeme": "Deri"
     },
     {
       "variation_id": "FR-00074-KARISIK-STANDART-GUMUS",
@@ -6166,6 +3636,12 @@ window.__BOTL_DATA__ = {
       "aciklama": "Patron toplu yükleme. Foto: IMG_8934.heic, IMG_8935.heic.",
       "tedarikci_id": null,
       "olusturma": "2026-05-13",
+      "gorseller": {
+        "cover": "",
+        "gallery": [
+          "assets/products/kart-kabi-64-lutfen-duzenle-karisik-gumus-g1.jpg"
+        ]
+      },
       "cinsiyet": "UNISEX",
       "cuzdan_tipi": "CARDHOLDER",
       "kart_yuvasi_sayisi": 6,
@@ -6173,15 +3649,9 @@ window.__BOTL_DATA__ = {
       "madeni_para_bolmesi": false,
       "id_pencere_var_mi": false,
       "fermuar_var_mi": false,
-      "fermuar_konumu": null,
       "RFID_korumali": false,
       "kapama_tipi": "acik",
-      "gorseller": {
-        "cover": "",
-        "gallery": [
-          "assets/products/kart-kabi-64-lutfen-duzenle-karisik-gumus-g1.jpg"
-        ]
-      }
+      "ic_astar_malzeme": "Deri"
     },
     {
       "variation_id": "FR-00075-KARISIK-STANDART-GUMUS",
@@ -6223,6 +3693,12 @@ window.__BOTL_DATA__ = {
       "aciklama": "Patron toplu yükleme. Foto: IMG_8936.heic, IMG_8937.heic.",
       "tedarikci_id": null,
       "olusturma": "2026-05-13",
+      "gorseller": {
+        "cover": "",
+        "gallery": [
+          "assets/products/kart-kabi-65-lutfen-duzenle-karisik-gumus-g1.jpg"
+        ]
+      },
       "cinsiyet": "UNISEX",
       "cuzdan_tipi": "CARDHOLDER",
       "kart_yuvasi_sayisi": 6,
@@ -6230,15 +3706,9 @@ window.__BOTL_DATA__ = {
       "madeni_para_bolmesi": false,
       "id_pencere_var_mi": false,
       "fermuar_var_mi": false,
-      "fermuar_konumu": null,
       "RFID_korumali": false,
       "kapama_tipi": "acik",
-      "gorseller": {
-        "cover": "",
-        "gallery": [
-          "assets/products/kart-kabi-65-lutfen-duzenle-karisik-gumus-g1.jpg"
-        ]
-      }
+      "ic_astar_malzeme": "Deri"
     },
     {
       "variation_id": "FR-00076-KARISIK-STANDART-GUMUS",
@@ -6280,6 +3750,12 @@ window.__BOTL_DATA__ = {
       "aciklama": "Patron toplu yükleme. Foto: IMG_8938.heic, IMG_8939.heic.",
       "tedarikci_id": null,
       "olusturma": "2026-05-13",
+      "gorseller": {
+        "cover": "",
+        "gallery": [
+          "assets/products/kart-kabi-66-lutfen-duzenle-karisik-gumus-g1.jpg"
+        ]
+      },
       "cinsiyet": "UNISEX",
       "cuzdan_tipi": "CARDHOLDER",
       "kart_yuvasi_sayisi": 6,
@@ -6287,15 +3763,9 @@ window.__BOTL_DATA__ = {
       "madeni_para_bolmesi": false,
       "id_pencere_var_mi": false,
       "fermuar_var_mi": false,
-      "fermuar_konumu": null,
       "RFID_korumali": false,
       "kapama_tipi": "acik",
-      "gorseller": {
-        "cover": "",
-        "gallery": [
-          "assets/products/kart-kabi-66-lutfen-duzenle-karisik-gumus-g1.jpg"
-        ]
-      }
+      "ic_astar_malzeme": "Deri"
     },
     {
       "variation_id": "FR-00077-KARISIK-STANDART-GUMUS",
@@ -6337,6 +3807,12 @@ window.__BOTL_DATA__ = {
       "aciklama": "Patron toplu yükleme. Foto: IMG_8940.heic, IMG_8941.heic.",
       "tedarikci_id": null,
       "olusturma": "2026-05-13",
+      "gorseller": {
+        "cover": "",
+        "gallery": [
+          "assets/products/kart-kabi-67-lutfen-duzenle-karisik-gumus-g1.jpg"
+        ]
+      },
       "cinsiyet": "UNISEX",
       "cuzdan_tipi": "CARDHOLDER",
       "kart_yuvasi_sayisi": 6,
@@ -6344,15 +3820,9 @@ window.__BOTL_DATA__ = {
       "madeni_para_bolmesi": false,
       "id_pencere_var_mi": false,
       "fermuar_var_mi": false,
-      "fermuar_konumu": null,
       "RFID_korumali": false,
       "kapama_tipi": "acik",
-      "gorseller": {
-        "cover": "",
-        "gallery": [
-          "assets/products/kart-kabi-67-lutfen-duzenle-karisik-gumus-g1.jpg"
-        ]
-      }
+      "ic_astar_malzeme": "Deri"
     },
     {
       "variation_id": "FR-00078-KARISIK-STANDART-GUMUS",
@@ -6394,6 +3864,12 @@ window.__BOTL_DATA__ = {
       "aciklama": "Patron toplu yükleme. Foto: IMG_8942.heic, IMG_8943.heic.",
       "tedarikci_id": null,
       "olusturma": "2026-05-13",
+      "gorseller": {
+        "cover": "",
+        "gallery": [
+          "assets/products/kart-kabi-68-lutfen-duzenle-karisik-gumus-g1.jpg"
+        ]
+      },
       "cinsiyet": "UNISEX",
       "cuzdan_tipi": "CARDHOLDER",
       "kart_yuvasi_sayisi": 6,
@@ -6401,15 +3877,9 @@ window.__BOTL_DATA__ = {
       "madeni_para_bolmesi": false,
       "id_pencere_var_mi": false,
       "fermuar_var_mi": false,
-      "fermuar_konumu": null,
       "RFID_korumali": false,
       "kapama_tipi": "acik",
-      "gorseller": {
-        "cover": "",
-        "gallery": [
-          "assets/products/kart-kabi-68-lutfen-duzenle-karisik-gumus-g1.jpg"
-        ]
-      }
+      "ic_astar_malzeme": "Deri"
     },
     {
       "variation_id": "FR-00079-KARISIK-STANDART-GUMUS",
@@ -6451,6 +3921,12 @@ window.__BOTL_DATA__ = {
       "aciklama": "Patron toplu yükleme. Foto: IMG_8944.heic, IMG_8945.heic.",
       "tedarikci_id": null,
       "olusturma": "2026-05-13",
+      "gorseller": {
+        "cover": "",
+        "gallery": [
+          "assets/products/kart-kabi-69-lutfen-duzenle-karisik-gumus-g1.jpg"
+        ]
+      },
       "cinsiyet": "UNISEX",
       "cuzdan_tipi": "CARDHOLDER",
       "kart_yuvasi_sayisi": 6,
@@ -6458,15 +3934,9 @@ window.__BOTL_DATA__ = {
       "madeni_para_bolmesi": false,
       "id_pencere_var_mi": false,
       "fermuar_var_mi": false,
-      "fermuar_konumu": null,
       "RFID_korumali": false,
       "kapama_tipi": "acik",
-      "gorseller": {
-        "cover": "",
-        "gallery": [
-          "assets/products/kart-kabi-69-lutfen-duzenle-karisik-gumus-g1.jpg"
-        ]
-      }
+      "ic_astar_malzeme": "Deri"
     },
     {
       "variation_id": "FR-00080-KARISIK-STANDART-GUMUS",
@@ -6508,6 +3978,12 @@ window.__BOTL_DATA__ = {
       "aciklama": "Patron toplu yükleme. Foto: IMG_8946.heic, IMG_8947.heic.",
       "tedarikci_id": null,
       "olusturma": "2026-05-13",
+      "gorseller": {
+        "cover": "",
+        "gallery": [
+          "assets/products/kart-kabi-70-lutfen-duzenle-karisik-gumus-g1.jpg"
+        ]
+      },
       "cinsiyet": "UNISEX",
       "cuzdan_tipi": "CARDHOLDER",
       "kart_yuvasi_sayisi": 6,
@@ -6515,15 +3991,9 @@ window.__BOTL_DATA__ = {
       "madeni_para_bolmesi": false,
       "id_pencere_var_mi": false,
       "fermuar_var_mi": false,
-      "fermuar_konumu": null,
       "RFID_korumali": false,
       "kapama_tipi": "acik",
-      "gorseller": {
-        "cover": "",
-        "gallery": [
-          "assets/products/kart-kabi-70-lutfen-duzenle-karisik-gumus-g1.jpg"
-        ]
-      }
+      "ic_astar_malzeme": "Deri"
     },
     {
       "variation_id": "FR-00081-KARISIK-STANDART-GUMUS",
@@ -6565,6 +4035,12 @@ window.__BOTL_DATA__ = {
       "aciklama": "Patron toplu yükleme. Foto: IMG_8948.heic, IMG_8949.heic.",
       "tedarikci_id": null,
       "olusturma": "2026-05-13",
+      "gorseller": {
+        "cover": "",
+        "gallery": [
+          "assets/products/kart-kabi-71-lutfen-duzenle-karisik-gumus-g1.jpg"
+        ]
+      },
       "cinsiyet": "UNISEX",
       "cuzdan_tipi": "CARDHOLDER",
       "kart_yuvasi_sayisi": 6,
@@ -6572,15 +4048,9 @@ window.__BOTL_DATA__ = {
       "madeni_para_bolmesi": false,
       "id_pencere_var_mi": false,
       "fermuar_var_mi": false,
-      "fermuar_konumu": null,
       "RFID_korumali": false,
       "kapama_tipi": "acik",
-      "gorseller": {
-        "cover": "",
-        "gallery": [
-          "assets/products/kart-kabi-71-lutfen-duzenle-karisik-gumus-g1.jpg"
-        ]
-      }
+      "ic_astar_malzeme": "Deri"
     },
     {
       "variation_id": "FR-00082-KARISIK-STANDART-GUMUS",
@@ -6622,6 +4092,12 @@ window.__BOTL_DATA__ = {
       "aciklama": "Patron toplu yükleme. Foto: IMG_8958.heic, IMG_8959.heic.",
       "tedarikci_id": null,
       "olusturma": "2026-05-13",
+      "gorseller": {
+        "cover": "",
+        "gallery": [
+          "assets/products/kart-kabi-72-lutfen-duzenle-karisik-gumus-g1.jpg"
+        ]
+      },
       "cinsiyet": "KADIN",
       "cuzdan_tipi": "WALLET_BIFOLD",
       "kart_yuvasi_sayisi": 8,
@@ -6629,15 +4105,9 @@ window.__BOTL_DATA__ = {
       "madeni_para_bolmesi": false,
       "id_pencere_var_mi": false,
       "fermuar_var_mi": false,
-      "fermuar_konumu": null,
       "RFID_korumali": false,
       "kapama_tipi": "snap_button",
-      "gorseller": {
-        "cover": "",
-        "gallery": [
-          "assets/products/kart-kabi-72-lutfen-duzenle-karisik-gumus-g1.jpg"
-        ]
-      }
+      "ic_astar_malzeme": "Deri"
     },
     {
       "variation_id": "FR-00083-KARISIK-STANDART-GUMUS",
@@ -6679,6 +4149,12 @@ window.__BOTL_DATA__ = {
       "aciklama": "Patron toplu yükleme. Foto: IMG_8960.heic, IMG_8961.heic.",
       "tedarikci_id": null,
       "olusturma": "2026-05-13",
+      "gorseller": {
+        "cover": "",
+        "gallery": [
+          "assets/products/kart-kabi-73-lutfen-duzenle-karisik-gumus-g1.jpg"
+        ]
+      },
       "cinsiyet": "KADIN",
       "cuzdan_tipi": "POUCH",
       "kart_yuvasi_sayisi": 4,
@@ -6689,12 +4165,7 @@ window.__BOTL_DATA__ = {
       "fermuar_konumu": "tepe",
       "RFID_korumali": false,
       "kapama_tipi": "fermuar",
-      "gorseller": {
-        "cover": "",
-        "gallery": [
-          "assets/products/kart-kabi-73-lutfen-duzenle-karisik-gumus-g1.jpg"
-        ]
-      }
+      "ic_astar_malzeme": "Deri"
     },
     {
       "variation_id": "FR-00084-KARISIK-STANDART-GUMUS",
@@ -6736,6 +4207,12 @@ window.__BOTL_DATA__ = {
       "aciklama": "Patron toplu yükleme. Foto: IMG_8962.heic, IMG_8963.heic.",
       "tedarikci_id": null,
       "olusturma": "2026-05-13",
+      "gorseller": {
+        "cover": "",
+        "gallery": [
+          "assets/products/kart-kabi-74-lutfen-duzenle-karisik-gumus-g1.jpg"
+        ]
+      },
       "cinsiyet": "KADIN",
       "cuzdan_tipi": "WALLET_BIFOLD",
       "kart_yuvasi_sayisi": 8,
@@ -6743,15 +4220,9 @@ window.__BOTL_DATA__ = {
       "madeni_para_bolmesi": false,
       "id_pencere_var_mi": false,
       "fermuar_var_mi": false,
-      "fermuar_konumu": null,
       "RFID_korumali": false,
       "kapama_tipi": "snap_button",
-      "gorseller": {
-        "cover": "",
-        "gallery": [
-          "assets/products/kart-kabi-74-lutfen-duzenle-karisik-gumus-g1.jpg"
-        ]
-      }
+      "ic_astar_malzeme": "Deri"
     },
     {
       "variation_id": "FR-00085-KARISIK-STANDART-GUMUS",
@@ -6793,6 +4264,12 @@ window.__BOTL_DATA__ = {
       "aciklama": "Patron toplu yükleme. Foto: IMG_8964.heic, IMG_8965.heic.",
       "tedarikci_id": null,
       "olusturma": "2026-05-13",
+      "gorseller": {
+        "cover": "",
+        "gallery": [
+          "assets/products/kart-kabi-75-lutfen-duzenle-karisik-gumus-g1.jpg"
+        ]
+      },
       "cinsiyet": "KADIN",
       "cuzdan_tipi": "WALLET_BIFOLD",
       "kart_yuvasi_sayisi": 8,
@@ -6800,15 +4277,9 @@ window.__BOTL_DATA__ = {
       "madeni_para_bolmesi": false,
       "id_pencere_var_mi": false,
       "fermuar_var_mi": false,
-      "fermuar_konumu": null,
       "RFID_korumali": false,
       "kapama_tipi": "snap_button",
-      "gorseller": {
-        "cover": "",
-        "gallery": [
-          "assets/products/kart-kabi-75-lutfen-duzenle-karisik-gumus-g1.jpg"
-        ]
-      }
+      "ic_astar_malzeme": "Deri"
     },
     {
       "variation_id": "FR-00086-KARISIK-STANDART-GUMUS",
@@ -6850,6 +4321,12 @@ window.__BOTL_DATA__ = {
       "aciklama": "Patron toplu yükleme. Foto: IMG_8966.heic, IMG_8967.heic.",
       "tedarikci_id": null,
       "olusturma": "2026-05-13",
+      "gorseller": {
+        "cover": "",
+        "gallery": [
+          "assets/products/kart-kabi-76-lutfen-duzenle-karisik-gumus-g1.jpg"
+        ]
+      },
       "cinsiyet": "KADIN",
       "cuzdan_tipi": "POUCH",
       "kart_yuvasi_sayisi": 4,
@@ -6860,12 +4337,7 @@ window.__BOTL_DATA__ = {
       "fermuar_konumu": "tepe",
       "RFID_korumali": false,
       "kapama_tipi": "fermuar",
-      "gorseller": {
-        "cover": "",
-        "gallery": [
-          "assets/products/kart-kabi-76-lutfen-duzenle-karisik-gumus-g1.jpg"
-        ]
-      }
+      "ic_astar_malzeme": "Deri"
     },
     {
       "variation_id": "FR-00087-KARISIK-STANDART-GUMUS",
@@ -6907,6 +4379,12 @@ window.__BOTL_DATA__ = {
       "aciklama": "Patron toplu yükleme. Foto: IMG_8968.heic, IMG_8969.heic.",
       "tedarikci_id": null,
       "olusturma": "2026-05-13",
+      "gorseller": {
+        "cover": "",
+        "gallery": [
+          "assets/products/kart-kabi-77-lutfen-duzenle-karisik-gumus-g1.jpg"
+        ]
+      },
       "cinsiyet": "KADIN",
       "cuzdan_tipi": "POUCH",
       "kart_yuvasi_sayisi": 4,
@@ -6917,12 +4395,7 @@ window.__BOTL_DATA__ = {
       "fermuar_konumu": "tepe",
       "RFID_korumali": false,
       "kapama_tipi": "fermuar",
-      "gorseller": {
-        "cover": "",
-        "gallery": [
-          "assets/products/kart-kabi-77-lutfen-duzenle-karisik-gumus-g1.jpg"
-        ]
-      }
+      "ic_astar_malzeme": "Deri"
     },
     {
       "variation_id": "FR-00088-KARISIK-STANDART-GUMUS",
@@ -6964,6 +4437,12 @@ window.__BOTL_DATA__ = {
       "aciklama": "Patron toplu yükleme. Foto: IMG_8970.heic, IMG_8971.heic.",
       "tedarikci_id": null,
       "olusturma": "2026-05-13",
+      "gorseller": {
+        "cover": "",
+        "gallery": [
+          "assets/products/kart-kabi-78-lutfen-duzenle-karisik-gumus-g1.jpg"
+        ]
+      },
       "cinsiyet": "KADIN",
       "cuzdan_tipi": "POUCH",
       "kart_yuvasi_sayisi": 4,
@@ -6974,12 +4453,7 @@ window.__BOTL_DATA__ = {
       "fermuar_konumu": "tepe",
       "RFID_korumali": false,
       "kapama_tipi": "fermuar",
-      "gorseller": {
-        "cover": "",
-        "gallery": [
-          "assets/products/kart-kabi-78-lutfen-duzenle-karisik-gumus-g1.jpg"
-        ]
-      }
+      "ic_astar_malzeme": "Deri"
     },
     {
       "variation_id": "FR-00089-KARISIK-STANDART-GUMUS",
@@ -7021,6 +4495,12 @@ window.__BOTL_DATA__ = {
       "aciklama": "Patron toplu yükleme. Foto: IMG_8972.heic, IMG_8973.heic.",
       "tedarikci_id": null,
       "olusturma": "2026-05-13",
+      "gorseller": {
+        "cover": "",
+        "gallery": [
+          "assets/products/kart-kabi-79-lutfen-duzenle-karisik-gumus-g1.jpg"
+        ]
+      },
       "cinsiyet": "KADIN",
       "cuzdan_tipi": "POUCH",
       "kart_yuvasi_sayisi": 4,
@@ -7031,12 +4511,7 @@ window.__BOTL_DATA__ = {
       "fermuar_konumu": "tepe",
       "RFID_korumali": false,
       "kapama_tipi": "fermuar",
-      "gorseller": {
-        "cover": "",
-        "gallery": [
-          "assets/products/kart-kabi-79-lutfen-duzenle-karisik-gumus-g1.jpg"
-        ]
-      }
+      "ic_astar_malzeme": "Deri"
     },
     {
       "variation_id": "FR-00090-KARISIK-STANDART-GUMUS",
@@ -7078,6 +4553,12 @@ window.__BOTL_DATA__ = {
       "aciklama": "Patron toplu yükleme. Foto: IMG_8974.heic, IMG_8975.HEIC.",
       "tedarikci_id": null,
       "olusturma": "2026-05-13",
+      "gorseller": {
+        "cover": "",
+        "gallery": [
+          "assets/products/kart-kabi-80-lutfen-duzenle-karisik-gumus-g1.jpg"
+        ]
+      },
       "cinsiyet": "KADIN",
       "cuzdan_tipi": "POUCH",
       "kart_yuvasi_sayisi": 4,
@@ -7088,12 +4569,7 @@ window.__BOTL_DATA__ = {
       "fermuar_konumu": "tepe",
       "RFID_korumali": false,
       "kapama_tipi": "fermuar",
-      "gorseller": {
-        "cover": "",
-        "gallery": [
-          "assets/products/kart-kabi-80-lutfen-duzenle-karisik-gumus-g1.jpg"
-        ]
-      }
+      "ic_astar_malzeme": "Deri"
     },
     {
       "variation_id": "FR-00091-KARISIK-STANDART-GUMUS",
@@ -7135,6 +4611,12 @@ window.__BOTL_DATA__ = {
       "aciklama": "Patron toplu yükleme. Foto: IMG_8976.heic, IMG_8977.heic.",
       "tedarikci_id": null,
       "olusturma": "2026-05-13",
+      "gorseller": {
+        "cover": "",
+        "gallery": [
+          "assets/products/kart-kabi-81-lutfen-duzenle-karisik-gumus-g1.jpg"
+        ]
+      },
       "cinsiyet": "KADIN",
       "cuzdan_tipi": "POUCH",
       "kart_yuvasi_sayisi": 4,
@@ -7145,12 +4627,7 @@ window.__BOTL_DATA__ = {
       "fermuar_konumu": "tepe",
       "RFID_korumali": false,
       "kapama_tipi": "fermuar",
-      "gorseller": {
-        "cover": "",
-        "gallery": [
-          "assets/products/kart-kabi-81-lutfen-duzenle-karisik-gumus-g1.jpg"
-        ]
-      }
+      "ic_astar_malzeme": "Deri"
     },
     {
       "variation_id": "FR-00092-KARISIK-STANDART-GUMUS",
@@ -7192,6 +4669,12 @@ window.__BOTL_DATA__ = {
       "aciklama": "Patron toplu yükleme. Foto: IMG_8978.heic, IMG_8979.heic.",
       "tedarikci_id": null,
       "olusturma": "2026-05-13",
+      "gorseller": {
+        "cover": "",
+        "gallery": [
+          "assets/products/kart-kabi-82-lutfen-duzenle-karisik-gumus-g1.jpg"
+        ]
+      },
       "cinsiyet": "ERKEK",
       "cuzdan_tipi": "WALLET_BIFOLD",
       "kart_yuvasi_sayisi": 8,
@@ -7199,15 +4682,9 @@ window.__BOTL_DATA__ = {
       "madeni_para_bolmesi": false,
       "id_pencere_var_mi": true,
       "fermuar_var_mi": false,
-      "fermuar_konumu": null,
       "RFID_korumali": false,
       "kapama_tipi": "snap_button",
-      "gorseller": {
-        "cover": "",
-        "gallery": [
-          "assets/products/kart-kabi-82-lutfen-duzenle-karisik-gumus-g1.jpg"
-        ]
-      }
+      "ic_astar_malzeme": "Deri"
     },
     {
       "variation_id": "FR-00093-KARISIK-STANDART-GUMUS",
@@ -7249,6 +4726,12 @@ window.__BOTL_DATA__ = {
       "aciklama": "Patron toplu yükleme. Foto: IMG_8980.heic, IMG_8981.heic.",
       "tedarikci_id": null,
       "olusturma": "2026-05-13",
+      "gorseller": {
+        "cover": "",
+        "gallery": [
+          "assets/products/kart-kabi-83-lutfen-duzenle-karisik-gumus-g1.jpg"
+        ]
+      },
       "cinsiyet": "ERKEK",
       "cuzdan_tipi": "WALLET_BIFOLD",
       "kart_yuvasi_sayisi": 8,
@@ -7256,15 +4739,9 @@ window.__BOTL_DATA__ = {
       "madeni_para_bolmesi": false,
       "id_pencere_var_mi": true,
       "fermuar_var_mi": false,
-      "fermuar_konumu": null,
       "RFID_korumali": false,
       "kapama_tipi": "snap_button",
-      "gorseller": {
-        "cover": "",
-        "gallery": [
-          "assets/products/kart-kabi-83-lutfen-duzenle-karisik-gumus-g1.jpg"
-        ]
-      }
+      "ic_astar_malzeme": "Deri"
     },
     {
       "variation_id": "FR-00094-KARISIK-STANDART-GUMUS",
@@ -7306,6 +4783,12 @@ window.__BOTL_DATA__ = {
       "aciklama": "Patron toplu yükleme. Foto: IMG_8982.heic, IMG_8983.heic.",
       "tedarikci_id": null,
       "olusturma": "2026-05-13",
+      "gorseller": {
+        "cover": "",
+        "gallery": [
+          "assets/products/kart-kabi-84-lutfen-duzenle-karisik-gumus-g1.jpg"
+        ]
+      },
       "cinsiyet": "KADIN",
       "cuzdan_tipi": "POUCH",
       "kart_yuvasi_sayisi": 4,
@@ -7316,12 +4799,7 @@ window.__BOTL_DATA__ = {
       "fermuar_konumu": "tepe",
       "RFID_korumali": false,
       "kapama_tipi": "fermuar",
-      "gorseller": {
-        "cover": "",
-        "gallery": [
-          "assets/products/kart-kabi-84-lutfen-duzenle-karisik-gumus-g1.jpg"
-        ]
-      }
+      "ic_astar_malzeme": "Deri"
     },
     {
       "variation_id": "FR-00095-KARISIK-STANDART-GUMUS",
@@ -7363,6 +4841,12 @@ window.__BOTL_DATA__ = {
       "aciklama": "Patron toplu yükleme. Foto: IMG_8984.heic, IMG_8985.heic.",
       "tedarikci_id": null,
       "olusturma": "2026-05-13",
+      "gorseller": {
+        "cover": "",
+        "gallery": [
+          "assets/products/kart-kabi-85-lutfen-duzenle-karisik-gumus-g1.jpg"
+        ]
+      },
       "cinsiyet": "ERKEK",
       "cuzdan_tipi": "WALLET_BIFOLD",
       "kart_yuvasi_sayisi": 8,
@@ -7370,15 +4854,9 @@ window.__BOTL_DATA__ = {
       "madeni_para_bolmesi": false,
       "id_pencere_var_mi": false,
       "fermuar_var_mi": false,
-      "fermuar_konumu": null,
       "RFID_korumali": false,
       "kapama_tipi": "snap_button",
-      "gorseller": {
-        "cover": "",
-        "gallery": [
-          "assets/products/kart-kabi-85-lutfen-duzenle-karisik-gumus-g1.jpg"
-        ]
-      }
+      "ic_astar_malzeme": "Deri"
     },
     {
       "variation_id": "FR-00096-KARISIK-STANDART-GUMUS",
@@ -7420,6 +4898,12 @@ window.__BOTL_DATA__ = {
       "aciklama": "Patron toplu yükleme. Foto: IMG_8986.heic, IMG_8987.heic.",
       "tedarikci_id": null,
       "olusturma": "2026-05-13",
+      "gorseller": {
+        "cover": "",
+        "gallery": [
+          "assets/products/kart-kabi-86-lutfen-duzenle-karisik-gumus-g1.jpg"
+        ]
+      },
       "cinsiyet": "ERKEK",
       "cuzdan_tipi": "WALLET_BIFOLD",
       "kart_yuvasi_sayisi": 8,
@@ -7427,15 +4911,9 @@ window.__BOTL_DATA__ = {
       "madeni_para_bolmesi": false,
       "id_pencere_var_mi": true,
       "fermuar_var_mi": false,
-      "fermuar_konumu": null,
       "RFID_korumali": false,
       "kapama_tipi": "snap_button",
-      "gorseller": {
-        "cover": "",
-        "gallery": [
-          "assets/products/kart-kabi-86-lutfen-duzenle-karisik-gumus-g1.jpg"
-        ]
-      }
+      "ic_astar_malzeme": "Deri"
     },
     {
       "variation_id": "FR-00097-KARISIK-STANDART-GUMUS",
@@ -7477,6 +4955,12 @@ window.__BOTL_DATA__ = {
       "aciklama": "Patron toplu yükleme. Foto: IMG_8988.heic, IMG_8989.HEIC.",
       "tedarikci_id": null,
       "olusturma": "2026-05-13",
+      "gorseller": {
+        "cover": "",
+        "gallery": [
+          "assets/products/kart-kabi-87-lutfen-duzenle-karisik-gumus-g1.jpg"
+        ]
+      },
       "cinsiyet": "KADIN",
       "cuzdan_tipi": "POUCH",
       "kart_yuvasi_sayisi": 4,
@@ -7487,12 +4971,7 @@ window.__BOTL_DATA__ = {
       "fermuar_konumu": "tepe",
       "RFID_korumali": false,
       "kapama_tipi": "fermuar",
-      "gorseller": {
-        "cover": "",
-        "gallery": [
-          "assets/products/kart-kabi-87-lutfen-duzenle-karisik-gumus-g1.jpg"
-        ]
-      }
+      "ic_astar_malzeme": "Deri"
     },
     {
       "variation_id": "FR-00098-KARISIK-STANDART-GUMUS",
@@ -7534,6 +5013,12 @@ window.__BOTL_DATA__ = {
       "aciklama": "Patron toplu yükleme. Foto: IMG_8990.heic, IMG_8991.heic.",
       "tedarikci_id": null,
       "olusturma": "2026-05-13",
+      "gorseller": {
+        "cover": "",
+        "gallery": [
+          "assets/products/kart-kabi-88-lutfen-duzenle-karisik-gumus-g1.jpg"
+        ]
+      },
       "cinsiyet": "KADIN",
       "cuzdan_tipi": "WALLET_BIFOLD",
       "kart_yuvasi_sayisi": 8,
@@ -7541,15 +5026,9 @@ window.__BOTL_DATA__ = {
       "madeni_para_bolmesi": false,
       "id_pencere_var_mi": false,
       "fermuar_var_mi": false,
-      "fermuar_konumu": null,
       "RFID_korumali": false,
       "kapama_tipi": "snap_button",
-      "gorseller": {
-        "cover": "",
-        "gallery": [
-          "assets/products/kart-kabi-88-lutfen-duzenle-karisik-gumus-g1.jpg"
-        ]
-      }
+      "ic_astar_malzeme": "Deri"
     },
     {
       "variation_id": "FR-00099-KARISIK-STANDART-GUMUS",
@@ -7591,6 +5070,12 @@ window.__BOTL_DATA__ = {
       "aciklama": "Patron toplu yükleme. Foto: IMG_8992.heic, IMG_8993.heic.",
       "tedarikci_id": null,
       "olusturma": "2026-05-13",
+      "gorseller": {
+        "cover": "",
+        "gallery": [
+          "assets/products/kart-kabi-89-lutfen-duzenle-karisik-gumus-g1.jpg"
+        ]
+      },
       "cinsiyet": "ERKEK",
       "cuzdan_tipi": "WALLET_BIFOLD",
       "kart_yuvasi_sayisi": 8,
@@ -7598,15 +5083,9 @@ window.__BOTL_DATA__ = {
       "madeni_para_bolmesi": false,
       "id_pencere_var_mi": true,
       "fermuar_var_mi": false,
-      "fermuar_konumu": null,
       "RFID_korumali": false,
       "kapama_tipi": "snap_button",
-      "gorseller": {
-        "cover": "",
-        "gallery": [
-          "assets/products/kart-kabi-89-lutfen-duzenle-karisik-gumus-g1.jpg"
-        ]
-      }
+      "ic_astar_malzeme": "Deri"
     },
     {
       "variation_id": "FR-00100-KARISIK-STANDART-GUMUS",
@@ -7648,6 +5127,12 @@ window.__BOTL_DATA__ = {
       "aciklama": "Patron toplu yükleme. Foto: IMG_8994.heic, IMG_8995.heic.",
       "tedarikci_id": null,
       "olusturma": "2026-05-13",
+      "gorseller": {
+        "cover": "",
+        "gallery": [
+          "assets/products/kart-kabi-90-lutfen-duzenle-karisik-gumus-g1.jpg"
+        ]
+      },
       "cinsiyet": "ERKEK",
       "cuzdan_tipi": "WALLET_BIFOLD",
       "kart_yuvasi_sayisi": 8,
@@ -7655,15 +5140,9 @@ window.__BOTL_DATA__ = {
       "madeni_para_bolmesi": false,
       "id_pencere_var_mi": true,
       "fermuar_var_mi": false,
-      "fermuar_konumu": null,
       "RFID_korumali": false,
       "kapama_tipi": "snap_button",
-      "gorseller": {
-        "cover": "",
-        "gallery": [
-          "assets/products/kart-kabi-90-lutfen-duzenle-karisik-gumus-g1.jpg"
-        ]
-      }
+      "ic_astar_malzeme": "Deri"
     },
     {
       "variation_id": "FR-00101-KARISIK-STANDART-GUMUS",
@@ -7705,6 +5184,12 @@ window.__BOTL_DATA__ = {
       "aciklama": "Patron toplu yükleme. Foto: IMG_8996.heic, IMG_8997.heic.",
       "tedarikci_id": null,
       "olusturma": "2026-05-13",
+      "gorseller": {
+        "cover": "",
+        "gallery": [
+          "assets/products/kart-kabi-91-lutfen-duzenle-karisik-gumus-g1.jpg"
+        ]
+      },
       "cinsiyet": "KADIN",
       "cuzdan_tipi": "WALLET_BIFOLD",
       "kart_yuvasi_sayisi": 8,
@@ -7712,15 +5197,9 @@ window.__BOTL_DATA__ = {
       "madeni_para_bolmesi": false,
       "id_pencere_var_mi": false,
       "fermuar_var_mi": false,
-      "fermuar_konumu": null,
       "RFID_korumali": false,
       "kapama_tipi": "snap_button",
-      "gorseller": {
-        "cover": "",
-        "gallery": [
-          "assets/products/kart-kabi-91-lutfen-duzenle-karisik-gumus-g1.jpg"
-        ]
-      }
+      "ic_astar_malzeme": "Deri"
     },
     {
       "variation_id": "FR-00102-KARISIK-STANDART-GUMUS",
@@ -7762,6 +5241,12 @@ window.__BOTL_DATA__ = {
       "aciklama": "Patron toplu yükleme. Foto: IMG_8998.heic, IMG_8999.heic.",
       "tedarikci_id": null,
       "olusturma": "2026-05-13",
+      "gorseller": {
+        "cover": "",
+        "gallery": [
+          "assets/products/kart-kabi-92-lutfen-duzenle-karisik-gumus-g1.jpg"
+        ]
+      },
       "cinsiyet": "ERKEK",
       "cuzdan_tipi": "WALLET_BIFOLD",
       "kart_yuvasi_sayisi": 8,
@@ -7769,15 +5254,9 @@ window.__BOTL_DATA__ = {
       "madeni_para_bolmesi": false,
       "id_pencere_var_mi": true,
       "fermuar_var_mi": false,
-      "fermuar_konumu": null,
       "RFID_korumali": false,
       "kapama_tipi": "snap_button",
-      "gorseller": {
-        "cover": "",
-        "gallery": [
-          "assets/products/kart-kabi-92-lutfen-duzenle-karisik-gumus-g1.jpg"
-        ]
-      }
+      "ic_astar_malzeme": "Deri"
     },
     {
       "variation_id": "FR-00103-KARISIK-STANDART-GUMUS",
@@ -7819,6 +5298,12 @@ window.__BOTL_DATA__ = {
       "aciklama": "Patron toplu yükleme. Foto: IMG_9001.heic, IMG_9002.heic.",
       "tedarikci_id": null,
       "olusturma": "2026-05-13",
+      "gorseller": {
+        "cover": "",
+        "gallery": [
+          "assets/products/kart-kabi-93-lutfen-duzenle-karisik-gumus-g1.jpg"
+        ]
+      },
       "cinsiyet": "KADIN",
       "cuzdan_tipi": "POUCH",
       "kart_yuvasi_sayisi": 4,
@@ -7829,12 +5314,7 @@ window.__BOTL_DATA__ = {
       "fermuar_konumu": "tepe",
       "RFID_korumali": false,
       "kapama_tipi": "fermuar",
-      "gorseller": {
-        "cover": "",
-        "gallery": [
-          "assets/products/kart-kabi-93-lutfen-duzenle-karisik-gumus-g1.jpg"
-        ]
-      }
+      "ic_astar_malzeme": "Deri"
     },
     {
       "variation_id": "FR-00104-KARISIK-STANDART-GUMUS",
@@ -7876,6 +5356,12 @@ window.__BOTL_DATA__ = {
       "aciklama": "Patron toplu yükleme. Foto: IMG_9003.heic, IMG_9004.HEIC.",
       "tedarikci_id": null,
       "olusturma": "2026-05-13",
+      "gorseller": {
+        "cover": "",
+        "gallery": [
+          "assets/products/kart-kabi-94-lutfen-duzenle-karisik-gumus-g1.jpg"
+        ]
+      },
       "cinsiyet": "ERKEK",
       "cuzdan_tipi": "WALLET_BIFOLD",
       "kart_yuvasi_sayisi": 8,
@@ -7883,15 +5369,9 @@ window.__BOTL_DATA__ = {
       "madeni_para_bolmesi": false,
       "id_pencere_var_mi": false,
       "fermuar_var_mi": false,
-      "fermuar_konumu": null,
       "RFID_korumali": false,
       "kapama_tipi": "snap_button",
-      "gorseller": {
-        "cover": "",
-        "gallery": [
-          "assets/products/kart-kabi-94-lutfen-duzenle-karisik-gumus-g1.jpg"
-        ]
-      }
+      "ic_astar_malzeme": "Deri"
     },
     {
       "variation_id": "FR-00105-KARISIK-STANDART-GUMUS",
@@ -7933,6 +5413,12 @@ window.__BOTL_DATA__ = {
       "aciklama": "Patron toplu yükleme. Foto: IMG_9005.heic, IMG_9006.heic.",
       "tedarikci_id": null,
       "olusturma": "2026-05-13",
+      "gorseller": {
+        "cover": "",
+        "gallery": [
+          "assets/products/kart-kabi-95-lutfen-duzenle-karisik-gumus-g1.jpg"
+        ]
+      },
       "cinsiyet": "KADIN",
       "cuzdan_tipi": "POUCH",
       "kart_yuvasi_sayisi": 4,
@@ -7943,12 +5429,7 @@ window.__BOTL_DATA__ = {
       "fermuar_konumu": "tepe",
       "RFID_korumali": false,
       "kapama_tipi": "fermuar",
-      "gorseller": {
-        "cover": "",
-        "gallery": [
-          "assets/products/kart-kabi-95-lutfen-duzenle-karisik-gumus-g1.jpg"
-        ]
-      }
+      "ic_astar_malzeme": "Deri"
     },
     {
       "variation_id": "FR-00106-KARISIK-STANDART-GUMUS",
@@ -7990,6 +5471,12 @@ window.__BOTL_DATA__ = {
       "aciklama": "Patron toplu yükleme. Foto: IMG_9007.heic, IMG_9008.HEIC.",
       "tedarikci_id": null,
       "olusturma": "2026-05-13",
+      "gorseller": {
+        "cover": "",
+        "gallery": [
+          "assets/products/kart-kabi-96-lutfen-duzenle-karisik-gumus-g1.jpg"
+        ]
+      },
       "cinsiyet": "KADIN",
       "cuzdan_tipi": "WALLET_BIFOLD",
       "kart_yuvasi_sayisi": 8,
@@ -7997,15 +5484,9 @@ window.__BOTL_DATA__ = {
       "madeni_para_bolmesi": false,
       "id_pencere_var_mi": false,
       "fermuar_var_mi": false,
-      "fermuar_konumu": null,
       "RFID_korumali": false,
       "kapama_tipi": "snap_button",
-      "gorseller": {
-        "cover": "",
-        "gallery": [
-          "assets/products/kart-kabi-96-lutfen-duzenle-karisik-gumus-g1.jpg"
-        ]
-      }
+      "ic_astar_malzeme": "Deri"
     },
     {
       "variation_id": "FR-00107-KARISIK-STANDART-GUMUS",
@@ -8047,6 +5528,12 @@ window.__BOTL_DATA__ = {
       "aciklama": "Patron toplu yükleme. Foto: IMG_9009.heic, IMG_9010.heic.",
       "tedarikci_id": null,
       "olusturma": "2026-05-13",
+      "gorseller": {
+        "cover": "",
+        "gallery": [
+          "assets/products/kart-kabi-97-lutfen-duzenle-karisik-gumus-g1.jpg"
+        ]
+      },
       "cinsiyet": "ERKEK",
       "cuzdan_tipi": "WALLET_BIFOLD",
       "kart_yuvasi_sayisi": 8,
@@ -8054,15 +5541,9 @@ window.__BOTL_DATA__ = {
       "madeni_para_bolmesi": false,
       "id_pencere_var_mi": false,
       "fermuar_var_mi": false,
-      "fermuar_konumu": null,
       "RFID_korumali": false,
       "kapama_tipi": "snap_button",
-      "gorseller": {
-        "cover": "",
-        "gallery": [
-          "assets/products/kart-kabi-97-lutfen-duzenle-karisik-gumus-g1.jpg"
-        ]
-      }
+      "ic_astar_malzeme": "Deri"
     },
     {
       "variation_id": "FR-00108-KARISIK-STANDART-GUMUS",
@@ -8104,6 +5585,12 @@ window.__BOTL_DATA__ = {
       "aciklama": "Patron toplu yükleme. Foto: IMG_9011.heic, IMG_9012.heic.",
       "tedarikci_id": null,
       "olusturma": "2026-05-13",
+      "gorseller": {
+        "cover": "",
+        "gallery": [
+          "assets/products/kart-kabi-98-lutfen-duzenle-karisik-gumus-g1.jpg"
+        ]
+      },
       "cinsiyet": "ERKEK",
       "cuzdan_tipi": "WALLET_BIFOLD",
       "kart_yuvasi_sayisi": 8,
@@ -8111,15 +5598,9 @@ window.__BOTL_DATA__ = {
       "madeni_para_bolmesi": false,
       "id_pencere_var_mi": true,
       "fermuar_var_mi": false,
-      "fermuar_konumu": null,
       "RFID_korumali": false,
       "kapama_tipi": "snap_button",
-      "gorseller": {
-        "cover": "",
-        "gallery": [
-          "assets/products/kart-kabi-98-lutfen-duzenle-karisik-gumus-g1.jpg"
-        ]
-      }
+      "ic_astar_malzeme": "Deri"
     },
     {
       "variation_id": "FR-00109-KARISIK-STANDART-GUMUS",
@@ -8161,6 +5642,12 @@ window.__BOTL_DATA__ = {
       "aciklama": "Patron toplu yükleme. Foto: IMG_9013.heic, IMG_9014.heic.",
       "tedarikci_id": null,
       "olusturma": "2026-05-13",
+      "gorseller": {
+        "cover": "",
+        "gallery": [
+          "assets/products/kart-kabi-99-lutfen-duzenle-karisik-gumus-g1.jpg"
+        ]
+      },
       "cinsiyet": "KADIN",
       "cuzdan_tipi": "WALLET_BIFOLD",
       "kart_yuvasi_sayisi": 8,
@@ -8168,15 +5655,9 @@ window.__BOTL_DATA__ = {
       "madeni_para_bolmesi": false,
       "id_pencere_var_mi": false,
       "fermuar_var_mi": false,
-      "fermuar_konumu": null,
       "RFID_korumali": false,
       "kapama_tipi": "snap_button",
-      "gorseller": {
-        "cover": "",
-        "gallery": [
-          "assets/products/kart-kabi-99-lutfen-duzenle-karisik-gumus-g1.jpg"
-        ]
-      }
+      "ic_astar_malzeme": "Deri"
     },
     {
       "variation_id": "FR-00110-KARISIK-STANDART-GUMUS",
@@ -8218,6 +5699,12 @@ window.__BOTL_DATA__ = {
       "aciklama": "Patron toplu yükleme. Foto: IMG_9015.heic, IMG_9016.heic.",
       "tedarikci_id": null,
       "olusturma": "2026-05-13",
+      "gorseller": {
+        "cover": "",
+        "gallery": [
+          "assets/products/kart-kabi-100-lutfen-duzenle-karisik-gumus-g1.jpg"
+        ]
+      },
       "cinsiyet": "ERKEK",
       "cuzdan_tipi": "WALLET_BIFOLD",
       "kart_yuvasi_sayisi": 8,
@@ -8225,15 +5712,9 @@ window.__BOTL_DATA__ = {
       "madeni_para_bolmesi": false,
       "id_pencere_var_mi": false,
       "fermuar_var_mi": false,
-      "fermuar_konumu": null,
       "RFID_korumali": false,
       "kapama_tipi": "snap_button",
-      "gorseller": {
-        "cover": "",
-        "gallery": [
-          "assets/products/kart-kabi-100-lutfen-duzenle-karisik-gumus-g1.jpg"
-        ]
-      }
+      "ic_astar_malzeme": "Deri"
     },
     {
       "variation_id": "FR-00111-KARISIK-STANDART-GUMUS",
@@ -8275,6 +5756,12 @@ window.__BOTL_DATA__ = {
       "aciklama": "Patron toplu yükleme. Foto: IMG_9017.heic, IMG_9018.heic.",
       "tedarikci_id": null,
       "olusturma": "2026-05-13",
+      "gorseller": {
+        "cover": "",
+        "gallery": [
+          "assets/products/kart-kabi-101-lutfen-duzenle-karisik-gumus-g1.jpg"
+        ]
+      },
       "cinsiyet": "ERKEK",
       "cuzdan_tipi": "WALLET_BIFOLD",
       "kart_yuvasi_sayisi": 8,
@@ -8282,15 +5769,9 @@ window.__BOTL_DATA__ = {
       "madeni_para_bolmesi": false,
       "id_pencere_var_mi": false,
       "fermuar_var_mi": false,
-      "fermuar_konumu": null,
       "RFID_korumali": false,
       "kapama_tipi": "snap_button",
-      "gorseller": {
-        "cover": "",
-        "gallery": [
-          "assets/products/kart-kabi-101-lutfen-duzenle-karisik-gumus-g1.jpg"
-        ]
-      }
+      "ic_astar_malzeme": "Deri"
     },
     {
       "variation_id": "FR-00112-KARISIK-STANDART-GUMUS",
@@ -8332,6 +5813,12 @@ window.__BOTL_DATA__ = {
       "aciklama": "Patron toplu yükleme. Foto: IMG_9019.heic, IMG_9020.heic.",
       "tedarikci_id": null,
       "olusturma": "2026-05-13",
+      "gorseller": {
+        "cover": "",
+        "gallery": [
+          "assets/products/kart-kabi-102-lutfen-duzenle-karisik-gumus-g1.jpg"
+        ]
+      },
       "cinsiyet": "KADIN",
       "cuzdan_tipi": "POUCH",
       "kart_yuvasi_sayisi": 4,
@@ -8342,12 +5829,7 @@ window.__BOTL_DATA__ = {
       "fermuar_konumu": "tepe",
       "RFID_korumali": false,
       "kapama_tipi": "fermuar",
-      "gorseller": {
-        "cover": "",
-        "gallery": [
-          "assets/products/kart-kabi-102-lutfen-duzenle-karisik-gumus-g1.jpg"
-        ]
-      }
+      "ic_astar_malzeme": "Deri"
     },
     {
       "variation_id": "FR-00113-KARISIK-STANDART-GUMUS",
@@ -8389,6 +5871,12 @@ window.__BOTL_DATA__ = {
       "aciklama": "Patron toplu yükleme. Foto: IMG_9021.heic, IMG_9022.heic.",
       "tedarikci_id": null,
       "olusturma": "2026-05-13",
+      "gorseller": {
+        "cover": "",
+        "gallery": [
+          "assets/products/kart-kabi-103-lutfen-duzenle-karisik-gumus-g1.jpg"
+        ]
+      },
       "cinsiyet": "KADIN",
       "cuzdan_tipi": "WALLET_BIFOLD",
       "kart_yuvasi_sayisi": 8,
@@ -8396,15 +5884,9 @@ window.__BOTL_DATA__ = {
       "madeni_para_bolmesi": false,
       "id_pencere_var_mi": false,
       "fermuar_var_mi": false,
-      "fermuar_konumu": null,
       "RFID_korumali": false,
       "kapama_tipi": "snap_button",
-      "gorseller": {
-        "cover": "",
-        "gallery": [
-          "assets/products/kart-kabi-103-lutfen-duzenle-karisik-gumus-g1.jpg"
-        ]
-      }
+      "ic_astar_malzeme": "Deri"
     },
     {
       "variation_id": "FR-00114-KARISIK-STANDART-GUMUS",
@@ -8446,6 +5928,12 @@ window.__BOTL_DATA__ = {
       "aciklama": "Patron toplu yükleme. Foto: IMG_9023.HEIC, IMG_9024.heic.",
       "tedarikci_id": null,
       "olusturma": "2026-05-13",
+      "gorseller": {
+        "cover": "",
+        "gallery": [
+          "assets/products/kart-kabi-104-lutfen-duzenle-karisik-gumus-g1.jpg"
+        ]
+      },
       "cinsiyet": "ERKEK",
       "cuzdan_tipi": "WALLET_BIFOLD",
       "kart_yuvasi_sayisi": 8,
@@ -8453,15 +5941,9 @@ window.__BOTL_DATA__ = {
       "madeni_para_bolmesi": false,
       "id_pencere_var_mi": false,
       "fermuar_var_mi": false,
-      "fermuar_konumu": null,
       "RFID_korumali": false,
       "kapama_tipi": "snap_button",
-      "gorseller": {
-        "cover": "",
-        "gallery": [
-          "assets/products/kart-kabi-104-lutfen-duzenle-karisik-gumus-g1.jpg"
-        ]
-      }
+      "ic_astar_malzeme": "Deri"
     },
     {
       "variation_id": "FR-00115-KARISIK-STANDART-GUMUS",
@@ -8503,6 +5985,12 @@ window.__BOTL_DATA__ = {
       "aciklama": "Patron toplu yükleme. Foto: IMG_9025.heic, IMG_9026.heic.",
       "tedarikci_id": null,
       "olusturma": "2026-05-13",
+      "gorseller": {
+        "cover": "",
+        "gallery": [
+          "assets/products/kart-kabi-105-lutfen-duzenle-karisik-gumus-g1.jpg"
+        ]
+      },
       "cinsiyet": "KADIN",
       "cuzdan_tipi": "WALLET_BIFOLD",
       "kart_yuvasi_sayisi": 8,
@@ -8510,15 +5998,9 @@ window.__BOTL_DATA__ = {
       "madeni_para_bolmesi": false,
       "id_pencere_var_mi": true,
       "fermuar_var_mi": false,
-      "fermuar_konumu": null,
       "RFID_korumali": false,
       "kapama_tipi": "snap_button",
-      "gorseller": {
-        "cover": "",
-        "gallery": [
-          "assets/products/kart-kabi-105-lutfen-duzenle-karisik-gumus-g1.jpg"
-        ]
-      }
+      "ic_astar_malzeme": "Deri"
     },
     {
       "variation_id": "FR-00116-KARISIK-STANDART-GUMUS",
@@ -8560,6 +6042,12 @@ window.__BOTL_DATA__ = {
       "aciklama": "Patron toplu yükleme. Foto: IMG_9027.heic, IMG_9028.heic.",
       "tedarikci_id": null,
       "olusturma": "2026-05-13",
+      "gorseller": {
+        "cover": "",
+        "gallery": [
+          "assets/products/kart-kabi-106-lutfen-duzenle-karisik-gumus-g1.jpg"
+        ]
+      },
       "cinsiyet": "KADIN",
       "cuzdan_tipi": "WALLET_BIFOLD",
       "kart_yuvasi_sayisi": 8,
@@ -8567,15 +6055,9 @@ window.__BOTL_DATA__ = {
       "madeni_para_bolmesi": false,
       "id_pencere_var_mi": true,
       "fermuar_var_mi": false,
-      "fermuar_konumu": null,
       "RFID_korumali": false,
       "kapama_tipi": "snap_button",
-      "gorseller": {
-        "cover": "",
-        "gallery": [
-          "assets/products/kart-kabi-106-lutfen-duzenle-karisik-gumus-g1.jpg"
-        ]
-      }
+      "ic_astar_malzeme": "Deri"
     },
     {
       "variation_id": "FR-00117-KARISIK-STANDART-GUMUS",
@@ -8617,6 +6099,12 @@ window.__BOTL_DATA__ = {
       "aciklama": "Patron toplu yükleme. Foto: IMG_9029.heic, IMG_9030.heic.",
       "tedarikci_id": null,
       "olusturma": "2026-05-13",
+      "gorseller": {
+        "cover": "",
+        "gallery": [
+          "assets/products/kart-kabi-107-lutfen-duzenle-karisik-gumus-g1.jpg"
+        ]
+      },
       "cinsiyet": "KADIN",
       "cuzdan_tipi": "WALLET_BIFOLD",
       "kart_yuvasi_sayisi": 8,
@@ -8624,15 +6112,9 @@ window.__BOTL_DATA__ = {
       "madeni_para_bolmesi": false,
       "id_pencere_var_mi": false,
       "fermuar_var_mi": false,
-      "fermuar_konumu": null,
       "RFID_korumali": false,
       "kapama_tipi": "snap_button",
-      "gorseller": {
-        "cover": "",
-        "gallery": [
-          "assets/products/kart-kabi-107-lutfen-duzenle-karisik-gumus-g1.jpg"
-        ]
-      }
+      "ic_astar_malzeme": "Deri"
     },
     {
       "variation_id": "FR-00118-KARISIK-STANDART-GUMUS",
@@ -8674,6 +6156,12 @@ window.__BOTL_DATA__ = {
       "aciklama": "Patron toplu yükleme. Foto: IMG_9031.heic, IMG_9032.heic.",
       "tedarikci_id": null,
       "olusturma": "2026-05-13",
+      "gorseller": {
+        "cover": "",
+        "gallery": [
+          "assets/products/kart-kabi-108-lutfen-duzenle-karisik-gumus-g1.jpg"
+        ]
+      },
       "cinsiyet": "KADIN",
       "cuzdan_tipi": "WALLET_BIFOLD",
       "kart_yuvasi_sayisi": 8,
@@ -8681,15 +6169,9 @@ window.__BOTL_DATA__ = {
       "madeni_para_bolmesi": false,
       "id_pencere_var_mi": false,
       "fermuar_var_mi": false,
-      "fermuar_konumu": null,
       "RFID_korumali": false,
       "kapama_tipi": "snap_button",
-      "gorseller": {
-        "cover": "",
-        "gallery": [
-          "assets/products/kart-kabi-108-lutfen-duzenle-karisik-gumus-g1.jpg"
-        ]
-      }
+      "ic_astar_malzeme": "Deri"
     },
     {
       "variation_id": "FR-00119-KARISIK-STANDART-GUMUS",
@@ -8731,6 +6213,12 @@ window.__BOTL_DATA__ = {
       "aciklama": "Patron toplu yükleme. Foto: IMG_9033.heic, IMG_9034.heic.",
       "tedarikci_id": null,
       "olusturma": "2026-05-13",
+      "gorseller": {
+        "cover": "",
+        "gallery": [
+          "assets/products/kart-kabi-109-lutfen-duzenle-karisik-gumus-g1.jpg"
+        ]
+      },
       "cinsiyet": "KADIN",
       "cuzdan_tipi": "WALLET_BIFOLD",
       "kart_yuvasi_sayisi": 8,
@@ -8738,15 +6226,9 @@ window.__BOTL_DATA__ = {
       "madeni_para_bolmesi": false,
       "id_pencere_var_mi": false,
       "fermuar_var_mi": false,
-      "fermuar_konumu": null,
       "RFID_korumali": false,
       "kapama_tipi": "snap_button",
-      "gorseller": {
-        "cover": "",
-        "gallery": [
-          "assets/products/kart-kabi-109-lutfen-duzenle-karisik-gumus-g1.jpg"
-        ]
-      }
+      "ic_astar_malzeme": "Deri"
     },
     {
       "variation_id": "FR-00120-KARISIK-STANDART-GUMUS",
@@ -8788,6 +6270,12 @@ window.__BOTL_DATA__ = {
       "aciklama": "Patron toplu yükleme. Foto: IMG_9035.heic, IMG_9036.heic.",
       "tedarikci_id": null,
       "olusturma": "2026-05-13",
+      "gorseller": {
+        "cover": "",
+        "gallery": [
+          "assets/products/kart-kabi-110-lutfen-duzenle-karisik-gumus-g1.jpg"
+        ]
+      },
       "cinsiyet": "KADIN",
       "cuzdan_tipi": "WALLET_BIFOLD",
       "kart_yuvasi_sayisi": 8,
@@ -8795,15 +6283,9 @@ window.__BOTL_DATA__ = {
       "madeni_para_bolmesi": false,
       "id_pencere_var_mi": false,
       "fermuar_var_mi": false,
-      "fermuar_konumu": null,
       "RFID_korumali": false,
       "kapama_tipi": "snap_button",
-      "gorseller": {
-        "cover": "",
-        "gallery": [
-          "assets/products/kart-kabi-110-lutfen-duzenle-karisik-gumus-g1.jpg"
-        ]
-      }
+      "ic_astar_malzeme": "Deri"
     },
     {
       "variation_id": "FR-00121-KARISIK-STANDART-GUMUS",
@@ -8845,6 +6327,12 @@ window.__BOTL_DATA__ = {
       "aciklama": "Patron toplu yükleme. Foto: IMG_9037.heic, IMG_9038.heic.",
       "tedarikci_id": null,
       "olusturma": "2026-05-13",
+      "gorseller": {
+        "cover": "",
+        "gallery": [
+          "assets/products/kart-kabi-111-lutfen-duzenle-karisik-gumus-g1.jpg"
+        ]
+      },
       "cinsiyet": "KADIN",
       "cuzdan_tipi": "POUCH",
       "kart_yuvasi_sayisi": 4,
@@ -8855,12 +6343,7 @@ window.__BOTL_DATA__ = {
       "fermuar_konumu": "tepe",
       "RFID_korumali": false,
       "kapama_tipi": "fermuar",
-      "gorseller": {
-        "cover": "",
-        "gallery": [
-          "assets/products/kart-kabi-111-lutfen-duzenle-karisik-gumus-g1.jpg"
-        ]
-      }
+      "ic_astar_malzeme": "Deri"
     },
     {
       "variation_id": "FR-00122-KARISIK-STANDART-GUMUS",
@@ -8902,6 +6385,12 @@ window.__BOTL_DATA__ = {
       "aciklama": "Patron toplu yükleme. Foto: IMG_9039.heic, IMG_9040.HEIC.",
       "tedarikci_id": null,
       "olusturma": "2026-05-13",
+      "gorseller": {
+        "cover": "",
+        "gallery": [
+          "assets/products/kart-kabi-112-lutfen-duzenle-karisik-gumus-g1.jpg"
+        ]
+      },
       "cinsiyet": "ERKEK",
       "cuzdan_tipi": "WALLET_BIFOLD",
       "kart_yuvasi_sayisi": 8,
@@ -8909,15 +6398,9 @@ window.__BOTL_DATA__ = {
       "madeni_para_bolmesi": false,
       "id_pencere_var_mi": true,
       "fermuar_var_mi": false,
-      "fermuar_konumu": null,
       "RFID_korumali": false,
       "kapama_tipi": "snap_button",
-      "gorseller": {
-        "cover": "",
-        "gallery": [
-          "assets/products/kart-kabi-112-lutfen-duzenle-karisik-gumus-g1.jpg"
-        ]
-      }
+      "ic_astar_malzeme": "Deri"
     },
     {
       "variation_id": "FR-00123-KARISIK-STANDART-GUMUS",
@@ -8959,6 +6442,12 @@ window.__BOTL_DATA__ = {
       "aciklama": "Patron toplu yükleme. Foto: IMG_9041.heic, IMG_9042.heic.",
       "tedarikci_id": null,
       "olusturma": "2026-05-13",
+      "gorseller": {
+        "cover": "",
+        "gallery": [
+          "assets/products/kart-kabi-113-lutfen-duzenle-karisik-gumus-g1.jpg"
+        ]
+      },
       "cinsiyet": "ERKEK",
       "cuzdan_tipi": "WALLET_BIFOLD",
       "kart_yuvasi_sayisi": 8,
@@ -8966,15 +6455,9 @@ window.__BOTL_DATA__ = {
       "madeni_para_bolmesi": false,
       "id_pencere_var_mi": true,
       "fermuar_var_mi": false,
-      "fermuar_konumu": null,
       "RFID_korumali": false,
       "kapama_tipi": "snap_button",
-      "gorseller": {
-        "cover": "",
-        "gallery": [
-          "assets/products/kart-kabi-113-lutfen-duzenle-karisik-gumus-g1.jpg"
-        ]
-      }
+      "ic_astar_malzeme": "Deri"
     },
     {
       "variation_id": "FR-00124-KARISIK-STANDART-GUMUS",
@@ -9016,6 +6499,12 @@ window.__BOTL_DATA__ = {
       "aciklama": "Patron toplu yükleme. Foto: IMG_9043.heic, IMG_9044.heic.",
       "tedarikci_id": null,
       "olusturma": "2026-05-13",
+      "gorseller": {
+        "cover": "",
+        "gallery": [
+          "assets/products/kart-kabi-114-lutfen-duzenle-karisik-gumus-g1.jpg"
+        ]
+      },
       "cinsiyet": "ERKEK",
       "cuzdan_tipi": "WALLET_BIFOLD",
       "kart_yuvasi_sayisi": 8,
@@ -9023,15 +6512,9 @@ window.__BOTL_DATA__ = {
       "madeni_para_bolmesi": false,
       "id_pencere_var_mi": true,
       "fermuar_var_mi": false,
-      "fermuar_konumu": null,
       "RFID_korumali": false,
       "kapama_tipi": "snap_button",
-      "gorseller": {
-        "cover": "",
-        "gallery": [
-          "assets/products/kart-kabi-114-lutfen-duzenle-karisik-gumus-g1.jpg"
-        ]
-      }
+      "ic_astar_malzeme": "Deri"
     },
     {
       "variation_id": "FR-00125-KARISIK-STANDART-GUMUS",
@@ -9073,6 +6556,12 @@ window.__BOTL_DATA__ = {
       "aciklama": "Patron toplu yükleme. Foto: IMG_9045.heic, IMG_9046.heic.",
       "tedarikci_id": null,
       "olusturma": "2026-05-13",
+      "gorseller": {
+        "cover": "",
+        "gallery": [
+          "assets/products/kart-kabi-115-lutfen-duzenle-karisik-gumus-g1.jpg"
+        ]
+      },
       "cinsiyet": "KADIN",
       "cuzdan_tipi": "WALLET_BIFOLD",
       "kart_yuvasi_sayisi": 8,
@@ -9080,15 +6569,9 @@ window.__BOTL_DATA__ = {
       "madeni_para_bolmesi": false,
       "id_pencere_var_mi": false,
       "fermuar_var_mi": false,
-      "fermuar_konumu": null,
       "RFID_korumali": false,
       "kapama_tipi": "snap_button",
-      "gorseller": {
-        "cover": "",
-        "gallery": [
-          "assets/products/kart-kabi-115-lutfen-duzenle-karisik-gumus-g1.jpg"
-        ]
-      }
+      "ic_astar_malzeme": "Deri"
     },
     {
       "variation_id": "FR-00126-KARISIK-STANDART-GUMUS",
@@ -9130,6 +6613,12 @@ window.__BOTL_DATA__ = {
       "aciklama": "Patron toplu yükleme. Foto: IMG_9047.heic, IMG_9048.heic.",
       "tedarikci_id": null,
       "olusturma": "2026-05-13",
+      "gorseller": {
+        "cover": "",
+        "gallery": [
+          "assets/products/kart-kabi-116-lutfen-duzenle-karisik-gumus-g1.jpg"
+        ]
+      },
       "cinsiyet": "KADIN",
       "cuzdan_tipi": "WALLET_BIFOLD",
       "kart_yuvasi_sayisi": 8,
@@ -9137,15 +6626,9 @@ window.__BOTL_DATA__ = {
       "madeni_para_bolmesi": false,
       "id_pencere_var_mi": false,
       "fermuar_var_mi": false,
-      "fermuar_konumu": null,
       "RFID_korumali": false,
       "kapama_tipi": "snap_button",
-      "gorseller": {
-        "cover": "",
-        "gallery": [
-          "assets/products/kart-kabi-116-lutfen-duzenle-karisik-gumus-g1.jpg"
-        ]
-      }
+      "ic_astar_malzeme": "Deri"
     },
     {
       "variation_id": "FR-00127-KARISIK-STANDART-GUMUS",
@@ -9187,6 +6670,12 @@ window.__BOTL_DATA__ = {
       "aciklama": "Patron toplu yükleme. Foto: IMG_9049.heic, IMG_9050.heic.",
       "tedarikci_id": null,
       "olusturma": "2026-05-13",
+      "gorseller": {
+        "cover": "",
+        "gallery": [
+          "assets/products/kart-kabi-117-lutfen-duzenle-karisik-gumus-g1.jpg"
+        ]
+      },
       "cinsiyet": "KADIN",
       "cuzdan_tipi": "POUCH",
       "kart_yuvasi_sayisi": 4,
@@ -9197,12 +6686,7 @@ window.__BOTL_DATA__ = {
       "fermuar_konumu": "tepe",
       "RFID_korumali": false,
       "kapama_tipi": "fermuar",
-      "gorseller": {
-        "cover": "",
-        "gallery": [
-          "assets/products/kart-kabi-117-lutfen-duzenle-karisik-gumus-g1.jpg"
-        ]
-      }
+      "ic_astar_malzeme": "Deri"
     },
     {
       "variation_id": "FR-00128-KARISIK-STANDART-GUMUS",
@@ -9244,6 +6728,12 @@ window.__BOTL_DATA__ = {
       "aciklama": "Patron toplu yükleme. Foto: IMG_9051.heic, IMG_9052.heic.",
       "tedarikci_id": null,
       "olusturma": "2026-05-13",
+      "gorseller": {
+        "cover": "",
+        "gallery": [
+          "assets/products/kart-kabi-118-lutfen-duzenle-karisik-gumus-g1.jpg"
+        ]
+      },
       "cinsiyet": "ERKEK",
       "cuzdan_tipi": "WALLET_BIFOLD",
       "kart_yuvasi_sayisi": 8,
@@ -9251,15 +6741,9 @@ window.__BOTL_DATA__ = {
       "madeni_para_bolmesi": false,
       "id_pencere_var_mi": true,
       "fermuar_var_mi": false,
-      "fermuar_konumu": null,
       "RFID_korumali": false,
       "kapama_tipi": "snap_button",
-      "gorseller": {
-        "cover": "",
-        "gallery": [
-          "assets/products/kart-kabi-118-lutfen-duzenle-karisik-gumus-g1.jpg"
-        ]
-      }
+      "ic_astar_malzeme": "Deri"
     },
     {
       "variation_id": "FR-00129-KARISIK-STANDART-GUMUS",
@@ -9301,6 +6785,12 @@ window.__BOTL_DATA__ = {
       "aciklama": "Patron toplu yükleme. Foto: IMG_9053.heic, IMG_9054.heic.",
       "tedarikci_id": null,
       "olusturma": "2026-05-13",
+      "gorseller": {
+        "cover": "",
+        "gallery": [
+          "assets/products/kart-kabi-119-lutfen-duzenle-karisik-gumus-g1.jpg"
+        ]
+      },
       "cinsiyet": "KADIN",
       "cuzdan_tipi": "WALLET_BIFOLD",
       "kart_yuvasi_sayisi": 8,
@@ -9308,15 +6798,9 @@ window.__BOTL_DATA__ = {
       "madeni_para_bolmesi": false,
       "id_pencere_var_mi": false,
       "fermuar_var_mi": false,
-      "fermuar_konumu": null,
       "RFID_korumali": false,
       "kapama_tipi": "snap_button",
-      "gorseller": {
-        "cover": "",
-        "gallery": [
-          "assets/products/kart-kabi-119-lutfen-duzenle-karisik-gumus-g1.jpg"
-        ]
-      }
+      "ic_astar_malzeme": "Deri"
     },
     {
       "variation_id": "FR-00130-KARISIK-STANDART-GUMUS",
@@ -9358,6 +6842,12 @@ window.__BOTL_DATA__ = {
       "aciklama": "Patron toplu yükleme. Foto: IMG_9055.heic, IMG_9056.heic.",
       "tedarikci_id": null,
       "olusturma": "2026-05-13",
+      "gorseller": {
+        "cover": "",
+        "gallery": [
+          "assets/products/kart-kabi-120-lutfen-duzenle-karisik-gumus-g1.jpg"
+        ]
+      },
       "cinsiyet": "UNISEX",
       "cuzdan_tipi": "CARDHOLDER",
       "kart_yuvasi_sayisi": 6,
@@ -9365,15 +6855,9 @@ window.__BOTL_DATA__ = {
       "madeni_para_bolmesi": false,
       "id_pencere_var_mi": false,
       "fermuar_var_mi": false,
-      "fermuar_konumu": null,
       "RFID_korumali": false,
       "kapama_tipi": "acik",
-      "gorseller": {
-        "cover": "",
-        "gallery": [
-          "assets/products/kart-kabi-120-lutfen-duzenle-karisik-gumus-g1.jpg"
-        ]
-      }
+      "ic_astar_malzeme": "Deri"
     },
     {
       "variation_id": "FR-00131-KARISIK-STANDART-GUMUS",
@@ -9415,6 +6899,12 @@ window.__BOTL_DATA__ = {
       "aciklama": "Patron toplu yükleme. Foto: IMG_9057.heic, IMG_9058.heic.",
       "tedarikci_id": null,
       "olusturma": "2026-05-13",
+      "gorseller": {
+        "cover": "",
+        "gallery": [
+          "assets/products/kart-kabi-121-lutfen-duzenle-karisik-gumus-g1.jpg"
+        ]
+      },
       "cinsiyet": "ERKEK",
       "cuzdan_tipi": "WALLET_BIFOLD",
       "kart_yuvasi_sayisi": 8,
@@ -9422,15 +6912,9 @@ window.__BOTL_DATA__ = {
       "madeni_para_bolmesi": false,
       "id_pencere_var_mi": true,
       "fermuar_var_mi": false,
-      "fermuar_konumu": null,
       "RFID_korumali": false,
       "kapama_tipi": "snap_button",
-      "gorseller": {
-        "cover": "",
-        "gallery": [
-          "assets/products/kart-kabi-121-lutfen-duzenle-karisik-gumus-g1.jpg"
-        ]
-      }
+      "ic_astar_malzeme": "Deri"
     },
     {
       "variation_id": "FR-00132-KARISIK-STANDART-GUMUS",
@@ -9472,6 +6956,12 @@ window.__BOTL_DATA__ = {
       "aciklama": "Patron toplu yükleme. Foto: IMG_9059.heic, IMG_9060.heic.",
       "tedarikci_id": null,
       "olusturma": "2026-05-13",
+      "gorseller": {
+        "cover": "",
+        "gallery": [
+          "assets/products/kart-kabi-122-lutfen-duzenle-karisik-gumus-g1.jpg"
+        ]
+      },
       "cinsiyet": "KADIN",
       "cuzdan_tipi": "WALLET_BIFOLD",
       "kart_yuvasi_sayisi": 8,
@@ -9479,15 +6969,9 @@ window.__BOTL_DATA__ = {
       "madeni_para_bolmesi": false,
       "id_pencere_var_mi": false,
       "fermuar_var_mi": false,
-      "fermuar_konumu": null,
       "RFID_korumali": false,
       "kapama_tipi": "snap_button",
-      "gorseller": {
-        "cover": "",
-        "gallery": [
-          "assets/products/kart-kabi-122-lutfen-duzenle-karisik-gumus-g1.jpg"
-        ]
-      }
+      "ic_astar_malzeme": "Deri"
     },
     {
       "variation_id": "FR-00133-KARISIK-STANDART-GUMUS",
@@ -9529,6 +7013,12 @@ window.__BOTL_DATA__ = {
       "aciklama": "Patron toplu yükleme. Foto: IMG_9061.heic, IMG_9062.heic.",
       "tedarikci_id": null,
       "olusturma": "2026-05-13",
+      "gorseller": {
+        "cover": "",
+        "gallery": [
+          "assets/products/kart-kabi-123-lutfen-duzenle-karisik-gumus-g1.jpg"
+        ]
+      },
       "cinsiyet": "KADIN",
       "cuzdan_tipi": "WALLET_BIFOLD",
       "kart_yuvasi_sayisi": 8,
@@ -9536,15 +7026,9 @@ window.__BOTL_DATA__ = {
       "madeni_para_bolmesi": false,
       "id_pencere_var_mi": false,
       "fermuar_var_mi": false,
-      "fermuar_konumu": null,
       "RFID_korumali": false,
       "kapama_tipi": "snap_button",
-      "gorseller": {
-        "cover": "",
-        "gallery": [
-          "assets/products/kart-kabi-123-lutfen-duzenle-karisik-gumus-g1.jpg"
-        ]
-      }
+      "ic_astar_malzeme": "Deri"
     },
     {
       "variation_id": "FR-00134-KARISIK-STANDART-GUMUS",
@@ -9586,6 +7070,12 @@ window.__BOTL_DATA__ = {
       "aciklama": "Patron toplu yükleme. Foto: IMG_9063.heic, IMG_9064.heic.",
       "tedarikci_id": null,
       "olusturma": "2026-05-13",
+      "gorseller": {
+        "cover": "",
+        "gallery": [
+          "assets/products/kart-kabi-124-lutfen-duzenle-karisik-gumus-g1.jpg"
+        ]
+      },
       "cinsiyet": "ERKEK",
       "cuzdan_tipi": "WALLET_BIFOLD",
       "kart_yuvasi_sayisi": 8,
@@ -9593,15 +7083,9 @@ window.__BOTL_DATA__ = {
       "madeni_para_bolmesi": false,
       "id_pencere_var_mi": false,
       "fermuar_var_mi": false,
-      "fermuar_konumu": null,
       "RFID_korumali": false,
       "kapama_tipi": "snap_button",
-      "gorseller": {
-        "cover": "",
-        "gallery": [
-          "assets/products/kart-kabi-124-lutfen-duzenle-karisik-gumus-g1.jpg"
-        ]
-      }
+      "ic_astar_malzeme": "Deri"
     },
     {
       "variation_id": "FR-00135-KARISIK-STANDART-GUMUS",
@@ -9643,6 +7127,12 @@ window.__BOTL_DATA__ = {
       "aciklama": "Patron toplu yükleme. Foto: IMG_9065.heic, IMG_9066.heic.",
       "tedarikci_id": null,
       "olusturma": "2026-05-13",
+      "gorseller": {
+        "cover": "",
+        "gallery": [
+          "assets/products/kart-kabi-125-lutfen-duzenle-karisik-gumus-g1.jpg"
+        ]
+      },
       "cinsiyet": "KADIN",
       "cuzdan_tipi": "WALLET_BIFOLD",
       "kart_yuvasi_sayisi": 8,
@@ -9650,15 +7140,9 @@ window.__BOTL_DATA__ = {
       "madeni_para_bolmesi": false,
       "id_pencere_var_mi": true,
       "fermuar_var_mi": false,
-      "fermuar_konumu": null,
       "RFID_korumali": false,
       "kapama_tipi": "snap_button",
-      "gorseller": {
-        "cover": "",
-        "gallery": [
-          "assets/products/kart-kabi-125-lutfen-duzenle-karisik-gumus-g1.jpg"
-        ]
-      }
+      "ic_astar_malzeme": "Deri"
     },
     {
       "variation_id": "FR-00136-KARISIK-STANDART-GUMUS",
@@ -9700,6 +7184,12 @@ window.__BOTL_DATA__ = {
       "aciklama": "Patron toplu yükleme. Foto: IMG_9067.heic, IMG_9068.heic.",
       "tedarikci_id": null,
       "olusturma": "2026-05-13",
+      "gorseller": {
+        "cover": "",
+        "gallery": [
+          "assets/products/kart-kabi-126-lutfen-duzenle-karisik-gumus-g1.jpg"
+        ]
+      },
       "cinsiyet": "KADIN",
       "cuzdan_tipi": "WALLET_BIFOLD",
       "kart_yuvasi_sayisi": 8,
@@ -9707,15 +7197,9 @@ window.__BOTL_DATA__ = {
       "madeni_para_bolmesi": false,
       "id_pencere_var_mi": false,
       "fermuar_var_mi": false,
-      "fermuar_konumu": null,
       "RFID_korumali": false,
       "kapama_tipi": "snap_button",
-      "gorseller": {
-        "cover": "",
-        "gallery": [
-          "assets/products/kart-kabi-126-lutfen-duzenle-karisik-gumus-g1.jpg"
-        ]
-      }
+      "ic_astar_malzeme": "Deri"
     },
     {
       "variation_id": "FR-00137-KARISIK-STANDART-GUMUS",
@@ -9757,6 +7241,12 @@ window.__BOTL_DATA__ = {
       "aciklama": "Patron toplu yükleme. Foto: IMG_9069.heic, IMG_9070.heic.",
       "tedarikci_id": null,
       "olusturma": "2026-05-13",
+      "gorseller": {
+        "cover": "",
+        "gallery": [
+          "assets/products/kart-kabi-127-lutfen-duzenle-karisik-gumus-g1.jpg"
+        ]
+      },
       "cinsiyet": "KADIN",
       "cuzdan_tipi": "WALLET_BIFOLD",
       "kart_yuvasi_sayisi": 8,
@@ -9764,15 +7254,9 @@ window.__BOTL_DATA__ = {
       "madeni_para_bolmesi": false,
       "id_pencere_var_mi": false,
       "fermuar_var_mi": false,
-      "fermuar_konumu": null,
       "RFID_korumali": false,
       "kapama_tipi": "snap_button",
-      "gorseller": {
-        "cover": "",
-        "gallery": [
-          "assets/products/kart-kabi-127-lutfen-duzenle-karisik-gumus-g1.jpg"
-        ]
-      }
+      "ic_astar_malzeme": "Deri"
     },
     {
       "variation_id": "FR-00138-KARISIK-STANDART-GUMUS",
@@ -9814,6 +7298,12 @@ window.__BOTL_DATA__ = {
       "aciklama": "Patron toplu yükleme. Foto: IMG_9071.heic, IMG_9072.heic.",
       "tedarikci_id": null,
       "olusturma": "2026-05-13",
+      "gorseller": {
+        "cover": "",
+        "gallery": [
+          "assets/products/kart-kabi-128-lutfen-duzenle-karisik-gumus-g1.jpg"
+        ]
+      },
       "cinsiyet": "ERKEK",
       "cuzdan_tipi": "WALLET_BIFOLD",
       "kart_yuvasi_sayisi": 8,
@@ -9821,15 +7311,9 @@ window.__BOTL_DATA__ = {
       "madeni_para_bolmesi": false,
       "id_pencere_var_mi": true,
       "fermuar_var_mi": false,
-      "fermuar_konumu": null,
       "RFID_korumali": false,
       "kapama_tipi": "snap_button",
-      "gorseller": {
-        "cover": "",
-        "gallery": [
-          "assets/products/kart-kabi-128-lutfen-duzenle-karisik-gumus-g1.jpg"
-        ]
-      }
+      "ic_astar_malzeme": "Deri"
     },
     {
       "variation_id": "FR-00139-KARISIK-STANDART-GUMUS",
@@ -9871,6 +7355,12 @@ window.__BOTL_DATA__ = {
       "aciklama": "Patron toplu yükleme. Foto: IMG_9073.heic, IMG_9074.heic.",
       "tedarikci_id": null,
       "olusturma": "2026-05-13",
+      "gorseller": {
+        "cover": "",
+        "gallery": [
+          "assets/products/kart-kabi-129-lutfen-duzenle-karisik-gumus-g1.jpg"
+        ]
+      },
       "cinsiyet": "KADIN",
       "cuzdan_tipi": "WALLET_BIFOLD",
       "kart_yuvasi_sayisi": 8,
@@ -9878,15 +7368,9 @@ window.__BOTL_DATA__ = {
       "madeni_para_bolmesi": false,
       "id_pencere_var_mi": true,
       "fermuar_var_mi": false,
-      "fermuar_konumu": null,
       "RFID_korumali": false,
       "kapama_tipi": "snap_button",
-      "gorseller": {
-        "cover": "",
-        "gallery": [
-          "assets/products/kart-kabi-129-lutfen-duzenle-karisik-gumus-g1.jpg"
-        ]
-      }
+      "ic_astar_malzeme": "Deri"
     },
     {
       "variation_id": "FR-00140-KARISIK-STANDART-GUMUS",
@@ -9928,6 +7412,12 @@ window.__BOTL_DATA__ = {
       "aciklama": "Patron toplu yükleme. Foto: IMG_9075.heic, IMG_9076.heic.",
       "tedarikci_id": null,
       "olusturma": "2026-05-13",
+      "gorseller": {
+        "cover": "",
+        "gallery": [
+          "assets/products/kart-kabi-130-lutfen-duzenle-karisik-gumus-g1.jpg"
+        ]
+      },
       "cinsiyet": "KADIN",
       "cuzdan_tipi": "WALLET_BIFOLD",
       "kart_yuvasi_sayisi": 8,
@@ -9935,15 +7425,9 @@ window.__BOTL_DATA__ = {
       "madeni_para_bolmesi": false,
       "id_pencere_var_mi": true,
       "fermuar_var_mi": false,
-      "fermuar_konumu": null,
       "RFID_korumali": false,
       "kapama_tipi": "snap_button",
-      "gorseller": {
-        "cover": "",
-        "gallery": [
-          "assets/products/kart-kabi-130-lutfen-duzenle-karisik-gumus-g1.jpg"
-        ]
-      }
+      "ic_astar_malzeme": "Deri"
     },
     {
       "variation_id": "FR-00141-KARISIK-STANDART-GUMUS",
@@ -9985,6 +7469,12 @@ window.__BOTL_DATA__ = {
       "aciklama": "Patron toplu yükleme. Foto: IMG_9082.heic, IMG_9083.heic.",
       "tedarikci_id": null,
       "olusturma": "2026-05-13",
+      "gorseller": {
+        "cover": "",
+        "gallery": [
+          "assets/products/kart-kabi-131-lutfen-duzenle-karisik-gumus-g1.jpg"
+        ]
+      },
       "cinsiyet": "KADIN",
       "cuzdan_tipi": "POUCH",
       "kart_yuvasi_sayisi": 4,
@@ -9995,12 +7485,7 @@ window.__BOTL_DATA__ = {
       "fermuar_konumu": "tepe",
       "RFID_korumali": false,
       "kapama_tipi": "fermuar",
-      "gorseller": {
-        "cover": "",
-        "gallery": [
-          "assets/products/kart-kabi-131-lutfen-duzenle-karisik-gumus-g1.jpg"
-        ]
-      }
+      "ic_astar_malzeme": "Deri"
     },
     {
       "variation_id": "FR-00142-KARISIK-STANDART-GUMUS",
@@ -10042,6 +7527,12 @@ window.__BOTL_DATA__ = {
       "aciklama": "Patron toplu yükleme. Foto: IMG_9084.heic, IMG_9085.heic.",
       "tedarikci_id": null,
       "olusturma": "2026-05-13",
+      "gorseller": {
+        "cover": "",
+        "gallery": [
+          "assets/products/kart-kabi-132-lutfen-duzenle-karisik-gumus-g1.jpg"
+        ]
+      },
       "cinsiyet": "KADIN",
       "cuzdan_tipi": "WALLET_BIFOLD",
       "kart_yuvasi_sayisi": 8,
@@ -10049,15 +7540,9 @@ window.__BOTL_DATA__ = {
       "madeni_para_bolmesi": false,
       "id_pencere_var_mi": false,
       "fermuar_var_mi": false,
-      "fermuar_konumu": null,
       "RFID_korumali": false,
       "kapama_tipi": "snap_button",
-      "gorseller": {
-        "cover": "",
-        "gallery": [
-          "assets/products/kart-kabi-132-lutfen-duzenle-karisik-gumus-g1.jpg"
-        ]
-      }
+      "ic_astar_malzeme": "Deri"
     },
     {
       "variation_id": "FR-00143-KARISIK-STANDART-GUMUS",
@@ -10099,6 +7584,12 @@ window.__BOTL_DATA__ = {
       "aciklama": "Patron toplu yükleme. Foto: IMG_9086.heic, IMG_9087.heic.",
       "tedarikci_id": null,
       "olusturma": "2026-05-13",
+      "gorseller": {
+        "cover": "",
+        "gallery": [
+          "assets/products/kart-kabi-133-lutfen-duzenle-karisik-gumus-g1.jpg"
+        ]
+      },
       "cinsiyet": "KADIN",
       "cuzdan_tipi": "WALLET_BIFOLD",
       "kart_yuvasi_sayisi": 8,
@@ -10106,15 +7597,9 @@ window.__BOTL_DATA__ = {
       "madeni_para_bolmesi": false,
       "id_pencere_var_mi": false,
       "fermuar_var_mi": false,
-      "fermuar_konumu": null,
       "RFID_korumali": false,
       "kapama_tipi": "snap_button",
-      "gorseller": {
-        "cover": "",
-        "gallery": [
-          "assets/products/kart-kabi-133-lutfen-duzenle-karisik-gumus-g1.jpg"
-        ]
-      }
+      "ic_astar_malzeme": "Deri"
     },
     {
       "variation_id": "FR-00144-KARISIK-STANDART-GUMUS",
@@ -10156,6 +7641,12 @@ window.__BOTL_DATA__ = {
       "aciklama": "Patron toplu yükleme. Foto: IMG_9088.heic, IMG_9089.heic.",
       "tedarikci_id": null,
       "olusturma": "2026-05-13",
+      "gorseller": {
+        "cover": "",
+        "gallery": [
+          "assets/products/kart-kabi-134-lutfen-duzenle-karisik-gumus-g1.jpg"
+        ]
+      },
       "cinsiyet": "ERKEK",
       "cuzdan_tipi": "WALLET_BIFOLD",
       "kart_yuvasi_sayisi": 8,
@@ -10163,15 +7654,9 @@ window.__BOTL_DATA__ = {
       "madeni_para_bolmesi": false,
       "id_pencere_var_mi": true,
       "fermuar_var_mi": false,
-      "fermuar_konumu": null,
       "RFID_korumali": false,
       "kapama_tipi": "snap_button",
-      "gorseller": {
-        "cover": "",
-        "gallery": [
-          "assets/products/kart-kabi-134-lutfen-duzenle-karisik-gumus-g1.jpg"
-        ]
-      }
+      "ic_astar_malzeme": "Deri"
     },
     {
       "variation_id": "FR-00145-KARISIK-STANDART-GUMUS",
@@ -10213,6 +7698,12 @@ window.__BOTL_DATA__ = {
       "aciklama": "Patron toplu yükleme. Foto: IMG_9090.heic, IMG_9091.heic.",
       "tedarikci_id": null,
       "olusturma": "2026-05-13",
+      "gorseller": {
+        "cover": "",
+        "gallery": [
+          "assets/products/kart-kabi-135-lutfen-duzenle-karisik-gumus-g1.jpg"
+        ]
+      },
       "cinsiyet": "KADIN",
       "cuzdan_tipi": "WALLET_BIFOLD",
       "kart_yuvasi_sayisi": 8,
@@ -10220,15 +7711,9 @@ window.__BOTL_DATA__ = {
       "madeni_para_bolmesi": false,
       "id_pencere_var_mi": false,
       "fermuar_var_mi": false,
-      "fermuar_konumu": null,
       "RFID_korumali": false,
       "kapama_tipi": "snap_button",
-      "gorseller": {
-        "cover": "",
-        "gallery": [
-          "assets/products/kart-kabi-135-lutfen-duzenle-karisik-gumus-g1.jpg"
-        ]
-      }
+      "ic_astar_malzeme": "Deri"
     },
     {
       "variation_id": "FR-00146-KARISIK-STANDART-GUMUS",
@@ -10270,6 +7755,12 @@ window.__BOTL_DATA__ = {
       "aciklama": "Patron toplu yükleme. Foto: IMG_9092.heic, IMG_9093.heic.",
       "tedarikci_id": null,
       "olusturma": "2026-05-13",
+      "gorseller": {
+        "cover": "",
+        "gallery": [
+          "assets/products/kart-kabi-136-lutfen-duzenle-karisik-gumus-g1.jpg"
+        ]
+      },
       "cinsiyet": "KADIN",
       "cuzdan_tipi": "POUCH",
       "kart_yuvasi_sayisi": 4,
@@ -10280,12 +7771,7 @@ window.__BOTL_DATA__ = {
       "fermuar_konumu": "tepe",
       "RFID_korumali": false,
       "kapama_tipi": "fermuar",
-      "gorseller": {
-        "cover": "",
-        "gallery": [
-          "assets/products/kart-kabi-136-lutfen-duzenle-karisik-gumus-g1.jpg"
-        ]
-      }
+      "ic_astar_malzeme": "Deri"
     },
     {
       "variation_id": "FR-00147-KARISIK-STANDART-GUMUS",
@@ -10327,6 +7813,12 @@ window.__BOTL_DATA__ = {
       "aciklama": "Patron toplu yükleme. Foto: IMG_9094.heic, IMG_9095.heic.",
       "tedarikci_id": null,
       "olusturma": "2026-05-13",
+      "gorseller": {
+        "cover": "",
+        "gallery": [
+          "assets/products/kart-kabi-137-lutfen-duzenle-karisik-gumus-g1.jpg"
+        ]
+      },
       "cinsiyet": "KADIN",
       "cuzdan_tipi": "POUCH",
       "kart_yuvasi_sayisi": 4,
@@ -10337,12 +7829,7 @@ window.__BOTL_DATA__ = {
       "fermuar_konumu": "tepe",
       "RFID_korumali": false,
       "kapama_tipi": "fermuar",
-      "gorseller": {
-        "cover": "",
-        "gallery": [
-          "assets/products/kart-kabi-137-lutfen-duzenle-karisik-gumus-g1.jpg"
-        ]
-      }
+      "ic_astar_malzeme": "Deri"
     },
     {
       "variation_id": "FR-00148-KARISIK-STANDART-GUMUS",
@@ -10384,6 +7871,12 @@ window.__BOTL_DATA__ = {
       "aciklama": "Patron toplu yükleme. Foto: IMG_9096.heic, IMG_9097.heic.",
       "tedarikci_id": null,
       "olusturma": "2026-05-13",
+      "gorseller": {
+        "cover": "",
+        "gallery": [
+          "assets/products/kart-kabi-138-lutfen-duzenle-karisik-gumus-g1.jpg"
+        ]
+      },
       "cinsiyet": "ERKEK",
       "cuzdan_tipi": "WALLET_BIFOLD",
       "kart_yuvasi_sayisi": 8,
@@ -10391,15 +7884,9 @@ window.__BOTL_DATA__ = {
       "madeni_para_bolmesi": false,
       "id_pencere_var_mi": true,
       "fermuar_var_mi": false,
-      "fermuar_konumu": null,
       "RFID_korumali": false,
       "kapama_tipi": "snap_button",
-      "gorseller": {
-        "cover": "",
-        "gallery": [
-          "assets/products/kart-kabi-138-lutfen-duzenle-karisik-gumus-g1.jpg"
-        ]
-      }
+      "ic_astar_malzeme": "Deri"
     },
     {
       "variation_id": "FR-00149-KARISIK-STANDART-GUMUS",
@@ -10441,6 +7928,12 @@ window.__BOTL_DATA__ = {
       "aciklama": "Patron toplu yükleme. Foto: IMG_9098.heic, IMG_9099.heic.",
       "tedarikci_id": null,
       "olusturma": "2026-05-13",
+      "gorseller": {
+        "cover": "",
+        "gallery": [
+          "assets/products/kart-kabi-139-lutfen-duzenle-karisik-gumus-g1.jpg"
+        ]
+      },
       "cinsiyet": "KADIN",
       "cuzdan_tipi": "WALLET_BIFOLD",
       "kart_yuvasi_sayisi": 8,
@@ -10448,15 +7941,9 @@ window.__BOTL_DATA__ = {
       "madeni_para_bolmesi": false,
       "id_pencere_var_mi": false,
       "fermuar_var_mi": false,
-      "fermuar_konumu": null,
       "RFID_korumali": false,
       "kapama_tipi": "snap_button",
-      "gorseller": {
-        "cover": "",
-        "gallery": [
-          "assets/products/kart-kabi-139-lutfen-duzenle-karisik-gumus-g1.jpg"
-        ]
-      }
+      "ic_astar_malzeme": "Deri"
     },
     {
       "variation_id": "FR-00150-KARISIK-STANDART-GUMUS",
@@ -10498,6 +7985,12 @@ window.__BOTL_DATA__ = {
       "aciklama": "Patron toplu yükleme. Foto: IMG_9100.heic, IMG_9101.heic.",
       "tedarikci_id": null,
       "olusturma": "2026-05-13",
+      "gorseller": {
+        "cover": "",
+        "gallery": [
+          "assets/products/kart-kabi-140-lutfen-duzenle-karisik-gumus-g1.jpg"
+        ]
+      },
       "cinsiyet": "ERKEK",
       "cuzdan_tipi": "WALLET_BIFOLD",
       "kart_yuvasi_sayisi": 8,
@@ -10505,15 +7998,9 @@ window.__BOTL_DATA__ = {
       "madeni_para_bolmesi": false,
       "id_pencere_var_mi": false,
       "fermuar_var_mi": false,
-      "fermuar_konumu": null,
       "RFID_korumali": false,
       "kapama_tipi": "snap_button",
-      "gorseller": {
-        "cover": "",
-        "gallery": [
-          "assets/products/kart-kabi-140-lutfen-duzenle-karisik-gumus-g1.jpg"
-        ]
-      }
+      "ic_astar_malzeme": "Deri"
     },
     {
       "variation_id": "FR-00151-KARISIK-STANDART-GUMUS",
@@ -10555,6 +8042,12 @@ window.__BOTL_DATA__ = {
       "aciklama": "Patron toplu yükleme. Foto: IMG_9102.heic, IMG_9103.heic.",
       "tedarikci_id": null,
       "olusturma": "2026-05-13",
+      "gorseller": {
+        "cover": "",
+        "gallery": [
+          "assets/products/kart-kabi-141-lutfen-duzenle-karisik-gumus-g1.jpg"
+        ]
+      },
       "cinsiyet": "KADIN",
       "cuzdan_tipi": "WALLET_BIFOLD",
       "kart_yuvasi_sayisi": 8,
@@ -10562,15 +8055,9 @@ window.__BOTL_DATA__ = {
       "madeni_para_bolmesi": false,
       "id_pencere_var_mi": false,
       "fermuar_var_mi": false,
-      "fermuar_konumu": null,
       "RFID_korumali": false,
       "kapama_tipi": "snap_button",
-      "gorseller": {
-        "cover": "",
-        "gallery": [
-          "assets/products/kart-kabi-141-lutfen-duzenle-karisik-gumus-g1.jpg"
-        ]
-      }
+      "ic_astar_malzeme": "Deri"
     },
     {
       "variation_id": "FR-00152-KARISIK-STANDART-GUMUS",
@@ -10612,6 +8099,12 @@ window.__BOTL_DATA__ = {
       "aciklama": "Patron toplu yükleme. Foto: IMG_9104.heic, IMG_9105.HEIC.",
       "tedarikci_id": null,
       "olusturma": "2026-05-13",
+      "gorseller": {
+        "cover": "",
+        "gallery": [
+          "assets/products/kart-kabi-142-lutfen-duzenle-karisik-gumus-g1.jpg"
+        ]
+      },
       "cinsiyet": "KADIN",
       "cuzdan_tipi": "WALLET_BIFOLD",
       "kart_yuvasi_sayisi": 8,
@@ -10619,15 +8112,9 @@ window.__BOTL_DATA__ = {
       "madeni_para_bolmesi": false,
       "id_pencere_var_mi": true,
       "fermuar_var_mi": false,
-      "fermuar_konumu": null,
       "RFID_korumali": false,
       "kapama_tipi": "snap_button",
-      "gorseller": {
-        "cover": "",
-        "gallery": [
-          "assets/products/kart-kabi-142-lutfen-duzenle-karisik-gumus-g1.jpg"
-        ]
-      }
+      "ic_astar_malzeme": "Deri"
     },
     {
       "variation_id": "FR-00153-KARISIK-STANDART-GUMUS",
@@ -10669,6 +8156,12 @@ window.__BOTL_DATA__ = {
       "aciklama": "Patron toplu yükleme. Foto: IMG_9106.heic, IMG_9107.heic.",
       "tedarikci_id": null,
       "olusturma": "2026-05-13",
+      "gorseller": {
+        "cover": "",
+        "gallery": [
+          "assets/products/kart-kabi-143-lutfen-duzenle-karisik-gumus-g1.jpg"
+        ]
+      },
       "cinsiyet": "ERKEK",
       "cuzdan_tipi": "WALLET_BIFOLD",
       "kart_yuvasi_sayisi": 8,
@@ -10676,15 +8169,9 @@ window.__BOTL_DATA__ = {
       "madeni_para_bolmesi": false,
       "id_pencere_var_mi": true,
       "fermuar_var_mi": false,
-      "fermuar_konumu": null,
       "RFID_korumali": false,
       "kapama_tipi": "snap_button",
-      "gorseller": {
-        "cover": "",
-        "gallery": [
-          "assets/products/kart-kabi-143-lutfen-duzenle-karisik-gumus-g1.jpg"
-        ]
-      }
+      "ic_astar_malzeme": "Deri"
     },
     {
       "variation_id": "FR-00154-KARISIK-STANDART-GUMUS",
@@ -10726,6 +8213,12 @@ window.__BOTL_DATA__ = {
       "aciklama": "Patron toplu yükleme. Foto: IMG_9108.heic, IMG_9109.heic.",
       "tedarikci_id": null,
       "olusturma": "2026-05-13",
+      "gorseller": {
+        "cover": "",
+        "gallery": [
+          "assets/products/kart-kabi-144-lutfen-duzenle-karisik-gumus-g1.jpg"
+        ]
+      },
       "cinsiyet": "ERKEK",
       "cuzdan_tipi": "WALLET_BIFOLD",
       "kart_yuvasi_sayisi": 8,
@@ -10733,15 +8226,9 @@ window.__BOTL_DATA__ = {
       "madeni_para_bolmesi": false,
       "id_pencere_var_mi": true,
       "fermuar_var_mi": false,
-      "fermuar_konumu": null,
       "RFID_korumali": false,
       "kapama_tipi": "snap_button",
-      "gorseller": {
-        "cover": "",
-        "gallery": [
-          "assets/products/kart-kabi-144-lutfen-duzenle-karisik-gumus-g1.jpg"
-        ]
-      }
+      "ic_astar_malzeme": "Deri"
     },
     {
       "variation_id": "FR-00155-KARISIK-STANDART-GUMUS",
@@ -10783,6 +8270,12 @@ window.__BOTL_DATA__ = {
       "aciklama": "Patron toplu yükleme. Foto: IMG_9110.HEIC, IMG_9111.heic.",
       "tedarikci_id": null,
       "olusturma": "2026-05-13",
+      "gorseller": {
+        "cover": "",
+        "gallery": [
+          "assets/products/kart-kabi-145-lutfen-duzenle-karisik-gumus-g1.jpg"
+        ]
+      },
       "cinsiyet": "ERKEK",
       "cuzdan_tipi": "WALLET_BIFOLD",
       "kart_yuvasi_sayisi": 8,
@@ -10790,15 +8283,9 @@ window.__BOTL_DATA__ = {
       "madeni_para_bolmesi": false,
       "id_pencere_var_mi": false,
       "fermuar_var_mi": false,
-      "fermuar_konumu": null,
       "RFID_korumali": false,
       "kapama_tipi": "snap_button",
-      "gorseller": {
-        "cover": "",
-        "gallery": [
-          "assets/products/kart-kabi-145-lutfen-duzenle-karisik-gumus-g1.jpg"
-        ]
-      }
+      "ic_astar_malzeme": "Deri"
     },
     {
       "variation_id": "FR-00156-KARISIK-STANDART-GUMUS",
@@ -10840,6 +8327,12 @@ window.__BOTL_DATA__ = {
       "aciklama": "Patron toplu yükleme. Foto: IMG_9112.heic, IMG_9113.heic.",
       "tedarikci_id": null,
       "olusturma": "2026-05-13",
+      "gorseller": {
+        "cover": "",
+        "gallery": [
+          "assets/products/kart-kabi-146-lutfen-duzenle-karisik-gumus-g1.jpg"
+        ]
+      },
       "cinsiyet": "ERKEK",
       "cuzdan_tipi": "WALLET_BIFOLD",
       "kart_yuvasi_sayisi": 8,
@@ -10847,15 +8340,9 @@ window.__BOTL_DATA__ = {
       "madeni_para_bolmesi": false,
       "id_pencere_var_mi": true,
       "fermuar_var_mi": false,
-      "fermuar_konumu": null,
       "RFID_korumali": false,
       "kapama_tipi": "snap_button",
-      "gorseller": {
-        "cover": "",
-        "gallery": [
-          "assets/products/kart-kabi-146-lutfen-duzenle-karisik-gumus-g1.jpg"
-        ]
-      }
+      "ic_astar_malzeme": "Deri"
     }
   ],
   "customers": [
@@ -10920,10 +8407,6 @@ window.__BOTL_DATA__ = {
     "AKSESUAR": {
       "label": "Aksesuar",
       "alt": {
-        "KARTLIK": "Kartlık",
-        "ANAHTARLIKLI_CUZDAN": "Anahtarlıklı Cüzdan",
-        "MEKANIZMALI_DIKEY_CUZDAN": "Mekanizmalı Dikey Cüzdan",
-        "MEKANIZMALI_YATAY_CUZDAN": "Mekanizmalı Yatay Cüzdan",
         "BELT": "Kemer",
         "KEYCHAIN": "Anahtarlık",
         "HAIR": "Saç Aksesuar"
