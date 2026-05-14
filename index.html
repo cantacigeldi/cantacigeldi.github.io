@@ -2,6 +2,10 @@
 <html lang="tr">
 <head>
 <meta charset="UTF-8">
+<!-- İçerik Güvenlik Politikası (FAZ D / K-A5) — GitHub Pages statik host HTTP header
+     ekleyemiyor; meta-CSP Worker securityHeaders.ts ile aynı policy. frame-ancestors
+     meta-CSP'de geçersiz olduğu için çıkarıldı (yalnız HTTP header'da etkin). -->
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data: https:; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline'; connect-src 'self' https:; font-src 'self' data:; object-src 'none'; base-uri 'self'; form-action 'self'">
   <meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex">
   <meta name="googlebot" content="noindex, nofollow">
 
@@ -3791,19 +3795,11 @@ if(typeof window !== 'undefined'){
 }
 
 // ─── Auth + Session (Faz 1 — client-side, localStorage) ───────────
+// NOT (FAZ D / D1): client-side hashPassword + AUTH_SALT ölü koddu (0 çağrı) —
+// kaldırıldı. Parola hash'leme tamamen backend'de (Worker /api/customer/login,
+// Argon2id). İstemci düz parolayı HTTPS üzerinden gönderir, asla hash'lemez.
 const SESSION_KEY = 'botl_session';
 const ORDERS_KEY = 'botl_pending_orders';
-// SABIT (2026-05): backend (botl_mcp/tools/customers.py _AUTH_SALT) +
-// admin gate (admin/index.html AUTH_SALT_ADMIN) ile aynı. Tüm müşteri
-// hash'leri 'botl_v1_' salt ile üretiliyor — değiştirme.
-const AUTH_SALT = 'botl_v1_';
-
-async function hashPassword(plain){
-  const buf = new TextEncoder().encode(AUTH_SALT + plain);
-  const hashBuf = await crypto.subtle.digest('SHA-256', buf);
-  return Array.from(new Uint8Array(hashBuf))
-    .map(b => b.toString(16).padStart(2,'0')).join('');
-}
 
 function getSession(){
   try {
