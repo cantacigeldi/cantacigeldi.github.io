@@ -1,6 +1,4 @@
 {
-  "api_base": "https://custody-reflect-inf-reproductive.trycloudflare.com",
-  "generated_at": "2026-05-14T09:52Z",
-  "tunnel_type": "cloudflare-quick",
-  "note": "Cloudflare quick tunnel — ephemeral. Mac/process restart sonrası bu dosya yeni URL ile güncellenmeli + mirror push."
+  "api_base": "https://botl-api.cantacigeldi.workers.dev",
+  "environment": "production"
 }

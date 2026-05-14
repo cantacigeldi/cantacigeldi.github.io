@@ -1,6 +1,4 @@
 {
-  "api_base": "https://florence-measured-films-comply.trycloudflare.com",
-  "generated_at": "2026-05-13T15:00Z",
-  "tunnel_type": "cloudflare-quick",
-  "note": "Cloudflare quick tunnel — ephemeral. Mac/process restart sonrası bu dosya yeni URL ile güncellenmeli + mirror push."
+  "api_base": "https://botl-api.cantacigeldi.workers.dev",
+  "environment": "production"
 }
