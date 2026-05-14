@@ -2441,7 +2441,7 @@ tr.row--re-onay td:first-child{box-shadow:inset 3px 0 0 #C77A17}
             <div class="field">
               <label class="field__label">Parola</label>
               <input class="field__input" name="sifre_plain" type="text" placeholder="en az 6 karakter" autocomplete="new-password">
-              <span class="field__hint">Yeni parola gir (cleartext görünür). Argon2id ile hash'lenip kaydedilir — mevcut parola tek yönlü hash, gösterilemez. Boş bırakırsan parola değişmez, sadece kullanıcı adı güncellenir.</span>
+              <span class="field__hint">Yeni parola gir (cleartext görünür). PBKDF2 ile hash'lenip kaydedilir — mevcut parola tek yönlü hash, gösterilemez. Boş bırakırsan parola değişmez, sadece kullanıcı adı güncellenir.</span>
             </div>
           </div>
           <div class="field"><span class="field__hint" id="customer-auth-status">Mevcut: —</span></div>
@@ -3341,7 +3341,7 @@ async function loadCustomers(){
   }, 0);
 }
 function saveCustomersStore(){
-  // Sadece cache — actual persistence saveCustomer() içinde api.createCustomer/patchCustomer ile
+  // Sadece cache — actual persistence saveCustomer() içinde BotlAPI.createCustomer/patchCustomer ile
   try { localStorage.setItem(CUSTOMERS_KEY, JSON.stringify({customers:state.customers,counter:state.customerCounter,cachedAt:new Date().toISOString()})); } catch(e){ /* swallow — cache only */ }
 }
 function makeCustomerId(){ state.customerCounter++; return `CST-${String(state.customerCounter).padStart(5,'0')}`; }
@@ -5802,7 +5802,7 @@ function openCustomerModal(id){
       if(form.elements[k]) form.elements[k].value = c[k] ?? '';
     });
     // Kullanıcı adı mevcut değerle dolar (düzenlenebilir); parola alanı boş —
-    // depodaki parola tek yönlü Argon2id hash, cleartext gösterilemez.
+    // depodaki parola tek yönlü PBKDF2 hash, cleartext gösterilemez.
     if(form.elements.kullanici_adi) form.elements.kullanici_adi.value = c.kullanici_adi || c._draft_kullanici_adi || '';
     if(form.elements.sifre_plain) form.elements.sifre_plain.value = '';
     if(authStatus){
@@ -5991,10 +5991,10 @@ async function saveCustomer(){
     // ── Backend push (PATCH profil + opsiyonel credentials POST) ──
     let backendErr = null;
     try {
-      if(api && api.patchCustomer){
-        await api.patchCustomer(c.customer_id, data);
+      if(window.BotlAPI && BotlAPI.patchCustomer){
+        await BotlAPI.patchCustomer(c.customer_id, data);
         if(usernameRaw && passwordRaw){
-          await api.setCustomerCreds(c.customer_id, usernameRaw, passwordRaw);
+          await BotlAPI.setCustomerCreds(c.customer_id, usernameRaw, passwordRaw);
         }
       }
     } catch(e){ backendErr = e; console.error('backend patch customer', e); }
@@ -6011,13 +6011,13 @@ async function saveCustomer(){
     let backendCustomer = null;
     let backendErr = null;
     try {
-      if(api && api.createCustomer){
+      if(window.BotlAPI && BotlAPI.createCustomer){
         const createPayload = { ...data };
         if(usernameRaw && passwordRaw){
           createPayload.kullanici_adi = usernameRaw;
           createPayload.sifre_plain = passwordRaw;
         }
-        const resp = await api.createCustomer(createPayload);
+        const resp = await BotlAPI.createCustomer(createPayload);
         backendCustomer = resp && resp.customer ? resp.customer : null;
       }
     } catch(e){ backendErr = e; console.error('backend create customer', e); }
