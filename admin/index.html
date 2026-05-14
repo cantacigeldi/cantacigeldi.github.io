@@ -3163,8 +3163,8 @@ function updateDataSourceBanner(){
       : 'data.json\'u GitHub\'a commit\'le, canlıya yansıt';
   }
 
-  if(dataJsonCache.source === 'inline' || dataJsonCache.source === 'data.json'){
-    const sourceLabel = dataJsonCache.source === 'inline' ? 'inline (data-inline.js)' : 'data.json';
+  if(dataJsonCache.source === 'data.json'){
+    const sourceLabel = 'Worker API';
     if(drafts.total > 0){
       banner.classList.add('source-banner--draft');
       text.innerHTML = `<strong>${drafts.total} taslak değişiklik</strong> bekliyor ` +
@@ -3180,7 +3180,7 @@ function updateDataSourceBanner(){
   } else {
     banner.classList.add('source-banner--error');
     text.innerHTML = 'Veri yüklenemedi — embedded fallback ile çalışıyor';
-    hint.innerHTML = 'Lokal için: <code>./scripts/dev.sh</code> çalıştır veya MCP&rsquo;de <code>catalog_sync_data</code> ile <code>data-inline.js</code> üret';
+    hint.innerHTML = 'Katalog Worker API&rsquo;sinden (<code>/api/catalog</code>) gelir — internet bağlantısını ve oturumu kontrol edip sayfayı yenile.';
   }
 }
 
