@@ -1243,26 +1243,36 @@ a{color:inherit;text-decoration:none}
 .var-card__actions button:hover{background:var(--bg)}
 .var-card__actions button.btn--danger{color:var(--danger);border-color:var(--danger)}
 .var-section-title{padding:16px 24px 8px;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--text-faint);font-weight:600}
-/* ─── Bulk Bar ───────────────────────────────────────── */
-.bulk-bar{display:flex;flex-direction:column;align-items:center;gap:6px;padding:10px 20px 12px;background:var(--accent);color:#fff;border-radius:10px;font-size:13px;position:fixed;bottom:16px;left:50%;transform:translateX(-50%);z-index:900;box-shadow:0 4px 20px rgba(0,0,0,.5);width:auto;max-width:calc(100% - 32px);box-sizing:border-box}
-.bulk-bar .bulk-bar-actions{display:flex;gap:8px;width:100%}
-.bulk-bar .bulk-bar-actions .btn{flex:1;white-space:nowrap;text-align:center}
-.bulk-bar .btn{background:rgba(255,255,255,.14);color:#fff;border-color:rgba(255,255,255,.45);font-size:12px;padding:6px 14px}
-.bulk-bar .btn:hover{background:rgba(255,255,255,.24);border-color:rgba(255,255,255,.6)}
-.bulk-bar .btn--primary{background:#fff;color:var(--accent);border-color:#fff;font-weight:600}
-.bulk-bar .btn--primary:hover{opacity:.92;background:#fff}
-/* ─── Bulk Price Modal ───────────────────────────────── */
-.bulk-modal{position:fixed;inset:0;z-index:1000;background:rgba(0,0,0,.55);display:none;align-items:center;justify-content:center;padding:20px}
-.bulk-modal.open{display:flex}
-.bulk-modal__panel{background:var(--bg);border:1px solid var(--border);border-radius:10px;padding:28px;width:100%;max-width:420px}
-.bulk-modal__title{font-family:var(--serif);font-size:18px;margin-bottom:16px;letter-spacing:.08em}
-.bulk-modal label{display:block;font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--text-faint);margin-bottom:4px;margin-top:14px}
-.bulk-modal select,.bulk-modal input{width:100%;padding:8px 10px;background:var(--bg-alt);border:1px solid var(--border-strong);color:var(--text);border-radius:5px;font-size:14px}
-.bulk-modal__preview{margin-top:16px;padding:12px;background:var(--bg-alt);border-radius:6px;font-size:12px;line-height:1.7;max-height:200px;overflow-y:auto}
-.bulk-modal__row{display:flex;gap:8px;margin-top:20px;justify-content:flex-end}
-.col-check{width:36px;text-align:center}
 .master-row{cursor:pointer}
 .master-row:hover{background:var(--bg-alt)}
+/* ─── Toplu Fiyat Sayfası (adanmış .view) ────────────── */
+.bp-page{max-width:880px;margin:0 auto;padding:8px 0 40px}
+.bp-page__lead{font-size:13px;color:var(--text-muted);line-height:1.6;margin:0 0 20px;padding:12px 16px;background:var(--bg-alt);border:1px solid var(--border);border-radius:8px}
+.bp-card{background:var(--bg-alt);border:1px solid var(--border);border-radius:10px;padding:22px 24px;margin-bottom:18px}
+.bp-card__title{font-family:var(--serif);font-size:15px;letter-spacing:.08em;margin:0 0 16px;color:var(--text);text-transform:uppercase}
+.bp-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:14px 18px}
+.bp-field{display:flex;flex-direction:column;gap:5px}
+.bp-field label{font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--text-faint)}
+.bp-field select,.bp-field input{width:100%;padding:8px 10px;background:var(--bg);border:1px solid var(--border-strong);color:var(--text);border-radius:5px;font-size:14px;box-sizing:border-box}
+.bp-field--range{display:flex;gap:6px;align-items:center}
+.bp-field--range input{flex:1;min-width:0}
+.bp-field--range span{color:var(--text-faint);font-size:12px}
+.bp-actions-row{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-top:4px}
+.bp-actions-row .btn{white-space:nowrap}
+.bp-summary{font-size:13px;color:var(--text);font-weight:600}
+.bp-summary em{color:var(--text-faint);font-weight:400;font-style:normal}
+.bp-preview{margin-top:8px;border:1px solid var(--border);border-radius:8px;background:var(--bg);max-height:340px;overflow-y:auto}
+.bp-preview__empty{padding:24px;text-align:center;color:var(--text-faint);font-size:13px}
+.bp-preview table{width:100%;border-collapse:collapse;font-size:13px}
+.bp-preview th{position:sticky;top:0;background:var(--bg-alt);text-align:left;padding:8px 12px;font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--text-faint);border-bottom:1px solid var(--border)}
+.bp-preview td{padding:7px 12px;border-bottom:1px solid var(--border)}
+.bp-preview tr:last-child td{border-bottom:none}
+.bp-preview .bp-old{color:var(--text-faint)}
+.bp-preview .bp-new{color:var(--accent);font-weight:600}
+.bp-preview .bp-arrow{color:var(--text-faint);padding:0 4px}
+.bp-preview .bp-nochange td{color:var(--text-faint)}
+.bp-warn{margin-top:10px;font-size:12px;color:var(--danger);display:none}
+.bp-warn.show{display:block}
 /* ─── Cinsiyet Pill ──────────────────────────────────── */
 .cinsiyet-pill{display:inline-block;font-size:9px;letter-spacing:.06em;text-transform:uppercase;padding:1px 6px;border-radius:8px;margin-left:4px;border:1px solid var(--border);background:var(--bg-alt);color:var(--text-muted)}
 .cinsiyet-pill--kadin{color:#a8478a;border-color:rgba(168,71,138,.3);background:rgba(168,71,138,.08)}
@@ -1770,6 +1780,7 @@ tr.row--re-onay td:first-child{box-shadow:inset 3px 0 0 #C77A17}
   <button class="view-nav__tab" data-view="suppliers" role="tab">Tedarikçiler <span class="view-nav__count" id="nav-count-suppliers">0</span></button>
   <button class="view-nav__tab" data-view="purchases" role="tab">Alımlar <span class="view-nav__count" id="nav-count-purchases">0</span></button>
   <button class="view-nav__tab" data-view="returns" role="tab">İadeler <span class="view-nav__count" id="nav-count-returns">0</span></button>
+  <button class="view-nav__tab" data-view="toplu-fiyat" role="tab">Toplu Fiyat</button>
   <button class="view-nav__tab" data-view="activity" role="tab">İşlem Geçmişi <span class="view-nav__count" id="nav-count-activity">0</span></button>
 </nav>
 
@@ -1800,7 +1811,6 @@ tr.row--re-onay td:first-child{box-shadow:inset 3px 0 0 #C77A17}
   <table class="table" id="table">
     <thead>
       <tr>
-        <th data-nosort class="col-check"><input type="checkbox" id="check-all" title="Tümünü seç"></th>
         <th data-nosort>Görsel</th>
         <th data-sort="marka">Marka</th>
         <th data-sort="isim_bilinen">Model</th>
@@ -2322,6 +2332,100 @@ tr.row--re-onay td:first-child{box-shadow:inset 3px 0 0 #C77A17}
   </div>
 </div>
 
+<!-- ── TOPLU FİYAT VIEW (adanmış sayfa — filtrele, kategorize, toplu fiyat uygula) ── -->
+<div class="view view--toplu-fiyat" id="view-toplu-fiyat" hidden>
+  <div class="bp-page">
+    <p class="bp-page__lead">
+      Önce ürünleri <strong>filtreleyip</strong> hangi kümeye fiyat uygulayacağını belirle, sonra
+      <strong>önizleme</strong> tablosunda eski → yeni fiyatları gör, doğruysa <strong>Uygula</strong>.
+      Filtre boşsa <em>tüm aktif ürünler</em> etkilenir — önizleme her zaman tam listeyi gösterir, gizli toplu yazma yoktur.
+    </p>
+
+    <div class="bp-card">
+      <div class="bp-card__title">1 · Ürünleri Filtrele</div>
+      <div class="bp-grid">
+        <div class="bp-field">
+          <label for="bp-marka">Marka</label>
+          <select id="bp-marka"><option value="all">Tümü</option></select>
+        </div>
+        <div class="bp-field">
+          <label for="bp-model">Model</label>
+          <select id="bp-model"><option value="all">Tümü</option></select>
+        </div>
+        <div class="bp-field">
+          <label for="bp-kat-ust">Üst Kategori</label>
+          <select id="bp-kat-ust"><option value="all">Tümü</option></select>
+        </div>
+        <div class="bp-field">
+          <label for="bp-kat">Alt Kategori</label>
+          <select id="bp-kat"><option value="all">Tümü</option></select>
+        </div>
+        <div class="bp-field">
+          <label for="bp-cins">Cinsiyet</label>
+          <select id="bp-cins">
+            <option value="all">Tümü</option>
+            <option value="KADIN">Kadın</option>
+            <option value="ERKEK">Erkek</option>
+            <option value="UNISEX">Unisex</option>
+          </select>
+        </div>
+        <div class="bp-field">
+          <label for="bp-sezon">Sezon</label>
+          <select id="bp-sezon"><option value="all">Tümü</option></select>
+        </div>
+        <div class="bp-field">
+          <label for="bp-stok">Stok Durumu</label>
+          <select id="bp-stok">
+            <option value="all">Tümü</option>
+            <option value="stocked">Stoklu (≥1)</option>
+            <option value="out">Tükendi (0)</option>
+          </select>
+        </div>
+        <div class="bp-field">
+          <label>Fiyat Aralığı (EUR)</label>
+          <div class="bp-field--range">
+            <input id="bp-fiyat-min" type="number" step="1" min="0" placeholder="min">
+            <span>–</span>
+            <input id="bp-fiyat-max" type="number" step="1" min="0" placeholder="max">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="bp-card">
+      <div class="bp-card__title">2 · Fiyat Değişikliği</div>
+      <div class="bp-grid">
+        <div class="bp-field">
+          <label for="bp-mode">Mod</label>
+          <select id="bp-mode">
+            <option value="set">Sabit Fiyat Ata</option>
+            <option value="percent">Yüzde Değiştir (+/−)</option>
+            <option value="add">Tutar Ekle/Çıkar (+/−)</option>
+          </select>
+        </div>
+        <div class="bp-field">
+          <label for="bp-value">Değer</label>
+          <input id="bp-value" type="number" step="0.01" placeholder="ör. 1500 ya da -10">
+        </div>
+      </div>
+      <div class="bp-warn" id="bp-warn">Geçerli bir değer gir.</div>
+    </div>
+
+    <div class="bp-card">
+      <div class="bp-card__title">3 · Önizleme &amp; Uygula</div>
+      <div class="bp-actions-row">
+        <span class="bp-summary" id="bp-summary"><em>Filtre seç — önizleme burada görünecek.</em></span>
+        <div style="flex:1"></div>
+        <button class="btn" id="bp-reset" type="button">Filtreleri Sıfırla</button>
+        <button class="btn btn--primary" id="bp-apply" type="button">Uygula</button>
+      </div>
+      <div class="bp-preview" id="bp-preview">
+        <div class="bp-preview__empty">Filtre seçildiğinde etkilenecek ürünler burada listelenecek.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
 <!-- ── ACTIVITY VIEW ───────────────────────────────── -->
 <div class="view view--activity" id="view-activity" hidden>
   <div class="toolbar">
@@ -2724,6 +2828,8 @@ tr.row--re-onay td:first-child{box-shadow:inset 3px 0 0 #C77A17}
       .botl-imodal__btn:hover{background:var(--bg-alt,#f5f5f5)}
       .botl-imodal__btn--primary{background:var(--accent,#222);color:var(--on-accent,#fff);border-color:var(--accent,#222)}
       .botl-imodal__btn--primary:hover{opacity:.9}
+      .botl-imodal__btn--danger{background:var(--danger,#c0392b);border-color:var(--danger,#c0392b);color:#fff}
+      .botl-imodal__btn--danger:hover{opacity:.9}
     `;
     document.head.appendChild(s);
   }
@@ -2797,6 +2903,77 @@ tr.row--re-onay td:first-child{box-shadow:inset 3px 0 0 #C77A17}
       }
       document.addEventListener('keydown', onKey, true);
     });
+  };
+})();
+
+// ─── Inline Confirm / Alert Modal ───────────────────
+// native confirm()/alert() yasak — ekran-içi modal. showInputModal ile aynı
+// botl-imodal altyapısı. showConfirmModal → Promise<boolean>, showAlertModal → Promise<void>.
+(function(){
+  if(window.showConfirmModal && window.showAlertModal) return;
+  const esc = (v) => String(v ?? '').replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+  function buildModal(opts){
+    const { title='', message='', confirmLabel='Tamam', cancelLabel=null, danger=false } = opts || {};
+    return new Promise(resolve => {
+      const overlay = document.createElement('div');
+      overlay.className = 'botl-imodal';
+      const msgHTML = String(message || '').split('\n').map(l => `<p class="botl-imodal__desc">${esc(l)}</p>`).join('');
+      const cancelBtn = cancelLabel != null
+        ? `<button type="button" class="botl-imodal__btn" data-imodal-action="cancel">${esc(cancelLabel)}</button>` : '';
+      overlay.innerHTML = `
+        <div class="botl-imodal__panel" role="alertdialog" aria-modal="true" aria-label="${esc(title)}">
+          <div class="botl-imodal__head">
+            <h2 class="botl-imodal__title">${esc(title)}</h2>
+            <button type="button" class="botl-imodal__close" data-imodal-action="cancel" aria-label="Kapat">×</button>
+          </div>
+          <div class="botl-imodal__body">${msgHTML}</div>
+          <div class="botl-imodal__foot">
+            ${cancelBtn}
+            <button type="button" class="botl-imodal__btn botl-imodal__btn--primary${danger ? ' botl-imodal__btn--danger' : ''}" data-imodal-action="confirm">${esc(confirmLabel)}</button>
+          </div>
+        </div>`;
+      document.body.appendChild(overlay);
+      const confirmBtn = overlay.querySelector('[data-imodal-action="confirm"]');
+      setTimeout(() => { if(confirmBtn) confirmBtn.focus(); }, 30);
+      function cleanup(result){
+        document.removeEventListener('keydown', onKey, true);
+        overlay.remove();
+        resolve(result);
+      }
+      overlay.addEventListener('click', e => {
+        if(e.target === overlay){ cleanup(false); return; }
+        const action = e.target.closest('[data-imodal-action]')?.dataset?.imodalAction;
+        if(action === 'cancel') cleanup(false);
+        else if(action === 'confirm') cleanup(true);
+      });
+      function onKey(e){
+        if(e.key === 'Escape'){ e.stopPropagation(); cleanup(false); }
+        else if(e.key === 'Enter'){ e.preventDefault(); e.stopPropagation(); cleanup(true); }
+      }
+      document.addEventListener('keydown', onKey, true);
+    });
+  }
+  // showConfirmModal({title,message,confirmLabel,cancelLabel,danger}) → Promise<boolean>
+  window.showConfirmModal = function(opts){
+    const o = opts || {};
+    return buildModal({
+      title: o.title || 'Onay',
+      message: o.message || '',
+      confirmLabel: o.confirmLabel || 'Evet',
+      cancelLabel: o.cancelLabel || 'Vazgeç',
+      danger: !!o.danger,
+    });
+  };
+  // showAlertModal({title,message,okLabel}) → Promise<void>
+  window.showAlertModal = function(opts){
+    const o = opts || {};
+    return buildModal({
+      title: o.title || 'Bilgi',
+      message: o.message || '',
+      confirmLabel: o.okLabel || 'Tamam',
+      cancelLabel: null,
+      danger: !!o.danger,
+    }).then(() => {});
   };
 })();
 
@@ -3221,7 +3398,6 @@ let state = {
   orderSort: { key:'olusturma', dir:'desc' },
   customerSort: { key:'olusturma', dir:'desc' },
   supplierSort: { key:'olusturma', dir:'desc' },
-  selectedMasters: new Set(),
   currentMasterSku: null,
   editing: null,
   editingOrder: null,
@@ -4181,7 +4357,7 @@ async function _syncOrderToBackend(order, fields){
 }
 
 // ─── Order actions ─────────────────────────────────
-function approveOrder(orderId){
+async function approveOrder(orderId){
   const o = state.orders.find(x => x.order_id === orderId);
   if(!o || o.durum !== 'BEKLIYOR') return;
   // 3'lü stok modeli: available_stok < qty olunca uyar
@@ -4197,7 +4373,12 @@ function approveOrder(orderId){
     const msg = insufficient
       .map(i => `• ${i.isim_snapshot || i.variation_id}: istenen ${i.qty}, available ${i.available}`)
       .join('\n');
-    if(!confirm(`Stok yetersiz:\n${msg}\n\nYine de onayla? Available eksiye düşmez ama occupied artırmayacağız.`)) return;
+    const ok = await showConfirmModal({
+      title: 'Stok Yetersiz',
+      message: `Stok yetersiz:\n${msg}\n\nYine de onaylansın mı? Available eksiye düşmez ama occupied artırılmayacak.`,
+      confirmLabel: 'Yine de Onayla', cancelLabel: 'Vazgeç', danger: true,
+    });
+    if(!ok) return;
   }
   // occupied_stok += qty (hard reserve). total_stok DOKUNULMAZ.
   o.items.forEach(item => {
@@ -4314,7 +4495,7 @@ async function shipOrder(orderId){
 }
 
 // → TESLIM_EDILDI (terminal — total_stok -= qty + occupied_stok -= qty + fatura/kasa zinciri)
-function completeOrder(orderId){
+async function completeOrder(orderId){
   const o = state.orders.find(x => x.order_id === orderId);
   if(!o) return;
   const next = ORDER_NEXT_STATES[o.durum] || [];
@@ -4327,7 +4508,11 @@ function completeOrder(orderId){
     `Fatura / kasa / customer.toplam_alisveris güncellemesi için MCP komutu kopyalanacak.`,
     `Devam edilsin mi?`,
   ];
-  if(!confirm(lines.join('\n'))) return;
+  const ok = await showConfirmModal({
+    title: 'Siparişi Teslim Et', message: lines.join('\n'),
+    confirmLabel: 'Teslim Et', cancelLabel: 'Vazgeç', danger: true,
+  });
+  if(!ok) return;
   // total_stok -= qty + occupied_stok -= qty
   o.items.forEach(item => {
     const p = state.products.find(x => x.variation_id === item.variation_id);
@@ -4372,12 +4557,17 @@ function completeOrder(orderId){
   toast(`${orderId} teslim edildi · MCP komut zinciri panoya kopyalandı (ASS'e söyleyin)`);
 }
 
-function cancelApprovedOrder(orderId){
+async function cancelApprovedOrder(orderId){
   const o = state.orders.find(x => x.order_id === orderId);
   if(!o) return;
   const cancellableFromAdmin = ['ONAYLANDI','HAZIRLANIYOR','KARGODA'];
   if(!cancellableFromAdmin.includes(o.durum)){ toast(`${o.durum} durumundan iptal edilemez.`, true); return; }
-  if(!confirm(`${o.durum} sipariş iptal edilecek, occupied stok geri yüklenecek. Emin misin?`)) return;
+  const ok = await showConfirmModal({
+    title: 'Siparişi İptal Et',
+    message: `${o.durum} sipariş iptal edilecek, occupied stok geri yüklenecek. Devam edilsin mi?`,
+    confirmLabel: 'İptal Et', cancelLabel: 'Vazgeç', danger: true,
+  });
+  if(!ok) return;
   // occupied_stok -= qty (release). total_stok dokunulmaz.
   o.items.forEach(item => {
     const p = state.products.find(x => x.variation_id === item.variation_id);
@@ -4404,18 +4594,31 @@ function cancelApprovedOrder(orderId){
   toast(`${orderId} iptal edildi, occupied serbest`);
 }
 
-function deleteOrder(orderId){
+async function deleteOrder(orderId){
   const o = state.orders.find(x => x.order_id === orderId);
   if(!o) return;
   const blockedStates = ['ONAYLANDI','HAZIRLANIYOR','KARGODA'];
   if(blockedStates.includes(o.durum)){
-    alert(`${o.durum} durumundaki sipariş silinemez. Önce iptal et (occupied stok serbest bırakılır), sonra sil.`);
+    await showAlertModal({
+      title: 'Sipariş Silinemez',
+      message: `${o.durum} durumundaki sipariş silinemez. Önce iptal et (occupied stok serbest bırakılır), sonra sil.`,
+    });
     return;
   }
   if(o.durum === 'TESLIM_EDILDI'){
-    if(!confirm(`${orderId} TESLİM EDİLDİ. Silmek audit'i etkilemez (workflow/audit/ kalıcı). Yine de UI'dan kaldıralım mı?`)) return;
+    const ok = await showConfirmModal({
+      title: 'Teslim Edilmiş Siparişi Kaldır',
+      message: `${orderId} TESLİM EDİLDİ. Silmek audit'i etkilemez (workflow/audit/ kalıcı). Yine de UI'dan kaldırılsın mı?`,
+      confirmLabel: 'Kaldır', cancelLabel: 'Vazgeç', danger: true,
+    });
+    if(!ok) return;
   } else {
-    if(!confirm(`${orderId} kalıcı silinecek (durum: ${o.durum}). Emin misin?`)) return;
+    const ok = await showConfirmModal({
+      title: 'Siparişi Sil',
+      message: `${orderId} kalıcı silinecek (durum: ${o.durum}). Devam edilsin mi?`,
+      confirmLabel: 'Sil', cancelLabel: 'Vazgeç', danger: true,
+    });
+    if(!ok) return;
   }
   state.orders = state.orders.filter(x => x.order_id !== orderId);
   // Backend'den de sil
@@ -4593,10 +4796,8 @@ function masterRowHTML(m){
     const label = v.ana_renk || v.renk || '?';
     return `<span title="${label}" style="display:inline-block;width:12px;height:12px;border-radius:50%;background:${hex};border:1px solid var(--border-strong);cursor:default"></span>`;
   }).join('');
-  const isChecked = state.selectedMasters?.has(m.sku) ? 'checked' : '';
   return `
     <tr data-sku="${m.sku}" class="master-row">
-      <td class="col-check"><input type="checkbox" class="master-check" value="${m.sku}" ${isChecked}></td>
       <td class="col-thumb">${imgCell}</td>
       <td class="col-brand"><span class="table__brand">${m.marka}</span></td>
       <td class="col-name">
@@ -4630,61 +4831,17 @@ function renderTable(){
     th.classList.remove('sort-asc','sort-desc');
     if(th.dataset.sort===state.sort.key) th.classList.add('sort-'+state.sort.dir);
   });
-  updateBulkBar();
 }
 
 function bindMasterRowEvents(){
-  if(!state.selectedMasters) state.selectedMasters = new Set();
-  const checkAll = $('#check-all');
-  if(checkAll){
-    checkAll.addEventListener('change', () => {
-      const masters = filteredMasters();
-      if(checkAll.checked) masters.forEach(m => state.selectedMasters.add(m.sku));
-      else state.selectedMasters.clear();
-      renderTable();
-    });
-  }
   $$('#tbody tr.master-row').forEach(tr=>{
     const sku = tr.dataset.sku;
-    const check = tr.querySelector('.master-check');
-    if(check){
-      check.addEventListener('change', () => {
-        if(check.checked) state.selectedMasters.add(sku);
-        else state.selectedMasters.delete(sku);
-        updateBulkBar();
-      });
-    }
     tr.querySelector('[data-action="detail"]')?.addEventListener('click',()=>openMasterDetail(sku));
     tr.addEventListener('click', (e) => {
       if(e.target.closest('input,button,.row-action')) return;
       openMasterDetail(sku);
     });
   });
-}
-
-function updateBulkBar(){
-  if(!state.selectedMasters) state.selectedMasters = new Set();
-  let bar = $('#bulk-bar');
-  if(state.selectedMasters.size === 0){
-    if(bar) bar.hidden = true;
-    return;
-  }
-  if(!bar){
-    bar = document.createElement('div');
-    bar.id = 'bulk-bar';
-    bar.className = 'bulk-bar';
-    document.querySelector('.view--products')?.prepend(bar);
-  }
-  bar.hidden = false;
-  bar.innerHTML = `
-    <span><strong>${state.selectedMasters.size}</strong> ürün seçili</span>
-    <div class="bulk-bar-actions">
-      <button class="btn btn--primary" id="bulk-price-btn">Toplu Fiyat Değiştir</button>
-      <button class="btn" id="bulk-clear-btn">Seçimi Temizle</button>
-    </div>
-  `;
-  $('#bulk-price-btn').addEventListener('click', openBulkPriceModal);
-  $('#bulk-clear-btn').addEventListener('click', () => { state.selectedMasters.clear(); renderTable(); });
 }
 
 // ─── Modal: Add/Edit ────────────────────────────────
@@ -4918,10 +5075,15 @@ async function saveModal(){
   renderAll();
 }
 
-function deleteProduct(id){
+async function deleteProduct(id){
   const p = state.products.find(x=>x.variation_id===id);
   if(!p) return;
-  if(!confirm(`"${p.isim_bilinen||p.isim_resmi}" silinsin mi?\n\nKalıcı olarak kataloğdan çıkar. Geri almak için 'İçe Aktar' kullanmalısın.`)) return;
+  const ok = await showConfirmModal({
+    title: 'Ürünü Sil',
+    message: `"${p.isim_bilinen||p.isim_resmi}" silinsin mi?\n\nKalıcı olarak kataloğdan çıkar. Geri almak için 'İçe Aktar' kullanmalısın.`,
+    confirmLabel: 'Sil', cancelLabel: 'Vazgeç', danger: true,
+  });
+  if(!ok) return;
   state.products = state.products.filter(x=>x.variation_id!==id);
   save();
   logActivity('PRODUCT_DELETE', 'product', id, `${p.marka} ${p.isim_bilinen||p.isim_resmi||''} silindi`, { silinen: {...p, cover: p.cover?'(image)':null} });
@@ -5025,109 +5187,176 @@ function closeMasterDetail(){
   state.currentMasterSku = null;
 }
 
-// ─── Bulk Price Modal ──────────────────────────────
-function openBulkPriceModal(){
-  if(!state.selectedMasters?.size) return;
-  let modal = $('#bulk-modal');
-  if(!modal){
-    modal = document.createElement('div');
-    modal.id = 'bulk-modal';
-    modal.className = 'bulk-modal';
-    document.body.appendChild(modal);
-  }
-  const allMasters = groupByMaster(state.products);
-  const allBrands = [...new Set(allMasters.map(m=>m.marka))].sort();
-  const allModels = [...new Set(allMasters.map(m=>(m.isim_bilinen||m.isim_resmi||'').split(',')[0].trim()))].filter(Boolean).sort();
-  const allCats = [...new Set(state.products.map(p=>p.kategori_alt||p.kategori).filter(Boolean))].sort();
-  modal.classList.add('open');
-  modal.innerHTML = `
-    <div class="bulk-modal__panel">
-      <div class="bulk-modal__title">Toplu Fiyat Değiştir</div>
-      <label>Marka</label>
-      <select id="bp-marka"><option value="all">Tümü</option>${allBrands.map(b=>`<option value="${b}">${b}</option>`).join('')}</select>
-      <label>Model</label>
-      <select id="bp-model"><option value="all">Tümü</option>${allModels.map(m=>`<option value="${m}">${m}</option>`).join('')}</select>
-      <label>Kategori</label>
-      <select id="bp-kat"><option value="all">Tümü</option>${allCats.map(c=>`<option value="${c}">${c}</option>`).join('')}</select>
-      <label>Cinsiyet</label>
-      <select id="bp-cins"><option value="all">Tümü</option><option value="KADIN">Kadın</option><option value="ERKEK">Erkek</option><option value="UNISEX">Unisex</option></select>
-      <label for="bp-mode">Mod</label>
-      <select id="bp-mode">
-        <option value="set">Sabit Fiyat Ata</option>
-        <option value="percent">Yüzde Değiştir</option>
-        <option value="add">Tutar Ekle/Çıkar</option>
-      </select>
-      <label for="bp-value">Değer (EUR)</label>
-      <input id="bp-value" type="number" step="0.01" placeholder="ör. 1500 veya -10">
-      <div class="bulk-modal__preview" id="bp-preview"></div>
-      <div class="bulk-modal__row">
-        <button class="btn" id="bp-cancel">İptal</button>
-        <button class="btn btn--primary" id="bp-apply">Uygula</button>
-      </div>
-    </div>
-  `;
-  function getTargetVars(){
-    const marka = $('#bp-marka').value;
-    const model = $('#bp-model').value;
-    const kat = $('#bp-kat').value;
-    const cins = $('#bp-cins').value;
-    return state.products.filter(p => {
-      if(marka !== 'all' && p.marka !== marka) return false;
-      if(model !== 'all' && (p.isim_bilinen||p.isim_resmi||'').split(',')[0].trim() !== model) return false;
-      if(kat !== 'all' && (p.kategori_alt||p.kategori) !== kat) return false;
-      if(cins !== 'all' && (p.cinsiyet||'') !== cins) return false;
-      return true;
-    });
-  }
-  function updatePreview(){
-    const mode = $('#bp-mode').value;
-    const val = Number($('#bp-value').value) || 0;
-    const targets = getTargetVars();
-    const preview = $('#bp-preview');
-    let lines = [];
-    for(const v of targets){
-      const old = Number(v.fiyat_eur)||0;
-      let nw;
-      if(mode==='set') nw = val;
-      else if(mode==='percent') nw = Math.round(old * (1 + val/100));
-      else nw = old + val;
-      nw = Math.max(0, nw);
-      if(nw !== old){ const name = (v.isim_bilinen||v.isim_resmi||'').split(',')[0].trim(); const label = name.toLowerCase().startsWith(v.marka.toLowerCase()) ? name : v.marka+' '+name; lines.push(`${label} ${v.ana_renk||v.renk}: ${fmt(old)} → ${fmt(nw)}`); }
-    }
-    const masters = groupByMaster(targets);
-    const header = `<strong>${masters.length} ürün, ${targets.length} varyasyon</strong><br>`;
-    preview.innerHTML = header + (lines.length ? lines.join('<br>') : '<em>Değişiklik yok</em>');
-  }
-  ['bp-marka','bp-model','bp-kat','bp-cins','bp-mode'].forEach(id => $('#'+id).addEventListener('change', updatePreview));
-  $('#bp-value').addEventListener('input', updatePreview);
-  updatePreview();
-  $('#bp-cancel').addEventListener('click', () => { modal.classList.remove('open'); });
-  $('#bp-apply').addEventListener('click', () => {
-    const mode = $('#bp-mode').value;
-    const val = Number($('#bp-value').value) || 0;
-    const targets = getTargetVars();
-    let changed = 0;
-    for(const v of targets){
-      const p = state.products.find(x=>x.variation_id===v.variation_id);
-      if(!p) continue;
-      const old = Number(p.fiyat_eur)||0;
-      let nw;
-      if(mode==='set') nw = val;
-      else if(mode==='percent') nw = Math.round(old * (1 + val/100));
-      else nw = old + val;
-      nw = Math.max(0, nw);
-      if(nw !== old){
-        p.fiyat_eur = nw;
-        logActivity('PRODUCT_FIELD_UPDATE','product',p.variation_id,`fiyat_eur: ${old} → ${nw} (toplu)`,{field:'fiyat_eur',eski:old,yeni:nw});
-        changed++;
-      }
-    }
-    save();
-    modal.classList.remove('open');
-    state.selectedMasters.clear();
-    renderAll();
-    toast(`${changed} varyasyonda fiyat güncellendi`);
+// ─── Toplu Fiyat Sayfası ───────────────────────────
+// Adanmış .view: filtrele (marka/model/kategori/cinsiyet/sezon/stok/fiyat aralığı)
+// → önizleme tablosu → uygula. Eski kopuk checkbox-seçim sistemi kaldırıldı (FAZ C / C1).
+// Kullanıcı NEYİ seçtiğini önizlemede AÇIKÇA görür; filtre boşsa tüm aktif ürünler listelenir.
+const _bpEsc = (v) => String(v ?? '').replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+let _bpBound = false;
+function bpFilteredVars(){
+  const marka  = $('#bp-marka')?.value || 'all';
+  const model  = $('#bp-model')?.value || 'all';
+  const katUst = $('#bp-kat-ust')?.value || 'all';
+  const katAlt = $('#bp-kat')?.value || 'all';
+  const cins   = $('#bp-cins')?.value || 'all';
+  const sezon  = $('#bp-sezon')?.value || 'all';
+  const stok   = $('#bp-stok')?.value || 'all';
+  const fMinRaw = $('#bp-fiyat-min')?.value;
+  const fMaxRaw = $('#bp-fiyat-max')?.value;
+  const fMin = fMinRaw === '' || fMinRaw == null ? null : Number(fMinRaw);
+  const fMax = fMaxRaw === '' || fMaxRaw == null ? null : Number(fMaxRaw);
+  return state.products.filter(p => {
+    if(marka  !== 'all' && p.marka !== marka) return false;
+    if(model  !== 'all' && (p.isim_bilinen||p.isim_resmi||'').split(',')[0].trim() !== model) return false;
+    if(katUst !== 'all' && (p.kategori_ust||'') !== katUst) return false;
+    if(katAlt !== 'all' && (p.kategori_alt||p.kategori||'') !== katAlt) return false;
+    if(cins   !== 'all' && (p.cinsiyet||'') !== cins) return false;
+    if(sezon  !== 'all' && (p.sezon||'') !== sezon) return false;
+    if(stok === 'stocked' && _availableOfP(p) < 1) return false;
+    if(stok === 'out'     && _availableOfP(p) >= 1) return false;
+    const fy = Number(p.fiyat_eur)||0;
+    if(fMin != null && !isNaN(fMin) && fy < fMin) return false;
+    if(fMax != null && !isNaN(fMax) && fy > fMax) return false;
+    return true;
   });
+}
+function bpComputeNew(old, mode, val){
+  let nw;
+  if(mode === 'set') nw = val;
+  else if(mode === 'percent') nw = Math.round(old * (1 + val/100));
+  else nw = old + val;
+  return Math.max(0, nw);
+}
+function bpVarLabel(v){
+  const name = (v.isim_bilinen||v.isim_resmi||'').split(',')[0].trim();
+  const label = name.toLowerCase().startsWith((v.marka||'').toLowerCase()) ? name : (v.marka||'')+' '+name;
+  return label.trim();
+}
+function bpUpdatePreview(){
+  const summary = $('#bp-summary');
+  const preview = $('#bp-preview');
+  if(!summary || !preview) return;
+  const mode = $('#bp-mode').value;
+  const valRaw = $('#bp-value').value;
+  const val = Number(valRaw) || 0;
+  const hasVal = valRaw !== '' && valRaw != null && !isNaN(Number(valRaw));
+  const targets = bpFilteredVars();
+  const masters = groupByMaster(targets);
+  const rows = targets.map(v => {
+    const old = Number(v.fiyat_eur)||0;
+    const nw  = hasVal ? bpComputeNew(old, mode, val) : old;
+    return { v, old, nw, changed: hasVal && nw !== old };
+  });
+  const changedCount = rows.filter(r => r.changed).length;
+  summary.innerHTML = `<strong>${masters.length}</strong> ürün · <strong>${targets.length}</strong> varyasyon `
+    + (hasVal ? `· <strong>${changedCount}</strong> varyasyonda fiyat değişecek`
+              : `<em>· değer girilince değişiklik hesaplanır</em>`);
+  if(targets.length === 0){
+    preview.innerHTML = '<div class="bp-preview__empty">Bu filtreyle eşleşen ürün yok.</div>';
+    return;
+  }
+  preview.innerHTML = `
+    <table>
+      <thead><tr><th>Ürün</th><th>Renk</th><th>Marka</th><th>Sezon</th><th>Stok</th><th>Eski €</th><th></th><th>Yeni €</th></tr></thead>
+      <tbody>
+        ${rows.map(r => `
+          <tr class="${r.changed ? '' : 'bp-nochange'}">
+            <td>${_bpEsc(bpVarLabel(r.v))}</td>
+            <td>${_bpEsc(r.v.ana_renk || r.v.renk || '—')}</td>
+            <td>${_bpEsc(r.v.marka || '—')}</td>
+            <td>${_bpEsc(r.v.sezon || '—')}</td>
+            <td>${_availableOfP(r.v)}</td>
+            <td class="bp-old">${fmt(r.old)}</td>
+            <td class="bp-arrow">${r.changed ? '→' : ''}</td>
+            <td class="${r.changed ? 'bp-new' : ''}">${r.changed ? fmt(r.nw) : (hasVal ? '—' : '')}</td>
+          </tr>`).join('')}
+      </tbody>
+    </table>`;
+}
+async function bpApply(){
+  const warn = $('#bp-warn');
+  const mode = $('#bp-mode').value;
+  const valRaw = $('#bp-value').value;
+  if(valRaw === '' || valRaw == null || isNaN(Number(valRaw))){
+    if(warn) warn.classList.add('show');
+    return;
+  }
+  if(warn) warn.classList.remove('show');
+  const val = Number(valRaw);
+  const targets = bpFilteredVars();
+  if(targets.length === 0){ toast('Bu filtreyle eşleşen ürün yok', true); return; }
+  // Önizlemede ne görünüyorsa onu uygula — gizli toplu yazma yok.
+  const changes = [];
+  for(const v of targets){
+    const p = state.products.find(x => x.variation_id === v.variation_id);
+    if(!p) continue;
+    const old = Number(p.fiyat_eur)||0;
+    const nw  = bpComputeNew(old, mode, val);
+    if(nw !== old) changes.push({ p, old, nw });
+  }
+  if(changes.length === 0){ toast('Hesaplanan fiyatlar mevcutla aynı — değişiklik yok'); return; }
+  const ok = await showConfirmModal({
+    title: 'Toplu Fiyatı Uygula',
+    message: `${changes.length} varyasyonun fiyatı güncellenecek. Önizleme tablosundaki değişiklikler kalıcı olarak uygulanacak. Devam edilsin mi?`,
+    confirmLabel: 'Uygula', cancelLabel: 'Vazgeç', danger: true,
+  });
+  if(!ok) return;
+  const apiUp = !!(window.BotlAPI && BotlAPI.patchVariation);
+  let backendOk = 0, backendFail = 0;
+  for(const c of changes){
+    c.p.fiyat_eur = c.nw;
+    logActivity('PRODUCT_FIELD_UPDATE','product',c.p.variation_id,`fiyat_eur: ${c.old} → ${c.nw} (toplu)`,{field:'fiyat_eur',eski:c.old,yeni:c.nw});
+    if(apiUp){
+      try {
+        const r = await BotlAPI.patchVariation(c.p.variation_id, { fiyat_eur: c.nw });
+        if(r && r.ok) backendOk++; else backendFail++;
+      } catch(_) { backendFail++; }
+    }
+  }
+  save();
+  renderAll();
+  bpUpdatePreview();
+  if(!apiUp){
+    toast(`${changes.length} varyasyonda fiyat güncellendi (taslak — Canlıya Gönder ile yayınla)`);
+  } else if(backendFail === 0){
+    toast(`${changes.length} varyasyonda fiyat güncellendi ve canlıya yazıldı`);
+  } else {
+    toast(`${changes.length} varyasyon güncellendi · ${backendOk} canlı, ${backendFail} taslak (backend hatası)`, true);
+  }
+}
+function bpResetFilters(){
+  ['bp-marka','bp-model','bp-kat-ust','bp-kat','bp-cins','bp-sezon','bp-stok'].forEach(id => { const el = $('#'+id); if(el) el.value = 'all'; });
+  ['bp-fiyat-min','bp-fiyat-max','bp-value'].forEach(id => { const el = $('#'+id); if(el) el.value = ''; });
+  const warn = $('#bp-warn'); if(warn) warn.classList.remove('show');
+  bpUpdatePreview();
+}
+function renderTopluFiyat(){
+  // Filtre dropdown'larını canlı veriden doldur (her açılışta — veri değişebilir).
+  const allMasters = groupByMaster(state.products);
+  const fill = (id, values, keep) => {
+    const el = $('#'+id);
+    if(!el) return;
+    const cur = keep ? el.value : 'all';
+    el.innerHTML = '<option value="all">Tümü</option>' + values.map(x => `<option value="${_bpEsc(x)}">${_bpEsc(x)}</option>`).join('');
+    el.value = values.includes(cur) ? cur : 'all';
+  };
+  fill('bp-marka',  [...new Set(allMasters.map(m=>m.marka).filter(Boolean))].sort((a,b)=>a.localeCompare(b,'tr')), true);
+  fill('bp-model',  [...new Set(allMasters.map(m=>(m.isim_bilinen||m.isim_resmi||'').split(',')[0].trim()).filter(Boolean))].sort((a,b)=>a.localeCompare(b,'tr')), true);
+  fill('bp-kat-ust',[...new Set(state.products.map(p=>p.kategori_ust).filter(Boolean))].sort((a,b)=>a.localeCompare(b,'tr')), true);
+  fill('bp-kat',    [...new Set(state.products.map(p=>p.kategori_alt||p.kategori).filter(Boolean))].sort((a,b)=>a.localeCompare(b,'tr')), true);
+  fill('bp-sezon',  [...new Set(state.products.map(p=>p.sezon).filter(Boolean))].sort((a,b)=>a.localeCompare(b,'tr')), true);
+  if(!_bpBound){
+    _bpBound = true;
+    ['bp-marka','bp-model','bp-kat-ust','bp-kat','bp-cins','bp-sezon','bp-stok','bp-mode'].forEach(id => {
+      $('#'+id)?.addEventListener('change', bpUpdatePreview);
+    });
+    ['bp-fiyat-min','bp-fiyat-max','bp-value'].forEach(id => {
+      $('#'+id)?.addEventListener('input', () => { $('#bp-warn')?.classList.remove('show'); bpUpdatePreview(); });
+    });
+    $('#bp-reset')?.addEventListener('click', bpResetFilters);
+    $('#bp-apply')?.addEventListener('click', bpApply);
+  }
+  bpUpdatePreview();
 }
 
 // ─── Export / Import ────────────────────────────────
@@ -5162,7 +5391,7 @@ function exportJSON(){
 
 function importJSON(file){
   const reader = new FileReader();
-  reader.onload = e => {
+  reader.onload = async e => {
     try{
       const data = JSON.parse(e.target.result);
       const sv = Number(data.schema_version) || 1;
@@ -5174,7 +5403,12 @@ function importJSON(file){
         if(Array.isArray(data.suppliers)) counts.push(`${data.suppliers.length} tedarikçi`);
         if(Array.isArray(data.orders))    counts.push(`${data.orders.length} sipariş`);
       }
-      if(!confirm(`Schema v${sv}: ${counts.join(' · ')} içe aktarılacak. Mevcut veriler yedeklendi mi?`)) return;
+      const ok = await showConfirmModal({
+        title: 'Veri İçe Aktar',
+        message: `Schema v${sv}: ${counts.join(' · ')} içe aktarılacak. Mevcut veriler yedeklendi mi?`,
+        confirmLabel: 'İçe Aktar', cancelLabel: 'Vazgeç',
+      });
+      if(!ok) return;
       state.products = products;
       state.counter = Number(data.counter) || products.length;
       save();
@@ -5581,7 +5815,7 @@ function addLineFromPicker(){
   renderOrderItems();
 }
 
-function saveOrder(){
+async function saveOrder(){
   const form = $('#order-form');
   if(orderModalItems.length === 0){
     toast('En az bir ürün ekle', true);
@@ -5597,7 +5831,12 @@ function saveOrder(){
     notlar: fd.musteri_notlar.value.trim(),
   };
   if(!musteri.ad_soyad){
-    if(!confirm('Müşteri adı boş. Yine de kaydet?')) return;
+    const ok = await showConfirmModal({
+      title: 'Müşteri Adı Boş',
+      message: 'Müşteri adı boş. Yine de kaydedilsin mi?',
+      confirmLabel: 'Yine de Kaydet', cancelLabel: 'Vazgeç',
+    });
+    if(!ok) return;
   }
   const total = orderModalItems.reduce((s,i) => s + (i.fiyat_eur * i.qty), 0);
   const now = new Date().toISOString();
@@ -5650,11 +5889,12 @@ const VIEW_LABELS = {
   suppliers:{ search:'Tedarikçi adı, ülke, kişi', newBtn:'+ Yeni Tedarikçi' },
   purchases:{ search:'Alım ID, tedarikçi, ürün ara', newBtn:'+ Yeni Alım' },
   returns:  { search:'İade ID, müşteri, ürün ara', newBtn:'' },
+  'toplu-fiyat': { search:'', newBtn:'', noSearch:true },
   activity: { search:'Detay/entity ara', newBtn:'' },
 };
 function setView(view){
   state.view = view;
-  ['products','orders','customers','suppliers','purchases','returns','activity'].forEach(v => {
+  ['products','orders','customers','suppliers','purchases','returns','toplu-fiyat','activity'].forEach(v => {
     const el = $(`#view-${v}`);
     if(el) el.hidden = v !== view;
   });
@@ -5663,15 +5903,23 @@ function setView(view){
   });
   const search = $('#search');
   const config = VIEW_LABELS[view] || VIEW_LABELS.products;
-  search.placeholder = config.search;
-  // İlgili filtre search değerini doldur
-  if(view === 'orders') search.value = state.orderFilter.search || '';
-  else if(view === 'customers') search.value = state.customerFilter.search || '';
-  else if(view === 'suppliers') search.value = state.supplierFilter.search || '';
-  else if(view === 'purchases') search.value = (state.purchaseFilter && state.purchaseFilter.search) || '';
-  else if(view === 'returns') search.value = (state.returnFilter && state.returnFilter.search) || '';
-  else if(view === 'activity') search.value = state.activityFilter.search || '';
-  else search.value = state.filter.search || '';
+  // Toplu Fiyat sayfasının kendi filtreleri var — global arama kutusunu gizle.
+  if(search){
+    const searchWrap = search.closest('.hdr__search') || search.parentElement;
+    if(config.noSearch){ if(searchWrap) searchWrap.hidden = true; }
+    else {
+      if(searchWrap) searchWrap.hidden = false;
+      search.placeholder = config.search;
+      // İlgili filtre search değerini doldur
+      if(view === 'orders') search.value = state.orderFilter.search || '';
+      else if(view === 'customers') search.value = state.customerFilter.search || '';
+      else if(view === 'suppliers') search.value = state.supplierFilter.search || '';
+      else if(view === 'purchases') search.value = (state.purchaseFilter && state.purchaseFilter.search) || '';
+      else if(view === 'returns') search.value = (state.returnFilter && state.returnFilter.search) || '';
+      else if(view === 'activity') search.value = state.activityFilter.search || '';
+      else search.value = state.filter.search || '';
+    }
+  }
 
   const btnNew = $('#btn-new');
   if(config.newBtn){ btnNew.textContent = config.newBtn; btnNew.hidden = false; }
@@ -5680,6 +5928,7 @@ function setView(view){
   // Yeni view aktif olduğunda render et
   if(view === 'purchases'){ try { renderPurchasesTable(); } catch(e){ console.error('purchases render fail', e); } }
   if(view === 'returns'){ try { renderReturnsAdminTable(); } catch(e){ console.error('returns render fail', e); } }
+  if(view === 'toplu-fiyat'){ try { renderTopluFiyat(); } catch(e){ console.error('toplu-fiyat render fail', e); } }
 }
 
 // ─── Customer view ─────────────────────────────────
@@ -5903,9 +6152,14 @@ async function saveCustomerAuth(){
   renderCustomersTable();
 }
 
-function clearCustomerAuth(){
+async function clearCustomerAuth(){
   if(!_editingAuthCustomer) return;
-  if(!confirm('Bu müşterinin kullanıcı adı/parolasını sıfırlamak istiyor musun?\n\n(Henüz taslak — kalıcı silmek için ASS\'e söyleyin: clear_customer_credentials)')) return;
+  const ok = await showConfirmModal({
+    title: 'Müşteri Girişini Sıfırla',
+    message: 'Bu müşterinin kullanıcı adı/parolası sıfırlansın mı?\n\n(Henüz taslak — kalıcı silmek için ASS\'e söyleyin: clear_customer_credentials)',
+    confirmLabel: 'Sıfırla', cancelLabel: 'Vazgeç', danger: true,
+  });
+  if(!ok) return;
   const cid = _editingAuthCustomer;
   const c = state.customers.find(x => x.customer_id === cid);
   if(c){
@@ -6211,8 +6465,13 @@ async function acceptProfileDraft(cid){
   if(readProfileDrafts().length === 0) closeDraftsModal();
 }
 
-function rejectProfileDraft(cid){
-  if(!confirm(`${cid} için profil değişiklik taslağını silmek istiyor musunuz?`)) return;
+async function rejectProfileDraft(cid){
+  const ok = await showConfirmModal({
+    title: 'Profil Taslağını Sil',
+    message: `${cid} için profil değişiklik taslağı silinsin mi?`,
+    confirmLabel: 'Sil', cancelLabel: 'Vazgeç', danger: true,
+  });
+  if(!ok) return;
   try { logActivity && logActivity('PROFILE_DRAFT_REJECT', 'customer', cid, `${cid} profil draft reddedildi`, {}); } catch {}
   _clearDraftFor(cid);
   renderDraftsList();
@@ -6220,10 +6479,15 @@ function rejectProfileDraft(cid){
   if(readProfileDrafts().length === 0) closeDraftsModal();
 }
 
-function deleteCustomer(id){
+async function deleteCustomer(id){
   const c = state.customers.find(x=>x.customer_id===id);
   if(!c) return;
-  if(!confirm(`"${c.ad_soyad}" silinsin mi?`)) return;
+  const ok = await showConfirmModal({
+    title: 'Müşteriyi Sil',
+    message: `"${c.ad_soyad}" silinsin mi?`,
+    confirmLabel: 'Sil', cancelLabel: 'Vazgeç', danger: true,
+  });
+  if(!ok) return;
   state.customers = state.customers.filter(x=>x.customer_id!==id);
   saveCustomersStore();
   logActivity('CUSTOMER_DELETE', 'customer', id, `${c.ad_soyad} silindi`, { silinen: c });
@@ -6561,13 +6825,18 @@ function renderReturnsAdminTable(){
   tbody.querySelectorAll('tr[data-return-id]').forEach(tr => {
     const id = tr.getAttribute('data-return-id');
     tr.querySelectorAll('[data-return-action]').forEach(btn => {
-      btn.addEventListener('click', (e) => {
+      btn.addEventListener('click', async (e) => {
         e.stopPropagation();
         const a = btn.dataset.returnAction;
         const rec = state.returns.find(x => x.iade_id === id);
         if(!rec) return;
         if(a === 'approve'){
-          if(!confirm(`${id} iadesi onaylansın mı? Stok geri eklenecek.`)) return;
+          const ok = await showConfirmModal({
+            title: 'İadeyi Onayla',
+            message: `${id} iadesi onaylansın mı? Stok geri eklenecek.`,
+            confirmLabel: 'Onayla', cancelLabel: 'Vazgeç',
+          });
+          if(!ok) return;
           rec.durum = 'ONAYLANDI';
           rec.guncelleme = new Date().toISOString();
           // Onaylanan iade fiziki stoğa GİRİŞ olarak işlenir (kondisyon yeniden satışa uygunsa).
@@ -6592,7 +6861,12 @@ function renderReturnsAdminTable(){
           renderAll();
           toast(`${id} onaylandı, stok güncellendi`);
         } else if(a === 'reject'){
-          if(!confirm(`${id} iadesi reddedilsin mi?`)) return;
+          const ok = await showConfirmModal({
+            title: 'İadeyi Reddet',
+            message: `${id} iadesi reddedilsin mi?`,
+            confirmLabel: 'Reddet', cancelLabel: 'Vazgeç', danger: true,
+          });
+          if(!ok) return;
           rec.durum = 'REDDEDILDI';
           rec.guncelleme = new Date().toISOString();
           saveReturns();
@@ -6603,19 +6877,19 @@ function renderReturnsAdminTable(){
           renderAll();
           toast(`${id} reddedildi`);
         } else if(a === 'detail'){
-          // Basit alert — MVP. Daha sonra modal yapılabilir.
-          alert(
-            `İade ${id}\n` +
-            `Müşteri: ${rec.customer_id}\n` +
-            `Sipariş: ${rec.order_id}\n` +
-            `Ürün: ${rec.marka||''} ${rec.isim||rec.variation_id}\n` +
-            `Varyasyon: ${rec.renk||''} · ${rec.boyut||''} · ${rec.donanim||''}\n` +
-            `Adet: ${rec.adet} · Tutar: ${fmt(rec.satir_tutar_eur||0)}\n` +
-            `Sebep: ${SEBEP_LABEL[rec.sebep]||rec.sebep}\n` +
-            `Kondisyon: ${KOND_LABEL[rec.kondisyon]||rec.kondisyon}\n` +
-            (rec.not ? `Not: ${rec.not}\n` : '') +
-            `Durum: ${rec.durum}`
-          );
+          await showAlertModal({
+            title: `İade ${id}`,
+            message:
+              `Müşteri: ${rec.customer_id}\n` +
+              `Sipariş: ${rec.order_id}\n` +
+              `Ürün: ${rec.marka||''} ${rec.isim||rec.variation_id}\n` +
+              `Varyasyon: ${rec.renk||''} · ${rec.boyut||''} · ${rec.donanim||''}\n` +
+              `Adet: ${rec.adet} · Tutar: ${fmt(rec.satir_tutar_eur||0)}\n` +
+              `Sebep: ${SEBEP_LABEL[rec.sebep]||rec.sebep}\n` +
+              `Kondisyon: ${KOND_LABEL[rec.kondisyon]||rec.kondisyon}\n` +
+              (rec.not ? `Not: ${rec.not}\n` : '') +
+              `Durum: ${rec.durum}`,
+          });
         }
       });
     });
@@ -6679,10 +6953,18 @@ async function deleteSupplier(id){
   if(!s){ console.warn('deleteSupplier: bulunamadı', id); return; }
   const linkedOrders = (state.supplierOrders || []).filter(o => (o.tedarikci_id === id || o.supplier_id === id));
   if(linkedOrders.length > 0){
-    alert(`Bu tedarikçinin ${linkedOrders.length} alım siparişi var. Önce onları sil.`);
+    await showAlertModal({
+      title: 'Tedarikçi Silinemez',
+      message: `Bu tedarikçinin ${linkedOrders.length} alım siparişi var. Önce onları sil.`,
+    });
     return;
   }
-  if(!confirm(`"${supName(s)}" silinsin mi?`)) return;
+  const ok = await showConfirmModal({
+    title: 'Tedarikçiyi Sil',
+    message: `"${supName(s)}" silinsin mi?`,
+    confirmLabel: 'Sil', cancelLabel: 'Vazgeç', danger: true,
+  });
+  if(!ok) return;
   if(window.BotlAPI && BotlAPI.deleteSupplier){
     const r = await BotlAPI.deleteSupplier(id);
     if(!r.ok){ toast('Silme hatası: ' + (r.error || r.status), true); return; }
@@ -6995,7 +7277,12 @@ async function savePurchaseOrderPage(){
   // Maliyet 0 uyarisi
   const zeroCost = poPageItems.filter(i => !i.birim_fiyat_eur || i.birim_fiyat_eur <= 0);
   if(zeroCost.length > 0){
-    if(!confirm(`${zeroCost.length} kalemde maliyet 0 — yine de kaydet?`)) return;
+    const ok = await showConfirmModal({
+      title: 'Maliyet Sıfır',
+      message: `${zeroCost.length} kalemde maliyet 0 — yine de kaydedilsin mi?`,
+      confirmLabel: 'Yine de Kaydet', cancelLabel: 'Vazgeç',
+    });
+    if(!ok) return;
   }
 
   const total = poPageItems.reduce((s, i) => s + (i.birim_fiyat_eur * i.qty), 0);
@@ -7044,10 +7331,15 @@ async function savePurchaseOrderPage(){
   }
 }
 
-function receiveSupplierOrder(id){
+async function receiveSupplierOrder(id){
   const o = state.supplierOrders.find(x=>x.alim_id===id);
   if(!o || o.durum !== 'BEKLIYOR') return;
-  if(!confirm(`${o.alim_id} teslim alındı olarak işaretlensin mi? Tüm kalemler stoğa eklenecek.`)) return;
+  const ok = await showConfirmModal({
+    title: 'Alımı Teslim Al',
+    message: `${o.alim_id} teslim alındı olarak işaretlensin mi? Tüm kalemler stoğa eklenecek.`,
+    confirmLabel: 'Teslim Al', cancelLabel: 'Vazgeç',
+  });
+  if(!ok) return;
   const now = new Date().toISOString();
   o.items.forEach(item => {
     const p = state.products.find(x=>x.variation_id===item.variation_id);
@@ -7076,10 +7368,15 @@ function receiveSupplierOrder(id){
   renderAll();
   toast(`${o.alim_id} teslim alındı, stok eklendi`);
 }
-function cancelReceivedSupplierOrder(id){
+async function cancelReceivedSupplierOrder(id){
   const o = state.supplierOrders.find(x=>x.alim_id===id);
   if(!o || o.durum !== 'TESLIM_ALINDI') return;
-  if(!confirm(`${o.alim_id} iptal edilecek, eklediği stoklar geri çekilecek. Emin misin?`)) return;
+  const ok = await showConfirmModal({
+    title: 'Alımı İptal Et',
+    message: `${o.alim_id} iptal edilecek, eklediği stoklar geri çekilecek. Devam edilsin mi?`,
+    confirmLabel: 'İptal Et', cancelLabel: 'Vazgeç', danger: true,
+  });
+  if(!ok) return;
   const now = new Date().toISOString();
   o.items.forEach(item => {
     const p = state.products.find(x=>x.variation_id===item.variation_id);
@@ -7105,11 +7402,19 @@ function cancelReceivedSupplierOrder(id){
   renderAll();
   toast(`${o.alim_id} iptal edildi`);
 }
-function deleteSupplierOrder(id){
+async function deleteSupplierOrder(id){
   const o = state.supplierOrders.find(x=>x.alim_id===id);
   if(!o) return;
-  if(o.durum === 'TESLIM_ALINDI' || o.durum === 'GELDI'){ alert('Teslim alınmış sipariş silinemez. Önce iptal et.'); return; }
-  if(!confirm(`${o.alim_id} kalıcı silinsin mi?`)) return;
+  if(o.durum === 'TESLIM_ALINDI' || o.durum === 'GELDI'){
+    await showAlertModal({ title: 'Alım Silinemez', message: 'Teslim alınmış sipariş silinemez. Önce iptal et.' });
+    return;
+  }
+  const ok = await showConfirmModal({
+    title: 'Alımı Sil',
+    message: `${o.alim_id} kalıcı silinsin mi?`,
+    confirmLabel: 'Sil', cancelLabel: 'Vazgeç', danger: true,
+  });
+  if(!ok) return;
   state.supplierOrders = state.supplierOrders.filter(x=>x.alim_id!==id);
   saveSupplierOrdersStore();
   if(window.BotlAPI && BotlAPI.deleteSupplierOrder){

@@ -3015,6 +3015,8 @@ input,select,textarea{font-size:16px}
       .botl-imodal__btn:hover{background:var(--bg-alt,#f5f5f5)}
       .botl-imodal__btn--primary{background:var(--accent,#222);color:var(--on-accent,#fff);border-color:var(--accent,#222)}
       .botl-imodal__btn--primary:hover{opacity:.9}
+      .botl-imodal__btn--danger{background:var(--danger,#c0392b);border-color:var(--danger,#c0392b);color:#fff}
+      .botl-imodal__btn--danger:hover{opacity:.9}
     `;
     document.head.appendChild(s);
   }
@@ -3085,6 +3087,58 @@ input,select,textarea{font-size:16px}
         else if(e.key === 'Enter' && e.target.tagName !== 'TEXTAREA'){
           e.preventDefault(); e.stopPropagation(); submit();
         }
+      }
+      document.addEventListener('keydown', onKey, true);
+    });
+  };
+})();
+
+// ─── Inline Confirm Modal ───────────────────────────
+// native confirm() yasak — ekran-içi modal. showInputModal ile aynı botl-imodal
+// altyapısı. showConfirmModal → Promise<boolean>.
+(function(){
+  if(window.showConfirmModal) return;
+  const esc = (v) => String(v ?? '').replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+  window.showConfirmModal = function(opts){
+    const o = opts || {};
+    const title = o.title || 'Onay';
+    const message = o.message || '';
+    const confirmLabel = o.confirmLabel || 'Evet';
+    const cancelLabel = o.cancelLabel || 'Vazgeç';
+    const danger = !!o.danger;
+    return new Promise(resolve => {
+      const overlay = document.createElement('div');
+      overlay.className = 'botl-imodal';
+      const msgHTML = String(message).split('\n').map(l => `<p class="botl-imodal__desc">${esc(l)}</p>`).join('');
+      overlay.innerHTML = `
+        <div class="botl-imodal__panel" role="alertdialog" aria-modal="true" aria-label="${esc(title)}">
+          <div class="botl-imodal__head">
+            <h2 class="botl-imodal__title">${esc(title)}</h2>
+            <button type="button" class="botl-imodal__close" data-imodal-action="cancel" aria-label="Kapat">×</button>
+          </div>
+          <div class="botl-imodal__body">${msgHTML}</div>
+          <div class="botl-imodal__foot">
+            <button type="button" class="botl-imodal__btn" data-imodal-action="cancel">${esc(cancelLabel)}</button>
+            <button type="button" class="botl-imodal__btn botl-imodal__btn--primary${danger ? ' botl-imodal__btn--danger' : ''}" data-imodal-action="confirm">${esc(confirmLabel)}</button>
+          </div>
+        </div>`;
+      document.body.appendChild(overlay);
+      const confirmBtn = overlay.querySelector('[data-imodal-action="confirm"]');
+      setTimeout(() => { if(confirmBtn) confirmBtn.focus(); }, 30);
+      function cleanup(result){
+        document.removeEventListener('keydown', onKey, true);
+        overlay.remove();
+        resolve(result);
+      }
+      overlay.addEventListener('click', e => {
+        if(e.target === overlay){ cleanup(false); return; }
+        const action = e.target.closest('[data-imodal-action]')?.dataset?.imodalAction;
+        if(action === 'cancel') cleanup(false);
+        else if(action === 'confirm') cleanup(true);
+      });
+      function onKey(e){
+        if(e.key === 'Escape'){ e.stopPropagation(); cleanup(false); }
+        else if(e.key === 'Enter'){ e.preventDefault(); e.stopPropagation(); cleanup(true); }
       }
       document.addEventListener('keydown', onKey, true);
     });
@@ -4636,8 +4690,12 @@ async function placeOrder(){
   }
   const total = items.reduce((s,p) => s + (Number(p.fiyat_eur) || 0) * (p._qty || 1), 0);
   const totalItems = items.reduce((s,p) => s + (p._qty || 1), 0);
-  const msg = `Sipariş onayı:\n\n${totalItems} adet ürün — toplam ${fmtPrice(total)}\n\nOnaylıyor musun?`;
-  if(!confirm(msg)) return;
+  const ok = await showConfirmModal({
+    title: 'Sipariş Onayı',
+    message: `${totalItems} adet ürün — toplam ${fmtPrice(total)}\n\nSiparişi onaylıyor musun?`,
+    confirmLabel: 'Siparişi Onayla', cancelLabel: 'Vazgeç',
+  });
+  if(!ok) return;
 
   // 2026-05-13 refactor: Backend SSOT. POST /api/customer/orders.
   // Backend ulaşılamazsa localStorage'a fallback yok — kullanıcıyı bilgilendir.
@@ -5402,8 +5460,13 @@ async function saveAccountProfile(e){
   toast('Bilgileriniz güncellendi.');
 }
 
-function resetAccountProfile(){
-  if(!confirm('Değişiklikleri sıfırlamak istiyor musunuz?')) return;
+async function resetAccountProfile(){
+  const ok = await showConfirmModal({
+    title: 'Değişiklikleri Sıfırla',
+    message: 'Yaptığınız değişiklikler sıfırlansın mı?',
+    confirmLabel: 'Sıfırla', cancelLabel: 'Vazgeç', danger: true,
+  });
+  if(!ok) return;
   clearProfileDraft();
   refreshAuthUI();
   renderAccountProfile();
@@ -6030,7 +6093,7 @@ async function submitIade(e){
   toast(`İade talebi alındı (offline): ${iadeRec.iade_id}.`);
 }
 
-function cancelOrder(orderId){
+async function cancelOrder(orderId){
   const all = getPendingOrders();
   const o = all.find(x => (x.id || x.order_id) === orderId);
   if(!o) return;
@@ -6042,7 +6105,11 @@ function cancelOrder(orderId){
   const msg = wasOnaylandi
     ? 'Sipariş ONAYLANDI durumunda. İptal talebi açtığında admin değerlendirip stoğu serbest bırakacak. Onaylıyor musunuz?'
     : 'Siparişinizi iptal etmek istediğinize emin misiniz?';
-  if(!confirm(msg)) return;
+  const ok = await showConfirmModal({
+    title: 'Siparişi İptal Et', message: msg,
+    confirmLabel: 'Siparişi İptal Et', cancelLabel: 'Vazgeç', danger: true,
+  });
+  if(!ok) return;
   const now = new Date().toISOString();
   updateOrder(orderId, (ord) => {
     ord.guncelleme_gecmisi.push({ ts: now, kim:'musteri', alan:'durum', eski:ord.durum, yeni:'IPTAL_EDILDI' });
@@ -6053,7 +6120,7 @@ function cancelOrder(orderId){
   toast(wasOnaylandi ? 'İptal talebi alındı · admin stoğu serbest bırakacak' : 'Sipariş iptal edildi');
 }
 
-function removeOrderItem(orderId, itemIdx){
+async function removeOrderItem(orderId, itemIdx){
   const all = getPendingOrders();
   const o = all.find(x => (x.id || x.order_id) === orderId);
   if(!o) return;
@@ -6064,8 +6131,13 @@ function removeOrderItem(orderId, itemIdx){
   if(!Array.isArray(o.items) || itemIdx < 0 || itemIdx >= o.items.length) return;
   if(o.items.length === 1){
     // Tek kalem kaldıysa sipariş iptal
-    if(!confirm('Bu siparişte son kalemi çıkarıyorsunuz. Sipariş tamamen iptal edilecek. Onaylıyor musunuz?')) return;
-    cancelOrder(orderId);
+    const ok = await showConfirmModal({
+      title: 'Son Kalemi Çıkar',
+      message: 'Bu siparişte son kalemi çıkarıyorsunuz. Sipariş tamamen iptal edilecek. Onaylıyor musunuz?',
+      confirmLabel: 'Çıkar ve İptal Et', cancelLabel: 'Vazgeç', danger: true,
+    });
+    if(!ok) return;
+    await cancelOrder(orderId);
     return;
   }
   const removedVid = o.items[itemIdx] && o.items[itemIdx].variation_id;
