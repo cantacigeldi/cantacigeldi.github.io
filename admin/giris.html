@@ -82,9 +82,10 @@
     outline:none;
     border-color:var(--accent-soft);
   }
+  .login-field { margin-bottom:16px }
   .login-btn {
     width:100%;
-    margin-top:20px;
+    margin-top:8px;
     padding:14px 18px;
     min-height:50px;
     background:#FAF8F5;
@@ -128,40 +129,34 @@
   <p class="login-sub">Bu alana sadece yetkili kişi girebilir. Oturum tarayıcıda 24 saat saklanır.</p>
 
   <form id="login-form" autocomplete="off" novalidate>
-    <label class="login-label" for="login-password">Parola</label>
-    <input class="login-input" id="login-password" name="password"
-           type="password" autocomplete="current-password"
-           required autofocus
-           aria-describedby="login-err">
+    <div class="login-field">
+      <label class="login-label" for="login-username">Kullanıcı Adı</label>
+      <input class="login-input" id="login-username" name="username"
+             type="text" autocomplete="username" required autofocus>
+    </div>
+    <div class="login-field">
+      <label class="login-label" for="login-password">Parola</label>
+      <input class="login-input" id="login-password" name="password"
+             type="password" autocomplete="current-password"
+             required aria-describedby="login-err">
+    </div>
     <button class="login-btn" id="login-submit" type="submit">Giriş</button>
     <div class="login-err" id="login-err" hidden role="alert" aria-live="polite"></div>
   </form>
 
-  <p class="login-foot">v1 · 2026</p>
+  <p class="login-foot">v2 · 2026</p>
 </main>
 
 <script>
 /* ────────────────────────────────────────────────────────────
    BOTL Admin Login — standalone sayfa (admin/giris.html)
-   Bu dosya admin paneline erişim için tek kapıdır. Auth OK ise
-   localStorage.botl_admin_session set edilir ve admin/index.html'e
-   yönlendirilir. Index.html başlangıçta bu session'ı kontrol eder,
-   yoksa buraya geri döndürür.
-
-   Mimari notlar:
-   - Hash SHA-256(salt + parola), salt 'botl_admin_v1_' (admin tarafı,
-     müşteri 'botl_v1_' ile çakışmaz).
-   - Session formatı: { expiresAt:<ms-epoch>, grantedAt:<iso> }
-     (admin/index.html ile birebir aynı format, eski oturumlar geçerli kalır)
-   - DOM-leak fix: bu sayfa hiçbir admin verisi içermez (data-inline.js
-     hiç yüklenmez). admin/index.html body içeriği <template> içine sarılı,
-     auth-OK olmadan DOM'a inject olmaz.
+   Gerçek API login: /api/admin/login'e POST → session token.
+   Token localStorage.botl_admin_session'a yazılır; admin/index.html
+   bunu kontrol eder + her API çağrısında X-Botl-Admin-Session header'ı
+   gönderir. HTTP Basic Auth ve tarayıcı popup'ı YOK.
    ────────────────────────────────────────────────────────── */
 (function(){
   'use strict';
-
-  const ADMIN_AUTH_SALT = 'botl_admin_v1_';
-  const ADMIN_AUTH_HASH = '04ae8be2cbd855b391086f050d52fbac0a10cf721f2a8ca2c104c14243b0d73a';
   const ADMIN_SESSION_KEY = 'botl_admin_session';
   const ADMIN_SESSION_TTL_MS = 24 * 60 * 60 * 1000; // 24 saat
 
@@ -170,25 +165,23 @@
     const raw = localStorage.getItem(ADMIN_SESSION_KEY);
     if (raw) {
       const d = JSON.parse(raw);
-      if (d && d.expiresAt && Date.now() < Number(d.expiresAt)) {
+      if (d && d.token && d.expiresAt && Date.now() < Number(d.expiresAt)) {
         location.replace('./index.html');
         return;
       }
     }
   } catch (_) { /* yoksay, login formuna düş */ }
 
-  async function hashPassword(plain){
-    const buf = new TextEncoder().encode(ADMIN_AUTH_SALT + plain);
-    const hashBuf = await crypto.subtle.digest('SHA-256', buf);
-    return Array.from(new Uint8Array(hashBuf))
-      .map(b => b.toString(16).padStart(2, '0')).join('');
-  }
-
-  function setSession(){
-    localStorage.setItem(ADMIN_SESSION_KEY, JSON.stringify({
-      expiresAt: Date.now() + ADMIN_SESSION_TTL_MS,
-      grantedAt: new Date().toISOString(),
-    }));
+  // API base — admin/config.json'dan (head loader set etmemişse kendin oku).
+  async function getApiBase(){
+    if (typeof window !== 'undefined' && window.__BOTL_API_BASE__) {
+      return window.__BOTL_API_BASE__;
+    }
+    try {
+      const r = await fetch('./config.json?v=' + Date.now(), { cache: 'no-store' });
+      if (r.ok) { const c = await r.json(); if (c && c.api_base) return c.api_base; }
+    } catch (_) {}
+    return '';
   }
 
   function showError(msg){
@@ -196,10 +189,7 @@
     if (!err) return;
     err.textContent = msg;
     err.hidden = false;
-    const pwd = document.getElementById('login-password');
-    if (pwd){ pwd.select(); }
   }
-
   function clearError(){
     const err = document.getElementById('login-err');
     if (err){ err.hidden = true; err.textContent = ''; }
@@ -213,22 +203,36 @@
     form.addEventListener('submit', async (ev) => {
       ev.preventDefault();
       clearError();
-      const pwd = (document.getElementById('login-password').value || '');
-      if (!pwd){ showError('Parola gir'); return; }
+      const username = (document.getElementById('login-username').value || '').trim();
+      const password = (document.getElementById('login-password').value || '');
+      if (!username || !password){ showError('Kullanıcı adı ve parola gir'); return; }
       btn.disabled = true; btn.textContent = 'Kontrol ediliyor';
       try {
-        const h = await hashPassword(pwd);
-        if (h === ADMIN_AUTH_HASH) {
-          setSession();
-          // Aynı tab'de cache'in admin/index.html'in eski auth-gate yorumunu
-          // göstermemesi için replace kullanıyoruz (history'de iz yok).
+        const apiBase = await getApiBase();
+        const r = await fetch(apiBase + '/api/admin/login', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          credentials: 'include',
+          body: JSON.stringify({ kullanici_adi: username, parola: password }),
+        });
+        const data = await r.json().catch(() => ({}));
+        if (r.ok && data.token) {
+          localStorage.setItem(ADMIN_SESSION_KEY, JSON.stringify({
+            token: data.token,
+            admin: data.admin || username,
+            expiresAt: Date.now() + ADMIN_SESSION_TTL_MS,
+            grantedAt: new Date().toISOString(),
+          }));
           location.replace('./index.html');
+        } else if (r.status === 401) {
+          showError('Kullanıcı adı veya parola hatalı');
+          btn.disabled = false; btn.textContent = 'Giriş';
         } else {
-          showError('Parola hatalı, tekrar deneyin');
+          showError('Giriş yapılamadı, tekrar deneyin');
           btn.disabled = false; btn.textContent = 'Giriş';
         }
       } catch (e) {
-        showError('Giriş yapılamadı, tekrar deneyin');
+        showError('Bağlantı kurulamadı, tekrar deneyin');
         btn.disabled = false; btn.textContent = 'Giriş';
       }
     });

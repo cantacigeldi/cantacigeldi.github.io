@@ -42,7 +42,7 @@
   try {
     const raw = localStorage.getItem('botl_admin_session');
     const sess = raw ? JSON.parse(raw) : null;
-    if (!sess || !sess.expiresAt || Number(sess.expiresAt) < Date.now()) {
+    if (!sess || !sess.token || !sess.expiresAt || Number(sess.expiresAt) < Date.now()) {
       // Eski/bozuk session varsa temizle.
       try { localStorage.removeItem('botl_admin_session'); } catch(_) {}
       // location.replace senkron navigasyon tetikler; 'return' sonraki
@@ -2805,49 +2805,33 @@ tr.row--re-onay td:first-child{box-shadow:inset 3px 0 0 #C77A17}
 // localStorage taslağa düşer. Basic Auth credential'ları sessionStorage'da
 // base64 olarak tutulur.
 window.BotlAPI = (function(){
-  const STORAGE_AUTH = 'botl_admin_auth_b64';
-  // API_BASE runtime: lokalde same-origin (''), canlıda head'deki loader
-  // window.__BOTL_API_BASE__ set ettiyse onu kullanır.
+  const SESSION_KEY = 'botl_admin_session';
+  // API_BASE: head'deki config.json loader window.__BOTL_API_BASE__ set eder.
   function _apiBase(){
     return (typeof window !== 'undefined' && window.__BOTL_API_BASE__) ? window.__BOTL_API_BASE__ : '';
   }
-  const isLocal = location.hostname === 'localhost' || location.hostname === '127.0.0.1' || location.protocol === 'file:';
-
-  // Concurrent çağrılarda tek modal — ilk getAuth promise'i paylaşılır.
-  let _authPending = null;
-  async function getAuth(){
-    let v = sessionStorage.getItem(STORAGE_AUTH);
-    if(v) return v;
-    if(_authPending) return _authPending;
-    _authPending = (async () => {
-      const r = await window.showInputModal({
-        title: 'Admin girişi',
-        description: 'Yönetici girişi — bilgiler bu oturum süresince tarayıcıda saklanır.',
-        fields: [
-          { name: 'user', label: 'Kullanıcı adı', defaultValue: 'admin', required: true, autocomplete: 'username' },
-          { name: 'pass', label: 'Parola', type: 'password', defaultValue: 'botl-dev-2026', required: true, autocomplete: 'current-password' },
-        ],
-        submitLabel: 'Giriş',
-        cancelLabel: 'Vazgeç',
-      });
-      if(!r) return null;
-      const enc = btoa((r.user || 'admin').trim() + ':' + (r.pass || '').trim());
-      sessionStorage.setItem(STORAGE_AUTH, enc);
-      return enc;
-    })();
-    try { return await _authPending; }
-    finally { _authPending = null; }
+  // Admin session token'ı — admin/giris.html login'de localStorage'a yazar.
+  function _token(){
+    try {
+      const raw = localStorage.getItem(SESSION_KEY);
+      if(!raw) return null;
+      const s = JSON.parse(raw);
+      return (s && s.token) ? s.token : null;
+    } catch { return null; }
   }
-
-  function clearAuth(){ sessionStorage.removeItem(STORAGE_AUTH); }
+  function clearAuth(){
+    try { localStorage.removeItem(SESSION_KEY); } catch(_) {}
+  }
+  function _toLogin(){
+    clearAuth();
+    location.replace('./giris.html');
+  }
 
   async function call(method, path, body){
     try {
-      const auth = await getAuth();
-      if(!auth){
-        return { ok: false, error: 'auth_cancelled', status: 401 };
-      }
-      const headers = { 'Authorization': 'Basic ' + auth };
+      const token = _token();
+      if(!token){ _toLogin(); return { ok: false, error: 'no_session', status: 401 }; }
+      const headers = { 'X-Botl-Admin-Session': token };
       const opts = { method, headers, credentials: 'include' };
       if(body !== undefined){
         headers['Content-Type'] = 'application/json';
@@ -2855,7 +2839,7 @@ window.BotlAPI = (function(){
       }
       const r = await fetch(_apiBase() + path, opts);
       if(r.status === 401){
-        clearAuth();
+        _toLogin();
         return { ok: false, error: 'unauthorized', status: 401 };
       }
       const data = await r.json().catch(()=>({}));
@@ -2875,7 +2859,6 @@ window.BotlAPI = (function(){
   return {
     ping,
     clearAuth,
-    login: () => call('POST', '/api/admin/login'),
     patchVariation: (vid, payload) => call('PATCH', '/api/admin/variations/' + encodeURIComponent(vid), payload),
     patchProduct: (sku, payload) => call('PATCH', '/api/admin/products/' + encodeURIComponent(sku), payload),
     // ─── Customers ─────────────────────────
