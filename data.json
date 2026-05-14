@@ -1,6 +1,6 @@
 {
   "schema_version": 5,
-  "exported_at": "2026-05-14T08:43:50.306425+00:00",
+  "exported_at": "2026-05-14T10:09:42.433604+00:00",
   "counter": 192,
   "products": [
     {
@@ -10750,7 +10750,7 @@
       "sku": "CAHBEV000001",
       "no": null,
       "slug": "hugo-boss-men-s-leather-bag-silver",
-      "cover": "assets/products/CAHBEV000001-NOIR-MEDIUM-SILVER.jpg",
+      "cover": "",
       "isim_resmi": "Hugo Boss Men's Leather Bag",
       "isim_bilinen": "Hugo Boss Men's Leather Bag",
       "marka": "Hugo Boss",
@@ -10794,18 +10794,14 @@
       "fermuar_var_mi": null,
       "fermuar_konumu": null,
       "RFID_korumali": null,
-      "kapama_tipi": null,
-      "gorseller": {
-        "cover": "assets/products/CAHBEV000001-NOIR-MEDIUM-SILVER.jpg",
-        "gallery": []
-      }
+      "kapama_tipi": null
     },
     {
       "variation_id": "CAAREV000001-NOIR-LARGE-SILVER",
       "sku": "CAAREV000001",
       "no": null,
       "slug": "giorgio-armani-men-s-leather-briefcase-silver",
-      "cover": "assets/products/CAAREV000001-NOIR-LARGE-SILVER.jpg",
+      "cover": "",
       "isim_resmi": "Giorgio Armani Men's Leather Briefcase",
       "isim_bilinen": "Giorgio Armani Men's Leather Briefcase",
       "marka": "Giorgio Armani",
@@ -10849,47 +10845,24 @@
       "fermuar_var_mi": null,
       "fermuar_konumu": null,
       "RFID_korumali": null,
-      "kapama_tipi": null,
-      "gorseller": {
-        "cover": "assets/products/CAAREV000001-NOIR-LARGE-SILVER.jpg",
-        "gallery": []
-      }
+      "kapama_tipi": null
     }
   ],
-  "customers": [
-    {
-      "customer_id": "CST-00001",
-      "isim": "Adam Johnson",
-      "segment": "VIP"
-    },
-    {
-      "customer_id": "CST-00003",
-      "isim": "Önder Taştekin",
-      "segment": "NEW"
-    }
-  ],
+  "customers": [],
   "suppliers": [
     {
       "supplier_id": "SUP-00001",
-      "unvan": "Maison Goyard Paris",
       "ulke": "FR",
-      "sehir": "Paris",
       "marka_listesi": [
         "Goyard"
       ],
-      "iletisim": {
-        "email": "b2b@goyard.fr",
-        "phone": "+33 1 42 60 57 04",
-        "contact_name": "Mme. Lefevre"
-      },
-      "durum": "AKTIF",
-      "olusturma": "2026-05-12T08:31:17.544375+00:00"
+      "durum": "AKTIF"
     }
   ],
   "orders": [],
   "counters": {
     "sku_counter": 156,
-    "customer_counter": 4,
+    "customer_counter": 5,
     "supplier_counter": 1,
     "invoice_counter": 0
   },
