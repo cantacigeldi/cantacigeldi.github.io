@@ -1261,6 +1261,33 @@ a{color:inherit;text-decoration:none}
 .bp-field--range{display:flex;gap:6px;align-items:center}
 .bp-field--range input{flex:1;min-width:0}
 .bp-field--range span{color:var(--text-faint);font-size:12px}
+/* ─── Çoklu-seçim filtre widget'ı (multi-select açılır panel) ─── */
+.bp-ms{position:relative}
+.bp-ms__trigger{width:100%;padding:8px 30px 8px 10px;background:var(--bg);border:1px solid var(--border-strong);color:var(--text);border-radius:5px;font-size:14px;font-family:inherit;box-sizing:border-box;text-align:left;cursor:pointer;display:flex;align-items:center;gap:6px;min-height:36px;transition:border-color .15s,box-shadow .15s}
+.bp-ms__trigger:hover{border-color:var(--accent)}
+.bp-ms__trigger:focus-visible{outline:none;border-color:var(--accent);box-shadow:0 0 0 2px var(--accent-soft)}
+.bp-ms.open .bp-ms__trigger{border-color:var(--accent);box-shadow:0 0 0 2px var(--accent-soft)}
+.bp-ms__label{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.bp-ms__label--placeholder{color:var(--text-faint)}
+.bp-ms__count{flex-shrink:0;font-size:11px;font-weight:600;color:var(--on-accent);background:var(--accent);border-radius:9px;padding:1px 7px;letter-spacing:.02em}
+.bp-ms__caret{position:absolute;right:10px;top:50%;transform:translateY(-50%);width:8px;height:8px;border-right:1.5px solid var(--text-faint);border-bottom:1.5px solid var(--text-faint);transform-origin:center;transform:translateY(-65%) rotate(45deg);pointer-events:none;transition:transform .15s}
+.bp-ms.open .bp-ms__caret{transform:translateY(-35%) rotate(225deg)}
+.bp-ms__panel{position:absolute;z-index:40;top:calc(100% + 4px);left:0;right:0;background:var(--surface);border:1px solid var(--border-strong);border-radius:7px;box-shadow:var(--shadow-lg);padding:6px;display:none;max-height:280px;overflow:hidden;flex-direction:column}
+.bp-ms.open .bp-ms__panel{display:flex}
+.bp-ms__search{width:100%;padding:6px 8px;background:var(--bg);border:1px solid var(--border);color:var(--text);border-radius:4px;font-size:12px;box-sizing:border-box;margin-bottom:4px;font-family:inherit}
+.bp-ms__search::placeholder{color:var(--text-faint)}
+.bp-ms__tools{display:flex;gap:4px;margin-bottom:4px}
+.bp-ms__tool{flex:1;padding:4px 6px;background:var(--bg-alt);border:1px solid var(--border);color:var(--text-muted);border-radius:4px;font-size:10px;letter-spacing:.04em;text-transform:uppercase;cursor:pointer;transition:background .15s,color .15s}
+.bp-ms__tool:hover{background:var(--bg);color:var(--text)}
+.bp-ms__list{overflow-y:auto;flex:1;margin:0 -2px;padding:0 2px}
+.bp-ms__opt{display:flex;align-items:center;gap:8px;padding:6px 8px;border-radius:4px;cursor:pointer;font-size:13px;color:var(--text);user-select:none}
+.bp-ms__opt:hover{background:var(--bg-alt)}
+.bp-ms__opt input{flex-shrink:0;width:15px;height:15px;margin:0;accent-color:var(--accent);cursor:pointer}
+.bp-ms__opt-text{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.bp-ms__opt--hidden{display:none}
+.bp-ms__opt.bp-ms__opt--checked{color:var(--text);font-weight:600}
+.bp-ms__opt-count{flex-shrink:0;font-size:10px;font-weight:600;color:var(--text-faint);background:var(--bg-alt);border-radius:8px;padding:1px 6px;letter-spacing:.02em}
+.bp-ms__empty{padding:14px 8px;text-align:center;color:var(--text-faint);font-size:12px}
 .bp-actions-row{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-top:4px}
 .bp-actions-row .btn{white-space:nowrap}
 .bp-summary{font-size:13px;color:var(--text);font-weight:600}
@@ -2342,6 +2369,8 @@ tr.row--re-onay td:first-child{box-shadow:inset 3px 0 0 #C77A17}
     <p class="bp-page__lead">
       Önce ürünleri <strong>filtreleyip</strong> hangi kümeye fiyat uygulayacağını belirle, sonra
       <strong>önizleme</strong> tablosunda eski → yeni fiyatları gör, doğruysa <strong>Uygula</strong>.
+      Her filtre <strong>çoklu seçilebilir</strong> (örn. birden fazla marka) ve filtreler
+      <strong>birbirine bağlıdır</strong> — bir marka seçince model listesi yalnızca o markanın modellerini gösterir.
       Filtre boşsa <em>tüm aktif ürünler</em> etkilenir — önizleme her zaman tam listeyi gösterir, gizli toplu yazma yoktur.
     </p>
 
@@ -2349,41 +2378,32 @@ tr.row--re-onay td:first-child{box-shadow:inset 3px 0 0 #C77A17}
       <div class="bp-card__title">1 · Ürünleri Filtrele</div>
       <div class="bp-grid">
         <div class="bp-field">
-          <label for="bp-marka">Marka</label>
-          <select id="bp-marka"><option value="all">Tümü</option></select>
+          <label id="bp-marka-lbl">Marka</label>
+          <div class="bp-ms" id="bp-marka" data-field="marka" data-label="Marka" data-search="1"></div>
         </div>
         <div class="bp-field">
-          <label for="bp-model">Model</label>
-          <select id="bp-model"><option value="all">Tümü</option></select>
+          <label id="bp-model-lbl">Model</label>
+          <div class="bp-ms" id="bp-model" data-field="model" data-label="Model" data-search="1"></div>
         </div>
         <div class="bp-field">
-          <label for="bp-kat-ust">Üst Kategori</label>
-          <select id="bp-kat-ust"><option value="all">Tümü</option></select>
+          <label id="bp-kat-ust-lbl">Üst Kategori</label>
+          <div class="bp-ms" id="bp-kat-ust" data-field="katUst" data-label="Üst Kategori"></div>
         </div>
         <div class="bp-field">
-          <label for="bp-kat">Alt Kategori</label>
-          <select id="bp-kat"><option value="all">Tümü</option></select>
+          <label id="bp-kat-lbl">Alt Kategori</label>
+          <div class="bp-ms" id="bp-kat" data-field="katAlt" data-label="Alt Kategori" data-search="1"></div>
         </div>
         <div class="bp-field">
-          <label for="bp-cins">Cinsiyet</label>
-          <select id="bp-cins">
-            <option value="all">Tümü</option>
-            <option value="KADIN">Kadın</option>
-            <option value="ERKEK">Erkek</option>
-            <option value="UNISEX">Unisex</option>
-          </select>
+          <label id="bp-cins-lbl">Cinsiyet</label>
+          <div class="bp-ms" id="bp-cins" data-field="cins" data-label="Cinsiyet"></div>
         </div>
         <div class="bp-field">
-          <label for="bp-sezon">Sezon</label>
-          <select id="bp-sezon"><option value="all">Tümü</option></select>
+          <label id="bp-sezon-lbl">Sezon</label>
+          <div class="bp-ms" id="bp-sezon" data-field="sezon" data-label="Sezon"></div>
         </div>
         <div class="bp-field">
-          <label for="bp-stok">Stok Durumu</label>
-          <select id="bp-stok">
-            <option value="all">Tümü</option>
-            <option value="stocked">Stoklu (≥1)</option>
-            <option value="out">Tükendi (0)</option>
-          </select>
+          <label id="bp-stok-lbl">Stok Durumu</label>
+          <div class="bp-ms" id="bp-stok" data-field="stok" data-label="Stok Durumu"></div>
         </div>
         <div class="bp-field">
           <label>Fiyat Aralığı (EUR)</label>
@@ -5195,29 +5215,58 @@ function closeMasterDetail(){
 // Adanmış .view: filtrele (marka/model/kategori/cinsiyet/sezon/stok/fiyat aralığı)
 // → önizleme tablosu → uygula. Eski kopuk checkbox-seçim sistemi kaldırıldı (FAZ C / C1).
 // Kullanıcı NEYİ seçtiğini önizlemede AÇIKÇA görür; filtre boşsa tüm aktif ürünler listelenir.
+//
+// TSK-0138: 7 kategorik filtre tek-seçim <select>'ten ÇOKLU-SEÇİM açılır panele çevrildi
+// + CASCADING (faceted): her filtrenin seçenekleri, KENDİSİ HARİÇ diğer aktif filtrelerden
+// geçen ürün kümesinden hesaplanır. Marka seçilince model listesi o markaların modelleriyle
+// daralır; 2 marka seçilince ikisinin modelleri birden gelir. Boş seçim = o filtre pasif (tümü).
 const _bpEsc = (v) => String(v ?? '').replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
 let _bpBound = false;
-function bpFilteredVars(){
-  const marka  = $('#bp-marka')?.value || 'all';
-  const model  = $('#bp-model')?.value || 'all';
-  const katUst = $('#bp-kat-ust')?.value || 'all';
-  const katAlt = $('#bp-kat')?.value || 'all';
-  const cins   = $('#bp-cins')?.value || 'all';
-  const sezon  = $('#bp-sezon')?.value || 'all';
-  const stok   = $('#bp-stok')?.value || 'all';
+// Çoklu-seçim state — her facet bir Set (boş Set = filtre pasif, tüm değerler).
+const bpSel = { marka:new Set(), model:new Set(), katUst:new Set(), katAlt:new Set(), cins:new Set(), sezon:new Set(), stok:new Set() };
+// Hangi panellerin arama kutusu açık olduğu (çok seçenekli facet'ler için).
+const _bpMsSearch = {};
+// Bir ürünün verilen facet'teki değeri (string). Tek değer döner — model adı ilk parçadan.
+function bpFieldValue(p, field){
+  switch(field){
+    case 'marka':  return p.marka || '';
+    case 'model':  return (p.isim_bilinen||p.isim_resmi||'').split(',')[0].trim();
+    case 'katUst': return p.kategori_ust || '';
+    case 'katAlt': return p.kategori_alt || p.kategori || '';
+    case 'cins':   return p.cinsiyet || '';
+    case 'sezon':  return p.sezon || '';
+    case 'stok':   return _availableOfP(p) >= 1 ? 'stocked' : 'out';
+    default:       return '';
+  }
+}
+// Facet konfigürasyonu — sıra = grid sırası. statik: sabit option seti (value/label) olan facet'ler.
+const BP_FIELDS = [
+  { id:'bp-marka',   field:'marka'  },
+  { id:'bp-model',   field:'model'  },
+  { id:'bp-kat-ust', field:'katUst' },
+  { id:'bp-kat',     field:'katAlt' },
+  { id:'bp-cins',    field:'cins', statik:[{v:'KADIN',t:'Kadın'},{v:'ERKEK',t:'Erkek'},{v:'UNISEX',t:'Unisex'}] },
+  { id:'bp-sezon',   field:'sezon'  },
+  { id:'bp-stok',    field:'stok', statik:[{v:'stocked',t:'Stoklu (≥1)'},{v:'out',t:'Tükendi (0)'}] },
+];
+// Tek facet'in ürün-eşleştirme testi: facet pasifse (Set boş) herkes geçer, değilse IN mantığı.
+function bpMatchField(p, field){
+  const sel = bpSel[field];
+  if(!sel || sel.size === 0) return true;
+  return sel.has(bpFieldValue(p, field));
+}
+// CASCADING'in kalbi: exclude facet'i HARİÇ tüm aktif kategorik filtreler + fiyat aralığı
+// uygulanmış ürün kümesi. exclude verilmezse tüm filtreler uygulanır (= nihai sonuç kümesi).
+function bpFilteredVars(exclude){
   const fMinRaw = $('#bp-fiyat-min')?.value;
   const fMaxRaw = $('#bp-fiyat-max')?.value;
   const fMin = fMinRaw === '' || fMinRaw == null ? null : Number(fMinRaw);
   const fMax = fMaxRaw === '' || fMaxRaw == null ? null : Number(fMaxRaw);
   return state.products.filter(p => {
-    if(marka  !== 'all' && p.marka !== marka) return false;
-    if(model  !== 'all' && (p.isim_bilinen||p.isim_resmi||'').split(',')[0].trim() !== model) return false;
-    if(katUst !== 'all' && (p.kategori_ust||'') !== katUst) return false;
-    if(katAlt !== 'all' && (p.kategori_alt||p.kategori||'') !== katAlt) return false;
-    if(cins   !== 'all' && (p.cinsiyet||'') !== cins) return false;
-    if(sezon  !== 'all' && (p.sezon||'') !== sezon) return false;
-    if(stok === 'stocked' && _availableOfP(p) < 1) return false;
-    if(stok === 'out'     && _availableOfP(p) >= 1) return false;
+    for(const cfg of BP_FIELDS){
+      if(cfg.field === exclude) continue;
+      if(!bpMatchField(p, cfg.field)) return false;
+    }
     const fy = Number(p.fiyat_eur)||0;
     if(fMin != null && !isNaN(fMin) && fy < fMin) return false;
     if(fMax != null && !isNaN(fMax) && fy > fMax) return false;
@@ -5329,36 +5378,192 @@ async function bpApply(){
   }
 }
 function bpResetFilters(){
-  ['bp-marka','bp-model','bp-kat-ust','bp-kat','bp-cins','bp-sezon','bp-stok'].forEach(id => { const el = $('#'+id); if(el) el.value = 'all'; });
+  // Tüm çoklu-seçim Set'lerini temizle (her filtre pasif = tümü).
+  Object.keys(bpSel).forEach(k => bpSel[k].clear());
+  Object.keys(_bpMsSearch).forEach(k => { _bpMsSearch[k] = ''; });
   ['bp-fiyat-min','bp-fiyat-max','bp-value'].forEach(id => { const el = $('#'+id); if(el) el.value = ''; });
   const warn = $('#bp-warn'); if(warn) warn.classList.remove('show');
+  bpRecomputeOptions();   // panelleri sıfır seçimle yeniden doldur
   bpUpdatePreview();
 }
+// ─── Çoklu-seçim widget motoru ──────────────────────
+// Bir facet'in seçilebilir değerlerini hesapla: KENDİSİ HARİÇ diğer aktif filtrelerden
+// geçen kümeden distinct değerler (cascading). statik facet'lerde sabit option seti içinden
+// "o anki kümede karşılığı olanlar". Dönen liste {v,t,count} — count = o değere uyan ürün sayısı.
+function bpOptionsFor(cfg){
+  const pool = bpFilteredVars(cfg.field);   // bu facet hariç tüm filtreler uygulanmış küme
+  if(cfg.statik){
+    return cfg.statik.map(o => {
+      const count = pool.filter(p => bpFieldValue(p, cfg.field) === o.v).length;
+      return { v:o.v, t:o.t, count };
+    }).filter(o => o.count > 0 || bpSel[cfg.field].has(o.v));
+  }
+  const counts = new Map();
+  for(const p of pool){
+    const val = bpFieldValue(p, cfg.field);
+    if(!val) continue;
+    counts.set(val, (counts.get(val) || 0) + 1);
+  }
+  // Seçili ama artık kümede karşılığı olmayan değerleri de listede tut (kullanıcı kaldırabilsin).
+  for(const v of bpSel[cfg.field]){ if(!counts.has(v)) counts.set(v, 0); }
+  return [...counts.entries()]
+    .map(([v, count]) => ({ v, t:v, count }))
+    .sort((a,b) => a.t.localeCompare(b.t, 'tr'));
+}
+// Trigger butonu etiketini güncelle: seçim yoksa "Tümü", varsa seçili değer(ler) + adet rozeti.
+function bpRenderMsLabel(cfg){
+  const root = $('#'+cfg.id); if(!root) return;
+  const labelEl = root.querySelector('.bp-ms__label');
+  const countEl = root.querySelector('.bp-ms__count');
+  const sel = bpSel[cfg.field];
+  if(sel.size === 0){
+    labelEl.textContent = 'Tümü';
+    labelEl.classList.add('bp-ms__label--placeholder');
+    countEl.hidden = true;
+  } else {
+    // statik facet'lerde value→etiket çevir, diğerlerinde value=etiket.
+    const toText = v => cfg.statik ? (cfg.statik.find(o => o.v === v)?.t || v) : v;
+    const names = [...sel].map(toText).sort((a,b) => a.localeCompare(b,'tr'));
+    labelEl.textContent = names.join(', ');
+    labelEl.classList.remove('bp-ms__label--placeholder');
+    countEl.textContent = sel.size;
+    countEl.hidden = false;
+  }
+}
+// Bir facet'in açılır panelini (checkbox listesi) doldur. Cascading sonucu options listesiyle.
+function bpRenderMsPanel(cfg){
+  const root = $('#'+cfg.id); if(!root) return;
+  const list = root.querySelector('.bp-ms__list');
+  const options = bpOptionsFor(cfg);
+  const q = (_bpMsSearch[cfg.field] || '').toLocaleLowerCase('tr');
+  if(options.length === 0){
+    list.innerHTML = '<div class="bp-ms__empty">Seçenek yok</div>';
+    return;
+  }
+  list.innerHTML = options.map(o => {
+    const checked = bpSel[cfg.field].has(o.v);
+    const hidden = q && !o.t.toLocaleLowerCase('tr').includes(q) ? ' bp-ms__opt--hidden' : '';
+    const checkedCls = checked ? ' bp-ms__opt--checked' : '';
+    const dim = o.count === 0 ? ' style="opacity:.5"' : '';
+    return `<label class="bp-ms__opt${checkedCls}${hidden}"${dim} data-val="${_bpEsc(o.v)}">
+      <input type="checkbox"${checked ? ' checked' : ''}>
+      <span class="bp-ms__opt-text">${_bpEsc(o.t)}</span>
+      <span class="bp-ms__opt-count">${o.count}</span>
+    </label>`;
+  }).join('');
+}
+// TÜM facet'lerin panel + etiketlerini yeniden hesapla (cascading yayılımı).
+// Önce geçersiz kalan seçimleri düş: statik-olmayan facet'te, o facet hariç kümede
+// hiç karşılığı olmayan seçili değer "0 count" olarak listede kalır — silinmez,
+// kullanıcı görsün+kaldırabilsin (faceted search davranışı). Yeniden hesaplama idempotent.
+function bpRecomputeOptions(){
+  for(const cfg of BP_FIELDS){
+    bpRenderMsPanel(cfg);
+    bpRenderMsLabel(cfg);
+  }
+}
+// Bir facet değeri toggle edildiğinde: state güncelle → cascading yay → önizleme tazele.
+function bpToggleValue(field, val, on){
+  if(on) bpSel[field].add(val);
+  else   bpSel[field].delete(val);
+  bpRecomputeOptions();
+  bpUpdatePreview();
+}
+// Açık olan tüm panelleri kapat (dışarı tıklama / Esc / başka panel açılışı).
+function bpCloseAllPanels(except){
+  $$('.bp-ms.open').forEach(el => { if(el !== except) el.classList.remove('open'); });
+}
+// Bir multi-select widget'ının iskeletini (trigger + panel) bir kez kur ve eventleri bağla.
+function bpInitMs(cfg){
+  const root = $('#'+cfg.id);
+  if(!root || root.dataset.msReady) return;
+  root.dataset.msReady = '1';
+  const hasSearch = root.dataset.search === '1';
+  _bpMsSearch[cfg.field] = '';
+  root.innerHTML = `
+    <button type="button" class="bp-ms__trigger" aria-haspopup="listbox" aria-expanded="false">
+      <span class="bp-ms__label bp-ms__label--placeholder">Tümü</span>
+      <span class="bp-ms__count" hidden>0</span>
+      <span class="bp-ms__caret" aria-hidden="true"></span>
+    </button>
+    <div class="bp-ms__panel" role="listbox" aria-multiselectable="true">
+      ${hasSearch ? '<input type="text" class="bp-ms__search" placeholder="Ara…" aria-label="'+_bpEsc(root.dataset.label)+' içinde ara">' : ''}
+      <div class="bp-ms__tools">
+        <button type="button" class="bp-ms__tool" data-act="all">Tümünü Seç</button>
+        <button type="button" class="bp-ms__tool" data-act="none">Temizle</button>
+      </div>
+      <div class="bp-ms__list"></div>
+    </div>`;
+  const trigger = root.querySelector('.bp-ms__trigger');
+  const panel   = root.querySelector('.bp-ms__panel');
+  const list    = root.querySelector('.bp-ms__list');
+  const search  = root.querySelector('.bp-ms__search');
+  // aria etiket bağı
+  const lbl = $('#'+cfg.id+'-lbl');
+  if(lbl){ trigger.setAttribute('aria-labelledby', cfg.id+'-lbl'); }
+  // Trigger → aç/kapa
+  trigger.addEventListener('click', (e) => {
+    e.stopPropagation();
+    const willOpen = !root.classList.contains('open');
+    bpCloseAllPanels(root);
+    root.classList.toggle('open', willOpen);
+    trigger.setAttribute('aria-expanded', willOpen ? 'true' : 'false');
+    if(willOpen && search){ search.value = _bpMsSearch[cfg.field] || ''; setTimeout(() => search.focus(), 0); }
+  });
+  // Panel içi tıklama dışarı sızmasın (kapanmayı tetiklemesin)
+  panel.addEventListener('click', e => e.stopPropagation());
+  // Checkbox toggle (label tıklama checkbox'ı zaten değiştirir → change yakala)
+  list.addEventListener('change', (e) => {
+    const cb = e.target.closest('input[type="checkbox"]');
+    if(!cb) return;
+    const opt = cb.closest('.bp-ms__opt');
+    if(!opt) return;
+    bpToggleValue(cfg.field, opt.dataset.val, cb.checked);
+  });
+  // Arama kutusu — yalnızca görünürlüğü filtreler, cascading'e dokunmaz
+  if(search){
+    search.addEventListener('input', () => {
+      _bpMsSearch[cfg.field] = search.value;
+      bpRenderMsPanel(cfg);   // sadece bu panelin görünürlüğünü tazele
+    });
+    search.addEventListener('keydown', e => { if(e.key === 'Escape'){ e.stopPropagation(); root.classList.remove('open'); trigger.setAttribute('aria-expanded','false'); trigger.focus(); } });
+  }
+  // Tümünü Seç / Temizle araçları
+  root.querySelectorAll('.bp-ms__tool').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      if(btn.dataset.act === 'none'){
+        bpSel[cfg.field].clear();
+      } else {
+        // Tümünü Seç = o an cascading sonucu GÖRÜNEN tüm değerleri seç
+        bpOptionsFor(cfg).forEach(o => bpSel[cfg.field].add(o.v));
+      }
+      bpRecomputeOptions();
+      bpUpdatePreview();
+    });
+  });
+}
 function renderTopluFiyat(){
-  // Filtre dropdown'larını canlı veriden doldur (her açılışta — veri değişebilir).
-  const allMasters = groupByMaster(state.products);
-  const fill = (id, values, keep) => {
-    const el = $('#'+id);
-    if(!el) return;
-    const cur = keep ? el.value : 'all';
-    el.innerHTML = '<option value="all">Tümü</option>' + values.map(x => `<option value="${_bpEsc(x)}">${_bpEsc(x)}</option>`).join('');
-    el.value = values.includes(cur) ? cur : 'all';
-  };
-  fill('bp-marka',  [...new Set(allMasters.map(m=>m.marka).filter(Boolean))].sort((a,b)=>a.localeCompare(b,'tr')), true);
-  fill('bp-model',  [...new Set(allMasters.map(m=>(m.isim_bilinen||m.isim_resmi||'').split(',')[0].trim()).filter(Boolean))].sort((a,b)=>a.localeCompare(b,'tr')), true);
-  fill('bp-kat-ust',[...new Set(state.products.map(p=>p.kategori_ust).filter(Boolean))].sort((a,b)=>a.localeCompare(b,'tr')), true);
-  fill('bp-kat',    [...new Set(state.products.map(p=>p.kategori_alt||p.kategori).filter(Boolean))].sort((a,b)=>a.localeCompare(b,'tr')), true);
-  fill('bp-sezon',  [...new Set(state.products.map(p=>p.sezon).filter(Boolean))].sort((a,b)=>a.localeCompare(b,'tr')), true);
+  // 7 multi-select widget'ı bir kez kur (idempotent — dataset.msReady guard).
+  BP_FIELDS.forEach(bpInitMs);
+  // Cascading panelleri canlı veriden hesapla (her açılışta — veri değişebilir).
+  bpRecomputeOptions();
   if(!_bpBound){
     _bpBound = true;
-    ['bp-marka','bp-model','bp-kat-ust','bp-kat','bp-cins','bp-sezon','bp-stok','bp-mode'].forEach(id => {
-      $('#'+id)?.addEventListener('change', bpUpdatePreview);
+    // bp-mode hâlâ tek-seçim <select> — değişince önizleme tazelenir.
+    $('#bp-mode')?.addEventListener('change', bpUpdatePreview);
+    ['bp-fiyat-min','bp-fiyat-max'].forEach(id => {
+      // Fiyat aralığı da cascading'i etkiler → recompute + preview.
+      $('#'+id)?.addEventListener('input', () => { $('#bp-warn')?.classList.remove('show'); bpRecomputeOptions(); bpUpdatePreview(); });
     });
-    ['bp-fiyat-min','bp-fiyat-max','bp-value'].forEach(id => {
-      $('#'+id)?.addEventListener('input', () => { $('#bp-warn')?.classList.remove('show'); bpUpdatePreview(); });
-    });
+    $('#bp-value')?.addEventListener('input', () => { $('#bp-warn')?.classList.remove('show'); bpUpdatePreview(); });
     $('#bp-reset')?.addEventListener('click', bpResetFilters);
     $('#bp-apply')?.addEventListener('click', bpApply);
+    // Panel dışına tıklama / Esc → açık panelleri kapat (bir kez, document seviyesinde).
+    document.addEventListener('click', () => bpCloseAllPanels());
+    document.addEventListener('keydown', (e) => {
+      if(e.key === 'Escape' && $('.bp-ms.open')) bpCloseAllPanels();
+    });
   }
   bpUpdatePreview();
 }
