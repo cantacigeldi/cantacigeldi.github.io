@@ -5992,9 +5992,11 @@ async function saveCustomer(){
     let backendErr = null;
     try {
       if(window.BotlAPI && BotlAPI.patchCustomer){
-        await BotlAPI.patchCustomer(c.customer_id, data);
+        const pr = await BotlAPI.patchCustomer(c.customer_id, data);
+        if(!pr || !pr.ok) throw new Error((pr && (pr.hint || pr.error)) || 'profil güncellenemedi');
         if(usernameRaw && passwordRaw){
-          await BotlAPI.setCustomerCreds(c.customer_id, usernameRaw, passwordRaw);
+          const cr = await BotlAPI.setCustomerCreds(c.customer_id, usernameRaw, passwordRaw);
+          if(!cr || !cr.ok) throw new Error((cr && (cr.hint || cr.error)) || 'parola atanamadı');
         }
       }
     } catch(e){ backendErr = e; console.error('backend patch customer', e); }
@@ -6018,7 +6020,12 @@ async function saveCustomer(){
           createPayload.sifre_plain = passwordRaw;
         }
         const resp = await BotlAPI.createCustomer(createPayload);
-        backendCustomer = resp && resp.customer ? resp.customer : null;
+        // resp.ok yoksa backend reddetti/ulaşılamadı — SESSİZCE local'e düşme,
+        // hatayı görünür yap (yoksa "eklendi" der ama D1'de müşteri yok → login olmaz).
+        if(!resp || !resp.ok || !resp.customer){
+          throw new Error((resp && (resp.hint || resp.error)) || 'backend yanıtı geçersiz');
+        }
+        backendCustomer = resp.customer;
       }
     } catch(e){ backendErr = e; console.error('backend create customer', e); }
 
