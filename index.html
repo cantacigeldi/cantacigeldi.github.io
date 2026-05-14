@@ -14926,7 +14926,7 @@ function renderGrid(){
     empty.hidden = true;
     grid.innerHTML = filtered.map(cardHTML).join('');
     grid.querySelectorAll('.card').forEach(el=>{
-      el.addEventListener('click',()=>openModalBySlug(el.dataset.slug));
+      el.addEventListener('click',()=>openModalBySlug(el.dataset.sku));
     });
   }
   updateSectionCounts();

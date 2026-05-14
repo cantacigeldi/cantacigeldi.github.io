@@ -1,15 +1,18 @@
 # F1.6 (guvenlik-eylem-plani): GH Pages _headers DOSYASI EFFECTIVE DEĞİL
 # (GH Pages _headers'ı yok sayar — sadece Cloudflare Pages destekler).
-# Faz 2.9'da CF Pages migration sonrası bu dosya aktif olur.
-# Şimdilik dokümante, future-ready kayıt.
+# F2.5 CF Pages migration sonrası bu dosya aktif olur.
+# F4.4: CSP report-uri eklendi — ihlal raporları CF Worker endpoint'ine düşer.
+# Şimdilik backend SecurityHeadersMiddleware (F3.1) canlı koruma sağlıyor.
 
 /*
   X-Frame-Options: DENY
   X-Content-Type-Options: nosniff
   Referrer-Policy: strict-origin-when-cross-origin
-  Permissions-Policy: geolocation=(), microphone=(), camera=(), payment=()
+  Permissions-Policy: geolocation=(), microphone=(), camera=(), payment=(), usb=(), magnetometer=(), gyroscope=()
+  Cross-Origin-Opener-Policy: same-origin
   Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
-  Content-Security-Policy: default-src 'self'; img-src 'self' data: https:; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline'; connect-src 'self' https:; font-src 'self' data:; object-src 'none'; base-uri 'self'; frame-ancestors 'none'; form-action 'self'
+  Content-Security-Policy: default-src 'self'; img-src 'self' data: https:; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline'; connect-src 'self' https:; font-src 'self' data:; object-src 'none'; base-uri 'self'; frame-ancestors 'none'; form-action 'self'; report-uri /api/csp-report; report-to csp-endpoint
+  Reporting-Endpoints: csp-endpoint="/api/csp-report"
 
 /admin/*
   X-Robots-Tag: noindex, nofollow, noarchive, nosnippet, noimageindex
