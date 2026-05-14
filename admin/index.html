@@ -17108,9 +17108,15 @@ function openCustomerModal(id){
     if(form.elements.kullanici_adi) form.elements.kullanici_adi.value = c.kullanici_adi || c._draft_kullanici_adi || '';
     if(form.elements.sifre_plain) form.elements.sifre_plain.value = '';
     if(authStatus){
-      const existing = c.sifre_hash || c._draft_sifre_hash;
-      if(existing){
-        authStatus.textContent = `Mevcut: ${c.kullanici_adi || c._draft_kullanici_adi || '?'} · hash ${existing.slice(0,8)}… (yeni parola atamak için aşağıya cleartext gir)`;
+      // Backend sifre_hash'i response'tan filtreler (BUG #3 fix) — has_credentials
+      // flag'i veya kullanici_adi varlığı "credential atanmış" işareti. Local
+      // draft'ta _draft_sifre_hash olabilir, onun preview'i gösterilebilir.
+      const draftHash = c._draft_sifre_hash;
+      const hasCreds = !!(c.has_credentials || c.sifre_hash || draftHash || c.kullanici_adi || c._draft_kullanici_adi);
+      const unameShown = c.kullanici_adi || c._draft_kullanici_adi || '?';
+      if(hasCreds){
+        const hashTag = draftHash ? ` · hash ${draftHash.slice(0,8)}…` : '';
+        authStatus.textContent = `Mevcut: ${unameShown}${hashTag} · giriş bilgisi atanmış (yeni parola atamak için aşağıya cleartext gir)`;
       } else {
         authStatus.textContent = 'Mevcut: — (henüz giriş bilgisi atanmamış)';
       }
