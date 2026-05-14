@@ -2676,22 +2676,22 @@ input,select,textarea{font-size:16px}
         <form class="acct-form" id="acct-password-form" autocomplete="off">
           <div class="acct-form__field">
             <label class="acct-form__label" for="acct-eski-sifre">Mevcut Parola</label>
-            <input class="acct-form__input" id="acct-eski-sifre" name="eski_sifre" type="password" required autocomplete="current-password">
+            <input class="acct-form__input" id="acct-eski-sifre" name="eski_sifre" type="text" required autocomplete="off">
           </div>
           <div class="acct-form__field">
             <label class="acct-form__label" for="acct-yeni-sifre">Yeni Parola</label>
-            <input class="acct-form__input" id="acct-yeni-sifre" name="yeni_sifre" type="password" required minlength="6" autocomplete="new-password">
-            <span class="acct-form__hint">En az 6 karakter.</span>
+            <input class="acct-form__input" id="acct-yeni-sifre" name="yeni_sifre" type="text" required minlength="6" autocomplete="off">
+            <span class="acct-form__hint">En az 6 karakter. Yazdığın parola görünür (cleartext).</span>
           </div>
           <div class="acct-form__field">
             <label class="acct-form__label" for="acct-yeni-sifre-2">Yeni Parola (Tekrar)</label>
-            <input class="acct-form__input" id="acct-yeni-sifre-2" name="yeni_sifre_2" type="password" required minlength="6" autocomplete="new-password">
+            <input class="acct-form__input" id="acct-yeni-sifre-2" name="yeni_sifre_2" type="text" required minlength="6" autocomplete="off">
           </div>
           <div class="acct-form__actions">
             <button type="submit" class="acct-form__btn acct-form__btn--primary">Parolayı Güncelle</button>
           </div>
           <p class="acct-form__hint" style="margin-top:12px;font-size:11px">
-            Güvenlik: parolan SHA-256 ile hashlenir, plaintext olarak hiçbir yerde saklanmaz.
+            Güvenlik: parolan Argon2id ile hash'lenir, plaintext olarak hiçbir yerde saklanmaz.
             Tüm değişiklikler yöneticinin audit log'una yazılır.
           </p>
         </form>
@@ -2789,7 +2789,8 @@ input,select,textarea{font-size:16px}
         </div>
         <div class="acct-form__field">
           <label class="acct-form__label" for="acctp-kullanici">Kullanıcı Adı</label>
-          <input class="acct-form__input" id="acctp-kullanici" name="kullanici_adi" type="text" readonly>
+          <input class="acct-form__input" id="acctp-kullanici" name="kullanici_adi" type="text" required pattern="[a-z0-9._-]{3,30}" title="3-30 karakter, küçük harf/rakam/._-">
+          <span class="acct-form__hint">Sadece küçük harf, rakam, nokta, alt çizgi, tire.</span>
         </div>
       </div>
       <div class="acct-form__row">
@@ -2824,6 +2825,31 @@ input,select,textarea{font-size:16px}
         <button type="button" class="acct-form__btn acct-form__btn--secondary" id="acctp-reset">Sıfırla</button>
         <button type="submit" class="acct-form__btn acct-form__btn--primary">Kaydet</button>
       </div>
+    </form>
+
+    <!-- Parola değiştir — modal #acct-password-form ile aynı akış (changePassword API) -->
+    <form class="acct-form" id="acct-password-form-page" autocomplete="off" style="margin-top:32px;padding-top:24px;border-top:1px solid var(--border,#2a2a2a)">
+      <h2 class="page-shell__title" style="font-size:16px;margin:0 0 16px">Parola Değiştir</h2>
+      <div class="acct-form__field">
+        <label class="acct-form__label" for="acctp-eski-sifre">Mevcut Parola</label>
+        <input class="acct-form__input" id="acctp-eski-sifre" name="eski_sifre" type="text" required autocomplete="off">
+      </div>
+      <div class="acct-form__field">
+        <label class="acct-form__label" for="acctp-yeni-sifre">Yeni Parola</label>
+        <input class="acct-form__input" id="acctp-yeni-sifre" name="yeni_sifre" type="text" required minlength="6" autocomplete="off">
+        <span class="acct-form__hint">En az 6 karakter. Yazdığın parola görünür (cleartext).</span>
+      </div>
+      <div class="acct-form__field">
+        <label class="acct-form__label" for="acctp-yeni-sifre-2">Yeni Parola (Tekrar)</label>
+        <input class="acct-form__input" id="acctp-yeni-sifre-2" name="yeni_sifre_2" type="text" required minlength="6" autocomplete="off">
+      </div>
+      <div class="acct-form__actions">
+        <button type="submit" class="acct-form__btn acct-form__btn--primary">Parolayı Güncelle</button>
+      </div>
+      <p class="acct-form__hint" style="margin-top:12px;font-size:11px">
+        Güvenlik: parolan Argon2id ile hash'lenir, plaintext olarak hiçbir yerde saklanmaz.
+        Tüm değişiklikler yöneticinin audit log'una yazılır.
+      </p>
     </form>
   </div>
 </main>
@@ -16569,12 +16595,20 @@ function _pickFormValues(prefix){
 }
 
 // Parola değiştir — backend API çağrısı.
+// Modal (#acct-password-form, prefix acct-) ve sayfa (#acct-password-form-page,
+// prefix acctp-) AYNI fonksiyonu kullanır — submit eden formun id'sinden prefix
+// türetilir. İkisi de aynı changePassword API'sini çağırır (zero-redundancy).
 async function saveAccountPassword(e){
   if(e) e.preventDefault();
   const s = getSession(); if(!s) { toast('Önce giriş yapın', true); return; }
-  const eski = $('#acct-eski-sifre').value || '';
-  const yeni = $('#acct-yeni-sifre').value || '';
-  const yeni2 = $('#acct-yeni-sifre-2').value || '';
+  const isPage = e && e.target && e.target.id === 'acct-password-form-page';
+  const pfx = isPage ? 'acctp-' : 'acct-';
+  const fEski = $('#' + pfx + 'eski-sifre');
+  const fYeni = $('#' + pfx + 'yeni-sifre');
+  const fYeni2 = $('#' + pfx + 'yeni-sifre-2');
+  const eski = (fEski && fEski.value) || '';
+  const yeni = (fYeni && fYeni.value) || '';
+  const yeni2 = (fYeni2 && fYeni2.value) || '';
   if(yeni.length < 6){ toast('Yeni parola en az 6 karakter olmalı', true); return; }
   if(yeni !== yeni2){ toast('Yeni parolalar eşleşmiyor', true); return; }
 
@@ -16592,9 +16626,9 @@ async function saveAccountPassword(e){
   const r = await window.BotlCustomerAPI.changePassword(eski, yeni);
   if(r.ok){
     toast('Parola güncellendi. Tekrar giriş yapmanız gerekebilir.');
-    $('#acct-eski-sifre').value = '';
-    $('#acct-yeni-sifre').value = '';
-    $('#acct-yeni-sifre-2').value = '';
+    if(fEski) fEski.value = '';
+    if(fYeni) fYeni.value = '';
+    if(fYeni2) fYeni2.value = '';
   } else if(r.status === 401){
     toast('Mevcut parola yanlış', true);
   } else {
@@ -17634,6 +17668,9 @@ function initAuthBindings(){
   if(acctFormPage) acctFormPage.addEventListener('submit', saveAccountProfile);
   const acctResetPage = $('#acctp-reset');
   if(acctResetPage) acctResetPage.addEventListener('click', resetAccountProfile);
+  // Page parola değiştir formu — modal ile aynı saveAccountPassword akışı
+  const acctPwFormPage = $('#acct-password-form-page');
+  if(acctPwFormPage) acctPwFormPage.addEventListener('submit', saveAccountPassword);
 
   const acctLogout = $('#account-logout');
   if(acctLogout){

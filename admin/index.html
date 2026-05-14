@@ -45,18 +45,19 @@
     if (!sess || !sess.expiresAt || Number(sess.expiresAt) < Date.now()) {
       // Eski/bozuk session varsa temizle.
       try { localStorage.removeItem('botl_admin_session'); } catch(_) {}
+      // location.replace senkron navigasyon tetikler; 'return' sonraki
+      // scriptlerin koşmasını zaten engeller. window.stop() KULLANILMAZ —
+      // henüz başlamamış redirect navigasyonunu da iptal eder ve sayfa
+      // index.html'de takılı kalır (T1 gri-ekran kök sebebi, TSK-0096).
       location.replace('./giris.html');
-      // location.replace asenkron olabilir — sonraki scriptlerin koşmasını
-      // engellemek için window.stop() denenir (browser destekliyorsa).
-      try { window.stop(); } catch(_) {}
       return;
     }
     // Auth OK — global flag mount script tarafından okunur.
     window.__BOTL_AUTH_OK__ = true;
   } catch (_) {
     try { localStorage.removeItem('botl_admin_session'); } catch(__) {}
+    // window.stop() KULLANILMAZ — redirect'i öldürür (TSK-0096). 'return' yeterli.
     location.replace('./giris.html');
-    try { window.stop(); } catch(__) {}
     return;
   }
 })();
@@ -2440,7 +2441,7 @@ tr.row--re-onay td:first-child{box-shadow:inset 3px 0 0 #C77A17}
             <div class="field">
               <label class="field__label">Parola</label>
               <input class="field__input" name="sifre_plain" type="text" placeholder="en az 6 karakter" autocomplete="new-password">
-              <span class="field__hint">Müşteriye ileteceğin parola. Hash'lenip kaydedilir; tekrar düzenlerken görünmez, sıfırlamak gerekir.</span>
+              <span class="field__hint">Yeni parola gir (cleartext görünür). Argon2id ile hash'lenip kaydedilir — mevcut parola tek yönlü hash, gösterilemez. Boş bırakırsan parola değişmez, sadece kullanıcı adı güncellenir.</span>
             </div>
           </div>
           <div class="field"><span class="field__hint" id="customer-auth-status">Mevcut: —</span></div>
@@ -17102,13 +17103,14 @@ function openCustomerModal(id){
     ['telefon','email','sehir','ulke','tercih_marka','butce_eur','notlar','segment','adres','posta_kodu'].forEach(k => {
       if(form.elements[k]) form.elements[k].value = c[k] ?? '';
     });
-    // Credentials boş gösterilir (plaintext görünmesin)
+    // Kullanıcı adı mevcut değerle dolar (düzenlenebilir); parola alanı boş —
+    // depodaki parola tek yönlü Argon2id hash, cleartext gösterilemez.
     if(form.elements.kullanici_adi) form.elements.kullanici_adi.value = c.kullanici_adi || c._draft_kullanici_adi || '';
     if(form.elements.sifre_plain) form.elements.sifre_plain.value = '';
     if(authStatus){
       const existing = c.sifre_hash || c._draft_sifre_hash;
       if(existing){
-        authStatus.textContent = `Mevcut: ${c.kullanici_adi || c._draft_kullanici_adi || '?'} · hash ${existing.slice(0,8)}… (parola değiştirmek için yeniden gir)`;
+        authStatus.textContent = `Mevcut: ${c.kullanici_adi || c._draft_kullanici_adi || '?'} · hash ${existing.slice(0,8)}… (yeni parola atamak için aşağıya cleartext gir)`;
       } else {
         authStatus.textContent = 'Mevcut: — (henüz giriş bilgisi atanmamış)';
       }
