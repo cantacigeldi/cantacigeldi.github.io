@@ -1408,6 +1408,21 @@ body[data-route="returns"] .cat-chips{display:none}
   font-weight:500;
   font-variant-numeric:tabular-nums;
 }
+/* CUSTOMER-ONLY: fiyat displayleri kapalı (patron policy: müşteri fiyat
+   görmez). fmtPrice() boş string döndürdüğü için JS template'lerde fiyat
+   içeren tüm element'ler boş slot olarak gelir; bu CSS safety net o boş
+   slot'ların layout'a yer kaplamamasını sağlar. Cart aritmetiği etkilenmez.
+   NOT: card__price-row içinde fiyat + kondisyon var; sadece fiyat gizlenir,
+   kondisyon (Sıfır/2.El) müşteri için faydalı bilgi olarak korunur.
+   Admin (dist/catalog/admin/) AYRI dosya, bu kural ETKİLEMEZ. */
+.card__price,
+.modal__price,
+.cart__item-price,
+.cart__line-unit,
+.cart__total,
+.add-item-card__price{
+  display:none !important;
+}
 .card__cond{
   font-size:10px;
   letter-spacing:.08em;
@@ -2549,7 +2564,7 @@ input,select,textarea{font-size:16px}
 <!-- BOTL_INLINE_DATA_START — catalog_sync_data tarafından yenilenir, elle düzenleme -->
 <script>window.__BOTL_DATA__ = {
   "schema_version": 5,
-  "exported_at": "2026-05-15T15:32:57.055320+00:00",
+  "exported_at": "2026-05-15T15:41:14.324517+00:00",
   "counter": 291,
   "products": [
     {
@@ -19696,9 +19711,9 @@ input,select,textarea{font-size:16px}
     </header>
     <div class="cart__body" id="cart-body"></div>
     <footer class="cart__foot">
-      <div class="cart__total">
+      <div class="cart__total" hidden aria-hidden="true">
         <span class="cart__total-label">Toplam</span>
-        <strong class="cart__total-value" id="cart-total">€0</strong>
+        <strong class="cart__total-value" id="cart-total"></strong>
       </div>
       <button class="cart__order" id="cart-order" type="button" hidden>
         <span id="cart-order-label">SİPARİŞİ OLUŞTUR</span>
@@ -20280,7 +20295,13 @@ const KATEGORI_LABEL = {
 };
 
 // ─── Helpers ────────────────────────────────────────
-const fmtPrice = n => '€' + Number(n).toLocaleString('tr-TR',{minimumFractionDigits:0});
+// Customer-facing price display KAPALI (patron policy: müşteri fiyat görmez,
+// sadece admin görür). fmtPrice tüm store template'lerinde kullanılır
+// (card, modal, cart item, cart total, sipariş onay, add-item card) —
+// boş string döndürerek tek noktadan tüm fiyat displaylerini kapatır.
+// Cart aritmetiği etkilenmez (Number(p.fiyat_eur) ayrıca hesaplanır).
+// Admin (dist/catalog/admin/) AYRI dosya, AYRI renderer, ETKİLENMEZ.
+const fmtPrice = _n => '';
 const $ = sel => document.querySelector(sel);
 const $$ = sel => Array.from(document.querySelectorAll(sel));
 const uniq = arr => Array.from(new Set(arr)).sort();
@@ -21662,7 +21683,7 @@ async function placeOrder(){
   const totalItems = items.reduce((s,p) => s + (p._qty || 1), 0);
   const ok = await showConfirmModal({
     title: 'Sipariş Onayı',
-    message: `${totalItems} adet ürün — toplam ${fmtPrice(total)}\n\nSiparişi onaylıyor musun?`,
+    message: `${totalItems} adet ürün${totalItems === 1 ? '' : ''}\n\nSiparişi onaylıyor musun?`,
     confirmLabel: 'Siparişi Onayla', cancelLabel: 'Vazgeç',
   });
   if(!ok) return;

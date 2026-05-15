@@ -2,7 +2,7 @@
 // Bu dosya catalog_sync_data tool'u tarafından üretilir; data.json ile birebir aynı içeriği taşır.
 window.__BOTL_DATA__ = {
   "schema_version": 5,
-  "exported_at": "2026-05-15T15:32:57.055320+00:00",
+  "exported_at": "2026-05-15T15:41:14.324517+00:00",
   "counter": 291,
   "products": [
     {
