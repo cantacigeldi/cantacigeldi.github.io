@@ -376,6 +376,7 @@ a{color:inherit;text-decoration:none}
   white-space:nowrap;
   display:inline-flex;align-items:center;gap:6px;
 }
+.btn[hidden]{display:none}
 .btn:hover{background:var(--bg-alt)}
 .btn--primary{
   background:var(--text);color:var(--on-text);border-color:var(--text);
@@ -935,6 +936,115 @@ a{color:inherit;text-decoration:none}
 .modal__panel--wide{max-width:min(1400px, 96vw)}
 .form-section--full{
   grid-column:1/-1;
+}
+
+/* ─── Müşteri seçici (typeahead) — Yeni Sipariş modal'ı (P-G) ──────── */
+.customer-picker{
+  position:relative;
+  min-width:0;
+}
+.customer-picker__input{width:100%}
+.customer-picker__options{
+  position:absolute;
+  top:calc(100% + 2px);left:0;right:0;
+  z-index:50;
+  list-style:none;margin:0;padding:0;
+  max-height:280px;overflow-y:auto;
+  background:var(--surface);
+  border:1px solid var(--border);
+  box-shadow:0 8px 28px rgba(0,0,0,.12);
+}
+.customer-picker__options li{
+  padding:8px 12px;
+  cursor:pointer;
+  font-size:12px;
+  border-bottom:1px solid var(--border);
+  display:flex;flex-direction:column;gap:2px;
+}
+.customer-picker__options li:last-child{border-bottom:none}
+.customer-picker__options li:hover,
+.customer-picker__options li.is-active{
+  background:var(--bg-alt);
+}
+.customer-picker__options li .cp-name{font-weight:500;color:var(--text)}
+.customer-picker__options li .cp-meta{font-size:10.5px;color:var(--text-muted);font-family:'Menlo','Monaco',monospace;letter-spacing:.02em}
+.customer-picker__empty{padding:14px 12px;color:var(--text-muted);font-size:12px;text-align:center}
+.customer-picked{
+  background:var(--bg-alt);
+  border:1px solid var(--border);
+  padding:12px 14px;
+  margin-top:6px;
+}
+.customer-picked__head{
+  display:flex;justify-content:space-between;align-items:flex-start;gap:10px;
+  margin-bottom:8px;padding-bottom:8px;border-bottom:1px solid var(--border);
+}
+.customer-picked__name{
+  display:block;font-size:14px;letter-spacing:.01em;
+}
+.customer-picked__id{
+  display:block;font-size:10.5px;color:var(--text-muted);
+  font-family:'Menlo','Monaco',monospace;
+  margin-top:2px;
+}
+.customer-picked__clear{
+  background:transparent;border:none;color:var(--text-muted);
+  font-size:18px;line-height:1;cursor:pointer;padding:0 4px;
+}
+.customer-picked__clear:hover{color:var(--danger)}
+.customer-picked__attrs{
+  display:grid;grid-template-columns:auto 1fr;
+  gap:4px 14px;
+  margin:0;font-size:11.5px;
+}
+.customer-picked__attrs dt{
+  color:var(--text-muted);
+  font-size:10.5px;letter-spacing:.06em;
+  text-transform:uppercase;
+  align-self:center;
+}
+.customer-picked__attrs dd{margin:0;color:var(--text);font-variant-numeric:tabular-nums}
+
+/* ─── Customer detay modal — sıkı + dengeli polish (P-A) ───────────── */
+.customer-modal__panel{max-width:min(1080px, 96vw)}
+.customer-modal__body{padding:18px 22px 6px}
+.customer-name-row{
+  display:flex;
+  flex-direction:column;
+  gap:4px;
+  padding-bottom:14px;
+  margin-bottom:14px;
+  border-bottom:1px solid var(--border);
+}
+.customer-name-row .field{gap:4px}
+.field__input--lg{
+  font-size:16px;
+  font-weight:500;
+  padding:10px 12px;
+  letter-spacing:.01em;
+}
+.customer-stats-hint{
+  font-size:11px;
+  color:var(--text-muted);
+  font-family:'Menlo','Monaco',monospace;
+  letter-spacing:.02em;
+  margin-top:2px;
+}
+.customer-form-grid{gap:18px 24px}
+.customer-form-grid .form-section{gap:10px}
+.customer-form-grid .form-section__title{margin:0 0 2px;padding-bottom:6px}
+.customer-auth-section{margin-top:0}
+.customer-auth-section .form-section__title{
+  display:flex;align-items:center;gap:10px;flex-wrap:wrap;
+}
+.customer-auth-status{
+  font-size:10px;
+  color:var(--text-faint);
+  font-family:'Menlo','Monaco',monospace;
+  letter-spacing:.02em;
+  text-transform:none;
+  font-weight:normal;
+  margin-left:auto;
 }
 .order-add-row{
   display:flex;gap:6px;align-items:flex-end;margin-bottom:10px;
@@ -2117,34 +2227,39 @@ tr.row--re-onay td:first-child{box-shadow:inset 3px 0 0 #C77A17}
     </div>
     <form id="order-form" class="modal__body" autocomplete="off">
       <div class="form-grid">
-        <!-- Müşteri -->
+        <!-- Müşteri — sadece kayıtlı müşteri seçici (P-G). Yeni müşteri Müşteriler sayfasından. -->
         <div class="form-section">
           <h3 class="form-section__title">Müşteri</h3>
           <div class="field">
-            <label class="field__label">Ad Soyad</label>
-            <input class="field__input" name="musteri_ad_soyad" placeholder="örn. Madame X">
-          </div>
-          <div class="field">
-            <label class="field__label">Telefon</label>
-            <input class="field__input" name="musteri_telefon" placeholder="+90 5XX XXX XXXX">
-          </div>
-          <div class="field">
-            <label class="field__label">E-posta</label>
-            <input class="field__input" name="musteri_email" type="email">
-          </div>
-          <div class="field--inline">
-            <div class="field">
-              <label class="field__label">Şehir</label>
-              <input class="field__input" name="musteri_sehir">
+            <label class="field__label" for="order-customer-search">Müşteri Seç<span class="req">*</span></label>
+            <div class="customer-picker" id="order-customer-picker">
+              <input class="field__input customer-picker__input" id="order-customer-search"
+                     type="text" autocomplete="off" spellcheck="false"
+                     placeholder="İsim, telefon, e-posta, müşteri no veya kullanıcı adı ara..."
+                     aria-haspopup="listbox" aria-expanded="false" aria-owns="order-customer-options">
+              <ul class="customer-picker__options" id="order-customer-options" role="listbox" hidden></ul>
+              <input type="hidden" name="musteri_customer_id" id="order-customer-id" value="">
             </div>
-            <div class="field">
-              <label class="field__label">Ülke (kod)</label>
-              <input class="field__input" name="musteri_ulke" placeholder="TR / CH / FR ...">
-            </div>
+            <span class="field__hint" id="order-customer-hint">
+              Sadece kayıtlı müşteriler seçilebilir.
+              Yeni müşteri eklemek için <a href="#" id="order-customer-link-newcustomer">Müşteriler sayfasına</a> git.
+            </span>
           </div>
-          <div class="field">
-            <label class="field__label">Müşteri Notu</label>
-            <textarea class="field__textarea" name="musteri_notlar" rows="2"></textarea>
+          <div class="customer-picked" id="order-customer-card" hidden>
+            <div class="customer-picked__head">
+              <div>
+                <strong class="customer-picked__name" id="order-customer-card-name">—</strong>
+                <span class="customer-picked__id" id="order-customer-card-id">—</span>
+              </div>
+              <button type="button" class="customer-picked__clear" id="order-customer-card-clear" aria-label="Seçimi temizle">×</button>
+            </div>
+            <dl class="customer-picked__attrs">
+              <dt>Telefon</dt><dd id="order-customer-card-tel">—</dd>
+              <dt>E-posta</dt><dd id="order-customer-card-email">—</dd>
+              <dt>Şehir / Ülke</dt><dd id="order-customer-card-loc">—</dd>
+              <dt>Segment</dt><dd id="order-customer-card-seg">—</dd>
+              <dt>Lifetime</dt><dd id="order-customer-card-lt">—</dd>
+            </dl>
           </div>
         </div>
 
@@ -2518,48 +2633,55 @@ tr.row--re-onay td:first-child{box-shadow:inset 3px 0 0 #C77A17}
 </div>
 
 <div class="modal" id="customer-modal" hidden>
-  <div class="modal__panel">
+  <div class="modal__panel customer-modal__panel">
     <div class="modal__head">
       <h2 class="modal__title" id="customer-modal-title">Yeni Müşteri</h2>
       <span class="order-id-badge" id="customer-modal-id"></span>
       <button class="modal__close" id="customer-modal-close" aria-label="Kapat">×</button>
     </div>
-    <form id="customer-form" class="modal__body" autocomplete="off">
-      <div class="form-grid">
-        <div class="form-section">
-          <h3 class="form-section__title">Kişisel Bilgi</h3>
-          <div class="field"><label class="field__label">Ad Soyad<span class="req">*</span></label><input class="field__input" name="ad_soyad" required></div>
+    <form id="customer-form" class="modal__body customer-modal__body" autocomplete="off">
+      <!-- Ad Soyad — modal başlığının altında geniş satır olarak; ek bölüm israfı yok. -->
+      <div class="customer-name-row">
+        <div class="field">
+          <label class="field__label" for="customer-form-adsoyad">Ad Soyad<span class="req">*</span></label>
+          <input class="field__input field__input--lg" id="customer-form-adsoyad" name="ad_soyad" required placeholder="örn. Madame X" autocomplete="off">
         </div>
+        <span class="field__hint customer-stats-hint" id="customer-stats-line">Toplam alışveriş: € 0 · Sipariş sayısı: 0</span>
+      </div>
+      <div class="form-grid customer-form-grid">
         <div class="form-section">
           <h3 class="form-section__title">İletişim & Adres</h3>
-          <div class="field"><label class="field__label">E-posta</label><input class="field__input" name="email" type="email"></div>
-          <div class="field"><label class="field__label">Telefon</label><input class="field__input" name="telefon" type="tel" placeholder="+90 555 ..."></div>
-          <div class="field"><label class="field__label">Adres</label><textarea class="field__textarea" name="adres" rows="3" placeholder="Sokak, bina no, daire"></textarea></div>
+          <div class="field--inline">
+            <div class="field"><label class="field__label">E-posta</label><input class="field__input" name="email" type="email"></div>
+            <div class="field"><label class="field__label">Telefon</label><input class="field__input" name="telefon" type="tel" placeholder="+90 555 ..."></div>
+          </div>
+          <div class="field"><label class="field__label">Adres</label><textarea class="field__textarea" name="adres" rows="2" placeholder="Sokak, bina no, daire"></textarea></div>
           <div class="field--inline">
             <div class="field"><label class="field__label">Posta Kodu</label><input class="field__input" name="posta_kodu"></div>
             <div class="field"><label class="field__label">Şehir</label><input class="field__input" name="sehir"></div>
+            <div class="field"><label class="field__label">Ülke</label><input class="field__input" name="ulke" placeholder="GB, FR, TR ..."></div>
           </div>
-          <div class="field"><label class="field__label">Ülke</label><input class="field__input" name="ulke" placeholder="GB, FR, TR ..."></div>
         </div>
         <div class="form-section">
           <h3 class="form-section__title">Segment ve Tercih</h3>
-          <div class="field">
-            <label class="field__label">Segment</label>
-            <select class="field__select" name="segment">
-              <option value="NEW">NEW — Yeni</option>
-              <option value="REGULAR">REGULAR — Düzenli</option>
-              <option value="VIP">VIP — Üst segment</option>
-              <option value="WHOLESALE">WHOLESALE — Toptan</option>
-              <option value="INFLUENCER">INFLUENCER</option>
-            </select>
+          <div class="field--inline">
+            <div class="field">
+              <label class="field__label">Segment</label>
+              <select class="field__select" name="segment">
+                <option value="NEW">NEW — Yeni</option>
+                <option value="REGULAR">REGULAR — Düzenli</option>
+                <option value="VIP">VIP — Üst segment</option>
+                <option value="WHOLESALE">WHOLESALE — Toptan</option>
+                <option value="INFLUENCER">INFLUENCER</option>
+              </select>
+            </div>
+            <div class="field"><label class="field__label">Bütçe (EUR, yıllık)</label><input class="field__input" name="butce_eur" type="number" min="0" step="100"></div>
           </div>
           <div class="field"><label class="field__label">Tercih Marka</label><input class="field__input" name="tercih_marka" placeholder="Hermès, Chanel, BV"></div>
-          <div class="field"><label class="field__label">Bütçe (EUR, yıllık)</label><input class="field__input" name="butce_eur" type="number" min="0" step="100"></div>
-          <div class="field"><label class="field__label">Notlar</label><textarea class="field__textarea" name="notlar" rows="3"></textarea></div>
-          <div class="field"><span class="field__hint" id="customer-stats-line">Toplam alışveriş: € 0 · Sipariş sayısı: 0</span></div>
+          <div class="field"><label class="field__label">Notlar</label><textarea class="field__textarea" name="notlar" rows="2"></textarea></div>
         </div>
-        <div class="form-section form-section--full">
-          <h3 class="form-section__title">Hesap Bilgileri (Site Girişi)</h3>
+        <div class="form-section form-section--full customer-auth-section">
+          <h3 class="form-section__title">Hesap Bilgileri (Site Girişi) <span class="customer-auth-status" id="customer-auth-status">Mevcut: —</span></h3>
           <div class="field--inline">
             <div class="field">
               <label class="field__label">Kullanıcı Adı</label>
@@ -2569,10 +2691,9 @@ tr.row--re-onay td:first-child{box-shadow:inset 3px 0 0 #C77A17}
             <div class="field">
               <label class="field__label">Parola</label>
               <input class="field__input" name="sifre_plain" type="text" placeholder="en az 6 karakter" autocomplete="new-password">
-              <span class="field__hint">Yeni parola gir (cleartext görünür). PBKDF2 ile hash'lenip kaydedilir — mevcut parola tek yönlü hash, gösterilemez. Boş bırakırsan parola değişmez, sadece kullanıcı adı güncellenir.</span>
+              <span class="field__hint">Yeni parola gir. Boş bırakırsan parola değişmez — sadece kullanıcı adı güncellenir. Mevcut parola tek yönlü hash, gösterilemez.</span>
             </div>
           </div>
-          <div class="field"><span class="field__hint" id="customer-auth-status">Mevcut: —</span></div>
         </div>
       </div>
     </form>
@@ -5881,14 +6002,40 @@ function openOrderModal(id){
     statusBadge.hidden = false;
     if(waSection) waSection.hidden = true;
 
-    // Müşteri alanlarını doldur
+    // Müşteri alanlarını doldur — P-G: kayıtlı müşteri seçici (customer_id ile bağla).
+    // Eski siparişlerde customer_id yoksa, snapshot musteri.* alanlarından email/telefon/ad eşleştirip
+    // bulmaya çalış. Bulunmazsa "snapshot bilgi" olarak gösterilir, picker boş kalır.
     const c = o.musteri || {};
-    form.elements.musteri_ad_soyad.value = c.ad_soyad || '';
-    form.elements.musteri_telefon.value = c.telefon || '';
-    form.elements.musteri_email.value = c.email || '';
-    form.elements.musteri_sehir.value = c.sehir || '';
-    form.elements.musteri_ulke.value = c.ulke || '';
-    form.elements.musteri_notlar.value = c.notlar || '';
+    const candidateCid = c.customer_id || c.cst_id || null;
+    let matched = null;
+    if(candidateCid){
+      matched = state.customers.find(x => x.customer_id === candidateCid);
+    }
+    if(!matched && c.email){
+      matched = state.customers.find(x => (x.email || '').toLowerCase() === c.email.toLowerCase());
+    }
+    if(!matched && c.telefon){
+      matched = state.customers.find(x => (x.telefon || '') === c.telefon);
+    }
+    if(matched){
+      setOrderCustomer(matched);
+    } else {
+      // Eski sipariş, snapshot bilgi gösterimi (read-only)
+      clearOrderCustomer();
+      const card = $('#order-customer-card');
+      if(card){
+        card.hidden = false;
+        $('#order-customer-card-name').textContent = c.ad_soyad || c.isim || '— (snapshot)';
+        $('#order-customer-card-id').textContent = '(geçmiş kayıt — eşleşen müşteri bulunamadı)';
+        $('#order-customer-card-tel').textContent = c.telefon || '—';
+        $('#order-customer-card-email').textContent = c.email || '—';
+        $('#order-customer-card-loc').textContent = [c.sehir, c.ulke].filter(Boolean).join(' / ') || '—';
+        $('#order-customer-card-seg').textContent = '—';
+        $('#order-customer-card-lt').textContent = '—';
+        const clearBtn = $('#order-customer-card-clear');
+        if(clearBtn) clearBtn.hidden = true;  // snapshot — kullanıcı temizleyemesin
+      }
+    }
     form.elements.kaynak.value = o.kaynak || 'MANUEL';
     form.elements.notlar.value = o.notlar || o.patron_notu || '';
 
@@ -5914,6 +6061,7 @@ function openOrderModal(id){
     if(waSection) waSection.hidden = false;
     form.elements.kaynak.value = 'MANUEL';
     [...form.elements].forEach(el => { el.disabled = false; });
+    clearOrderCustomer();  // P-G: yeni sipariş — picker temiz
     btnSave.hidden = false;
     btnApprove.hidden = true;
     btnReject.hidden = true;
@@ -5925,6 +6073,7 @@ function openOrderModal(id){
   }
 
   renderOrderItems();
+  bindCustomerPicker();  // P-G: picker event'leri her açılışta tazele (modal kapanınca temizlenmiş olabilir)
   modal.hidden = false;
   document.body.style.overflow = 'hidden';
 }
@@ -5933,6 +6082,208 @@ function closeOrderModal(){
   state.editingOrder = null;
   orderModalItems = [];
   document.body.style.overflow = '';
+  clearOrderCustomer();  // P-G
+}
+
+// ─── P-G: Müşteri seçici (typeahead) — sadece kayıtlı müşteriler ──
+let _selectedOrderCustomerId = null;
+let _customerPickerBound = false;
+
+function setOrderCustomer(c){
+  if(!c) return;
+  _selectedOrderCustomerId = c.customer_id;
+  const hidden = $('#order-customer-id');
+  if(hidden) hidden.value = c.customer_id;
+  const search = $('#order-customer-search');
+  if(search) search.value = '';
+  const opts = $('#order-customer-options');
+  if(opts){ opts.hidden = true; opts.innerHTML = ''; opts.setAttribute('aria-expanded','false'); }
+  const card = $('#order-customer-card');
+  if(card){
+    card.hidden = false;
+    $('#order-customer-card-name').textContent = c.isim || c.ad_soyad || '—';
+    $('#order-customer-card-id').textContent = c.customer_id || '—';
+    $('#order-customer-card-tel').textContent = c.telefon || '—';
+    $('#order-customer-card-email').textContent = c.email || '—';
+    $('#order-customer-card-loc').textContent = [c.sehir, c.ulke].filter(Boolean).join(' / ') || '—';
+    $('#order-customer-card-seg').textContent = SEGMENT_LABELS[c.segment] || c.segment || '—';
+    const lt = Number(c.toplam_alisveris_eur || 0);
+    const sayi = Number(c.siparis_sayisi || 0);
+    $('#order-customer-card-lt').textContent = `${fmt(lt)} · ${sayi} sipariş`;
+    const clearBtn = $('#order-customer-card-clear');
+    if(clearBtn) clearBtn.hidden = false;
+  }
+}
+
+function clearOrderCustomer(){
+  _selectedOrderCustomerId = null;
+  const hidden = $('#order-customer-id');
+  if(hidden) hidden.value = '';
+  const search = $('#order-customer-search');
+  if(search) search.value = '';
+  const opts = $('#order-customer-options');
+  if(opts){ opts.hidden = true; opts.innerHTML = ''; opts.setAttribute('aria-expanded','false'); }
+  const card = $('#order-customer-card');
+  if(card) card.hidden = true;
+}
+
+function customerSearchScore(c, q){
+  const q2 = q.toLowerCase();
+  const blob = [
+    c.customer_id || '',
+    c.isim || c.ad_soyad || '',
+    c.telefon || '',
+    c.email || '',
+    c.kullanici_adi || '',
+    c.sehir || '',
+    c.ulke || '',
+  ].join(' ').toLowerCase();
+  if(!blob.includes(q2)) return 0;
+  // basic ranking — exact id/email > startsWith > contains
+  if((c.customer_id||'').toLowerCase() === q2) return 1000;
+  if((c.email||'').toLowerCase() === q2) return 900;
+  const name = (c.isim || c.ad_soyad || '').toLowerCase();
+  if(name.startsWith(q2)) return 500;
+  if(name.includes(q2)) return 200;
+  return 100;
+}
+
+function renderCustomerPickerOptions(q){
+  const opts = $('#order-customer-options');
+  if(!opts) return;
+  const customers = state.customers || [];
+  let results = [];
+  if(q && q.trim().length > 0){
+    results = customers
+      .map(c => ({c, score: customerSearchScore(c, q.trim())}))
+      .filter(x => x.score > 0)
+      .sort((a,b) => b.score - a.score)
+      .slice(0, 30);
+  } else {
+    // boş arama: en son sipariş veren / en üst lifetime / VIP en üstte
+    results = customers
+      .slice()
+      .sort((a,b) => {
+        const av = a.segment === 'VIP' ? 1 : 0;
+        const bv = b.segment === 'VIP' ? 1 : 0;
+        if(av !== bv) return bv - av;
+        return (b.toplam_alisveris_eur || 0) - (a.toplam_alisveris_eur || 0);
+      })
+      .slice(0, 20)
+      .map(c => ({c, score: 1}));
+  }
+  if(results.length === 0){
+    opts.innerHTML = `<li class="customer-picker__empty" aria-disabled="true">
+      Eşleşen müşteri bulunamadı. <br>Yeni müşteri eklemek için Müşteriler sayfasına git.
+    </li>`;
+    opts.hidden = false;
+    opts.setAttribute('aria-expanded','true');
+    return;
+  }
+  opts.innerHTML = results.map(({c}, i) => {
+    const name = c.isim || c.ad_soyad || '— (isimsiz)';
+    const meta = [c.customer_id, c.telefon, c.email, c.sehir, c.ulke].filter(Boolean).join(' · ');
+    const seg = SEGMENT_LABELS[c.segment] || c.segment || '';
+    return `<li role="option" data-cid="${c.customer_id}" tabindex="-1" ${i===0?'class="is-active"':''}>
+      <span class="cp-name">${name}${seg ? ` <small style="color:var(--text-muted);font-weight:normal;letter-spacing:.06em;text-transform:uppercase;font-size:9.5px;margin-left:6px">${seg}</small>` : ''}</span>
+      <span class="cp-meta">${meta}</span>
+    </li>`;
+  }).join('');
+  opts.hidden = false;
+  opts.setAttribute('aria-expanded','true');
+
+  // click handler
+  opts.querySelectorAll('li[data-cid]').forEach(li => {
+    li.addEventListener('mousedown', e => {  // mousedown — blur'dan önce
+      e.preventDefault();
+      const cid = li.dataset.cid;
+      const c = state.customers.find(x => x.customer_id === cid);
+      if(c) setOrderCustomer(c);
+    });
+    li.addEventListener('mouseenter', () => {
+      opts.querySelectorAll('li').forEach(x => x.classList.remove('is-active'));
+      li.classList.add('is-active');
+    });
+  });
+}
+
+function bindCustomerPicker(){
+  if(_customerPickerBound) return;
+  _customerPickerBound = true;
+  const search = $('#order-customer-search');
+  const opts = $('#order-customer-options');
+  const clearBtn = $('#order-customer-card-clear');
+  const newCustomerLink = $('#order-customer-link-newcustomer');
+
+  if(search){
+    search.addEventListener('focus', () => {
+      // odak gelince — eğer seçim varsa picker'ı açma; aksi halde aç
+      if(_selectedOrderCustomerId) return;
+      renderCustomerPickerOptions(search.value);
+    });
+    search.addEventListener('input', () => {
+      // input gelince seçim sıfırla (kullanıcı arıyor)
+      if(_selectedOrderCustomerId){
+        const card = $('#order-customer-card');
+        if(card) card.hidden = true;
+        const hidden = $('#order-customer-id');
+        if(hidden) hidden.value = '';
+        _selectedOrderCustomerId = null;
+      }
+      renderCustomerPickerOptions(search.value);
+    });
+    search.addEventListener('blur', () => {
+      // küçük gecikme — option click'in mousedown'u çalışsın
+      setTimeout(() => {
+        if(opts) { opts.hidden = true; opts.setAttribute('aria-expanded','false'); }
+      }, 150);
+    });
+    search.addEventListener('keydown', e => {
+      if(!opts || opts.hidden) return;
+      const items = [...opts.querySelectorAll('li[data-cid]')];
+      if(items.length === 0) return;
+      let activeIdx = items.findIndex(li => li.classList.contains('is-active'));
+      if(activeIdx < 0) activeIdx = 0;
+      if(e.key === 'ArrowDown'){
+        e.preventDefault();
+        items[activeIdx]?.classList.remove('is-active');
+        const ni = (activeIdx + 1) % items.length;
+        items[ni].classList.add('is-active');
+        items[ni].scrollIntoView({block:'nearest'});
+      } else if(e.key === 'ArrowUp'){
+        e.preventDefault();
+        items[activeIdx]?.classList.remove('is-active');
+        const ni = (activeIdx - 1 + items.length) % items.length;
+        items[ni].classList.add('is-active');
+        items[ni].scrollIntoView({block:'nearest'});
+      } else if(e.key === 'Enter'){
+        e.preventDefault();
+        const sel = items[activeIdx];
+        if(sel){
+          const c = state.customers.find(x => x.customer_id === sel.dataset.cid);
+          if(c) setOrderCustomer(c);
+        }
+      } else if(e.key === 'Escape'){
+        opts.hidden = true; opts.setAttribute('aria-expanded','false');
+      }
+    });
+  }
+  if(clearBtn){
+    clearBtn.addEventListener('click', () => {
+      clearOrderCustomer();
+      const s = $('#order-customer-search');
+      if(s) s.focus();
+    });
+  }
+  if(newCustomerLink){
+    newCustomerLink.addEventListener('click', e => {
+      e.preventDefault();
+      // mevcut order-modal'ı kapat, customers view'una geç, "+ Yeni Müşteri" aç
+      closeOrderModal();
+      setView('customers');
+      try { openCustomerModal(null); } catch(err){ console.error('open new customer', err); }
+    });
+  }
 }
 
 function refreshOrderProductPicker(){
@@ -6031,18 +6382,42 @@ async function saveOrder(){
     return;
   }
   const fd = form.elements;
-  const musteri = {
-    ad_soyad: fd.musteri_ad_soyad.value.trim(),
-    telefon: fd.musteri_telefon.value.trim(),
-    email: fd.musteri_email.value.trim(),
-    sehir: fd.musteri_sehir.value.trim(),
-    ulke: fd.musteri_ulke.value.trim().toUpperCase(),
-    notlar: fd.musteri_notlar.value.trim(),
-  };
+  // P-G: Müşteri sadece kayıtlı listeden seçilir; manuel input alanları kaldırıldı.
+  // Edit modunda eski snapshot müşterisi (eşleşmeyen) korunur.
+  let musteri = null;
+  const cid = (fd.musteri_customer_id && fd.musteri_customer_id.value) || _selectedOrderCustomerId || '';
+  if(cid){
+    const c = state.customers.find(x => x.customer_id === cid);
+    if(!c){
+      toast('Seçilen müşteri bulunamadı (ID geçersiz). Lütfen yeniden seç.', true);
+      return;
+    }
+    musteri = {
+      customer_id: c.customer_id,
+      ad_soyad: c.isim || c.ad_soyad || '',
+      isim: c.isim || c.ad_soyad || '',
+      telefon: c.telefon || '',
+      email: c.email || '',
+      sehir: c.sehir || '',
+      ulke: c.ulke || '',
+      segment: c.segment || '',
+      notlar: '',  // sipariş notu order.notlar'a yazılıyor; müşteri notu modal'dan kaldırıldı
+    };
+  } else if(state.editingOrder){
+    // Edit modu: orijinal snapshot'ı koru (eşleşmeyen eski sipariş)
+    const orig = state.orders.find(x => x.order_id === state.editingOrder);
+    if(orig && orig.musteri){
+      musteri = {...orig.musteri};
+    }
+  }
+  if(!musteri){
+    toast('Müşteri seç (sadece kayıtlı müşterilerden — yeni müşteri için Müşteriler sayfasına git)', true);
+    return;
+  }
   if(!musteri.ad_soyad){
     const ok = await showConfirmModal({
       title: 'Müşteri Adı Boş',
-      message: 'Müşteri adı boş. Yine de kaydedilsin mi?',
+      message: 'Seçilen müşterinin adı boş. Yine de kaydedilsin mi?',
       confirmLabel: 'Yine de Kaydet', cancelLabel: 'Vazgeç',
     });
     if(!ok) return;

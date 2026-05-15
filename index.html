@@ -1487,6 +1487,9 @@ body[data-route="returns"] .cat-chips{display:none}
   display:flex;align-items:center;justify-content:center;
   overflow:hidden;
   position:relative;
+  user-select:none;
+  -webkit-user-select:none;
+  touch-action:pan-y;
 }
 .modal__gallery-main img{
   width:100%;height:100%;object-fit:cover;
@@ -1495,6 +1498,32 @@ body[data-route="returns"] .cat-chips{display:none}
 .modal__gallery-main .card__placeholder{
   position:absolute;inset:0;z-index:0;
   font-size:64px;
+}
+.modal__gallery-nav{
+  position:absolute;
+  top:50%;transform:translateY(-50%);
+  width:40px;height:40px;
+  display:flex;align-items:center;justify-content:center;
+  background:rgba(0,0,0,.45);color:#fff;
+  border:none;cursor:pointer;
+  z-index:3;
+  font-size:20px;line-height:1;
+  transition:background .15s;
+}
+.modal__gallery-nav:hover{background:rgba(0,0,0,.7)}
+.modal__gallery-nav:focus-visible{outline:2px solid #fff;outline-offset:2px}
+.modal__gallery-nav--prev{left:8px}
+.modal__gallery-nav--next{right:8px}
+.modal__gallery-nav[disabled]{opacity:.25;cursor:default;pointer-events:none}
+.modal__gallery-counter{
+  position:absolute;
+  top:8px;right:10px;
+  padding:3px 9px;
+  background:rgba(0,0,0,.55);color:#fff;
+  font-size:11px;letter-spacing:.06em;
+  z-index:3;
+  border-radius:999px;
+  font-variant-numeric:tabular-nums;
 }
 .modal__thumbs{
   display:flex;gap:6px;
@@ -4747,9 +4776,23 @@ function openModalBySlug(slug, opts){
 }
 
 function renderModal(p){
+  // P-B: galeri kaynağı priority — gorseller.gallery > cover URL'inden -gN derive (max 9).
+  // D1 variations şemasında gallery JSON yok; cover URL pattern'inden türetiyoruz, src
+  // load fail olursa thumb kendini gizliyor (existing onerror handler korunur).
   modalGallery = (p.gorseller && p.gorseller.gallery) ? [...p.gorseller.gallery] : [];
   const cover = p.cover || (p.gorseller && p.gorseller.cover);
   if(cover && !modalGallery.includes(cover)) modalGallery.unshift(cover);
+  // Cover'dan -g1, -g2, ..., -g9 derive — sadece gorseller.gallery boşsa.
+  if(cover && modalGallery.length === 1){
+    const m = cover.match(/^(.+)\.(jpg|jpeg|png|webp)(\?.*)?$/i);
+    if(m){
+      const base = m[1], ext = m[2];
+      for(let i = 1; i <= 9; i++){
+        const galUrl = `${base}-g${i}.${ext}`;
+        if(!modalGallery.includes(galUrl)) modalGallery.push(galUrl);
+      }
+    }
+  }
   modalIdx = 0;
 
   const initials = (p.marka || '').split(/\s+/).map(w=>w[0]).join('').slice(0,2).toUpperCase();
@@ -4757,11 +4800,21 @@ function renderModal(p){
   const aliases = (p.isim_bilinen || '').split(',').map(s=>s.trim()).filter(Boolean);
 
   // FAIL-SAFE: placeholder her zaman var, img üstüne; fail'se is-failed class
-  const mainImg = modalGallery.length>0
+  // P-B: nav butonları (prev/next) + counter (1/N) + thumbs — galeride 1+ foto için.
+  // ÖNEMLİ: cover'dan derive edilen -gN URL'lerinin bir kısmı 404 olabilir; thumb
+  // onerror ile gizlenir, counter da yalnızca görünür thumb sayısını gösterir
+  // (rebuildVisibleGallery aşağıda main img onload + thumb onerror sonrası tetikler).
+  const galN = modalGallery.length;
+  const mainImg = galN>0
     ? `<div class="card__placeholder">${initials}</div><img src="${withV(modalGallery[0])}" alt="${fullName}" id="modal-main-img" onerror="this.classList.add('is-failed')">`
     : `<div class="card__placeholder">${initials}</div>`;
-  const thumbs = modalGallery.length>1
-    ? `<div class="modal__thumbs">${modalGallery.map((src,i)=>`<button class="modal__thumb ${i===0?'active':''}" data-idx="${i}"><img src="${withV(src)}" alt="" onerror="this.parentElement.style.display='none'"></button>`).join('')}</div>`
+  const navHtml = galN>1
+    ? `<button class="modal__gallery-nav modal__gallery-nav--prev" type="button" id="modal-gallery-prev" aria-label="Önceki foto" hidden>‹</button>
+       <button class="modal__gallery-nav modal__gallery-nav--next" type="button" id="modal-gallery-next" aria-label="Sonraki foto" hidden>›</button>
+       <span class="modal__gallery-counter" id="modal-gallery-counter" aria-live="polite" hidden>1 / 1</span>`
+    : '';
+  const thumbs = galN>1
+    ? `<div class="modal__thumbs" id="modal-thumbs">${modalGallery.map((src,i)=>`<button class="modal__thumb ${i===0?'active':''}" data-idx="${i}"><img src="${withV(src)}" alt="" onload="this.parentElement.dataset.loaded='1';if(window.__rebuildModalGallery)window.__rebuildModalGallery();" onerror="this.parentElement.style.display='none';if(window.__rebuildModalGallery)window.__rebuildModalGallery();"></button>`).join('')}</div>`
     : '';
   // 3'lü stok modeli — available_stok yoksa legacy `stok`'a fallback
   const availStok = availableOf(p);
@@ -4776,23 +4829,29 @@ function renderModal(p){
   // Quantity seçili adet — sepetteki mevcut adetle başla; yoksa 1.
   const initialQty = Math.min(Math.max(1, getCartQty(p.variation_id) || 1), Math.max(1, availStok));
 
+  // P-B + P-C UI defensive — kategori/boyut/donanım undefined yazılmasın.
+  const katStr = (p.kategori_alt && KATEGORI_LABEL[p.kategori_alt]) || p.kategori_alt || (p.kategori_ust && KATEGORI_LABEL[p.kategori_ust]) || p.kategori_ust || p.kategori || '—';
+  const renkStr = renkLabel(p) || '—';
+  const boyutStr = p.boyut || '—';
+  const donanimStr = p.donanim || '—';
+
   $('#modal-content').innerHTML = `
     <div class="modal__gallery">
-      <div class="modal__gallery-main">${mainImg}</div>
+      <div class="modal__gallery-main">${mainImg}${navHtml}</div>
       ${thumbs}
     </div>
     <div class="modal__info">
-      <div class="modal__brand">${p.marka}</div>
-      <h2 class="modal__name">${fullName}</h2>
+      <div class="modal__brand">${p.marka || '—'}</div>
+      <h2 class="modal__name">${fullName || (p.isim || '—')}</h2>
       ${aliases.length>0?`<div class="modal__alias">Bilinen: ${aliases.map(a=>`<span>${a}</span>`).join('')}</div>`:''}
       <div class="modal__price">${fmtPrice(p.fiyat_eur)}</div>
       <dl class="modal__attrs">
         <dt>SKU</dt><dd>${p.variation_id}</dd>
 
-        <dt>Kategori</dt><dd>${p.kategori}</dd>
-        <dt>Renk</dt><dd>${renkLabel(p)}</dd>
-        <dt>Boyut</dt><dd>${p.boyut}</dd>
-        <dt>Donanım</dt><dd>${p.donanim}</dd>
+        <dt>Kategori</dt><dd>${katStr}</dd>
+        <dt>Renk</dt><dd>${renkStr}</dd>
+        <dt>Boyut</dt><dd>${boyutStr}</dd>
+        <dt>Donanım</dt><dd>${donanimStr}</dd>
         <dt>Deri</dt><dd>${p.deri_tipi||'—'}</dd>
         <dt>Sezon</dt><dd>${p.sezon||'—'}</dd>
         <dt>Kondisyon</dt><dd>${p.kondisyon||'—'}</dd>
@@ -4821,17 +4880,110 @@ function renderModal(p){
       ${otherVars.length>0?`<p class="modal__desc" style="margin-top:20px"><strong>Aynı model diğer varyasyonlar:</strong> ${otherVars.map(v=>`<a href="#u/${v.sku || v.variation_id || v.variation_id}" class="modal__var-link">${renkLabel(v)} / ${v.boyut} / ${v.donanim}</a>`).join(' · ')}</p>`:''}
     </div>`;
 
-  $$('.modal__thumb').forEach(t=>{
-    t.addEventListener('click',()=>{
-      modalIdx = Number(t.dataset.idx);
-      const mainImgEl = $('#modal-main-img');
-      if(mainImgEl){
-        mainImgEl.classList.remove('is-failed');
-        mainImgEl.src = modalGallery[modalIdx];
+  // P-B: galeri navigasyonu — thumb click + prev/next + klavye + swipe.
+  // Visible-only mantık: derive edilen -gN URL'lerinin bir kısmı 404 olabilir.
+  // visibleGallery = thumb onload başarılı olanlar; counter ve nav buna göre.
+  function getVisibleGallery(){
+    const thumbs = [...document.querySelectorAll('.modal__thumb')];
+    const visibleIdxs = thumbs
+      .filter(t => getComputedStyle(t).display !== 'none')
+      .map(t => Number(t.dataset.idx));
+    return visibleIdxs;
+  }
+  function visibleIndexOf(realIdx, visIdxs){
+    return visIdxs.indexOf(realIdx);
+  }
+  window.__rebuildModalGallery = function(){
+    const visIdxs = getVisibleGallery();
+    const n = visIdxs.length;
+    const counter = $('#modal-gallery-counter');
+    const prevBtn = $('#modal-gallery-prev');
+    const nextBtn = $('#modal-gallery-next');
+    const thumbs = $('#modal-thumbs');
+    if(n <= 1){
+      if(counter) counter.hidden = true;
+      if(prevBtn) prevBtn.hidden = true;
+      if(nextBtn) nextBtn.hidden = true;
+      if(thumbs) thumbs.hidden = true;
+    } else {
+      if(counter){
+        counter.hidden = false;
+        const cur = Math.max(1, visibleIndexOf(modalIdx, visIdxs) + 1);
+        counter.textContent = `${cur} / ${n}`;
       }
-      $$('.modal__thumb').forEach(x=>x.classList.toggle('active',Number(x.dataset.idx)===modalIdx));
-    });
+      if(prevBtn) prevBtn.hidden = false;
+      if(nextBtn) nextBtn.hidden = false;
+      if(thumbs) thumbs.hidden = false;
+    }
+  };
+  // setGalleryIdx(realIdx) — direkt real-index'e atla.
+  function setGalleryIdx(realIdx){
+    if(!modalGallery.length) return;
+    const n = modalGallery.length;
+    realIdx = ((realIdx % n) + n) % n;
+    modalIdx = realIdx;
+    const mainImgEl = $('#modal-main-img');
+    if(mainImgEl){
+      mainImgEl.classList.remove('is-failed');
+      mainImgEl.src = withV(modalGallery[modalIdx]);
+    }
+    $$('.modal__thumb').forEach(x => x.classList.toggle('active', Number(x.dataset.idx) === modalIdx));
+    const visIdxs = getVisibleGallery();
+    const counter = $('#modal-gallery-counter');
+    if(counter && visIdxs.length > 0){
+      const cur = Math.max(1, visIdxs.indexOf(modalIdx) + 1);
+      counter.textContent = `${cur} / ${visIdxs.length}`;
+    }
+    const activeThumb = $$('.modal__thumb').find(x => Number(x.dataset.idx) === modalIdx);
+    if(activeThumb && activeThumb.scrollIntoView){
+      try { activeThumb.scrollIntoView({behavior:'smooth', block:'nearest', inline:'center'}); } catch {}
+    }
+  }
+  // shiftGallery(direction) — visible-only dolaş; +1 sonraki visible, -1 önceki.
+  function shiftGallery(direction){
+    const visIdxs = getVisibleGallery();
+    if(visIdxs.length === 0) return;
+    const curPos = visIdxs.indexOf(modalIdx);
+    const startPos = curPos < 0 ? 0 : curPos;
+    const newPos = ((startPos + direction) % visIdxs.length + visIdxs.length) % visIdxs.length;
+    setGalleryIdx(visIdxs[newPos]);
+  }
+  // İlk açılışta da rebuild — thumb'lar henüz yüklenmemiş olabilir.
+  setTimeout(() => { try { window.__rebuildModalGallery && window.__rebuildModalGallery(); } catch {} }, 50);
+  $$('.modal__thumb').forEach(t=>{
+    t.addEventListener('click', () => setGalleryIdx(Number(t.dataset.idx)));
   });
+  const prevBtn = $('#modal-gallery-prev');
+  const nextBtn = $('#modal-gallery-next');
+  if(prevBtn) prevBtn.addEventListener('click', () => shiftGallery(-1));
+  if(nextBtn) nextBtn.addEventListener('click', () => shiftGallery(1));
+  // Klavye ←→ (modal açıkken) — visible gallery üzerinden dolaş.
+  if(modalGallery.length > 1){
+    const galleryKeyHandler = (e) => {
+      const modalEl = $('#product-modal') || $('#modal');
+      if(modalEl && modalEl.hidden) return;
+      const a = document.activeElement;
+      if(a && (a.tagName === 'INPUT' || a.tagName === 'TEXTAREA' || a.isContentEditable)) return;
+      if(e.key === 'ArrowLeft'){ e.preventDefault(); shiftGallery(-1); }
+      else if(e.key === 'ArrowRight'){ e.preventDefault(); shiftGallery(1); }
+    };
+    document.addEventListener('keydown', galleryKeyHandler);
+  }
+  // Swipe (touch) — sadece galery alanında
+  const galMain = $('.modal__gallery-main');
+  if(galMain && modalGallery.length > 1){
+    let touchStartX = 0, touchEndX = 0;
+    galMain.addEventListener('touchstart', (e) => {
+      touchStartX = e.changedTouches[0].screenX;
+    }, {passive: true});
+    galMain.addEventListener('touchend', (e) => {
+      touchEndX = e.changedTouches[0].screenX;
+      const dx = touchEndX - touchStartX;
+      if(Math.abs(dx) < 40) return;
+      if(dx < 0) shiftGallery(1);
+      else shiftGallery(-1);
+    }, {passive: true});
+  }
   $$('.modal__var-link').forEach(a=>{
     a.addEventListener('click',e=>{
       e.preventDefault();
