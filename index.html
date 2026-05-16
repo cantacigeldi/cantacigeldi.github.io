@@ -19498,7 +19498,6 @@ input,select,textarea{font-size:16px}
 <div class="auth-gate" id="auth-gate" hidden role="dialog" aria-modal="true" aria-labelledby="auth-gate-title">
   <div class="auth-gate__panel">
     <h1 class="auth-gate__title" id="auth-gate-title">BAGS OF THE LOOM</h1>
-    <p class="auth-gate__sub">Özel müşteriler için — giriş gerekir</p>
     <form id="auth-gate-form" class="auth-gate__form" autocomplete="off">
       <div class="auth-gate__field">
         <label class="auth-gate__label" for="auth-gate-username">Kullanıcı Adı</label>
@@ -19549,7 +19548,7 @@ input,select,textarea{font-size:16px}
           </button>
           <button class="hdr__user-menu-item" id="user-orders" type="button" role="menuitem">
             <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
-            <span>Siparişlerim</span>
+            <span>İstek Listelerim</span>
             <span class="hdr__user-menu-count" id="user-menu-orders-count"></span>
           </button>
           <button class="hdr__user-menu-item" id="user-returns" type="button" role="menuitem">
@@ -19563,9 +19562,9 @@ input,select,textarea{font-size:16px}
           </button>
         </div>
       </div>
-      <button class="cart-btn" id="cart-btn" aria-label="Sepet">
+      <button class="cart-btn" id="cart-btn" aria-label="İstek Listesi">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
-        <span class="cart-btn__label">Sepet</span>
+        <span class="cart-btn__label">İstek Listesi</span>
         <span class="cart-btn__count" id="cart-count" hidden>0</span>
       </button>
       <button class="hdr__filter-toggle" id="filter-toggle" aria-label="Filtreleri aç">Filtrele</button>
@@ -19579,7 +19578,7 @@ input,select,textarea{font-size:16px}
   <div class="auth-modal__panel">
     <button class="auth-modal__close" type="button" data-auth-close aria-label="Kapat">×</button>
     <h2 class="auth-modal__title" id="auth-modal-title">Giriş Yap</h2>
-    <p class="auth-modal__lead">Sipariş vermek için hesabına giriş yap.</p>
+    <p class="auth-modal__lead">İstek listeni kaydetmek için hesabına giriş yap.</p>
     <form id="auth-form" autocomplete="off">
       <div class="auth-modal__field">
         <label class="auth-modal__label" for="auth-username">Kullanıcı Adı</label>
@@ -19613,7 +19612,7 @@ input,select,textarea{font-size:16px}
     <div class="account-modal__tabs" role="tablist">
       <button class="account-modal__tab active" data-acct-tab="profile" role="tab" aria-selected="true">Bilgilerim</button>
       <button class="account-modal__tab" data-acct-tab="password" role="tab" aria-selected="false">Parola</button>
-      <button class="account-modal__tab" data-acct-tab="orders" role="tab" aria-selected="false">Siparişlerim <span id="acct-orders-count"></span></button>
+      <button class="account-modal__tab" data-acct-tab="orders" role="tab" aria-selected="false">İstek Listelerim <span id="acct-orders-count"></span></button>
     </div>
     <div class="account-modal__body">
       <!-- BİLGİLERİM -->
@@ -19656,7 +19655,7 @@ input,select,textarea{font-size:16px}
           </div>
           <div class="acct-form__field">
             <label class="acct-form__label" for="acct-ulke">Ülke (ISO kodu)</label>
-            <input class="acct-form__input" id="acct-ulke" name="ulke" type="text" placeholder="GB, FR, TR..." maxlength="3">
+            <input class="acct-form__input" id="acct-ulke" name="ulke" type="text" placeholder="GB, FR, TR...">
           </div>
           <div class="acct-form__actions">
             <button type="button" class="acct-form__btn acct-form__btn--secondary" id="acct-reset">Sıfırla</button>
@@ -19689,7 +19688,7 @@ input,select,textarea{font-size:16px}
           </p>
         </form>
       </section>
-      <!-- SİPARİŞLERİM -->
+      <!-- İSTEK LİSTELERİM -->
       <section class="account-modal__section" data-acct-section="orders">
         <div class="acct-orders" id="acct-orders-list"></div>
       </section>
@@ -19701,11 +19700,11 @@ input,select,textarea{font-size:16px}
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
 <!-- ─── Cart drawer ─────────────────────────────────── -->
-<div class="cart" id="cart" hidden role="dialog" aria-modal="true" aria-label="Sepet">
+<div class="cart" id="cart" hidden role="dialog" aria-modal="true" aria-label="İstek Listesi">
   <div class="cart__backdrop" data-cart-close></div>
   <aside class="cart__panel">
     <header class="cart__head">
-      <h2 class="cart__title">Sepet</h2>
+      <h2 class="cart__title">İstek Listesi</h2>
       <span class="cart__count" id="cart-summary">0 ürün</span>
       <button class="cart__close" data-cart-close aria-label="Kapat">×</button>
     </header>
@@ -19716,7 +19715,7 @@ input,select,textarea{font-size:16px}
         <strong class="cart__total-value" id="cart-total"></strong>
       </div>
       <button class="cart__order" id="cart-order" type="button" hidden>
-        <span id="cart-order-label">SİPARİŞİ OLUŞTUR</span>
+        <span id="cart-order-label">İSTEK LİSTESİNİ KAYDET</span>
       </button>
       <p class="cart__order-hint" id="cart-order-hint"></p>
     </footer>
@@ -19812,7 +19811,7 @@ input,select,textarea{font-size:16px}
       </div>
       <div class="acct-form__field">
         <label class="acct-form__label" for="acctp-ulke">Ülke (ISO kodu)</label>
-        <input class="acct-form__input" id="acctp-ulke" name="ulke" type="text" placeholder="GB, FR, TR..." maxlength="3">
+        <input class="acct-form__input" id="acctp-ulke" name="ulke" type="text" placeholder="GB, FR, TR...">
       </div>
       <div class="acct-form__actions">
         <button type="button" class="acct-form__btn acct-form__btn--secondary" id="acctp-reset">Sıfırla</button>
@@ -19847,14 +19846,14 @@ input,select,textarea{font-size:16px}
   </div>
 </main>
 
-<!-- ─── Siparişlerim sayfası (route #/siparislerim) ─────── -->
+<!-- ─── İstek Listelerim sayfası (route #/siparislerim) ─────── -->
 <main class="page-shell page-orders" id="page-orders" data-page="orders" hidden aria-labelledby="page-orders-title">
   <header class="page-shell__head">
     <a class="page-shell__back" href="#/" aria-label="Katalog'a dön">
       <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5"/><path d="M12 19l-7-7 7-7"/></svg>
       <span>Katalog</span>
     </a>
-    <h1 class="page-shell__title" id="page-orders-title">Siparişlerim</h1>
+    <h1 class="page-shell__title" id="page-orders-title">İstek Listelerim</h1>
     <span class="page-shell__cid" id="page-orders-count"></span>
   </header>
   <div class="page-shell__body">
@@ -19874,14 +19873,14 @@ input,select,textarea{font-size:16px}
   </header>
   <div class="page-shell__body">
     <p style="font-size:12px;color:var(--text-muted);margin:0 0 14px;letter-spacing:.04em">
-      Geçmiş siparişlerinden iade etmek istediğin kalemi seç. Her satıra tıklayarak detayı görebilir, "İade Et" butonuyla iade talebi açabilirsin.
+      Geçmiş istek listelerinden iade etmek istediğin kalemi seç. Her satıra tıklayarak detayı görebilir, "İade Et" butonuyla iade talebi açabilirsin.
     </p>
     <div class="iade-table-wrap">
-      <table class="iade-table" aria-label="Sipariş tablosu">
+      <table class="iade-table" aria-label="İstek listesi tablosu">
         <thead>
           <tr>
             <th>Tarih</th>
-            <th>Sipariş No</th>
+            <th>Liste No</th>
             <th>Ürün</th>
             <th>Varyasyon</th>
             <th>Adet</th>
@@ -19896,15 +19895,15 @@ input,select,textarea{font-size:16px}
   </div>
 </main>
 
-<!-- ─── Siparişe ürün ekle modalı (katalog grid'i reuse) ─── -->
+<!-- ─── İstek listesine ürün ekle modalı (katalog grid'i reuse) ─── -->
 <div class="add-item-modal" id="add-item-modal" hidden role="dialog" aria-modal="true" aria-labelledby="add-item-modal-title">
   <div class="add-item-modal__backdrop" data-add-item-close></div>
   <div class="add-item-modal__panel">
     <div class="add-item-modal__head">
-      <h2 class="add-item-modal__title" id="add-item-modal-title">Siparişe ürün ekle</h2>
+      <h2 class="add-item-modal__title" id="add-item-modal-title">İstek listesine ürün ekle</h2>
       <button class="add-item-modal__close" type="button" data-add-item-close aria-label="Kapat">×</button>
     </div>
-    <div class="add-item-modal__sub">Siparişinize eklemek istediğiniz ürünü seçin. Eklenince sipariş yeniden onay bekleyecek.</div>
+    <div class="add-item-modal__sub">İstek listenize eklemek istediğiniz ürünü seçin. Eklenince istek listeniz yeniden onay bekleyecek.</div>
     <div class="add-item-modal__search">
       <input id="add-item-search" type="search" placeholder="Marka, model, renk, varyasyon ara..." autocomplete="off" inputmode="search">
     </div>
@@ -19948,7 +19947,7 @@ input,select,textarea{font-size:16px}
       </div>
       <div class="iade-modal__field">
         <label class="iade-modal__label" for="iade-not">Notunuz (opsiyonel)</label>
-        <textarea class="iade-modal__textarea" id="iade-not" maxlength="500" placeholder="Detay yazabilirsiniz..."></textarea>
+        <textarea class="iade-modal__textarea" id="iade-not" placeholder="Detay yazabilirsiniz..."></textarea>
       </div>
       <div class="iade-modal__actions">
         <button type="button" class="iade-modal__btn" data-iade-close>Vazgeç</button>
@@ -20576,9 +20575,9 @@ function renderFilters(){
 // ─── Render: Card ───────────────────────────────────
 function cardHTML(p){
   const _avail = availableOf(p);
-  const stokBadge = _avail===0 ? '<span class="card__badge card__badge--out">Tükendi</span>'
-    : _avail<=2 ? `<span class="card__badge card__badge--low">Son ${_avail}</span>`
-    : '';
+  // T4: TÜM stok bilgisi store'da görünmez (Tükendi badge dahil). Patron explicit:
+  // müşteri stok görmez, istediği kadar istek listesine ekler.
+  const stokBadge = '';
   // Cinsiyet rozeti (Veri Bütünlüğü 2026-05-13) — sağ-üst, stok rozetinin altında
   const cinsiyetMap = {KADIN:'Kadın', ERKEK:'Erkek', UNISEX:'Unisex'};
   const cinsiyetLbl = cinsiyetMap[p.cinsiyet] || '';
@@ -21472,7 +21471,7 @@ function renderCart(){
     // SADECE bu senaryoda "yükleniyor" göster. PRODUCTS yüklüyse getCart() zaten
     // dead-ID'yi purge etmiş ve badge ile drawer aynı kaynaktan okuyor.
     if(items.length === 0 && rawCount > 0 && !productsReady){
-      body.innerHTML = `<div class="cart__empty">Sepet yükleniyor…<br><small>Eğer 5 sn içinde görmezsen <a href="javascript:location.reload()" style="text-decoration:underline;color:var(--accent)">sayfayı yenile</a>.</small></div>`;
+      body.innerHTML = `<div class="cart__empty">İstek listesi yükleniyor…<br><small>Eğer 5 sn içinde görmezsen <a href="javascript:location.reload()" style="text-decoration:underline;color:var(--accent)">sayfayı yenile</a>.</small></div>`;
       if(orderBtn) orderBtn.hidden = true;
       if(hintEl) hintEl.textContent = '';
       return;
@@ -21481,7 +21480,7 @@ function renderCart(){
     if(items.length === 0){
       // Badge ile senkron: getCart() purge yaptıysa burada da 0'la — badge update et.
       try { renderCartBadge(); } catch(_){}
-      body.innerHTML = `<div class="cart__empty">Sepetin boş.<br>Bir ürüne tıkla ve <strong>Sepete Ekle</strong>.</div>`;
+      body.innerHTML = `<div class="cart__empty">İstek listen boş.<br>Bir ürüne tıkla ve <strong>İstek Listesine Ekle</strong>.</div>`;
       if(orderBtn) orderBtn.hidden = true;
       if(hintEl) hintEl.textContent = '';
       return;
@@ -21502,14 +21501,13 @@ function renderCart(){
       const qty = Math.max(1, Number(p._qty) || 1);
       const lineTotal = (Number(p.fiyat_eur) || 0) * qty;
       // 3'lü stok: cart'ta qty arttırma sınırı available_stok ile.
+      // T6: stok-cap KALKTI — patron istek listesinde sınırsız adet istiyor.
       const maxStok = availableOf(p);
-      const overStock = maxStok > 0 && qty > maxStok;
-      const incDisabled = maxStok > 0 && qty >= maxStok;
-      const stockWarn = overStock
-        ? `<div class="cart__item-warn" role="alert">Stok ${maxStok}'a düştü — adet otomatik düşürülecek.</div>`
-        : (maxStok > 0 && maxStok <= 2
-            ? `<div class="cart__item-warn cart__item-warn--low">Sadece ${maxStok} adet kaldı.</div>`
-            : '');
+      const overStock = false;
+      const incDisabled = false;
+      // T3: stok bilgisi store'da görünmez. overStock durumunda sessiz auto-clamp,
+      // adet badge'i ve "kaldı" mesajı render edilmez. Backend stok mantığı korunur.
+      const stockWarn = '';
       return `
         <div class="cart__item" data-id="${esc(p.variation_id)}">
           <div class="cart__item-img"><div class="card__placeholder">${esc(initials)}</div>${img}</div>
@@ -21528,7 +21526,7 @@ function renderCart(){
             </div>
           </div>
           <div class="cart__item-actions">
-            <button class="cart__item-remove" data-remove="${esc(p.variation_id)}" aria-label="Sepetten çıkar" type="button">×</button>
+            <button class="cart__item-remove" data-remove="${esc(p.variation_id)}" aria-label="İstek listesinden çıkar" type="button">×</button>
           </div>
         </div>`;
     }).join('');
@@ -21538,7 +21536,7 @@ function renderCart(){
         removeFromCart(b.dataset.remove);
         renderCart();
         const mAdd = document.querySelector(`.modal__add-cart[data-add-cart="${b.dataset.remove}"]`);
-        if(mAdd){ mAdd.textContent = '+ Sepete Ekle'; mAdd.classList.remove('modal__add-cart--in'); }
+        if(mAdd){ mAdd.textContent = '+ İstek Listesine Ekle'; mAdd.classList.remove('modal__add-cart--in'); }
       });
     });
     body.querySelectorAll('[data-inc]').forEach(b => {
@@ -21548,7 +21546,8 @@ function renderCart(){
         const max = p ? availableOf(p) : Infinity;
         const cur = getCartQty(id);
         if(cur >= max){
-          try { toast(`Stokta sadece ${max} adet var.`, true); } catch {}
+          // T3: stok bilgisi store'da görünmez — "Maksimum adete ulaşıldı" generic mesaj.
+          try { toast(`Maksimum adete ulaşıldı.`, true); } catch {}
           return;
         }
         updateCartQty(id, cur + 1);
@@ -21561,13 +21560,13 @@ function renderCart(){
         updateCartQty(id, getCartQty(id) - 1);
         renderCart();
         const mAdd = document.querySelector(`.modal__add-cart[data-add-cart="${id}"]`);
-        if(mAdd && !isInCart(id)){ mAdd.textContent = '+ Sepete Ekle'; mAdd.classList.remove('modal__add-cart--in'); }
+        if(mAdd && !isInCart(id)){ mAdd.textContent = '+ İstek Listesine Ekle'; mAdd.classList.remove('modal__add-cart--in'); }
       });
     });
     updateCartOrderBtn();
   } catch(e) {
     console.error('renderCart fail:', e);
-    body.innerHTML = `<div class="cart__empty">Sepet yüklenirken bir hata oluştu.<br><button type="button" onclick="try{localStorage.removeItem('botl_cart_v1');}catch{}location.reload()" style="margin-top:12px;padding:8px 14px;background:var(--accent);color:#fff;border:none;cursor:pointer">Sepeti sıfırla ve yenile</button></div>`;
+    body.innerHTML = `<div class="cart__empty">İstek listesi yüklenirken bir hata oluştu.<br><button type="button" onclick="try{localStorage.removeItem('botl_cart_v1');}catch{}location.reload()" style="margin-top:12px;padding:8px 14px;background:var(--accent);color:#fff;border:none;cursor:pointer">İstek listesini sıfırla ve yenile</button></div>`;
     if(orderBtn) orderBtn.hidden = true;
     if(hintEl) hintEl.textContent = '';
   }
@@ -21583,13 +21582,13 @@ function updateCartOrderBtn(){
   if(s){
     btn.disabled = false;
     btn.removeAttribute('title');
-    if(label) label.textContent = 'Siparişi Oluştur';
-    if(hint) hint.textContent = `${s.isim} adına sipariş açılacak.`;
+    if(label) label.textContent = 'İstek Listesini Kaydet';
+    if(hint) hint.textContent = `${s.isim} adına istek listesi açılacak.`;
   } else {
     btn.disabled = true;
-    btn.title = 'Sipariş için giriş yapın';
-    if(label) label.textContent = 'Giriş Yap ve Sipariş Ver';
-    if(hint) hint.textContent = 'Sipariş için önce hesabınla giriş yap.';
+    btn.title = 'İstek listesini kaydetmek için giriş yapın';
+    if(label) label.textContent = 'Giriş Yap ve Listeyi Kaydet';
+    if(hint) hint.textContent = 'İstek listeni kaydetmek için önce hesabınla giriş yap.';
   }
 }
 
@@ -21682,9 +21681,9 @@ async function placeOrder(){
   const total = items.reduce((s,p) => s + (Number(p.fiyat_eur) || 0) * (p._qty || 1), 0);
   const totalItems = items.reduce((s,p) => s + (p._qty || 1), 0);
   const ok = await showConfirmModal({
-    title: 'Sipariş Onayı',
-    message: `${totalItems} adet ürün${totalItems === 1 ? '' : ''}\n\nSiparişi onaylıyor musun?`,
-    confirmLabel: 'Siparişi Onayla', cancelLabel: 'Vazgeç',
+    title: 'İstek Listesi Onayı',
+    message: `${totalItems} adet ürün${totalItems === 1 ? '' : ''}\n\nİstek listeni kaydetmek istiyor musun?`,
+    confirmLabel: 'İstek Listesini Kaydet', cancelLabel: 'Vazgeç',
   });
   if(!ok) return;
 
@@ -21702,7 +21701,7 @@ async function placeOrder(){
     const r = await window.BotlCustomerAPI.createOrder(orderPayload);
     if(!r.ok){
       const err = r.error || r.hint || 'Bilinmeyen hata';
-      toast('Sipariş alınamadı: ' + err, true);
+      toast('İstek listesi kaydedilemedi: ' + err, true);
       return;
     }
     // Sepeti temizle (backend zaten kendi cart'ı temizledi, ama local cache de güncellensin)
@@ -21712,7 +21711,7 @@ async function placeOrder(){
     renderCartBadge();
     renderCart();
     closeCart();
-    toast(`Siparişin alındı. Sipariş No: ${r.order && (r.order.order_id || r.order.id)}. Onay için bekleniyor.`);
+    toast(`İstek listen kaydedildi. Liste No: ${r.order && (r.order.order_id || r.order.id)}. Onay için bekleniyor.`);
   } catch(e){
     toast('Ağ hatası: ' + e.message, true);
   }
@@ -21748,9 +21747,9 @@ function renderModal(p){
   modalGallery = (p.gorseller && p.gorseller.gallery) ? [...p.gorseller.gallery] : [];
   const cover = p.cover || (p.gorseller && p.gorseller.cover);
   if(cover && !modalGallery.includes(cover)) modalGallery.unshift(cover);
-  // Max 6 foto: cover (slot 0) + max 5 galeri (-g1..g5). Çanta muaf (tek foto).
+  // Max 6 foto: cover (slot 0) + max 5 galeri (-g1..g5).
   // Sadece dosyası var olan -gN gözükür (thumb onerror auto-hide).
-  if(cover && modalGallery.length === 1 && p.kategori_ust !== 'Çanta'){
+  if(cover && modalGallery.length === 1){
     const m = cover.match(/^(.+)\.(jpg|jpeg|png|webp)(\?.*)?$/i);
     if(m){
       const base = m[1], ext = m[2];
@@ -21788,9 +21787,10 @@ function renderModal(p){
   const totalStok = Number(p.total_stok != null ? p.total_stok : (p.stok || 0));
   const occStok = Number(p.occupied_stok || 0);
   const stokClass = availStok===0?'modal__stock--out':availStok<=2?'modal__stock--low':'modal__stock--ok';
-  const stokTxt = availStok===0
-    ? (totalStok>0 ? `Tükendi (rezerve ${occStok})` : 'Tükendi')
-    : `Stokta — ${availStok} adet${occStok>0 ? ` · ${occStok} rezerve` : ''}`;
+  // T3: stok bilgisi store'da görünmez. Tükenmiş (avail=0) görünür kalır
+  // çünkü "Stokta yok" kullanıcı kararı için kritik (ama adet sayısı gizli).
+  // availStok>0 → boş string (modal__stock satırı render edilmez).
+  const stokTxt = availStok===0 ? 'Tükendi' : '';
   const otherVars = window.PRODUCTS.filter(x=>x.sku===p.sku && x.variation_id!==p.variation_id);
 
   // Quantity seçili adet — sepetteki mevcut adetle başla; yoksa 1.
@@ -21831,17 +21831,17 @@ function renderModal(p){
                <label class="modal__qty-label" for="modal-qty-input">Adet</label>
                <div class="modal__qty" role="group" aria-label="Adet seç">
                  <button class="modal__qty-btn" type="button" data-qty-dec aria-label="Adet azalt" ${initialQty<=1?'disabled aria-disabled="true"':''}>−</button>
-                 <input class="modal__qty-val" id="modal-qty-input" data-qty-val type="number" inputmode="numeric" pattern="[0-9]*" min="1" max="${availStok}" step="1" value="${initialQty}" role="spinbutton" aria-valuemin="1" aria-valuemax="${availStok}" aria-valuenow="${initialQty}" aria-label="Sepete eklenecek adet" autocomplete="off">
+                 <input class="modal__qty-val" id="modal-qty-input" data-qty-val type="number" inputmode="numeric" pattern="[0-9]*" min="1" max="${availStok}" step="1" value="${initialQty}" role="spinbutton" aria-valuemin="1" aria-valuemax="${availStok}" aria-valuenow="${initialQty}" aria-label="Listeye eklenecek adet" autocomplete="off">
                  <button class="modal__qty-btn" type="button" data-qty-inc aria-label="Adet artır" ${initialQty>=availStok?'disabled aria-disabled="true"':''}>+</button>
                </div>
              </div>
-             <p class="modal__qty-hint" aria-live="polite">${availStok<=2 ? `<strong style="color:var(--stock-low)">Sadece ${availStok} adet kaldı.</strong>` : `Maks. ${availStok} adet satışa açık.`}</p>
-             <button class="modal__add-cart ${isInCart(p.variation_id) ? 'modal__add-cart--in' : ''}" data-add-cart="${p.variation_id}" data-max-stok="${availStok}" type="button">
-               ${isInCart(p.variation_id) ? '✓ Sepette' : '+ Sepete Ekle'}
+             <p class="modal__qty-hint" aria-live="polite"></p>
+             <button class="modal__add-cart ${isInCart(p.variation_id) ? 'modal__add-cart--in' : ''}" data-add-cart="${p.variation_id}" data-max-stok="9999" type="button">
+               ${isInCart(p.variation_id) ? '✓ Listede' : '+ İstek Listesine Ekle'}
              </button>
-             <p class="modal__cta-hint">Sepete ekle, hesabınla giriş yapıp tek tıkla sipariş ver.</p>`
-          : `<button class="modal__add-cart" disabled aria-disabled="true" style="opacity:.55;cursor:not-allowed">Stokta yok</button>
-             <p class="modal__cta-hint">Yeniden gelince haber vermemizi ister misin? <a href="javascript:void(0)" onclick="event.preventDefault();try{toast('Liste yakında — şimdilik favoriye ekle.')}catch{}" style="text-decoration:underline">Bildir</a></p>`
+             <p class="modal__cta-hint">Listene ekle, hesabınla giriş yapıp tek tıkla kaydet.</p>`
+          : `<button class="modal__add-cart" data-add-cart="${p.variation_id}" data-max-stok="9999" type="button">+ İstek Listesine Ekle</button>
+             <p class="modal__cta-hint">Listene ekle, hesabınla giriş yapıp tek tıkla kaydet.</p>`
         }
       </div>
       ${otherVars.length>0?`<p class="modal__desc" style="margin-top:20px"><strong>Aynı model diğer varyasyonlar:</strong> ${otherVars.map(v=>`<a href="#u/${v.sku || v.variation_id || v.variation_id}" class="modal__var-link">${renkLabel(v)} / ${v.boyut} / ${v.donanim}</a>`).join(' · ')}</p>`:''}
@@ -21966,7 +21966,7 @@ function renderModal(p){
   const qtyVal = $('[data-qty-val]');
   const qtyInc = $('[data-qty-inc]');
   const qtyDec = $('[data-qty-dec]');
-  const maxStokForUI = Math.max(1, availStok);
+  const maxStokForUI = 9999; // T6: stok-cap kalktı — müşteri istediği kadar ekleyebilir
   let pendingQty = Math.min(Math.max(1, initialQty), maxStokForUI);
   function setPendingQty(n){
     const v = Math.min(Math.max(1, Math.floor(Number(n) || 1)), maxStokForUI);
@@ -21983,7 +21983,8 @@ function renderModal(p){
   if(qtyInc){
     qtyInc.addEventListener('click', () => {
       if(pendingQty >= maxStokForUI){
-        try { toast(`Stokta sadece ${maxStokForUI} adet var.`, true); } catch {}
+        // T3: stok bilgisi store'da görünmez — generic mesaj.
+        try { toast(`Maksimum adete ulaşıldı.`, true); } catch {}
         return;
       }
       setPendingQty(pendingQty + 1);
@@ -22018,7 +22019,7 @@ function renderModal(p){
   }
   setPendingQty(pendingQty);
 
-  // Sepete Ekle — seçili adetle ekler/günceller; ikinci tıklama "Sepette" durumu toggle.
+  // İstek Listesine Ekle — seçili adetle ekler/günceller; ikinci tıklama "Listede" durumu toggle.
   const addBtn = $('.modal__add-cart');
   if(addBtn && !addBtn.disabled){
     addBtn.addEventListener('click', () => {
@@ -22026,16 +22027,16 @@ function renderModal(p){
       const maxS = Math.max(1, Number(addBtn.dataset.maxStok) || 1);
       if(isInCart(id)){
         removeFromCart(id);
-        addBtn.textContent = '+ Sepete Ekle';
+        addBtn.textContent = '+ İstek Listesine Ekle';
         addBtn.classList.remove('modal__add-cart--in');
-        try { toast('Sepetten çıkarıldı.'); } catch {}
+        try { toast('İstek listesinden çıkarıldı.'); } catch {}
       } else {
         // Input henüz boş bırakıldıysa pendingQty default 1 olur; clamp.
         const qty = Math.min(Math.max(1, Math.floor(Number(pendingQty) || 1)), maxS);
         addToCart(id, qty);
-        addBtn.textContent = '✓ Sepette';
+        addBtn.textContent = '✓ Listede';
         addBtn.classList.add('modal__add-cart--in');
-        try { toast(`${qty} adet sepete eklendi`); } catch {}
+        try { toast(`${qty} adet istek listesine eklendi`); } catch {}
       }
     });
   }
@@ -22784,14 +22785,14 @@ function renderAccountOrders(){
   if(!targets.length) return;
   const countEl = $('#acct-orders-count');
   const pageCountEl = $('#page-orders-count');
-  const cntTxt = my.length ? `${my.length} sipariş` : '';
+  const cntTxt = my.length ? `${my.length} liste` : '';
   if(countEl) countEl.textContent = my.length ? ` (${my.length})` : '';
   if(pageCountEl) pageCountEl.textContent = cntTxt;
   const menuCountEl = $('#user-menu-orders-count');
   if(menuCountEl) menuCountEl.textContent = my.length ? String(my.length) : '';
   if(!my.length){
     targets.forEach(list => {
-      list.innerHTML = '<div class="acct-orders__empty">Henüz siparişiniz yok. Sepetinize ürün ekleyip oluşturabilirsiniz.</div>';
+      list.innerHTML = '<div class="acct-orders__empty">Henüz istek listen yok. İstek listene ürün ekleyip kaydedebilirsin.</div>';
     });
     return;
   }
@@ -22852,18 +22853,18 @@ function renderAccountOrders(){
       baseActions.push(`<button class="acct-order__btn acct-order__btn--edit-addr" data-order-edit-addr="${oid}">Adres / Not Güncelle</button>`);
     }
     if(cancellable){
-      baseActions.push(`<button class="acct-order__btn acct-order__btn--cancel" data-order-cancel="${oid}">${status === 'BEKLIYOR' ? 'Siparişi İptal Et' : 'İptal Talebi Aç'}</button>`);
+      baseActions.push(`<button class="acct-order__btn acct-order__btn--cancel" data-order-cancel="${oid}">${status === 'BEKLIYOR' ? 'Listeyi İptal Et' : 'İptal Talebi Aç'}</button>`);
     }
     if(closed){
-      baseActions.push(`<button class="acct-order__btn acct-order__btn--reorder" data-order-reorder="${oid}">Yeniden Sipariş</button>`);
+      baseActions.push(`<button class="acct-order__btn acct-order__btn--reorder" data-order-reorder="${oid}">Yeniden Liste</button>`);
     }
     const actions = baseActions.length
       ? `<div class="acct-order__actions">${baseActions.join('')}</div>`
       : '';
     const lockedHint = !editable && !cancellable && status !== 'TESLIM_EDILDI'
-      ? `<div class="acct-order__locked-hint">Bu siparişte değişiklik yapılamaz.</div>`
+      ? `<div class="acct-order__locked-hint">Bu istek listesinde değişiklik yapılamaz.</div>`
       : (status === 'TESLIM_EDILDI'
-          ? `<div class="acct-order__locked-hint">Sipariş teslim edildi. Sorununuz varsa kalem bazında iade açabilirsiniz.</div>`
+          ? `<div class="acct-order__locked-hint">İstek listesi tamamlandı. Sorununuz varsa kalem bazında iade açabilirsiniz.</div>`
           : '');
     const trackingHtml = (status === 'KARGODA' || status === 'TESLIM_EDILDI') && o.tracking_no
       ? `<div class="acct-order__tracking">Kargo: <strong>${o.tracking_no}</strong>${o.tracking_url ? ` · <a href="${o.tracking_url}" target="_blank" rel="noopener">Takip</a>` : ''}</div>`
@@ -22873,7 +22874,7 @@ function renderAccountOrders(){
       <div class="acct-order" data-order-card="${oid}">
         <div class="acct-order__head" data-order-toggle="${oid}">
           <span class="acct-order__date">${tarihStr}</span>
-          <span class="acct-order__oid" title="Sipariş No">${oid}</span>
+          <span class="acct-order__oid" title="Liste No">${oid}</span>
           <span class="acct-order__qty">${qty} ürün</span>
           <span class="acct-order__total">${total.toLocaleString('tr-TR')} EUR</span>
           <span class="acct-order__status acct-order__status--${status}">${ORDER_DURUM_LABEL[status] || status}</span>
@@ -22971,7 +22972,7 @@ function updateOrderItemQty(orderId, itemIdx, value, mode){
   const o = all.find(x => (x.id || x.order_id) === orderId);
   if(!o) return;
   if(!ORDER_EDITABLE_STATES.includes(o.durum) && o.durum !== 'ONAYLANDI'){
-    toast('Bu sipariş düzenlenemez.', true);
+    toast('Bu istek listesi düzenlenemez.', true);
     return;
   }
   const it = (o.items || [])[itemIdx];
@@ -22993,7 +22994,7 @@ function updateOrderItemQty(orderId, itemIdx, value, mode){
     ord.toplam_eur = ord.ara_toplam_eur + (Number(ord.kargo_eur)||0) - (Number(ord.indirim_eur)||0);
   }, { kim:'musteri', reset_to_bekliyor:true });
   renderAccountOrders();
-  toast(`Adet ${oldQty}→${newQty} güncellendi · sipariş yeniden onay bekliyor`);
+  toast(`Adet ${oldQty}→${newQty} güncellendi · istek listesi yeniden onay bekliyor`);
 }
 
 async function editOrderAddressNote(orderId){
@@ -23003,7 +23004,7 @@ async function editOrderAddressNote(orderId){
   const adr = o.kargo_adresi || {};
   const r = await window.showInputModal({
     title: 'Kargo adresi & not',
-    description: 'Bu siparişi yeniden onaya gönderir. Boş bırakılan alanlar mevcut değerlerini korur.',
+    description: 'Bu istek listesini yeniden onaya gönderir. Boş bırakılan alanlar mevcut değerlerini korur.',
     fields: [
       { name: 'adres', label: 'Adres (sokak, no, daire)', defaultValue: adr.adres || '', placeholder: '', autocomplete: 'street-address' },
       { name: 'sehir', label: 'Şehir', defaultValue: adr.sehir || '', autocomplete: 'address-level2' },
@@ -23025,7 +23026,7 @@ async function editOrderAddressNote(orderId){
     ord.musteri_notu = (r.musteri_notu || '').trim();
   }, { kim:'musteri', reset_to_bekliyor:true });
   renderAccountOrders();
-  toast('Adres ve not güncellendi · sipariş yeniden onay bekliyor');
+  toast('Adres ve not güncellendi · istek listesi yeniden onay bekliyor');
 }
 
 // ─── İadeler tablosu (Excel-like — her sipariş kalemi ayrı satır) ─────
@@ -23084,7 +23085,7 @@ function renderReturnsTable(){
   if(countEl) countEl.textContent = rows.length ? `${rows.length} kalem` : '';
 
   if(!rows.length){
-    body.innerHTML = '<tr><td colspan="8" class="iade-table__empty">Henüz siparişiniz yok. Sipariş kalemleri burada listelenir, "İade Et" ile talep açılır.</td></tr>';
+    body.innerHTML = '<tr><td colspan="8" class="iade-table__empty">Henüz istek listen yok. İstek listesi kalemleri burada listelenir, "İade Et" ile talep açılır.</td></tr>';
     return;
   }
   body.innerHTML = rows.join('');
@@ -23122,7 +23123,7 @@ let pendingIadeContext = null;
 function openIadeModal(orderId, itemIdx){
   const all = getPendingOrders();
   const o = all.find(x => (x.id || x.order_id) === orderId);
-  if(!o){ toast('Sipariş bulunamadı'); return; }
+  if(!o){ toast('İstek listesi bulunamadı'); return; }
   const item = (o.items || [])[itemIdx];
   if(!item){ toast('Kalem bulunamadı'); return; }
   pendingIadeContext = { order: o, item, itemIdx };
@@ -23216,16 +23217,16 @@ async function cancelOrder(orderId){
   const o = all.find(x => (x.id || x.order_id) === orderId);
   if(!o) return;
   if(!ORDER_CANCELLABLE_STATES.includes(o.durum)){
-    toast('Bu sipariş artık iptal edilemez.', true);
+    toast('Bu istek listesi artık iptal edilemez.', true);
     return;
   }
   const wasOnaylandi = o.durum === 'ONAYLANDI';
   const msg = wasOnaylandi
-    ? 'Sipariş ONAYLANDI durumunda. İptal talebi açtığında admin değerlendirip stoğu serbest bırakacak. Onaylıyor musunuz?'
-    : 'Siparişinizi iptal etmek istediğinize emin misiniz?';
+    ? 'İstek listesi ONAYLANDI durumunda. İptal talebi açtığında admin değerlendirip stoğu serbest bırakacak. Onaylıyor musunuz?'
+    : 'İstek listenizi iptal etmek istediğinize emin misiniz?';
   const ok = await showConfirmModal({
-    title: 'Siparişi İptal Et', message: msg,
-    confirmLabel: 'Siparişi İptal Et', cancelLabel: 'Vazgeç', danger: true,
+    title: 'İstek Listesini İptal Et', message: msg,
+    confirmLabel: 'İstek Listesini İptal Et', cancelLabel: 'Vazgeç', danger: true,
   });
   if(!ok) return;
   const now = new Date().toISOString();
@@ -23235,7 +23236,7 @@ async function cancelOrder(orderId){
     ord.iptal_ts = now;
   }, { kim:'sistem', reset_to_bekliyor:false });
   renderAccountOrders();
-  toast(wasOnaylandi ? 'İptal talebi alındı · admin stoğu serbest bırakacak' : 'Sipariş iptal edildi');
+  toast(wasOnaylandi ? 'İptal talebi alındı · admin stoğu serbest bırakacak' : 'İstek listesi iptal edildi');
 }
 
 async function removeOrderItem(orderId, itemIdx){
@@ -23332,9 +23333,11 @@ function renderAddItemModal(){
     const oos = c.available < 1;
     const dup = c.already;
     const disabled = oos || dup;
+    // T3: stok adet bilgisi store'da görünmez. "Stokta yok" / "Zaten siparişte"
+    // kullanıcı kararı için kritik, kalır. Aksi halde badge gösterilmez.
     const badge = dup ? '<span class="add-item-card__badge add-item-card__badge--dup">Zaten siparişte</span>'
                       : oos ? '<span class="add-item-card__badge add-item-card__badge--oos">Stokta yok</span>'
-                            : `<span class="add-item-card__badge add-item-card__badge--ok">${c.available} adet stok</span>`;
+                            : '';
     return `
       <button class="add-item-card ${disabled?'add-item-card--disabled':''}" type="button"
               data-add-vid="${escFn(p.variation_id)}" ${disabled?'disabled aria-disabled="true"':''}
@@ -23344,7 +23347,6 @@ function renderAddItemModal(){
           <div class="add-item-card__brand">${escFn(p.marka || '')}</div>
           <div class="add-item-card__name">${escFn(name)}</div>
           <div class="add-item-card__meta">${escFn(meta)}</div>
-          <div class="add-item-card__price">${fiyat.toLocaleString('tr-TR')} EUR</div>
           ${badge}
         </div>
       </button>`;
@@ -23366,7 +23368,7 @@ function confirmAddItem(variationId){
   const p = products.find(x => x.variation_id === variationId);
   if(!p){ toast('Ürün bulunamadı', true); return; }
   const avail = (typeof availableOf === 'function') ? availableOf(p) : (Number(p.stok || 0) - Number(p.occupied || 0));
-  if(avail < 1){ toast('Stokta yeterli adet yok', true); return; }
+  if(avail < 1){ toast('Bu ürün şu anda eklenemiyor.', true); return; }
   const fiyat = Number(p.fiyat_eur || 0);
   const newItem = {
     variation_id: p.variation_id,
