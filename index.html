@@ -20317,7 +20317,7 @@ const SECTIONS = [
   {key:'desen',label:'Desen',type:'check',open:false},
   {key:'ana_malzeme',label:'Malzeme',type:'check',open:false},
   {key:'donanim_rengi',label:'Donanım',type:'check',open:false},
-  {key:'stoklu_only',label:'Stok Durumu',type:'toggle',open:true},
+  // T9: STOK DURUMU filter section kaldırıldı (patron: stok bilgisi store'da görünmez).
 ];
 
 // ─── Filter Logic ───────────────────────────────────
@@ -20613,7 +20613,7 @@ function cardHTML(p){
         </div>
         <div class="card__price-row">
           <div class="card__price">${fmtPrice(p.fiyat_eur)}</div>
-          <div class="card__cond">${kondLbl}</div>
+          <!-- T10: kondisyon (Sıfır) badge kaldırıldı (patron: hepsi Sıfır zaten, gereksiz). -->
         </div>
         ${altLabel ? `<div class="card__catbadge">${altLabel}</div>` : ''}
       </div>
