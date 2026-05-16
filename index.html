@@ -21373,7 +21373,7 @@ function addToCart(id, qty){
   const c = getCart();
   const existing = c.find(x => x.id === id);
   // Mevcut ürün varsa: qty parametresi geldiyse REPLACE et (modal'dan adet seçildi
-  // ve "Sepete Ekle" tıklandı). Verilmemişse mevcut adeti koru (eski davranış).
+  // ve "İstek Listesine Ekle" tıklandı). Verilmemişse mevcut adeti koru (eski davranış).
   if(existing){
     if(qty != null){
       existing.qty = requested;
