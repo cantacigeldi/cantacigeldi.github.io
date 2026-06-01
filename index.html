@@ -18775,12 +18775,6 @@ function getCartQty(id){
 // olarak product PRODUCTS'da varsa available_stok ile clamp.
 function addToCart(id, qty){
   if(!id || typeof id !== 'string') return;
-  // İstek listesine ekleme login zorunlu (patron kararı). Anonim
-  // ziyaretçi "İstek Listesine Ekle" tıklarsa login modal açılır.
-  if(!getSession()){
-    if(typeof openAuthModal === 'function') openAuthModal();
-    return;
-  }
   let requested = Math.max(1, Math.floor(Number(qty) || 1));
   // Available stok varsa clamp
   const p = window.PRODUCTS && window.PRODUCTS.find(x => x.variation_id === id);
@@ -19004,10 +18998,12 @@ function updateCartOrderBtn(){
     if(label) label.textContent = 'İstek Listesini Kaydet';
     if(hint) hint.textContent = `${s.isim} adına istek listesi açılacak.`;
   } else {
-    btn.disabled = true;
-    btn.title = 'İstek listesini kaydetmek için giriş yapın';
+    // Anonim ziyaretçi de TIKLAYABILIR — placeOrder içinde session yoksa
+    // openAuthModal() çağrılır (best practice: guest cart, login on save).
+    btn.disabled = false;
+    btn.title = 'Listeyi kaydetmek için giriş yap veya hesap aç';
     if(label) label.textContent = 'Giriş Yap ve Listeyi Kaydet';
-    if(hint) hint.textContent = 'İstek listeni kaydetmek için önce hesabınla giriş yap.';
+    if(hint) hint.textContent = 'Listeyi kaydetmek için hesabınla giriş yap, yoksa kaydol.';
   }
 }
 
@@ -19738,12 +19734,7 @@ function init(){
   });
 
   // Cart bindings
-  _safeStep('cart-btn', () => _bindEl('#cart-btn', 'click', () => {
-    // İstek listesi giriş zorunlu (patron kararı). Anonim ziyaretçi
-    // navbar'dan tıklarsa login modal açılır.
-    if(!getSession()){ openAuthModal(); return; }
-    openCart();
-  }));
+  _safeStep('cart-btn', () => _bindEl('#cart-btn', 'click', openCart));
   _safeStep('cart-data-close', () => {
     $$('[data-cart-close]').forEach(el => el.addEventListener('click', closeCart));
   });
