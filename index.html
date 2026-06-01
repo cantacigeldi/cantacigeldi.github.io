@@ -16898,24 +16898,16 @@ input,select,textarea{font-size:16px}
     <p class="auth-modal__lead">Kataloğu görmek ve istek listesi oluşturmak için kaydol.</p>
     <form id="register-form" autocomplete="off">
       <div class="auth-modal__field">
-        <label class="auth-modal__label" for="reg-isim">Ad Soyad</label>
-        <input class="auth-modal__input" id="reg-isim" name="isim" type="text" autocomplete="name" required minlength="2">
-      </div>
-      <div class="auth-modal__field">
-        <label class="auth-modal__label" for="reg-email">E-posta</label>
-        <input class="auth-modal__input" id="reg-email" name="email" type="email" autocomplete="email" required>
-      </div>
-      <div class="auth-modal__field">
-        <label class="auth-modal__label" for="reg-telefon">Telefon (opsiyonel)</label>
-        <input class="auth-modal__input" id="reg-telefon" name="telefon" type="tel" autocomplete="tel" placeholder="+90 5XX XXX XX XX">
-      </div>
-      <div class="auth-modal__field">
         <label class="auth-modal__label" for="reg-username">Kullanıcı Adı</label>
         <input class="auth-modal__input" id="reg-username" name="kullanici_adi" type="text" autocomplete="username" required minlength="3" maxlength="32" pattern="[a-z0-9._\-]+" placeholder="küçük harf, rakam, . _ -">
       </div>
       <div class="auth-modal__field">
         <label class="auth-modal__label" for="reg-password">Parola</label>
         <input class="auth-modal__input" id="reg-password" name="sifre" type="password" autocomplete="new-password" required minlength="8" placeholder="en az 8 karakter">
+      </div>
+      <div class="auth-modal__field">
+        <label class="auth-modal__label" for="reg-password-confirm">Parola Tekrar</label>
+        <input class="auth-modal__input" id="reg-password-confirm" name="sifre_tekrar" type="password" autocomplete="new-password" required minlength="8" placeholder="parolayı tekrar gir">
       </div>
       <div class="auth-modal__err" id="register-error" role="alert" aria-live="polite"></div>
       <div class="auth-modal__actions">
@@ -19822,7 +19814,7 @@ function openRegisterModal(){
   m.hidden = false;
   m.classList.add('open');
   document.body.style.overflow = 'hidden';
-  setTimeout(() => { const f = $('#reg-isim'); if(f) f.focus(); }, 50);
+  setTimeout(() => { const f = $('#reg-username'); if(f) f.focus(); }, 50);
   const err = $('#register-error'); if(err) err.textContent = '';
 }
 function closeRegisterModal(){
@@ -19850,26 +19842,19 @@ function closeRegisterSuccessModal(){
 }
 
 async function tryRegister(payload){
-  // payload: {isim, email, telefon, kullanici_adi, sifre}
+  // payload: {kullanici_adi, sifre, sifre_tekrar}
   const r = await window.BotlCustomerAPI.register(payload);
   if(r.ok){
-    // Verify link doğrudan response'da gelir (email send Faz 2.5'e ertelendi)
-    const origin = location.origin + location.pathname.replace(/\/$/, '');
-    const verifyLink = origin + '#verify=' + encodeURIComponent(r.verify_token || '');
-    return { ok:true, customer_id: r.customer_id, verify_link: verifyLink };
+    return { ok:true, customer_id: r.customer_id, kullanici_adi: r.kullanici_adi };
   }
   if(r.status === 409){
-    const errKey = r.error || 'taken';
-    return { ok:false, error: errKey === 'email_taken' ? 'Bu e-posta zaten kayıtlı'
-      : errKey === 'username_taken' ? 'Bu kullanıcı adı alınmış'
-      : 'Bu hesap bilgisi zaten kayıtlı' };
+    return { ok:false, error:'Bu kullanıcı adı alınmış' };
   }
   if(r.status === 400){
     const errKey = r.error || 'invalid';
-    if(errKey === 'invalid_email') return { ok:false, error:'Geçersiz e-posta' };
     if(errKey === 'invalid_username') return { ok:false, error:'Kullanıcı adı 3-32 karakter; küçük harf, rakam, . _ -' };
     if(errKey === 'weak_password') return { ok:false, error:'Parola en az 8 karakter olmalı' };
-    if(errKey === 'isim_required') return { ok:false, error:'Ad Soyad gerekli' };
+    if(errKey === 'password_mismatch') return { ok:false, error:'Parolalar eşleşmiyor' };
     return { ok:false, error: r.message || 'Form bilgileri geçersiz' };
   }
   if(r.error === 'network' || r.status === 404) return { ok:false, error:'Kayıt yapılamadı, tekrar deneyin' };
@@ -21145,20 +21130,30 @@ function initAuthBindings(){
       e.preventDefault();
       const err = $('#register-error'); if(err) err.textContent = '';
       const payload = {
-        isim: ($('#reg-isim').value || '').trim(),
-        email: ($('#reg-email').value || '').trim(),
-        telefon: ($('#reg-telefon').value || '').trim(),
         kullanici_adi: ($('#reg-username').value || '').trim().toLowerCase(),
         sifre: $('#reg-password').value || '',
+        sifre_tekrar: $('#reg-password-confirm').value || '',
       };
+      // Frontend ön-doğrulama: parolalar eşleşmeli (backend de kontrol eder)
+      if(payload.sifre !== payload.sifre_tekrar){
+        if(err) err.textContent = 'Parolalar eşleşmiyor';
+        return;
+      }
       const res = await tryRegister(payload);
       if(!res.ok){
         if(err) err.textContent = res.error || 'Kayıt başarısız.';
         return;
       }
+      // Auto-login — backend kullanıcı oluşturdu, mevcut login flow hydrate eder
+      const loginRes = await tryLogin(payload.kullanici_adi, payload.sifre);
+      if(!loginRes.ok){
+        if(err) err.textContent = 'Hesap açıldı ama giriş başarısız: ' + (loginRes.error || '');
+        return;
+      }
       closeRegisterModal();
-      openRegisterSuccessModal(res.verify_link, res.customer_id);
-      toast('Hesabın oluşturuldu. Doğrulama linkini açmayı unutma.');
+      if(typeof hideAuthGate === 'function') hideAuthGate();
+      refreshAuthUI();
+      toast('Hesabın oluşturuldu, hoş geldin!');
     });
   }
 
