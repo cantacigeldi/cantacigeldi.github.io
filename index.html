@@ -49,10 +49,10 @@
     }
   }catch(e){}
   /* Auth state pre-set — refreshAuthUI gelmeden GİRİŞ YAP/Hesabım flash önle.
-     Body henüz parse edilmedi; DOMContentLoaded öncesi observer kur.
-     SESSION YOKSA: body.auth-gate-active class'ı SENKRON set edilir → store
-     ekranı paint EDİLMEZ (FOUC sıfır). showAuthGate() çağrısı bekletmeye
-     gerek yok; gate DOM'u 18549. satırdaki form ile birlikte hemen görünür. */
+     Sadece body[data-auth-state] SENKRON set edilir; auth-gate-active class
+     OTOMATİK EKLENMEZ. QR ile gelen anonim ziyaretçi kataloğu doğrudan görür;
+     gate sadece istek listesi action'ında veya account/orders/returns
+     rotalarında tetiklenir (patron kararı: katalog herkese açık). */
   try{
     var raw = localStorage.getItem('botl_session');
     var hasSession = false;
@@ -66,15 +66,6 @@
     function applyInitial(){
       var b = document.body; if(!b) return;
       if(!b.dataset.authState) b.dataset.authState = initState;
-      if(!hasSession){
-        b.classList.add('auth-gate-active');
-        /* Gate DOM'u markup'ta hidden — class auth-gate-active + .auth-gate{display:flex}
-           CSS kuralı varken bile [hidden]{display:none!important} kazanır. Bu yüzden
-           hidden attribute'unu da SENKRON kaldır → ilk paint'te gate görünür, store
-           hiç render edilmez. */
-        var g = document.getElementById('auth-gate');
-        if(g) g.hidden = false;
-      }
     }
     if(document.body){
       applyInitial();
@@ -18784,6 +18775,12 @@ function getCartQty(id){
 // olarak product PRODUCTS'da varsa available_stok ile clamp.
 function addToCart(id, qty){
   if(!id || typeof id !== 'string') return;
+  // İstek listesine ekleme login zorunlu (patron kararı). Anonim
+  // ziyaretçi "İstek Listesine Ekle" tıklarsa login modal açılır.
+  if(!getSession()){
+    if(typeof openAuthModal === 'function') openAuthModal();
+    return;
+  }
   let requested = Math.max(1, Math.floor(Number(qty) || 1));
   // Available stok varsa clamp
   const p = window.PRODUCTS && window.PRODUCTS.find(x => x.variation_id === id);
@@ -19741,7 +19738,12 @@ function init(){
   });
 
   // Cart bindings
-  _safeStep('cart-btn', () => _bindEl('#cart-btn', 'click', openCart));
+  _safeStep('cart-btn', () => _bindEl('#cart-btn', 'click', () => {
+    // İstek listesi giriş zorunlu (patron kararı). Anonim ziyaretçi
+    // navbar'dan tıklarsa login modal açılır.
+    if(!getSession()){ openAuthModal(); return; }
+    openCart();
+  }));
   _safeStep('cart-data-close', () => {
     $$('[data-cart-close]').forEach(el => el.addEventListener('click', closeCart));
   });
@@ -21212,7 +21214,10 @@ function initAuthBindings(){
       clearSession();
       clearProfileDraft();
       refreshAuthUI();
-      showAuthGate();
+      // Logout sonrası katalog'a dön (login zorunlu rotada olabilir).
+      // Gate AÇILMAZ — anonim ziyaretçi pattern korunur, navbar Giriş Yap
+      // butonu state machine ile otomatik görünür hale gelir.
+      try { if(typeof navigateTo === 'function') navigateTo('catalog'); } catch {}
       try { toast('Çıkış yapıldı.'); } catch {}
     });
   }
@@ -21274,7 +21279,8 @@ function initAuthBindings(){
       clearSession();
       clearProfileDraft();
       refreshAuthUI();
-      showAuthGate();
+      // Logout sonrası katalog'a dön; gate açılmaz (anonim browse pattern).
+      try { if(typeof navigateTo === 'function') navigateTo('catalog'); } catch {}
       try { toast('Çıkış yapıldı.'); } catch {}
     });
   }
@@ -21330,13 +21336,11 @@ document.addEventListener('DOMContentLoaded', async () => {
 
   try { bindThemeToggle(); } catch(e){ console.error('bindThemeToggle', e); }
   try { refreshAuthUI(); } catch(e){ console.error('refreshAuthUI(1)', e); }
-  // ── Auth gate ÖNCE — bootstrapData/init/applyRoute hep gate görünürken
-  //    çalışır. Session yoksa store ekranı paint edilmesin (FOUC = 0).
-  //    initAuthGate() form submit handler'ını bağlar; showAuthGate() gate'i
-  //    görünür yapar (hidden=false + auth-gate-active class). Head inline
-  //    script class'ı zaten set etmiş; burada DOM gate'i de görünür hale gelir.
+  // ── Auth gate sadece form submit handler'ları için init edilir. Gate
+  //    OTOMATİK AÇILMAZ — patron kararı: QR'dan gelen anonim ziyaretçi
+  //    kataloğu direkt görür; gate sadece istek listesi action'ında veya
+  //    login zorunlu rotalarda (account/orders/returns) tetiklenir.
   try { initAuthGate(); } catch(e){ console.error('initAuthGate', e); }
-  try { if(!getSession()){ showAuthGate(); } } catch(e){ console.error('showAuthGate-early', e); }
   try { await bootstrapData(); } catch(e){ console.error('bootstrapData', e); }
   // AAA+ state authority: PRODUCTS yüklendi → getCart() artık dead-ID purge yapacak.
   // Hemen tetikle: badge ile drawer state'i aynı kaynaktan doğrulayalım.
@@ -21348,8 +21352,9 @@ document.addEventListener('DOMContentLoaded', async () => {
   try { refreshAuthUI(); } catch(e){ console.error('refreshAuthUI(2)', e); }
   // İlk route uygula (deep-link destek): URL hash'iyle gel
   try { applyRoute(); } catch(e){ console.error('applyRoute', e); }
-  // Defensive — session başka yolla oluştuysa (race) gate gizle, yoksa görünür kalsın
-  try { if(getSession()){ hideAuthGate(); } else { showAuthGate(); } } catch(e){ console.error('showAuthGate-late', e); }
+  // Defensive — session başka yolla oluştuysa (race) gate gizle. Yoksa
+  // gate'i AÇMA: anonim ziyaretçi kataloğu görmeli (patron kararı).
+  try { if(getSession()){ hideAuthGate(); } } catch(e){ console.error('hideAuthGate-late', e); }
 });
 </script>
 
