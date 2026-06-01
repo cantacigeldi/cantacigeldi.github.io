@@ -1743,6 +1743,25 @@ body[data-route="returns"] .cat-chips{display:none}
 }
 .hdr__auth:hover{background:var(--bg-alt)}
 .hdr__auth[hidden]{display:none!important}
+
+/* WhatsApp iletişim butonu — mesaj ikonu + label (mobilde label gizli) */
+.hdr__whatsapp{
+  display:inline-flex;align-items:center;gap:8px;
+  background:transparent;border:1px solid var(--border-strong);
+  padding:8px 14px;
+  font-size:12px;letter-spacing:.08em;text-transform:uppercase;
+  color:var(--text);cursor:pointer;text-decoration:none;
+  font-family:inherit;
+  transition:background .15s;
+  min-height:40px;
+}
+.hdr__whatsapp:hover{background:var(--bg-alt)}
+.hdr__whatsapp svg{width:18px;height:18px;display:block;flex:0 0 auto}
+.hdr__whatsapp-label{display:inline}
+@media (max-width:720px){
+  .hdr__whatsapp{padding:8px 10px}
+  .hdr__whatsapp-label{display:none}
+}
 /* Auth state body data-attribute — kati state machine.
    refreshAuthUI() sadece body.dataset.authState set eder,
    CSS gerisini halleder. Element-spesifik [hidden] artık fallback. */
@@ -1978,6 +1997,34 @@ body.auth-gate-active > footer{display:none!important}
 .auth-modal__btn--primary:hover{opacity:.88}
 .auth-modal__btn--secondary{background:transparent;color:var(--text);border:1px solid var(--border-strong)}
 .auth-modal__btn--secondary:hover{background:var(--bg-alt)}
+.auth-modal__switch{
+  margin-top:14px;padding-top:14px;border-top:1px solid var(--border);
+  text-align:center;font-size:12px;color:var(--text-muted);
+}
+.auth-modal__link{
+  background:transparent;border:0;padding:0;margin:0;
+  font-family:inherit;font-size:12px;
+  color:var(--text);text-decoration:underline;cursor:pointer;
+  letter-spacing:.04em;
+}
+.auth-modal__link:hover{opacity:.7}
+
+/* Checkout modal (NAKIT EVE TESLİM) — wider + dense */
+.checkout-modal__panel{max-width:520px}
+.checkout-summary{
+  background:var(--bg-alt);
+  padding:10px 14px;margin:0 0 14px;
+  font-size:13px;font-weight:600;letter-spacing:.02em;
+  border:1px solid var(--border);text-align:center;
+}
+.checkout-radios{display:flex;gap:14px;flex-wrap:wrap}
+.checkout-radio{
+  display:inline-flex;align-items:center;gap:6px;
+  font-size:13px;cursor:pointer;color:var(--text);
+}
+.checkout-radio input{accent-color:var(--text);cursor:pointer}
+.checkout-hint{display:block;margin-top:6px;font-size:11px;color:var(--text-muted)}
+textarea.auth-modal__input{font-family:inherit;resize:vertical;min-height:60px}
 /* (Eski hdr__user-draft-badge — yerine .hdr__user-draft-dot kullanılıyor) */
 
 /* Hesabım (account) modal */
@@ -2174,6 +2221,18 @@ body.auth-gate-active > footer{display:none!important}
   padding:4px 0;
   font-size:10px;color:var(--text-faint);
 }
+.acct-order__subhead--delivery{
+  justify-content:flex-start;color:var(--text-muted);font-size:11px;
+}
+.acct-order__paid-chip,
+.acct-order__delivered-chip{
+  display:inline-flex;align-items:center;
+  padding:2px 8px;margin-left:6px;
+  font-size:10px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;
+  border:1px solid;border-radius:0;
+}
+.acct-order__paid-chip{color:#2A6A2D;border-color:#8FBE92;background:rgba(143,190,146,.14)}
+.acct-order__delivered-chip{color:#2A4D6A;border-color:#92AFBE;background:rgba(146,175,190,.14)}
 .acct-order__last-update{
   font-style:italic;letter-spacing:.02em;
 }
@@ -2606,8 +2665,8 @@ input,select,textarea{font-size:16px}
 <!-- BOTL_INLINE_DATA_START — catalog_sync_data tarafından yenilenir, elle düzenleme -->
 <script>window.__BOTL_DATA__ = {
   "schema_version": 5,
-  "exported_at": "2026-06-01T11:28:17.172594+00:00",
-  "counter": 180,
+  "exported_at": "2026-06-01T15:03:28.324899+00:00",
+  "counter": 214,
   "products": [
     {
       "variation_id": "CA-CH-BS-LI-001",
@@ -3730,6 +3789,2148 @@ input,select,textarea{font-size:16px}
       "kondisyon": "Sıfır",
       "kondisyon_label": "Sıfır",
       "aciklama": "Coach siyah düz smooth deri mini crossbody — solid leather (signature canvas yok) · altın chain · uzun siyah deri crossbody kayışı · COACH binicilik logo",
+      "tedarikci_id": null,
+      "olusturma": "2026-06-01",
+      "cinsiyet": "KADIN",
+      "cuzdan_tipi": "",
+      "kart_yuvasi_sayisi": null,
+      "banknot_bolmesi_sayisi": null,
+      "madeni_para_bolmesi": null,
+      "id_pencere_var_mi": null,
+      "fermuar_var_mi": null,
+      "fermuar_konumu": null,
+      "RFID_korumali": null,
+      "kapama_tipi": null
+    },
+    {
+      "variation_id": "CA-CO-TT-KH-001",
+      "sku": "CA-CO-TT-KH-001",
+      "no": null,
+      "slug": "coach-mini-brooklyn-carryall-signature-c-coated-canvas-kahve-kahve-altin",
+      "cover": "",
+      "isim_resmi": "Coach Mini Brooklyn Carryall Signature C Coated Canvas Kahve+Koyu Kahve Kahve",
+      "isim_bilinen": "Coach Mini Kahve",
+      "marka": "Coach",
+      "kategori": "Tote",
+      "kategori_ust": "Çanta",
+      "kategori_alt": "Tote",
+      "renk": "KAHVE",
+      "ana_renk": "Kahve",
+      "ana_renk_hex": "#5a3a25",
+      "renk_slug": "kahve",
+      "renk_hex": "#5a3a25",
+      "ikincil_renk": null,
+      "ikincil_renk_code": "",
+      "ikincil_renk_hex": "",
+      "ana_malzeme": "Signature C coated canvas kahve+koyu kahve",
+      "desen": "Monogram",
+      "donanim_rengi": "Altın",
+      "sapli_sapsiz": "Saplı",
+      "boyut": "Mini",
+      "donanim": "Altın",
+      "deri_tipi": "Signature C coated canvas kahve+koyu kahve",
+      "sezon": "",
+      "tip": "Tote",
+      "kumas": "Signature C coated canvas kahve+koyu kahve",
+      "birincil_renk": "Kahve",
+      "aksesuar_malzeme": "COACH logo plak",
+      "aksesuar_rengi": "Altın",
+      "model_adi": "Mini Brooklyn Carryall",
+      "tip_detay": "Mini Brooklyn Carryall — gold studs + double handle",
+      "kumas_detay": "Signature C coated canvas kahve+koyu kahve",
+      "donanim_detay": "Altın donanım — Signature C monogram + COACH logo plak",
+      "model_adi_kanit": "Signature C monogram + COACH logo plak",
+      "rotate_kanit_on": "",
+      "rotate_kanit_arka": "",
+      "fiyat_eur": 0.0,
+      "ek_ucret_eur": 0.0,
+      "maliyet_eur": 0.0,
+      "total_stok": 1,
+      "occupied_stok": 0,
+      "available_stok": 1,
+      "stok": 1,
+      "kondisyon": "Sıfır",
+      "kondisyon_label": "Sıfır",
+      "aciklama": "Coach kahve Signature C coated canvas kahve+koyu kahve tote — Mini Brooklyn Carryall — gold studs + double handle · Altın donanım · Signature C monogram + COACH logo plak",
+      "tedarikci_id": null,
+      "olusturma": "2026-06-01",
+      "cinsiyet": "KADIN",
+      "cuzdan_tipi": "",
+      "kart_yuvasi_sayisi": null,
+      "banknot_bolmesi_sayisi": null,
+      "madeni_para_bolmesi": null,
+      "id_pencere_var_mi": null,
+      "fermuar_var_mi": null,
+      "fermuar_konumu": null,
+      "RFID_korumali": null,
+      "kapama_tipi": null
+    },
+    {
+      "variation_id": "CA-CO-TT-KH-002",
+      "sku": "CA-CO-TT-KH-002",
+      "no": null,
+      "slug": "coach-mini-brooklyn-carryall-signature-c-coated-canvas-klasi-kahve-altin",
+      "cover": "",
+      "isim_resmi": "Coach Mini Brooklyn Carryall Signature C Coated Canvas Klasik Kahve Kahve",
+      "isim_bilinen": "Coach Mini Kahve",
+      "marka": "Coach",
+      "kategori": "Tote",
+      "kategori_ust": "Çanta",
+      "kategori_alt": "Tote",
+      "renk": "KAHVE",
+      "ana_renk": "Kahve",
+      "ana_renk_hex": "#5a3a25",
+      "renk_slug": "kahve",
+      "renk_hex": "#5a3a25",
+      "ikincil_renk": null,
+      "ikincil_renk_code": "",
+      "ikincil_renk_hex": "",
+      "ana_malzeme": "Signature C coated canvas klasik kahve",
+      "desen": "Monogram",
+      "donanim_rengi": "Altın",
+      "sapli_sapsiz": "Saplı",
+      "boyut": "Mini",
+      "donanim": "Altın",
+      "deri_tipi": "Signature C coated canvas klasik kahve",
+      "sezon": "",
+      "tip": "Tote",
+      "kumas": "Signature C coated canvas klasik kahve",
+      "birincil_renk": "Kahve",
+      "aksesuar_malzeme": "COACH plak ön",
+      "aksesuar_rengi": "Altın",
+      "model_adi": "Mini Brooklyn Carryall",
+      "tip_detay": "Mini Brooklyn Carryall — gold studs + double handle",
+      "kumas_detay": "Signature C coated canvas klasik kahve",
+      "donanim_detay": "Altın donanım — Signature C monogram + COACH plak ön",
+      "model_adi_kanit": "Signature C monogram + COACH plak ön",
+      "rotate_kanit_on": "",
+      "rotate_kanit_arka": "",
+      "fiyat_eur": 0.0,
+      "ek_ucret_eur": 0.0,
+      "maliyet_eur": 0.0,
+      "total_stok": 1,
+      "occupied_stok": 0,
+      "available_stok": 1,
+      "stok": 1,
+      "kondisyon": "Sıfır",
+      "kondisyon_label": "Sıfır",
+      "aciklama": "Coach kahve Signature C coated canvas klasik kahve tote — Mini Brooklyn Carryall — gold studs + double handle · Altın donanım · Signature C monogram + COACH plak ön",
+      "tedarikci_id": null,
+      "olusturma": "2026-06-01",
+      "cinsiyet": "KADIN",
+      "cuzdan_tipi": "",
+      "kart_yuvasi_sayisi": null,
+      "banknot_bolmesi_sayisi": null,
+      "madeni_para_bolmesi": null,
+      "id_pencere_var_mi": null,
+      "fermuar_var_mi": null,
+      "fermuar_konumu": null,
+      "RFID_korumali": null,
+      "kapama_tipi": null
+    },
+    {
+      "variation_id": "CA-CO-TT-KR-001",
+      "sku": "CA-CO-TT-KR-001",
+      "no": null,
+      "slug": "coach-mini-brooklyn-carryall-signature-c-coated-canvas-acik--krem-altin",
+      "cover": "",
+      "isim_resmi": "Coach Mini Brooklyn Carryall Signature C Coated Canvas Açık Bej/Krem Krem",
+      "isim_bilinen": "Coach Mini Krem",
+      "marka": "Coach",
+      "kategori": "Tote",
+      "kategori_ust": "Çanta",
+      "kategori_alt": "Tote",
+      "renk": "KREM",
+      "ana_renk": "Krem",
+      "ana_renk_hex": "#e8d4b0",
+      "renk_slug": "krem",
+      "renk_hex": "#e8d4b0",
+      "ikincil_renk": null,
+      "ikincil_renk_code": "",
+      "ikincil_renk_hex": "",
+      "ana_malzeme": "Signature C coated canvas açık bej/krem",
+      "desen": "Monogram",
+      "donanim_rengi": "Altın",
+      "sapli_sapsiz": "Saplı",
+      "boyut": "Mini",
+      "donanim": "Altın",
+      "deri_tipi": "Signature C coated canvas açık bej/krem",
+      "sezon": "",
+      "tip": "Tote",
+      "kumas": "Signature C coated canvas açık bej/krem",
+      "birincil_renk": "Krem",
+      "aksesuar_malzeme": "COACH plak",
+      "aksesuar_rengi": "Altın",
+      "model_adi": "Mini Brooklyn Carryall",
+      "tip_detay": "Mini Brooklyn Carryall — gold studs + double handle",
+      "kumas_detay": "Signature C coated canvas açık bej/krem",
+      "donanim_detay": "Altın donanım — Signature C monogram açık ton + COACH plak",
+      "model_adi_kanit": "Signature C monogram açık ton + COACH plak",
+      "rotate_kanit_on": "",
+      "rotate_kanit_arka": "",
+      "fiyat_eur": 0.0,
+      "ek_ucret_eur": 0.0,
+      "maliyet_eur": 0.0,
+      "total_stok": 1,
+      "occupied_stok": 0,
+      "available_stok": 1,
+      "stok": 1,
+      "kondisyon": "Sıfır",
+      "kondisyon_label": "Sıfır",
+      "aciklama": "Coach krem Signature C coated canvas açık bej/krem tote — Mini Brooklyn Carryall — gold studs + double handle · Altın donanım · Signature C monogram açık ton + COACH plak",
+      "tedarikci_id": null,
+      "olusturma": "2026-06-01",
+      "cinsiyet": "KADIN",
+      "cuzdan_tipi": "",
+      "kart_yuvasi_sayisi": null,
+      "banknot_bolmesi_sayisi": null,
+      "madeni_para_bolmesi": null,
+      "id_pencere_var_mi": null,
+      "fermuar_var_mi": null,
+      "fermuar_konumu": null,
+      "RFID_korumali": null,
+      "kapama_tipi": null
+    },
+    {
+      "variation_id": "CA-CO-TT-SY-001",
+      "sku": "CA-CO-TT-SY-001",
+      "no": null,
+      "slug": "coach-mini-brooklyn-carryall-signature-c-coated-canvas-siyah-siyah-altin",
+      "cover": "",
+      "isim_resmi": "Coach Mini Brooklyn Carryall Signature C Coated Canvas Siyah+Gri Siyah",
+      "isim_bilinen": "Coach Mini Siyah",
+      "marka": "Coach",
+      "kategori": "Tote",
+      "kategori_ust": "Çanta",
+      "kategori_alt": "Tote",
+      "renk": "SIYAH",
+      "ana_renk": "Siyah",
+      "ana_renk_hex": "#1a1a1a",
+      "renk_slug": "siyah",
+      "renk_hex": "#1a1a1a",
+      "ikincil_renk": "Gri",
+      "ikincil_renk_code": "GRI",
+      "ikincil_renk_hex": "#7d7d7d",
+      "ana_malzeme": "Signature C coated canvas siyah+gri",
+      "desen": "Monogram",
+      "donanim_rengi": "Altın",
+      "sapli_sapsiz": "Saplı",
+      "boyut": "Mini",
+      "donanim": "Altın",
+      "deri_tipi": "Signature C coated canvas siyah+gri",
+      "sezon": "",
+      "tip": "Tote",
+      "kumas": "Signature C coated canvas siyah+gri",
+      "birincil_renk": "Siyah",
+      "aksesuar_malzeme": "COACH metal logo plak ön",
+      "aksesuar_rengi": "Altın",
+      "model_adi": "Mini Brooklyn Carryall",
+      "tip_detay": "Mini Brooklyn Carryall — gold studs + double handle",
+      "kumas_detay": "Signature C coated canvas siyah+gri",
+      "donanim_detay": "Altın donanım — Signature C monogram + COACH metal logo plak ön",
+      "model_adi_kanit": "Signature C monogram + COACH metal logo plak ön",
+      "rotate_kanit_on": "",
+      "rotate_kanit_arka": "",
+      "fiyat_eur": 0.0,
+      "ek_ucret_eur": 0.0,
+      "maliyet_eur": 0.0,
+      "total_stok": 1,
+      "occupied_stok": 0,
+      "available_stok": 1,
+      "stok": 1,
+      "kondisyon": "Sıfır",
+      "kondisyon_label": "Sıfır",
+      "aciklama": "Coach siyah Signature C coated canvas siyah+gri tote — Mini Brooklyn Carryall — gold studs + double handle · Altın donanım · Signature C monogram + COACH metal logo plak ön",
+      "tedarikci_id": null,
+      "olusturma": "2026-06-01",
+      "cinsiyet": "KADIN",
+      "cuzdan_tipi": "",
+      "kart_yuvasi_sayisi": null,
+      "banknot_bolmesi_sayisi": null,
+      "madeni_para_bolmesi": null,
+      "id_pencere_var_mi": null,
+      "fermuar_var_mi": null,
+      "fermuar_konumu": null,
+      "RFID_korumali": null,
+      "kapama_tipi": null
+    },
+    {
+      "variation_id": "CA-DI-TT-SA-001",
+      "sku": "CA-DI-TT-SA-001",
+      "no": null,
+      "slug": "dior-mini-tote-saddle-pouch-embossed-leather-dior-oblique-cd-sari-altin",
+      "cover": "",
+      "isim_resmi": "Dior Mini tote / Saddle pouch Embossed Leather Dior Oblique 'Cd' Tekrar Deseni Sarı Sarı",
+      "isim_bilinen": "Dior Mini Sarı",
+      "marka": "Dior",
+      "kategori": "Tote",
+      "kategori_ust": "Çanta",
+      "kategori_alt": "Tote",
+      "renk": "SARI",
+      "ana_renk": "Sarı",
+      "ana_renk_hex": "#e8c840",
+      "renk_slug": "sari",
+      "renk_hex": "#e8c840",
+      "ikincil_renk": null,
+      "ikincil_renk_code": "",
+      "ikincil_renk_hex": "",
+      "ana_malzeme": "embossed leather Dior Oblique 'CD' tekrar deseni sarı",
+      "desen": "Düz",
+      "donanim_rengi": "Altın",
+      "sapli_sapsiz": "Saplı",
+      "boyut": "Mini",
+      "donanim": "Altın",
+      "deri_tipi": "embossed leather Dior Oblique 'CD' tekrar deseni sarı",
+      "sezon": "",
+      "tip": "Tote",
+      "kumas": "embossed leather Dior Oblique 'CD' tekrar deseni sarı",
+      "birincil_renk": "Sarı",
+      "aksesuar_malzeme": "CD oblique tekrar deseni emboss",
+      "aksesuar_rengi": "Altın",
+      "model_adi": "Mini tote / Saddle pouch",
+      "tip_detay": "Mini tote / Saddle pouch — gold studs + double handle",
+      "kumas_detay": "embossed leather Dior Oblique 'CD' tekrar deseni sarı",
+      "donanim_detay": "Altın donanım — 'DIOR' yazı emboss + CD oblique tekrar deseni emboss",
+      "model_adi_kanit": "'DIOR' yazı emboss + CD oblique tekrar deseni emboss",
+      "rotate_kanit_on": "",
+      "rotate_kanit_arka": "",
+      "fiyat_eur": 0.0,
+      "ek_ucret_eur": 0.0,
+      "maliyet_eur": 0.0,
+      "total_stok": 1,
+      "occupied_stok": 0,
+      "available_stok": 1,
+      "stok": 1,
+      "kondisyon": "Sıfır",
+      "kondisyon_label": "Sıfır",
+      "aciklama": "Dior sarı embossed leather Dior Oblique 'CD' tekrar deseni sarı tote — Mini tote / Saddle pouch — gold studs + double handle · Altın donanım · 'DIOR' yazı emboss + CD oblique tekrar deseni emboss",
+      "tedarikci_id": null,
+      "olusturma": "2026-06-01",
+      "cinsiyet": "KADIN",
+      "cuzdan_tipi": "",
+      "kart_yuvasi_sayisi": null,
+      "banknot_bolmesi_sayisi": null,
+      "madeni_para_bolmesi": null,
+      "id_pencere_var_mi": null,
+      "fermuar_var_mi": null,
+      "fermuar_konumu": null,
+      "RFID_korumali": null,
+      "kapama_tipi": null
+    },
+    {
+      "variation_id": "CA-DS-OM-AL-001",
+      "sku": "CA-DS-OM-AL-001",
+      "no": null,
+      "slug": "diesel-1dr-fold-flap-shoulder-bag-mirror-metallic-gold-paten-altin-gumus",
+      "cover": "",
+      "isim_resmi": "Diesel 1DR-Fold flap shoulder bag Mirror Metallic Gold Patent Altın",
+      "isim_bilinen": "Diesel 1DR-Fold Altın",
+      "marka": "Diesel",
+      "kategori": "Omuz",
+      "kategori_ust": "Çanta",
+      "kategori_alt": "Omuz",
+      "renk": "ALTIN",
+      "ana_renk": "Altın",
+      "ana_renk_hex": "#d4a548",
+      "renk_slug": "altin",
+      "renk_hex": "#d4a548",
+      "ikincil_renk": null,
+      "ikincil_renk_code": "",
+      "ikincil_renk_hex": "",
+      "ana_malzeme": "mirror metallic gold patent",
+      "desen": "Düz",
+      "donanim_rengi": "Gümüş",
+      "sapli_sapsiz": "Saplı",
+      "boyut": "Mini",
+      "donanim": "Gümüş",
+      "deri_tipi": "mirror metallic gold patent",
+      "sezon": "",
+      "tip": "Omuz",
+      "kumas": "mirror metallic gold patent",
+      "birincil_renk": "Altın",
+      "aksesuar_malzeme": "Metal",
+      "aksesuar_rengi": "Gümüş",
+      "model_adi": "1DR-Fold flap shoulder bag",
+      "tip_detay": "1DR-Fold flap shoulder bag",
+      "kumas_detay": "mirror metallic gold patent",
+      "donanim_detay": "Gümüş donanım — Büyük D-logo metal cut-out (0147), sade smooth ön (0148)",
+      "model_adi_kanit": "Büyük D-logo metal cut-out (0147), sade smooth ön (0148)",
+      "rotate_kanit_on": "",
+      "rotate_kanit_arka": "",
+      "fiyat_eur": 0.0,
+      "ek_ucret_eur": 0.0,
+      "maliyet_eur": 0.0,
+      "total_stok": 1,
+      "occupied_stok": 0,
+      "available_stok": 1,
+      "stok": 1,
+      "kondisyon": "Sıfır",
+      "kondisyon_label": "Sıfır",
+      "aciklama": "Diesel altın mirror metallic gold patent omuz — 1DR-Fold flap shoulder bag · Gümüş donanım · Büyük D-logo metal cut-out (0147), sade smooth ön (0148)",
+      "tedarikci_id": null,
+      "olusturma": "2026-06-01",
+      "cinsiyet": "KADIN",
+      "cuzdan_tipi": "",
+      "kart_yuvasi_sayisi": null,
+      "banknot_bolmesi_sayisi": null,
+      "madeni_para_bolmesi": null,
+      "id_pencere_var_mi": null,
+      "fermuar_var_mi": null,
+      "fermuar_konumu": null,
+      "RFID_korumali": null,
+      "kapama_tipi": null
+    },
+    {
+      "variation_id": "CA-DS-OM-BY-001",
+      "sku": "CA-DS-OM-BY-001",
+      "no": null,
+      "slug": "diesel-1dr-fold-flap-shoulder-bag-patent-beyaz-beyaz-beyaz-gumus",
+      "cover": "",
+      "isim_resmi": "Diesel 1DR-Fold flap shoulder bag Patent Beyaz Beyaz",
+      "isim_bilinen": "Diesel 1DR-Fold Beyaz",
+      "marka": "Diesel",
+      "kategori": "Omuz",
+      "kategori_ust": "Çanta",
+      "kategori_alt": "Omuz",
+      "renk": "BEYAZ",
+      "ana_renk": "Beyaz",
+      "ana_renk_hex": "#f5f1ea",
+      "renk_slug": "beyaz",
+      "renk_hex": "#f5f1ea",
+      "ikincil_renk": null,
+      "ikincil_renk_code": "",
+      "ikincil_renk_hex": "",
+      "ana_malzeme": "patent beyaz",
+      "desen": "Düz",
+      "donanim_rengi": "Gümüş",
+      "sapli_sapsiz": "Saplı",
+      "boyut": "Mini",
+      "donanim": "Gümüş",
+      "deri_tipi": "patent beyaz",
+      "sezon": "",
+      "tip": "Omuz",
+      "kumas": "patent beyaz",
+      "birincil_renk": "Beyaz",
+      "aksesuar_malzeme": "Metal",
+      "aksesuar_rengi": "Gümüş",
+      "model_adi": "1DR-Fold flap shoulder bag",
+      "tip_detay": "1DR-Fold flap shoulder bag",
+      "kumas_detay": "patent beyaz",
+      "donanim_detay": "Gümüş donanım — Büyük D-logo metal cut-out (0153), sade flap ön (0154)",
+      "model_adi_kanit": "Büyük D-logo metal cut-out (0153), sade flap ön (0154)",
+      "rotate_kanit_on": "",
+      "rotate_kanit_arka": "",
+      "fiyat_eur": 0.0,
+      "ek_ucret_eur": 0.0,
+      "maliyet_eur": 0.0,
+      "total_stok": 1,
+      "occupied_stok": 0,
+      "available_stok": 1,
+      "stok": 1,
+      "kondisyon": "Sıfır",
+      "kondisyon_label": "Sıfır",
+      "aciklama": "Diesel beyaz patent beyaz omuz — 1DR-Fold flap shoulder bag · Gümüş donanım · Büyük D-logo metal cut-out (0153), sade flap ön (0154)",
+      "tedarikci_id": null,
+      "olusturma": "2026-06-01",
+      "cinsiyet": "KADIN",
+      "cuzdan_tipi": "",
+      "kart_yuvasi_sayisi": null,
+      "banknot_bolmesi_sayisi": null,
+      "madeni_para_bolmesi": null,
+      "id_pencere_var_mi": null,
+      "fermuar_var_mi": null,
+      "fermuar_konumu": null,
+      "RFID_korumali": null,
+      "kapama_tipi": null
+    },
+    {
+      "variation_id": "CA-DS-OM-KR-001",
+      "sku": "CA-DS-OM-KR-001",
+      "no": null,
+      "slug": "diesel-1dr-fold-flap-shoulder-bag-smooth-krem-acik-bej-deri--krem-gumus",
+      "cover": "",
+      "isim_resmi": "Diesel 1DR-Fold flap shoulder bag Smooth Krem/Açık Bej Deri Krem",
+      "isim_bilinen": "Diesel 1DR-Fold Krem",
+      "marka": "Diesel",
+      "kategori": "Omuz",
+      "kategori_ust": "Çanta",
+      "kategori_alt": "Omuz",
+      "renk": "KREM",
+      "ana_renk": "Krem",
+      "ana_renk_hex": "#e8d4b0",
+      "renk_slug": "krem",
+      "renk_hex": "#e8d4b0",
+      "ikincil_renk": null,
+      "ikincil_renk_code": "",
+      "ikincil_renk_hex": "",
+      "ana_malzeme": "smooth krem/açık bej deri",
+      "desen": "Düz",
+      "donanim_rengi": "Gümüş",
+      "sapli_sapsiz": "Saplı",
+      "boyut": "Mini",
+      "donanim": "Gümüş",
+      "deri_tipi": "smooth krem/açık bej deri",
+      "sezon": "",
+      "tip": "Omuz",
+      "kumas": "smooth krem/açık bej deri",
+      "birincil_renk": "Krem",
+      "aksesuar_malzeme": "Metal",
+      "aksesuar_rengi": "Gümüş",
+      "model_adi": "1DR-Fold flap shoulder bag",
+      "tip_detay": "1DR-Fold flap shoulder bag",
+      "kumas_detay": "smooth krem/açık bej deri",
+      "donanim_detay": "Gümüş donanım — Büyük D-logo metal cut-out (0149), sade flap ön (0150)",
+      "model_adi_kanit": "Büyük D-logo metal cut-out (0149), sade flap ön (0150)",
+      "rotate_kanit_on": "",
+      "rotate_kanit_arka": "",
+      "fiyat_eur": 0.0,
+      "ek_ucret_eur": 0.0,
+      "maliyet_eur": 0.0,
+      "total_stok": 1,
+      "occupied_stok": 0,
+      "available_stok": 1,
+      "stok": 1,
+      "kondisyon": "Sıfır",
+      "kondisyon_label": "Sıfır",
+      "aciklama": "Diesel krem smooth krem/açık bej deri omuz — 1DR-Fold flap shoulder bag · Gümüş donanım · Büyük D-logo metal cut-out (0149), sade flap ön (0150)",
+      "tedarikci_id": null,
+      "olusturma": "2026-06-01",
+      "cinsiyet": "KADIN",
+      "cuzdan_tipi": "",
+      "kart_yuvasi_sayisi": null,
+      "banknot_bolmesi_sayisi": null,
+      "madeni_para_bolmesi": null,
+      "id_pencere_var_mi": null,
+      "fermuar_var_mi": null,
+      "fermuar_konumu": null,
+      "RFID_korumali": null,
+      "kapama_tipi": null
+    },
+    {
+      "variation_id": "CA-GE-TT-AL-001",
+      "sku": "CA-GE-TT-AL-001",
+      "no": null,
+      "slug": "guess-pleated-small-tote-metallic-gold-pleated-dikey-kabartm-altin-gumus",
+      "cover": "",
+      "isim_resmi": "Guess Pleated small tote Metallic Gold Pleated Dikey Kabartmalı (Suede/Canvas) Altın",
+      "isim_bilinen": "Guess Pleated Altın",
+      "marka": "Guess",
+      "kategori": "Tote",
+      "kategori_ust": "Çanta",
+      "kategori_alt": "Tote",
+      "renk": "ALTIN",
+      "ana_renk": "Altın",
+      "ana_renk_hex": "#d4a548",
+      "renk_slug": "altin",
+      "renk_hex": "#d4a548",
+      "ikincil_renk": null,
+      "ikincil_renk_code": "",
+      "ikincil_renk_hex": "",
+      "ana_malzeme": "metallic gold pleated dikey kabartmalı (suede/canvas)",
+      "desen": "Düz",
+      "donanim_rengi": "Gümüş",
+      "sapli_sapsiz": "Saplı",
+      "boyut": "Mini",
+      "donanim": "Gümüş",
+      "deri_tipi": "metallic gold pleated dikey kabartmalı (suede/canvas)",
+      "sezon": "",
+      "tip": "Tote",
+      "kumas": "metallic gold pleated dikey kabartmalı (suede/canvas)",
+      "birincil_renk": "Altın",
+      "aksesuar_malzeme": "Metal",
+      "aksesuar_rengi": "Gümüş",
+      "model_adi": "Pleated small tote",
+      "tip_detay": "Pleated small tote — gold studs + double handle",
+      "kumas_detay": "metallic gold pleated dikey kabartmalı (suede/canvas)",
+      "donanim_detay": "Gümüş donanım — GUESS yazı emboss küçük metal plak",
+      "model_adi_kanit": "GUESS yazı emboss küçük metal plak",
+      "rotate_kanit_on": "",
+      "rotate_kanit_arka": "",
+      "fiyat_eur": 0.0,
+      "ek_ucret_eur": 0.0,
+      "maliyet_eur": 0.0,
+      "total_stok": 1,
+      "occupied_stok": 0,
+      "available_stok": 1,
+      "stok": 1,
+      "kondisyon": "Sıfır",
+      "kondisyon_label": "Sıfır",
+      "aciklama": "Guess altın metallic gold pleated dikey kabartmalı (suede/canvas) tote — Pleated small tote — gold studs + double handle · Gümüş donanım · GUESS yazı emboss küçük metal plak",
+      "tedarikci_id": null,
+      "olusturma": "2026-06-01",
+      "cinsiyet": "KADIN",
+      "cuzdan_tipi": "",
+      "kart_yuvasi_sayisi": null,
+      "banknot_bolmesi_sayisi": null,
+      "madeni_para_bolmesi": null,
+      "id_pencere_var_mi": null,
+      "fermuar_var_mi": null,
+      "fermuar_konumu": null,
+      "RFID_korumali": null,
+      "kapama_tipi": null
+    },
+    {
+      "variation_id": "CA-GE-TT-GR-002",
+      "sku": "CA-GE-TT-GR-002",
+      "no": null,
+      "slug": "guess-4g-monogram-small-tote-4g-logo-coated-canvas-gri-tonal-gri-gumus",
+      "cover": "",
+      "isim_resmi": "Guess 4G monogram small tote 4G Logo Coated Canvas Gri Tonal Gri",
+      "isim_bilinen": "Guess 4G Gri",
+      "marka": "Guess",
+      "kategori": "Tote",
+      "kategori_ust": "Çanta",
+      "kategori_alt": "Tote",
+      "renk": "GRI",
+      "ana_renk": "Gri",
+      "ana_renk_hex": "#7d7d7d",
+      "renk_slug": "gri",
+      "renk_hex": "#7d7d7d",
+      "ikincil_renk": "Siyah",
+      "ikincil_renk_code": "SIYAH",
+      "ikincil_renk_hex": "#1a1a1a",
+      "ana_malzeme": "4G logo coated canvas gri tonal",
+      "desen": "Monogram",
+      "donanim_rengi": "Gümüş",
+      "sapli_sapsiz": "Saplı",
+      "boyut": "Mini",
+      "donanim": "Gümüş",
+      "deri_tipi": "4G logo coated canvas gri tonal",
+      "sezon": "",
+      "tip": "Tote",
+      "kumas": "4G logo coated canvas gri tonal",
+      "birincil_renk": "Gri",
+      "aksesuar_malzeme": "GUESS yazı",
+      "aksesuar_rengi": "Gümüş",
+      "model_adi": "4G monogram small tote",
+      "tip_detay": "4G monogram small tote — gold studs + double handle",
+      "kumas_detay": "4G logo coated canvas gri tonal",
+      "donanim_detay": "Gümüş donanım — GUESS 4G monogram canvas + GUESS yazı",
+      "model_adi_kanit": "GUESS 4G monogram canvas + GUESS yazı",
+      "rotate_kanit_on": "",
+      "rotate_kanit_arka": "",
+      "fiyat_eur": 0.0,
+      "ek_ucret_eur": 0.0,
+      "maliyet_eur": 0.0,
+      "total_stok": 1,
+      "occupied_stok": 0,
+      "available_stok": 1,
+      "stok": 1,
+      "kondisyon": "Sıfır",
+      "kondisyon_label": "Sıfır",
+      "aciklama": "Guess gri 4G logo coated canvas gri tonal tote — 4G monogram small tote — gold studs + double handle · Gümüş donanım · GUESS 4G monogram canvas + GUESS yazı",
+      "tedarikci_id": null,
+      "olusturma": "2026-06-01",
+      "cinsiyet": "KADIN",
+      "cuzdan_tipi": "",
+      "kart_yuvasi_sayisi": null,
+      "banknot_bolmesi_sayisi": null,
+      "madeni_para_bolmesi": null,
+      "id_pencere_var_mi": null,
+      "fermuar_var_mi": null,
+      "fermuar_konumu": null,
+      "RFID_korumali": null,
+      "kapama_tipi": null
+    },
+    {
+      "variation_id": "CA-GE-TT-PB-001",
+      "sku": "CA-GE-TT-PB-001",
+      "no": null,
+      "slug": "guess-saffiano-small-top-handle-tote-nubuk-suede-pembe-siyah-pembe-gumus",
+      "cover": "",
+      "isim_resmi": "Guess Saffiano small top handle tote Nubuk/Suede Pembe + Siyah Patent Trim Pembe",
+      "isim_bilinen": "Guess Saffiano Pembe",
+      "marka": "Guess",
+      "kategori": "Tote",
+      "kategori_ust": "Çanta",
+      "kategori_alt": "Tote",
+      "renk": "PEMBE",
+      "ana_renk": "Pembe",
+      "ana_renk_hex": "#e08aa0",
+      "renk_slug": "pembe",
+      "renk_hex": "#e08aa0",
+      "ikincil_renk": null,
+      "ikincil_renk_code": "",
+      "ikincil_renk_hex": "",
+      "ana_malzeme": "nubuk/suede pembe + siyah patent trim",
+      "desen": "Düz",
+      "donanim_rengi": "Gümüş",
+      "sapli_sapsiz": "Saplı",
+      "boyut": "Mini",
+      "donanim": "Gümüş",
+      "deri_tipi": "nubuk/suede pembe + siyah patent trim",
+      "sezon": "",
+      "tip": "Tote",
+      "kumas": "nubuk/suede pembe + siyah patent trim",
+      "birincil_renk": "Pembe",
+      "aksesuar_malzeme": "Metal",
+      "aksesuar_rengi": "Gümüş",
+      "model_adi": "Saffiano small top handle tote",
+      "tip_detay": "Saffiano small top handle tote — gold studs + double handle",
+      "kumas_detay": "nubuk/suede pembe + siyah patent trim",
+      "donanim_detay": "Gümüş donanım — GUESS yazı emboss",
+      "model_adi_kanit": "GUESS yazı emboss",
+      "rotate_kanit_on": "",
+      "rotate_kanit_arka": "",
+      "fiyat_eur": 0.0,
+      "ek_ucret_eur": 0.0,
+      "maliyet_eur": 0.0,
+      "total_stok": 1,
+      "occupied_stok": 0,
+      "available_stok": 1,
+      "stok": 1,
+      "kondisyon": "Sıfır",
+      "kondisyon_label": "Sıfır",
+      "aciklama": "Guess pembe nubuk/suede pembe + siyah patent trim tote — Saffiano small top handle tote — gold studs + double handle · Gümüş donanım · GUESS yazı emboss",
+      "tedarikci_id": null,
+      "olusturma": "2026-06-01",
+      "cinsiyet": "KADIN",
+      "cuzdan_tipi": "",
+      "kart_yuvasi_sayisi": null,
+      "banknot_bolmesi_sayisi": null,
+      "madeni_para_bolmesi": null,
+      "id_pencere_var_mi": null,
+      "fermuar_var_mi": null,
+      "fermuar_konumu": null,
+      "RFID_korumali": null,
+      "kapama_tipi": null
+    },
+    {
+      "variation_id": "CA-GE-TT-SA-001",
+      "sku": "CA-GE-TT-SA-001",
+      "no": null,
+      "slug": "guess-saffiano-top-handle-small-tote-nubuk-suede-sari-siyah--sari-gumus",
+      "cover": "",
+      "isim_resmi": "Guess Saffiano top handle small tote Nubuk/Suede Sarı + Siyah Patent Trim Sarı",
+      "isim_bilinen": "Guess Saffiano Sarı",
+      "marka": "Guess",
+      "kategori": "Tote",
+      "kategori_ust": "Çanta",
+      "kategori_alt": "Tote",
+      "renk": "SARI",
+      "ana_renk": "Sarı",
+      "ana_renk_hex": "#e8c840",
+      "renk_slug": "sari",
+      "renk_hex": "#e8c840",
+      "ikincil_renk": null,
+      "ikincil_renk_code": "",
+      "ikincil_renk_hex": "",
+      "ana_malzeme": "nubuk/suede sarı + siyah patent trim",
+      "desen": "Düz",
+      "donanim_rengi": "Gümüş",
+      "sapli_sapsiz": "Saplı",
+      "boyut": "Mini",
+      "donanim": "Gümüş",
+      "deri_tipi": "nubuk/suede sarı + siyah patent trim",
+      "sezon": "",
+      "tip": "Tote",
+      "kumas": "nubuk/suede sarı + siyah patent trim",
+      "birincil_renk": "Sarı",
+      "aksesuar_malzeme": "Metal",
+      "aksesuar_rengi": "Gümüş",
+      "model_adi": "Saffiano top handle small tote",
+      "tip_detay": "Saffiano top handle small tote — gold studs + double handle",
+      "kumas_detay": "nubuk/suede sarı + siyah patent trim",
+      "donanim_detay": "Gümüş donanım — GUESS yazı emboss küçük ön",
+      "model_adi_kanit": "GUESS yazı emboss küçük ön",
+      "rotate_kanit_on": "",
+      "rotate_kanit_arka": "",
+      "fiyat_eur": 0.0,
+      "ek_ucret_eur": 0.0,
+      "maliyet_eur": 0.0,
+      "total_stok": 1,
+      "occupied_stok": 0,
+      "available_stok": 1,
+      "stok": 1,
+      "kondisyon": "Sıfır",
+      "kondisyon_label": "Sıfır",
+      "aciklama": "Guess sarı nubuk/suede sarı + siyah patent trim tote — Saffiano top handle small tote — gold studs + double handle · Gümüş donanım · GUESS yazı emboss küçük ön",
+      "tedarikci_id": null,
+      "olusturma": "2026-06-01",
+      "cinsiyet": "KADIN",
+      "cuzdan_tipi": "",
+      "kart_yuvasi_sayisi": null,
+      "banknot_bolmesi_sayisi": null,
+      "madeni_para_bolmesi": null,
+      "id_pencere_var_mi": null,
+      "fermuar_var_mi": null,
+      "fermuar_konumu": null,
+      "RFID_korumali": null,
+      "kapama_tipi": null
+    },
+    {
+      "variation_id": "CA-GE-TT-SY-002",
+      "sku": "CA-GE-TT-SY-002",
+      "no": null,
+      "slug": "guess-4g-monogram-embossed-small-tote-embossed-leather-4g-lo-siyah-gumus",
+      "cover": "",
+      "isim_resmi": "Guess 4G monogram embossed small tote Embossed Leather 4G Logo Siyah Siyah",
+      "isim_bilinen": "Guess 4G Siyah",
+      "marka": "Guess",
+      "kategori": "Tote",
+      "kategori_ust": "Çanta",
+      "kategori_alt": "Tote",
+      "renk": "SIYAH",
+      "ana_renk": "Siyah",
+      "ana_renk_hex": "#1a1a1a",
+      "renk_slug": "siyah",
+      "renk_hex": "#1a1a1a",
+      "ikincil_renk": null,
+      "ikincil_renk_code": "",
+      "ikincil_renk_hex": "",
+      "ana_malzeme": "embossed leather 4G logo siyah",
+      "desen": "Monogram",
+      "donanim_rengi": "Gümüş",
+      "sapli_sapsiz": "Saplı",
+      "boyut": "Mini",
+      "donanim": "Gümüş",
+      "deri_tipi": "embossed leather 4G logo siyah",
+      "sezon": "",
+      "tip": "Tote",
+      "kumas": "embossed leather 4G logo siyah",
+      "birincil_renk": "Siyah",
+      "aksesuar_malzeme": "GUESS yazı",
+      "aksesuar_rengi": "Gümüş",
+      "model_adi": "4G monogram embossed small tote",
+      "tip_detay": "4G monogram embossed small tote — gold studs + double handle",
+      "kumas_detay": "embossed leather 4G logo siyah",
+      "donanim_detay": "Gümüş donanım — GUESS 4G monogram emboss + GUESS yazı",
+      "model_adi_kanit": "GUESS 4G monogram emboss + GUESS yazı",
+      "rotate_kanit_on": "",
+      "rotate_kanit_arka": "",
+      "fiyat_eur": 0.0,
+      "ek_ucret_eur": 0.0,
+      "maliyet_eur": 0.0,
+      "total_stok": 1,
+      "occupied_stok": 0,
+      "available_stok": 1,
+      "stok": 1,
+      "kondisyon": "Sıfır",
+      "kondisyon_label": "Sıfır",
+      "aciklama": "Guess siyah embossed leather 4G logo siyah tote — 4G monogram embossed small tote — gold studs + double handle · Gümüş donanım · GUESS 4G monogram emboss + GUESS yazı",
+      "tedarikci_id": null,
+      "olusturma": "2026-06-01",
+      "cinsiyet": "KADIN",
+      "cuzdan_tipi": "",
+      "kart_yuvasi_sayisi": null,
+      "banknot_bolmesi_sayisi": null,
+      "madeni_para_bolmesi": null,
+      "id_pencere_var_mi": null,
+      "fermuar_var_mi": null,
+      "fermuar_konumu": null,
+      "RFID_korumali": null,
+      "kapama_tipi": null
+    },
+    {
+      "variation_id": "CA-LV-BK-KH-001",
+      "sku": "CA-LV-BK-KH-001",
+      "no": null,
+      "slug": "louis-vuitton-speedy-mini-bandouliere-coin-pouch-monogram-ca-kahve-altin",
+      "cover": "",
+      "isim_resmi": "Louis Vuitton Speedy Mini Bandoulière + coin pouch Monogram Canvas Kahve+Koyu Kahve",
+      "isim_bilinen": "LV Speedy Kahve",
+      "marka": "Louis Vuitton",
+      "kategori": "Omuz",
+      "kategori_ust": "Çanta",
+      "kategori_alt": "Omuz",
+      "renk": "KAHVE",
+      "ana_renk": "Kahve",
+      "ana_renk_hex": "#5a3a25",
+      "renk_slug": "kahve",
+      "renk_hex": "#5a3a25",
+      "ikincil_renk": null,
+      "ikincil_renk_code": "",
+      "ikincil_renk_hex": "",
+      "ana_malzeme": "Monogram canvas kahve+koyu",
+      "desen": "Monogram",
+      "donanim_rengi": "Altın",
+      "sapli_sapsiz": "Saplı",
+      "boyut": "Mini",
+      "donanim": "Altın",
+      "deri_tipi": "Monogram canvas kahve+koyu",
+      "sezon": "",
+      "tip": "Omuz",
+      "kumas": "Monogram canvas kahve+koyu",
+      "birincil_renk": "Kahve",
+      "aksesuar_malzeme": "coin pouch round eki",
+      "aksesuar_rengi": "Altın",
+      "model_adi": "Speedy Mini Bandoulière + coin pouch",
+      "tip_detay": "Speedy Mini Bandoulière + coin pouch",
+      "kumas_detay": "Monogram canvas kahve+koyu",
+      "donanim_detay": "Altın donanım — LV monogram klasik + vachetta deri + coin pouch round eki",
+      "model_adi_kanit": "LV monogram klasik + vachetta deri + coin pouch round eki",
+      "rotate_kanit_on": "",
+      "rotate_kanit_arka": "",
+      "fiyat_eur": 0.0,
+      "ek_ucret_eur": 0.0,
+      "maliyet_eur": 0.0,
+      "total_stok": 1,
+      "occupied_stok": 0,
+      "available_stok": 1,
+      "stok": 1,
+      "kondisyon": "Sıfır",
+      "kondisyon_label": "Sıfır",
+      "aciklama": "Louis Vuitton kahve Monogram canvas kahve+koyu bowling — Speedy Mini Bandoulière + coin pouch · Altın donanım · LV monogram klasik + vachetta deri + coin pouch round eki",
+      "tedarikci_id": null,
+      "olusturma": "2026-06-01",
+      "cinsiyet": "KADIN",
+      "cuzdan_tipi": "",
+      "kart_yuvasi_sayisi": null,
+      "banknot_bolmesi_sayisi": null,
+      "madeni_para_bolmesi": null,
+      "id_pencere_var_mi": null,
+      "fermuar_var_mi": null,
+      "fermuar_konumu": null,
+      "RFID_korumali": null,
+      "kapama_tipi": null
+    },
+    {
+      "variation_id": "CA-LV-TT-AB-001",
+      "sku": "CA-LV-TT-AB-001",
+      "no": null,
+      "slug": "louis-vuitton-petite-malle-souple-monogram-empreinte-giant-a-acik-bej-altin",
+      "cover": "",
+      "isim_resmi": "Louis Vuitton Petite Malle Souple Monogram Empreinte/Giant Açık Ton Beje Açık Bej",
+      "isim_bilinen": "LV Petite Açık Bej",
+      "marka": "Louis Vuitton",
+      "kategori": "Tote",
+      "kategori_ust": "Çanta",
+      "kategori_alt": "Tote",
+      "renk": "ACIK BEJ",
+      "ana_renk": "Açık Bej",
+      "ana_renk_hex": "#e8d8bc",
+      "renk_slug": "acik-bej",
+      "renk_hex": "#e8d8bc",
+      "ikincil_renk": null,
+      "ikincil_renk_code": "",
+      "ikincil_renk_hex": "",
+      "ana_malzeme": "Monogram Empreinte/Giant açık ton beje",
+      "desen": "Monogram",
+      "donanim_rengi": "Altın",
+      "sapli_sapsiz": "Saplı",
+      "boyut": "Mini",
+      "donanim": "Altın",
+      "deri_tipi": "Monogram Empreinte/Giant açık ton beje",
+      "sezon": "",
+      "tip": "Tote",
+      "kumas": "Monogram Empreinte/Giant açık ton beje",
+      "birincil_renk": "Açık Bej",
+      "aksesuar_malzeme": "mini malle stili",
+      "aksesuar_rengi": "Altın",
+      "model_adi": "Petite Malle Souple",
+      "tip_detay": "Petite Malle Souple — gold studs + double handle",
+      "kumas_detay": "Monogram Empreinte/Giant açık ton beje",
+      "donanim_detay": "Altın donanım — LV monogram + 'LOUIS VUITTON' yazısı + mini malle stili",
+      "model_adi_kanit": "LV monogram + 'LOUIS VUITTON' yazısı + mini malle stili",
+      "rotate_kanit_on": "",
+      "rotate_kanit_arka": "",
+      "fiyat_eur": 0.0,
+      "ek_ucret_eur": 0.0,
+      "maliyet_eur": 0.0,
+      "total_stok": 1,
+      "occupied_stok": 0,
+      "available_stok": 1,
+      "stok": 1,
+      "kondisyon": "Sıfır",
+      "kondisyon_label": "Sıfır",
+      "aciklama": "Louis Vuitton açık bej Monogram Empreinte/Giant açık ton beje tote — Petite Malle Souple — gold studs + double handle · Altın donanım · LV monogram + 'LOUIS VUITTON' yazısı + mini malle stili",
+      "tedarikci_id": null,
+      "olusturma": "2026-06-01",
+      "cinsiyet": "KADIN",
+      "cuzdan_tipi": "",
+      "kart_yuvasi_sayisi": null,
+      "banknot_bolmesi_sayisi": null,
+      "madeni_para_bolmesi": null,
+      "id_pencere_var_mi": null,
+      "fermuar_var_mi": null,
+      "fermuar_konumu": null,
+      "RFID_korumali": null,
+      "kapama_tipi": null
+    },
+    {
+      "variation_id": "CA-LV-TT-BY-001",
+      "sku": "CA-LV-TT-BY-001",
+      "no": null,
+      "slug": "louis-vuitton-speedy-nano-bb-tote-with-coin-pouch-damier-azu-beyaz-altin",
+      "cover": "",
+      "isim_resmi": "Louis Vuitton Speedy Nano/BB tote with coin pouch Damier Azur Canvas (Beyaz+Gri Ekose) Beyaz",
+      "isim_bilinen": "LV Speedy Beyaz",
+      "marka": "Louis Vuitton",
+      "kategori": "Tote",
+      "kategori_ust": "Çanta",
+      "kategori_alt": "Tote",
+      "renk": "BEYAZ",
+      "ana_renk": "Beyaz",
+      "ana_renk_hex": "#f5f1ea",
+      "renk_slug": "beyaz",
+      "renk_hex": "#f5f1ea",
+      "ikincil_renk": null,
+      "ikincil_renk_code": "",
+      "ikincil_renk_hex": "",
+      "ana_malzeme": "Damier Azur canvas (beyaz+gri ekose)",
+      "desen": "Monogram",
+      "donanim_rengi": "Altın",
+      "sapli_sapsiz": "Saplı",
+      "boyut": "Mini",
+      "donanim": "Altın",
+      "deri_tipi": "Damier Azur canvas (beyaz+gri ekose)",
+      "sezon": "",
+      "tip": "Tote",
+      "kumas": "Damier Azur canvas (beyaz+gri ekose)",
+      "birincil_renk": "Beyaz",
+      "aksesuar_malzeme": "round coin pouch eki",
+      "aksesuar_rengi": "Altın",
+      "model_adi": "Speedy Nano/BB tote with coin pouch",
+      "tip_detay": "Speedy Nano/BB tote with coin pouch",
+      "kumas_detay": "Damier Azur canvas (beyaz+gri ekose)",
+      "donanim_detay": "Altın donanım — LV monogram damier azur ekose + vachetta deri + round coin pouch eki",
+      "model_adi_kanit": "LV monogram damier azur ekose + vachetta deri + round coin pouch eki",
+      "rotate_kanit_on": "",
+      "rotate_kanit_arka": "",
+      "fiyat_eur": 0.0,
+      "ek_ucret_eur": 0.0,
+      "maliyet_eur": 0.0,
+      "total_stok": 1,
+      "occupied_stok": 0,
+      "available_stok": 1,
+      "stok": 1,
+      "kondisyon": "Sıfır",
+      "kondisyon_label": "Sıfır",
+      "aciklama": "Louis Vuitton beyaz Damier Azur canvas (beyaz+gri ekose) tote — Speedy Nano/BB tote with coin pouch · Altın donanım · LV monogram damier azur ekose + vachetta deri + round coin pouch eki",
+      "tedarikci_id": null,
+      "olusturma": "2026-06-01",
+      "cinsiyet": "KADIN",
+      "cuzdan_tipi": "",
+      "kart_yuvasi_sayisi": null,
+      "banknot_bolmesi_sayisi": null,
+      "madeni_para_bolmesi": null,
+      "id_pencere_var_mi": null,
+      "fermuar_var_mi": null,
+      "fermuar_konumu": null,
+      "RFID_korumali": null,
+      "kapama_tipi": null
+    },
+    {
+      "variation_id": "CA-LV-TT-SY-001",
+      "sku": "CA-LV-TT-SY-001",
+      "no": null,
+      "slug": "louis-vuitton-petite-malle-souple-damier-graphite-canvas-siy-siyah-altin",
+      "cover": "",
+      "isim_resmi": "Louis Vuitton Petite Malle Souple Damier Graphite Canvas Siyah+Gri Ekose Siyah",
+      "isim_bilinen": "LV Petite Siyah",
+      "marka": "Louis Vuitton",
+      "kategori": "Tote",
+      "kategori_ust": "Çanta",
+      "kategori_alt": "Tote",
+      "renk": "SIYAH",
+      "ana_renk": "Siyah",
+      "ana_renk_hex": "#1a1a1a",
+      "renk_slug": "siyah",
+      "renk_hex": "#1a1a1a",
+      "ikincil_renk": "Gri",
+      "ikincil_renk_code": "GRI",
+      "ikincil_renk_hex": "#7d7d7d",
+      "ana_malzeme": "Damier Graphite canvas siyah+gri ekose",
+      "desen": "Monogram",
+      "donanim_rengi": "Altın",
+      "sapli_sapsiz": "Saplı",
+      "boyut": "Mini",
+      "donanim": "Altın",
+      "deri_tipi": "Damier Graphite canvas siyah+gri ekose",
+      "sezon": "",
+      "tip": "Tote",
+      "kumas": "Damier Graphite canvas siyah+gri ekose",
+      "birincil_renk": "Siyah",
+      "aksesuar_malzeme": "LV stilik mini steamer trunk",
+      "aksesuar_rengi": "Altın",
+      "model_adi": "Petite Malle Souple",
+      "tip_detay": "Petite Malle Souple — gold studs + double handle (LV style)",
+      "kumas_detay": "Damier Graphite canvas siyah+gri ekose",
+      "donanim_detay": "Altın donanım — Damier Graphite ekose + 'LOUIS VUITTON' yazısı emboss + LV stilik mini steamer trunk",
+      "model_adi_kanit": "Damier Graphite ekose + 'LOUIS VUITTON' yazısı emboss + LV stilik mini steamer trunk",
+      "rotate_kanit_on": "",
+      "rotate_kanit_arka": "",
+      "fiyat_eur": 0.0,
+      "ek_ucret_eur": 0.0,
+      "maliyet_eur": 0.0,
+      "total_stok": 1,
+      "occupied_stok": 0,
+      "available_stok": 1,
+      "stok": 1,
+      "kondisyon": "Sıfır",
+      "kondisyon_label": "Sıfır",
+      "aciklama": "Louis Vuitton siyah Damier Graphite canvas siyah+gri ekose tote — Petite Malle Souple — gold studs + double handle (LV style) · Altın donanım · Damier Graphite ekose + 'LOUIS VUITTON' yazısı emboss + LV stilik mini steamer trunk",
+      "tedarikci_id": null,
+      "olusturma": "2026-06-01",
+      "cinsiyet": "KADIN",
+      "cuzdan_tipi": "",
+      "kart_yuvasi_sayisi": null,
+      "banknot_bolmesi_sayisi": null,
+      "madeni_para_bolmesi": null,
+      "id_pencere_var_mi": null,
+      "fermuar_var_mi": null,
+      "fermuar_konumu": null,
+      "RFID_korumali": null,
+      "kapama_tipi": null
+    },
+    {
+      "variation_id": "CA-MK-TT-BY-001",
+      "sku": "CA-MK-TT-BY-001",
+      "no": null,
+      "slug": "michael-kors-mercer-hamilton-small-tote-mk-signature-canvas--beyaz-altin",
+      "cover": "",
+      "isim_resmi": "Michael Kors Mercer/Hamilton small tote Mk Signature Canvas Beyaz+Gri Beyaz",
+      "isim_bilinen": "MK Mercer/Hamilton Beyaz",
+      "marka": "Michael Kors",
+      "kategori": "Tote",
+      "kategori_ust": "Çanta",
+      "kategori_alt": "Tote",
+      "renk": "BEYAZ",
+      "ana_renk": "Beyaz",
+      "ana_renk_hex": "#f5f1ea",
+      "renk_slug": "beyaz",
+      "renk_hex": "#f5f1ea",
+      "ikincil_renk": "Gri",
+      "ikincil_renk_code": "GRI",
+      "ikincil_renk_hex": "#7d7d7d",
+      "ana_malzeme": "MK signature canvas beyaz+gri",
+      "desen": "Monogram",
+      "donanim_rengi": "Altın",
+      "sapli_sapsiz": "Saplı",
+      "boyut": "Mini",
+      "donanim": "Altın",
+      "deri_tipi": "MK signature canvas beyaz+gri",
+      "sezon": "",
+      "tip": "Tote",
+      "kumas": "MK signature canvas beyaz+gri",
+      "birincil_renk": "Beyaz",
+      "aksesuar_malzeme": "'MICHAEL KORS' yazı",
+      "aksesuar_rengi": "Altın",
+      "model_adi": "Mercer/Hamilton small tote",
+      "tip_detay": "Mercer/Hamilton small tote — gold studs + double handle",
+      "kumas_detay": "MK signature canvas beyaz+gri",
+      "donanim_detay": "Altın donanım — MK signature monogram canvas + 'MICHAEL KORS' yazı",
+      "model_adi_kanit": "MK signature monogram canvas + 'MICHAEL KORS' yazı",
+      "rotate_kanit_on": "",
+      "rotate_kanit_arka": "",
+      "fiyat_eur": 0.0,
+      "ek_ucret_eur": 0.0,
+      "maliyet_eur": 0.0,
+      "total_stok": 1,
+      "occupied_stok": 0,
+      "available_stok": 1,
+      "stok": 1,
+      "kondisyon": "Sıfır",
+      "kondisyon_label": "Sıfır",
+      "aciklama": "Michael Kors beyaz MK signature canvas beyaz+gri tote — Mercer/Hamilton small tote — gold studs + double handle · Altın donanım · MK signature monogram canvas + 'MICHAEL KORS' yazı",
+      "tedarikci_id": null,
+      "olusturma": "2026-06-01",
+      "cinsiyet": "KADIN",
+      "cuzdan_tipi": "",
+      "kart_yuvasi_sayisi": null,
+      "banknot_bolmesi_sayisi": null,
+      "madeni_para_bolmesi": null,
+      "id_pencere_var_mi": null,
+      "fermuar_var_mi": null,
+      "fermuar_konumu": null,
+      "RFID_korumali": null,
+      "kapama_tipi": null
+    },
+    {
+      "variation_id": "CA-MK-TT-SY-001",
+      "sku": "CA-MK-TT-SY-001",
+      "no": null,
+      "slug": "michael-kors-mercer-hamilton-small-tote-mk-signature-canvas--siyah-altin",
+      "cover": "",
+      "isim_resmi": "Michael Kors Mercer/Hamilton small tote Mk Signature Canvas Siyah Tonal Siyah",
+      "isim_bilinen": "MK Mercer/Hamilton Siyah",
+      "marka": "Michael Kors",
+      "kategori": "Tote",
+      "kategori_ust": "Çanta",
+      "kategori_alt": "Tote",
+      "renk": "SIYAH",
+      "ana_renk": "Siyah",
+      "ana_renk_hex": "#1a1a1a",
+      "renk_slug": "siyah",
+      "renk_hex": "#1a1a1a",
+      "ikincil_renk": null,
+      "ikincil_renk_code": "",
+      "ikincil_renk_hex": "",
+      "ana_malzeme": "MK signature canvas siyah tonal",
+      "desen": "Monogram",
+      "donanim_rengi": "Altın",
+      "sapli_sapsiz": "Saplı",
+      "boyut": "Mini",
+      "donanim": "Altın",
+      "deri_tipi": "MK signature canvas siyah tonal",
+      "sezon": "",
+      "tip": "Tote",
+      "kumas": "MK signature canvas siyah tonal",
+      "birincil_renk": "Siyah",
+      "aksesuar_malzeme": "'MICHAEL KORS' yazı",
+      "aksesuar_rengi": "Altın",
+      "model_adi": "Mercer/Hamilton small tote",
+      "tip_detay": "Mercer/Hamilton small tote — gold studs + double handle",
+      "kumas_detay": "MK signature canvas siyah tonal",
+      "donanim_detay": "Altın donanım — MK signature monogram canvas + 'MICHAEL KORS' yazı",
+      "model_adi_kanit": "MK signature monogram canvas + 'MICHAEL KORS' yazı",
+      "rotate_kanit_on": "",
+      "rotate_kanit_arka": "",
+      "fiyat_eur": 0.0,
+      "ek_ucret_eur": 0.0,
+      "maliyet_eur": 0.0,
+      "total_stok": 1,
+      "occupied_stok": 0,
+      "available_stok": 1,
+      "stok": 1,
+      "kondisyon": "Sıfır",
+      "kondisyon_label": "Sıfır",
+      "aciklama": "Michael Kors siyah MK signature canvas siyah tonal tote — Mercer/Hamilton small tote — gold studs + double handle · Altın donanım · MK signature monogram canvas + 'MICHAEL KORS' yazı",
+      "tedarikci_id": null,
+      "olusturma": "2026-06-01",
+      "cinsiyet": "KADIN",
+      "cuzdan_tipi": "",
+      "kart_yuvasi_sayisi": null,
+      "banknot_bolmesi_sayisi": null,
+      "madeni_para_bolmesi": null,
+      "id_pencere_var_mi": null,
+      "fermuar_var_mi": null,
+      "fermuar_konumu": null,
+      "RFID_korumali": null,
+      "kapama_tipi": null
+    },
+    {
+      "variation_id": "CA-YS-HB-AP-001",
+      "sku": "CA-YS-HB-AP-001",
+      "no": null,
+      "slug": "yves-saint-laurent-le-5-a-7-hobo-patent-acik-pembe-acik-pemb-acik-pembe-altin",
+      "cover": "",
+      "isim_resmi": "Yves Saint Laurent Le 5 à 7 hobo Patent Açık Pembe Açık Pembe",
+      "isim_bilinen": "YSL Le Açık Pembe",
+      "marka": "YSL",
+      "kategori": "Hobo",
+      "kategori_ust": "Çanta",
+      "kategori_alt": "Hobo",
+      "renk": "ACIK PEMBE",
+      "ana_renk": "Açık Pembe",
+      "ana_renk_hex": "#e8c4cc",
+      "renk_slug": "acik-pembe",
+      "renk_hex": "#e8c4cc",
+      "ikincil_renk": null,
+      "ikincil_renk_code": "",
+      "ikincil_renk_hex": "",
+      "ana_malzeme": "patent açık pembe",
+      "desen": "Düz",
+      "donanim_rengi": "Altın",
+      "sapli_sapsiz": "Saplı",
+      "boyut": "Mini",
+      "donanim": "Altın",
+      "deri_tipi": "patent açık pembe",
+      "sezon": "",
+      "tip": "Hobo",
+      "kumas": "patent açık pembe",
+      "birincil_renk": "Açık Pembe",
+      "aksesuar_malzeme": "YSL gold harf (açık pembe patent)",
+      "aksesuar_rengi": "Altın",
+      "model_adi": "Le 5 à 7 hobo",
+      "tip_detay": "Le 5 à 7 hobo",
+      "kumas_detay": "patent açık pembe",
+      "donanim_detay": "Altın donanım — YSL etiketi + YSL gold harf (açık pembe patent)",
+      "model_adi_kanit": "YSL etiketi + YSL gold harf (açık pembe patent)",
+      "rotate_kanit_on": "",
+      "rotate_kanit_arka": "",
+      "fiyat_eur": 0.0,
+      "ek_ucret_eur": 0.0,
+      "maliyet_eur": 0.0,
+      "total_stok": 1,
+      "occupied_stok": 0,
+      "available_stok": 1,
+      "stok": 1,
+      "kondisyon": "Sıfır",
+      "kondisyon_label": "Sıfır",
+      "aciklama": "Yves Saint Laurent açık pembe patent açık pembe hobo — Le 5 à 7 hobo · Altın donanım · YSL etiketi + YSL gold harf (açık pembe patent)",
+      "tedarikci_id": null,
+      "olusturma": "2026-06-01",
+      "cinsiyet": "KADIN",
+      "cuzdan_tipi": "",
+      "kart_yuvasi_sayisi": null,
+      "banknot_bolmesi_sayisi": null,
+      "madeni_para_bolmesi": null,
+      "id_pencere_var_mi": null,
+      "fermuar_var_mi": null,
+      "fermuar_konumu": null,
+      "RFID_korumali": null,
+      "kapama_tipi": null
+    },
+    {
+      "variation_id": "CA-YS-HB-AV-001",
+      "sku": "CA-YS-HB-AV-001",
+      "no": null,
+      "slug": "yves-saint-laurent-le-5-a-7-hobo-smooth-acik-vizon-taba-deri-acik-vizon-altin",
+      "cover": "",
+      "isim_resmi": "Yves Saint Laurent Le 5 à 7 hobo Smooth Açık Vizon/Taba Deri Açık Vizon",
+      "isim_bilinen": "YSL Le Açık Vizon",
+      "marka": "YSL",
+      "kategori": "Hobo",
+      "kategori_ust": "Çanta",
+      "kategori_alt": "Hobo",
+      "renk": "ACIK VIZON",
+      "ana_renk": "Açık Vizon",
+      "ana_renk_hex": "#b8a690",
+      "renk_slug": "acik-vizon",
+      "renk_hex": "#b8a690",
+      "ikincil_renk": null,
+      "ikincil_renk_code": "",
+      "ikincil_renk_hex": "",
+      "ana_malzeme": "smooth açık vizon/taba deri",
+      "desen": "Düz",
+      "donanim_rengi": "Altın",
+      "sapli_sapsiz": "Saplı",
+      "boyut": "Mini",
+      "donanim": "Altın",
+      "deri_tipi": "smooth açık vizon/taba deri",
+      "sezon": "",
+      "tip": "Hobo",
+      "kumas": "smooth açık vizon/taba deri",
+      "birincil_renk": "Açık Vizon",
+      "aksesuar_malzeme": "YSL gold harf",
+      "aksesuar_rengi": "Altın",
+      "model_adi": "Le 5 à 7 hobo",
+      "tip_detay": "Le 5 à 7 hobo",
+      "kumas_detay": "smooth açık vizon/taba deri",
+      "donanim_detay": "Altın donanım — YSL etiket 0137 + YSL gold harf",
+      "model_adi_kanit": "YSL etiket 0137 + YSL gold harf",
+      "rotate_kanit_on": "",
+      "rotate_kanit_arka": "",
+      "fiyat_eur": 0.0,
+      "ek_ucret_eur": 0.0,
+      "maliyet_eur": 0.0,
+      "total_stok": 1,
+      "occupied_stok": 0,
+      "available_stok": 1,
+      "stok": 1,
+      "kondisyon": "Sıfır",
+      "kondisyon_label": "Sıfır",
+      "aciklama": "Yves Saint Laurent açık vizon smooth açık vizon/taba deri hobo — Le 5 à 7 hobo · Altın donanım · YSL etiket 0137 + YSL gold harf",
+      "tedarikci_id": null,
+      "olusturma": "2026-06-01",
+      "cinsiyet": "KADIN",
+      "cuzdan_tipi": "",
+      "kart_yuvasi_sayisi": null,
+      "banknot_bolmesi_sayisi": null,
+      "madeni_para_bolmesi": null,
+      "id_pencere_var_mi": null,
+      "fermuar_var_mi": null,
+      "fermuar_konumu": null,
+      "RFID_korumali": null,
+      "kapama_tipi": null
+    },
+    {
+      "variation_id": "CA-YS-HB-BR-001",
+      "sku": "CA-YS-HB-BR-001",
+      "no": null,
+      "slug": "yves-saint-laurent-le-5-a-7-hobo-patent-bordo-bordo-bordo-altin",
+      "cover": "",
+      "isim_resmi": "Yves Saint Laurent Le 5 à 7 hobo Patent Bordo Bordo",
+      "isim_bilinen": "YSL Le Bordo",
+      "marka": "YSL",
+      "kategori": "Hobo",
+      "kategori_ust": "Çanta",
+      "kategori_alt": "Hobo",
+      "renk": "BORDO",
+      "ana_renk": "Bordo",
+      "ana_renk_hex": "#4a1c20",
+      "renk_slug": "bordo",
+      "renk_hex": "#4a1c20",
+      "ikincil_renk": null,
+      "ikincil_renk_code": "",
+      "ikincil_renk_hex": "",
+      "ana_malzeme": "patent bordo",
+      "desen": "Düz",
+      "donanim_rengi": "Altın",
+      "sapli_sapsiz": "Saplı",
+      "boyut": "Mini",
+      "donanim": "Altın",
+      "deri_tipi": "patent bordo",
+      "sezon": "",
+      "tip": "Hobo",
+      "kumas": "patent bordo",
+      "birincil_renk": "Bordo",
+      "aksesuar_malzeme": "YSL harf (bordo patent)",
+      "aksesuar_rengi": "Altın",
+      "model_adi": "Le 5 à 7 hobo",
+      "tip_detay": "Le 5 à 7 hobo",
+      "kumas_detay": "patent bordo",
+      "donanim_detay": "Altın donanım — YSL etiket + YSL harf (bordo patent)",
+      "model_adi_kanit": "YSL etiket + YSL harf (bordo patent)",
+      "rotate_kanit_on": "",
+      "rotate_kanit_arka": "",
+      "fiyat_eur": 0.0,
+      "ek_ucret_eur": 0.0,
+      "maliyet_eur": 0.0,
+      "total_stok": 1,
+      "occupied_stok": 0,
+      "available_stok": 1,
+      "stok": 1,
+      "kondisyon": "Sıfır",
+      "kondisyon_label": "Sıfır",
+      "aciklama": "Yves Saint Laurent bordo patent bordo hobo — Le 5 à 7 hobo · Altın donanım · YSL etiket + YSL harf (bordo patent)",
+      "tedarikci_id": null,
+      "olusturma": "2026-06-01",
+      "cinsiyet": "KADIN",
+      "cuzdan_tipi": "",
+      "kart_yuvasi_sayisi": null,
+      "banknot_bolmesi_sayisi": null,
+      "madeni_para_bolmesi": null,
+      "id_pencere_var_mi": null,
+      "fermuar_var_mi": null,
+      "fermuar_konumu": null,
+      "RFID_korumali": null,
+      "kapama_tipi": null
+    },
+    {
+      "variation_id": "CA-YS-HB-BY-001",
+      "sku": "CA-YS-HB-BY-001",
+      "no": null,
+      "slug": "yves-saint-laurent-le-5-a-7-hobo-patent-cilali-beyaz-beyaz-beyaz-altin",
+      "cover": "",
+      "isim_resmi": "Yves Saint Laurent Le 5 à 7 hobo Patent/Cilalı Beyaz Beyaz",
+      "isim_bilinen": "YSL Le Beyaz",
+      "marka": "YSL",
+      "kategori": "Hobo",
+      "kategori_ust": "Çanta",
+      "kategori_alt": "Hobo",
+      "renk": "BEYAZ",
+      "ana_renk": "Beyaz",
+      "ana_renk_hex": "#f5f1ea",
+      "renk_slug": "beyaz",
+      "renk_hex": "#f5f1ea",
+      "ikincil_renk": null,
+      "ikincil_renk_code": "",
+      "ikincil_renk_hex": "",
+      "ana_malzeme": "patent/cilalı beyaz",
+      "desen": "Düz",
+      "donanim_rengi": "Altın",
+      "sapli_sapsiz": "Saplı",
+      "boyut": "Mini",
+      "donanim": "Altın",
+      "deri_tipi": "patent/cilalı beyaz",
+      "sezon": "",
+      "tip": "Hobo",
+      "kumas": "patent/cilalı beyaz",
+      "birincil_renk": "Beyaz",
+      "aksesuar_malzeme": "YSL gold metal harf",
+      "aksesuar_rengi": "Altın",
+      "model_adi": "Le 5 à 7 hobo",
+      "tip_detay": "Le 5 à 7 hobo",
+      "kumas_detay": "patent/cilalı beyaz",
+      "donanim_detay": "Altın donanım — YSL etiketi 0121'de + YSL gold metal harf",
+      "model_adi_kanit": "YSL etiketi 0121'de + YSL gold metal harf",
+      "rotate_kanit_on": "",
+      "rotate_kanit_arka": "",
+      "fiyat_eur": 0.0,
+      "ek_ucret_eur": 0.0,
+      "maliyet_eur": 0.0,
+      "total_stok": 1,
+      "occupied_stok": 0,
+      "available_stok": 1,
+      "stok": 1,
+      "kondisyon": "Sıfır",
+      "kondisyon_label": "Sıfır",
+      "aciklama": "Yves Saint Laurent beyaz patent/cilalı beyaz hobo — Le 5 à 7 hobo · Altın donanım · YSL etiketi 0121'de + YSL gold metal harf",
+      "tedarikci_id": null,
+      "olusturma": "2026-06-01",
+      "cinsiyet": "KADIN",
+      "cuzdan_tipi": "",
+      "kart_yuvasi_sayisi": null,
+      "banknot_bolmesi_sayisi": null,
+      "madeni_para_bolmesi": null,
+      "id_pencere_var_mi": null,
+      "fermuar_var_mi": null,
+      "fermuar_konumu": null,
+      "RFID_korumali": null,
+      "kapama_tipi": null
+    },
+    {
+      "variation_id": "CA-YS-HB-BY-002",
+      "sku": "CA-YS-HB-BY-002",
+      "no": null,
+      "slug": "yves-saint-laurent-le-5-a-7-hobo-leopar-print-pony-hair-calf-beyaz-altin",
+      "cover": "",
+      "isim_resmi": "Yves Saint Laurent Le 5 à 7 hobo Leopar Print Pony Hair/Calf Hair + Siyah Patent Trim Beyaz",
+      "isim_bilinen": "YSL Le Beyaz",
+      "marka": "YSL",
+      "kategori": "Hobo",
+      "kategori_ust": "Çanta",
+      "kategori_alt": "Hobo",
+      "renk": "BEYAZ",
+      "ana_renk": "Beyaz",
+      "ana_renk_hex": "#f5f1ea",
+      "renk_slug": "beyaz",
+      "renk_hex": "#f5f1ea",
+      "ikincil_renk": "Siyah",
+      "ikincil_renk_code": "SIYAH",
+      "ikincil_renk_hex": "#1a1a1a",
+      "ana_malzeme": "leopar print pony hair/calf hair + siyah patent trim",
+      "desen": "Düz",
+      "donanim_rengi": "Altın",
+      "sapli_sapsiz": "Saplı",
+      "boyut": "Mini",
+      "donanim": "Altın",
+      "deri_tipi": "leopar print pony hair/calf hair + siyah patent trim",
+      "sezon": "",
+      "tip": "Hobo",
+      "kumas": "leopar print pony hair/calf hair + siyah patent trim",
+      "birincil_renk": "Beyaz",
+      "aksesuar_malzeme": "YSL gold harf",
+      "aksesuar_rengi": "Altın",
+      "model_adi": "Le 5 à 7 hobo",
+      "tip_detay": "Le 5 à 7 hobo",
+      "kumas_detay": "leopar print pony hair/calf hair + siyah patent trim",
+      "donanim_detay": "Altın donanım — YSL etiket 0127 + leopar print + YSL gold harf",
+      "model_adi_kanit": "YSL etiket 0127 + leopar print + YSL gold harf",
+      "rotate_kanit_on": "",
+      "rotate_kanit_arka": "",
+      "fiyat_eur": 0.0,
+      "ek_ucret_eur": 0.0,
+      "maliyet_eur": 0.0,
+      "total_stok": 1,
+      "occupied_stok": 0,
+      "available_stok": 1,
+      "stok": 1,
+      "kondisyon": "Sıfır",
+      "kondisyon_label": "Sıfır",
+      "aciklama": "Yves Saint Laurent beyaz leopar print pony hair/calf hair + siyah patent trim hobo — Le 5 à 7 hobo · Altın donanım · YSL etiket 0127 + leopar print + YSL gold harf",
+      "tedarikci_id": null,
+      "olusturma": "2026-06-01",
+      "cinsiyet": "KADIN",
+      "cuzdan_tipi": "",
+      "kart_yuvasi_sayisi": null,
+      "banknot_bolmesi_sayisi": null,
+      "madeni_para_bolmesi": null,
+      "id_pencere_var_mi": null,
+      "fermuar_var_mi": null,
+      "fermuar_konumu": null,
+      "RFID_korumali": null,
+      "kapama_tipi": null
+    },
+    {
+      "variation_id": "CA-YS-HB-BY-003",
+      "sku": "CA-YS-HB-BY-003",
+      "no": null,
+      "slug": "yves-saint-laurent-le-5-a-7-hobo-leopar-buyuk-desen-siyah-pa-beyaz-altin",
+      "cover": "",
+      "isim_resmi": "Yves Saint Laurent Le 5 à 7 hobo Leopar Büyük Desen + Siyah Patent Trim Beyaz",
+      "isim_bilinen": "YSL Le Beyaz",
+      "marka": "YSL",
+      "kategori": "Hobo",
+      "kategori_ust": "Çanta",
+      "kategori_alt": "Hobo",
+      "renk": "BEYAZ",
+      "ana_renk": "Beyaz",
+      "ana_renk_hex": "#f5f1ea",
+      "renk_slug": "beyaz",
+      "renk_hex": "#f5f1ea",
+      "ikincil_renk": "Siyah",
+      "ikincil_renk_code": "SIYAH",
+      "ikincil_renk_hex": "#1a1a1a",
+      "ana_malzeme": "leopar büyük desen + siyah patent trim",
+      "desen": "Düz",
+      "donanim_rengi": "Altın",
+      "sapli_sapsiz": "Saplı",
+      "boyut": "Mini",
+      "donanim": "Altın",
+      "deri_tipi": "leopar büyük desen + siyah patent trim",
+      "sezon": "",
+      "tip": "Hobo",
+      "kumas": "leopar büyük desen + siyah patent trim",
+      "birincil_renk": "Beyaz",
+      "aksesuar_malzeme": "farklı kayış)",
+      "aksesuar_rengi": "Altın",
+      "model_adi": "Le 5 à 7 hobo",
+      "tip_detay": "Le 5 à 7 hobo",
+      "kumas_detay": "leopar büyük desen + siyah patent trim",
+      "donanim_detay": "Altın donanım — YSL etiket + leopar büyük lekeler — 0127'den farklı (lekeler daha geniş + farklı kayış)",
+      "model_adi_kanit": "YSL etiket + leopar büyük lekeler — 0127'den farklı (lekeler daha geniş + farklı kayış)",
+      "rotate_kanit_on": "",
+      "rotate_kanit_arka": "",
+      "fiyat_eur": 0.0,
+      "ek_ucret_eur": 0.0,
+      "maliyet_eur": 0.0,
+      "total_stok": 1,
+      "occupied_stok": 0,
+      "available_stok": 1,
+      "stok": 1,
+      "kondisyon": "Sıfır",
+      "kondisyon_label": "Sıfır",
+      "aciklama": "Yves Saint Laurent beyaz leopar büyük desen + siyah patent trim hobo — Le 5 à 7 hobo · Altın donanım · YSL etiket + leopar büyük lekeler — 0127'den farklı (lekeler daha geniş + farklı kayış)",
+      "tedarikci_id": null,
+      "olusturma": "2026-06-01",
+      "cinsiyet": "KADIN",
+      "cuzdan_tipi": "",
+      "kart_yuvasi_sayisi": null,
+      "banknot_bolmesi_sayisi": null,
+      "madeni_para_bolmesi": null,
+      "id_pencere_var_mi": null,
+      "fermuar_var_mi": null,
+      "fermuar_konumu": null,
+      "RFID_korumali": null,
+      "kapama_tipi": null
+    },
+    {
+      "variation_id": "CA-YS-HB-KR-001",
+      "sku": "CA-YS-HB-KR-001",
+      "no": null,
+      "slug": "yves-saint-laurent-le-5-a-7-hobo-smooth-krem-deri-krem-krem-altin",
+      "cover": "",
+      "isim_resmi": "Yves Saint Laurent Le 5 à 7 hobo Smooth Krem Deri Krem",
+      "isim_bilinen": "YSL Le Krem",
+      "marka": "YSL",
+      "kategori": "Hobo",
+      "kategori_ust": "Çanta",
+      "kategori_alt": "Hobo",
+      "renk": "KREM",
+      "ana_renk": "Krem",
+      "ana_renk_hex": "#e8d4b0",
+      "renk_slug": "krem",
+      "renk_hex": "#e8d4b0",
+      "ikincil_renk": null,
+      "ikincil_renk_code": "",
+      "ikincil_renk_hex": "",
+      "ana_malzeme": "smooth krem deri",
+      "desen": "Düz",
+      "donanim_rengi": "Altın",
+      "sapli_sapsiz": "Saplı",
+      "boyut": "Mini",
+      "donanim": "Altın",
+      "deri_tipi": "smooth krem deri",
+      "sezon": "",
+      "tip": "Hobo",
+      "kumas": "smooth krem deri",
+      "birincil_renk": "Krem",
+      "aksesuar_malzeme": "YSL harf (krem deri sade ön)",
+      "aksesuar_rengi": "Altın",
+      "model_adi": "Le 5 à 7 hobo",
+      "tip_detay": "Le 5 à 7 hobo",
+      "kumas_detay": "smooth krem deri",
+      "donanim_detay": "Altın donanım — YSL etiketi 0123'de + YSL harf (krem deri sade ön)",
+      "model_adi_kanit": "YSL etiketi 0123'de + YSL harf (krem deri sade ön)",
+      "rotate_kanit_on": "",
+      "rotate_kanit_arka": "",
+      "fiyat_eur": 0.0,
+      "ek_ucret_eur": 0.0,
+      "maliyet_eur": 0.0,
+      "total_stok": 1,
+      "occupied_stok": 0,
+      "available_stok": 1,
+      "stok": 1,
+      "kondisyon": "Sıfır",
+      "kondisyon_label": "Sıfır",
+      "aciklama": "Yves Saint Laurent krem smooth krem deri hobo — Le 5 à 7 hobo · Altın donanım · YSL etiketi 0123'de + YSL harf (krem deri sade ön)",
+      "tedarikci_id": null,
+      "olusturma": "2026-06-01",
+      "cinsiyet": "KADIN",
+      "cuzdan_tipi": "",
+      "kart_yuvasi_sayisi": null,
+      "banknot_bolmesi_sayisi": null,
+      "madeni_para_bolmesi": null,
+      "id_pencere_var_mi": null,
+      "fermuar_var_mi": null,
+      "fermuar_konumu": null,
+      "RFID_korumali": null,
+      "kapama_tipi": null
+    },
+    {
+      "variation_id": "CA-YS-HB-KR-002",
+      "sku": "CA-YS-HB-KR-002",
+      "no": null,
+      "slug": "yves-saint-laurent-le-5-a-7-hobo-raffia-hasir-siyah-deri-tri-krem-altin",
+      "cover": "",
+      "isim_resmi": "Yves Saint Laurent Le 5 à 7 hobo Raffia/Hasır + Siyah Deri Trim Krem",
+      "isim_bilinen": "YSL Le Krem",
+      "marka": "YSL",
+      "kategori": "Hobo",
+      "kategori_ust": "Çanta",
+      "kategori_alt": "Hobo",
+      "renk": "KREM",
+      "ana_renk": "Krem",
+      "ana_renk_hex": "#e8d4b0",
+      "renk_slug": "krem",
+      "renk_hex": "#e8d4b0",
+      "ikincil_renk": "Siyah",
+      "ikincil_renk_code": "SIYAH",
+      "ikincil_renk_hex": "#1a1a1a",
+      "ana_malzeme": "raffia/hasır + siyah deri trim",
+      "desen": "Düz",
+      "donanim_rengi": "Altın",
+      "sapli_sapsiz": "Saplı",
+      "boyut": "Mini",
+      "donanim": "Altın",
+      "deri_tipi": "raffia/hasır + siyah deri trim",
+      "sezon": "",
+      "tip": "Hobo",
+      "kumas": "raffia/hasır + siyah deri trim",
+      "birincil_renk": "Krem",
+      "aksesuar_malzeme": "YSL gold metal harf üzerinde raffia",
+      "aksesuar_rengi": "Altın",
+      "model_adi": "Le 5 à 7 hobo",
+      "tip_detay": "Le 5 à 7 hobo",
+      "kumas_detay": "raffia/hasır + siyah deri trim",
+      "donanim_detay": "Altın donanım — YSL etiketi + YSL gold metal harf üzerinde raffia",
+      "model_adi_kanit": "YSL etiketi + YSL gold metal harf üzerinde raffia",
+      "rotate_kanit_on": "",
+      "rotate_kanit_arka": "",
+      "fiyat_eur": 0.0,
+      "ek_ucret_eur": 0.0,
+      "maliyet_eur": 0.0,
+      "total_stok": 1,
+      "occupied_stok": 0,
+      "available_stok": 1,
+      "stok": 1,
+      "kondisyon": "Sıfır",
+      "kondisyon_label": "Sıfır",
+      "aciklama": "Yves Saint Laurent krem raffia/hasır + siyah deri trim hobo — Le 5 à 7 hobo · Altın donanım · YSL etiketi + YSL gold metal harf üzerinde raffia",
+      "tedarikci_id": null,
+      "olusturma": "2026-06-01",
+      "cinsiyet": "KADIN",
+      "cuzdan_tipi": "",
+      "kart_yuvasi_sayisi": null,
+      "banknot_bolmesi_sayisi": null,
+      "madeni_para_bolmesi": null,
+      "id_pencere_var_mi": null,
+      "fermuar_var_mi": null,
+      "fermuar_konumu": null,
+      "RFID_korumali": null,
+      "kapama_tipi": null
+    },
+    {
+      "variation_id": "CA-YS-HB-KR-003",
+      "sku": "CA-YS-HB-KR-003",
+      "no": null,
+      "slug": "yves-saint-laurent-le-5-a-7-hobo-raffia-hasir-bordo-deri-tri-krem-altin",
+      "cover": "",
+      "isim_resmi": "Yves Saint Laurent Le 5 à 7 hobo Raffia/Hasır + Bordo Deri Trim Krem",
+      "isim_bilinen": "YSL Le Krem",
+      "marka": "YSL",
+      "kategori": "Hobo",
+      "kategori_ust": "Çanta",
+      "kategori_alt": "Hobo",
+      "renk": "KREM",
+      "ana_renk": "Krem",
+      "ana_renk_hex": "#e8d4b0",
+      "renk_slug": "krem",
+      "renk_hex": "#e8d4b0",
+      "ikincil_renk": "Bordo",
+      "ikincil_renk_code": "BORDO",
+      "ikincil_renk_hex": "#4a1c20",
+      "ana_malzeme": "raffia/hasır + bordo deri trim",
+      "desen": "Düz",
+      "donanim_rengi": "Altın",
+      "sapli_sapsiz": "Saplı",
+      "boyut": "Mini",
+      "donanim": "Altın",
+      "deri_tipi": "raffia/hasır + bordo deri trim",
+      "sezon": "",
+      "tip": "Hobo",
+      "kumas": "raffia/hasır + bordo deri trim",
+      "birincil_renk": "Krem",
+      "aksesuar_malzeme": "YSL gold harf raffia üzerinde",
+      "aksesuar_rengi": "Altın",
+      "model_adi": "Le 5 à 7 hobo",
+      "tip_detay": "Le 5 à 7 hobo",
+      "kumas_detay": "raffia/hasır + bordo deri trim",
+      "donanim_detay": "Altın donanım — YSL etiket + YSL gold harf raffia üzerinde",
+      "model_adi_kanit": "YSL etiket + YSL gold harf raffia üzerinde",
+      "rotate_kanit_on": "",
+      "rotate_kanit_arka": "",
+      "fiyat_eur": 0.0,
+      "ek_ucret_eur": 0.0,
+      "maliyet_eur": 0.0,
+      "total_stok": 1,
+      "occupied_stok": 0,
+      "available_stok": 1,
+      "stok": 1,
+      "kondisyon": "Sıfır",
+      "kondisyon_label": "Sıfır",
+      "aciklama": "Yves Saint Laurent krem raffia/hasır + bordo deri trim hobo — Le 5 à 7 hobo · Altın donanım · YSL etiket + YSL gold harf raffia üzerinde",
+      "tedarikci_id": null,
+      "olusturma": "2026-06-01",
+      "cinsiyet": "KADIN",
+      "cuzdan_tipi": "",
+      "kart_yuvasi_sayisi": null,
+      "banknot_bolmesi_sayisi": null,
+      "madeni_para_bolmesi": null,
+      "id_pencere_var_mi": null,
+      "fermuar_var_mi": null,
+      "fermuar_konumu": null,
+      "RFID_korumali": null,
+      "kapama_tipi": null
+    },
+    {
+      "variation_id": "CA-YS-HB-SA-001",
+      "sku": "CA-YS-HB-SA-001",
+      "no": null,
+      "slug": "yves-saint-laurent-le-5-a-7-hobo-patent-acik-sari-krem-sari-sari-altin",
+      "cover": "",
+      "isim_resmi": "Yves Saint Laurent Le 5 à 7 hobo Patent Açık Sarı/Krem Sarı",
+      "isim_bilinen": "YSL Le Sarı",
+      "marka": "YSL",
+      "kategori": "Hobo",
+      "kategori_ust": "Çanta",
+      "kategori_alt": "Hobo",
+      "renk": "SARI",
+      "ana_renk": "Sarı",
+      "ana_renk_hex": "#e8c840",
+      "renk_slug": "sari",
+      "renk_hex": "#e8c840",
+      "ikincil_renk": null,
+      "ikincil_renk_code": "",
+      "ikincil_renk_hex": "",
+      "ana_malzeme": "patent açık sarı/krem",
+      "desen": "Düz",
+      "donanim_rengi": "Altın",
+      "sapli_sapsiz": "Saplı",
+      "boyut": "Mini",
+      "donanim": "Altın",
+      "deri_tipi": "patent açık sarı/krem",
+      "sezon": "",
+      "tip": "Hobo",
+      "kumas": "patent açık sarı/krem",
+      "birincil_renk": "Sarı",
+      "aksesuar_malzeme": "YSL harf (açık sarı patent)",
+      "aksesuar_rengi": "Altın",
+      "model_adi": "Le 5 à 7 hobo",
+      "tip_detay": "Le 5 à 7 hobo",
+      "kumas_detay": "patent açık sarı/krem",
+      "donanim_detay": "Altın donanım — YSL etiket + YSL harf (açık sarı patent)",
+      "model_adi_kanit": "YSL etiket + YSL harf (açık sarı patent)",
+      "rotate_kanit_on": "",
+      "rotate_kanit_arka": "",
+      "fiyat_eur": 0.0,
+      "ek_ucret_eur": 0.0,
+      "maliyet_eur": 0.0,
+      "total_stok": 1,
+      "occupied_stok": 0,
+      "available_stok": 1,
+      "stok": 1,
+      "kondisyon": "Sıfır",
+      "kondisyon_label": "Sıfır",
+      "aciklama": "Yves Saint Laurent sarı patent açık sarı/krem hobo — Le 5 à 7 hobo · Altın donanım · YSL etiket + YSL harf (açık sarı patent)",
+      "tedarikci_id": null,
+      "olusturma": "2026-06-01",
+      "cinsiyet": "KADIN",
+      "cuzdan_tipi": "",
+      "kart_yuvasi_sayisi": null,
+      "banknot_bolmesi_sayisi": null,
+      "madeni_para_bolmesi": null,
+      "id_pencere_var_mi": null,
+      "fermuar_var_mi": null,
+      "fermuar_konumu": null,
+      "RFID_korumali": null,
+      "kapama_tipi": null
+    },
+    {
+      "variation_id": "CA-YS-HB-SY-001",
+      "sku": "CA-YS-HB-SY-001",
+      "no": null,
+      "slug": "yves-saint-laurent-le-5-a-7-hobo-patent-siyah-siyah-siyah-altin",
+      "cover": "",
+      "isim_resmi": "Yves Saint Laurent Le 5 à 7 hobo Patent Siyah Siyah",
+      "isim_bilinen": "YSL Le Siyah",
+      "marka": "YSL",
+      "kategori": "Hobo",
+      "kategori_ust": "Çanta",
+      "kategori_alt": "Hobo",
+      "renk": "SIYAH",
+      "ana_renk": "Siyah",
+      "ana_renk_hex": "#1a1a1a",
+      "renk_slug": "siyah",
+      "renk_hex": "#1a1a1a",
+      "ikincil_renk": null,
+      "ikincil_renk_code": "",
+      "ikincil_renk_hex": "",
+      "ana_malzeme": "patent siyah",
+      "desen": "Düz",
+      "donanim_rengi": "Altın",
+      "sapli_sapsiz": "Saplı",
+      "boyut": "Mini",
+      "donanim": "Altın",
+      "deri_tipi": "patent siyah",
+      "sezon": "",
+      "tip": "Hobo",
+      "kumas": "patent siyah",
+      "birincil_renk": "Siyah",
+      "aksesuar_malzeme": "YSL gold metal harf çatal 0117 ön bağ",
+      "aksesuar_rengi": "Altın",
+      "model_adi": "Le 5 à 7 hobo",
+      "tip_detay": "Le 5 à 7 hobo",
+      "kumas_detay": "patent siyah",
+      "donanim_detay": "Altın donanım — YSL etiketi 0117'de + YSL gold metal harf çatal 0117 ön bağ",
+      "model_adi_kanit": "YSL etiketi 0117'de + YSL gold metal harf çatal 0117 ön bağ",
+      "rotate_kanit_on": "",
+      "rotate_kanit_arka": "",
+      "fiyat_eur": 0.0,
+      "ek_ucret_eur": 0.0,
+      "maliyet_eur": 0.0,
+      "total_stok": 1,
+      "occupied_stok": 0,
+      "available_stok": 1,
+      "stok": 1,
+      "kondisyon": "Sıfır",
+      "kondisyon_label": "Sıfır",
+      "aciklama": "Yves Saint Laurent siyah patent siyah hobo — Le 5 à 7 hobo · Altın donanım · YSL etiketi 0117'de + YSL gold metal harf çatal 0117 ön bağ",
+      "tedarikci_id": null,
+      "olusturma": "2026-06-01",
+      "cinsiyet": "KADIN",
+      "cuzdan_tipi": "",
+      "kart_yuvasi_sayisi": null,
+      "banknot_bolmesi_sayisi": null,
+      "madeni_para_bolmesi": null,
+      "id_pencere_var_mi": null,
+      "fermuar_var_mi": null,
+      "fermuar_konumu": null,
+      "RFID_korumali": null,
+      "kapama_tipi": null
+    },
+    {
+      "variation_id": "CA-YS-HB-SY-002",
+      "sku": "CA-YS-HB-SY-002",
+      "no": null,
+      "slug": "yves-saint-laurent-le-5-a-7-hobo-orme-woven-deri-siyah-siyah-siyah-altin",
+      "cover": "",
+      "isim_resmi": "Yves Saint Laurent Le 5 à 7 hobo Örme/Woven Deri Siyah Siyah",
+      "isim_bilinen": "YSL Le Siyah",
+      "marka": "YSL",
+      "kategori": "Hobo",
+      "kategori_ust": "Çanta",
+      "kategori_alt": "Hobo",
+      "renk": "SIYAH",
+      "ana_renk": "Siyah",
+      "ana_renk_hex": "#1a1a1a",
+      "renk_slug": "siyah",
+      "renk_hex": "#1a1a1a",
+      "ikincil_renk": null,
+      "ikincil_renk_code": "",
+      "ikincil_renk_hex": "",
+      "ana_malzeme": "örme/woven deri siyah",
+      "desen": "Düz",
+      "donanim_rengi": "Altın",
+      "sapli_sapsiz": "Saplı",
+      "boyut": "Mini",
+      "donanim": "Altın",
+      "deri_tipi": "örme/woven deri siyah",
+      "sezon": "",
+      "tip": "Hobo",
+      "kumas": "örme/woven deri siyah",
+      "birincil_renk": "Siyah",
+      "aksesuar_malzeme": "YSL metal harf",
+      "aksesuar_rengi": "Altın",
+      "model_adi": "Le 5 à 7 hobo",
+      "tip_detay": "Le 5 à 7 hobo",
+      "kumas_detay": "örme/woven deri siyah",
+      "donanim_detay": "Altın donanım — YSL etiketi 0119'de + örme dokuma deri + YSL metal harf",
+      "model_adi_kanit": "YSL etiketi 0119'de + örme dokuma deri + YSL metal harf",
+      "rotate_kanit_on": "",
+      "rotate_kanit_arka": "",
+      "fiyat_eur": 0.0,
+      "ek_ucret_eur": 0.0,
+      "maliyet_eur": 0.0,
+      "total_stok": 1,
+      "occupied_stok": 0,
+      "available_stok": 1,
+      "stok": 1,
+      "kondisyon": "Sıfır",
+      "kondisyon_label": "Sıfır",
+      "aciklama": "Yves Saint Laurent siyah örme/woven deri siyah hobo — Le 5 à 7 hobo · Altın donanım · YSL etiketi 0119'de + örme dokuma deri + YSL metal harf",
+      "tedarikci_id": null,
+      "olusturma": "2026-06-01",
+      "cinsiyet": "KADIN",
+      "cuzdan_tipi": "",
+      "kart_yuvasi_sayisi": null,
+      "banknot_bolmesi_sayisi": null,
+      "madeni_para_bolmesi": null,
+      "id_pencere_var_mi": null,
+      "fermuar_var_mi": null,
+      "fermuar_konumu": null,
+      "RFID_korumali": null,
+      "kapama_tipi": null
+    },
+    {
+      "variation_id": "CA-YS-HB-VZ-001",
+      "sku": "CA-YS-HB-VZ-001",
+      "no": null,
+      "slug": "yves-saint-laurent-le-5-a-7-hobo-smooth-vizon-deri-vizon-vizon-altin",
+      "cover": "",
+      "isim_resmi": "Yves Saint Laurent Le 5 à 7 hobo Smooth Vizon Deri Vizon",
+      "isim_bilinen": "YSL Le Vizon",
+      "marka": "YSL",
+      "kategori": "Hobo",
+      "kategori_ust": "Çanta",
+      "kategori_alt": "Hobo",
+      "renk": "VIZON",
+      "ana_renk": "Vizon",
+      "ana_renk_hex": "#a08570",
+      "renk_slug": "vizon",
+      "renk_hex": "#a08570",
+      "ikincil_renk": null,
+      "ikincil_renk_code": "",
+      "ikincil_renk_hex": "",
+      "ana_malzeme": "smooth vizon deri",
+      "desen": "Düz",
+      "donanim_rengi": "Altın",
+      "sapli_sapsiz": "Saplı",
+      "boyut": "Mini",
+      "donanim": "Altın",
+      "deri_tipi": "smooth vizon deri",
+      "sezon": "",
+      "tip": "Hobo",
+      "kumas": "smooth vizon deri",
+      "birincil_renk": "Vizon",
+      "aksesuar_malzeme": "YSL gold harf",
+      "aksesuar_rengi": "Altın",
+      "model_adi": "Le 5 à 7 hobo",
+      "tip_detay": "Le 5 à 7 hobo",
+      "kumas_detay": "smooth vizon deri",
+      "donanim_detay": "Altın donanım — YSL etiketi + YSL gold harf",
+      "model_adi_kanit": "YSL etiketi + YSL gold harf",
+      "rotate_kanit_on": "",
+      "rotate_kanit_arka": "",
+      "fiyat_eur": 0.0,
+      "ek_ucret_eur": 0.0,
+      "maliyet_eur": 0.0,
+      "total_stok": 1,
+      "occupied_stok": 0,
+      "available_stok": 1,
+      "stok": 1,
+      "kondisyon": "Sıfır",
+      "kondisyon_label": "Sıfır",
+      "aciklama": "Yves Saint Laurent vizon smooth vizon deri hobo — Le 5 à 7 hobo · Altın donanım · YSL etiketi + YSL gold harf",
+      "tedarikci_id": null,
+      "olusturma": "2026-06-01",
+      "cinsiyet": "KADIN",
+      "cuzdan_tipi": "",
+      "kart_yuvasi_sayisi": null,
+      "banknot_bolmesi_sayisi": null,
+      "madeni_para_bolmesi": null,
+      "id_pencere_var_mi": null,
+      "fermuar_var_mi": null,
+      "fermuar_konumu": null,
+      "RFID_korumali": null,
+      "kapama_tipi": null
+    },
+    {
+      "variation_id": "CA-YS-TT-AG-001",
+      "sku": "CA-YS-TT-AG-001",
+      "no": null,
+      "slug": "yves-saint-laurent-manhattan-style-tote-nubuk-suede-acik-gri-acik-gri-altin",
+      "cover": "",
+      "isim_resmi": "Yves Saint Laurent Manhattan style tote Nubuk/Suede Açık Gri Açık Gri",
+      "isim_bilinen": "YSL Manhattan Açık Gri",
+      "marka": "YSL",
+      "kategori": "Tote",
+      "kategori_ust": "Çanta",
+      "kategori_alt": "Tote",
+      "renk": "ACIK GRI",
+      "ana_renk": "Açık Gri",
+      "ana_renk_hex": "#b8b8b8",
+      "renk_slug": "acik-gri",
+      "renk_hex": "#b8b8b8",
+      "ikincil_renk": null,
+      "ikincil_renk_code": "",
+      "ikincil_renk_hex": "",
+      "ana_malzeme": "nubuk/suede açık gri",
+      "desen": "Düz",
+      "donanim_rengi": "Altın",
+      "sapli_sapsiz": "Saplı",
+      "boyut": "Mini",
+      "donanim": "Altın",
+      "deri_tipi": "nubuk/suede açık gri",
+      "sezon": "",
+      "tip": "Tote",
+      "kumas": "nubuk/suede açık gri",
+      "birincil_renk": "Açık Gri",
+      "aksesuar_malzeme": "Metal",
+      "aksesuar_rengi": "Altın",
+      "model_adi": "Manhattan style tote",
+      "tip_detay": "Manhattan style tote — gold studs + double handle",
+      "kumas_detay": "nubuk/suede açık gri",
+      "donanim_detay": "Altın donanım — YSL gold metal harf logo ön orta",
+      "model_adi_kanit": "YSL gold metal harf logo ön orta",
+      "rotate_kanit_on": "",
+      "rotate_kanit_arka": "",
+      "fiyat_eur": 0.0,
+      "ek_ucret_eur": 0.0,
+      "maliyet_eur": 0.0,
+      "total_stok": 1,
+      "occupied_stok": 0,
+      "available_stok": 1,
+      "stok": 1,
+      "kondisyon": "Sıfır",
+      "kondisyon_label": "Sıfır",
+      "aciklama": "Yves Saint Laurent açık gri nubuk/suede açık gri tote — Manhattan style tote — gold studs + double handle · Altın donanım · YSL gold metal harf logo ön orta",
+      "tedarikci_id": null,
+      "olusturma": "2026-06-01",
+      "cinsiyet": "KADIN",
+      "cuzdan_tipi": "",
+      "kart_yuvasi_sayisi": null,
+      "banknot_bolmesi_sayisi": null,
+      "madeni_para_bolmesi": null,
+      "id_pencere_var_mi": null,
+      "fermuar_var_mi": null,
+      "fermuar_konumu": null,
+      "RFID_korumali": null,
+      "kapama_tipi": null
+    },
+    {
+      "variation_id": "CA-YS-TT-SY-002",
+      "sku": "CA-YS-TT-SY-002",
+      "no": null,
+      "slug": "yves-saint-laurent-manhattan-sac-de-jour-style-small-tote-sm-siyah-altin",
+      "cover": "",
+      "isim_resmi": "Yves Saint Laurent Manhattan/Sac de Jour style small tote Smooth Siyah Deri Siyah",
+      "isim_bilinen": "YSL Manhattan/Sac Siyah",
+      "marka": "YSL",
+      "kategori": "Tote",
+      "kategori_ust": "Çanta",
+      "kategori_alt": "Tote",
+      "renk": "SIYAH",
+      "ana_renk": "Siyah",
+      "ana_renk_hex": "#1a1a1a",
+      "renk_slug": "siyah",
+      "renk_hex": "#1a1a1a",
+      "ikincil_renk": null,
+      "ikincil_renk_code": "",
+      "ikincil_renk_hex": "",
+      "ana_malzeme": "smooth siyah deri",
+      "desen": "Düz",
+      "donanim_rengi": "Altın",
+      "sapli_sapsiz": "Saplı",
+      "boyut": "Mini",
+      "donanim": "Altın",
+      "deri_tipi": "smooth siyah deri",
+      "sezon": "",
+      "tip": "Tote",
+      "kumas": "smooth siyah deri",
+      "birincil_renk": "Siyah",
+      "aksesuar_malzeme": "Metal",
+      "aksesuar_rengi": "Altın",
+      "model_adi": "Manhattan/Sac de Jour style small tote",
+      "tip_detay": "Manhattan/Sac de Jour style small tote — gold studs + double handle",
+      "kumas_detay": "smooth siyah deri",
+      "donanim_detay": "Altın donanım — YSL gold metal harf logo ön",
+      "model_adi_kanit": "YSL gold metal harf logo ön",
+      "rotate_kanit_on": "",
+      "rotate_kanit_arka": "",
+      "fiyat_eur": 0.0,
+      "ek_ucret_eur": 0.0,
+      "maliyet_eur": 0.0,
+      "total_stok": 1,
+      "occupied_stok": 0,
+      "available_stok": 1,
+      "stok": 1,
+      "kondisyon": "Sıfır",
+      "kondisyon_label": "Sıfır",
+      "aciklama": "Yves Saint Laurent siyah smooth siyah deri tote — Manhattan/Sac de Jour style small tote — gold studs + double handle · Altın donanım · YSL gold metal harf logo ön",
       "tedarikci_id": null,
       "olusturma": "2026-06-01",
       "cinsiyet": "KADIN",
@@ -14019,6 +16220,20 @@ input,select,textarea{font-size:16px}
   },
   "kanonik_renkler": [
     {
+      "code": "ACIK BEJ",
+      "tr": "Açık Bej",
+      "en": "Light Beige",
+      "slug": "acik-bej",
+      "hex": "#e8d8bc"
+    },
+    {
+      "code": "ACIK GRI",
+      "tr": "Açık Gri",
+      "en": "Light Gray",
+      "slug": "acik-gri",
+      "hex": "#b8b8b8"
+    },
+    {
       "code": "ACIK MAVI",
       "tr": "Açık Mavi",
       "en": "Light Blue",
@@ -14038,6 +16253,13 @@ input,select,textarea{font-size:16px}
       "en": "Light Mink",
       "slug": "acik-vizon",
       "hex": "#b8a690"
+    },
+    {
+      "code": "ALTIN",
+      "tr": "Altın",
+      "en": "Gold",
+      "slug": "altin",
+      "hex": "#d4a548"
     },
     {
       "code": "BEJ",
@@ -14132,6 +16354,20 @@ input,select,textarea{font-size:16px}
       "hex": "#6a3d8a"
     },
     {
+      "code": "PEMBE",
+      "tr": "Pembe",
+      "en": "Pink",
+      "slug": "pembe",
+      "hex": "#e08aa0"
+    },
+    {
+      "code": "SARI",
+      "tr": "Sarı",
+      "en": "Yellow",
+      "slug": "sari",
+      "hex": "#e8c840"
+    },
+    {
       "code": "SIYAH",
       "tr": "Siyah",
       "en": "Black",
@@ -14144,6 +16380,13 @@ input,select,textarea{font-size:16px}
       "en": "Tan",
       "slug": "taba",
       "hex": "#a87842"
+    },
+    {
+      "code": "VIZON",
+      "tr": "Vizon",
+      "en": "Mink",
+      "slug": "vizon",
+      "hex": "#a08570"
     },
     {
       "code": "YESIL",
@@ -14169,14 +16412,6 @@ input,select,textarea{font-size:16px}
       "kaynak": "rehber"
     },
     {
-      "code": "ACIK GRI",
-      "tr": "Açık Gri",
-      "en": "Light Gray",
-      "slug": "acik-gri",
-      "hex": "#b8b8b8",
-      "kaynak": "rehber"
-    },
-    {
       "code": "ACIK KAHVE",
       "tr": "Açık Kahve",
       "en": "Light Brown",
@@ -14193,14 +16428,6 @@ input,select,textarea{font-size:16px}
       "kaynak": "rehber"
     },
     {
-      "code": "ACIK BEJ",
-      "tr": "Açık Bej",
-      "en": "Light Beige",
-      "slug": "acik-bej",
-      "hex": "#e8d8bc",
-      "kaynak": "rehber"
-    },
-    {
       "code": "KOYU BEJ",
       "tr": "Koyu Bej",
       "en": "Dark Beige",
@@ -14209,27 +16436,11 @@ input,select,textarea{font-size:16px}
       "kaynak": "rehber"
     },
     {
-      "code": "VIZON",
-      "tr": "Vizon",
-      "en": "Mink",
-      "slug": "vizon",
-      "hex": "#a08570",
-      "kaynak": "rehber"
-    },
-    {
       "code": "KOYU VIZON",
       "tr": "Koyu Vizon",
       "en": "Dark Mink",
       "slug": "koyu-vizon",
       "hex": "#8a7560",
-      "kaynak": "rehber"
-    },
-    {
-      "code": "PEMBE",
-      "tr": "Pembe",
-      "en": "Pink",
-      "slug": "pembe",
-      "hex": "#e08aa0",
       "kaynak": "rehber"
     },
     {
@@ -14246,14 +16457,6 @@ input,select,textarea{font-size:16px}
       "en": "Orange",
       "slug": "turuncu",
       "hex": "#e08840",
-      "kaynak": "rehber"
-    },
-    {
-      "code": "SARI",
-      "tr": "Sarı",
-      "en": "Yellow",
-      "slug": "sari",
-      "hex": "#e8c840",
       "kaynak": "rehber"
     },
     {
@@ -14279,14 +16482,6 @@ input,select,textarea{font-size:16px}
       "slug": "acik-yesil",
       "hex": "#7aa478",
       "kaynak": "rehber"
-    },
-    {
-      "code": "ALTIN",
-      "tr": "Altın",
-      "en": "Gold",
-      "slug": "altin",
-      "hex": "#d4a548",
-      "kaynak": "rehber"
     }
   ],
   "kanonik_kategoriler": [
@@ -14297,6 +16492,7 @@ input,select,textarea{font-size:16px}
     "Çanta"
   ],
   "kanonik_malzemeler": [
+    "4G logo coated canvas gri tonal",
     "Açık mavi denim kanvas + krem-bej cowhide deri trim + altın LV detay",
     "Açık vizon mat smooth deri + zeytin metalik detay",
     "Bej mat suede deri + altın detay",
@@ -14334,7 +16530,9 @@ input,select,textarea{font-size:16px}
     "Coach signature kanvas (kahve)",
     "Coach signature kanvas (krem-bej, tan jakar)",
     "Coated Canvas (Signature)",
+    "Damier Azur canvas (beyaz+gri ekose)",
     "Damier Emboss Deri",
+    "Damier Graphite canvas siyah+gri ekose",
     "Denim Kumaş (Matelassé Quilted)",
     "Distressed Deri",
     "Düz siyah pebbled deri + üçgen GUESS plaka + GUESS 14K embossed coin pouch attached",
@@ -14440,6 +16638,8 @@ input,select,textarea{font-size:16px}
     "MK monogram coated canvas (beyaz) + siyah deri trim",
     "MK monogram coated canvas (krem) + kahve cowhide deri trim",
     "MK monogram coated canvas (siyah) + siyah deri trim",
+    "MK signature canvas beyaz+gri",
+    "MK signature canvas siyah tonal",
     "MK siyah smooth pebbled cowhide deri + altın detay",
     "Metalik Deri (Matelassé Quilted)",
     "Metalik Kuzu Derisi",
@@ -14447,6 +16647,8 @@ input,select,textarea{font-size:16px}
     "Michael Kors signature MK monogram beyaz/krem zemin camera bag + altın 'MICHAEL KORS' text + siyah trim",
     "Michael Kors signature MK monogram siyah/koyu zemin camera bag + altın 'MICHAEL KORS' text + siyah trim",
     "Michael Kors siyah saffiano deri chain bag + 'MICHAEL KORS' altın text + altın MK plaka + altın zincir",
+    "Monogram Empreinte/Giant açık ton beje",
+    "Monogram canvas kahve+koyu",
     "Mulberry kahve/cognac koyu smooth deri büyük tote + Mulberry ağaç logo + altın",
     "Mulberry siyah pebbled deri büyük tote + altın Mulberry ağaç logo + çift handle",
     "Mulberry taupe/açık kahve smooth deri büyük tote + Mulberry ağaç logo + çift handle",
@@ -14458,6 +16660,10 @@ input,select,textarea{font-size:16px}
     "Prada siyah pebbled deri büyük messenger/clutch + üçgen PRADA plaka + altın PRADA text + altın",
     "Prada siyah pebbled deri camera bag + üçgen PRADA plaka + altın donanım",
     "Quattro G Monogram Coated Canvas",
+    "Signature C coated canvas açık bej/krem",
+    "Signature C coated canvas kahve+koyu kahve",
+    "Signature C coated canvas klasik kahve",
+    "Signature C coated canvas siyah+gri",
     "Signature Jacquard Tekstil",
     "Siyah Re-Nylon Tessuto + gümüş detay",
     "Siyah debossed 4G monogram + üçgen GUESS plaka + GUESS 14K coin pouch attached",
@@ -14496,13 +16702,38 @@ input,select,textarea{font-size:16px}
     "düz smooth deri (krem)",
     "düz smooth deri (siyah)",
     "düz smooth deri vintage finish (kahve)",
-    "düz smooth/pebbled deri (camel/tan)"
+    "düz smooth/pebbled deri (camel/tan)",
+    "embossed leather 4G logo siyah",
+    "embossed leather Dior Oblique 'CD' tekrar deseni sarı",
+    "leopar büyük desen + siyah patent trim",
+    "leopar print pony hair/calf hair + siyah patent trim",
+    "metallic gold pleated dikey kabartmalı (suede/canvas)",
+    "mirror metallic gold patent",
+    "nubuk/suede açık gri",
+    "nubuk/suede pembe + siyah patent trim",
+    "nubuk/suede sarı + siyah patent trim",
+    "patent açık pembe",
+    "patent açık sarı/krem",
+    "patent beyaz",
+    "patent bordo",
+    "patent siyah",
+    "patent/cilalı beyaz",
+    "raffia/hasır + bordo deri trim",
+    "raffia/hasır + siyah deri trim",
+    "smooth açık vizon/taba deri",
+    "smooth krem deri",
+    "smooth krem/açık bej deri",
+    "smooth siyah deri",
+    "smooth vizon deri",
+    "örme/woven deri siyah"
   ],
   "kanonik_markalar": [
     "Bilinmiyor",
     "Bottega Veneta",
     "Chanel",
     "Coach",
+    "Diesel",
+    "Dior",
     "Fendi",
     "Gucci",
     "Guess",
@@ -14537,7 +16768,10 @@ input,select,textarea{font-size:16px}
     "NANO",
     "SMALL"
   ],
-  "kanonik_desenler": []
+  "kanonik_desenler": [
+    "Düz",
+    "Monogram"
+  ]
 };</script>
 <!-- BOTL_INLINE_DATA_END -->
 
@@ -14556,6 +16790,9 @@ input,select,textarea{font-size:16px}
       </div>
       <div class="auth-gate__err" id="auth-gate-err" hidden role="alert" aria-live="polite">Kullanıcı adı veya parola hatalı</div>
       <button type="submit" class="auth-gate__btn">Giriş</button>
+      <div class="auth-modal__switch" style="border-top-color:rgba(255,255,255,.12)">
+        Hesabın yok mu? <button type="button" class="auth-modal__link" id="auth-gate-switch-to-register">Hesap Aç</button>
+      </div>
     </form>
   </div>
 </div>
@@ -14578,6 +16815,16 @@ input,select,textarea{font-size:16px}
           <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
         </svg>
       </button>
+      <!-- WhatsApp iletişim butonu — her zaman görünür; mesaj ikonu ile yönlendirme -->
+      <a class="hdr__whatsapp" id="hdr-whatsapp"
+         href="https://wa.me/31687550213?text=Merhaba%2C%20Bags%20of%20the%20Loom%20kataloğunuzdaki%20çantalar%20hakkında%20bilgi%20almak%20istiyorum"
+         target="_blank" rel="noopener"
+         aria-label="WhatsApp ile iletişim" title="WhatsApp ile iletişim">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/>
+        </svg>
+        <span class="hdr__whatsapp-label">İletişim</span>
+      </a>
       <!-- Login butonu (oturum yoksa) — body[data-auth-state="in"] otomatik gizler -->
       <button class="hdr__auth auth-only-out" id="auth-btn" type="button">Giriş Yap</button>
       <!-- User avatar (oturum varsa) — sadece yuvarlak ikon, isim yazısı YOK -->
@@ -14639,6 +16886,137 @@ input,select,textarea{font-size:16px}
       <div class="auth-modal__actions">
         <button type="button" class="auth-modal__btn auth-modal__btn--secondary" data-auth-close>Vazgeç</button>
         <button type="submit" class="auth-modal__btn auth-modal__btn--primary">Giriş</button>
+      </div>
+      <div class="auth-modal__switch">
+        Hesabın yok mu? <button type="button" class="auth-modal__link" id="auth-switch-to-register">Hesap Aç</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<!-- ─── Register modal (bireysel self-signup) ─────────── -->
+<div class="auth-modal" id="register-modal" hidden role="dialog" aria-modal="true" aria-labelledby="register-modal-title">
+  <div class="auth-modal__backdrop" data-register-close></div>
+  <div class="auth-modal__panel">
+    <button class="auth-modal__close" type="button" data-register-close aria-label="Kapat">×</button>
+    <h2 class="auth-modal__title" id="register-modal-title">Hesap Aç</h2>
+    <p class="auth-modal__lead">Kataloğu görmek ve istek listesi oluşturmak için kaydol.</p>
+    <form id="register-form" autocomplete="off">
+      <div class="auth-modal__field">
+        <label class="auth-modal__label" for="reg-isim">Ad Soyad</label>
+        <input class="auth-modal__input" id="reg-isim" name="isim" type="text" autocomplete="name" required minlength="2">
+      </div>
+      <div class="auth-modal__field">
+        <label class="auth-modal__label" for="reg-email">E-posta</label>
+        <input class="auth-modal__input" id="reg-email" name="email" type="email" autocomplete="email" required>
+      </div>
+      <div class="auth-modal__field">
+        <label class="auth-modal__label" for="reg-telefon">Telefon (opsiyonel)</label>
+        <input class="auth-modal__input" id="reg-telefon" name="telefon" type="tel" autocomplete="tel" placeholder="+90 5XX XXX XX XX">
+      </div>
+      <div class="auth-modal__field">
+        <label class="auth-modal__label" for="reg-username">Kullanıcı Adı</label>
+        <input class="auth-modal__input" id="reg-username" name="kullanici_adi" type="text" autocomplete="username" required minlength="3" maxlength="32" pattern="[a-z0-9._\-]+" placeholder="küçük harf, rakam, . _ -">
+      </div>
+      <div class="auth-modal__field">
+        <label class="auth-modal__label" for="reg-password">Parola</label>
+        <input class="auth-modal__input" id="reg-password" name="sifre" type="password" autocomplete="new-password" required minlength="8" placeholder="en az 8 karakter">
+      </div>
+      <div class="auth-modal__err" id="register-error" role="alert" aria-live="polite"></div>
+      <div class="auth-modal__actions">
+        <button type="button" class="auth-modal__btn auth-modal__btn--secondary" data-register-close>Vazgeç</button>
+        <button type="submit" class="auth-modal__btn auth-modal__btn--primary">Hesap Aç</button>
+      </div>
+      <div class="auth-modal__switch">
+        Hesabın var mı? <button type="button" class="auth-modal__link" id="register-switch-to-auth">Giriş Yap</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<!-- ─── Register success modal — token gösterimi (Faz 2.5'e kadar manuel) ─── -->
+<div class="auth-modal" id="register-success-modal" hidden role="dialog" aria-modal="true" aria-labelledby="register-success-title">
+  <div class="auth-modal__backdrop" data-register-success-close></div>
+  <div class="auth-modal__panel">
+    <button class="auth-modal__close" type="button" data-register-success-close aria-label="Kapat">×</button>
+    <h2 class="auth-modal__title" id="register-success-title">Hesap Açıldı</h2>
+    <p class="auth-modal__lead">Hesabın oluşturuldu. Aşağıdaki doğrulama linkini açarak e-posta adresini onayla:</p>
+    <div class="auth-modal__field">
+      <label class="auth-modal__label" for="register-success-link">Doğrulama Linki</label>
+      <input class="auth-modal__input" id="register-success-link" type="text" readonly>
+    </div>
+    <p class="auth-modal__lead" style="margin-top:12px">Customer ID: <strong id="register-success-cid"></strong></p>
+    <div class="auth-modal__actions">
+      <button type="button" class="auth-modal__btn auth-modal__btn--primary" data-register-success-close>Tamam</button>
+    </div>
+  </div>
+</div>
+
+<!-- ─── Checkout modal — NAKIT EVE TESLİM (Antalya / İzmir) ──────────── -->
+<div class="auth-modal" id="checkout-modal" hidden role="dialog" aria-modal="true" aria-labelledby="checkout-modal-title">
+  <div class="auth-modal__backdrop" data-checkout-close></div>
+  <div class="auth-modal__panel checkout-modal__panel">
+    <button class="auth-modal__close" type="button" data-checkout-close aria-label="Kapat">×</button>
+    <h2 class="auth-modal__title" id="checkout-modal-title">Sipariş Bilgileri</h2>
+    <p class="auth-modal__lead">
+      <strong>Ödeme:</strong> Sadece kapıda nakit. <strong>Teslimat:</strong> Antalya ve İzmir içi eve veya dükkana.
+    </p>
+    <div class="checkout-summary" id="checkout-summary">
+      <span id="checkout-summary-total">…</span>
+    </div>
+
+    <form id="checkout-form" autocomplete="off">
+      <div class="auth-modal__field">
+        <span class="auth-modal__label">Şehir</span>
+        <div class="checkout-radios">
+          <label class="checkout-radio">
+            <input type="radio" name="chk-city" value="ANTALYA" checked> Antalya
+          </label>
+          <label class="checkout-radio">
+            <input type="radio" name="chk-city" value="IZMIR"> İzmir
+          </label>
+        </div>
+        <small class="checkout-hint">Şu an sadece bu iki şehre teslim. Yakında diğer şehirler.</small>
+      </div>
+
+      <div class="auth-modal__field">
+        <span class="auth-modal__label">Teslimat Tipi</span>
+        <div class="checkout-radios">
+          <label class="checkout-radio">
+            <input type="radio" name="chk-type" value="EV" checked> Ev
+          </label>
+          <label class="checkout-radio">
+            <input type="radio" name="chk-type" value="DUKKAN"> Dükkan
+          </label>
+        </div>
+      </div>
+
+      <div class="auth-modal__field" id="chk-dukkan-field" hidden>
+        <label class="auth-modal__label" for="chk-dukkan-adi">Dükkan Adı</label>
+        <input class="auth-modal__input" id="chk-dukkan-adi" type="text">
+      </div>
+
+      <div class="auth-modal__field">
+        <label class="auth-modal__label" for="chk-contact-name">Ad Soyad</label>
+        <input class="auth-modal__input" id="chk-contact-name" type="text" autocomplete="name" required>
+      </div>
+      <div class="auth-modal__field">
+        <label class="auth-modal__label" for="chk-contact-phone">Telefon</label>
+        <input class="auth-modal__input" id="chk-contact-phone" type="tel" autocomplete="tel" required placeholder="+90 5XX XXX XX XX">
+      </div>
+      <div class="auth-modal__field">
+        <label class="auth-modal__label" for="chk-address">Adres (mahalle, sokak, no, bina, daire)</label>
+        <textarea class="auth-modal__input" id="chk-address" rows="3" required></textarea>
+      </div>
+      <div class="auth-modal__field">
+        <label class="auth-modal__label" for="chk-note">Ek Not (opsiyonel)</label>
+        <textarea class="auth-modal__input" id="chk-note" rows="2" placeholder="Teslimat saati tercihi, kat/giriş notu, vb."></textarea>
+      </div>
+
+      <div class="auth-modal__err" id="checkout-error" role="alert" aria-live="polite"></div>
+      <div class="auth-modal__actions">
+        <button type="button" class="auth-modal__btn auth-modal__btn--secondary" data-checkout-close>Vazgeç</button>
+        <button type="submit" class="auth-modal__btn auth-modal__btn--primary">Siparişi Onayla</button>
       </div>
     </form>
   </div>
@@ -15917,6 +18295,13 @@ window.BotlCustomerAPI = (function(){
     patchMe:(payload) => call('PATCH', '/api/customer/me', payload),
     changePassword: (eski_sifre, yeni_sifre) =>
       call('POST', '/api/customer/me/change-password', { eski_sifre, yeni_sifre }),
+    // Self-signup + email verify + password reset (Faz 1B/2 PIVOT)
+    register: (payload) => call('POST', '/api/customer/register', payload),
+    verifyEmail: (token) => call('GET', '/api/customer/verify-email/' + encodeURIComponent(token)),
+    passwordResetRequest: (email) =>
+      call('POST', '/api/customer/password-reset/request', { email }),
+    passwordResetApply: (token, sifre) =>
+      call('POST', '/api/customer/password-reset/apply', { token, sifre }),
     // ─── Cart ─────────────────────────
     getCart:    () => call('GET',  '/api/customer/cart'),
     setCart:    (items) => call('PUT', '/api/customer/cart', { items }),
@@ -16728,42 +19113,139 @@ async function placeOrder(){
     openAuthModal();
     return;
   }
-  const total = items.reduce((s,p) => s + (Number(p.fiyat_eur) || 0) * (p._qty || 1), 0);
-  const totalItems = items.reduce((s,p) => s + (p._qty || 1), 0);
-  const ok = await showConfirmModal({
-    title: 'İstek Listesi Onayı',
-    message: `${totalItems} adet ürün${totalItems === 1 ? '' : ''}\n\nİstek listeni kaydetmek istiyor musun?`,
-    confirmLabel: 'İstek Listesini Kaydet', cancelLabel: 'Vazgeç',
-  });
-  if(!ok) return;
+  // PIVOT (2026-06-01): İstek listesi → checkout modal (adres + şehir + teslimat tipi)
+  openCheckoutModal();
+}
 
-  // 2026-05-13 refactor: Backend SSOT. POST /api/customer/orders.
-  // Backend ulaşılamazsa localStorage'a fallback yok — kullanıcıyı bilgilendir.
-  if(!window.BotlCustomerAPI || !window.BotlCustomerAPI.createOrder){
-    toast('Sunucu istemcisi yüklenmedi. Sayfayı yenile.', true);
+// ─── Checkout modal (NAKIT EVE TESLİM — Antalya/İzmir) ────────────────
+function openCheckoutModal(){
+  const m = $('#checkout-modal');
+  if(!m){
+    toast('Sipariş modalı yüklenmedi. Sayfayı yenile.', true);
     return;
   }
-  const orderPayload = {
+  const items = cartItems();
+  if(items.length === 0) { closeCart(); return; }
+  const totalItems = items.reduce((s,p) => s + (p._qty || 1), 0);
+  // 1200 TL × adet (default — Faz 6 data.json sync sonrası variation.retail_price_try gelecek)
+  const totalTry = items.reduce((s,p) => s + 1200 * (p._qty || 1), 0);
+  const totEl = $('#checkout-summary-total');
+  if(totEl){
+    totEl.textContent = `${totalItems} ürün — ${totalTry.toLocaleString('tr-TR')} TL nakit (kapıda)`;
+  }
+  // Müşteri profilinden bilgi auto-fill
+  const session = getSession();
+  if(session){
+    const nameEl = $('#chk-contact-name');
+    if(nameEl && !nameEl.value) nameEl.value = session.isim || '';
+    const phEl = $('#chk-contact-phone');
+    if(phEl && !phEl.value) phEl.value = session.telefon || '';
+  }
+  const err = $('#checkout-error'); if(err) err.textContent = '';
+  m.hidden = false;
+  m.classList.add('open');
+  document.body.style.overflow = 'hidden';
+  // Default city — Antalya
+  const cityRadio = document.querySelector('input[name="chk-city"][value="ANTALYA"]');
+  if(cityRadio && !document.querySelector('input[name="chk-city"]:checked')) cityRadio.checked = true;
+  updateCheckoutDukkanField();
+}
+function closeCheckoutModal(){
+  const m = $('#checkout-modal'); if(!m) return;
+  m.hidden = true;
+  m.classList.remove('open');
+  document.body.style.overflow = '';
+}
+function updateCheckoutDukkanField(){
+  const typeChecked = document.querySelector('input[name="chk-type"]:checked');
+  const dukkanField = $('#chk-dukkan-field');
+  if(!dukkanField) return;
+  if(typeChecked && typeChecked.value === 'DUKKAN'){
+    dukkanField.hidden = false;
+    const inp = $('#chk-dukkan-adi'); if(inp) inp.required = true;
+  } else {
+    dukkanField.hidden = true;
+    const inp = $('#chk-dukkan-adi'); if(inp) { inp.required = false; inp.value = ''; }
+  }
+}
+
+async function submitCheckout(){
+  const err = $('#checkout-error'); if(err) err.textContent = '';
+  const items = cartItems();
+  if(items.length === 0){
+    if(err) err.textContent = 'İstek listen boş.';
+    return;
+  }
+  const session = getSession();
+  if(!session){ openAuthModal(); return; }
+
+  const cityRadio = document.querySelector('input[name="chk-city"]:checked');
+  if(!cityRadio){
+    if(err) err.textContent = 'Şehir seçimi zorunlu (Antalya veya İzmir).';
+    return;
+  }
+  const typeRadio = document.querySelector('input[name="chk-type"]:checked');
+  if(!typeRadio){
+    if(err) err.textContent = 'Teslimat tipi seçimi zorunlu (Ev veya Dükkan).';
+    return;
+  }
+  const name = ($('#chk-contact-name').value || '').trim();
+  const phone = ($('#chk-contact-phone').value || '').trim();
+  const address = ($('#chk-address').value || '').trim();
+  const note = ($('#chk-note').value || '').trim();
+  const dukkanAdi = ($('#chk-dukkan-adi') ? $('#chk-dukkan-adi').value : '' || '').trim();
+
+  if(!name || name.length < 2){
+    if(err) err.textContent = 'Ad Soyad gerekli.'; return;
+  }
+  if(!phone){
+    if(err) err.textContent = 'Telefon gerekli.'; return;
+  }
+  if(!address){
+    if(err) err.textContent = 'Adres gerekli.'; return;
+  }
+  if(typeRadio.value === 'DUKKAN' && !dukkanAdi){
+    if(err) err.textContent = 'Dükkan adı gerekli.'; return;
+  }
+
+  if(!window.BotlCustomerAPI || !window.BotlCustomerAPI.createOrder){
+    if(err) err.textContent = 'Sunucu istemcisi yüklenmedi. Sayfayı yenile.';
+    return;
+  }
+  const payload = {
     items: items.map(p => ({ variation_id: p.variation_id, adet: p._qty || 1 })),
-    musteri_notu: '',
+    musteri_notu: note,
+    delivery_city: cityRadio.value,           // ANTALYA | IZMIR
+    delivery_type: typeRadio.value,           // EV | DUKKAN
+    delivery_contact_name: name,
+    delivery_contact_phone: phone,
+    delivery_address: address,
+    delivery_dukkan_adi: dukkanAdi,
   };
   try {
-    const r = await window.BotlCustomerAPI.createOrder(orderPayload);
+    const r = await window.BotlCustomerAPI.createOrder(payload);
     if(!r.ok){
-      const err = r.error || r.hint || 'Bilinmeyen hata';
-      toast('İstek listesi kaydedilemedi: ' + err, true);
+      const errKey = r.error || r.hint || 'Bilinmeyen hata';
+      let msg = 'Sipariş oluşturulamadı: ';
+      if(errKey === 'invalid_delivery_city') msg = 'Şu an sadece Antalya ve İzmir içine teslim yapıyoruz. Yakında diğer şehirler.';
+      else if(errKey === 'delivery_address_required') msg += 'Adres zorunlu';
+      else if(errKey === 'dukkan_adi_required') msg += 'Dükkan adı zorunlu';
+      else msg += errKey;
+      if(err) err.textContent = msg;
       return;
     }
-    // Sepeti temizle (backend zaten kendi cart'ı temizledi, ama local cache de güncellensin)
     try { localStorage.setItem(CART_KEY, '[]'); } catch{}
-    // pushPendingOrder legacy localStorage uyumu (admin localStorage'tan da okuyabilir geçici süre)
     if(r.order){ pushPendingOrder(r.order); }
     renderCartBadge();
     renderCart();
     closeCart();
-    toast(`İstek listen kaydedildi. Liste No: ${r.order && (r.order.order_id || r.order.id)}. Onay için bekleniyor.`);
+    closeCheckoutModal();
+    const oid = r.order && (r.order.order_id || r.order.id);
+    const totalItems = items.reduce((s,p) => s + (p._qty || 1), 0);
+    const totalTry = items.reduce((s,p) => s + 1200 * (p._qty || 1), 0);
+    toast(`Siparişin alındı (${oid}). ${totalItems} ürün, ${totalTry.toLocaleString('tr-TR')} TL nakit — kapıda teslimat sırasında.`);
   } catch(e){
-    toast('Ağ hatası: ' + e.message, true);
+    if(err) err.textContent = 'Ağ hatası: ' + e.message;
   }
 }
 
@@ -17336,6 +19818,69 @@ function closeAuthModal(){
   const form = $('#auth-form'); if(form) form.reset();
 }
 
+// ─── Register modal (bireysel self-signup, Faz 1B/2 PIVOT) ──────────
+function openRegisterModal(){
+  // Önce login modal'ı kapat
+  closeAuthModal();
+  const m = $('#register-modal');
+  if(!m) return;
+  m.hidden = false;
+  m.classList.add('open');
+  document.body.style.overflow = 'hidden';
+  setTimeout(() => { const f = $('#reg-isim'); if(f) f.focus(); }, 50);
+  const err = $('#register-error'); if(err) err.textContent = '';
+}
+function closeRegisterModal(){
+  const m = $('#register-modal');
+  if(!m) return;
+  m.hidden = true;
+  m.classList.remove('open');
+  document.body.style.overflow = '';
+  const err = $('#register-error'); if(err) err.textContent = '';
+  const form = $('#register-form'); if(form) form.reset();
+}
+function openRegisterSuccessModal(verifyLink, customerId){
+  const m = $('#register-success-modal'); if(!m) return;
+  const linkEl = $('#register-success-link'); if(linkEl) linkEl.value = verifyLink;
+  const cidEl = $('#register-success-cid'); if(cidEl) cidEl.textContent = customerId;
+  m.hidden = false;
+  m.classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeRegisterSuccessModal(){
+  const m = $('#register-success-modal'); if(!m) return;
+  m.hidden = true;
+  m.classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+async function tryRegister(payload){
+  // payload: {isim, email, telefon, kullanici_adi, sifre}
+  const r = await window.BotlCustomerAPI.register(payload);
+  if(r.ok){
+    // Verify link doğrudan response'da gelir (email send Faz 2.5'e ertelendi)
+    const origin = location.origin + location.pathname.replace(/\/$/, '');
+    const verifyLink = origin + '#verify=' + encodeURIComponent(r.verify_token || '');
+    return { ok:true, customer_id: r.customer_id, verify_link: verifyLink };
+  }
+  if(r.status === 409){
+    const errKey = r.error || 'taken';
+    return { ok:false, error: errKey === 'email_taken' ? 'Bu e-posta zaten kayıtlı'
+      : errKey === 'username_taken' ? 'Bu kullanıcı adı alınmış'
+      : 'Bu hesap bilgisi zaten kayıtlı' };
+  }
+  if(r.status === 400){
+    const errKey = r.error || 'invalid';
+    if(errKey === 'invalid_email') return { ok:false, error:'Geçersiz e-posta' };
+    if(errKey === 'invalid_username') return { ok:false, error:'Kullanıcı adı 3-32 karakter; küçük harf, rakam, . _ -' };
+    if(errKey === 'weak_password') return { ok:false, error:'Parola en az 8 karakter olmalı' };
+    if(errKey === 'isim_required') return { ok:false, error:'Ad Soyad gerekli' };
+    return { ok:false, error: r.message || 'Form bilgileri geçersiz' };
+  }
+  if(r.error === 'network' || r.status === 404) return { ok:false, error:'Kayıt yapılamadı, tekrar deneyin' };
+  return { ok:false, error: r.error || 'Kayıt yapılamadı, tekrar deneyin' };
+}
+
 // ─── Auth Gate: login olmadan içerik gösterme ──────
 // Head inline preload script session yoksa body'e auth-gate-active class
 // SENKRON ekler → ilk paint'te store gizli kalır. showAuthGate burada gate
@@ -17360,6 +19905,13 @@ function hideAuthGate(){
   const err = document.getElementById('auth-gate-err'); if(err) err.hidden = true;
 }
 function initAuthGate(){
+  const switchReg = document.getElementById('auth-gate-switch-to-register');
+  if(switchReg){
+    switchReg.addEventListener('click', () => {
+      // Gate'i bırak (hala arkada görünsün), register modal'ı aç
+      openRegisterModal();
+    });
+  }
   const form = document.getElementById('auth-gate-form');
   if(form){
     form.addEventListener('submit', async (e) => {
@@ -17939,16 +20491,31 @@ function renderAccountOrders(){
       ? `<div class="acct-order__tracking">Kargo: <strong>${o.tracking_no}</strong>${o.tracking_url ? ` · <a href="${o.tracking_url}" target="_blank" rel="noopener">Takip</a>` : ''}</div>`
       : '';
     const guncelChip = guncelStr ? `<span class="acct-order__last-update" title="Son güncelleme">Güncellendi: ${guncelStr}</span>` : '';
+    // PIVOT TL gösterim (1200 TL × adet) — EUR legacy görselde kalmaz, TL gösterilir.
+    const totalTry = qty * 1200;
+    const deliveryCity = (o.delivery_city || '').toUpperCase();
+    const deliveryType = (o.delivery_type || '').toUpperCase();
+    const deliveryDukkan = o.delivery_dukkan_adi || '';
+    const deliveryLabel = deliveryCity
+      ? `Teslimat: ${deliveryCity === 'IZMIR' ? 'İzmir' : 'Antalya'} ${deliveryType === 'DUKKAN' ? `(Dükkan${deliveryDukkan ? ': ' + deliveryDukkan : ''})` : '(Ev)'}`
+      : '';
+    const paymentLabel = (o.payment_method === 'NAKIT_EVE_TESLIM' || !o.payment_method)
+      ? 'Ödeme: Kapıda Nakit'
+      : '';
+    const paidChip = o.paid_at ? `<span class="acct-order__paid-chip">Ödendi</span>` : '';
+    const deliveredChip = o.delivered_at ? `<span class="acct-order__delivered-chip">Teslim Edildi</span>` : '';
     return `
       <div class="acct-order" data-order-card="${oid}">
         <div class="acct-order__head" data-order-toggle="${oid}">
           <span class="acct-order__date">${tarihStr}</span>
           <span class="acct-order__oid" title="Liste No">${oid}</span>
           <span class="acct-order__qty">${qty} ürün</span>
-          <span class="acct-order__total">${total.toLocaleString('tr-TR')} EUR</span>
+          <span class="acct-order__total">${totalTry.toLocaleString('tr-TR')} TL</span>
           <span class="acct-order__status acct-order__status--${status}">${ORDER_DURUM_LABEL[status] || status}</span>
+          ${paidChip}${deliveredChip}
         </div>
         ${guncelChip ? `<div class="acct-order__subhead">${guncelChip}</div>` : ''}
+        ${(deliveryLabel || paymentLabel) ? `<div class="acct-order__subhead acct-order__subhead--delivery">${[paymentLabel, deliveryLabel].filter(Boolean).join(' · ')}</div>` : ''}
         <div class="acct-order__detail">
           ${trackingHtml}
           ${itemRows}
@@ -18566,6 +21133,70 @@ function initAuthBindings(){
       closeAuthModal();
       refreshAuthUI();
       toast(`Hoşgeldin ${res.customer.isim || res.customer.kullanici_adi}!`);
+    });
+  }
+
+  // Register modal bindings (Faz 1B/2 PIVOT)
+  $$('[data-register-close]').forEach(el => el.addEventListener('click', closeRegisterModal));
+  $$('[data-register-success-close]').forEach(el => el.addEventListener('click', closeRegisterSuccessModal));
+  const authSwitchReg = $('#auth-switch-to-register');
+  if(authSwitchReg) authSwitchReg.addEventListener('click', openRegisterModal);
+  const regSwitchAuth = $('#register-switch-to-auth');
+  if(regSwitchAuth) regSwitchAuth.addEventListener('click', () => { closeRegisterModal(); openAuthModal(); });
+
+  const regForm = $('#register-form');
+  if(regForm){
+    regForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const err = $('#register-error'); if(err) err.textContent = '';
+      const payload = {
+        isim: ($('#reg-isim').value || '').trim(),
+        email: ($('#reg-email').value || '').trim(),
+        telefon: ($('#reg-telefon').value || '').trim(),
+        kullanici_adi: ($('#reg-username').value || '').trim().toLowerCase(),
+        sifre: $('#reg-password').value || '',
+      };
+      const res = await tryRegister(payload);
+      if(!res.ok){
+        if(err) err.textContent = res.error || 'Kayıt başarısız.';
+        return;
+      }
+      closeRegisterModal();
+      openRegisterSuccessModal(res.verify_link, res.customer_id);
+      toast('Hesabın oluşturuldu. Doğrulama linkini açmayı unutma.');
+    });
+  }
+
+  // Hash route #verify=<token> → email doğrulama akışı
+  (async function() {
+    try {
+      const h = location.hash || '';
+      const m = h.match(/[#&]verify=([^&]+)/);
+      if(m && m[1]){
+        const token = decodeURIComponent(m[1]);
+        const r = await window.BotlCustomerAPI.verifyEmail(token);
+        if(r && r.ok){
+          toast('E-postan doğrulandı. Giriş yapabilirsin.');
+          // Hash'i temizle
+          history.replaceState(null, '', location.pathname + location.search);
+        } else {
+          toast('Doğrulama linki geçersiz veya kullanılmış.');
+        }
+      }
+    } catch(_) {}
+  })();
+
+  // Checkout modal bindings (Faz 1B/4 PIVOT)
+  $$('[data-checkout-close]').forEach(el => el.addEventListener('click', closeCheckoutModal));
+  document.addEventListener('change', (e) => {
+    const t = e.target;
+    if(t && t.name === 'chk-type') updateCheckoutDukkanField();
+  });
+  const checkoutForm = $('#checkout-form');
+  if(checkoutForm){
+    checkoutForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      await submitCheckout();
     });
   }
 
