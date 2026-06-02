@@ -38,6 +38,20 @@
     }
   }catch(e){}
 })();
+
+/* WebP manifest loader — hangi ürün foto'larının WebP versiyonu var.
+   Modern browser <picture><source>'tan WebP indirir (q90 görsel olarak
+   JPG q95'le ayırt edilemez, ortalama %37 daha hızlı). Manifest yok ya
+   da basename listede yoksa standard JPG iner — sıfır kalite kaybı. */
+window.WEBP_SET = new Set();
+(async function(){
+  try{
+    var r = await fetch('./assets/webp-manifest.json', { cache: 'force-cache' });
+    if(!r.ok) return;
+    var arr = await r.json();
+    if(Array.isArray(arr)) window.WEBP_SET = new Set(arr);
+  }catch(e){}
+})();
 </script>
 <script>
 /* Theme + Auth preload (FOUC önleme). Inline + senkron — ilk paint öncesi data-theme + data-auth-state set. */
@@ -18979,6 +18993,26 @@ function withV(url){
   return url + sep + 'v=' + _ASSET_VER;
 }
 
+/* WebP <picture> wrapper — manifest'te varsa modern browser WebP indirir
+   (q90 visual indistinguishable, ortalama %37 daha küçük); yoksa veya
+   manifest yüklenmemişse standard <img> render (JPG fallback, sıfır kalite
+   kaybı). attrs raw HTML attribute string (loading, onerror, alt, class). */
+function pictureHtml(src, attrs){
+  const attrStr = attrs || '';
+  if(!src || typeof src !== 'string'){
+    return `<img src="${withV(src || '')}" ${attrStr}>`;
+  }
+  const safeSrc = withV(src);
+  const fname = src.split('/').pop();
+  const base = fname.replace(/\.(jpe?g)$/i, '');
+  const hasWebp = window.WEBP_SET && window.WEBP_SET.has(base);
+  if(!hasWebp || !/\.(jpe?g)$/i.test(fname)){
+    return `<img src="${safeSrc}" ${attrStr}>`;
+  }
+  const webpSrc = withV(src.replace(/\.(jpe?g)$/i, '.webp'));
+  return `<picture><source srcset="${webpSrc}" type="image/webp"><img src="${safeSrc}" ${attrStr}></picture>`;
+}
+
 // ─── Renk human label (SSOT — sade Türkçe tek kelime) ─────────────────────────
 // Patron direktifi 2026-05-13: renk isimleri sade Türkçe (SIYAH, KIRMIZI, MAVI,
 // VIZON) veya "Açık X"/"Koyu X" iki-kelime istisna. Fransızca/İngilizce yasak.
@@ -19360,7 +19394,7 @@ function cardHTML(p){
   // Load fail -> img.is-failed class display:none ile gizlenir, placeholder kalır.
   const imgSrc = p.cover || (p.gorseller && p.gorseller.cover);
   const img = imgSrc
-    ? `<img class="card__img" src="${withV(imgSrc)}" alt="${p.isim_resmi || cardName}" loading="lazy" onerror="this.classList.add('is-failed')">`
+    ? pictureHtml(imgSrc, `class="card__img" alt="${esc(p.isim_resmi || cardName)}" loading="lazy" onerror="this.classList.add('is-failed')"`)
     : '';
 
   // FIX5: kategori için tip_detay tercih (daha açıklayıcı), fallback kategori_alt label
@@ -20274,7 +20308,7 @@ function renderCart(){
       const cover = p.cover || (p.gorseller && p.gorseller.cover);
       // FAIL-SAFE: placeholder her zaman var, img fail'se is-failed class display:none
       const img = cover
-        ? `<img src="${esc(withV(cover))}" alt="" onerror="this.classList.add('is-failed')">`
+        ? pictureHtml(cover, `alt="" onerror="this.classList.add('is-failed')"`)
         : '';
       const name = (p.isim_bilinen || p.isim_resmi || '').split(',')[0].trim();
       const qty = Math.max(1, Number(p._qty) || 1);
@@ -20693,7 +20727,7 @@ function renderModal(p){
   // (rebuildVisibleGallery aşağıda main img onload + thumb onerror sonrası tetikler).
   const galN = modalGallery.length;
   const mainImg = galN>0
-    ? `<div class="card__placeholder">${initials}</div><img src="${withV(modalGallery[0])}" alt="${fullName}" id="modal-main-img" onerror="this.classList.add('is-failed')">`
+    ? `<div class="card__placeholder">${initials}</div>` + pictureHtml(modalGallery[0], `alt="${esc(fullName)}" id="modal-main-img" onerror="this.classList.add('is-failed')"`)
     : `<div class="card__placeholder">${initials}</div>`;
   const navHtml = galN>1
     ? `<button class="modal__gallery-nav modal__gallery-nav--prev" type="button" id="modal-gallery-prev" aria-label="Önceki foto" hidden>‹</button>
@@ -20701,7 +20735,7 @@ function renderModal(p){
        <span class="modal__gallery-counter" id="modal-gallery-counter" aria-live="polite" hidden>1 / 1</span>`
     : '';
   const thumbs = galN>1
-    ? `<div class="modal__thumbs" id="modal-thumbs">${modalGallery.map((src,i)=>`<button class="modal__thumb ${i===0?'active':''}" data-idx="${i}"><img src="${withV(src)}" alt="" onload="this.parentElement.dataset.loaded='1';if(window.__rebuildModalGallery)window.__rebuildModalGallery();" onerror="this.parentElement.style.display='none';if(window.__rebuildModalGallery)window.__rebuildModalGallery();"></button>`).join('')}</div>`
+    ? `<div class="modal__thumbs" id="modal-thumbs">${modalGallery.map((src,i)=>`<button class="modal__thumb ${i===0?'active':''}" data-idx="${i}">${pictureHtml(src, `alt="" onload="this.parentElement.dataset.loaded='1';if(window.__rebuildModalGallery)window.__rebuildModalGallery();" onerror="this.parentElement.style.display='none';if(window.__rebuildModalGallery)window.__rebuildModalGallery();"`)}</button>`).join('')}</div>`
     : '';
   // 3'lü stok modeli — available_stok yoksa legacy `stok`'a fallback
   const availStok = availableOf(p);
@@ -21839,7 +21873,7 @@ function renderAccountOrders(){
         : '';
       return `
         <div class="acct-order__item">
-          ${cover ? `<img class="acct-order__item-img" src="${cover}" alt="" onerror="this.style.display='none'">` : '<div class="acct-order__item-img"></div>'}
+          ${cover ? pictureHtml(cover, `class="acct-order__item-img" alt="" onerror="this.style.display='none'"`) : '<div class="acct-order__item-img"></div>'}
           <div class="acct-order__item-info">
             <div class="acct-order__item-name">${name}</div>
             <div class="acct-order__item-meta">${[renkLabelFromValue(it.renk), it.boyut, it.donanim].filter(Boolean).join(' · ') || '—'}</div>
@@ -22379,7 +22413,7 @@ function renderAddItemModal(){
       <button class="add-item-card ${disabled?'add-item-card--disabled':''}" type="button"
               data-add-vid="${escFn(p.variation_id)}" ${disabled?'disabled aria-disabled="true"':''}
               title="${disabled ? (dup?'Bu ürün zaten siparişinizde':'Stokta yok') : 'Siparişe ekle'}">
-        <div class="add-item-card__media">${cover?`<img src="${escFn(cover)}" alt="" onerror="this.style.display='none'">`:''}</div>
+        <div class="add-item-card__media">${cover?pictureHtml(cover, `alt="" onerror="this.style.display='none'"`):''}</div>
         <div class="add-item-card__body">
           <div class="add-item-card__brand">${escFn(p.marka || '')}</div>
           <div class="add-item-card__name">${escFn(name)}</div>
