@@ -1948,7 +1948,11 @@ body.auth-gate-active > footer{display:none!important}
   .auth-gate__logo-img{width:80px}
 }
 
-.auth-modal{position:fixed;inset:0;z-index:60;display:none}
+/* z-index disiplini: cart drawer z:90, ürün detay modal z:100 → auth ailesi
+   her zaman üstte (110). Patron raporu (2026-06-02): "Giriş yap pop-up'ı
+   arkada açıldığı için kullanıcı sepette kalıyor" — cart drawer auth-modal'ı
+   örtüyordu. 60 → 110 ile auth/register/checkout her senaryoda öne gelir. */
+.auth-modal{position:fixed;inset:0;z-index:110;display:none}
 .auth-modal[hidden]{display:none}
 .auth-modal.open{display:block}
 .auth-modal__backdrop{position:absolute;inset:0;background:var(--backdrop)}
@@ -2052,7 +2056,7 @@ textarea.auth-modal__input{font-family:inherit;resize:vertical;min-height:60px}
 /* (Eski hdr__user-draft-badge — yerine .hdr__user-draft-dot kullanılıyor) */
 
 /* Hesabım (account) modal */
-.account-modal{position:fixed;inset:0;z-index:70;display:none}
+.account-modal{position:fixed;inset:0;z-index:115;display:none}
 .account-modal[hidden]{display:none}
 .account-modal.open{display:block}
 .account-modal__backdrop{position:absolute;inset:0;background:var(--backdrop-strong)}
@@ -20512,6 +20516,13 @@ async function placeOrder(){
   if(items.length === 0) return;
   const session = getSession();
   if(!session){
+    // Patron raporu (2026-06-02 ikinci tur): Cart drawer z-index:90, auth-modal
+    // z-index:60'tı → auth modal arkada açılıyordu, kullanıcı sepette kalıyordu.
+    // (z-index CSS'te 110'a çıkarıldı — paralel düzeltme). Ek olarak modal sırasını
+    // disiplinli yönetiyoruz: önce cart kapat, sonra auth aç. Niyet (saveWishlist)
+    // PendingIntent'e set edilir → login/register başarısında otomatik checkout modal.
+    PendingIntent.set('saveWishlist');
+    closeCart();
     openAuthModal();
     return;
   }
@@ -20618,7 +20629,14 @@ async function submitCheckout(){
     return;
   }
   const session = getSession();
-  if(!session){ openAuthModal(); return; }
+  if(!session){
+    // Edge case: kullanıcı sepette login'liyken submit'e geldiğinde session expire
+    // olmuş olabilir. Aynı pattern — niyet set + üst modal kapat + auth aç.
+    PendingIntent.set('saveWishlist');
+    closeCheckoutModal();
+    openAuthModal();
+    return;
+  }
 
   const cityRadio = document.querySelector('input[name="chk-city"]:checked');
   if(!cityRadio){
@@ -21314,6 +21332,38 @@ const ModalLock = (() => {
 // Window'a expose — admin/debug için + future modal'lardan erişim
 window.ModalLock = ModalLock;
 
+// ─── PendingIntent — login öncesi orijinal niyeti hatırla ───────────────────
+// Patron raporu (2026-06-02 ikinci tur): "İstek listesini kaydet"e basan anonim
+// kullanıcı auth modal'a yönlendirildiğinde, giriş başarılı olunca kullanıcının
+// orijinal hedefi (checkout modal açılması) hatırlanmıyordu — kullanıcı tekrar
+// sepete dönüp aynı butona basmak zorundaydı. Bu IIFE niyeti saklar: anonim
+// akışta set edilir, auth/register başarısında consume edilir, vazgeçince temizlenir.
+// Yaşlanma: 10 dakika üstü intent'ler stale kabul edilir (browser tab açık kalsa bile).
+const PendingIntent = (() => {
+  let pending = null;
+  const MAX_AGE_MS = 10 * 60 * 1000; // 10 dk
+  return {
+    set(action, payload){
+      pending = { action, payload: payload || null, ts: Date.now() };
+      return pending;
+    },
+    peek(){ return pending; },
+    isFresh(){
+      if(!pending) return false;
+      return (Date.now() - pending.ts) <= MAX_AGE_MS;
+    },
+    consume(){
+      const p = pending;
+      pending = null;
+      if(!p) return null;
+      if((Date.now() - p.ts) > MAX_AGE_MS) return null; // stale → ignore
+      return p;
+    },
+    clear(){ pending = null; },
+  };
+})();
+window.PendingIntent = PendingIntent;
+
 // ─── Auth UI binding + render ──────────────────────────
 function toast(msg, isErr){
   const el = $('#toast');
@@ -21337,7 +21387,10 @@ function openAuthModal(){
   // sessizce karşılarız — gerçek bir hata oluştuğunda submit sırasında gösterilir.
   const err = $('#auth-error'); if(err) err.textContent = '';
 }
-function closeAuthModal(){
+// closeAuthModal(opts):
+//   opts.preserveIntent = true  → auth↔register geçişinde niyet korunur
+//   default (false)             → kullanıcı vazgeçti, PendingIntent.clear()
+function closeAuthModal(opts){
   const m = $('#auth-modal');
   if(!m) return;
   const wasOpen = m.classList.contains('open');
@@ -21346,12 +21399,15 @@ function closeAuthModal(){
   if(wasOpen) ModalLock.unlock();
   const err = $('#auth-error'); if(err) err.textContent = '';
   const form = $('#auth-form'); if(form) form.reset();
+  if(!opts || !opts.preserveIntent){
+    try { PendingIntent.clear(); } catch(_) {}
+  }
 }
 
 // ─── Register modal (bireysel self-signup, Faz 1B/2 PIVOT) ──────────
 function openRegisterModal(){
-  // Önce login modal'ı kapat
-  closeAuthModal();
+  // Önce login modal'ı kapat — niyet korunur (kullanıcı auth → register geçişi)
+  closeAuthModal({preserveIntent: true});
   const m = $('#register-modal');
   if(!m) return;
   const wasOpen = m.classList.contains('open');
@@ -21361,7 +21417,7 @@ function openRegisterModal(){
   setTimeout(() => { const f = $('#reg-username'); if(f) f.focus(); }, 50);
   const err = $('#register-error'); if(err) err.textContent = '';
 }
-function closeRegisterModal(){
+function closeRegisterModal(opts){
   const m = $('#register-modal');
   if(!m) return;
   const wasOpen = m.classList.contains('open');
@@ -21370,6 +21426,53 @@ function closeRegisterModal(){
   if(wasOpen) ModalLock.unlock();
   const err = $('#register-error'); if(err) err.textContent = '';
   const form = $('#register-form'); if(form) form.reset();
+  if(!opts || !opts.preserveIntent){
+    try { PendingIntent.clear(); } catch(_) {}
+  }
+}
+
+// ─── Auth/Register success hook'ları (PendingIntent consume) ─────────────────
+// Login veya register başarılı olunca çağrılır. PendingIntent'i tüketir; eğer
+// "saveWishlist" intent'i varsa kısa bir geçiş gecikmesi sonrası checkout modal
+// açılır (panel transition'ı tamamlansın diye 80ms). Toast hoş geldin mesajı
+// (caller verirse) gösterilir.
+function onAuthSuccess(welcomeMsg){
+  const intent = PendingIntent.consume();
+  closeAuthModal({preserveIntent: true}); // consume zaten temizledi
+  refreshAuthUI();
+  if(welcomeMsg) try { toast(welcomeMsg); } catch(_) {}
+  if(intent && intent.action === 'saveWishlist'){
+    setTimeout(() => {
+      // Race koruması: cartItems hâlâ var mı?
+      try {
+        const items = cartItems();
+        if(items && items.length > 0){
+          openCheckoutModal();
+        } else {
+          toast('İstek listende ürün yok. Önce ürün ekle.', true);
+        }
+      } catch(e){ console.error('onAuthSuccess intent dispatch fail:', e); }
+    }, 80);
+  }
+}
+function onRegisterSuccess(welcomeMsg){
+  const intent = PendingIntent.consume();
+  closeRegisterModal({preserveIntent: true});
+  if(typeof hideAuthGate === 'function') hideAuthGate();
+  refreshAuthUI();
+  if(welcomeMsg) try { toast(welcomeMsg); } catch(_) {}
+  if(intent && intent.action === 'saveWishlist'){
+    setTimeout(() => {
+      try {
+        const items = cartItems();
+        if(items && items.length > 0){
+          openCheckoutModal();
+        } else {
+          toast('İstek listende ürün yok. Önce ürün ekle.', true);
+        }
+      } catch(e){ console.error('onRegisterSuccess intent dispatch fail:', e); }
+    }, 80);
+  }
 }
 function openRegisterSuccessModal(verifyLink, customerId){
   const m = $('#register-success-modal'); if(!m) return;
@@ -22693,9 +22796,9 @@ function initAuthBindings(){
         if(err) err.textContent = res.error || 'Giriş başarısız.';
         return;
       }
-      closeAuthModal();
-      refreshAuthUI();
-      toast(`Hoşgeldin ${res.customer.isim || res.customer.kullanici_adi}!`);
+      // PendingIntent consume + checkout modal otomatik açılır (intent saveWishlist ise)
+      const welcomeName = res.customer.isim || res.customer.kullanici_adi;
+      onAuthSuccess(`Hoş geldin ${welcomeName}!`);
     });
   }
 
@@ -22705,7 +22808,11 @@ function initAuthBindings(){
   const authSwitchReg = $('#auth-switch-to-register');
   if(authSwitchReg) authSwitchReg.addEventListener('click', openRegisterModal);
   const regSwitchAuth = $('#register-switch-to-auth');
-  if(regSwitchAuth) regSwitchAuth.addEventListener('click', () => { closeRegisterModal(); openAuthModal(); });
+  if(regSwitchAuth) regSwitchAuth.addEventListener('click', () => {
+    // Niyet korunur — kullanıcı register ekranından login'e geçiyor
+    closeRegisterModal({preserveIntent: true});
+    openAuthModal();
+  });
 
   const regForm = $('#register-form');
   if(regForm){
@@ -22733,10 +22840,8 @@ function initAuthBindings(){
         if(err) err.textContent = 'Hesap açıldı ama giriş başarısız: ' + (loginRes.error || '');
         return;
       }
-      closeRegisterModal();
-      if(typeof hideAuthGate === 'function') hideAuthGate();
-      refreshAuthUI();
-      toast('Hesabın oluşturuldu, hoş geldin!');
+      // PendingIntent consume + checkout modal otomatik açılır (intent saveWishlist ise)
+      onRegisterSuccess('Hesabın oluşturuldu, hoş geldin!');
     });
   }
 
