@@ -1956,9 +1956,33 @@ body.auth-gate-active > footer{display:none!important}
   position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
   background:var(--surface);
   width:min(92vw,420px);
-  padding:28px 24px;
+  /* dvh modern (iOS 15.4+) — eski tarayıcılarda vh fallback aşağıda */
+  max-height:min(92vh,760px);
+  max-height:min(92dvh,760px);
   border:1px solid var(--border-strong);
   box-shadow:var(--shadow-modal);
+  /* Flex column: × button sticky-top sayesinde scroll'da bile erişilebilir. Panel
+     kendi scroll'unu yönetir, sayfa scroll'u ModalLock ile kilitli. */
+  display:flex;flex-direction:column;
+  overflow:hidden;
+}
+/* Panel iç scroll alanı — uzun checkout form'u dahil tüm içerik buradan scroll edilir. */
+.auth-modal__body{
+  flex:1 1 auto;min-height:0;
+  overflow-y:auto;overscroll-behavior:contain;
+  -webkit-overflow-scrolling:touch;
+  padding:28px 24px;
+  scrollbar-gutter:stable;
+}
+/* Mobile: 96vw + dynamic viewport — iOS Safari address-bar koruması. */
+@media (max-width:640px){
+  .auth-modal__panel{
+    width:min(96vw,520px);
+    max-height:92vh;
+    max-height:92dvh;
+    border-radius:18px;
+  }
+  .auth-modal__body{padding:24px 20px}
 }
 .auth-modal__title{
   margin:0 0 6px;font:500 22px/1.2 var(--font-display,Georgia,serif);
@@ -2008,7 +2032,7 @@ body.auth-gate-active > footer{display:none!important}
 .auth-modal__link:hover{opacity:.7}
 
 /* Checkout modal (NAKIT EVE TESLİM) — wider + dense */
-.checkout-modal__panel{max-width:520px}
+.checkout-modal__panel{width:min(96vw,520px);max-width:520px}
 .checkout-summary{
   background:var(--bg-alt);
   padding:10px 14px;margin:0 0 14px;
@@ -2333,12 +2357,21 @@ textarea.auth-modal__input{font-family:inherit;resize:vertical;min-height:60px}
 }
 
 .auth-modal__close{
-  position:absolute;top:10px;right:10px;
-  width:34px;height:34px;
-  background:transparent;border:0;
-  font-size:24px;line-height:1;color:var(--text-muted);
-  cursor:pointer;
+  /* Panel artık max-height:92dvh ile sınırlı → absolute pozisyon güvenli.
+     Eski problem: panel taşıyordu, × button da onunla viewport dışına çıkıyordu.
+     Yeni CSS'te panel ekranda kalıyor, × her zaman erişilebilir.
+     z-index body scroll'unun üstünde — scroll edilen içerik × ile çakışmaz. */
+  position:absolute;top:8px;right:8px;
+  width:40px;height:40px;
+  background:var(--surface);border:0;border-radius:50%;
+  font-size:26px;line-height:1;color:var(--text-muted);
+  cursor:pointer;z-index:3;
+  display:inline-flex;align-items:center;justify-content:center;
+  box-shadow:0 1px 4px rgba(0,0,0,.06);
+  transition:color .15s, background .15s, transform .12s;
 }
+.auth-modal__close:hover{color:var(--text);background:var(--bg-alt);transform:scale(1.05)}
+.auth-modal__close:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
 
 /* Cart checkout — Sipariş akışı v2: tek primer CTA, full-width premium */
 .cart__order{
@@ -18182,26 +18215,28 @@ input,select,textarea{font-size:16px}
   <div class="auth-modal__backdrop" data-auth-close></div>
   <div class="auth-modal__panel">
     <button class="auth-modal__close" type="button" data-auth-close aria-label="Kapat">×</button>
-    <h2 class="auth-modal__title" id="auth-modal-title">Giriş Yap</h2>
-    <p class="auth-modal__lead">İstek listeni kaydetmek için hesabına giriş yap.</p>
-    <form id="auth-form" autocomplete="off">
-      <div class="auth-modal__field">
-        <label class="auth-modal__label" for="auth-username">Kullanıcı Adı</label>
-        <input class="auth-modal__input" id="auth-username" name="username" type="text" autocomplete="username" required>
-      </div>
-      <div class="auth-modal__field">
-        <label class="auth-modal__label" for="auth-password">Parola</label>
-        <input class="auth-modal__input" id="auth-password" name="password" type="password" autocomplete="current-password" required>
-      </div>
-      <div class="auth-modal__err" id="auth-error" role="alert" aria-live="polite"></div>
-      <div class="auth-modal__actions">
-        <button type="button" class="auth-modal__btn auth-modal__btn--secondary" data-auth-close>Vazgeç</button>
-        <button type="submit" class="auth-modal__btn auth-modal__btn--primary">Giriş</button>
-      </div>
-      <div class="auth-modal__switch">
-        Hesabın yok mu? <button type="button" class="auth-modal__link" id="auth-switch-to-register">Hesap Aç</button>
-      </div>
-    </form>
+    <div class="auth-modal__body">
+      <h2 class="auth-modal__title" id="auth-modal-title">Giriş Yap</h2>
+      <p class="auth-modal__lead">İstek listeni kaydetmek için hesabına giriş yap.</p>
+      <form id="auth-form" autocomplete="off">
+        <div class="auth-modal__field">
+          <label class="auth-modal__label" for="auth-username">Kullanıcı Adı</label>
+          <input class="auth-modal__input" id="auth-username" name="username" type="text" autocomplete="username" required>
+        </div>
+        <div class="auth-modal__field">
+          <label class="auth-modal__label" for="auth-password">Parola</label>
+          <input class="auth-modal__input" id="auth-password" name="password" type="password" autocomplete="current-password" required>
+        </div>
+        <div class="auth-modal__err" id="auth-error" role="alert" aria-live="polite"></div>
+        <div class="auth-modal__actions">
+          <button type="button" class="auth-modal__btn auth-modal__btn--secondary" data-auth-close>Vazgeç</button>
+          <button type="submit" class="auth-modal__btn auth-modal__btn--primary">Giriş</button>
+        </div>
+        <div class="auth-modal__switch">
+          Hesabın yok mu? <button type="button" class="auth-modal__link" id="auth-switch-to-register">Hesap Aç</button>
+        </div>
+      </form>
+    </div>
   </div>
 </div>
 
@@ -18210,30 +18245,32 @@ input,select,textarea{font-size:16px}
   <div class="auth-modal__backdrop" data-register-close></div>
   <div class="auth-modal__panel">
     <button class="auth-modal__close" type="button" data-register-close aria-label="Kapat">×</button>
-    <h2 class="auth-modal__title" id="register-modal-title">Hesap Aç</h2>
-    <p class="auth-modal__lead">Kataloğu görmek ve istek listesi oluşturmak için kaydol.</p>
-    <form id="register-form" autocomplete="off">
-      <div class="auth-modal__field">
-        <label class="auth-modal__label" for="reg-username">Kullanıcı Adı</label>
-        <input class="auth-modal__input" id="reg-username" name="kullanici_adi" type="text" autocomplete="username" required minlength="3" maxlength="32" pattern="[a-z0-9._\-]+" placeholder="küçük harf, rakam, . _ -">
-      </div>
-      <div class="auth-modal__field">
-        <label class="auth-modal__label" for="reg-password">Parola</label>
-        <input class="auth-modal__input" id="reg-password" name="sifre" type="password" autocomplete="new-password" required minlength="8" placeholder="en az 8 karakter">
-      </div>
-      <div class="auth-modal__field">
-        <label class="auth-modal__label" for="reg-password-confirm">Parola Tekrar</label>
-        <input class="auth-modal__input" id="reg-password-confirm" name="sifre_tekrar" type="password" autocomplete="new-password" required minlength="8" placeholder="parolayı tekrar gir">
-      </div>
-      <div class="auth-modal__err" id="register-error" role="alert" aria-live="polite"></div>
-      <div class="auth-modal__actions">
-        <button type="button" class="auth-modal__btn auth-modal__btn--secondary" data-register-close>Vazgeç</button>
-        <button type="submit" class="auth-modal__btn auth-modal__btn--primary">Hesap Aç</button>
-      </div>
-      <div class="auth-modal__switch">
-        Hesabın var mı? <button type="button" class="auth-modal__link" id="register-switch-to-auth">Giriş Yap</button>
-      </div>
-    </form>
+    <div class="auth-modal__body">
+      <h2 class="auth-modal__title" id="register-modal-title">Hesap Aç</h2>
+      <p class="auth-modal__lead">Kataloğu görmek ve istek listesi oluşturmak için kaydol.</p>
+      <form id="register-form" autocomplete="off">
+        <div class="auth-modal__field">
+          <label class="auth-modal__label" for="reg-username">Kullanıcı Adı</label>
+          <input class="auth-modal__input" id="reg-username" name="kullanici_adi" type="text" autocomplete="username" required minlength="3" maxlength="32" pattern="[a-z0-9._\-]+" placeholder="küçük harf, rakam, . _ -">
+        </div>
+        <div class="auth-modal__field">
+          <label class="auth-modal__label" for="reg-password">Parola</label>
+          <input class="auth-modal__input" id="reg-password" name="sifre" type="password" autocomplete="new-password" required minlength="8" placeholder="en az 8 karakter">
+        </div>
+        <div class="auth-modal__field">
+          <label class="auth-modal__label" for="reg-password-confirm">Parola Tekrar</label>
+          <input class="auth-modal__input" id="reg-password-confirm" name="sifre_tekrar" type="password" autocomplete="new-password" required minlength="8" placeholder="parolayı tekrar gir">
+        </div>
+        <div class="auth-modal__err" id="register-error" role="alert" aria-live="polite"></div>
+        <div class="auth-modal__actions">
+          <button type="button" class="auth-modal__btn auth-modal__btn--secondary" data-register-close>Vazgeç</button>
+          <button type="submit" class="auth-modal__btn auth-modal__btn--primary">Hesap Aç</button>
+        </div>
+        <div class="auth-modal__switch">
+          Hesabın var mı? <button type="button" class="auth-modal__link" id="register-switch-to-auth">Giriş Yap</button>
+        </div>
+      </form>
+    </div>
   </div>
 </div>
 
@@ -18242,15 +18279,17 @@ input,select,textarea{font-size:16px}
   <div class="auth-modal__backdrop" data-register-success-close></div>
   <div class="auth-modal__panel">
     <button class="auth-modal__close" type="button" data-register-success-close aria-label="Kapat">×</button>
-    <h2 class="auth-modal__title" id="register-success-title">Hesap Açıldı</h2>
-    <p class="auth-modal__lead">Hesabın oluşturuldu. Aşağıdaki doğrulama linkini açarak e-posta adresini onayla:</p>
-    <div class="auth-modal__field">
-      <label class="auth-modal__label" for="register-success-link">Doğrulama Linki</label>
-      <input class="auth-modal__input" id="register-success-link" type="text" readonly>
-    </div>
-    <p class="auth-modal__lead" style="margin-top:12px">Customer ID: <strong id="register-success-cid"></strong></p>
-    <div class="auth-modal__actions">
-      <button type="button" class="auth-modal__btn auth-modal__btn--primary" data-register-success-close>Tamam</button>
+    <div class="auth-modal__body">
+      <h2 class="auth-modal__title" id="register-success-title">Hesap Açıldı</h2>
+      <p class="auth-modal__lead">Hesabın oluşturuldu. Aşağıdaki doğrulama linkini açarak e-posta adresini onayla:</p>
+      <div class="auth-modal__field">
+        <label class="auth-modal__label" for="register-success-link">Doğrulama Linki</label>
+        <input class="auth-modal__input" id="register-success-link" type="text" readonly>
+      </div>
+      <p class="auth-modal__lead" style="margin-top:12px">Customer ID: <strong id="register-success-cid"></strong></p>
+      <div class="auth-modal__actions">
+        <button type="button" class="auth-modal__btn auth-modal__btn--primary" data-register-success-close>Tamam</button>
+      </div>
     </div>
   </div>
 </div>
@@ -18260,92 +18299,94 @@ input,select,textarea{font-size:16px}
   <div class="auth-modal__backdrop" data-checkout-close></div>
   <div class="auth-modal__panel checkout-modal__panel">
     <button class="auth-modal__close" type="button" data-checkout-close aria-label="Kapat">×</button>
-    <h2 class="auth-modal__title" id="checkout-modal-title">Sipariş Bilgileri</h2>
-    <p class="auth-modal__lead">
-      <strong>Ödeme:</strong> Sadece kapıda nakit. <strong>Teslimat:</strong> Antalya ve İzmir içi eve veya dükkana.
-    </p>
-    <div class="checkout-summary" id="checkout-summary">
-      <span id="checkout-summary-total">…</span>
+    <div class="auth-modal__body">
+      <h2 class="auth-modal__title" id="checkout-modal-title">Sipariş Bilgileri</h2>
+      <p class="auth-modal__lead">
+        <strong>Ödeme:</strong> Sadece kapıda nakit. <strong>Teslimat:</strong> Antalya ve İzmir içi eve veya dükkana.
+      </p>
+      <div class="checkout-summary" id="checkout-summary">
+        <span id="checkout-summary-total">…</span>
+      </div>
+
+      <form id="checkout-form" autocomplete="off">
+        <div class="auth-modal__field">
+          <span class="auth-modal__label">Beklenen Teslimat Zamanı</span>
+          <div class="checkout-delivery-time">
+            <input class="auth-modal__input" id="chk-delivery-date" type="date" required>
+            <select class="auth-modal__input" id="chk-delivery-slot" required>
+              <option value="">Saat aralığı seç…</option>
+              <option value="09:00">09:00 — 10:00</option>
+              <option value="10:00">10:00 — 11:00</option>
+              <option value="11:00">11:00 — 12:00</option>
+              <option value="12:00">12:00 — 13:00</option>
+              <option value="13:00">13:00 — 14:00</option>
+              <option value="14:00">14:00 — 15:00</option>
+              <option value="15:00">15:00 — 16:00</option>
+              <option value="16:00">16:00 — 17:00</option>
+              <option value="17:00">17:00 — 18:00</option>
+              <option value="18:00">18:00 — 19:00</option>
+              <option value="19:00">19:00 — 20:00</option>
+              <option value="20:00">20:00 — 21:00</option>
+              <option value="21:00">21:00 — 22:00</option>
+            </select>
+          </div>
+          <small class="checkout-hint">En erken bugünden 36 saat sonrası seçilebilir.</small>
+        </div>
+
+        <div class="auth-modal__field">
+          <span class="auth-modal__label">Şehir</span>
+          <div class="checkout-radios">
+            <label class="checkout-radio">
+              <input type="radio" name="chk-city" value="ANTALYA" checked> Antalya
+            </label>
+            <label class="checkout-radio">
+              <input type="radio" name="chk-city" value="IZMIR"> İzmir
+            </label>
+          </div>
+          <small class="checkout-hint">Şu an sadece bu iki şehre teslim. Yakında diğer şehirler.</small>
+        </div>
+
+        <div class="auth-modal__field">
+          <span class="auth-modal__label">Teslimat Tipi</span>
+          <div class="checkout-radios">
+            <label class="checkout-radio">
+              <input type="radio" name="chk-type" value="EV" checked> Ev
+            </label>
+            <label class="checkout-radio">
+              <input type="radio" name="chk-type" value="DUKKAN"> Dükkan
+            </label>
+          </div>
+        </div>
+
+        <div class="auth-modal__field" id="chk-dukkan-field" hidden>
+          <label class="auth-modal__label" for="chk-dukkan-adi">Dükkan Adı</label>
+          <input class="auth-modal__input" id="chk-dukkan-adi" type="text">
+        </div>
+
+        <div class="auth-modal__field">
+          <label class="auth-modal__label" for="chk-contact-name">Ad Soyad</label>
+          <input class="auth-modal__input" id="chk-contact-name" type="text" autocomplete="name" required>
+        </div>
+        <div class="auth-modal__field">
+          <label class="auth-modal__label" for="chk-contact-phone">Telefon</label>
+          <input class="auth-modal__input" id="chk-contact-phone" type="tel" autocomplete="tel" required placeholder="+90 5XX XXX XX XX">
+        </div>
+        <div class="auth-modal__field">
+          <label class="auth-modal__label" for="chk-address">Adres (mahalle, sokak, no, bina, daire)</label>
+          <textarea class="auth-modal__input" id="chk-address" rows="3" required></textarea>
+        </div>
+        <div class="auth-modal__field">
+          <label class="auth-modal__label" for="chk-note">Ek Not (opsiyonel)</label>
+          <textarea class="auth-modal__input" id="chk-note" rows="2" placeholder="Teslimat saati tercihi, kat/giriş notu, vb."></textarea>
+        </div>
+
+        <div class="auth-modal__err" id="checkout-error" role="alert" aria-live="polite"></div>
+        <div class="auth-modal__actions">
+          <button type="button" class="auth-modal__btn auth-modal__btn--secondary" data-checkout-close>Vazgeç</button>
+          <button type="submit" class="auth-modal__btn auth-modal__btn--primary">İstek Listesini Kaydet</button>
+        </div>
+      </form>
     </div>
-
-    <form id="checkout-form" autocomplete="off">
-      <div class="auth-modal__field">
-        <span class="auth-modal__label">Beklenen Teslimat Zamanı</span>
-        <div class="checkout-delivery-time">
-          <input class="auth-modal__input" id="chk-delivery-date" type="date" required>
-          <select class="auth-modal__input" id="chk-delivery-slot" required>
-            <option value="">Saat aralığı seç…</option>
-            <option value="09:00">09:00 — 10:00</option>
-            <option value="10:00">10:00 — 11:00</option>
-            <option value="11:00">11:00 — 12:00</option>
-            <option value="12:00">12:00 — 13:00</option>
-            <option value="13:00">13:00 — 14:00</option>
-            <option value="14:00">14:00 — 15:00</option>
-            <option value="15:00">15:00 — 16:00</option>
-            <option value="16:00">16:00 — 17:00</option>
-            <option value="17:00">17:00 — 18:00</option>
-            <option value="18:00">18:00 — 19:00</option>
-            <option value="19:00">19:00 — 20:00</option>
-            <option value="20:00">20:00 — 21:00</option>
-            <option value="21:00">21:00 — 22:00</option>
-          </select>
-        </div>
-        <small class="checkout-hint">En erken bugünden 36 saat sonrası seçilebilir.</small>
-      </div>
-
-      <div class="auth-modal__field">
-        <span class="auth-modal__label">Şehir</span>
-        <div class="checkout-radios">
-          <label class="checkout-radio">
-            <input type="radio" name="chk-city" value="ANTALYA" checked> Antalya
-          </label>
-          <label class="checkout-radio">
-            <input type="radio" name="chk-city" value="IZMIR"> İzmir
-          </label>
-        </div>
-        <small class="checkout-hint">Şu an sadece bu iki şehre teslim. Yakında diğer şehirler.</small>
-      </div>
-
-      <div class="auth-modal__field">
-        <span class="auth-modal__label">Teslimat Tipi</span>
-        <div class="checkout-radios">
-          <label class="checkout-radio">
-            <input type="radio" name="chk-type" value="EV" checked> Ev
-          </label>
-          <label class="checkout-radio">
-            <input type="radio" name="chk-type" value="DUKKAN"> Dükkan
-          </label>
-        </div>
-      </div>
-
-      <div class="auth-modal__field" id="chk-dukkan-field" hidden>
-        <label class="auth-modal__label" for="chk-dukkan-adi">Dükkan Adı</label>
-        <input class="auth-modal__input" id="chk-dukkan-adi" type="text">
-      </div>
-
-      <div class="auth-modal__field">
-        <label class="auth-modal__label" for="chk-contact-name">Ad Soyad</label>
-        <input class="auth-modal__input" id="chk-contact-name" type="text" autocomplete="name" required>
-      </div>
-      <div class="auth-modal__field">
-        <label class="auth-modal__label" for="chk-contact-phone">Telefon</label>
-        <input class="auth-modal__input" id="chk-contact-phone" type="tel" autocomplete="tel" required placeholder="+90 5XX XXX XX XX">
-      </div>
-      <div class="auth-modal__field">
-        <label class="auth-modal__label" for="chk-address">Adres (mahalle, sokak, no, bina, daire)</label>
-        <textarea class="auth-modal__input" id="chk-address" rows="3" required></textarea>
-      </div>
-      <div class="auth-modal__field">
-        <label class="auth-modal__label" for="chk-note">Ek Not (opsiyonel)</label>
-        <textarea class="auth-modal__input" id="chk-note" rows="2" placeholder="Teslimat saati tercihi, kat/giriş notu, vb."></textarea>
-      </div>
-
-      <div class="auth-modal__err" id="checkout-error" role="alert" aria-live="polite"></div>
-      <div class="auth-modal__actions">
-        <button type="button" class="auth-modal__btn auth-modal__btn--secondary" data-checkout-close>Vazgeç</button>
-        <button type="submit" class="auth-modal__btn auth-modal__btn--primary">İstek Listesini Kaydet</button>
-      </div>
-    </form>
   </div>
 </div>
 
@@ -18355,16 +18396,17 @@ input,select,textarea{font-size:16px}
   <div class="auth-modal__backdrop" data-checkout-success-close></div>
   <div class="auth-modal__panel">
     <button class="auth-modal__close" type="button" data-checkout-success-close aria-label="Kapat">×</button>
-    <h2 class="auth-modal__title" id="checkout-success-title">İstek Listeniz Alındı</h2>
-    <p class="auth-modal__lead">
-      Tutar ve teslimat ayrıntıları için <strong>WhatsApp</strong>'tan iletişime geçeceğiz.
-    </p>
-    <p class="auth-modal__lead" style="margin-top:8px;font-size:13px;color:var(--text-muted)">
-      İstediğiniz zaman <strong>Hesabım → İstek Listelerim</strong> bölümünden listenizi düzenleyebilirsiniz.
-    </p>
-    <div class="auth-modal__actions" style="margin-top:16px">
-      <button type="button" class="auth-modal__btn auth-modal__btn--secondary" data-checkout-success-close>Tamam</button>
-      <a href="https://wa.me/31687550213?text=Merhaba%2C%20istek%20listemi%20kaydettim%2C%20tutar%20ve%20teslimat%20ayr%C4%B1nt%C4%B1lar%C4%B1%20i%C3%A7in%20bilgi%20almak%20istiyorum."
+    <div class="auth-modal__body">
+      <h2 class="auth-modal__title" id="checkout-success-title">İstek Listeniz Alındı</h2>
+      <p class="auth-modal__lead">
+        Tutar ve teslimat ayrıntıları için <strong>WhatsApp</strong>'tan iletişime geçeceğiz.
+      </p>
+      <p class="auth-modal__lead" style="margin-top:8px;font-size:13px;color:var(--text-muted)">
+        İstediğiniz zaman <strong>Hesabım → İstek Listelerim</strong> bölümünden listenizi düzenleyebilirsiniz.
+      </p>
+      <div class="auth-modal__actions" style="margin-top:16px">
+        <button type="button" class="auth-modal__btn auth-modal__btn--secondary" data-checkout-success-close>Tamam</button>
+        <a href="https://wa.me/31687550213?text=Merhaba%2C%20istek%20listemi%20kaydettim%2C%20tutar%20ve%20teslimat%20ayr%C4%B1nt%C4%B1lar%C4%B1%20i%C3%A7in%20bilgi%20almak%20istiyorum."
          target="_blank" rel="noopener"
          class="auth-modal__btn auth-modal__btn--primary"
          style="background:#25D366;color:#fff;border-color:#25D366;text-decoration:none;display:inline-flex;align-items:center;justify-content:center;gap:8px">
@@ -18374,6 +18416,7 @@ input,select,textarea{font-size:16px}
         WhatsApp'tan İletişim
       </a>
     </div>
+  </div>
   </div>
 </div>
 
@@ -20386,12 +20429,14 @@ function updateCartOrderBtn(){
 
 function openCart(){
   renderCart();
-  $('#cart').hidden = false;
-  document.body.style.overflow = 'hidden';
+  const c = $('#cart');
+  if(!c) return;
+  if(c.hidden){ c.hidden = false; ModalLock.lock(); }
 }
 function closeCart(){
-  $('#cart').hidden = true;
-  document.body.style.overflow = '';
+  const c = $('#cart');
+  if(!c) return;
+  if(!c.hidden){ c.hidden = true; ModalLock.unlock(); }
 }
 
 // ─── In-app sipariş (Faz 1) ────────────────────────────
@@ -20481,8 +20526,19 @@ function openCheckoutModal(){
     toast('Sipariş modalı yüklenmedi. Sayfayı yenile.', true);
     return;
   }
+  // Race koruması — bootstrapData henüz tamamlanmadıysa PRODUCTS boş gelebilir.
+  // cartItems() dead-id purge yaptığı için bu durumda yanlışlıkla sepeti boşaltır.
+  const products = (window.__BOTL_DATA__ && window.__BOTL_DATA__.products) || (window.PRODUCTS || []);
+  if(!Array.isArray(products) || products.length === 0){
+    toast('Katalog yükleniyor, bir saniye sonra tekrar dene.', true);
+    return;
+  }
   const items = cartItems();
-  if(items.length === 0) { closeCart(); return; }
+  if(items.length === 0){
+    // Boş sepet: kullanıcıya açık geri bildirim + cart drawer'ı kapatma kararı kullanıcıya
+    toast('İstek listende ürün yok. Önce ürün ekle.', true);
+    return;
+  }
   const totalItems = items.reduce((s,p) => s + (p._qty || 1), 0);
   // 1200 TL × adet (default — Faz 6 data.json sync sonrası variation.retail_price_try gelecek)
   const totalTry = items.reduce((s,p) => s + 1200 * (p._qty || 1), 0);
@@ -20502,9 +20558,10 @@ function openCheckoutModal(){
     if(phEl && !phEl.value) phEl.value = session.telefon || '';
   }
   const err = $('#checkout-error'); if(err) err.textContent = '';
+  const wasOpen = m.classList.contains('open');
   m.hidden = false;
   m.classList.add('open');
-  document.body.style.overflow = 'hidden';
+  if(!wasOpen) ModalLock.lock();
   // Default city — Antalya
   const cityRadio = document.querySelector('input[name="chk-city"][value="ANTALYA"]');
   if(cityRadio && !document.querySelector('input[name="chk-city"]:checked')) cityRadio.checked = true;
@@ -20521,21 +20578,24 @@ function openCheckoutModal(){
 }
 function closeCheckoutModal(){
   const m = $('#checkout-modal'); if(!m) return;
+  const wasOpen = m.classList.contains('open');
   m.hidden = true;
   m.classList.remove('open');
-  document.body.style.overflow = '';
+  if(wasOpen) ModalLock.unlock();
 }
 function openCheckoutSuccessModal(){
   const m = $('#checkout-success-modal'); if(!m) return;
+  const wasOpen = m.classList.contains('open');
   m.hidden = false;
   m.classList.add('open');
-  document.body.style.overflow = 'hidden';
+  if(!wasOpen) ModalLock.lock();
 }
 function closeCheckoutSuccessModal(){
   const m = $('#checkout-success-modal'); if(!m) return;
+  const wasOpen = m.classList.contains('open');
   m.hidden = true;
   m.classList.remove('open');
-  document.body.style.overflow = '';
+  if(wasOpen) ModalLock.unlock();
 }
 function updateCheckoutDukkanField(){
   const typeChecked = document.querySelector('input[name="chk-type"]:checked');
@@ -20992,13 +21052,21 @@ function renderModal(p){
     });
   }
 
-  $('#modal').hidden = false;
-  document.body.style.overflow = 'hidden';
+  const pm = $('#modal');
+  if(pm){
+    const wasOpen = !pm.hidden;
+    pm.hidden = false;
+    if(!wasOpen) ModalLock.lock();
+  }
 }
 
 function closeModal(opts){
-  $('#modal').hidden = true;
-  document.body.style.overflow = '';
+  const pm = $('#modal');
+  if(pm){
+    const wasOpen = !pm.hidden;
+    pm.hidden = true;
+    if(wasOpen) ModalLock.unlock();
+  }
   // Mobile UX: geri butonuna basıldığında history.back ile pop yap (tarayıcı geri tuşuyla simetri).
   // Eğer çağrı popstate'ten gelmiyorsa, ve hash hâlâ #u/ üzerindeyse, history.back tetikle.
   const skipHistory = opts && opts.skipHistory;
@@ -21142,14 +21210,25 @@ function init(){
   _safeStep('modal-data-close', () => {
     $$('[data-close]').forEach(el => el.addEventListener('click', closeModal));
   });
-  _safeStep('keydown-escape', () => {
+  // NOT: ESC ile cart/auth/checkout/iade/account vs. tüm modal kapama bütünleşik
+  // stack handler initAuthBindings içindeki global keydown listener'da. Burada
+  // sadece product detay modal'ı (#modal) için defansif binding bırakıyoruz —
+  // diğerleri unified handler'da, layer-by-layer sırayla kapanır.
+  _safeStep('keydown-escape-product', () => {
     document.addEventListener('keydown', e => {
-      if(e.key === 'Escape'){
-        const cart = $('#cart');
-        const modal = $('#modal');
-        if(cart && !cart.hidden) closeCart();
-        else if(modal && !modal.hidden) closeModal();
+      if(e.key !== 'Escape') return;
+      // Diğer modallardan biri açıksa burada hiçbir şey yapma — unified handler halleder
+      const blockers = ['#auth-modal','#register-modal','#register-success-modal',
+                        '#checkout-modal','#checkout-success-modal',
+                        '#iade-modal','#add-item-modal','#account-modal'];
+      for(const sel of blockers){
+        const el = document.querySelector(sel);
+        if(el && !el.hidden) return;
       }
+      const cart = $('#cart');
+      const modal = $('#modal');
+      if(cart && !cart.hidden) closeCart();
+      else if(modal && !modal.hidden) closeModal();
     });
   });
 
@@ -21186,6 +21265,55 @@ function init(){
   _safeStep('refreshAuthUI', () => refreshAuthUI());
 }
 
+// ─── ModalLock — stack-aware body scroll lock manager ───────────────────────
+// Birden fazla modal üst üste açıldığında (cart → checkout → success vb.)
+// her birinin closeX'i körlemesine `body.style.overflow = ''` yapıyordu →
+// alttaki modal hâlâ açıkken arka anasayfa scroll edilebilir hale geliyordu.
+// ModalLock referans sayımı tutar: ilk lock'ta scrollbar genişliği telafi
+// edilir + body kilitlenir; son unlock'ta orijinal durum geri yüklenir.
+// Layout shift'i engellemek için scrollbar gutter padding-right'a aktarılır.
+const ModalLock = (() => {
+  let count = 0;
+  let savedOverflow = '';
+  let savedPaddingRight = '';
+  function _measureScrollbar(){
+    return Math.max(0, window.innerWidth - document.documentElement.clientWidth);
+  }
+  return {
+    lock(){
+      if(count === 0){
+        savedOverflow = document.body.style.overflow || '';
+        savedPaddingRight = document.body.style.paddingRight || '';
+        const sbw = _measureScrollbar();
+        if(sbw > 0){
+          // Layout shift önle — kilit anında scrollbar kaybolduğunda içerik sıçramasın
+          document.body.style.paddingRight = sbw + 'px';
+        }
+        document.body.style.overflow = 'hidden';
+      }
+      count++;
+      return count;
+    },
+    unlock(){
+      count = Math.max(0, count - 1);
+      if(count === 0){
+        document.body.style.overflow = savedOverflow;
+        document.body.style.paddingRight = savedPaddingRight;
+      }
+      return count;
+    },
+    // Emergency reset (route change, hard navigation vb. defensive use)
+    reset(){
+      count = 0;
+      document.body.style.overflow = savedOverflow;
+      document.body.style.paddingRight = savedPaddingRight;
+    },
+    get depth(){ return count; },
+  };
+})();
+// Window'a expose — admin/debug için + future modal'lardan erişim
+window.ModalLock = ModalLock;
+
 // ─── Auth UI binding + render ──────────────────────────
 function toast(msg, isErr){
   const el = $('#toast');
@@ -21200,9 +21328,10 @@ function toast(msg, isErr){
 function openAuthModal(){
   const m = $('#auth-modal');
   if(!m) return;
+  const wasOpen = m.classList.contains('open');
   m.hidden = false;
   m.classList.add('open');
-  document.body.style.overflow = 'hidden';
+  if(!wasOpen) ModalLock.lock();
   setTimeout(() => { const u = $('#auth-username'); if(u) u.focus(); }, 50);
   // Modal açılınca eski hata mesajı temizlenir; backend offline ise kullanıcıyı
   // sessizce karşılarız — gerçek bir hata oluştuğunda submit sırasında gösterilir.
@@ -21211,9 +21340,10 @@ function openAuthModal(){
 function closeAuthModal(){
   const m = $('#auth-modal');
   if(!m) return;
+  const wasOpen = m.classList.contains('open');
   m.hidden = true;
   m.classList.remove('open');
-  document.body.style.overflow = '';
+  if(wasOpen) ModalLock.unlock();
   const err = $('#auth-error'); if(err) err.textContent = '';
   const form = $('#auth-form'); if(form) form.reset();
 }
@@ -21224,18 +21354,20 @@ function openRegisterModal(){
   closeAuthModal();
   const m = $('#register-modal');
   if(!m) return;
+  const wasOpen = m.classList.contains('open');
   m.hidden = false;
   m.classList.add('open');
-  document.body.style.overflow = 'hidden';
+  if(!wasOpen) ModalLock.lock();
   setTimeout(() => { const f = $('#reg-username'); if(f) f.focus(); }, 50);
   const err = $('#register-error'); if(err) err.textContent = '';
 }
 function closeRegisterModal(){
   const m = $('#register-modal');
   if(!m) return;
+  const wasOpen = m.classList.contains('open');
   m.hidden = true;
   m.classList.remove('open');
-  document.body.style.overflow = '';
+  if(wasOpen) ModalLock.unlock();
   const err = $('#register-error'); if(err) err.textContent = '';
   const form = $('#register-form'); if(form) form.reset();
 }
@@ -21243,15 +21375,17 @@ function openRegisterSuccessModal(verifyLink, customerId){
   const m = $('#register-success-modal'); if(!m) return;
   const linkEl = $('#register-success-link'); if(linkEl) linkEl.value = verifyLink;
   const cidEl = $('#register-success-cid'); if(cidEl) cidEl.textContent = customerId;
+  const wasOpen = m.classList.contains('open');
   m.hidden = false;
   m.classList.add('open');
-  document.body.style.overflow = 'hidden';
+  if(!wasOpen) ModalLock.lock();
 }
 function closeRegisterSuccessModal(){
   const m = $('#register-success-modal'); if(!m) return;
+  const wasOpen = m.classList.contains('open');
   m.hidden = true;
   m.classList.remove('open');
-  document.body.style.overflow = '';
+  if(wasOpen) ModalLock.unlock();
 }
 
 async function tryRegister(payload){
@@ -21422,9 +21556,10 @@ initTheme();
 // ─── Hesabım (account) modal ──────────────────────
 function openAccountModal(tab){
   const m = $('#account-modal'); if(!m) return;
+  const wasOpen = m.classList.contains('open');
   m.hidden = false;
   m.classList.add('open');
-  document.body.style.overflow = 'hidden';
+  if(!wasOpen) ModalLock.lock();
   renderAccountProfile();
   renderAccountOrders();
   if(tab) switchAccountTab(tab);
@@ -21436,9 +21571,10 @@ function openAccountModal(tab){
 }
 function closeAccountModal(){
   const m = $('#account-modal'); if(!m) return;
+  const wasOpen = m.classList.contains('open');
   m.classList.remove('open');
   m.hidden = true;
-  document.body.style.overflow = '';
+  if(wasOpen) ModalLock.unlock();
 }
 function switchAccountTab(tabName){
   $$('.account-modal__tab').forEach(t => {
@@ -22184,12 +22320,20 @@ function openIadeModal(orderId, itemIdx){
   // Form sıfırla
   const form = $('#iade-form');
   if(form) form.reset();
-  $('#iade-modal').hidden = false;
-  document.body.style.overflow = 'hidden';
+  const im = $('#iade-modal');
+  if(im){
+    const wasOpen = !im.hidden;
+    im.hidden = false;
+    if(!wasOpen) ModalLock.lock();
+  }
 }
 function closeIadeModal(){
-  $('#iade-modal').hidden = true;
-  document.body.style.overflow = '';
+  const im = $('#iade-modal');
+  if(im){
+    const wasOpen = !im.hidden;
+    im.hidden = true;
+    if(wasOpen) ModalLock.unlock();
+  }
   pendingIadeContext = null;
 }
 async function submitIade(e){
@@ -22344,12 +22488,19 @@ function openAddItemModal(orderId){
   if(searchEl) searchEl.value = '';
   renderAddItemModal();
   const modal = $('#add-item-modal');
-  if(modal){ modal.hidden = false; document.body.style.overflow = 'hidden'; }
+  if(modal){
+    const wasOpen = !modal.hidden;
+    modal.hidden = false;
+    if(!wasOpen) ModalLock.lock();
+  }
 }
 function closeAddItemModal(){
   const modal = $('#add-item-modal');
-  if(modal) modal.hidden = true;
-  document.body.style.overflow = '';
+  if(modal){
+    const wasOpen = !modal.hidden;
+    modal.hidden = true;
+    if(wasOpen) ModalLock.unlock();
+  }
   _addItemContext = null;
 }
 function renderAddItemModal(){
@@ -22716,16 +22867,35 @@ function initAuthBindings(){
     });
   }
 
+  // ESC stack — en son açılan modal'dan başlayıp aşağı sırayla kapat.
+  // Sıra önemli: success/error/açılan üst-modal ilk kapanır, alttaki çağrılsa
+  // bile aynı handler bir sonraki ESC ile onu kapatır (kullanıcı her ESC'de
+  // bir layer geri gider).
   document.addEventListener('keydown', (e) => {
-    if(e.key === 'Escape'){
-      const am = $('#account-modal');
-      if(am && !am.hidden){ closeAccountModal(); return; }
-      const m = $('#auth-modal');
-      if(m && !m.hidden) closeAuthModal();
-      // Eğer page route açıksa Escape → katalog
-      const r = document.body.dataset.route;
-      if(r === 'account' || r === 'orders') navigateTo('catalog');
-    }
+    if(e.key !== 'Escape') return;
+    // 1) Top-most success/result modallar
+    const csm = $('#checkout-success-modal');
+    if(csm && !csm.hidden){ closeCheckoutSuccessModal(); return; }
+    const rsm = $('#register-success-modal');
+    if(rsm && !rsm.hidden){ closeRegisterSuccessModal(); return; }
+    // 2) Iade/AddItem (içeride state var → onlar own ESC handler da var ama defansif)
+    const im = $('#iade-modal');
+    if(im && !im.hidden){ closeIadeModal(); return; }
+    const aim = $('#add-item-modal');
+    if(aim && !aim.hidden){ closeAddItemModal(); return; }
+    // 3) Checkout form modal
+    const cm = $('#checkout-modal');
+    if(cm && !cm.hidden){ closeCheckoutModal(); return; }
+    // 4) Register/auth modallar
+    const rm = $('#register-modal');
+    if(rm && !rm.hidden){ closeRegisterModal(); return; }
+    const am = $('#account-modal');
+    if(am && !am.hidden){ closeAccountModal(); return; }
+    const m = $('#auth-modal');
+    if(m && !m.hidden){ closeAuthModal(); return; }
+    // 5) Eğer page route açıksa Escape → katalog (fallback)
+    const r = document.body.dataset.route;
+    if(r === 'account' || r === 'orders') navigateTo('catalog');
   });
 }
 
