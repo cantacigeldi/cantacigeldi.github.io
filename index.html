@@ -19394,7 +19394,7 @@ function cardHTML(p){
   // Load fail -> img.is-failed class display:none ile gizlenir, placeholder kalır.
   const imgSrc = p.cover || (p.gorseller && p.gorseller.cover);
   const img = imgSrc
-    ? pictureHtml(imgSrc, `class="card__img" alt="${esc(p.isim_resmi || cardName)}" loading="lazy" onerror="this.classList.add('is-failed')"`)
+    ? pictureHtml(imgSrc, `class="card__img" alt="${p.isim_resmi || cardName}" loading="lazy" onerror="this.classList.add('is-failed')"`)
     : '';
 
   // FIX5: kategori için tip_detay tercih (daha açıklayıcı), fallback kategori_alt label
@@ -20727,7 +20727,7 @@ function renderModal(p){
   // (rebuildVisibleGallery aşağıda main img onload + thumb onerror sonrası tetikler).
   const galN = modalGallery.length;
   const mainImg = galN>0
-    ? `<div class="card__placeholder">${initials}</div>` + pictureHtml(modalGallery[0], `alt="${esc(fullName)}" id="modal-main-img" onerror="this.classList.add('is-failed')"`)
+    ? `<div class="card__placeholder">${initials}</div>` + pictureHtml(modalGallery[0], `alt="${fullName}" id="modal-main-img" onerror="this.classList.add('is-failed')"`)
     : `<div class="card__placeholder">${initials}</div>`;
   const navHtml = galN>1
     ? `<button class="modal__gallery-nav modal__gallery-nav--prev" type="button" id="modal-gallery-prev" aria-label="Önceki foto" hidden>‹</button>
